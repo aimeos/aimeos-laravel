@@ -1,0 +1,1 @@
+<?= $aibody['catalog/suggest'] ?>

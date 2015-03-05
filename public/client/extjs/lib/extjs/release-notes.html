@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Release Notes for Ext JS 3.4.0
+        </title>
+        <style type="text/css">
+
+        * { margin: 0; padding: 0; }
+        body { 
+        color: #333; 
+        font-family: Helvetica, Arial, sans-serif; 
+        font-size: 12px;
+        padding: 0 40px 40px; 
+        width: 800px;
+        margin: 0 auto;
+        }
+        h1, h2, h3 { 
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+        font-weight: 600; 
+        margin: 1em 0;
+        }
+        h1 { font-size: 23px; }
+        h2 { font-size: 16px; margin-top: 1em; }
+        h3 { font-size: 14px; }
+        ul li { padding: 2px 0; font-size: 13px; }
+        ul ul li { font-size: 12px; font-weight: normal; }
+        .doc { color: blue; }
+        .change { color: #196cb4; }
+        .new { color: #6e7a32; }
+        ul { padding: .1em 1.5em; }
+        .notes { color: #777; }
+        a { color: rgb(4, 100, 187); }
+        a:hover { color: rgb(28, 65, 124); }
+        </style>
+    </head>
+    <body>
+        <p>
+            <a href="http://www.sencha.com/" id="logo" name="logo"><img src="http://www.sencha.com/assets/images/logo-sencha-sm.png" alt=""></a>
+        </p>
+        <h1>
+            Release Notes for <a href="http://www.sencha.com/products/extjs3/">Ext JS</a> 3.4.1.1
+        </h1>
+        <p class="notes">
+            Release Date: March 29, 2013<br>
+            Version Number: 3.4.1.1<br>
+            Downloads: <a href="../../commercial/ext-3.4.1.1-commercial.zip">Commercial</a>
+            <a href="../../gpl/ext-3.4.1.1-gpl.zip">GPL</a>
+        </p>
+
+        <h2>New Features</h2>
+        <ul>
+            <li><b>EXTJSIII-118</b> - Support for IE10
+        </ul>
+
+        <h2>Bugs Fixed</h2>
+        <ul>
+            <li><b>EXTJSIII-115</b> - Ajax of XML data does not properly handle XML namespaces on IE8
+            <li><b>EXTJSIII-119</b> - Grid causes double scrollbars in WebKit
+        </ul>
+
+
+        <!-- ********************************************************************* -->
+        <h1>
+            Release Notes for <a href="http://www.sencha.com/products/extjs3/">Ext JS</a> 3.4.1
+        </h1>
+        <p class="notes">
+            Release Date: July 30, 2012<br>
+            Version Number: 3.4.1
+        </p>
+
+        <h2>New Features</h2>
+        <ul>
+            <li>Added a functionally-reduced flavor of Ext.define. This will allow you to start structuring
+                and declaring your classes using the new syntax. To clarify, this is not a back-port of the V4
+                class system or the dynamic loader, only a simple wrapper around Ext.extend and Ext.override.
+                As such, only the most important directives are provided:
+                <ul>
+                    <li>extend
+                    <li>override
+                    <li>statics
+                    <li>singleton
+                    <li>xtype
+                    <li>callParent
+                </ul>
+        </ul>
+
+        <h2>Bugs Fixed</h2>
+        <ul>
+            <li><b>EXTJSIII-15</b> - IE 9.0: Active tab has double lines underneath it in quirks mode
+            <li><b>EXTJSIII-17</b> - enableDragDrop on EditorGridPanel breaks when using CheckColumn
+            <li><b>EXTJSIII-18</b> - CompositeField ownerCt chain broken
+            <li><b>EXTJSIII-19</b> - Ext.calendar cannot be recreated after being destroyed
+            <li><b>EXTJSIII-23</b> - Form layout ignores container's layoutConfig
+            <li><b>EXTJSIII-24</b> - Can't access checkbox when using BooleanColumn's editor is a checkbox
+            <li><b>EXTJSIII-30</b> - notifyDrop called in wrong ddGroup and/or multiple times
+            <li><b>EXTJSIII-31</b> - Grid drag zone swallows document mousedown event in IE
+            <li><b>EXTJSIII-32</b> - Destroying an Ext.form.HtmlEditor twice is causing it to fail to initialize on all subsequent creations of the editor in IE 9
+            <li><b>EXTJSIII-33</b> - User cannot create select region in IE9
+            <li><b>EXTJSIII-34</b> - applyState on grid wipes out sortable property
+            <li><b>EXTJSIII-35</b> - Ext.util.Format.defaultValue doesn't default to an empty string
+            <li><b>EXTJSIII-37</b> - Ext.data.HttpProxy.doRequest does not abort an activeRequest for the same action
+            <li><b>EXTJSIII-38</b> - Update scroller in tabPanel when tab title is changed.
+            <li><b>EXTJSIII-39</b> - DragTracker broken in IE9 Strict mode
+            <li><b>EXTJSIII-41</b> - Buttons in a toolbar loose their position after the left side is collapsed
+            <li><b>EXTJSIII-44</b> - Documentation error in BorderLayout.Region
+            <li><b>EXTJSIII-45</b> - Store.hasMultiSort listed as Store.multiSort
+            <li><b>EXTJSIII-48</b> - Component not allowing select should have proper CSS style
+            <li><b>EXTJSIII-49</b> - Wrong ext-lang-tr.js distributed with ExtJS 3.4.0
+            <li><b>EXTJSIII-50</b> - Focus jump out of order when tab key press from a Grid cell in editing in IE9 standard mode
+            <li><b>EXTJSIII-54</b> - Toolbar reorderer bug. Dragged items can lose contact with mouse pointer.
+        </ul>
+
+
+        <h1>
+            Release Notes for <a href="http://www.sencha.com/products/extjs3/">Ext JS</a> 3.4.0
+        </h1>
+        <p class="notes">
+            Release Date: June 9, 2011<br>
+            Current Version: 3.4.0 (rev 7395/288)<br>
+            Previous Version: 3.3.3 (rev 7389/286)
+        </p>
+        <h2 class="new">
+            Changes
+        </h2>
+        <h3>
+            Menu
+        </h3>
+        <ul>
+            <li>Incorrect menu width on IE9
+            </li>
+            <li>Fix Reorderable example
+            </li>
+        </ul>
+        <h3>
+            Form/Field
+        </h3>
+        <ul>
+            <li>Fix an issue with composite fields being marked incorrectly
+            </li>
+            <li>Trigger fields are now flushed with fields on IE9
+            </li>
+            <li>Fix field width in IE9
+            </li>
+            <li>Fix fieldset header checkboxes in IE9 quirks
+            </li>
+        </ul>
+        <h3>
+            Misc
+        </h3>
+        <ul>
+            <li>Allow altText to be specified on a per item basis for grid columns
+            </li>
+            <li>Ensure there's no bottom margin on the multi-select
+            </li>
+            <li>Apply additional css classes for IE9 (ext-ie9 and x-quirks)
+            </li>
+            <li>Apply additional boolean flags for IE9 (Ext.isIE9 and Ext.isIEQuirks)
+            </li>
+            <li>Add support to insertHTML method to prevent createContextualFragment errors with IE9
+            </li>
+        </ul>
+    </body>
+</html>

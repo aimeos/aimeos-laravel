@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Welcome to Ext JS</title>
+<link rel="shortcut icon" href="http://www.sencha.com/favicon.ico" />
+<style type="text/css">
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    color: #333;
+    font: normal 12px/1.3 Helvetica, sans-serif;
+    margin: 0 auto 0;
+    padding: 0;
+    width: 800px;
+    
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+a:link,
+a:visited {
+    color: #0464BB;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #0464BB;
+    text-decoration: underline;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #222;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.1;    
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+a#logo {
+    background: url(welcome/images/logo-sencha-sm.png) no-repeat 0 100%;
+    display: block;
+    height: 58px;
+    margin: 0 0 24px;
+    overflow: hidden;
+    padding: 0px;
+    text-indent: 150%;
+    white-space: nowrap;
+    width: 134px;
+}
+
+#header {
+    background: url(welcome/images/ext-comp.png) no-repeat 100% 48px;
+    height: 320px;
+}
+
+#header h1 {
+    font-size: 32px;
+    margin: 45px 0 12px;
+    width: 350px;
+}
+
+#header p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 360px;
+}
+
+div.button-wrap {
+    padding: 0 0 1em;
+}
+
+.button:link,
+.button:visited {
+    background: #2a64a6;
+    border: 1px solid;
+    border-color: transparent transparent rgba(0,0,0,0.4) transparent;
+    -webkit-border-radius: 13px;
+    -moz-border-radius:    13px;
+    border-radius:         13px;
+    color: #fff;
+    display: table-cell;
+    font-size: 13px;
+    font-weight: bold;
+    height: 13px;
+    padding: 2px 12px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+    width: 114px;
+}
+
+.button:hover,
+.button:focus {
+    background: #265B98;
+}
+
+.button:active {
+    background: #1F4C7E;
+    border-color: rgba(0,0,0,0.4) transparent transparent transparent;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+}
+
+h2 {
+    font-size: 18px;
+}
+
+#header {
+    display: block;
+    margin: 0 0 24px;
+    padding: 0;
+}
+
+div#container {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 800px;
+}
+
+.section {
+    float: left;
+    margin-right: 50px;
+    width: 233px;
+}
+
+.section h2 {
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#engage ul li {
+    height: 16px;
+    line-height: 16px;
+}
+
+#engage ul#social li a {
+    color: #777;
+    display: block;
+    height: 16px;
+    line-height: 16px;
+    margin: 6px 0 0;
+    padding-left: 22px;
+    text-decoration: none;
+}
+
+#engage ul#social li a span {
+    color: #0464BB;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#engage ul#social li a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+#engage ul#social li a:hover span {
+    color: #0464BB;
+    text-decoration: underline;
+}
+
+#engage a#join_us.button {
+    width: 148px;
+}
+
+#engage a#twitter {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 0;
+}
+
+#engage a#twitter:hover {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -16px;
+}
+
+#engage a#tumblr {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -32px;
+}
+
+#engage a#tumblr:hover {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -48px;
+}
+
+#engage a#facebook {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -64px;
+}
+
+#engage a#facebook:hover {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -80px;
+}
+
+#engage a#linkedin {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -128px;
+}
+
+#engage a#linkedin:hover {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -144px;
+}
+
+#engage a#blog {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -96px;
+}
+
+#engage a#blog:hover {
+    background: url(welcome/images/social_sprite.gif) no-repeat 0 -112px;
+}
+
+#license {
+    margin-right: 0;
+}
+
+ul,
+ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#learn ul li,
+#license ul li {
+    background: url(welcome/images/li.png) no-repeat 1px 2px;
+    padding: 0 0 0.5em 10px;
+    margin-left: 0px;
+}
+
+div#communication {
+    border-top: 1px solid #dfdfdf;
+    font-size: 13px;
+    height: 16px;
+    line-height: 16px;
+    margin: 24px 0;
+    overflow: hidden;
+    overflow: visible;
+    padding: 24px 0 0;
+}
+
+div#communication form {
+    float: left;
+    width: 550px;
+}
+
+div#communication p {
+    color: #222;
+    margin: 0;
+}
+
+div#communication p strong {
+    color: #555;
+}
+
+div#communication input#MERGE0 {
+    padding: 2px;
+}
+
+div#communication p#jobs {
+    float: right;
+    text-align: right;
+    width: 220px;
+}
+
+</style>
+</head>
+<body>
+<div id="page">
+<div id="header">
+<a href="http://www.sencha.com/" id="logo">Sencha - Ext JS - Amazing Web Apps Built on Web Standards</a>
+<h1>Welcome to Ext JS</h1>
+<p>Thank you for downloading Ext JS. With a community of over one million developers and our robust family of Sencha products, Ext JS is the leader in Javascript application development.</p>
+<div class="button-wrap">
+    <a href="examples/" id="examples" class="button"><span>View Examples</span></a>
+</div>
+</div>
+<div id="container">
+<div id="learn" class="section">
+<h2>Learn</h2>
+<p>Use the included files to <a href="examples/index.html">view samples</a> and our <a href="docs/">API documentation</a>.</p>
+<p>For advanced, hands-on support, please see our premium <a href="http://www.sencha.com/store">support subscriptions</a>. Larger organizations can use <a href="http://www.sencha.com/support/">our enterprise training and services</a>.</p>
+<ul>
+<li><a href="http://www.sencha.com/learn/Tutorial:Ext_StartUp_Guide">Getting Started Guide</a></li>
+<li><a href="examples/">Examples</a></li>
+<li><a href="release-notes.html">Release Notes</a></li>
+</ul>
+</div>
+
+<div id="engage" class="section">
+<h2>Engage</h2>
+<p>Our <a href="http://www.sencha.com/forum/">community forums</a> have over 100,000 registered users and are a great place to ask questions and interact with other Ext JS developers.</p>
+
+<div class="button-wrap">
+    <a href="http://www.sencha.com/forum/register.php" id="join_us" class="button"><span>Join Sencha Forum</span></a>
+</div>
+
+<ul id="social">
+<li><a href="http://twitter.com/senchainc" id="twitter"><span>Follow @SenchaInc</span> on Twitter</a></li>
+<li><a href="http://senchainc.tumblr.com/" id="tumblr"><span>Check out</span> our new Tumblelog</a></li>
+<li><a href="http://www.facebook.com/senchainc" id="facebook"><span>Become a fan</span> on Facebook</a></li>
+<li><a href="http://j.mp/sencha-in" id="linkedin"><span>Network with us</span> on LinkedIn</a></li>
+<li><a href="http://www.sencha.com/blog/" id="blog"><span>Subscribe</span> to the official blog</a></li>
+</ul>
+</div>
+
+<div id="license" class="section">
+<h2>License</h2>
+<p>Ext JS is <a href="http://www.sencha.com/company/dual.php">dual licensed</a>. This means:</p>
+<ul>
+<li>Free to use and test in your local development environment.</li>
+<li>Free to use in your open source projects.</li>
+<li>Purchase a developer license if you don&rsquo;t plan on releasing your website or application&rsquo;s code as open source.</li>
+</ul>
+<p>To purchase a commercial license, please see our <a href="http://www.sencha.com/store/extjs/">pricing page</a>.</p>
+</div>
+</div>
+
+<div id="communication">
+<form action="http://extjs.us1.list-manage.com/subscribe/post" method="post">
+<p>
+<label for="MERGE0"><strong>Sign up to stay in the loop:</strong></label>
+<input name="u" type="hidden" value="fb30e9d0e8ab5e66a19398a14" />
+<input name="id" type="hidden" value="879d2e6c9b" />
+<input name="refurl" type="hidden" value="/extjs" />
+<input name="interests" type="hidden" value="Company News, Ext JS" />
+<input name="orig-lang" type="hidden" value="1" />
+<input id="MERGE0" name="MERGE0" type="email" autofocus="true" placeholder="johndoe@example.com" size="25" />
+<input id="submit" name="submit" type="submit" value="Subscribe" />
+</p>
+</form>
+<p id="jobs">Check out our <a href="http://jobs.extjs.com/">Job Board &raquo;</a></p>
+</div>
+
+</div>
+</body>
+</html>

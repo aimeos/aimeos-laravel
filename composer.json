@@ -1,0 +1,41 @@
+{
+	"name": "aimeos/aimeos-laravel",
+	"description": "Aimeos Laravel web shop package",
+	"homepage": "http://aimeos.org",
+	"type": "laravel-bundle",
+	"license": "MIT",
+	"keywords": ["aimeos", "laravel", "e-commerce", "shop", "portal", "market place"],
+	"support": {
+		"source": "https://github.com/Aimeos/aimeos-laravel",
+		"issues": "https://github.com/Aimeos/aimeos-laravel/issues",
+		"forum": "http://aimeos.org/help",
+		"wiki": "http://aimeos.org/docs"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/aimeos/arcavias-core"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/aimeos/php-coveralls.git"
+		}
+	],
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+	"require": {
+        "php": ">=5.3.0",
+		"arcavias/arcavias-core": "dev-master",
+		"aimeos/ai-swiftmailer": "dev-master",
+		"aimeos/ai-zend2-i18n": "dev-master",
+		"aimeos/ai-laravel": "dev-master"
+	},
+	"require-dev": {
+		"satooshi/php-coveralls": "dev-master"
+	},
+    "autoload": {
+        "psr-0": {
+            "Aimeos\\Shop\\": "src/"
+        }
+    }
+}

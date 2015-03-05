@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Arcavias ExtJS client" default="all">
+
+	<target name="check" description="Checks javascript files for common mistakes">
+		<jsllint haltonfailure="true">
+			<fileset dir=".">
+				<include name="lib/ext.ux/**/*.js"/>
+				<include name="src/**/*.js"/>
+			</fileset>
+		</jsllint>
+	</target>
+
+	<target name="i18n" description="Creates translation message files">
+		<exec command="find ./src/ -type f -name '*.js' | xgettext -s --no-wrap --add-comments=: --language=Python --from-code=UTF-8 --keyword=dt:2,2t --keyword=dn:2,3,4t -o i18n/core-client-extjs.pot -f -"
+			checkreturn="true" logoutput="true" />
+		<exec command="find ./lib/ext.ux/ -type f -name '*.js' | xgettext -j -s --no-wrap --add-comments=: --language=Python --from-code=UTF-8 --keyword=_ --keyword=_n:1,2,3t -o i18n/ext/core-client-extjs-ext.pot -f -"
+			checkreturn="true" logoutput="true" />
+		<foreach list="./i18n,./i18n/ext" param="i18n-dir" target="i18n-files" />
+	</target>
+
+	<target name="i18n-files" description="Updates translation message files in passed directory">
+		<foreach param="po-fname" absparam="po-filename" target="i18n-update">
+			<fileset dir="${i18n-dir}">
+				<include name="*.po" />
+			</fileset>
+		</foreach>
+	</target>
+
+	<target name="i18n-update" description="Updates translation message files">
+		<fail unless="po-filename" message="Missing file name" />
+		<exec command="msgmerge --no-wrap -s -U --backup=none ${po-filename} ${i18n-dir}/*.pot" checkreturn="true" logoutput="true" /> 
+	</target>
+
+	<target name="build" description="Builds package for deployment">
+		<foreach param="po-fname" absparam="po-filename" target="build-mo">
+            <fileset dir="./i18n">
+                <include name="**/*.po" />
+            </fileset>
+        </foreach>
+	</target>
+
+	<target name="build-mo" description="Generates binary translation files">
+		<fail unless="po-filename" message="Missing file name" />
+		<exec command="msgfmt --statistics -c -o `echo ${po-filename} | sed s/\.po//` ${po-filename}" checkreturn="true" logoutput="true" /> 
+    </target>
+
+	<target name="all" depends="check" description="Builds all parts of the package">
+	</target>
+
+</project>

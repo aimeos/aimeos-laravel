@@ -1,0 +1,67 @@
+/*!
+ * Copyright (c) Metaways Infosystems GmbH, 2011
+ * LGPLv3, http://www.arcavias.com/en/license
+ * $Id: main.css 14630 2011-12-29 14:59:00Z nsendetzky $
+ */
+
+
+.site-mismatch {
+	background-color: #FFD0D0;
+}
+
+.statustext-1 {
+}
+
+.statustext-0, .statustext--1, .statustext--2 {
+	text-decoration: line-through !important;
+	color: gray;
+}
+
+
+.statusicon-1, .statusicon-0, .statusicon--1, .statusicon--2 {
+	background-position: 50% 5px;
+	background-repeat: no-repeat;
+}
+
+.statusicon-1 {
+	background-image: url(../images/icons/status-1.png);
+}
+
+.statusicon-0 {
+	background-image: url(../images/icons/status-0.png);
+}
+
+.statusicon--1 {
+	background-image: url(../images/icons/status--1.png);
+}
+
+.statusicon--2 {
+	background-image: url(../images/icons/status--2.png);
+}
+
+
+.x-ux-from-imagefield-text {
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.arcavias-admin-media-list-preview {
+	max-width: 90px;
+	max-height: 70px;
+}
+
+.arcavias-admin-media-item-preview {
+    max-width: 360px;
+    max-height: 280px;
+}
+
+/*
+ * CSS fix for horizontal scrolling in grids
+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .x-grid3-cell {
+        box-sizing: border-box !important;
+    }
+}

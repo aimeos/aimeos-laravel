@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Michael Spahn <michael@spahn.me>, 2014
+# nsendetzky <n.sendetzky@metaways.de>, 2014
+# nsendetzky <n.sendetzky@metaways.de>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Arcavias Core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-10 22:41+0200\n"
+"PO-Revision-Date: 2014-01-29 22:49+0000\n"
+"Last-Translator: nsendetzky <n.sendetzky@metaways.de>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/arcavias-core/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "!="
+msgstr "ungleich"
+
+msgid "<"
+msgstr "vor"
+
+msgid "<="
+msgstr "vor (inkl.)"
+
+msgid "=="
+msgstr "entspricht"
+
+msgid "=~"
+msgstr "beginnt mit"
+
+msgid ">"
+msgstr "nach"
+
+msgid ">="
+msgstr "nach (inkl.)"
+
+#: lib/ext.ux/AdvancedSearch.js:41 lib/ext.ux/AdvancedSearch.js:37
+msgid "Search"
+msgstr "Suche"
+
+msgid "~="
+msgstr "enthält"
