@@ -136,7 +136,7 @@ class Base
 		$tmplPaths = $aimeos->getCustomPaths( 'client/html' );
 		$context = $this->getContext( $tmplPaths );
 
-		$pagesConfig = \Config::get( 'shop::page', array() );
+		$pagesConfig = \Config::get( 'shop::config.page', array() );
 		$result = array( 'aibody' => array(), 'aiheader' => array() );
 
 		if( isset( $pagesConfig[$pageName] ) )
@@ -249,8 +249,8 @@ class Base
 		$configPaths = $this->getAimeos()->getConfigPaths( 'mysql' );
 		$config = new \MW_Config_Array( $conf, $configPaths );
 
-		if( function_exists( 'apc_store' ) === true && \Config::get( 'shop::apc_enabled', false ) == true ) {
-			$config = new \MW_Config_Decorator_APC( $config, \Config::get( 'shop::apc_prefix', 'laravel:' ) );
+		if( function_exists( 'apc_store' ) === true && \Config::get( 'shop::config.apc_enabled', false ) == true ) {
+			$config = new \MW_Config_Decorator_APC( $config, \Config::get( 'shop::config.apc_prefix', 'laravel:' ) );
 		}
 
 		return $config;
@@ -275,12 +275,12 @@ class Base
 				$conf = $context->getConfig();
 				$i18n = new \MW_Translation_Zend2( $i18nPaths, 'gettext', $langid, array( 'disableNotices' => true ) );
 
-				if( function_exists( 'apc_store' ) === true && \Config::get( 'shop::apc_enabled', false ) == true ) {
-					$i18n = new \MW_Translation_Decorator_APC( $i18n, \Config::get( 'shop::apc_prefix', 'laravel:' ) );
+				if( function_exists( 'apc_store' ) === true && \Config::get( 'shop::config.apc_enabled', false ) == true ) {
+					$i18n = new \MW_Translation_Decorator_APC( $i18n, \Config::get( 'shop::config.apc_prefix', 'laravel:' ) );
 				}
 
 				if( \Config::has( 'shop::i18n.' . $langid ) ) {
-					$i18n = new \MW_Translation_Decorator_Memory( $i18n, \Config::get( 'shop::i18n.' . $langid ) );
+					$i18n = new \MW_Translation_Decorator_Memory( $i18n, \Config::get( 'shop::config.i18n.' . $langid ) );
 				}
 
 				$this->i18n[$langid] = $i18n;
@@ -305,7 +305,7 @@ class Base
 			$site = \Route::input( 'site', 'default' );
 			$lang = \Route::input( 'locale', 'en' );
 
-			$disableSites = \Config::has( 'shop:disableSites' );
+			$disableSites = \Config::has( 'shop::config.disableSites' );
 
 			$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
 			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
