@@ -180,6 +180,10 @@ Then, you should be able to call the catalog list page in your browser using
 
 ```http://<your public root>/index.php/list```
 
+or for the administration interface:
+
+```http://<your public root>/index.php/admin```
+
 ## Hints
 
 To simplify development, you should configure to use no content cache. You can
