@@ -28,7 +28,7 @@ class CatalogController extends Controller
 	 */
 	public function countAction()
 	{
-		$params = app( 'Aimeos\Shop\Base' )->getPageSections( 'catalog-count' );
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-count' );
 		$contents = \View::make('shop::catalog.count', $params);
 
 		$response = \Response::make($contents, 200);
@@ -45,7 +45,7 @@ class CatalogController extends Controller
 	 */
 	public function detailAction()
 	{
-		$params = app( 'Aimeos\Shop\Base' )->getPageSections( 'catalog-detail' );
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-detail' );
 		return \View::make('shop::catalog.detail', $params);
 	}
 
@@ -57,7 +57,7 @@ class CatalogController extends Controller
 	 */
 	public function listAction()
 	{
-		$params = app( 'Aimeos\Shop\Base' )->getPageSections( 'catalog-list' );
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-list' );
 		return \View::make('shop::catalog.list', $params);
 	}
 
@@ -69,7 +69,7 @@ class CatalogController extends Controller
 	 */
 	public function stockAction()
 	{
-		$params = app( 'Aimeos\Shop\Base' )->getPageSections( 'catalog-stock' );
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-stock' );
 		$contents = \View::make('shop::catalog.stock', $params);
 
 		$response = \Response::make($contents, 200);
@@ -86,7 +86,7 @@ class CatalogController extends Controller
 	 */
 	public function suggestAction()
 	{
-		$params = app( 'Aimeos\Shop\Base' )->getPageSections( 'catalog-suggest' );
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-suggest' );
 		$contents = \View::make('shop::catalog.suggest', $params);
 
 		$response = \Response::make($contents, 200);

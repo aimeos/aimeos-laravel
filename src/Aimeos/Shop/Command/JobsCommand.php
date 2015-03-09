@@ -37,14 +37,8 @@ class JobsCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$base = $this->getLaravel()->make( 'Aimeos\Shop\Base' );
-		$aimeos = $base->getAimeos();
-
-		$tmplPaths = $aimeos->getCustomPaths( 'controller/jobs/layouts' );
-		$context = $base->getContext( $tmplPaths, false );
-
-		$context->setI18n( $this->createI18n( $context, $aimeos->getI18nPaths() ) );
-		$context->setEditor( 'aimeos:jobs' );
+		$aimeos = $this->getLaravel()->make( 'Aimeos\Shop\Base\Aimeos' )->get();
+		$context = $this->getContext();
 
 		$jobs = explode( ' ', $this->argument( 'jobs' ) );
 		$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
@@ -64,44 +58,16 @@ class JobsCommand extends AbstractCommand
 
 
 	/**
-	 * Creates new translation objects
-	 *
-	 * @param MShop_Context_Item_Interface $context Context object
-	 * @param array List of paths to the i18n files
-	 * @return array List of translation objects implementing MW_Translation_Interface
-	 */
-	protected function createI18n( \MShop_Context_Item_Interface $context, array $i18nPaths )
-	{
-		$list = array();
-		$translations = \Config::get( 'shop::i18n' );
-		$langManager = \MShop_Locale_Manager_Factory::createManager( $context )->getSubManager( 'language' );
-
-		foreach( $langManager->searchItems( $langManager->createSearch( true ) ) as $id => $langItem )
-		{
-			$i18n = new \MW_Translation_Zend2( $i18nPaths, 'gettext', $id, array( 'disableNotices' => true ) );
-
-			if( isset( $translations[$id] ) ) {
-				$i18n = new \MW_Translation_Decorator_Memory( $i18n, $translations[$id] );
-			}
-
-			$list[$id] = $i18n;
-		}
-
-		return $list;
-	}
-
-
-	/**
 	 * Get the console command arguments.
 	 *
 	 * @return array
 	 */
 	protected function getArguments()
 	{
-		return [
-			['jobs', InputArgument::REQUIRED, 'One or more job controller names like "admin/job customer/email/watch"'],
-			['site', InputArgument::OPTIONAL, 'Site codes to execute the jobs for like "default unittest" (none for all)'],
-		];
+		return array(
+			array( 'jobs', InputArgument::REQUIRED, 'One or more job controller names like "admin/job customer/email/watch"' ),
+			array( 'site', InputArgument::OPTIONAL, 'Site codes to execute the jobs for like "default unittest" (none for all)' ),
+		);
 	}
 
 	/**
@@ -111,7 +77,29 @@ class JobsCommand extends AbstractCommand
 	 */
 	protected function getOptions()
 	{
-		return [
-		];
+		return array();
+	}
+
+
+	/**
+	 * Returns a context object
+	 *
+	 * @return \MShop_Context_Item_Default Context object
+	 */
+	protected function getContext()
+	{
+		$tmplPaths = $this->getLaravel()->make( 'Aimeos\Shop\Base\Aimeos' )->get()->getCustomPaths( 'controller/jobs/layouts' );
+		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( $tmplPaths, false );
+		$view = $this->getLaravel()->make( 'Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
+
+		$langManager = \MShop_Locale_Manager_Factory::createManager( $context )->getSubManager( 'language' );
+		$langids = array_keys( $langManager->searchItems( $langManager->createSearch( true ) ) );
+		$i18n = $this->getLaravel()->make( 'Aimeos\Shop\Base\I18n' )->get( $langids );
+
+		$context->setEditor( 'aimeos:jobs' );
+		$context->setView( $view );
+		$context->setI18n( $i18n );
+
+		return $context;
 	}
 }

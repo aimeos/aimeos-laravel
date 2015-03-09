@@ -35,9 +35,7 @@ class CacheCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$base = $this->getLaravel()->make( 'Aimeos\Shop\Base' );
-
-		$context = $base->getContext( array(), false );
+		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( array(), false );
 		$context->setEditor( 'aimeos:cache' );
 
 		$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
@@ -66,7 +64,7 @@ class CacheCommand extends AbstractCommand
 	 */
 	protected function getArguments()
 	{
-		return [];
+		return array();
 	}
 
 
@@ -77,8 +75,8 @@ class CacheCommand extends AbstractCommand
 	 */
 	protected function getOptions()
 	{
-		return [
-			['site', null, InputOption::VALUE_OPTIONAL, 'Site codes to clear the cache like "default unittest" (none for all)', null],
-		];
+		return array(
+			array( 'site', null, InputOption::VALUE_OPTIONAL, 'Site codes to clear the cache like "default unittest" (none for all)', null ),
+		);
 	}
 }

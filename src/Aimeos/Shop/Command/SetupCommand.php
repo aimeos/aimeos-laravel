@@ -63,9 +63,7 @@ class SetupCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$base = $this->getLaravel()->make( 'Aimeos\Shop\Base' );
-
-		$ctx = $base->getContext( array(), false );
+		$ctx = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( array(), false );
 		$ctx->setEditor( 'aimeos:setup' );
 
 		$config = $ctx->getConfig();
@@ -75,7 +73,7 @@ class SetupCommand extends AbstractCommand
 		$dbconfig = $this->getDbConfig( $config );
 		$this->setOptions( $config );
 
-		$taskPaths = $base->getAimeos()->getSetupPaths( $site );
+		$taskPaths = $this->getLaravel()->make( 'Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $site );
 
 		$includePaths = $taskPaths;
 		$includePaths[] = get_include_path();
@@ -98,9 +96,9 @@ class SetupCommand extends AbstractCommand
 	 */
 	protected function getArguments()
 	{
-		return [
-			['site', InputArgument::OPTIONAL, 'Site for updating database entries', 'default'],
-		];
+		return array(
+			array( 'site', InputArgument::OPTIONAL, 'Site for updating database entries', 'default' ),
+		);
 	}
 
 	/**
@@ -110,9 +108,9 @@ class SetupCommand extends AbstractCommand
 	 */
 	protected function getOptions()
 	{
-		return [
-			['option', null, InputOption::VALUE_REQUIRED, 'Optional setup configuration, name and value are separated by ":" like "setup/default/demo:1"', array()],
-		];
+		return array(
+			array( 'option', null, InputOption::VALUE_REQUIRED, 'Optional setup configuration, name and value are separated by ":" like "setup/default/demo:1"', array() ),
+		);
 	}
 
 

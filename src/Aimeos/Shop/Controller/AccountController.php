@@ -28,7 +28,7 @@ class AccountController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = app( 'Aimeos\Shop\Base' )->getPageSections( 'account-index' );
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'account-index' );
 		return \View::make('shop::account.index', $params);
 	}
 }

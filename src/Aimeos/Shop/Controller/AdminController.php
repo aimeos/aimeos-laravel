@@ -22,23 +22,6 @@ use Illuminate\Routing\Controller;
 class AdminController extends Controller
 {
 	/**
-	 * @var \Aimeos\Shop\Base
-	 */
-	private $base;
-
-
-	/**
-	 * Initializes the object
-	 *
-	 * @param \Aimeos\Shop\Base $base
-	 */
-	public function __construct( \Aimeos\Shop\Base $base )
-	{
-		$this->base = $base;
-	}
-
-
-	/**
 	 * Returns the initial HTML view for the admin interface.
 	 *
 	 * @param integer $tab Number of the currently active tab
@@ -46,11 +29,12 @@ class AdminController extends Controller
 	 */
 	public function indexAction( $site = 'default', $lang = 'en', $tab = 0 )
 	{
-		$context = $this->base->getContext( array(), false );
+		$aimeos = app( 'Aimeos\Shop\Base\Aimeos' )->get();
+		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
+
+		$context = app( 'Aimeos\Shop\Base\Context' )->get( array(), false );
 		$context = $this->setLocale( $context, $lang );
 
-		$aimeos = $this->base->getAimeos();
-		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
 		$cssFiles = $jsFiles = array();
 
@@ -102,9 +86,11 @@ class AdminController extends Controller
 	 */
 	public function doAction()
 	{
-		$context = $this->base->getContext( array(), false );
+		$aimeos = app( 'Aimeos\Shop\Base\Aimeos' )->get();
+		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
+
+		$context = app( 'Aimeos\Shop\Base\Context' )->get( array(), false );
 		$context = $this->setLocale( $context );
-		$cntlPaths = $this->base->getAimeos()->getCustomPaths( 'controller/extjs' );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
 
@@ -121,7 +107,7 @@ class AdminController extends Controller
 	 */
 	protected function getJsonLanguages( \MShop_Context_Item_Interface $context )
 	{
-		$paths = $this->base->getAimeos()->getI18nPaths();
+		$paths = app( 'Aimeos\Shop\Base\Aimeos' )->get()->getI18nPaths();
 		$langs = array();
 
 		if( !isset( $paths['client/extjs'] ) ) {
