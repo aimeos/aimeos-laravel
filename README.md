@@ -34,7 +34,7 @@ return array(
 );
 ```
 
-Make sure that the database is set up and it is configured in your
+Make sure that the **database is set up and it is configured** in your
 `config/database.php` or `.env` file (depending on the Laravel version). Then
 add these lines to your composer.json of your Laravel project:
 
@@ -152,10 +152,6 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 </html>
 ```
 
-Then, you should be able to call the catalog list page in your browser using
-
-```http://<your public root>/index.php/list```
-
 **Note:** Since **Laravel 5.0** CSRF protection is enabled by default but the Aimeos
 web shop package is not yet prepared to use it. You have to **disable the global
 CSRF protection** and enable it manually for specific routes for now. For that
@@ -180,6 +176,10 @@ purpose, move the `App\Http\Middleware\VerifyCsrfToken` line in your
 	];
 ```
 
+Then, you should be able to call the catalog list page in your browser using
+
+```http://<your public root>/index.php/list```
+
 ## Hints
 
 To simplify development, you should configure to use no content cache. You can
@@ -187,13 +187,13 @@ do this in the `config/shop.php` file of your Laravel application by adding
 these lines at the bottom:
 
 ```
-	'classes' => array(
+    'classes' => array(
         'cache' => array(
             'manager' => array(
                 'name' => 'None',
             ),
         ),
-	),
+    ),
 ```
 
 ## License
