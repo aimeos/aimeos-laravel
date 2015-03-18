@@ -34,11 +34,11 @@ return array(
 	),
 
 	'classes' => array(
-        'cache' => array(
-            'manager' => array(
-                'name' => 'None',
-            ),
-        ),
+		'customer' => array(
+			'manager' => array(
+				'name' => 'Laravel',
+			),
+		),
 	),
 
 	'client' => array(
@@ -261,11 +261,6 @@ return array(
 	),
 
 	'i18n' => array(
-        'en' => array(
-            'client/html' => array(
-                'Attributes' => array( "Filter" ),
-            ),
-        ),
 	),
 
 	'madmin' => array(
