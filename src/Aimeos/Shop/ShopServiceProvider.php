@@ -40,6 +40,7 @@ class ShopServiceProvider extends ServiceProvider {
 		if (method_exists($this,'publishes')) {
 			$this->publishes(array(
 				$basedir.'config/config.php' => config_path('shop.php'),
+				$basedir.'database/migrations' => base_path('database/migrations'),
 				$basedir.'views' => base_path('resources/views/vendor/aimeos/shop'),
 				dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
 			));

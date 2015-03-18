@@ -51,15 +51,17 @@ add these lines to your composer.json of your Laravel project:
     },
     "scripts": {
         "post-install-cmd": [
-			"php artisan aimeos:setup --option=setup/default/demo:1",
-			"php artisan aimeos:cache",
-        	"php artisan vendor:publish",
-			...
+            "php artisan vendor:publish",
+            "php artisan migrate",
+            "php artisan aimeos:setup --option=setup/default/demo:1",
+            "php artisan aimeos:cache",
+            ...
         ],
         "post-update-cmd": [
-			"php artisan aimeos:setup --option=setup/default/demo:1",
-			"php artisan aimeos:cache",
-        	"php artisan vendor:publish",
+            "php artisan vendor:publish",
+            "php artisan migrate",
+            "php artisan aimeos:setup --option=setup/default/demo:1",
+            "php artisan aimeos:cache",
             ...
         ]
     }
