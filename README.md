@@ -4,7 +4,7 @@
 
 # Aimeos Laravel package
 
-The repository contains the Laravel web shop package for 4.1, 4.2 and 5.0
+The repository contains the web shop package for Laravel 5
 integrating the Aimeos e-commerce library into Laravel. The package provides
 controllers for e.g. faceted filter, product lists and detail views, for
 searching products as well as baskets and the checkout process. A full set of
