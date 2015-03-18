@@ -10,9 +10,35 @@
          stopOnFailure="false"
          syntaxCheck="false"
 >
-    <testsuites>
-        <testsuite name="Package Test Suite">
-            <directory suffix=".php">./tests/</directory>
-        </testsuite>
-    </testsuites>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+    </php>
+
+	<testsuites>
+		<testsuite name="base">
+			<directory>./tests/Base</directory>
+		</testsuite>
+		<testsuite name="command">
+			<file>./tests/Command/SetupCommandTest.php</file>
+			<file>./tests/Command/CacheCommandTest.php</file>
+			<file>./tests/Command/JobsCommandTest.php</file>
+		</testsuite>
+		<testsuite name="controller">
+			<directory>./tests/Controller</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist>
+			<directory suffix=".php">./</directory>
+			<exclude>
+				<directory>./ext/</directory>
+				<directory>./public/</directory>
+				<directory>./tests/</directory>
+				<directory>./vendor/</directory>
+			</exclude>
+		</whitelist>
+	</filter>
 </phpunit>
