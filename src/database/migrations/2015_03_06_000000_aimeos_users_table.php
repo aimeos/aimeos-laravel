@@ -38,7 +38,7 @@ class AimeosUsersTable extends Migration {
 
 			$table->index('langid');
 			$table->index(array('status', 'lastname', 'firstname'));
-			$table->index(array('status', 'address1', 'address2'));
+			$table->index(array('status', 'address1'));
 			$table->index('lastname');
 			$table->index('address1');
 			$table->index('city');
