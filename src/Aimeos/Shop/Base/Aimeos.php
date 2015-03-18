@@ -49,7 +49,7 @@ class Aimeos
 	{
 		if( $this->object === null )
 		{
-			$extDirs = (array) $this->config->get( 'shop::extdir', array() );
+			$extDirs = (array) $this->config->get( 'shop::config.extdir', array() );
 			$this->object = new \Arcavias( $extDirs, false );
 		}
 
