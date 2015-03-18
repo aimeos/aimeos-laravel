@@ -2,7 +2,7 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2014
+ * @copyright Aimeos (aimeos.org), 2015
  * @package laravel
  * @subpackage Base
  */
@@ -24,6 +24,11 @@ class Context
 	private static $context;
 
 	/**
+	 * @var \Illuminate\Contracts\Config\Repository
+	 */
+	private $config;
+
+	/**
 	 * @var \MShop_Locale_Item_Interface
 	 */
 	private $locale;
@@ -37,10 +42,12 @@ class Context
 	/**
 	 * Initializes the object
 	 *
+	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
 	 * @param \Illuminate\Session\Store $session Laravel session object
 	 */
-	public function __construct( \Illuminate\Session\Store $session )
+	public function __construct( \Illuminate\Contracts\Config\Repository $config, \Illuminate\Session\Store $session )
 	{
+		$this->config = $config;
 		$this->session = $session;
 	}
 
@@ -120,17 +127,17 @@ class Context
 	 */
 	protected function getConfig()
 	{
-		$conf = \Config::get( 'shop::config' );
-		$conf['resource']['db']['host'] = \Config::get( 'database.connections.mysql.host' );
-		$conf['resource']['db']['database'] = \Config::get( 'database.connections.mysql.database' );
-		$conf['resource']['db']['username'] = \Config::get( 'database.connections.mysql.username' );
-		$conf['resource']['db']['password'] = \Config::get( 'database.connections.mysql.password' );
+		$conf = $this->config->get( 'shop::config' );
+		$conf['resource']['db']['host'] = $this->config->get( 'database.connections.mysql.host' );
+		$conf['resource']['db']['database'] = $this->config->get( 'database.connections.mysql.database' );
+		$conf['resource']['db']['username'] = $this->config->get( 'database.connections.mysql.username' );
+		$conf['resource']['db']['password'] = $this->config->get( 'database.connections.mysql.password' );
 
 		$configPaths = app( 'Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths( 'mysql' );
 		$config = new \MW_Config_Array( $conf, $configPaths );
 
-		if( function_exists( 'apc_store' ) === true && \Config::get( 'shop::config.apc_enabled', false ) == true ) {
-			$config = new \MW_Config_Decorator_APC( $config, \Config::get( 'shop::config.apc_prefix', 'laravel:' ) );
+		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop::config.apc_enabled', false ) == true ) {
+			$config = new \MW_Config_Decorator_APC( $config, $this->config->get( 'shop::config.apc_prefix', 'laravel:' ) );
 		}
 
 		return $config;
@@ -147,11 +154,11 @@ class Context
 	{
 		if( $this->locale === null )
 		{
-			$currency = \Route::input( 'currency', 'EUR' );
 			$site = \Route::input( 'site', 'default' );
-			$lang = \Route::input( 'locale', 'en' );
+			$lang = \Route::input( 'locale', '' );
+			$currency = \Route::input( 'currency', '' );
 
-			$disableSites = \Config::has( 'shop::config.disableSites' );
+			$disableSites = $this->config->has( 'shop::config.disableSites' );
 
 			$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
 			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );

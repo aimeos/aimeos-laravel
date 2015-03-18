@@ -19,6 +19,45 @@ namespace Aimeos\Shop\Base;
 class Page
 {
 	/**
+	 * @var \Illuminate\Contracts\Config\Repository
+	 */
+	private $config;
+
+	/**
+	 * @var \Aimeos\Shop\Base\Aimeos
+	 */
+	private $aimeos;
+
+	/**
+	 * @var \Aimeos\Shop\Base\Context
+	 */
+	private $context;
+
+	/**
+	 * @var \Aimeos\Shop\Base\View
+	 */
+	private $view;
+
+
+	/**
+	 * Initializes the object
+	 *
+	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
+	 * @param \Aimeos\Shop\Base\Aimeos $aimeos Aimeos object
+	 * @param \Aimeos\Shop\Base\Context $context Context object
+	 * @param \Aimeos\Shop\Base\View $view View object
+	 */
+	public function __construct( \Illuminate\Contracts\Config\Repository $config,
+		\Aimeos\Shop\Base\Aimeos $aimeos, \Aimeos\Shop\Base\Context $context, \Aimeos\Shop\Base\View $view )
+	{
+		$this->config = $config;
+		$this->aimeos = $aimeos;
+		$this->context = $context;
+		$this->view = $view;
+	}
+
+
+	/**
 	 * Returns the body and header sections created by the clients configured for the given page name.
 	 *
 	 * @param string $pageName Name of the configured page
@@ -26,13 +65,13 @@ class Page
 	 */
 	public function getSections( $pageName )
 	{
-		$tmplPaths = app('Aimeos\Shop\Base\Aimeos')->get()->getCustomPaths( 'client/html' );
-		$context = app('Aimeos\Shop\Base\Context')->get( $tmplPaths );
+		$tmplPaths = $this->aimeos->get()->getCustomPaths( 'client/html' );
+		$context = $this->context->get( $tmplPaths );
 
 		$langid = $context->getLocale()->getLanguageId();
-		$view = app('Aimeos\Shop\Base\View')->create( $context->getConfig(), $tmplPaths, $langid );
+		$view = $this->view->create( $context->getConfig(), $tmplPaths, $langid );
 
-		$pagesConfig = \Config::get( 'shop::config.page', array() );
+		$pagesConfig = $this->config->get( 'shop::config.page', array() );
 		$result = array( 'aibody' => array(), 'aiheader' => array() );
 
 		if( isset( $pagesConfig[$pageName] ) )

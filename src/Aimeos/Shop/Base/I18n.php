@@ -19,9 +19,32 @@ namespace Aimeos\Shop\Base;
 class I18n
 {
 	/**
+	 * @var \Aimeos\Shop\Base\Aimeos
+	 */
+	private $aimeos;
+
+	/**
+	 * @var \Illuminate\Contracts\Config\Repository
+	 */
+	private $config;
+
+	/**
 	 * @var array
 	 */
 	private $i18n = array();
+
+
+	/**
+	 * Initializes the object
+	 *
+	 * @param \Aimeos\Shop\Base\Aimeos $aimeos Aimeos object
+	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
+	 */
+	public function __construct( \Aimeos\Shop\Base\Aimeos $aimeos, \Illuminate\Contracts\Config\Repository $config )
+	{
+		$this->aimeos = $aimeos;
+		$this->config = $config;
+	}
 
 
 	/**
@@ -32,7 +55,7 @@ class I18n
 	 */
 	public function get( array $languageIds )
 	{
-		$i18nPaths = app('Aimeos\Shop\Base\Aimeos')->get()->getI18nPaths();
+		$i18nPaths = $this->aimeos->get()->getI18nPaths();
 
 		foreach( $languageIds as $langid )
 		{
@@ -40,12 +63,12 @@ class I18n
 			{
 				$i18n = new \MW_Translation_Zend2( $i18nPaths, 'gettext', $langid, array( 'disableNotices' => true ) );
 
-				if( function_exists( 'apc_store' ) === true && \Config::get( 'shop::config.apc_enabled', false ) == true ) {
-					$i18n = new \MW_Translation_Decorator_APC( $i18n, \Config::get( 'shop::config.apc_prefix', 'laravel:' ) );
+				if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop::config.apc_enabled', false ) == true ) {
+					$i18n = new \MW_Translation_Decorator_APC( $i18n, $this->config->get( 'shop::config.apc_prefix', 'laravel:' ) );
 				}
 
-				if( \Config::has( 'shop::i18n.' . $langid ) ) {
-					$i18n = new \MW_Translation_Decorator_Memory( $i18n, \Config::get( 'shop::config.i18n.' . $langid ) );
+				if( $this->config->has( 'shop::i18n.' . $langid ) ) {
+					$i18n = new \MW_Translation_Decorator_Memory( $i18n, $this->config->get( 'shop::config.i18n.' . $langid ) );
 				}
 
 				$this->i18n[$langid] = $i18n;

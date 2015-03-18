@@ -2,7 +2,7 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2014
+ * @copyright Aimeos (aimeos.org), 2015
  * @package laravel
  * @subpackage Base
  */
@@ -18,7 +18,26 @@ namespace Aimeos\Shop\Base;
  */
 class Aimeos
 {
+	/**
+	 * @var \Illuminate\Contracts\Config\Repository
+	 */
+	private $config;
+
+	/**
+	 * @var \Arcavias
+	 */
 	private $object;
+
+
+	/**
+	 * Initializes the object
+	 *
+	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
+	 */
+	public function __construct( \Illuminate\Contracts\Config\Repository $config )
+	{
+		$this->config = $config;
+	}
 
 
 	/**
@@ -30,7 +49,7 @@ class Aimeos
 	{
 		if( $this->object === null )
 		{
-			$extDirs = (array) \Config::get( 'shop::extdir', array() );
+			$extDirs = (array) $this->config->get( 'shop::extdir', array() );
 			$this->object = new \Arcavias( $extDirs, false );
 		}
 
