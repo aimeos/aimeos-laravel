@@ -113,10 +113,13 @@ class Context
 	 */
 	protected function addUser( \MShop_Context_Item_Interface $context )
 	{
-		$username = '';
+		if( ( $userid = \Auth::id() ) !== null ) {
+			$context->setUserId( $userid );
+		}
 
-		\Auth::id();
-		$context->setEditor( $username );
+		if( ( $user = \Auth::user() ) !== null ) {
+			$context->setEditor( $user->name );
+		}
 	}
 
 
