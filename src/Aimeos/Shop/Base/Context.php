@@ -91,7 +91,7 @@ class Context
 			$langid = $localeItem->getLanguageId();
 
 			$context->setLocale( $localeItem );
-			$context->setI18n( app('Aimeos\Shop\Base\I18n')->get( array( $langid ) ) );
+			$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $langid ) ) );
 
 			$cache = new \MAdmin_Cache_Proxy_Default( $context );
 			$context->setCache( $cache );
@@ -127,17 +127,13 @@ class Context
 	 */
 	protected function getConfig()
 	{
-		$conf = $this->config->get( 'shop::config' );
-		$conf['resource']['db']['host'] = $this->config->get( 'database.connections.mysql.host' );
-		$conf['resource']['db']['database'] = $this->config->get( 'database.connections.mysql.database' );
-		$conf['resource']['db']['username'] = $this->config->get( 'database.connections.mysql.username' );
-		$conf['resource']['db']['password'] = $this->config->get( 'database.connections.mysql.password' );
+		$conf = $this->config->get( 'shop' );
 
-		$configPaths = app( 'Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths( 'mysql' );
+		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths( 'mysql' );
 		$config = new \MW_Config_Array( $conf, $configPaths );
 
-		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop::config.apc_enabled', false ) == true ) {
-			$config = new \MW_Config_Decorator_APC( $config, $this->config->get( 'shop::config.apc_prefix', 'laravel:' ) );
+		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
+			$config = new \MW_Config_Decorator_APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 		}
 
 		return $config;
@@ -158,7 +154,7 @@ class Context
 			$lang = \Route::input( 'locale', '' );
 			$currency = \Route::input( 'currency', '' );
 
-			$disableSites = $this->config->has( 'shop::config.disableSites' );
+			$disableSites = $this->config->has( 'shop.disableSites' );
 
 			$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
 			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );

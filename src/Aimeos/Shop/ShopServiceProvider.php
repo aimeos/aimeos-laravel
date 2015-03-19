@@ -29,22 +29,13 @@ class ShopServiceProvider extends ServiceProvider {
 	{
 		$basedir = dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR;
 
-		if (method_exists($this,'package')) {
-			$this->package('aimeos/shop');
-		}
+		$this->loadViewsFrom($basedir.'views', 'shop');
 
-		if (method_exists($this,'loadViewsFrom')) {
-			$this->loadViewsFrom($basedir.'views', 'shop');
-		}
-
-		if (method_exists($this,'publishes')) {
-			$this->publishes(array(
-				$basedir.'config/config.php' => config_path('shop.php'),
-				$basedir.'database/migrations' => base_path('database/migrations'),
-				$basedir.'views' => base_path('resources/views/vendor/aimeos/shop'),
-				dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
-			));
-		}
+		$this->publishes(array(
+			$basedir.'database/migrations' => base_path('database/migrations'),
+			$basedir.'views' => base_path('resources/views/vendor/aimeos/shop'),
+			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
+		));
 
 		require_once $basedir.'routes.php';
 		require_once $basedir.'routes_admin.php';
@@ -76,7 +67,7 @@ class ShopServiceProvider extends ServiceProvider {
 		$this->commands('command.aimeos.setup');
 
 		if (method_exists($this,'mergeConfigFrom')) {
-			$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/config.php', 'shop::config');
+			$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/shop.php', 'shop');
 		}
 	}
 

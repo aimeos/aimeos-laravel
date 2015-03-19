@@ -71,7 +71,7 @@ class Page
 		$langid = $context->getLocale()->getLanguageId();
 		$view = $this->view->create( $context->getConfig(), $tmplPaths, $langid );
 
-		$pagesConfig = $this->config->get( 'shop::config.page', array() );
+		$pagesConfig = $this->config->get( 'shop.page', array() );
 		$result = array( 'aibody' => array(), 'aiheader' => array() );
 
 		if( isset( $pagesConfig[$pageName] ) )

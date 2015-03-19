@@ -63,12 +63,12 @@ class I18n
 			{
 				$i18n = new \MW_Translation_Zend2( $i18nPaths, 'gettext', $langid, array( 'disableNotices' => true ) );
 
-				if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop::config.apc_enabled', false ) == true ) {
-					$i18n = new \MW_Translation_Decorator_APC( $i18n, $this->config->get( 'shop::config.apc_prefix', 'laravel:' ) );
+				if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
+					$i18n = new \MW_Translation_Decorator_APC( $i18n, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 				}
 
-				if( $this->config->has( 'shop::i18n.' . $langid ) ) {
-					$i18n = new \MW_Translation_Decorator_Memory( $i18n, $this->config->get( 'shop::config.i18n.' . $langid ) );
+				if( $this->config->has( 'shop.i18n.' . $langid ) ) {
+					$i18n = new \MW_Translation_Decorator_Memory( $i18n, $this->config->get( 'shop.i18n.' . $langid ) );
 				}
 
 				$this->i18n[$langid] = $i18n;

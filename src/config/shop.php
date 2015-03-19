@@ -22,14 +22,14 @@ return array(
 	'resource' => array(
 		'db' => array(
 			'adapter' => 'mysql',
+			'host' => config( 'database.connections.mysql.host', '' ),
+			'port' => config( 'database.connections.mysql.port', '' ),
+			'database' => config( 'database.connections.mysql.database', '' ),
+			'username' => config( 'database.connections.mysql.username', '' ),
+			'password' => config( 'database.connections.mysql.password', '' ),
 			'stmt' => array( "SET NAMES 'utf8'", "SET SESSION sql_mode='ANSI'" ),
-			'host' => '',
-			'port' => '',
-			'database' => '',
-			'username' => '',
-			'password' => '',
-			'limit' => 2,
 			'opt-persistent' => 0,
+			'limit' => 2,
 		),
 	),
 
@@ -132,11 +132,11 @@ return array(
 						),
 					),
 				),
-                'update' => array(
-                	'url' => array(
-                    	'target' => 'aimeos_shop_update',
-                	),
-                ),
+				'update' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_update',
+					),
+				),
 			),
 		),
 	),
