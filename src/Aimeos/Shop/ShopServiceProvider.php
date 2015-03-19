@@ -48,6 +48,22 @@ class ShopServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+		$this->app->singleton('\Aimeos\Shop\Base\Aimeos', function($app) {
+			return new \Aimeos\Shop\Base\Aimeos($this->app['config']);
+		});
+
+		$this->app->singleton('\Aimeos\Shop\Base\I18n', function($app) {
+			return new \Aimeos\Shop\Base\I18n($this->app['\Aimeos\Shop\Base\Aimeos'], $this->app['config']);
+		});
+
+		$this->app->singleton('\Aimeos\Shop\Base\Context', function($app) {
+			return new \Aimeos\Shop\Base\Context($this->app['config'], $this->app['session.store']);
+		});
+
+		$this->app->singleton('\Aimeos\Shop\Base\View', function($app) {
+			return new \Aimeos\Shop\Base\View();
+		});
+
 		$this->app['command.aimeos.cache'] = $this->app->share(function($app) {
 			return new Command\CacheCommand();
 		});
@@ -78,7 +94,10 @@ class ShopServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('command.aimeos.cache', 'command.aimeos.jobs', 'command.aimeos.setup');
+		return array(
+			'command.aimeos.cache', 'command.aimeos.jobs', 'command.aimeos.setup',
+			'\Aimeos\Shop\Base\Aimeos', '\Aimeos\Shop\Base\I18n', '\Aimeos\Shop\Base\Context', '\Aimeos\Shop\Base\View'
+		);
 	}
 
 }
