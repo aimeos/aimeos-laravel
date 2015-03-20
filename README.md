@@ -178,6 +178,11 @@ purpose, move the `App\Http\Middleware\VerifyCsrfToken` line in your
 	];
 ```
 
+Afterwards, you should clear the Laravel cache files. Otherwise, you might get
+an exception due to old cached data.
+
+```php artisan cache:clear```
+
 Then, you should be able to call the catalog list page in your browser using
 
 ```http://<your public root>/index.php/list```
