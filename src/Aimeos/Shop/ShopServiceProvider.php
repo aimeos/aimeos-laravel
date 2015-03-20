@@ -64,27 +64,25 @@ class ShopServiceProvider extends ServiceProvider {
 			return new \Aimeos\Shop\Base\View();
 		});
 
+
 		$this->app['command.aimeos.cache'] = $this->app->share(function($app) {
 			return new Command\CacheCommand();
 		});
-
-		$this->commands('command.aimeos.cache');
 
 		$this->app['command.aimeos.jobs'] = $this->app->share(function($app) {
 			return new Command\JobsCommand();
 		});
 
-		$this->commands('command.aimeos.jobs');
-
 		$this->app['command.aimeos.setup'] = $this->app->share(function($app) {
 			return new Command\SetupCommand();
 		});
 
+		$this->commands('command.aimeos.cache');
 		$this->commands('command.aimeos.setup');
+		$this->commands('command.aimeos.jobs');
 
-		if (method_exists($this,'mergeConfigFrom')) {
-			$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/shop.php', 'shop');
-		}
+
+		$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/shop.php', 'shop');
 	}
 
 	/**
