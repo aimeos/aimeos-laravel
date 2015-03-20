@@ -267,6 +267,13 @@ return array(
 	),
 
 	'mshop' => array(
+		'customer' => array(
+			'manager' => array(
+				'password' => array(
+					'name' => 'Bcrypt',
+				),
+			),
+		),
 	),
 
 );
