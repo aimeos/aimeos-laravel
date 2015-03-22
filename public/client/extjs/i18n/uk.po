@@ -3,89 +3,87 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# manuel.fries <manuel.fries@gdatasoftware.com>, 2014
-# manuel.fries <manuel.fries@gdatasoftware.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Arcavias Core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2015-01-27 13:14+0000\n"
-"Last-Translator: Daniel Hoffmann <d.hoffmann@metaways.de>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/arcavias-core/language/zh_CN/)\n"
+"PO-Revision-Date: 2014-01-28 14:48+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/arcavias-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/panel/price/ItemUi.js:99
 msgid "Actual current price"
-msgstr "实际目前价格"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:138 src/panel/ConfigUi.js:37
 msgid "Add"
-msgstr "加"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:65
 #: src/panel/order/address/ItemUi.js:80
 msgid "Address 1"
-msgstr "地址1"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:69
 #: src/panel/order/address/ItemUi.js:84
 msgid "Address 2"
-msgstr "地址2"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:73
 #: src/panel/order/address/ItemUi.js:88
 msgid "Address 3"
-msgstr "地址3"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:37
 #: src/panel/order/address/ItemUi.js:52
 msgid "Address ID"
-msgstr "地址ID"
+msgstr ""
 
 #: src/panel/order/address/ItemUi.js:18
 msgid "Addresses"
-msgstr "地址"
+msgstr ""
 
 #: src/panel/AbstractListItemPickerUi.js:341 src/elements/language.js:19
 #: src/elements/language.js:45
 msgid "All"
-msgstr "所有"
+msgstr ""
 
 #: src/panel/attribute/ItemPickerUi.js:16
 msgid "Associated attributes"
-msgstr "相关的属性"
+msgstr ""
 
 #: src/panel/media/ItemPickerUi.js:16
 msgid "Associated media"
-msgstr "相关媒体"
+msgstr ""
 
 #: src/panel/price/ItemPickerUi.js:16
 msgid "Associated prices"
-msgstr "相关价格"
+msgstr ""
 
 #: src/panel/product/ItemPickerUi.js:15
 msgid "Associated products"
-msgstr "相关产品"
+msgstr ""
 
 #: src/panel/product/tag/ItemPickerUi.js:15
 msgid "Associated tags"
-msgstr "相关标签"
+msgstr ""
 
 #: src/panel/text/ItemPickerUi.js:15
 msgid "Associated texts"
-msgstr "相关文本"
+msgstr ""
 
 #: src/panel/attribute/ListUi.js:29 src/panel/attribute/ItemPickerUi.js:11
 #: src/panel/order/product/attribute/ListUiSmall.js:11
 #: src/panel/order/service/attribute/ListUiSmall.js:11
 #: src/elements/domain.js:47
 msgid "Attribute"
-msgstr "属性"
+msgstr ""
 
 #: src/panel/attribute/type/ListUi.js:34
 msgid "Attribute type"
@@ -101,40 +99,40 @@ msgstr ""
 #: src/panel/attribute/ItemUi.js:129
 #, python-brace-format
 msgid "Attribute: {0} ({1})"
-msgstr "属性: {0} ({1})"
+msgstr ""
 
 #: src/panel/attribute/ItemPickerUi.js:23
 msgid "Available attributes"
-msgstr "可用的属性"
+msgstr ""
 
 #: src/panel/media/ItemPickerUi.js:23
 msgid "Available media"
-msgstr "可用的介质"
+msgstr ""
 
 #: src/panel/price/ItemPickerUi.js:23
 msgid "Available prices"
-msgstr "可用价格"
+msgstr ""
 
 #: src/panel/product/ItemPickerUi.js:22
 msgid "Available products"
-msgstr "可用产品"
+msgstr ""
 
 #: src/panel/product/tag/ItemPickerUi.js:22
 msgid "Available tags"
-msgstr "可用标签"
+msgstr ""
 
 #: src/panel/text/ItemPickerUi.js:22
 msgid "Available texts"
-msgstr "现有文本"
+msgstr ""
 
 #: src/panel/product/stock/ItemUi.js:95
 msgid "Back in stock"
-msgstr "商品有库存 "
+msgstr ""
 
 #: src/panel/order/OrderItemUi.js:35 src/panel/order/product/ListUi.js:71
 #: src/panel/order/coupon/ListUi.js:97 src/panel/order/service/ListUi.js:71
 msgid "Base ID"
-msgstr "基本编号"
+msgstr ""
 
 #: src/panel/plugin/ItemUi.js:20 src/panel/cache/ItemUi.js:23
 #: src/panel/job/ItemUi.js:22 src/panel/attribute/ItemUi.js:38
@@ -150,11 +148,11 @@ msgstr "基本编号"
 #: src/panel/service/ItemUi.js:20 src/panel/media/ItemUi.js:24
 #: src/panel/order/ItemUi.js:32
 msgid "Basic"
-msgstr "基地"
+msgstr ""
 
 #: src/panel/order/address/ItemUi.js:34
 msgid "Billing address"
-msgstr "帐单地址"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:27
 msgid "Cache"
@@ -166,27 +164,27 @@ msgstr ""
 
 #: src/panel/AbstractItemUi.js:133 src/elements/exportlanguage.js:321
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: src/panel/catalog/TreeUi.js:29 src/panel/product/UsedByCatalogListUi.js:29
 #: src/elements/domain.js:48
 msgid "Catalog"
-msgstr "商品目录"
+msgstr ""
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #: src/panel/catalog/ItemUi.js:105
 #, python-brace-format
 msgid "Catalog: {0} ({1})"
-msgstr "目录: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:81
 #: src/panel/order/address/ItemUi.js:96
 msgid "City"
-msgstr "市"
+msgstr ""
 
 #: src/panel/media/MediaField.js:64
 msgid "Click to upload"
-msgstr "点击上传"
+msgstr ""
 
 #: src/panel/plugin/type/ListUi.js:69 src/panel/attribute/ListUiSmall.js:71
 #: src/panel/attribute/ListUi.js:66 src/panel/attribute/ItemUi.js:85
@@ -212,7 +210,7 @@ msgstr "点击上传"
 #: src/panel/order/service/attribute/ListUiSmall.js:87
 #: src/panel/order/service/ListUi.js:87 src/panel/order/service/ItemUi.js:71
 msgid "Code"
-msgstr "编码"
+msgstr ""
 
 #: src/panel/coupon/code/ListUi.js:31
 msgid "Codes"
@@ -220,43 +218,43 @@ msgstr ""
 
 #: src/panel/order/OrderItemUi.js:59
 msgid "Comment"
-msgstr "备注"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:41
 #: src/panel/order/address/ItemUi.js:56
 msgid "Company"
-msgstr "公司"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:91 src/panel/ListItemListUi.js:194
 #: src/panel/coupon/ListUi.js:83 src/panel/locale/site/ListUi.js:71
 #: src/panel/ConfigUi.js:14 src/panel/service/ListUi.js:92
 msgid "Configuration"
-msgstr "设置"
+msgstr ""
 
 #: src/panel/text/ListUiSmall.js:81 src/panel/text/ItemUi.js:82
 #: src/panel/text/ItemPickerUi.js:84
 msgid "Content"
-msgstr "内容"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:149
 msgid "Copy"
-msgstr "复制"
+msgstr ""
 
 #: src/panel/price/ListUiSmall.js:113 src/panel/price/ItemPickerUi.js:113
 #: src/panel/order/OrderItemUi.js:55 src/panel/order/product/ListUi.js:110
 #: src/panel/order/product/ItemUi.js:91 src/panel/order/service/ListUi.js:100
 #: src/panel/order/service/ItemUi.js:83
 msgid "Costs"
-msgstr "成本"
+msgstr ""
 
 #: src/panel/price/ItemUi.js:111
 msgid "Costs per item"
-msgstr "每件成本"
+msgstr ""
 
 #: src/panel/media/MediaField.js:153 src/panel/media/MediaField.js:208
 #: src/elements/importbutton.js:63
 msgid "Could not upload file. Please notify your administrator"
-msgstr "无法上传文件。请通知管理员"
+msgstr ""
 
 #: src/panel/coupon/code/ListUi.js:54 src/panel/coupon/code/ItemUi.js:66
 msgid "Count"
@@ -265,7 +263,7 @@ msgstr ""
 #: src/panel/order/address/DeliveryItemUi.js:89
 #: src/panel/order/address/ItemUi.js:104
 msgid "Country"
-msgstr "国家地区"
+msgstr ""
 
 #: src/panel/coupon/ListUi.js:27
 msgid "Coupon"
@@ -339,52 +337,52 @@ msgstr ""
 #: src/panel/order/service/ListUi.js:112 src/panel/order/service/ItemUi.js:95
 #: src/panel/log/ListUiSmall.js:101
 msgid "Created"
-msgstr "创建"
+msgstr ""
 
 #: src/panel/price/ListUiSmall.js:80 src/panel/price/ItemPickerUi.js:78
 #: src/panel/locale/ListUi.js:66 src/panel/locale/ItemUi.js:68
 #: src/panel/locale/currency/ListUi.js:32 src/panel/order/OrderItemUi.js:47
 #: src/elements/currency.js:11
 msgid "Currency"
-msgstr "货币"
+msgstr ""
 
 #: src/panel/price/ItemUi.js:88 src/panel/locale/ItemUi.js:71
 msgid "Currency (required)"
-msgstr "货币(必填)"
+msgstr ""
 
 #: src/panel/order/OrderItemUi.js:43 src/elements/domain.js:49
 msgid "Customer"
-msgstr "客户"
+msgstr ""
 
 #: src/panel/log/ListUiSmall.js:65
 msgid "Date"
-msgstr "日期"
+msgstr ""
 
 #: src/panel/product/stock/ListUiSmall.js:100
 msgid "Date back"
-msgstr "追溯到"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:45 src/panel/AbstractListUi.js:155
 #: src/panel/ConfigUi.js:46 src/elements/exportlanguage.js:159
 msgid "Delete"
-msgstr "删除"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:254 src/panel/AbstractTreeUi.js:224
 #: src/elements/exportlanguage.js:290
 msgid "Delete items?"
-msgstr "删除项目？"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:11
 msgid "Delivery address"
-msgstr "送货地址"
+msgstr ""
 
 #: src/panel/order/ListUi.js:71 src/panel/order/ItemUi.js:85
 msgid "Delivery date"
-msgstr "送货日期"
+msgstr ""
 
 #: src/panel/order/ListUi.js:78 src/panel/order/ItemUi.js:91
 msgid "Delivery status"
-msgstr "配送状态"
+msgstr ""
 
 #: src/panel/plugin/ItemUi.js:33 src/panel/cache/ItemUi.js:36
 #: src/panel/job/ItemUi.js:35 src/panel/attribute/ItemUi.js:51
@@ -392,27 +390,27 @@ msgstr "配送状态"
 #: src/panel/product/ItemUi.js:37 src/panel/order/product/ItemUi.js:44
 #: src/panel/order/service/ItemUi.js:44
 msgid "Details"
-msgstr "明细"
+msgstr ""
 
 #: src/panel/AbstractListItemPickerUi.js:285
 msgid "Display field is empty"
-msgstr "显示字段为空"
+msgstr ""
 
 #: src/panel/plugin/type/ListUi.js:64 src/panel/attribute/type/ListUi.js:64
 #: src/panel/price/type/ListUi.js:64 src/panel/product/type/ListUi.js:62
 #: src/panel/text/type/ListUi.js:61 src/panel/service/type/ListUi.js:62
 #: src/panel/media/type/ListUi.js:64 src/elements/domain.js:10
 msgid "Domain"
-msgstr "域"
+msgstr ""
 
 #: src/elements/domain.js:15
 msgid "Domain (required)"
-msgstr "域(必填)"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:101
 #: src/panel/order/address/ItemUi.js:116
 msgid "E-Mail"
-msgstr "电子邮件"
+msgstr ""
 
 #: src/panel/product/ItemUi.js:85
 msgid "EAN, SKU or article number (required)"
@@ -420,7 +418,7 @@ msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:39 src/panel/AbstractListUi.js:143
 msgid "Edit"
-msgstr "编辑"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:123 src/panel/plugin/ItemUi.js:105
 #: src/panel/plugin/type/ListUi.js:102 src/panel/job/ListUiSmall.js:138
@@ -462,7 +460,7 @@ msgstr "编辑"
 #: src/panel/order/service/ListUi.js:128 src/panel/order/service/ItemUi.js:103
 #: src/panel/log/ListUiSmall.js:117
 msgid "Editor"
-msgstr "编辑者"
+msgstr ""
 
 #: src/panel/ListItemListUi.js:187 src/panel/product/ListUiSmall.js:81
 #: src/panel/product/ListUi.js:95 src/panel/product/ItemUi.js:113
@@ -471,12 +469,12 @@ msgstr "编辑者"
 #: src/panel/coupon/ItemUi.js:82 src/panel/coupon/code/ListUi.js:67
 #: src/panel/coupon/code/ItemUi.js:79 src/panel/ListItemItemUi.js:57
 msgid "End date"
-msgstr "结束日期"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:341 src/panel/AbstractUsedByListUi.js:173
 #: src/elements/exportlanguage.js:393
 msgid "Error"
-msgstr "错误"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:90 src/panel/cache/ItemUi.js:60
 msgid "Expires"
@@ -484,15 +482,15 @@ msgstr ""
 
 #: src/panel/AbstractListUi.js:161 src/elements/exportlanguage.js:328
 msgid "Export"
-msgstr "导出"
+msgstr ""
 
 #: src/elements/exportlanguage.js:445
 msgid "Export successful"
-msgstr "导出成功"
+msgstr ""
 
 #: src/panel/log/ListUiSmall.js:59
 msgid "Facility"
-msgstr "设施"
+msgstr ""
 
 #: src/panel/media/ItemUi.js:100
 msgid "File URL"
@@ -501,7 +499,7 @@ msgstr ""
 #: src/panel/order/address/DeliveryItemUi.js:57
 #: src/panel/order/address/ItemUi.js:72
 msgid "Firstname"
-msgstr "名"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:51
 msgid "Flush"
@@ -553,15 +551,15 @@ msgstr ""
 #: src/panel/log/ListUiSmall.js:53 src/elements/exportlanguage.js:79
 #: src/elements/exportlanguage.js:105
 msgid "ID"
-msgstr "编码"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:167
 msgid "Import"
-msgstr "导入"
+msgstr ""
 
 #: src/panel/text/ItemUi.js:79
 msgid "Internal name"
-msgstr "内部名称"
+msgstr ""
 
 #: src/panel/plugin/ItemUi.js:87 src/panel/job/ItemUi.js:61
 #: src/panel/attribute/ItemUi.js:96 src/panel/catalog/ItemUi.js:72
@@ -573,12 +571,12 @@ msgstr "内部名称"
 #: src/panel/locale/language/ItemUi.js:73 src/panel/service/ItemUi.js:85
 #: src/panel/media/ItemUi.js:92
 msgid "Internal name (required)"
-msgstr "内部名称(必填)"
+msgstr ""
 
 #: src/panel/AbstractTreeUi.js:299
 #, python-brace-format
 msgid "Invalid action \"{0}\""
-msgstr "无效操作 \"{0}\""
+msgstr ""
 
 #: src/panel/catalog/ItemUi.js:121 src/panel/product/stock/ItemUi.js:123
 #: src/panel/locale/site/ItemUi.js:121 src/panel/ConfigUi.js:122
@@ -586,7 +584,7 @@ msgstr "无效操作 \"{0}\""
 #: src/panel/AbstractListItemUi.js:71 src/panel/AbstractTreeItemUi.js:25
 #: src/panel/ListItemItemUi.js:77 src/panel/ListItemItemUi.js:117
 msgid "Invalid data"
-msgstr "无效数据"
+msgstr ""
 
 #: src/panel/ConfigUi.js:123
 #, python-brace-format
@@ -595,11 +593,11 @@ msgstr ""
 
 #: src/panel/attribute/ItemUi.js:99
 msgid "Item position within the same type"
-msgstr "相同类型的物品的位置"
+msgstr ""
 
 #: src/panel/job/ItemUi.js:12
 msgid "Job item details"
-msgstr "任务明细"
+msgstr ""
 
 #: src/panel/job/ListUiSmall.js:32
 msgid "Jobs"
@@ -636,7 +634,7 @@ msgstr ""
 #: src/panel/media/type/ListUi.js:78 src/panel/media/ItemPickerUi.js:87
 #: src/elements/exportlanguage.js:85 src/elements/exportlanguage.js:113
 msgid "Label"
-msgstr "标签"
+msgstr ""
 
 #: src/panel/product/tag/ListUiSmall.js:46
 #: src/panel/product/tag/ItemPickerUi.js:59 src/panel/locale/ListUi.js:59
@@ -646,11 +644,11 @@ msgstr "标签"
 #: src/elements/language.js:10 src/elements/siteLanguage.js:10
 #: src/elements/siteLanguage.js:17
 msgid "Language"
-msgstr "语言"
+msgstr ""
 
 #: src/panel/locale/ItemUi.js:65
 msgid "Language (required)"
-msgstr "语言(必选)"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:115 src/panel/plugin/ItemUi.js:101
 #: src/panel/plugin/type/ListUi.js:93 src/panel/job/ListUiSmall.js:129
@@ -692,12 +690,12 @@ msgstr "语言(必选)"
 #: src/panel/order/service/ListUi.js:120 src/panel/order/service/ItemUi.js:99
 #: src/panel/log/ListUiSmall.js:109
 msgid "Last modified"
-msgstr "最后修改"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:61
 #: src/panel/order/address/ItemUi.js:76
 msgid "Lastname"
-msgstr "姓"
+msgstr ""
 
 #: src/panel/locale/ListUi.js:32
 msgid "List"
@@ -706,45 +704,45 @@ msgstr ""
 #: src/panel/product/UsedByCatalogListUi.js:58
 #: src/panel/product/UsedByProductListUi.js:37
 msgid "List ID"
-msgstr "列表ID"
+msgstr ""
 
 #: src/panel/ListItemListUi.js:166
 msgid "List Status"
-msgstr "列表状态"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:100
 #: src/panel/product/UsedByProductListUi.js:88
 msgid "List creation time"
-msgstr "列表创建时间"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:118
 #: src/panel/product/UsedByProductListUi.js:97
 msgid "List editor"
-msgstr "列表编辑者"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:84
 #: src/panel/product/UsedByProductListUi.js:63
 msgid "List end date"
-msgstr "列表结束日期"
+msgstr ""
 
 #: src/panel/ListItemItemUi.js:14
 msgid "List item details"
-msgstr "列表选项明细"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:109
 #: src/panel/product/UsedByProductListUi.js:79
 msgid "List modification time"
-msgstr "列表修改时间"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:92
 #: src/panel/product/UsedByProductListUi.js:71
 msgid "List position"
-msgstr "列表位置"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:76
 #: src/panel/product/UsedByProductListUi.js:55
 msgid "List start date"
-msgstr "列表开始日期"
+msgstr ""
 
 #: src/panel/attribute/ItemPickerUi.js:40 src/panel/price/ItemPickerUi.js:40
 #: src/panel/product/UsedByCatalogListUi.js:66
@@ -754,11 +752,11 @@ msgstr "列表开始日期"
 #: src/panel/media/ItemPickerUi.js:40 src/panel/ListItemItemUi.js:36
 #: src/panel/ListItemItemUi.js:47
 msgid "List type"
-msgstr "列表类型"
+msgstr ""
 
 #: src/panel/media/MediaField.js:59 src/elements/importbutton.js:24
 msgid "Loading"
-msgstr "加载"
+msgstr ""
 
 #: src/panel/locale/TabUi.js:23
 msgid "Locale"

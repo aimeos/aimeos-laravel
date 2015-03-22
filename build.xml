@@ -7,7 +7,7 @@
 
 
 	<target name="update" description="Updates the bundle">
-		<!-- exec command="git pull https://github.com/aimeos/aimeos-laravel.git" checkreturn="true" logoutput="true" / -->
+		<exec command="git pull https://github.com/aimeos/aimeos-laravel.git" checkreturn="true" logoutput="true" />
 		<exec command="composer update --working-dir ${project.basedir}" checkreturn="true" logoutput="true" />
 		<copy todir="public/client/extjs/">
 			<fileset dir="${coredir}/client/extjs/" expandsymboliclinks="true" />
