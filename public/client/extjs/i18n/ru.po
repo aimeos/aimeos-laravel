@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Arcavias Core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2014-08-11 07:06+0000\n"
+"PO-Revision-Date: 2014-11-11 11:27+0000\n"
 "Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/arcavias-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -186,7 +186,7 @@ msgstr "Город"
 
 #: src/panel/media/MediaField.js:64
 msgid "Click to upload"
-msgstr "Нажмите для обновления"
+msgstr "Нажмите для загрузки"
 
 #: src/panel/plugin/type/ListUi.js:69 src/panel/attribute/ListUiSmall.js:71
 #: src/panel/attribute/ListUi.js:66 src/panel/attribute/ItemUi.js:85
@@ -595,7 +595,7 @@ msgstr "Неверное значение ключа настройки \"{0}\""
 
 #: src/panel/attribute/ItemUi.js:99
 msgid "Item position within the same type"
-msgstr "Элемент находится внутри того же типа"
+msgstr "Позиция элемента среди однотипных"
 
 #: src/panel/job/ItemUi.js:12
 msgid "Job item details"

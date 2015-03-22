@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# nsendetzky <n.sendetzky@metaways.de>, 2014
-# nsendetzky <n.sendetzky@metaways.de>, 2014
+# nsendetzky, 2014
+# nsendetzky, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Arcavias Core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2014-08-06 14:31+0000\n"
-"Last-Translator: nsendetzky <n.sendetzky@metaways.de>\n"
+"PO-Revision-Date: 2015-01-27 13:03+0000\n"
+"Last-Translator: Daniel Hoffmann <d.hoffmann@metaways.de>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/arcavias-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

@@ -30,7 +30,7 @@
  * Aimeos common actions
  */
 Aimeos = {
-	
+
 	/**
 	 * Creates a floating container over the page displaying the given content node
 	 */
@@ -63,7 +63,7 @@ Aimeos = {
 	    $(window).on("resize", resize);
 	    resize();
 	},
-	
+
 
 	/**
 	 *  Adds an overlay on top of the current page
@@ -75,8 +75,8 @@ Aimeos = {
 	    overlay.fadeTo(1000, 0.5);
 	    $("body").append(overlay);
 	},
-	
-	
+
+
 	/**
 	 * Removes an existing overlay from the current page
 	 */
@@ -95,7 +95,7 @@ Aimeos = {
 
 	    return true;
 	},
-	
+
 
 	/**
 	 * Lazy load product image in list views
@@ -113,8 +113,8 @@ Aimeos = {
 	        }
 	    }
 	},
-	
-	
+
+
 	/**
 	 * Sets up the ways to close the container by the user
 	 */
@@ -124,7 +124,7 @@ Aimeos = {
 		$("body").on("click", ".aimeos-container .btn-close", function(ev) {
 		    return Aimeos.removeOverlay();
 		});
-		
+
 		/* Go back to underlying page when ESC is pressed */
 		$("body").on("keydown", function(ev) {
 		    if(ev.which == 27) {
@@ -155,25 +155,25 @@ AimeosAccountFavorite = {
 	 * Deletes a favorite item without page reload
 	 */
 	setupProductRemoval: function() {
-	
+
 		$("body").on("click", ".account-favorite a.modify", function(ev) {
-	
+
 		    var item = $(this).parents("favorite-item");
 		    item.addClass("loading");
-	
+
 		    $.get($(this).attr("href"), function(data) {
-	
+
 		        var doc = document.createElement("html");
 		        doc.innerHTML = data;
-	
+
 		        $(".account-favorite").html($(".account-favorite", doc).html());
 		    });
-	
+
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Initializes the account favorite actions
 	 */
@@ -195,50 +195,50 @@ AimeosAccountHistory = {
 	 * Shows order details without page reload
 	 */
 	setupOrderShow: function() {
-	
+
 		$(".account-history .history-item").on("click", "a", function(ev) {
-		
-		    var details = $(".account-history-detail", ev.delegateTarget);
-		
+
+		    var details = $(".account-history-order", ev.delegateTarget);
+
 		    if(details.length === 0) {
-		
+
 		        $.get($(this).attr("href"), function(data) {
-		
+
 		            var doc = document.createElement("html");
 		            doc.innerHTML = data;
-		
-		            var node = $(".account-history-detail", doc);
+
+		            var node = $(".account-history-order", doc);
 		            node.css("display", "none");
 		            $(ev.delegateTarget).append(node);
 		            node.slideDown();
 		        });
-		
+
 		    } else {
 		        details.slideToggle();
 		    }
-		
+
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Closes the order details without page reload
 	 */
 	setupOrderClose: function() {
-	
+
 		$(".account-history .history-item").on("click", ".btn-close", function(ev) {
-		    $(".account-history-detail", ev.delegateTarget).slideUp();
+		    $(".account-history-order", ev.delegateTarget).slideUp();
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Initializes the account history actions
 	 */
 	init: function() {
-		
+
 		this.setupOrderShow();
 		this.setupOrderClose();
 	}
@@ -256,53 +256,53 @@ AimeosAccountWatch = {
 	 * Deletes a watched item without page reload
 	 */
 	setupProductRemoval: function() {
-	
+
 		$("body").on("click", ".account-watch a.modify", function(ev) {
-		
+
 		    var item = $(this).parents("watch-item");
 		    item.addClass("loading");
-		
+
 		    $.get($(this).attr("href"), function(data) {
-		
+
 		        var doc = document.createElement("html");
 		        doc.innerHTML = data;
-		
+
 		        $(".account-watch").html($(".account-watch", doc).html());
 		    });
-		
+
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Saves a modifed watched item without page reload
 	 */
 	setupProductSave: function() {
-	
+
 		$("body").on("click", ".account-watch .standardbutton", function(ev) {
-		
+
 		    var form = $(this).parents("form.watch-details");
 		    form.addClass("loading");
-		
+
 		    $.post(form.attr("action"), form.serialize(), function(data) {
-		
+
 		        var doc = document.createElement("html");
 		        doc.innerHTML = data;
-		
+
 		        $(".account-watch").html($(".account-watch", doc).html());
 		    });
-		
+
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Initializes the account watch actions
 	 */
 	init: function() {
-		
+
 		this.setupProductRemoval();
 		this.setupProductSave();
 	}
@@ -353,82 +353,82 @@ AimeosBasketStandard = {
 	 * Updates the basket without page reload
 	 */
 	updateBasket: function(data) {
-	
+
 	    var doc = document.createElement("html");
 	    doc.innerHTML = data;
-	
+
 	    var basket = $(".basket-standard", doc);
-	
+
 	    $(".btn-update", basket).hide();
 	    $(".basket-mini-main .value").text($(".basket .total .price", basket).text());
 	    $(".basket-mini-main .quantity").text($(".basket .quantity .value", basket).text());
-	
+
 	    return basket;
 	},
-	
-	
+
+
 	/**
 	 * Goes back to underlying page when back or close button of the basket is clicked
 	 */
 	setupBasketBack: function() {
-	
+
 		$("body").on("click", ".basket-standard .btn-back", function(ev) {
 		    return Aimeos.removeOverlay();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Hides the update button and show only on quantity change
 	 */
 	setupUpdateHide: function() {
-	
+
 		$(".basket-standard .btn-update").hide();
-	
+
 		$("body").on("focusin", ".basket-standard .basket .product .quantity .value", {}, function(ev) {
 		    $(".btn-update", ev.delegateTarget).show();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Updates basket without page reload
 	 */
 	setupUpdateSubmit: function() {
-		
+
 		$("body").on("submit", ".basket-standard form", function(ev) {
 		    var form = $(this);
-		
+
 		    $.post(form.attr("action"), form.serialize(), function(data) {
 		        $(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
 		    });
-		
+
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Updates quantity and deletes products without page reload
 	 */
 	setupUpdateChange: function() {
-		
+
 		$("body").on("click", ".basket-standard a.change", function(ev) {
-		
+
 		    $.post($(this).attr("href"), function(data) {
 		        $(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
 		    });
-		
+
 		    return false;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Initializes the basket standard actions
 	 */
 	init: function() {
-		
+
 		this.setupBasketBack();
 		this.setupUpdateHide();
 		this.setupUpdateSubmit();
@@ -449,23 +449,23 @@ AimeosCatalogFilter = {
 	 * Autocompleter for quick search
 	 */
 	setupSearchAutocompletion: function() {
-	
+
 		var aimeosInputComplete = $(".catalog-filter-search .value");
-		
+
 		aimeosInputComplete.autocomplete({
 		    minLength : 3,
 		    delay : 200,
 		    source : function(req, add) {
 		        var nameTerm = {};
 		        nameTerm[aimeosInputComplete.attr("name")] = req.term;
-		
+
 		        $.getJSON(aimeosInputComplete.data("url"), nameTerm, function(data) {
 		            var suggestions = [];
-		
+
 		            $.each(data, function(idx, val) {
 		                suggestions.push(val.name);
 		            });
-		
+
 		            add(suggestions);
 		        });
 		    },
@@ -475,126 +475,126 @@ AimeosCatalogFilter = {
 		    }
 		});
 	},
-	
-	
+
+
 	/**
 	 * Sets up the form checks
 	 */
 	setupFormChecks: function() {
-	
+
 		$(".catalog-filter form").on("submit", function(ev) {
-		
+
 		    var result = true;
 		    var form = $(this);
-		
+
 		    $("input.value", this).each(function() {
-		
+
 		        var input = $(this);
-		
+
 		        if(input.val() !== '' && input.val().length < 3) {
-		
+
 		            if($(this).has(".search-hint").length === 0) {
-		
+
 		                var node = $('<div/>', {
 		                    html : input.data("hint"),
 		                    class : "search-hint"
 		                });
 		                $(".catalog-filter-search", form).after(node);
-		
+
 		                var pos = node.position();
 		                node.css("left", pos.left).css("top", pos.top);
 		                node.delay(3000).fadeOut(1000, function() {
 		                    node.remove();
 		                });
 		            }
-		
+
 		            result = false;
 		        }
 		    });
-		
+
 		    return result;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Sets up the fade out of the catalog list
 	 */
 	setupListFadeout: function() {
-	
+
 		$(".catalog-filter-tree li.cat-item").on("click", function() {
 		    $(".catalog-list").fadeTo(1000, 0.5);
 		});
 	},
-	
-	
+
+
 	/**
 	 * Toggles the categories if hover isn't available
 	 */
 	setupCategoryToggle: function() {
-	
+
 		$(".catalog-filter-tree").on("click", "h2", function(ev) {
 		    $("> ul", ev.delegateTarget).slideToggle();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Toggles the attribute filters if hover isn't available
 	 */
 	setupAttributeToggle: function() {
-	
+
 		$(".catalog-filter-attribute").on("click", "h2", function(ev) {
 		    $(".attribute-lists", ev.delegateTarget).slideToggle();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Toggles the attribute filters if hover isn't available
 	 */
 	setupAttributeListsToggle: function() {
-	
+
 		$(".catalog-filter-attribute .attribute-lists .attr-list").hide();
-	
+
 		$(".catalog-filter-attribute fieldset").on("click", "legend", function(ev) {
 		    $(".attr-list", ev.delegateTarget).slideToggle();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Submits the form when clicking on filter attribute names or counts
 	 */
 	setupAttributeItemSubmit: function() {
-	
+
 		$(".catalog-filter-attribute li.attr-item").on("click", ".attr-name, .attr-count", function(ev) {
 		    var input = $("input", ev.delegateTarget);
 		    input.prop("checked") ? input.prop("checked", false) : input.prop("checked", true);
-		
+
 		    $(this).parents(".catalog-filter form").submit();
 		    $(".catalog-list").fadeTo(1000, 0.5);
 		});
 	},
-	
-	
+
+
 	/**
 	 * Submits the form when clicking on filter attribute input fields
 	 */
 	setupAttributeInputSubmit: function() {
-	
+
 		$(".catalog-filter-attribute input.attr-item").on("click", function() {
 		    $(this).parents(".catalog-filter form").submit();
 		    $(".catalog-list").fadeTo(1000, 0.5);
 		});
 	},
-	
-	
+
+
 	/**
 	 * Initialize the catalog filter actions
 	 */
 	init: function() {
-		
+
 		this.setupCategoryToggle();
 		this.setupAttributeToggle();
 		this.setupAttributeListsToggle();
@@ -621,31 +621,31 @@ AimeosCatalogList = {
 	 * Switches product images on hover
 	 */
 	setupImageSwitch: function() {
-	
+
 		$(".aimeos .product .media-list").on("mouseenter", function() {
 		    var list = $(".media-item", this);
-		
+
 		    if( list.length > 1 ) {
 		        var second = list.eq(1);
 		        var size = $(this).height();
-		
+
 		        $(this).css("background-image", "none"); // Don't let default image shine through
 		        second.css("background-image", "url('" + second.data("src") + "')");
 		        second.fadeTo(0, 0.33);
-		
+
 		        list.first().fadeTo(400, 0.33, function() {
 		            list.css('top', -size);
 		            second.fadeTo(400, 1);
 		        });
 		    }
 		});
-	
+
 		$(".aimeos .product .media-list").on("mouseleave", function() {
 		    var list = $(".media-item", this);
-		
+
 		    if( list.length > 1 ) {
 		    	list.first().css('opacity', 0.33);
-		
+
 		    	list.eq(1).fadeTo(400, 0.33, function() {
 		            list.css('top', 0);
 		            list.first().fadeTo(400, 1);
@@ -653,8 +653,8 @@ AimeosCatalogList = {
 		    }
 		});
 	},
-	
-	
+
+
 	/**
 	 * Initializes the catalog list actions
 	 */
@@ -671,7 +671,7 @@ AimeosCatalogList = {
  * Catalog session actions
  */
 AimeosCatalogSession = {
-		
+
 	/**
 	 * Initializes the catalog session actions
 	 */
@@ -687,7 +687,7 @@ AimeosCatalogSession = {
  * Catalog stage actions
  */
 AimeosCatalogStage = {
-		
+
 	/**
 	 * Initializes the catalog stage actions
 	 */
@@ -708,16 +708,16 @@ AimeosCheckoutStandard = {
 	 * Shows only selected address forms
 	 */
 		setupAddressForms: function() {
-		
+
 		$(".checkout-standard-address .item-address").has(".header input:not(:checked)").find(".form-list").hide();
-		
+
 		/* Initial state: Hide VAT ID if salution is not "company" */
 		$(".checkout-standard-address .form-list .salutation select").each(function(idx, elem) {
 		    if($(elem).val() !== "company") {
 		        $(this).parents(".form-list").find(".company,.vatid").hide();
 		    }
 		});
-	
+
 		/* Address form slide up/down when selected */
 		$(".checkout-standard-address-billing,.checkout-standard-address-delivery").on("click", ".header input",
 		    function(ev) {
@@ -725,67 +725,79 @@ AimeosCheckoutStandard = {
 		        $(".item-address", ev.delegateTarget).has(this).find(".form-list").slideDown(400);
 		    });
 	},
-	
-	
+
+
 	/**
 	 * Shows company and VAT ID fields if salutation is "company", otherwise
 	 * hide the fields
 	 */
 	setupSalutationCompany: function() {
-		
+
 		$(".checkout-standard-address .form-list").on("change", ".salutation select", function(ev) {
 		    var fields = $(".company,.vatid", ev.delegateTarget);
 		    $(this).val() === "company" ? fields.show() : fields.hide();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Shows states only from selected countries
 	 */
 	setupCountryState: function() {
-		
+
 		$(".checkout-standard-address .form-list .countryid select").each(function(idx, elem) {
 		    if($(this).val() !== "") {
 		        $(this).parents(".form-list").find(".state optgroup:not(." + $(this).val() + ")").hide();
 		    }
 		});
-	
+
 		$(".checkout-standard-address .form-list").on("change", ".countryid select", function(ev) {
 		    $(".state select", ev.delegateTarget).val("");
 		    $(".state optgroup", ev.delegateTarget).hide();
 		    $(".state ." + $(this).val(), ev.delegateTarget).show();
 		});
 	},
-	
-	
+
+
 	/**
 	 * Shows only form fields of selected service option
 	 */
 	setupServiceForms: function() {
-		
+
 		/* Hide form fields if delivery/payment option is not selected */
 		$(".checkout-standard-delivery,.checkout-standard-payment").each(function(idx, elem) {
 		    $(elem).find(".form-list").hide();
 		    $(elem).find(".item-service").has("input:checked").find(".form-list").show();
 		});
-	
+
 		/* Delivery/payment form slide up/down when selected */
 		$(".checkout-standard-delivery, .checkout-standard-payment .option").on("click", function(ev) {
 		    $(".checkout-standard .form-list").slideUp(400);
 		    $(".checkout-standard .item-service").has(this).find(".form-list").slideDown(400);
 		});
 	},
-	
-	
+
+
 	/**
 	 * Checks for mandatory fields in all forms
 	 */
 	setupMandatoryCheck: function() {
-	
+
+	    $(".checkout-standard .mandatory").on("blur", "input,select", function(ev) {
+	        var value = $(this).val();
+
+	        if(value !== "") {
+	            $(ev.delegateTarget).addClass("success");
+	            $(ev.delegateTarget).removeClass("error");
+	        } else {
+	            $(ev.delegateTarget).removeClass("success");
+	            $(ev.delegateTarget).addClass("error");
+	        }
+	    });
+
 		$(".checkout-standard form").on("submit", function(ev) {
 		    var retval = true;
-		
+
 		    $(".checkout-standard .item-new, .item-service").has(".header,label").has("input:checked") // combining in one has() doesn't work
 		    .find(".form-list .mandatory").each(function() {
 		        var value = $(this).find("input,select").val();
@@ -796,19 +808,19 @@ AimeosCheckoutStandard = {
 		            $(this).removeClass("error");
 		        }
 		    });
-		
+
 		    return retval;
 		});
 	},
-	
-	
+
+
 	/**
 	 * Redirect to payment provider / confirm page when order has been created successfully
 	 */
 	setupPaymentRedirect: function() {
-	
+
 		var aimeos_checkout_form = $(".checkout-standard-order-payment > form").first();
-	
+
 		if(aimeos_checkout_form.length === 0 || aimeos_checkout_form.submit() === false) {
 		    $(".checkout-standard-order-payment").first().each(function(index, element) {
 		        var url = $(element).data("url");
@@ -818,19 +830,19 @@ AimeosCheckoutStandard = {
 		    });
 		}
 	},
-	
-	
+
+
 	/**
 	 * Initializes the checkout standard section
 	 */
 	init: function() {
-		
+
 		this.setupAddressForms();
 		this.setupServiceForms();
-	
+
 		this.setupSalutationCompany();
 		this.setupCountryState();
-		
+
 		this.setupMandatoryCheck();
 		this.setupPaymentRedirect();
 	}
@@ -844,7 +856,7 @@ AimeosCheckoutStandard = {
  * Checkout confirm client actions
  */
 AimeosCheckoutConfirm = {
-		
+
 	/**
 	 * Initializes the checkout confirm section
 	 */
