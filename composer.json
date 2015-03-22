@@ -26,6 +26,7 @@
     "require": {
         "php": ">=5.3.0",
         "doctrine/dbal": "~2.5",
+	"laravel/framework": "~5.0",
         "arcavias/arcavias-core": "dev-master",
         "aimeos/ai-swiftmailer": "dev-master",
         "aimeos/ai-zend2-i18n": "dev-master",
