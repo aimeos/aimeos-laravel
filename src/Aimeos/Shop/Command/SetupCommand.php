@@ -63,7 +63,7 @@ class SetupCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$ctx = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( array(), false );
+		$ctx = $this->getLaravel()->make( '\Aimeos\Shop\Base\Context' )->get( array(), false );
 		$ctx->setEditor( 'aimeos:setup' );
 
 		$config = $ctx->getConfig();
@@ -73,7 +73,7 @@ class SetupCommand extends AbstractCommand
 		$dbconfig = $this->getDbConfig( $config );
 		$this->setOptions( $config );
 
-		$taskPaths = $this->getLaravel()->make( 'Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $site );
+		$taskPaths = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $site );
 
 		$includePaths = $taskPaths;
 		$includePaths[] = get_include_path();

@@ -32,6 +32,7 @@ class ShopServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom($basedir.'views', 'shop');
 
 		$this->publishes(array(
+			$basedir.'config/shop.php' => config_path('shop.php'),
 			$basedir.'database/migrations' => base_path('database/migrations'),
 			$basedir.'views' => base_path('resources/views/vendor/aimeos/shop'),
 			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),

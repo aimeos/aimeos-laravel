@@ -28,7 +28,7 @@ class CheckoutController extends Controller
 	 */
 	public function confirmAction()
 	{
-		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'checkout-confirm' );
+		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-confirm' );
 		return \View::make('shop::checkout.confirm', $params);
 	}
 
@@ -40,7 +40,7 @@ class CheckoutController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'checkout-index' );
+		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-index' );
 		return \View::make('shop::checkout.index', $params);
 	}
 
@@ -52,7 +52,7 @@ class CheckoutController extends Controller
 	 */
 	public function updateAction()
 	{
-		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'checkout-update' );
+		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-update' );
 		return \View::make('shop::checkout.update', $params);
 	}
 }

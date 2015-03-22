@@ -29,10 +29,10 @@ class AdminController extends Controller
 	 */
 	public function indexAction( $site = 'default', $lang = 'en', $tab = 0 )
 	{
-		$aimeos = app( 'Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
-		$context = app( 'Aimeos\Shop\Base\Context' )->get( array(), false );
+		$context = app( '\Aimeos\Shop\Base\Context' )->get( array(), false );
 		$context = $this->setLocale( $context, $lang );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
@@ -86,10 +86,10 @@ class AdminController extends Controller
 	 */
 	public function doAction()
 	{
-		$aimeos = app( 'Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
-		$context = app( 'Aimeos\Shop\Base\Context' )->get( array(), false );
+		$context = app( '\Aimeos\Shop\Base\Context' )->get( array(), false );
 		$context = $this->setLocale( $context );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
@@ -107,7 +107,7 @@ class AdminController extends Controller
 	 */
 	protected function getJsonLanguages( \MShop_Context_Item_Interface $context )
 	{
-		$paths = app( 'Aimeos\Shop\Base\Aimeos' )->get()->getI18nPaths();
+		$paths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getI18nPaths();
 		$langs = array();
 
 		if( !isset( $paths['client/extjs'] ) ) {

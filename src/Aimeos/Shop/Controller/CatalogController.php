@@ -28,7 +28,7 @@ class CatalogController extends Controller
 	 */
 	public function countAction()
 	{
-		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-count' );
+		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'catalog-count' );
 		$contents = \View::make('shop::catalog.count', $params);
 
 		$response = \Response::make($contents, 200);

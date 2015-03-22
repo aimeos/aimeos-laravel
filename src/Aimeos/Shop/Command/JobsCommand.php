@@ -37,7 +37,7 @@ class JobsCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$aimeos = $this->getLaravel()->make( 'Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$context = $this->getContext();
 
 		$jobs = explode( ' ', $this->argument( 'jobs' ) );
@@ -88,13 +88,15 @@ class JobsCommand extends AbstractCommand
 	 */
 	protected function getContext()
 	{
-		$tmplPaths = $this->getLaravel()->make( 'Aimeos\Shop\Base\Aimeos' )->get()->getCustomPaths( 'controller/jobs/layouts' );
-		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( $tmplPaths, false );
-		$view = $this->getLaravel()->make( 'Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
+		$lv = $this->getLaravel();
+
+		$tmplPaths = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getCustomPaths( 'controller/jobs/layouts' );
+		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( $tmplPaths, false );
+		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
 
 		$langManager = \MShop_Locale_Manager_Factory::createManager( $context )->getSubManager( 'language' );
 		$langids = array_keys( $langManager->searchItems( $langManager->createSearch( true ) ) );
-		$i18n = $this->getLaravel()->make( 'Aimeos\Shop\Base\I18n' )->get( $langids );
+		$i18n = $lv->make( '\Aimeos\Shop\Base\I18n' )->get( $langids );
 
 		$context->setEditor( 'aimeos:jobs' );
 		$context->setView( $view );

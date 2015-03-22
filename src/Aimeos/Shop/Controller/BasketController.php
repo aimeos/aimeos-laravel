@@ -28,7 +28,7 @@ class BasketController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'basket-index' );
+		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'basket-index' );
 		return \View::make('shop::basket.index', $params);
 	}
 }

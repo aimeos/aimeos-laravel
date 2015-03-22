@@ -37,7 +37,7 @@ class View
 
 			$fixed = $this->getFixedParams();
 
-			$i18n = app('Aimeos\Shop\Base\I18n')->get( array( $locale ) );
+			$i18n = app('\Aimeos\Shop\Base\I18n')->get( array( $locale ) );
 			$translation = $i18n[$locale];
 		}
 		else
