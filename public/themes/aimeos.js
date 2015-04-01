@@ -36,32 +36,32 @@ Aimeos = {
 	 */
 	createContainer: function(content) {
 
-	    var container = $(document.createElement("div"));
-	    var btnclose = $(document.createElement("a"));
+		var container = $(document.createElement("div"));
+		var btnclose = $(document.createElement("a"));
 
-	    btnclose.text("X");
-	    btnclose.addClass("minibutton");
-	    btnclose.addClass("btn-close");
+		btnclose.text("X");
+		btnclose.addClass("minibutton");
+		btnclose.addClass("btn-close");
 
-	    container.addClass("aimeos-container");
-	    container.addClass("aimeos");
-	    container.prepend(btnclose);
-	    container.fadeTo(400, 1.0);
-	    container.append(content);
+		container.addClass("aimeos-container");
+		container.addClass("aimeos");
+		container.prepend(btnclose);
+		container.fadeTo(400, 1.0);
+		container.append(content);
 
-	    $("body").append(container);
+		$("body").append(container);
 
-	    var resize = function() {
-	        var jqwin = $(window);
-	        var left = (jqwin.width() - container.outerWidth()) / 2;
-	        var top = jqwin.scrollTop() + (jqwin.height() - container.outerHeight()) / 2;
+		var resize = function() {
+			var jqwin = $(window);
+			var left = (jqwin.width() - container.outerWidth()) / 2;
+			var top = jqwin.scrollTop() + (jqwin.height() - container.outerHeight()) / 2;
 
-	        container.css("left", (left > 0 ? left : 0));
-	        container.css("top", (top > 0 ? top : 0));
-	    };
+			container.css("left", (left > 0 ? left : 0));
+			container.css("top", (top > 0 ? top : 0));
+		};
 
-	    $(window).on("resize", resize);
-	    resize();
+		$(window).on("resize", resize);
+		resize();
 	},
 
 
@@ -70,10 +70,10 @@ Aimeos = {
 	 */
 	createOverlay: function() {
 
-	    var overlay = $(document.createElement("div"));
-	    overlay.addClass("aimeos-overlay");
-	    overlay.fadeTo(1000, 0.5);
-	    $("body").append(overlay);
+		var overlay = $(document.createElement("div"));
+		overlay.addClass("aimeos-overlay");
+		overlay.fadeTo(1000, 0.5);
+		$("body").append(overlay);
 	},
 
 
@@ -82,18 +82,18 @@ Aimeos = {
 	 */
 	removeOverlay: function() {
 
-	    var container = $(".aimeos-container");
-	    var overlay = $(".aimeos-overlay");
+		var container = $(".aimeos-container");
+		var overlay = $(".aimeos-overlay");
 
-	    // remove only if in overlay mode
-	    if(container.size() + overlay.size() > 0) {
+		// remove only if in overlay mode
+		if(container.size() + overlay.size() > 0) {
 
-	        container.remove();
-	        overlay.remove();
-	        return false;
-	    }
+			container.remove();
+			overlay.remove();
+			return false;
+		}
 
-	    return true;
+		return true;
 	},
 
 
@@ -102,16 +102,16 @@ Aimeos = {
 	 */
 	loadImages: function() {
 
-	    var elements = $(".catalog-list-items .lazy-image, .catalog-list-promo .lazy-image");
+		var elements = $(".catalog-list-items .lazy-image, .catalog-list-promo .lazy-image");
 
-	    for( var i = 0; i < elements.length; i++) {
-	        var element = $(elements[i]);
-	        
-	        if($(window).scrollTop() + $(window).height() + 2 * element.height() >= element.offset().top) {
-	            element.css("background-image", "url('" + element.data("src") + "')");
-	            element.removeClass("lazy-image");
-	        }
-	    }
+		for( var i = 0; i < elements.length; i++) {
+			var element = $(elements[i]);
+
+			if($(window).scrollTop() + $(window).height() + 2 * element.height() >= element.offset().top) {
+				element.css("background-image", "url('" + element.data("src") + "')");
+				element.removeClass("lazy-image");
+			}
+		}
 	},
 
 
@@ -122,14 +122,14 @@ Aimeos = {
 
 		/* Go back to underlying page when back or close button is clicked */
 		$("body").on("click", ".aimeos-container .btn-close", function(ev) {
-		    return Aimeos.removeOverlay();
+			return Aimeos.removeOverlay();
 		});
 
 		/* Go back to underlying page when ESC is pressed */
 		$("body").on("keydown", function(ev) {
-		    if(ev.which == 27) {
-		        return Aimeos.removeOverlay();
-		    }
+			if(ev.which == 27) {
+				return Aimeos.removeOverlay();
+			}
 		});
 	},
 
@@ -158,18 +158,18 @@ AimeosAccountFavorite = {
 
 		$("body").on("click", ".account-favorite a.modify", function(ev) {
 
-		    var item = $(this).parents("favorite-item");
-		    item.addClass("loading");
+			var item = $(this).parents("favorite-item");
+			item.addClass("loading");
 
-		    $.get($(this).attr("href"), function(data) {
+			$.get($(this).attr("href"), function(data) {
 
-		        var doc = document.createElement("html");
-		        doc.innerHTML = data;
+				var doc = document.createElement("html");
+				doc.innerHTML = data;
 
-		        $(".account-favorite").html($(".account-favorite", doc).html());
-		    });
+				$(".account-favorite").html($(".account-favorite", doc).html());
+			});
 
-		    return false;
+			return false;
 		});
 	},
 
@@ -198,26 +198,26 @@ AimeosAccountHistory = {
 
 		$(".account-history .history-item").on("click", "a", function(ev) {
 
-		    var details = $(".account-history-order", ev.delegateTarget);
+			var details = $(".account-history-order", ev.delegateTarget);
 
-		    if(details.length === 0) {
+			if(details.length === 0) {
 
-		        $.get($(this).attr("href"), function(data) {
+				$.get($(this).attr("href"), function(data) {
 
-		            var doc = document.createElement("html");
-		            doc.innerHTML = data;
+					var doc = document.createElement("html");
+					doc.innerHTML = data;
 
-		            var node = $(".account-history-order", doc);
-		            node.css("display", "none");
-		            $(ev.delegateTarget).append(node);
-		            node.slideDown();
-		        });
+					var node = $(".account-history-order", doc);
+					node.css("display", "none");
+					$(ev.delegateTarget).append(node);
+					node.slideDown();
+				});
 
-		    } else {
-		        details.slideToggle();
-		    }
+			} else {
+				details.slideToggle();
+			}
 
-		    return false;
+			return false;
 		});
 	},
 
@@ -228,8 +228,8 @@ AimeosAccountHistory = {
 	setupOrderClose: function() {
 
 		$(".account-history .history-item").on("click", ".btn-close", function(ev) {
-		    $(".account-history-order", ev.delegateTarget).slideUp();
-		    return false;
+			$(".account-history-order", ev.delegateTarget).slideUp();
+			return false;
 		});
 	},
 
@@ -259,18 +259,18 @@ AimeosAccountWatch = {
 
 		$("body").on("click", ".account-watch a.modify", function(ev) {
 
-		    var item = $(this).parents("watch-item");
-		    item.addClass("loading");
+			var item = $(this).parents("watch-item");
+			item.addClass("loading");
 
-		    $.get($(this).attr("href"), function(data) {
+			$.get($(this).attr("href"), function(data) {
 
-		        var doc = document.createElement("html");
-		        doc.innerHTML = data;
+				var doc = document.createElement("html");
+				doc.innerHTML = data;
 
-		        $(".account-watch").html($(".account-watch", doc).html());
-		    });
+				$(".account-watch").html($(".account-watch", doc).html());
+			});
 
-		    return false;
+			return false;
 		});
 	},
 
@@ -282,18 +282,18 @@ AimeosAccountWatch = {
 
 		$("body").on("click", ".account-watch .standardbutton", function(ev) {
 
-		    var form = $(this).parents("form.watch-details");
-		    form.addClass("loading");
+			var form = $(this).parents("form.watch-details");
+			form.addClass("loading");
 
-		    $.post(form.attr("action"), form.serialize(), function(data) {
+			$.post(form.attr("action"), form.serialize(), function(data) {
 
-		        var doc = document.createElement("html");
-		        doc.innerHTML = data;
+				var doc = document.createElement("html");
+				doc.innerHTML = data;
 
-		        $(".account-watch").html($(".account-watch", doc).html());
-		    });
+				$(".account-watch").html($(".account-watch", doc).html());
+			});
 
-		    return false;
+			return false;
 		});
 	},
 
@@ -354,16 +354,16 @@ AimeosBasketStandard = {
 	 */
 	updateBasket: function(data) {
 
-	    var doc = document.createElement("html");
-	    doc.innerHTML = data;
+		var doc = document.createElement("html");
+		doc.innerHTML = data;
 
-	    var basket = $(".basket-standard", doc);
+		var basket = $(".basket-standard", doc);
 
-	    $(".btn-update", basket).hide();
-	    $(".basket-mini-main .value").text($(".basket .total .price", basket).text());
-	    $(".basket-mini-main .quantity").text($(".basket .quantity .value", basket).text());
+		$(".btn-update", basket).hide();
+		$(".basket-mini-main .value").text($(".basket .total .price", basket).text());
+		$(".basket-mini-main .quantity").text($(".basket .quantity .value", basket).text());
 
-	    return basket;
+		return basket;
 	},
 
 
@@ -373,7 +373,7 @@ AimeosBasketStandard = {
 	setupBasketBack: function() {
 
 		$("body").on("click", ".basket-standard .btn-back", function(ev) {
-		    return Aimeos.removeOverlay();
+			return Aimeos.removeOverlay();
 		});
 	},
 
@@ -386,7 +386,7 @@ AimeosBasketStandard = {
 		$(".basket-standard .btn-update").hide();
 
 		$("body").on("focusin", ".basket-standard .basket .product .quantity .value", {}, function(ev) {
-		    $(".btn-update", ev.delegateTarget).show();
+			$(".btn-update", ev.delegateTarget).show();
 		});
 	},
 
@@ -397,13 +397,13 @@ AimeosBasketStandard = {
 	setupUpdateSubmit: function() {
 
 		$("body").on("submit", ".basket-standard form", function(ev) {
-		    var form = $(this);
+			var form = $(this);
 
-		    $.post(form.attr("action"), form.serialize(), function(data) {
-		        $(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
-		    });
+			$.post(form.attr("action"), form.serialize(), function(data) {
+				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
+			});
 
-		    return false;
+			return false;
 		});
 	},
 
@@ -415,11 +415,11 @@ AimeosBasketStandard = {
 
 		$("body").on("click", ".basket-standard a.change", function(ev) {
 
-		    $.post($(this).attr("href"), function(data) {
-		        $(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
-		    });
+			$.post($(this).attr("href"), function(data) {
+				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
+			});
 
-		    return false;
+			return false;
 		});
 	},
 
@@ -453,26 +453,26 @@ AimeosCatalogFilter = {
 		var aimeosInputComplete = $(".catalog-filter-search .value");
 
 		aimeosInputComplete.autocomplete({
-		    minLength : 3,
-		    delay : 200,
-		    source : function(req, add) {
-		        var nameTerm = {};
-		        nameTerm[aimeosInputComplete.attr("name")] = req.term;
+			minLength : 3,
+			delay : 200,
+			source : function(req, add) {
+				var nameTerm = {};
+				nameTerm[aimeosInputComplete.attr("name")] = req.term;
 
-		        $.getJSON(aimeosInputComplete.data("url"), nameTerm, function(data) {
-		            var suggestions = [];
+				$.getJSON(aimeosInputComplete.data("url"), nameTerm, function(data) {
+					var suggestions = [];
 
-		            $.each(data, function(idx, val) {
-		                suggestions.push(val.name);
-		            });
+					$.each(data, function(idx, val) {
+						suggestions.push(val.name);
+					});
 
-		            add(suggestions);
-		        });
-		    },
-		    select : function(ev, ui) {
-		        aimeosInputComplete.val(ui.item.value);
-		        $(ev.target).parents(".catalog-filter form").submit();
-		    }
+					add(suggestions);
+				});
+			},
+			select : function(ev, ui) {
+				aimeosInputComplete.val(ui.item.value);
+				$(ev.target).parents(".catalog-filter form").submit();
+			}
 		});
 	},
 
@@ -484,35 +484,35 @@ AimeosCatalogFilter = {
 
 		$(".catalog-filter form").on("submit", function(ev) {
 
-		    var result = true;
-		    var form = $(this);
+			var result = true;
+			var form = $(this);
 
-		    $("input.value", this).each(function() {
+			$("input.value", this).each(function() {
 
-		        var input = $(this);
+				var input = $(this);
 
-		        if(input.val() !== '' && input.val().length < 3) {
+				if(input.val() !== '' && input.val().length < 3) {
 
-		            if($(this).has(".search-hint").length === 0) {
+					if($(this).has(".search-hint").length === 0) {
 
-		                var node = $('<div/>', {
-		                    html : input.data("hint"),
-		                    class : "search-hint"
-		                });
-		                $(".catalog-filter-search", form).after(node);
+						var node = $('<div/>', {
+							html : input.data("hint"),
+							class : "search-hint"
+						});
+						$(".catalog-filter-search", form).after(node);
 
-		                var pos = node.position();
-		                node.css("left", pos.left).css("top", pos.top);
-		                node.delay(3000).fadeOut(1000, function() {
-		                    node.remove();
-		                });
-		            }
+						var pos = node.position();
+						node.css("left", pos.left).css("top", pos.top);
+						node.delay(3000).fadeOut(1000, function() {
+							node.remove();
+						});
+					}
 
-		            result = false;
-		        }
-		    });
+					result = false;
+				}
+			});
 
-		    return result;
+			return result;
 		});
 	},
 
@@ -523,7 +523,7 @@ AimeosCatalogFilter = {
 	setupListFadeout: function() {
 
 		$(".catalog-filter-tree li.cat-item").on("click", function() {
-		    $(".catalog-list").fadeTo(1000, 0.5);
+			$(".catalog-list").fadeTo(1000, 0.5);
 		});
 	},
 
@@ -534,7 +534,7 @@ AimeosCatalogFilter = {
 	setupCategoryToggle: function() {
 
 		$(".catalog-filter-tree").on("click", "h2", function(ev) {
-		    $("> ul", ev.delegateTarget).slideToggle();
+			$("> ul", ev.delegateTarget).slideToggle();
 		});
 	},
 
@@ -545,7 +545,7 @@ AimeosCatalogFilter = {
 	setupAttributeToggle: function() {
 
 		$(".catalog-filter-attribute").on("click", "h2", function(ev) {
-		    $(".attribute-lists", ev.delegateTarget).slideToggle();
+			$(".attribute-lists", ev.delegateTarget).slideToggle();
 		});
 	},
 
@@ -558,7 +558,7 @@ AimeosCatalogFilter = {
 		$(".catalog-filter-attribute .attribute-lists .attr-list").hide();
 
 		$(".catalog-filter-attribute fieldset").on("click", "legend", function(ev) {
-		    $(".attr-list", ev.delegateTarget).slideToggle();
+			$(".attr-list", ev.delegateTarget).slideToggle();
 		});
 	},
 
@@ -569,11 +569,11 @@ AimeosCatalogFilter = {
 	setupAttributeItemSubmit: function() {
 
 		$(".catalog-filter-attribute li.attr-item").on("click", ".attr-name, .attr-count", function(ev) {
-		    var input = $("input", ev.delegateTarget);
-		    input.prop("checked") ? input.prop("checked", false) : input.prop("checked", true);
+			var input = $("input", ev.delegateTarget);
+			input.prop("checked") ? input.prop("checked", false) : input.prop("checked", true);
 
-		    $(this).parents(".catalog-filter form").submit();
-		    $(".catalog-list").fadeTo(1000, 0.5);
+			$(this).parents(".catalog-filter form").submit();
+			$(".catalog-list").fadeTo(1000, 0.5);
 		});
 	},
 
@@ -584,8 +584,8 @@ AimeosCatalogFilter = {
 	setupAttributeInputSubmit: function() {
 
 		$(".catalog-filter-attribute input.attr-item").on("click", function() {
-		    $(this).parents(".catalog-filter form").submit();
-		    $(".catalog-list").fadeTo(1000, 0.5);
+			$(this).parents(".catalog-filter form").submit();
+			$(".catalog-list").fadeTo(1000, 0.5);
 		});
 	},
 
@@ -623,34 +623,34 @@ AimeosCatalogList = {
 	setupImageSwitch: function() {
 
 		$(".aimeos .product .media-list").on("mouseenter", function() {
-		    var list = $(".media-item", this);
+			var list = $(".media-item", this);
 
-		    if( list.length > 1 ) {
-		        var second = list.eq(1);
-		        var size = $(this).height();
+			if( list.length > 1 ) {
+				var second = list.eq(1);
+				var size = $(this).height();
 
-		        $(this).css("background-image", "none"); // Don't let default image shine through
-		        second.css("background-image", "url('" + second.data("src") + "')");
-		        second.fadeTo(0, 0.33);
+				$(this).css("background-image", "none"); // Don't let default image shine through
+				second.css("background-image", "url('" + second.data("src") + "')");
+				second.fadeTo(0, 0.33);
 
-		        list.first().fadeTo(400, 0.33, function() {
-		            list.css('top', -size);
-		            second.fadeTo(400, 1);
-		        });
-		    }
+				list.first().fadeTo(400, 0.33, function() {
+					list.css('top', -size);
+					second.fadeTo(400, 1);
+				});
+			}
 		});
 
 		$(".aimeos .product .media-list").on("mouseleave", function() {
-		    var list = $(".media-item", this);
+			var list = $(".media-item", this);
 
-		    if( list.length > 1 ) {
-		    	list.first().css('opacity', 0.33);
+			if( list.length > 1 ) {
+				list.first().css('opacity', 0.33);
 
-		    	list.eq(1).fadeTo(400, 0.33, function() {
-		            list.css('top', 0);
-		            list.first().fadeTo(400, 1);
-		        });
-		    }
+				list.eq(1).fadeTo(400, 0.33, function() {
+					list.css('top', 0);
+					list.first().fadeTo(400, 1);
+				});
+			}
 		});
 	},
 
@@ -713,17 +713,17 @@ AimeosCheckoutStandard = {
 
 		/* Initial state: Hide VAT ID if salution is not "company" */
 		$(".checkout-standard-address .form-list .salutation select").each(function(idx, elem) {
-		    if($(elem).val() !== "company") {
-		        $(this).parents(".form-list").find(".company,.vatid").hide();
-		    }
+			if($(elem).val() !== "company") {
+				$(this).parents(".form-list").find(".company,.vatid").hide();
+			}
 		});
 
 		/* Address form slide up/down when selected */
 		$(".checkout-standard-address-billing,.checkout-standard-address-delivery").on("click", ".header input",
-		    function(ev) {
-		        $(".form-list", ev.delegateTarget).slideUp(400);
-		        $(".item-address", ev.delegateTarget).has(this).find(".form-list").slideDown(400);
-		    });
+			function(ev) {
+				$(".form-list", ev.delegateTarget).slideUp(400);
+				$(".item-address", ev.delegateTarget).has(this).find(".form-list").slideDown(400);
+			});
 	},
 
 
@@ -734,8 +734,8 @@ AimeosCheckoutStandard = {
 	setupSalutationCompany: function() {
 
 		$(".checkout-standard-address .form-list").on("change", ".salutation select", function(ev) {
-		    var fields = $(".company,.vatid", ev.delegateTarget);
-		    $(this).val() === "company" ? fields.show() : fields.hide();
+			var fields = $(".company,.vatid", ev.delegateTarget);
+			$(this).val() === "company" ? fields.show() : fields.hide();
 		});
 	},
 
@@ -746,15 +746,15 @@ AimeosCheckoutStandard = {
 	setupCountryState: function() {
 
 		$(".checkout-standard-address .form-list .countryid select").each(function(idx, elem) {
-		    if($(this).val() !== "") {
-		        $(this).parents(".form-list").find(".state optgroup:not(." + $(this).val() + ")").hide();
-		    }
+			if($(this).val() !== "") {
+				$(this).parents(".form-list").find(".state optgroup:not(." + $(this).val() + ")").hide();
+			}
 		});
 
 		$(".checkout-standard-address .form-list").on("change", ".countryid select", function(ev) {
-		    $(".state select", ev.delegateTarget).val("");
-		    $(".state optgroup", ev.delegateTarget).hide();
-		    $(".state ." + $(this).val(), ev.delegateTarget).show();
+			$(".state select", ev.delegateTarget).val("");
+			$(".state optgroup", ev.delegateTarget).hide();
+			$(".state ." + $(this).val(), ev.delegateTarget).show();
 		});
 	},
 
@@ -766,14 +766,14 @@ AimeosCheckoutStandard = {
 
 		/* Hide form fields if delivery/payment option is not selected */
 		$(".checkout-standard-delivery,.checkout-standard-payment").each(function(idx, elem) {
-		    $(elem).find(".form-list").hide();
-		    $(elem).find(".item-service").has("input:checked").find(".form-list").show();
+			$(elem).find(".form-list").hide();
+			$(elem).find(".item-service").has("input:checked").find(".form-list").show();
 		});
 
 		/* Delivery/payment form slide up/down when selected */
 		$(".checkout-standard-delivery, .checkout-standard-payment .option").on("click", function(ev) {
-		    $(".checkout-standard .form-list").slideUp(400);
-		    $(".checkout-standard .item-service").has(this).find(".form-list").slideDown(400);
+			$(".checkout-standard .form-list").slideUp(400);
+			$(".checkout-standard .item-service").has(this).find(".form-list").slideDown(400);
 		});
 	},
 
@@ -783,33 +783,33 @@ AimeosCheckoutStandard = {
 	 */
 	setupMandatoryCheck: function() {
 
-	    $(".checkout-standard .mandatory").on("blur", "input,select", function(ev) {
-	        var value = $(this).val();
+		$(".checkout-standard .form-item").on("blur", "input,select", function(ev) {
+			var value = $(this).val();
+			var node = $(ev.delegateTarget);
+			var regex = new RegExp(node.data('regex'));
 
-	        if(value !== "") {
-	            $(ev.delegateTarget).addClass("success");
-	            $(ev.delegateTarget).removeClass("error");
-	        } else {
-	            $(ev.delegateTarget).removeClass("success");
-	            $(ev.delegateTarget).addClass("error");
-	        }
-	    });
+			if((value != '' && value.match(regex)) || (value == '' && !node.hasClass("mandatory"))) {
+				node.removeClass("error").addClass("success");
+			} else {
+				node.removeClass("success").addClass("error");
+			}
+		});
 
 		$(".checkout-standard form").on("submit", function(ev) {
-		    var retval = true;
+			var retval = true;
 
-		    $(".checkout-standard .item-new, .item-service").has(".header,label").has("input:checked") // combining in one has() doesn't work
-		    .find(".form-list .mandatory").each(function() {
-		        var value = $(this).find("input,select").val();
-		        if(value === null || value.trim() === "") {
-		            $(this).addClass("error");
-		            retval = false;
-		        } else {
-		            $(this).removeClass("error");
-		        }
-		    });
+			$(".checkout-standard .item-new, .item-service").has(".header,label").has("input:checked") // combining in one has() doesn't work
+			.find(".form-list .mandatory").each(function() {
+				var value = $(this).find("input,select").val();
+				if(value === null || value.trim() === "") {
+					$(this).addClass("error");
+					retval = false;
+				} else {
+					$(this).removeClass("error");
+				}
+			});
 
-		    return retval;
+			return retval;
 		});
 	},
 
@@ -822,12 +822,12 @@ AimeosCheckoutStandard = {
 		var aimeos_checkout_form = $(".checkout-standard-order-payment > form").first();
 
 		if(aimeos_checkout_form.length === 0 || aimeos_checkout_form.submit() === false) {
-		    $(".checkout-standard-order-payment").first().each(function(index, element) {
-		        var url = $(element).data("url");
-		        if(url) {
-		            window.location = url;
-		        }
-		    });
+			$(".checkout-standard-order-payment").first().each(function(index, element) {
+				var url = $(element).data("url");
+				if(url) {
+					window.location = url;
+				}
+			});
 		}
 	},
 
@@ -879,8 +879,8 @@ AimeosLocaleSelect = {
 	setupMenuToggle: function() {
 
 		$(".select-menu .select-dropdown").click(function() {
-		    $("ul", this).toggleClass("active");
-		    $(this).toggleClass("active");
+			$("ul", this).toggleClass("active");
+			$(this).toggleClass("active");
 		});
 	},
 
@@ -910,34 +910,34 @@ Aimeos.loadImages();
 
 jQuery(document).ready(function($) {
 
-    /* CSS3 "background-size: contain" support for IE8 */
-    $(".catalog-list-items .media-item").css("background-size", "contain");
-    $(".catalog-detail-image .item").css("background-size", "contain");
+	/* CSS3 "background-size: contain" support for IE8 */
+	$(".catalog-list-items .media-item").css("background-size", "contain");
+	$(".catalog-detail-image .item").css("background-size", "contain");
 
 
-    /* Lazy product image loading in list view */
-    Aimeos.loadImages();
-    $(window).bind("resize", Aimeos.loadImages);
-    $(window).bind("scroll", Aimeos.loadImages);
-    
-    
-    Aimeos.init();
-    
-    AimeosLocaleSelect.init();
-    
-    AimeosCatalogStage.init();
-    AimeosCatalogFilter.init();
-    AimeosCatalogList.init();
-    AimeosCatalogSession.init();
-    
-    AimeosBasketMini.init();
-    AimeosBasketRelated.init();
-    AimeosBasketStandard.init();
-    
-    AimeosCheckoutStandard.init();
-    AimeosCheckoutConfirm.init();
-    
-    AimeosAccountHistory.init();
-    AimeosAccountFavorite.init();
-    AimeosAccountWatch.init();
+	/* Lazy product image loading in list view */
+	Aimeos.loadImages();
+	$(window).bind("resize", Aimeos.loadImages);
+	$(window).bind("scroll", Aimeos.loadImages);
+
+
+	Aimeos.init();
+
+	AimeosLocaleSelect.init();
+
+	AimeosCatalogStage.init();
+	AimeosCatalogFilter.init();
+	AimeosCatalogList.init();
+	AimeosCatalogSession.init();
+
+	AimeosBasketMini.init();
+	AimeosBasketRelated.init();
+	AimeosBasketStandard.init();
+
+	AimeosCheckoutStandard.init();
+	AimeosCheckoutConfirm.init();
+
+	AimeosAccountHistory.init();
+	AimeosAccountFavorite.init();
+	AimeosAccountWatch.init();
 });
