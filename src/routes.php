@@ -15,10 +15,6 @@ Route::match( array( 'GET', 'POST' ), 'myaccount/watch/{wat_action?}/{wat_id?}/{
 	'as' => 'aimeos_shop_account_watch',
 	'uses' => '\Aimeos\Shop\Controller\AccountController@indexAction'
 ));
-Route::match( array( 'GET', 'POST' ), 'detail/pin/{pin_action?}/{pin_id?}/{d_prodid?}/{d_name?}/{l_pos?}', array(
-	'as' => 'aimeos_shop_account_pinned',
-	'uses' => '\Aimeos\Shop\Controller\CatalogController@detailAction'
-));
 
 Route::match( array( 'GET', 'POST' ), 'basket', array(
 	'as' => 'aimeos_shop_basket',
@@ -33,7 +29,11 @@ Route::match( array( 'GET', 'POST' ), 'detail/{d_prodid}/{d_name?}/{l_pos?}', ar
 	'as' => 'aimeos_shop_detail',
 	'uses' => '\Aimeos\Shop\Controller\CatalogController@detailAction'
 ));
-Route::match( array( 'GET', 'POST' ), 'list/{f_catid?}/{f_name?}', array(
+Route::match( array( 'GET', 'POST' ), 'detail/pin/{pin_action?}/{pin_id?}/{d_prodid?}/{d_name?}/{l_pos?}', array(
+	'as' => 'aimeos_shop_session_pinned',
+	'uses' => '\Aimeos\Shop\Controller\CatalogController@detailAction'
+));
+Route::match( array( 'GET', 'POST' ), 'list', array(
 	'as' => 'aimeos_shop_list',
 	'uses' => '\Aimeos\Shop\Controller\CatalogController@listAction'
 ));

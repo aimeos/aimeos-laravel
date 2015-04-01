@@ -43,80 +43,82 @@ return array(
 
 	'client' => array(
 		'html' => array(
-            'account' => array(
-                'history' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_account',
-                    ),
-                ),
-                'favorite' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_account_favorite',
-                    ),
-                ),
-                'pinned' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_account_pinned',
-                    ),
-                ),
-                'watch' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_account_watch',
-                    ),
-                ),
-            ),
-            'catalog' => array(
-                'count' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_count',
-                    ),
-                ),
-                'detail' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_detail',
-                    ),
-                ),
-                'list' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_list',
-                    ),
-                ),
-                'stock' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_stock',
-                    ),
-                ),
-                'suggest' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_suggest',
-                    ),
-                ),
-            ),
-            'common' => array(
-                'content' => array(
-                    'baseurl' => '/',
-                ),
-                'template' => array(
-                    'baseurl' => 'packages/aimeos/shop/elegance',
-                ),
-            ),
-            'basket' => array(
-                'standard' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_basket',
-                    ),
-                ),
-            ),
-            'checkout' => array(
-                'confirm' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_confirm',
-                    ),
-                ),
-                'standard' => array(
-                    'url' => array(
-                        'target' => 'aimeos_shop_checkout',
-                    ),
+			'account' => array(
+				'history' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_account',
+					),
+				),
+				'favorite' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_account_favorite',
+					),
+				),
+				'watch' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_account_watch',
+					),
+				),
+			),
+			'catalog' => array(
+				'count' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_count',
+					),
+				),
+				'detail' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_detail',
+					),
+				),
+				'list' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_list',
+					),
+				),
+				'session' => array(
+					'pinned' => array(
+						'url' => array(
+							'target' => 'aimeos_shop_session_pinned',
+						),
+					),
+				),
+				'stock' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_stock',
+					),
+				),
+				'suggest' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_suggest',
+					),
+				),
+			),
+			'common' => array(
+				'content' => array(
+					'baseurl' => '/',
+				),
+				'template' => array(
+					'baseurl' => 'packages/aimeos/shop/elegance',
+				),
+			),
+			'basket' => array(
+				'standard' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_basket',
+					),
+				),
+			),
+			'checkout' => array(
+				'confirm' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_confirm',
+					),
+				),
+				'standard' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_checkout',
+					),
 					'summary' => array(
 						'option' => array(
 							'terms' => array(
