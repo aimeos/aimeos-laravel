@@ -8,7 +8,7 @@
 
 namespace Aimeos\Shop\Command;
 
-use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
 
 class CacheCommand extends AbstractCommand
@@ -40,7 +40,7 @@ class CacheCommand extends AbstractCommand
 
 		$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
 
-		foreach( $this->getSiteItems( $context, $this->option('site') ) as $siteItem )
+		foreach( $this->getSiteItems( $context, $this->argument('site') ) as $siteItem )
 		{
 			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
 
@@ -64,7 +64,9 @@ class CacheCommand extends AbstractCommand
 	 */
 	protected function getArguments()
 	{
-		return array();
+		return array(
+			array( 'site', InputArgument::OPTIONAL, 'Site codes to clear the cache like "default unittest" (none for all)' ),
+		);
 	}
 
 
@@ -75,8 +77,6 @@ class CacheCommand extends AbstractCommand
 	 */
 	protected function getOptions()
 	{
-		return array(
-			array( 'site', null, InputOption::VALUE_OPTIONAL, 'Site codes to clear the cache like "default unittest" (none for all)', null ),
-		);
+		return array();
 	}
 }
