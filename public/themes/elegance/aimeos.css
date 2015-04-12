@@ -598,6 +598,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	clear: both;
 }
 
+.catalog-stage-image img {
+	width: 100%;
+}
+
 .catalog-stage-breadcrumb {
 	color: #555;
 }
