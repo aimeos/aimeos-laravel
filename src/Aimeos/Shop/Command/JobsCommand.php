@@ -9,7 +9,6 @@
 namespace Aimeos\Shop\Command;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 
@@ -90,8 +89,8 @@ class JobsCommand extends AbstractCommand
 	{
 		$lv = $this->getLaravel();
 
+		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( false );
 		$tmplPaths = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getCustomPaths( 'controller/jobs/layouts' );
-		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( $tmplPaths, false );
 		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
 
 		$langManager = \MShop_Locale_Manager_Factory::createManager( $context )->getSubManager( 'language' );

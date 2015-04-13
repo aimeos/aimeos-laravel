@@ -65,10 +65,9 @@ class Page
 	 */
 	public function getSections( $pageName )
 	{
-		$tmplPaths = $this->aimeos->get()->getCustomPaths( 'client/html' );
-		$context = $this->context->get( $tmplPaths );
-
+		$context = $this->context->get();
 		$langid = $context->getLocale()->getLanguageId();
+		$tmplPaths = $this->aimeos->get()->getCustomPaths( 'client/html' );
 		$view = $this->view->create( $context->getConfig(), $tmplPaths, $langid );
 
 		$pagesConfig = $this->config->get( 'shop.page', array() );

@@ -63,7 +63,7 @@ class ShopServiceProvider extends ServiceProvider {
 			return new \Aimeos\Shop\Base\Context($app['config'], $app['session.store']);
 		});
 
-		$this->app->singleton('\Aimeos\Shop\Base\View', function($app) {
+		$this->app->singleton('\Aimeos\Shop\Base\View', function() {
 			return new \Aimeos\Shop\Base\View();
 		});
 
@@ -72,15 +72,15 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 
-		$this->app['command.aimeos.cache'] = $this->app->share(function($app) {
+		$this->app['command.aimeos.cache'] = $this->app->share(function() {
 			return new Command\CacheCommand();
 		});
 
-		$this->app['command.aimeos.jobs'] = $this->app->share(function($app) {
+		$this->app['command.aimeos.jobs'] = $this->app->share(function() {
 			return new Command\JobsCommand();
 		});
 
-		$this->app['command.aimeos.setup'] = $this->app->share(function($app) {
+		$this->app['command.aimeos.setup'] = $this->app->share(function() {
 			return new Command\SetupCommand();
 		});
 

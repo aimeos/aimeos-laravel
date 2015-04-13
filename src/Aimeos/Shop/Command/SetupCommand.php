@@ -63,7 +63,7 @@ class SetupCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$ctx = $this->getLaravel()->make( '\Aimeos\Shop\Base\Context' )->get( array(), false );
+		$ctx = $this->getLaravel()->make( '\Aimeos\Shop\Base\Context' )->get( false );
 		$ctx->setEditor( 'aimeos:setup' );
 
 		$config = $ctx->getConfig();

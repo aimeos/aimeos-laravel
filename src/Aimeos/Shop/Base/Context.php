@@ -55,11 +55,10 @@ class Context
 	/**
 	 * Returns the current context
 	 *
-	 * @param array $templatePaths List of base path names with relative template paths as key/value pairs
 	 * @param boolean $locale True to add locale object to context, false if not
 	 * @return \MShop_Context_Item_Interface Context object
 	 */
-	public function get( array $templatePaths, $locale = true )
+	public function get( $locale = true )
 	{
 		if( self::$context === null )
 		{

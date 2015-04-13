@@ -1,1 +1,1 @@
-<?= $aibody['checkout/update'] ?>
+<?php echo $aibody['checkout/update']; ?>

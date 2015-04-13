@@ -1,1 +1,1 @@
-<?= $aibody['catalog/count'] ?>
+<?php echo $aibody['catalog/count']; ?>

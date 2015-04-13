@@ -19,7 +19,7 @@ abstract class AbstractCommand extends Command
 	 * Returns the enabled site items which may be limited by the input arguments.
 	 *
 	 * @param \MShop_Context_Item_Interface $context Context item object
-	 * @param string $sites Unique site codes
+	 * @param string|array $sites Unique site codes
 	 * @return \MShop_Locale_Item_Site_Interface[] List of site items
 	 */
 	protected function getSiteItems( \MShop_Context_Item_Interface $context, $sites )
@@ -27,8 +27,12 @@ abstract class AbstractCommand extends Command
 		$manager = \MShop_Factory::createManager( $context, 'locale/site' );
 		$search = $manager->createSearch();
 
-		if( $sites != '' ) {
-			$search->setConditions( $search->compare( '==', 'locale.site.code', explode( ' ', $sites ) ) );
+		if( is_scalar( $sites ) && $sites != '' ) {
+			$sites = explode( ' ', $sites );
+		}
+
+		if( !empty( $sites ) ) {
+			$search->setConditions( $search->compare( '==', 'locale.site.code', $sites ) );
 		}
 
 		return $manager->searchItems( $search );
