@@ -9,10 +9,10 @@ php:
   - hhvm
 
 env:
-  - LARAVEL_VERSION=4.1.*
-  - LARAVEL_VERSION=4.2.*
+  - LARAVEL_VERSION=5.0.*
 
 before_script:
   - composer require "laravel/support:${LARAVEL_VERSION}"
+  - mysql -e 'create database laravel;'
 
 script: phpunit
