@@ -14,35 +14,50 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testCountAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CatalogController@countAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@countAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('.catalog-filter-count', $response->getContent());
+		$this->assertContains('.catalog-filter-attribute', $response->getContent());
 	}
 
 
 	public function testDetailAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('<section class="aimeos catalog-stage">', $response->getContent());
+		$this->assertContains('<section class="aimeos catalog-detail">', $response->getContent());
+		$this->assertContains('<section class="aimeos catalog-session">', $response->getContent());
 	}
 
 
 	public function testListAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CatalogController@listAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@listAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('<section class="aimeos catalog-filter">', $response->getContent());
+		$this->assertContains('<section class="aimeos catalog-stage">', $response->getContent());
+		$this->assertContains('<section class="aimeos catalog-list">', $response->getContent());
 	}
 
 
 	public function testStockAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CatalogController@stockAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@stockAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('.aimeos .product .stock', $response->getContent());
 	}
 
 
 	public function testSuggestAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CatalogController@suggestAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@suggestAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('[]', $response->getContent());
 	}
 }

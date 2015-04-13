@@ -14,21 +14,27 @@ class CheckoutControllerTest extends AimeosTestAbstract
 
 	public function testConfirmAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@confirmAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@confirmAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('<section class="aimeos checkout-confirm">', $response->getContent());
 	}
 
 
 	public function testIndexAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@indexAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@indexAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('<section class="checkout-standard-address">', $response->getContent());
 	}
 
 
 	public function testUpdateAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@updateAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@updateAction');
+
 		$this->assertResponseOk();
+		$this->assertEquals('', $response->getContent());
 	}
 }

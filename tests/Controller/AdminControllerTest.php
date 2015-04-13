@@ -11,14 +11,18 @@ class AdminControllerTest extends AimeosTestAbstract
 
 	public function testIndexAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\AdminController@indexAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@indexAction');
+
 		$this->assertResponseOk();
+		$this->assertRegexp('#<script type="text/javascript">.*window.MShop = {#smu', $response->getContent());
 	}
 
 
 	public function testDoAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\AdminController@doAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@doAction');
+
 		$this->assertResponseOk();
+		$this->assertRegexp('#{.*}#smu', $response->getContent());
 	}
 }

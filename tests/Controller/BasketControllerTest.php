@@ -14,7 +14,10 @@ class BasketControllerTest extends AimeosTestAbstract
 
 	public function testActions()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\BasketController@indexAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\BasketController@indexAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('<section class="aimeos basket-standard">', $response->getContent());
+		$this->assertContains('<section class="aimeos basket-related">', $response->getContent());
 	}
 }

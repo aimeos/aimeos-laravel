@@ -14,7 +14,11 @@ class AccountControllerTest extends AimeosTestAbstract
 
 	public function testActions()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction');
+
 		$this->assertResponseOk();
+		$this->assertContains('<section class="aimeos account-history">', $response->getContent());
+		$this->assertContains('<section class="aimeos account-favorite">', $response->getContent());
+		$this->assertContains('<section class="aimeos account-watch">', $response->getContent());
 	}
 }
