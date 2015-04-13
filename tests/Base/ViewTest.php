@@ -1,7 +1,7 @@
 <?php
 
 
-class ViewTest extends Orchestra\Testbench\TestCase
+class ViewTest extends AimeosTestAbstract
 {
 	public function testCreateNoLocale()
 	{
@@ -33,11 +33,5 @@ class ViewTest extends Orchestra\Testbench\TestCase
 		\Route::shouldReceive('currentRouteName')->once();
 */
 		$this->assertInstanceOf('\MW_View_Interface', $object->create($config, array()));
-	}
-
-
-	protected function getPackageProviders()
-	{
-		return ['Aimeos\Shop\ShopServiceProvider'];
 	}
 }
