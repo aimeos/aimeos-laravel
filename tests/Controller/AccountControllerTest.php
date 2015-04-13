@@ -7,14 +7,16 @@ class AccountControllerTest extends AimeosTestAbstract
 		parent::setUp();
 		View::addLocation(dirname(__DIR__).'/fixtures/views');
 
-		require dirname(dirname(__DIR__)).'/src/routes.php';
-		require dirname(dirname(__DIR__)).'/src/routes_account.php';
+		Route::group(['prefix' => '{site}'], function() {
+			require dirname(dirname(__DIR__)).'/src/routes.php';
+			require dirname(dirname(__DIR__)).'/src/routes_account.php';
+		});
 	}
 
 
 	public function testActions()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos account-history">', $response->getContent());

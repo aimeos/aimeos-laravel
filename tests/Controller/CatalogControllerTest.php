@@ -7,14 +7,16 @@ class CatalogControllerTest extends AimeosTestAbstract
 		parent::setUp();
 		View::addLocation(dirname(__DIR__).'/fixtures/views');
 
-		require dirname(dirname(__DIR__)).'/src/routes.php';
-		require dirname(dirname(__DIR__)).'/src/routes_account.php';
+		Route::group(['prefix' => '{site}'], function() {
+			require dirname(dirname(__DIR__)).'/src/routes.php';
+			require dirname(dirname(__DIR__)).'/src/routes_account.php';
+		});
 	}
 
 
 	public function testCountAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@countAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@countAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
 		$this->assertContains('.catalog-filter-count', $response->getContent());
@@ -24,7 +26,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testDetailAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos catalog-stage">', $response->getContent());
@@ -35,7 +37,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testListAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@listAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@listAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos catalog-filter">', $response->getContent());
@@ -46,7 +48,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testStockAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@stockAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@stockAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
 		$this->assertContains('.aimeos .product .stock', $response->getContent());
@@ -55,9 +57,9 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testSuggestAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@suggestAction');
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@suggestAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
-		$this->assertContains('[]', $response->getContent());
+		$this->assertRegexp('/[{.*}]/', $response->getContent());
 	}
 }

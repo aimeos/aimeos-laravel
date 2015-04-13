@@ -15,7 +15,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\TestCase
 	}
 
 
-	protected function getPackageProviders()
+	protected function getPackageProviders($app)
 	{
 		return ['Aimeos\Shop\ShopServiceProvider'];
 	}
