@@ -11,8 +11,8 @@ class BasketControllerTest extends Orchestra\Testbench\TestCase
 
 	protected function getEnvironmentSetUp($app)
 	{
-		$app['config']->set('database.default', 'testbench');
-		$app['config']->set('database.connections.testbench', [
+		$app['config']->set('database.default', 'mysql');
+		$app['config']->set('database.connections.mysql', [
 				'driver' => 'mysql',
 				'host' => env('DB_HOST', 'localhost'),
 				'database' => env('DB_DATABASE', 'laravel'),
