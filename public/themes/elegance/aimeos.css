@@ -306,6 +306,17 @@
 	display: none;
 }
 
+.catalog-filter-tree .media-list {
+	display: inline-block;
+	margin: 0px 0.5em;
+}
+
+.catalog-filter-tree .media-item img {
+	vertical-align: top;
+	height: 1.25em;
+	width: 1.25em;
+}
+
 .catalog-filter-tree .disabled > .cat-item,
 .catalog-filter-tree .disabled > .cat-item:link,
 .catalog-filter-tree .disabled > .cat-item:visited,
@@ -1779,8 +1790,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .checkout-standard .item-service .description h2,
-.checkout-standard .item-service .description p,
-.checkout-standard .item-service .icons {
+.checkout-standard .item-service .description p {
 	margin: 0 1em;
 }
 
@@ -1791,6 +1801,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .checkout-standard .item-service .icons img {
 	max-height: 4em;
+	margin: 0 1em;
 }
 
 .checkout-standard .item-service .option {
