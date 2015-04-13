@@ -1,20 +1,24 @@
 <?php
 
-class AccountControllerTest extends Orchestra\Testbench\TestCase
+class AdminControllerTest extends Orchestra\Testbench\TestCase
 {
 	public function setUp()
 	{
 		parent::setUp();
-		View::addLocation(dirname(__DIR__) . '/fixtures/views');
-
-		require dirname(dirname(__DIR__)).'/src/routes.php';
-		require dirname(dirname(__DIR__)).'/src/routes_account.php';
+		require dirname(dirname(__DIR__)).'/src/routes_admin.php';
 	}
 
 
-	public function testActions()
+	public function testIndexAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction');
+		$this->action('GET', '\Aimeos\Shop\Controller\AdminController@indexAction');
+		$this->assertResponseOk();
+	}
+
+
+	public function testDoAction()
+	{
+		$this->action('GET', '\Aimeos\Shop\Controller\AdminController@doAction');
 		$this->assertResponseOk();
 	}
 

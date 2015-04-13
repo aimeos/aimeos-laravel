@@ -6,6 +6,9 @@ class BasketControllerTest extends Orchestra\Testbench\TestCase
 	{
 		parent::setUp();
 		View::addLocation(dirname(__DIR__) . '/fixtures/views');
+
+		require dirname(dirname(__DIR__)).'/src/routes.php';
+		require dirname(dirname(__DIR__)).'/src/routes_account.php';
 	}
 
 
