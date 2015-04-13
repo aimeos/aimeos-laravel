@@ -2,6 +2,13 @@
 
 class CatalogControllerTest extends Orchestra\Testbench\TestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+		View::addLocation(dirname(__DIR__) . '/fixtures/views');
+	}
+
+
 	public function testCountAction()
 	{
 		$this->action('GET', '\Aimeos\Shop\Controller\CatalogController@countAction');

@@ -2,6 +2,13 @@
 
 class PageControllerTest extends Orchestra\Testbench\TestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+		View::addLocation(dirname(__DIR__) . '/fixtures/views');
+	}
+
+
 	public function testPrivacyAction()
 	{
 		$this->action('GET', '\Aimeos\Shop\Controller\PageController@privacyAction');

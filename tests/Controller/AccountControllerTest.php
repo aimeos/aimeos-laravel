@@ -2,6 +2,13 @@
 
 class AccountControllerTest extends Orchestra\Testbench\TestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+		View::addLocation(dirname(__DIR__) . '/fixtures/views');
+	}
+
+
 	public function testActions()
 	{
 		$this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction');

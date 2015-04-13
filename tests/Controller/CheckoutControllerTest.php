@@ -2,6 +2,13 @@
 
 class CheckoutControllerTest extends Orchestra\Testbench\TestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+		View::addLocation(dirname(__DIR__) . '/fixtures/views');
+	}
+
+
 	public function testConfirmAction()
 	{
 		$this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@confirmAction');
