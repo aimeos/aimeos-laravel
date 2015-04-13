@@ -40,6 +40,9 @@
     "autoload": {
         "psr-0": {
             "Aimeos\\Shop\\": "src/"
-        }
+        },
+        "classmap": [
+        	"tests/AimeosTestAbstract.php"
+        ]
     }
 }

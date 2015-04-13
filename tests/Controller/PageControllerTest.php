@@ -1,11 +1,11 @@
 <?php
 
-class PageControllerTest extends Orchestra\Testbench\TestCase
+class PageControllerTest extends AimeosTestAbstract
 {
 	public function setUp()
 	{
 		parent::setUp();
-		View::addLocation(dirname(__DIR__) . '/fixtures/views');
+		View::addLocation(dirname(__DIR__).'/fixtures/views');
 
 		require dirname(dirname(__DIR__)).'/src/routes.php';
 		require dirname(dirname(__DIR__)).'/src/routes_account.php';
@@ -23,11 +23,5 @@ class PageControllerTest extends Orchestra\Testbench\TestCase
 	{
 		$this->action('GET', '\Aimeos\Shop\Controller\PageController@termsAction');
 		$this->assertResponseOk();
-	}
-
-
-	protected function getPackageProviders()
-	{
-		return ['Aimeos\Shop\ShopServiceProvider'];
 	}
 }
