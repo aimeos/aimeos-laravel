@@ -1,6 +1,6 @@
 <?php
 
-class PageControllerTest extends TestCase
+class PageControllerTest extends Orchestra\Testbench\TestCase
 {
 	public function testPrivacyAction()
 	{
@@ -13,5 +13,11 @@ class PageControllerTest extends TestCase
 	{
 		$this->action('GET', '\Aimeos\Shop\Controller\PageController@termsAction');
 		$this->assertResponseOk();
+	}
+
+
+	protected function getPackageProviders()
+	{
+		return ['Aimeos\Shop\ShopServiceProvider'];
 	}
 }

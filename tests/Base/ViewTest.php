@@ -1,7 +1,7 @@
 <?php
 
 
-class ViewTest extends TestCase
+class ViewTest extends Orchestra\Testbench\TestCase
 {
 	public function testCreateNoLocale()
 	{
@@ -31,5 +31,11 @@ class ViewTest extends TestCase
 		\Route::shouldReceive('currentRouteName')->once();
 
 		$this->assertInstanceOf('\MW_View_Interface', $object->create($config, array(), 'de'));
+	}
+
+
+	protected function getPackageProviders()
+	{
+		return ['Aimeos\Shop\ShopServiceProvider'];
 	}
 }

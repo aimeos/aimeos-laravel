@@ -34,7 +34,8 @@
     },
     "require-dev": {
         "mockery/mockery": "~0.9",
-        "satooshi/php-coveralls": "dev-master"
+        "satooshi/php-coveralls": "dev-master",
+        "orchestra/testbench": "~3.0"
     },
     "autoload": {
         "psr-0": {

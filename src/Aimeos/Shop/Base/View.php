@@ -51,7 +51,7 @@ class View
 		$helper = new \MW_View_Helper_Translate_Default( $view, $translation );
 		$view->addHelper( 'translate', $helper );
 
-		$helper = new \MW_View_Helper_Url_Laravel4( $view, app('url'), $fixed );
+		$helper = new \MW_View_Helper_Url_Laravel5( $view, app('url'), $fixed );
 		$view->addHelper( 'url', $helper );
 
 		$helper = new \MW_View_Helper_Partial_Default( $view, $config, $templatePaths );

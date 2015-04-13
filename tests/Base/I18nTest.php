@@ -1,6 +1,6 @@
 <?php
 
-class I18nTest extends TestCase
+class I18nTest extends Orchestra\Testbench\TestCase
 {
 	public function testGet()
 	{
@@ -24,5 +24,11 @@ class I18nTest extends TestCase
 		$list = $object->get( array('en') );
 
 		$this->assertInstanceOf( '\MW_Translation_Interface', $list['en'] );
+	}
+
+
+	protected function getPackageProviders()
+	{
+		return ['Aimeos\Shop\ShopServiceProvider'];
 	}
 }

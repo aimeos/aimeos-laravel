@@ -29,6 +29,8 @@ class ShopServiceProvider extends ServiceProvider {
 	{
 		$basedir = dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR;
 
+		$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/shop.php', 'shop');
+
 		$this->loadViewsFrom($basedir.'views', 'shop');
 
 		$this->publishes(array(
@@ -85,9 +87,6 @@ class ShopServiceProvider extends ServiceProvider {
 		$this->commands('command.aimeos.cache');
 		$this->commands('command.aimeos.setup');
 		$this->commands('command.aimeos.jobs');
-
-
-		$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/shop.php', 'shop');
 	}
 
 	/**
