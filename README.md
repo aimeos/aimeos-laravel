@@ -191,6 +191,20 @@ or for the administration interface:
 
 ```http://<your public root>/index.php/admin```
 
+**Caution:** You need to protect the ```/admin``` and ```/myaccount``` routes
+so only authenticated users are able to access them. This is especially crucial
+for the ```/admin``` route as it grants direct access to the administration
+interface where you can manage your shop!
+
+For the ```myaccount``` routes, you can protect them by adding these lines to your
+```./app/HTTP/routes.php``` file:
+
+```
+Route::group(['middleware' => 'auth'], function() {
+	require base_path('vendor/aimeos/aimeos-laravel/src/routes_account.php');
+});
+```
+
 ## Hints
 
 To simplify development, you should configure to use no content cache. You can
