@@ -44,5 +44,15 @@
         "classmap": [
         	"tests/AimeosTestAbstract.php"
         ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cp -r vendor/arcavias/arcavias-core/client/extjs/* public/client/extjs/",
+            "cp -r vendor/arcavias/arcavias-core/client/html/themes/* public/themes/"
+        ],
+        "post-update-cmd": [
+            "cp -r vendor/arcavias/arcavias-core/client/extjs/* public/client/extjs/",
+            "cp -r vendor/arcavias/arcavias-core/client/html/themes/* public/themes/"
+        ]
     }
 }
