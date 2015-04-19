@@ -20,6 +20,7 @@ class ShopServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+
 	/**
 	 * Bootstrap the application events.
 	 *
@@ -33,17 +34,29 @@ class ShopServiceProvider extends ServiceProvider {
 
 		$this->loadViewsFrom($basedir.'views', 'shop');
 
+
 		$this->publishes(array(
 			$basedir.'config/shop.php' => config_path('shop.php'),
+		), 'config');
+
+		$this->publishes(array(
 			$basedir.'database/migrations' => base_path('database/migrations'),
+		), 'migrations');
+
+		$this->publishes(array(
 			$basedir.'views' => base_path('resources/views/vendor/aimeos/shop'),
+		), 'views');
+
+		$this->publishes(array(
 			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
-		));
+		), 'public');
+
 
 		require_once $basedir.'routes.php';
 		require_once $basedir.'routes_account.php';
 		require_once $basedir.'routes_admin.php';
 	}
+
 
 	/**
 	 * Register the service provider.
@@ -89,6 +102,7 @@ class ShopServiceProvider extends ServiceProvider {
 		$this->commands('command.aimeos.setup');
 		$this->commands('command.aimeos.jobs');
 	}
+
 
 	/**
 	 * Get the services provided by the provider.
