@@ -12,6 +12,9 @@ class AimeosTestAbstract extends Orchestra\Testbench\TestCase
 			'username' => env('DB_USERNAME', 'root'),
 			'password' => env('DB_PASSWORD', ''),
 		]);
+
+		$app['config']->set('routes.account', ['prefix' => '{site}']);
+		$app['config']->set('routes.default', ['prefix' => '{site}']);
 	}
 
 

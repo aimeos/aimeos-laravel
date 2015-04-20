@@ -6,8 +6,6 @@ class PageControllerTest extends AimeosTestAbstract
 	{
 		parent::setUp();
 		View::addLocation(dirname(__DIR__).'/fixtures/views');
-
-		require dirname(dirname(__DIR__)).'/src/routes.php';
 	}
 
 

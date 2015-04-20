@@ -6,11 +6,6 @@ class BasketControllerTest extends AimeosTestAbstract
 	{
 		parent::setUp();
 		View::addLocation(dirname(__DIR__).'/fixtures/views');
-
-		Route::group(['prefix' => '{site}'], function() {
-			require dirname(dirname(__DIR__)).'/src/routes.php';
-			require dirname(dirname(__DIR__)).'/src/routes_account.php';
-		});
 	}
 
 

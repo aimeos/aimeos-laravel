@@ -52,9 +52,7 @@ class ShopServiceProvider extends ServiceProvider {
 		), 'public');
 
 
-		require_once $basedir.'routes.php';
-		require_once $basedir.'routes_account.php';
-		require_once $basedir.'routes_admin.php';
+		require $basedir.'routes.php';
 	}
 
 

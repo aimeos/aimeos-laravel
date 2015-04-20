@@ -6,6 +6,12 @@ return array(
 	'extdir' => ( is_dir(base_path('ext')) ? base_path('ext') : dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'ext' ),
 	'uploaddir' => '/',
 
+	'routes' => array(
+		'admin' => array(),
+		'account' => array('middleware' => 'auth'),
+		'default' => array(),
+	),
+
 	'page' => array(
 		'account-index' => array( 'account/history','account/favorite','account/watch','basket/mini','catalog/session' ),
 		'basket-index' => array( 'basket/standard','basket/related' ),
