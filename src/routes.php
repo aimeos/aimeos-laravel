@@ -1,6 +1,6 @@
 <?php
 
-Route::group(config('routes.admin', []), function() {
+Route::group(config('shop.routes.admin', []), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'admin/do', array(
 		'as' => 'aimeos_shop_admin_json',
@@ -14,7 +14,7 @@ Route::group(config('routes.admin', []), function() {
 });
 
 
-Route::group(config('routes.account', ['middleware' => 'auth']), function() {
+Route::group(config('shop.routes.account', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'myaccount', array(
 		'as' => 'aimeos_shop_account',
@@ -32,7 +32,7 @@ Route::group(config('routes.account', ['middleware' => 'auth']), function() {
 });
 
 
-Route::group(config('routes.default', []), function() {
+Route::group(config('shop.routes.default', []), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'basket', array(
 		'as' => 'aimeos_shop_basket',

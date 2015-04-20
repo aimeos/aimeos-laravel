@@ -13,8 +13,8 @@ class AimeosTestAbstract extends Orchestra\Testbench\TestCase
 			'password' => env('DB_PASSWORD', ''),
 		]);
 
-		$app['config']->set('routes.account', ['prefix' => '{site}']);
-		$app['config']->set('routes.default', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.account', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.default', ['prefix' => '{site}']);
 	}
 
 
