@@ -82,12 +82,15 @@ class SetupCommand extends AbstractCommand
 			throw new Exception( 'Unable to extend include path' );
 		}
 
+		spl_autoload_register( '\Aimeos\Shop\Command\SetupCommand::autoload', true );
+
 		$manager = new \MW_Setup_Manager_Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
 
 		$manager->run( 'mysql' );
 	}
+
 
 	/**
 	 * Get the console command arguments.
@@ -100,6 +103,7 @@ class SetupCommand extends AbstractCommand
 			array( 'site', InputArgument::OPTIONAL, 'Site for updating database entries', 'default' ),
 		);
 	}
+
 
 	/**
 	 * Get the console command options.
