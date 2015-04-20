@@ -306,17 +306,6 @@
 	display: none;
 }
 
-.catalog-filter-tree .media-list {
-	display: inline-block;
-	margin: 0px 0.5em;
-}
-
-.catalog-filter-tree .media-item img {
-	vertical-align: top;
-	height: 1.25em;
-	width: 1.25em;
-}
-
 .catalog-filter-tree .disabled > .cat-item,
 .catalog-filter-tree .disabled > .cat-item:link,
 .catalog-filter-tree .disabled > .cat-item:visited,
@@ -1549,6 +1538,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .basket-mini {
+	float: right;
 	text-align: center;
 	line-height: 125%;
 	color: #555;
@@ -1699,24 +1689,12 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	color: #D0D0D0;
 	border-bottom: solid 8px #D0D0D0;
 }
-
 .checkout-standard .steps .current {
 	color: #555;
 	border-bottom: solid 8px #555;
 }
-
 .checkout-standard .steps .order {
 	display: none;
-}
-
-.checkout-standard .steps .active:after {
-	background-image: url("media/check.png");
-	background-repeat: no-repeat;
-	display: inline-block;
-	content: "";
-	width: 1em;
-	height: 1em;
-	margin: 0 0.5em;
 }
 
 .checkout-standard .step {
@@ -1904,11 +1882,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .checkout-standard .form-list .error select {
 	background-color: #ffeeee;
 	border: solid 1px #FF3300;
-}
-
-.checkout-standard .form-list .success input,
-.checkout-standard .form-list .success select {
-	background-color: #bbffbb;
 }
 
 .checkout-standard .item-service .form-list {
