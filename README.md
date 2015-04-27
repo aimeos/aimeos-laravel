@@ -185,13 +185,19 @@ an exception due to old cached data.
 
 ```php artisan cache:clear```
 
-Then, you should be able to call the catalog list page in your browser using
+Then, you should be able to call the catalog list page in your browser. For a
+quick start, you can use the integrated web server that is available since PHP 5.4.
+Simply execute this command in the base directory of your application:
 
-```http://<your public root>/index.php/list```
+```php -S 127.0.0.1:8000 -t public```
+
+Afterwards, you will be able to open the list page of the shop in your browser using:
+
+```http://127.0.0.1:8000/index.php/list```
 
 or for the administration interface:
 
-```http://<your public root>/index.php/admin```
+```http://127.0.0.1:8000/index.php/admin```
 
 **Caution:** You need to protect the ```/admin``` routes so only editors are
 able to access them. This is especially crucial as it grants direct access to
