@@ -5,6 +5,7 @@
 # Aimeos Laravel package
 [![Build Status](https://travis-ci.org/aimeos/aimeos-laravel.svg)](https://travis-ci.org/aimeos/aimeos-laravel)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
+[![HHVM Status](http://hhvm.h4cc.de/badge/aimeos/aimeos-laravel.svg)](http://hhvm.h4cc.de/package/aimeos/aimeos-laravel)
 
 The repository contains the web shop package for Laravel 5
 integrating the Aimeos e-commerce library into Laravel. The package provides
