@@ -39,7 +39,7 @@ class SetupCommand extends AbstractCommand
 	{
 		if( strncmp( $classname, 'MW_Setup_Task_', 14 ) === 0 )
 		{
-		    $fileName = substr( $classname, 14 ) . '.php';
+			$fileName = substr( $classname, 14 ) . '.php';
 			$paths = explode( PATH_SEPARATOR, get_include_path() );
 
 			foreach( $paths as $path )
