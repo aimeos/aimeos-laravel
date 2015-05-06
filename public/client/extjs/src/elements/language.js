@@ -56,6 +56,31 @@ MShop.elements.language.getStore = function() {
             sortInfo : {
                 field : 'locale.language.status',
                 direction : 'DESC'
+            },
+            baseParams : {
+                options : {
+                    /** client/extjs/elements/language/showall
+                     * Displays only the configured languages in drop-down menues
+                     *
+                     * By default, all languages are shown in the language selectors
+                     * and they are sorted by their status so enabled ones are listed
+                     * first.
+                     * 
+                     * By setting this option to false, only the languages that are
+                     * used in the locale tab are shown. This can prevent editors
+                     * from assigning languages that are not enabled yet and help
+                     * them to assign the correct languages faster.
+                     *
+                     * Note: Up to 2015-05, this option was available as
+                     * controller/extjs/locale/language/default/showall
+                     *
+                     * @param boolean True to show all languages, false for only the used ones
+                     * @since 2015.05
+                     * @category Developer
+                     * @category User
+                     */
+                    showall: MShop.Config.get('client/extjs/elements/language/showall', true)
+                }
             }
         });
     }

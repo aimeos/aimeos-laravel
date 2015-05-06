@@ -22,6 +22,35 @@ MShop.panel.price.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
         }]
     },
 
+    storeConfig : {
+        baseParams : {
+            options : {
+
+                /** client/extjs/panel/price/listuismall/showall
+                 * Display prices of all items of the same domain in the admin interface
+                 *
+                 * By default, only the prices for the specific product, attribute or
+                 * services associated to that items are shown in the price list views.
+                 * This reduces to probability to associate a price to multiple items
+                 * by accident but also prevents shop owners to use this for convenience.
+                 *
+                 * When you set this option to "1", all prices of the same domain will
+                 * be listed, e.g. all product prices. You can filter this prices in the
+                 * list view and search for prices with specific properties. If a price
+                 * is associated to more than one product, attribute or service, it will
+                 * change for all items at once when one of the price properties is
+                 * adapted.
+                 *
+                 * @param boolean True or "1" to show all prices, false or "0" otherwise
+                 * @since 2015.05
+                 * @category Developer
+                 * @category User
+                 */
+                'showall' : MShop.Config.get('client/extjs/panel/price/listuismall/showall', false )
+            }
+        }
+    },
+
     getColumns : function() {
 
         // make sure type store gets loaded in same batch as this grid data

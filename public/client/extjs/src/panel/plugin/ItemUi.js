@@ -77,6 +77,7 @@ MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'plugin.provider',
                             allowBlank : false,
                             maxLength : 255,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Name of the plugin provider class (required)')
                         }, {
                             xtype : 'textfield',

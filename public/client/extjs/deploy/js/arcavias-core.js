@@ -2922,6 +2922,31 @@ MShop.elements.language.getStore = function() {
             sortInfo : {
                 field : 'locale.language.status',
                 direction : 'DESC'
+            },
+            baseParams : {
+                options : {
+                    /** client/extjs/elements/language/showall
+                     * Displays only the configured languages in drop-down menues
+                     *
+                     * By default, all languages are shown in the language selectors
+                     * and they are sorted by their status so enabled ones are listed
+                     * first.
+                     * 
+                     * By setting this option to false, only the languages that are
+                     * used in the locale tab are shown. This can prevent editors
+                     * from assigning languages that are not enabled yet and help
+                     * them to assign the correct languages faster.
+                     *
+                     * Note: Up to 2015-05, this option was available as
+                     * controller/extjs/locale/language/default/showall
+                     *
+                     * @param boolean True to show all languages, false for only the used ones
+                     * @since 2015.05
+                     * @category Developer
+                     * @category User
+                     */
+                    showall: MShop.Config.get('client/extjs/elements/language/showall', true)
+                }
             }
         });
     }
@@ -3881,6 +3906,8 @@ MShop.panel.AbstractTypeItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                             name : this.typeDomain + '.code',
                             fieldLabel : MShop.I18n.dt('client/extjs', 'Code'),
                             allowBlank : false,
+                            maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
@@ -5300,6 +5327,35 @@ MShop.panel.price.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
         }]
     },
 
+    storeConfig : {
+        baseParams : {
+            options : {
+
+                /** client/extjs/panel/price/listuismall/showall
+                 * Display prices of all items of the same domain in the admin interface
+                 *
+                 * By default, only the prices for the specific product, attribute or
+                 * services associated to that items are shown in the price list views.
+                 * This reduces to probability to associate a price to multiple items
+                 * by accident but also prevents shop owners to use this for convenience.
+                 *
+                 * When you set this option to "1", all prices of the same domain will
+                 * be listed, e.g. all product prices. You can filter this prices in the
+                 * list view and search for prices with specific properties. If a price
+                 * is associated to more than one product, attribute or service, it will
+                 * change for all items at once when one of the price properties is
+                 * adapted.
+                 *
+                 * @param boolean True or "1" to show all prices, false or "0" otherwise
+                 * @since 2015.05
+                 * @category Developer
+                 * @category User
+                 */
+                'showall' : MShop.Config.get('client/extjs/panel/price/listuismall/showall', false )
+            }
+        }
+    },
+
     getColumns : function() {
 
         // make sure type store gets loaded in same batch as this grid data
@@ -5622,6 +5678,39 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
         this.typeStore = MShop.GlobalStoreMgr.get('Price_Type', conf.domain);
         this.listTypeStore = MShop.GlobalStoreMgr.get(conf.listTypeControllerName, conf.domain);
 
+        /** client/extjs/panel/price/taxrate
+         * Display the tax rate column in all price panels by default
+         *
+         * Due to the limited size in the panels, the tax rate of prices is
+         * hidden by default. Editors can unhide the column nevertheless but this
+         * only lasts as long as the panel isn't closed.
+         *
+         * By setting this option to true, the column will be always displayed
+         * in all panels.
+         *
+         * @param boolean True to always show the taxrate column, false to hide it by default
+         * @since 2014.03
+         * @category Developer
+         * @category User
+         */
+        var showTaxrate = MShop.Config.get('client/extjs/panel/price/taxrate', false);
+
+        /** client/extjs/panel/price/itempickerui/taxrate
+         * Display the tax rate column in the price picker UI by default
+         *
+         * Due to the limited size in the picker UI, the tax rate of prices is
+         * hidden by default. Editors can unhide the column nevertheless but this
+         * only lasts as long as the panel isn't closed.
+         *
+         * By setting this option to true, the column will be always displayed.
+         *
+         * @param boolean True to always show the taxrate column, false to hide it by default
+         * @since 2014.03
+         * @category Developer
+         * @category User
+         */
+        showTaxrate = MShop.Config.get('client/extjs/panel/price/itempickerui/taxrate', showTaxrate);
+
         return [
             {
                 xtype : 'gridcolumn',
@@ -5658,7 +5747,6 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
                 header : MShop.I18n.dt('client/extjs', 'Label'),
                 id : 'reflabel',
                 width : 100,
-                hidden : true,
                 renderer : this.refColumnRenderer.createDelegate(this, ["price.label"], true)
             },
             {
@@ -5715,8 +5803,7 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
                 id : 'reftaxrate',
                 width : 70,
                 align : 'right',
-                hidden : !MShop.Config.get('client/extjs/panel/price/itempickerui/taxrate', MShop.Config.get(
-                    'client/extjs/panel/price/taxrate', false)),
+                hidden : !showTaxrate,
                 renderer : this.refDecimalColumnRenderer.createDelegate(this, ["price.taxrate"], true)
             }];
     }
@@ -7528,6 +7615,7 @@ MShop.panel.attribute.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'attribute.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
@@ -8392,6 +8480,7 @@ MShop.panel.product.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'product.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'EAN, SKU or article number (required)')
                         }, {
                             xtype : 'textarea',
@@ -10557,6 +10646,7 @@ MShop.panel.catalog.ItemUi = Ext.extend(MShop.panel.AbstractTreeItemUi, {
                             name : 'code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
@@ -10981,6 +11071,7 @@ MShop.panel.service.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'service.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
@@ -11572,6 +11663,7 @@ MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'plugin.provider',
                             allowBlank : false,
                             maxLength : 255,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Name of the plugin provider class (required)')
                         }, {
                             xtype : 'textfield',
@@ -12102,6 +12194,7 @@ MShop.panel.coupon.code.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                             name : 'coupon.code.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'numberfield',
@@ -15277,6 +15370,7 @@ MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'locale.site.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
@@ -15532,7 +15626,8 @@ MShop.panel.locale.language.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
                             fieldLabel : MShop.I18n.dt('client/extjs', 'Code'),
                             name : 'locale.language.code',
                             allowBlank : false,
-                            maxLength : 32,
+                            maxLength : 5,
+                            regex : /[a-zA-Z_-]+/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
@@ -15743,7 +15838,8 @@ MShop.panel.locale.currency.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
                             fieldLabel : MShop.I18n.dt('client/extjs', 'Code'),
                             name : 'locale.currency.code',
                             allowBlank : false,
-                            maxLength : 32,
+                            maxLength : 3,
+                            regex : /[a-zA-Z]+/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',

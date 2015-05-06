@@ -33,6 +33,39 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
         this.typeStore = MShop.GlobalStoreMgr.get('Price_Type', conf.domain);
         this.listTypeStore = MShop.GlobalStoreMgr.get(conf.listTypeControllerName, conf.domain);
 
+        /** client/extjs/panel/price/taxrate
+         * Display the tax rate column in all price panels by default
+         *
+         * Due to the limited size in the panels, the tax rate of prices is
+         * hidden by default. Editors can unhide the column nevertheless but this
+         * only lasts as long as the panel isn't closed.
+         *
+         * By setting this option to true, the column will be always displayed
+         * in all panels.
+         *
+         * @param boolean True to always show the taxrate column, false to hide it by default
+         * @since 2014.03
+         * @category Developer
+         * @category User
+         */
+        var showTaxrate = MShop.Config.get('client/extjs/panel/price/taxrate', false);
+
+        /** client/extjs/panel/price/itempickerui/taxrate
+         * Display the tax rate column in the price picker UI by default
+         *
+         * Due to the limited size in the picker UI, the tax rate of prices is
+         * hidden by default. Editors can unhide the column nevertheless but this
+         * only lasts as long as the panel isn't closed.
+         *
+         * By setting this option to true, the column will be always displayed.
+         *
+         * @param boolean True to always show the taxrate column, false to hide it by default
+         * @since 2014.03
+         * @category Developer
+         * @category User
+         */
+        showTaxrate = MShop.Config.get('client/extjs/panel/price/itempickerui/taxrate', showTaxrate);
+
         return [
             {
                 xtype : 'gridcolumn',
@@ -69,7 +102,6 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
                 header : MShop.I18n.dt('client/extjs', 'Label'),
                 id : 'reflabel',
                 width : 100,
-                hidden : true,
                 renderer : this.refColumnRenderer.createDelegate(this, ["price.label"], true)
             },
             {
@@ -126,8 +158,7 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
                 id : 'reftaxrate',
                 width : 70,
                 align : 'right',
-                hidden : !MShop.Config.get('client/extjs/panel/price/itempickerui/taxrate', MShop.Config.get(
-                    'client/extjs/panel/price/taxrate', false)),
+                hidden : !showTaxrate,
                 renderer : this.refDecimalColumnRenderer.createDelegate(this, ["price.taxrate"], true)
             }];
     }

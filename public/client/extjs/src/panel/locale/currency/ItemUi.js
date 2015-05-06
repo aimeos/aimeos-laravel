@@ -63,7 +63,8 @@ MShop.panel.locale.currency.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
                             fieldLabel : MShop.I18n.dt('client/extjs', 'Code'),
                             name : 'locale.currency.code',
                             allowBlank : false,
-                            maxLength : 32,
+                            maxLength : 3,
+                            regex : /[a-zA-Z]+/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',

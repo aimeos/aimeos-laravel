@@ -60,6 +60,7 @@ MShop.panel.coupon.code.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                             name : 'coupon.code.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'numberfield',

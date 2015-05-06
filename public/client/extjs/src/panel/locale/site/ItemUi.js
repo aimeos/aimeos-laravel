@@ -66,6 +66,7 @@ MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'locale.site.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',

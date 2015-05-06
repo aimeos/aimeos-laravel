@@ -86,6 +86,7 @@ MShop.panel.attribute.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                             name : 'attribute.code',
                             allowBlank : false,
                             maxLength : 32,
+                            regex : /^[^ \v\t\r\n\f]+$/,
                             emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textfield',
