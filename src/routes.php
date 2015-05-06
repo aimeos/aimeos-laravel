@@ -6,7 +6,7 @@ Route::group(config('shop.routes.admin', []), function() {
 		'as' => 'aimeos_shop_admin_json',
 		'uses' => 'Aimeos\Shop\Controller\AdminController@doAction'
 	));
-	Route::match( array( 'GET', 'POST' ), 'admin/{site?}/{lang?}/{tab?}', array(
+	Route::match( array( 'GET', 'POST' ), 'admin', array(
 		'as' => 'aimeos_shop_admin',
 		'uses' => 'Aimeos\Shop\Controller\AdminController@indexAction'
 	));
