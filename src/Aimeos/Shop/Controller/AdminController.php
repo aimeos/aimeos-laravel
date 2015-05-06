@@ -24,11 +24,11 @@ class AdminController extends Controller
 	/**
 	 * Returns the initial HTML view for the admin interface.
 	 *
-	 * @param integer $tab Number of the currently active tab
 	 * @return Response Response object containing the generated output
 	 */
-	public function indexAction( $site = 'default', $lang = 'en', $tab = 0 )
+	public function indexAction()
 	{
+		$lang = \Input::get( 'lang' );
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
@@ -65,14 +65,14 @@ class AdminController extends Controller
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
-			'site' => $this->getJsonSiteItem( $context, $site ),
+			'site' => $this->getJsonSiteItem( $context, \Input::get( 'site', 'default' ) ),
 			'i18nContent' => $this->getJsonClientI18n( $aimeos->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
 			'smd' => $controller->getJsonSmd( $jsonUrl ),
 			'urlTemplate' => urldecode( $adminUrl ),
 			'uploaddir' => \Config::get( 'shop::uploaddir' ),
-			'activeTab' => $tab,
+			'activeTab' => \Input::get( 'tab', 0 ),
 		);
 
 		return \View::make('shop::admin.index', $vars);
