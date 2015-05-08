@@ -77,7 +77,7 @@ Afterwards, install the Aimeos shop package using
 In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
 
-*Caution:* The latest Laravel 5 versions contain a bug that leads to an exception
+**Caution:** The latest Laravel 5 versions contain a bug that leads to an exception
 after executing `composer update` on a fresh install. You can fix this by
 deleting `vendor/compiled.php` or `storage/framework/compiled.php`.
 
