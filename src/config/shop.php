@@ -28,11 +28,11 @@ return array(
 	'resource' => array(
 		'db' => array(
 			'adapter' => 'mysql',
-			'host' => config( 'database.connections.mysql.host', '' ),
-			'port' => config( 'database.connections.mysql.port', '' ),
-			'database' => config( 'database.connections.mysql.database', '' ),
-			'username' => config( 'database.connections.mysql.username', '' ),
-			'password' => config( 'database.connections.mysql.password', '' ),
+			'host' => env('DB_HOST', 'localhost'),
+			'port' => env('DB_PORT', ''),
+			'database' => env('DB_DATABASE', 'laravel'),
+			'username' => env('DB_USERNAME', 'root'),
+			'password' => env('DB_PASSWORD', ''),
 			'stmt' => array( "SET NAMES 'utf8'", "SET SESSION sql_mode='ANSI'" ),
 			'opt-persistent' => 0,
 			'limit' => 2,
