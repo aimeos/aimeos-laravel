@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Bram Verhaegh <bram@beech.it>, 2015
+# Maurice Lourens <mlourens@gmail.com>, 2015
+# Sten Pelzer <pelzersten@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Arcavias Core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2015-04-28 21:16+0000\n"
-"Last-Translator: Bram Verhaegh <bram@beech.it>\n"
+"PO-Revision-Date: 2015-05-07 12:42+0000\n"
+"Last-Translator: Sten Pelzer <pelzersten@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/arcavias-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,13 +96,13 @@ msgstr "Type kenmerk"
 #: src/panel/attribute/type/ItemUi.js:23
 #, python-brace-format
 msgid "Attribute type: {0} ({1})"
-msgstr ""
+msgstr "Eigenschap type: {0} ({1})"
 
 #. : Attribute item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/attribute/ItemUi.js:129
 #, python-brace-format
 msgid "Attribute: {0} ({1})"
-msgstr ""
+msgstr "Eigenschap: {0} ({1})"
 
 #: src/panel/attribute/ItemPickerUi.js:23
 msgid "Available attributes"
@@ -176,7 +178,7 @@ msgstr "Catalogus"
 #: src/panel/catalog/ItemUi.js:105
 #, python-brace-format
 msgid "Catalog: {0} ({1})"
-msgstr ""
+msgstr "Catalogus: {0} ({1})"
 
 #: src/panel/order/address/DeliveryItemUi.js:81
 #: src/panel/order/address/ItemUi.js:96
@@ -230,73 +232,73 @@ msgstr "Bedrijf"
 #: src/panel/coupon/ListUi.js:83 src/panel/locale/site/ListUi.js:71
 #: src/panel/ConfigUi.js:14 src/panel/service/ListUi.js:92
 msgid "Configuration"
-msgstr ""
+msgstr "Configuratie"
 
 #: src/panel/text/ListUiSmall.js:81 src/panel/text/ItemUi.js:82
 #: src/panel/text/ItemPickerUi.js:84
 msgid "Content"
-msgstr ""
+msgstr "Inhoud"
 
 #: src/panel/AbstractListUi.js:149
 msgid "Copy"
-msgstr ""
+msgstr "Kopie"
 
 #: src/panel/price/ListUiSmall.js:113 src/panel/price/ItemPickerUi.js:113
 #: src/panel/order/OrderItemUi.js:55 src/panel/order/product/ListUi.js:110
 #: src/panel/order/product/ItemUi.js:91 src/panel/order/service/ListUi.js:100
 #: src/panel/order/service/ItemUi.js:83
 msgid "Costs"
-msgstr ""
+msgstr "Kosten"
 
 #: src/panel/price/ItemUi.js:111
 msgid "Costs per item"
-msgstr ""
+msgstr "Kosten per item"
 
 #: src/panel/media/MediaField.js:153 src/panel/media/MediaField.js:208
 #: src/elements/importbutton.js:63
 msgid "Could not upload file. Please notify your administrator"
-msgstr ""
+msgstr "Kon het bestand niet uploaden, contacteer de beheerder"
 
 #: src/panel/coupon/code/ListUi.js:54 src/panel/coupon/code/ItemUi.js:66
 msgid "Count"
-msgstr ""
+msgstr "Aantal"
 
 #: src/panel/order/address/DeliveryItemUi.js:89
 #: src/panel/order/address/ItemUi.js:104
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: src/panel/coupon/ListUi.js:27
 msgid "Coupon"
-msgstr ""
+msgstr "Coupon"
 
 #: src/panel/order/coupon/ListUi.js:104
 msgid "Coupon code"
-msgstr ""
+msgstr "Coupon code"
 
 #: src/panel/coupon/code/ItemUi.js:16
 msgid "Coupon code item details"
-msgstr ""
+msgstr "Coupon code item details"
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #: src/panel/coupon/code/ItemUi.js:111
 #, python-brace-format
 msgid "Coupon code: {0} ({1})"
-msgstr ""
+msgstr "Coupon code: {0} ({1})"
 
 #: src/panel/coupon/ItemUi.js:16
 msgid "Coupon item details"
-msgstr ""
+msgstr "Coupon item details"
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #: src/panel/coupon/ItemUi.js:118
 #, python-brace-format
 msgid "Coupon: {0} ({1})"
-msgstr ""
+msgstr "Coupon: {0} ({1})"
 
 #: src/panel/order/coupon/ListUi.js:11
 msgid "Coupons"
-msgstr ""
+msgstr "Coupons"
 
 #: src/panel/plugin/ListUi.js:107 src/panel/plugin/ItemUi.js:97
 #: src/panel/plugin/type/ListUi.js:84 src/panel/job/ListUiSmall.js:120
@@ -338,52 +340,52 @@ msgstr ""
 #: src/panel/order/service/ListUi.js:112 src/panel/order/service/ItemUi.js:95
 #: src/panel/log/ListUiSmall.js:101
 msgid "Created"
-msgstr ""
+msgstr "Aangemaakt"
 
 #: src/panel/price/ListUiSmall.js:80 src/panel/price/ItemPickerUi.js:78
 #: src/panel/locale/ListUi.js:66 src/panel/locale/ItemUi.js:68
 #: src/panel/locale/currency/ListUi.js:32 src/panel/order/OrderItemUi.js:47
 #: src/elements/currency.js:11
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #: src/panel/price/ItemUi.js:88 src/panel/locale/ItemUi.js:71
 msgid "Currency (required)"
-msgstr ""
+msgstr "Valuta (verplicht)"
 
 #: src/panel/order/OrderItemUi.js:43 src/elements/domain.js:49
 msgid "Customer"
-msgstr ""
+msgstr "Klant"
 
 #: src/panel/log/ListUiSmall.js:65
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: src/panel/product/stock/ListUiSmall.js:100
 msgid "Date back"
-msgstr ""
+msgstr "Vorige datum"
 
 #: src/panel/cache/ListUiSmall.js:45 src/panel/AbstractListUi.js:155
 #: src/panel/ConfigUi.js:46 src/elements/exportlanguage.js:159
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
 #: src/panel/AbstractListUi.js:254 src/panel/AbstractTreeUi.js:224
 #: src/elements/exportlanguage.js:290
 msgid "Delete items?"
-msgstr ""
+msgstr "Verwijder items?"
 
 #: src/panel/order/address/DeliveryItemUi.js:11
 msgid "Delivery address"
-msgstr ""
+msgstr "Bezorg adres"
 
 #: src/panel/order/ListUi.js:71 src/panel/order/ItemUi.js:85
 msgid "Delivery date"
-msgstr ""
+msgstr "Bezorg datum"
 
 #: src/panel/order/ListUi.js:78 src/panel/order/ItemUi.js:91
 msgid "Delivery status"
-msgstr ""
+msgstr "Bezorg status"
 
 #: src/panel/plugin/ItemUi.js:33 src/panel/cache/ItemUi.js:36
 #: src/panel/job/ItemUi.js:35 src/panel/attribute/ItemUi.js:51
@@ -391,35 +393,35 @@ msgstr ""
 #: src/panel/product/ItemUi.js:37 src/panel/order/product/ItemUi.js:44
 #: src/panel/order/service/ItemUi.js:44
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: src/panel/AbstractListItemPickerUi.js:285
 msgid "Display field is empty"
-msgstr ""
+msgstr "Weergave veld is leeg"
 
 #: src/panel/plugin/type/ListUi.js:64 src/panel/attribute/type/ListUi.js:64
 #: src/panel/price/type/ListUi.js:64 src/panel/product/type/ListUi.js:62
 #: src/panel/text/type/ListUi.js:61 src/panel/service/type/ListUi.js:62
 #: src/panel/media/type/ListUi.js:64 src/elements/domain.js:10
 msgid "Domain"
-msgstr ""
+msgstr "Domein"
 
 #: src/elements/domain.js:15
 msgid "Domain (required)"
-msgstr ""
+msgstr "Domein (verplicht)"
 
 #: src/panel/order/address/DeliveryItemUi.js:101
 #: src/panel/order/address/ItemUi.js:116
 msgid "E-Mail"
-msgstr ""
+msgstr "E-mail"
 
 #: src/panel/product/ItemUi.js:85
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU of artikelnummer (verplicht)"
 
 #: src/panel/cache/ListUiSmall.js:39 src/panel/AbstractListUi.js:143
 msgid "Edit"
-msgstr ""
+msgstr "Aanpassen"
 
 #: src/panel/plugin/ListUi.js:123 src/panel/plugin/ItemUi.js:105
 #: src/panel/plugin/type/ListUi.js:102 src/panel/job/ListUiSmall.js:138
@@ -461,7 +463,7 @@ msgstr ""
 #: src/panel/order/service/ListUi.js:128 src/panel/order/service/ItemUi.js:103
 #: src/panel/log/ListUiSmall.js:117
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: src/panel/ListItemListUi.js:187 src/panel/product/ListUiSmall.js:81
 #: src/panel/product/ListUi.js:95 src/panel/product/ItemUi.js:113
@@ -470,45 +472,45 @@ msgstr ""
 #: src/panel/coupon/ItemUi.js:82 src/panel/coupon/code/ListUi.js:67
 #: src/panel/coupon/code/ItemUi.js:79 src/panel/ListItemItemUi.js:57
 msgid "End date"
-msgstr ""
+msgstr "Eind datum"
 
 #: src/panel/AbstractListUi.js:341 src/panel/AbstractUsedByListUi.js:173
 #: src/elements/exportlanguage.js:393
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: src/panel/cache/ListUiSmall.js:90 src/panel/cache/ItemUi.js:60
 msgid "Expires"
-msgstr ""
+msgstr "Verloopt"
 
 #: src/panel/AbstractListUi.js:161 src/elements/exportlanguage.js:328
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 #: src/elements/exportlanguage.js:445
 msgid "Export successful"
-msgstr ""
+msgstr "Succesvol geexporteerd "
 
 #: src/panel/log/ListUiSmall.js:59
 msgid "Facility"
-msgstr ""
+msgstr "Faciliteit"
 
 #: src/panel/media/ItemUi.js:100
 msgid "File URL"
-msgstr ""
+msgstr "Bestands URL"
 
 #: src/panel/order/address/DeliveryItemUi.js:57
 #: src/panel/order/address/ItemUi.js:72
 msgid "Firstname"
-msgstr ""
+msgstr "Voornaam"
 
 #: src/panel/cache/ListUiSmall.js:51
 msgid "Flush"
-msgstr ""
+msgstr "Legen"
 
 #: src/panel/cache/ListUiSmall.js:101
 msgid "Flush cache?"
-msgstr ""
+msgstr "Cache legen?"
 
 #: src/panel/plugin/ListUi.js:47 src/panel/plugin/ItemUi.js:47
 #: src/panel/plugin/type/ListUi.js:49 src/panel/cache/ListUiSmall.js:77
@@ -552,15 +554,15 @@ msgstr ""
 #: src/panel/log/ListUiSmall.js:53 src/elements/exportlanguage.js:79
 #: src/elements/exportlanguage.js:105
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: src/panel/AbstractListUi.js:167
 msgid "Import"
-msgstr ""
+msgstr "Importeer"
 
 #: src/panel/text/ItemUi.js:79
 msgid "Internal name"
-msgstr ""
+msgstr "Interne naam"
 
 #: src/panel/plugin/ItemUi.js:87 src/panel/job/ItemUi.js:61
 #: src/panel/attribute/ItemUi.js:96 src/panel/catalog/ItemUi.js:72
@@ -572,12 +574,12 @@ msgstr ""
 #: src/panel/locale/language/ItemUi.js:73 src/panel/service/ItemUi.js:85
 #: src/panel/media/ItemUi.js:92
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Interne naam (verplicht)"
 
 #: src/panel/AbstractTreeUi.js:299
 #, python-brace-format
 msgid "Invalid action \"{0}\""
-msgstr ""
+msgstr "Invalide actie \"{0}\""
 
 #: src/panel/catalog/ItemUi.js:121 src/panel/product/stock/ItemUi.js:123
 #: src/panel/locale/site/ItemUi.js:121 src/panel/ConfigUi.js:122
@@ -585,7 +587,7 @@ msgstr ""
 #: src/panel/AbstractListItemUi.js:71 src/panel/AbstractTreeItemUi.js:25
 #: src/panel/ListItemItemUi.js:77 src/panel/ListItemItemUi.js:117
 msgid "Invalid data"
-msgstr ""
+msgstr "Invalide data"
 
 #: src/panel/ConfigUi.js:123
 #, python-brace-format
@@ -602,7 +604,7 @@ msgstr ""
 
 #: src/panel/job/ListUiSmall.js:32
 msgid "Jobs"
-msgstr ""
+msgstr "Jobs"
 
 #: src/panel/plugin/ListUi.js:76 src/panel/plugin/ItemUi.js:83
 #: src/panel/plugin/type/ListUi.js:78 src/panel/job/ListUiSmall.js:60
@@ -635,7 +637,7 @@ msgstr ""
 #: src/panel/media/type/ListUi.js:78 src/panel/media/ItemPickerUi.js:87
 #: src/elements/exportlanguage.js:85 src/elements/exportlanguage.js:113
 msgid "Label"
-msgstr ""
+msgstr "Label"
 
 #: src/panel/product/tag/ListUiSmall.js:46
 #: src/panel/product/tag/ItemPickerUi.js:59 src/panel/locale/ListUi.js:59
@@ -645,11 +647,11 @@ msgstr ""
 #: src/elements/language.js:10 src/elements/siteLanguage.js:10
 #: src/elements/siteLanguage.js:17
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: src/panel/locale/ItemUi.js:65
 msgid "Language (required)"
-msgstr ""
+msgstr "Taal (verplicht)"
 
 #: src/panel/plugin/ListUi.js:115 src/panel/plugin/ItemUi.js:101
 #: src/panel/plugin/type/ListUi.js:93 src/panel/job/ListUiSmall.js:129
@@ -691,59 +693,59 @@ msgstr ""
 #: src/panel/order/service/ListUi.js:120 src/panel/order/service/ItemUi.js:99
 #: src/panel/log/ListUiSmall.js:109
 msgid "Last modified"
-msgstr ""
+msgstr "Laatst aangepast"
 
 #: src/panel/order/address/DeliveryItemUi.js:61
 #: src/panel/order/address/ItemUi.js:76
 msgid "Lastname"
-msgstr ""
+msgstr "Achternaam"
 
 #: src/panel/locale/ListUi.js:32
 msgid "List"
-msgstr ""
+msgstr "Lijst"
 
 #: src/panel/product/UsedByCatalogListUi.js:58
 #: src/panel/product/UsedByProductListUi.js:37
 msgid "List ID"
-msgstr ""
+msgstr "Lijst ID"
 
 #: src/panel/ListItemListUi.js:166
 msgid "List Status"
-msgstr ""
+msgstr "Lijst status"
 
 #: src/panel/product/UsedByCatalogListUi.js:100
 #: src/panel/product/UsedByProductListUi.js:88
 msgid "List creation time"
-msgstr ""
+msgstr "Lijst aanmaak tijd"
 
 #: src/panel/product/UsedByCatalogListUi.js:118
 #: src/panel/product/UsedByProductListUi.js:97
 msgid "List editor"
-msgstr ""
+msgstr "Lijst editor"
 
 #: src/panel/product/UsedByCatalogListUi.js:84
 #: src/panel/product/UsedByProductListUi.js:63
 msgid "List end date"
-msgstr ""
+msgstr "Lijst einddatum"
 
 #: src/panel/ListItemItemUi.js:14
 msgid "List item details"
-msgstr ""
+msgstr "Lijst item details"
 
 #: src/panel/product/UsedByCatalogListUi.js:109
 #: src/panel/product/UsedByProductListUi.js:79
 msgid "List modification time"
-msgstr ""
+msgstr "Lijst aanpassings-datum"
 
 #: src/panel/product/UsedByCatalogListUi.js:92
 #: src/panel/product/UsedByProductListUi.js:71
 msgid "List position"
-msgstr ""
+msgstr "Lijst positie"
 
 #: src/panel/product/UsedByCatalogListUi.js:76
 #: src/panel/product/UsedByProductListUi.js:55
 msgid "List start date"
-msgstr ""
+msgstr "Lijst start datum"
 
 #: src/panel/attribute/ItemPickerUi.js:40 src/panel/price/ItemPickerUi.js:40
 #: src/panel/product/UsedByCatalogListUi.js:66
@@ -753,22 +755,22 @@ msgstr ""
 #: src/panel/media/ItemPickerUi.js:40 src/panel/ListItemItemUi.js:36
 #: src/panel/ListItemItemUi.js:47
 msgid "List type"
-msgstr ""
+msgstr "Lijst Type"
 
 #: src/panel/media/MediaField.js:59 src/elements/importbutton.js:24
 msgid "Loading"
-msgstr ""
+msgstr "Laden"
 
 #: src/panel/locale/TabUi.js:23
 msgid "Locale"
-msgstr ""
+msgstr "Locale"
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
 #: src/panel/locale/currency/ItemUi.js:98
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr ""
+msgstr "Lokale valuta: {0} ({1})"
 
 #. : Locale item panel title with site code ({1)}
 #: src/panel/locale/ItemUi.js:103
@@ -781,54 +783,54 @@ msgstr ""
 #: src/panel/locale/language/ItemUi.js:98
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr ""
+msgstr "Lokale taal: {0} ({1})"
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #: src/panel/locale/site/ItemUi.js:107
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
-msgstr ""
+msgstr "Lokale site: {0} ({1})"
 
 #: src/panel/log/ListUiSmall.js:32
 msgid "Logs"
-msgstr ""
+msgstr "Logs"
 
 #: src/panel/media/ItemPickerUi.js:11 src/elements/domain.js:50
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: src/panel/media/type/ListUi.js:34
 msgid "Media type"
-msgstr ""
+msgstr "Media type"
 
 #. : Media type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/media/type/ItemUi.js:22
 #, python-brace-format
 msgid "Media type: {0} ({1})"
-msgstr ""
+msgstr "Media type: {0} ({1})"
 
 #. : Media item panel title with media label ({0}) and site code ({1)}
 #: src/panel/media/ItemUi.js:134
 #, python-brace-format
 msgid "Media: {0} ({1})"
-msgstr ""
+msgstr "Media: {0} ({1})"
 
 #: src/panel/log/ListUiSmall.js:77
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 #: src/panel/job/ListUiSmall.js:67 src/panel/job/ItemUi.js:64
 msgid "Method"
-msgstr ""
+msgstr "Methode"
 
 #: src/panel/media/ListUiSmall.js:75 src/panel/media/ItemUi.js:85
 #: src/panel/media/ItemPickerUi.js:69
 msgid "Mimetype"
-msgstr ""
+msgstr "Mimetype"
 
 #: src/panel/price/ItemUi.js:92
 msgid "Minimum quantity"
-msgstr ""
+msgstr "Minimum aantal"
 
 #: src/panel/ConfigUi.js:70
 #: src/panel/order/product/attribute/ListUiSmall.js:81
@@ -836,7 +838,7 @@ msgstr ""
 #: src/panel/order/service/attribute/ListUiSmall.js:82
 #: src/panel/order/service/ListUi.js:91 src/panel/order/service/ItemUi.js:75
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: src/panel/coupon/ItemUi.js:66
 msgid "Name of the coupon provider class (required)"
@@ -853,27 +855,27 @@ msgstr ""
 #: src/panel/AbstractListUi.js:342 src/panel/AbstractUsedByListUi.js:174
 #: src/elements/exportlanguage.js:394
 msgid "No error information available"
-msgstr ""
+msgstr "Geen fout informatie beschikaar"
 
 #: src/panel/AbstractListUi.js:120 src/panel/AbstractListItemPickerUi.js:49
 msgid "No items"
-msgstr ""
+msgstr "Geen items"
 
 #: src/panel/order/ListUi.js:118
 msgid "Not implemented"
-msgstr ""
+msgstr "Niet geimplementeerd "
 
 #: src/panel/coupon/code/ListUi.js:103
 msgid "Notice"
-msgstr ""
+msgstr "Notificatie"
 
 #: src/panel/order/OrderItemUi.js:15 src/panel/order/ListUi.js:32
 msgid "Order"
-msgstr ""
+msgstr "Aankoop"
 
 #: src/panel/order/ItemUi.js:20
 msgid "Order item details"
-msgstr ""
+msgstr "Aankoop item details"
 
 #: src/panel/order/product/ListUi.js:83 src/panel/order/product/ItemUi.js:67
 msgid "Order product ID"
@@ -881,26 +883,26 @@ msgstr ""
 
 #: src/panel/portal/ItemUi.js:19
 msgid "Overview"
-msgstr ""
+msgstr "Overzicht"
 
 #: src/panel/job/ListUiSmall.js:75
 msgid "Parameter"
-msgstr ""
+msgstr "Parameter"
 
 #: src/panel/order/ItemUi.js:68
 msgid "Payment date"
-msgstr ""
+msgstr "Betaaldatum"
 
 #: src/panel/order/ListUi.js:65 src/panel/order/ItemUi.js:74
 msgid "Payment status"
-msgstr ""
+msgstr "Betaalstatus"
 
 #: src/panel/catalog/ItemUi.js:122 src/panel/product/stock/ItemUi.js:124
 #: src/panel/locale/site/ItemUi.js:122 src/panel/AbstractItemUi.js:240
 #: src/panel/AbstractListItemUi.js:29 src/panel/AbstractTreeItemUi.js:26
 #: src/panel/ListItemItemUi.js:78
 msgid "Please recheck your data"
-msgstr ""
+msgstr "Controleer uw data nogmaals"
 
 #: src/panel/coupon/code/ListUi.js:104
 msgid "Please save the coupon first before you can add codes"
@@ -910,27 +912,27 @@ msgstr ""
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
 " list."
-msgstr ""
+msgstr "Selecteer alstublieft een item aan de rechterzijde en voeg het hier toe door het te slepen en los te laten."
 
 #: src/panel/plugin/ListUi.js:32 src/elements/domain.js:51
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 #: src/panel/plugin/type/ListUi.js:34
 msgid "Plugin type"
-msgstr ""
+msgstr "Plugin type"
 
 #. : Plugin type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/plugin/type/ItemUi.js:22
 #, python-brace-format
 msgid "Plugin type: {0} ({1})"
-msgstr ""
+msgstr "Plugin type: {0} ({1})"
 
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/plugin/ItemUi.js:127
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
-msgstr ""
+msgstr "Plugin: {0} ({1})"
 
 #: src/panel/plugin/ListUi.js:84 src/panel/plugin/ItemUi.js:90
 #: src/panel/attribute/ListUiSmall.js:84 src/panel/attribute/ListUi.js:79
@@ -938,202 +940,202 @@ msgstr ""
 #: src/panel/locale/ItemUi.js:75 src/panel/service/ListUi.js:85
 #: src/panel/service/ItemUi.js:88
 msgid "Position"
-msgstr ""
+msgstr "Positie"
 
 #: src/panel/order/address/DeliveryItemUi.js:77
 #: src/panel/order/address/ItemUi.js:92
 msgid "Postal code"
-msgstr ""
+msgstr "Postcode"
 
 #: src/panel/media/ListUiSmall.js:88 src/panel/media/ItemPickerUi.js:94
 msgid "Preview"
-msgstr ""
+msgstr "Voorbeeld weergave"
 
 #: src/panel/media/ItemUi.js:96
 msgid "Preview URL"
-msgstr ""
+msgstr "Voorbeeld URL"
 
 #: src/panel/price/ListUiSmall.js:95 src/panel/price/ItemPickerUi.js:11
 #: src/panel/price/ItemPickerUi.js:95 src/panel/order/product/ListUi.js:106
 #: src/panel/order/product/ItemUi.js:87 src/panel/order/service/ListUi.js:96
 #: src/panel/order/service/ItemUi.js:79 src/elements/domain.js:52
 msgid "Price"
-msgstr ""
+msgstr "Prijs"
 
 #: src/panel/price/type/ListUi.js:34
 msgid "Price type"
-msgstr ""
+msgstr "Prijs type"
 
 #. : Price type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/price/type/ItemUi.js:22
 #, python-brace-format
 msgid "Price type: {0} ({1})"
-msgstr ""
+msgstr "Prijs type: {0} ({1})"
 
 #. : Price item panel title with price label ({0}) and site code ({1)}
 #: src/panel/price/ItemUi.js:145
 #, python-brace-format
 msgid "Price: {0} ({1})"
-msgstr ""
+msgstr "Prijs: {0} ({1})"
 
 #: src/panel/log/ListUiSmall.js:71
 msgid "Priority"
-msgstr ""
+msgstr "Prioriteit"
 
 #: src/panel/product/ListUi.js:28 src/panel/product/ItemPickerUi.js:10
 #: src/panel/order/product/ItemUi.js:31 src/elements/domain.js:53
 msgid "Product"
-msgstr ""
+msgstr "Product"
 
 #: src/panel/product/stock/ListUiSmall.js:75
 #: src/panel/order/product/ListUi.js:77 src/panel/order/product/ItemUi.js:63
 #: src/panel/order/coupon/ListUi.js:109
 msgid "Product ID"
-msgstr ""
+msgstr "Product ID"
 
 #: src/panel/order/coupon/ListUi.js:116
 msgid "Product code"
-msgstr ""
+msgstr "Product code"
 
 #: src/panel/order/coupon/ListUi.js:147
 msgid "Product costs"
-msgstr ""
+msgstr "Product kosten"
 
 #: src/panel/order/product/ItemUi.js:19
 msgid "Product item details"
-msgstr ""
+msgstr "Product item details"
 
 #: src/panel/order/coupon/ListUi.js:124
 msgid "Product name"
-msgstr ""
+msgstr "Product naam"
 
 #: src/panel/order/coupon/ListUi.js:140
 msgid "Product price"
-msgstr ""
+msgstr "Product prijs"
 
 #: src/panel/order/coupon/ListUi.js:132
 msgid "Product quantity"
-msgstr ""
+msgstr "Product aantal"
 
 #: src/panel/order/coupon/ListUi.js:154
 msgid "Product rebate"
-msgstr ""
+msgstr "Product korting"
 
 #: src/panel/product/stock/ItemUi.js:21
 msgid "Product stock"
-msgstr ""
+msgstr "Product voorraad"
 
 #: src/panel/product/ItemUi.js:104
 msgid "Product supplier (optional)"
-msgstr ""
+msgstr "Product leverancier (optioneel)"
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #: src/panel/product/tag/ItemUi.js:99
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr ""
+msgstr "Product tag: {0} ({1})"
 
 #: src/panel/order/coupon/ListUi.js:161
 msgid "Product tax rate"
-msgstr ""
+msgstr "Product BTW"
 
 #: src/panel/product/type/ListUi.js:33
 msgid "Product type"
-msgstr ""
+msgstr "Product type"
 
 #. : Product type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/product/type/ItemUi.js:20
 #, python-brace-format
 msgid "Product type: {0} ({1})"
-msgstr ""
+msgstr "Product type: {0} ({1})"
 
 #. : Product item panel title with product label ({0}) and site code ({1)}
 #: src/panel/product/ItemUi.js:145
 #, python-brace-format
 msgid "Product: {0} ({1})"
-msgstr ""
+msgstr "Product: {0} ({1})"
 
 #: src/panel/order/product/ListUi.js:11
 msgid "Products"
-msgstr ""
+msgstr "Producten"
 
 #: src/panel/plugin/ListUi.js:69 src/panel/plugin/ItemUi.js:76
 #: src/panel/coupon/ListUi.js:55 src/panel/coupon/ItemUi.js:62
 #: src/panel/service/ListUi.js:70 src/panel/service/ItemUi.js:74
 msgid "Provider"
-msgstr ""
+msgstr "Provider"
 
 #: src/panel/order/ListUi.js:58
 msgid "Purchase date"
-msgstr ""
+msgstr "Aankoop datum"
 
 #: src/panel/price/ListUiSmall.js:87 src/panel/price/ItemPickerUi.js:86
 #: src/panel/product/stock/ListUiSmall.js:92
 #: src/panel/order/product/ListUi.js:102 src/panel/order/product/ItemUi.js:83
 msgid "Quantity"
-msgstr ""
+msgstr "Aantal"
 
 #: src/panel/product/stock/ItemUi.js:92
 msgid "Quantity or empty if unlimited (optional)"
-msgstr ""
+msgstr "Aantal of laat leeg voor onbeperkt (optioneel)"
 
 #: src/panel/price/ListUiSmall.js:104 src/panel/price/ItemPickerUi.js:103
 #: src/panel/order/product/ListUi.js:114 src/panel/order/product/ItemUi.js:95
 #: src/panel/order/service/ListUi.js:104 src/panel/order/service/ItemUi.js:87
 msgid "Rebate"
-msgstr ""
+msgstr "Korting"
 
 #: src/panel/ListItemListUi.js:160
 msgid "Ref-ID"
-msgstr ""
+msgstr "Ref-ID"
 
 #: src/panel/order/ListUi.js:84
 msgid "Related order ID"
-msgstr ""
+msgstr "Gerelateerde aankoop ID "
 
 #: src/panel/log/ListUiSmall.js:95
 msgid "Request"
-msgstr ""
+msgstr "Aanvraag"
 
 #: src/panel/job/ListUiSmall.js:96
 msgid "Result"
-msgstr ""
+msgstr "Resultaat"
 
 #: src/panel/order/address/DeliveryItemUi.js:49
 #: src/panel/order/address/ItemUi.js:64
 msgid "Salutation"
-msgstr ""
+msgstr "Aanhef"
 
 #: src/panel/AbstractItemUi.js:140
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: src/panel/AbstractItemUi.js:191
 msgid "Saving"
-msgstr ""
+msgstr "Bezig met opslaan"
 
 #: src/Schema.js:86
 #, python-brace-format
 msgid "Schema {0} is  not registered"
-msgstr ""
+msgstr "Schema {0} is niet geregistreerd"
 
 #: src/Schema.js:96
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
-msgstr ""
+msgstr "Zoek schema {0} is niet geregistreerd"
 
 #: src/panel/ListItemListUi.js:86
 msgid "Select Item"
-msgstr ""
+msgstr "Selecteer item"
 
 #: src/elements/exportlanguage.js:21
 msgid "Select languages to export"
-msgstr ""
+msgstr "Selecteer talen om te exporteren"
 
 #: src/panel/service/ListUi.js:26 src/panel/order/service/ItemUi.js:31
 #: src/elements/domain.js:54
 msgid "Service"
-msgstr ""
+msgstr "Dienst"
 
 #: src/panel/order/service/ListUi.js:77 src/panel/order/service/ItemUi.js:63
 msgid "Service ID"
@@ -1161,19 +1163,19 @@ msgstr ""
 
 #: src/panel/order/service/ListUi.js:11
 msgid "Services"
-msgstr ""
+msgstr "Diensten"
 
 #: src/panel/locale/site/ListUi.js:27 src/panel/order/OrderItemUi.js:39
 msgid "Site"
-msgstr ""
+msgstr "Site"
 
 #: src/panel/order/ListUi.js:119
 msgid "Sorry, adding orders manually is currently not implemented"
-msgstr ""
+msgstr "Sorry, handmatig orders toevoegen is momenteel nog niet mogelijk."
 
 #: src/panel/order/ListUi.js:51 src/panel/order/ItemUi.js:64
 msgid "Source"
-msgstr ""
+msgstr "Bron"
 
 #: src/panel/ListItemListUi.js:180 src/panel/product/ListUiSmall.js:73
 #: src/panel/product/ListUi.js:87 src/panel/product/ItemUi.js:107
@@ -1182,12 +1184,12 @@ msgstr ""
 #: src/panel/coupon/ItemUi.js:76 src/panel/coupon/code/ListUi.js:60
 #: src/panel/coupon/code/ItemUi.js:73 src/panel/ListItemItemUi.js:50
 msgid "Start date"
-msgstr ""
+msgstr "Start datum"
 
 #: src/panel/order/address/DeliveryItemUi.js:85
 #: src/panel/order/address/ItemUi.js:100
 msgid "State"
-msgstr ""
+msgstr "Staat"
 
 #: src/panel/plugin/ListUi.js:55 src/panel/plugin/type/ListUi.js:56
 #: src/panel/job/ListUiSmall.js:52 src/panel/attribute/ListUiSmall.js:57
@@ -1210,15 +1212,15 @@ msgstr ""
 #: src/panel/order/product/ItemUi.js:103 src/elements/exportlanguage.js:73
 #: src/elements/exportlanguage.js:98 src/elements/status.js:10
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: src/panel/product/stock/ListUiSmall.js:26
 msgid "Stock"
-msgstr ""
+msgstr "Voorraad"
 
 #: src/panel/product/stock/ItemUi.js:90
 msgid "Stock level"
-msgstr ""
+msgstr "Voorraad niveau"
 
 #: src/panel/price/ItemUi.js:105
 msgid "Substracted rebate amount"
@@ -1229,95 +1231,95 @@ msgstr ""
 #: src/panel/product/ItemPickerUi.js:83 src/panel/supplier/ListUi.js:26
 #: src/elements/domain.js:55
 msgid "Supplier"
-msgstr ""
+msgstr "Leverancier"
 
 #. : Supplier item panel title with supplier label ({0}) and site code ({1)}
 #: src/panel/supplier/ItemUi.js:84
 #, python-brace-format
 msgid "Supplier: {0} ({1})"
-msgstr ""
+msgstr "Leverancier: {0} ({1})"
 
 #: src/elements/siteLanguage.js:46
 msgid "Switching language ..."
-msgstr ""
+msgstr "Taal aan het wisselen ..."
 
 #: src/elements/site.js:41
 msgid "Switching site ..."
-msgstr ""
+msgstr "Site aan het wisselen ..."
 
 #: src/panel/product/tag/ItemUi.js:74
 msgid "Tag value (required)"
-msgstr ""
+msgstr "label waarde (verplicht)"
 
 #: src/panel/product/tag/ItemPickerUi.js:10
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: src/panel/price/ListUiSmall.js:122 src/panel/price/ItemPickerUi.js:124
 #: src/panel/order/product/ListUi.js:118 src/panel/order/service/ListUi.js:108
 msgid "Tax rate"
-msgstr ""
+msgstr "BTW"
 
 #: src/panel/price/ItemUi.js:117 src/panel/order/product/ItemUi.js:99
 #: src/panel/order/service/ItemUi.js:91
 msgid "Tax rate in %"
-msgstr ""
+msgstr "BTW %"
 
 #: src/panel/order/address/DeliveryItemUi.js:97
 #: src/panel/order/address/ItemUi.js:112
 msgid "Telefax"
-msgstr ""
+msgstr "Fax"
 
 #: src/panel/order/address/DeliveryItemUi.js:93
 #: src/panel/order/address/ItemUi.js:108
 msgid "Telephone"
-msgstr ""
+msgstr "Telefoon"
 
 #: src/panel/text/ItemPickerUi.js:10 src/elements/domain.js:56
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: src/panel/text/type/ListUi.js:32
 msgid "Text type"
-msgstr ""
+msgstr "Tekst type"
 
 #. : Text type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/text/type/ItemUi.js:21
 #, python-brace-format
 msgid "Text type: {0} ({1})"
-msgstr ""
+msgstr "Tekst type: {0} ({1})"
 
 #. : Text item panel title with text label ({0}) and site code ({1)}
 #: src/panel/text/ItemUi.js:109
 #, python-brace-format
 msgid "Text: {0} ({1})"
-msgstr ""
+msgstr "Tekst: {0} ({1})"
 
 #: src/elements/exportlanguage.js:448
 msgid ""
 "The file with the exported texts will be available within a few minutes. It "
 "can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr ""
+msgstr "De file met de geexporteerde teksten zal binnen enkele minuten beschikbaar zijn. Deze kan dan gedownload worden in het \"Job\" panel in het tab \"Overzicht\"."
 
 #: src/elements/importbutton.js:77
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
 "tab"
-msgstr ""
+msgstr "De teksten uit uw geuploade bestand zullen binnen enkele minuten worden toegevoegd. U kunt de status van de toevoeging vinden in het \"Job\" paneel van de \"Overview\" tab."
 
 #: src/panel/AbstractListItemUi.js:72 src/panel/ListItemItemUi.js:118
 msgid "This combination already exists"
-msgstr ""
+msgstr "Deze combinatie bestaat alreeds"
 
 #: src/panel/order/address/DeliveryItemUi.js:53
 #: src/panel/order/address/ItemUi.js:68
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: src/panel/order/OrderItemUi.js:51
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 #: src/panel/plugin/ListUi.js:63 src/panel/plugin/ItemUi.js:54
 #: src/panel/attribute/ListUiSmall.js:65 src/panel/attribute/ListUi.js:60
@@ -1338,11 +1340,11 @@ msgstr ""
 #: src/panel/order/service/attribute/ListUiSmall.js:77
 #: src/panel/order/service/ListUi.js:83 src/panel/order/service/ItemUi.js:67
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: src/panel/type/TabUi.js:22
 msgid "Types"
-msgstr ""
+msgstr "Types"
 
 #: src/panel/attribute/ItemUi.js:89 src/panel/catalog/ItemUi.js:66
 #: src/panel/type/AbstractTypeItemUi.js:67
@@ -1351,50 +1353,50 @@ msgstr ""
 #: src/panel/locale/currency/ItemUi.js:67
 #: src/panel/locale/language/ItemUi.js:67 src/panel/service/ItemUi.js:71
 msgid "Unique code (required)"
-msgstr ""
+msgstr "Unieke code (verplicht)"
 
 #: src/panel/media/MediaField.js:152 src/panel/media/MediaField.js:207
 #: src/elements/importbutton.js:62
 msgid "Upload failed"
-msgstr ""
+msgstr "Upload niet gelukt"
 
 #: src/elements/importbutton.js:74
 msgid "Upload successful"
-msgstr ""
+msgstr "Upload was succesvol"
 
 #: src/panel/product/UsedByProductListUi.js:29
 msgid "Used by"
-msgstr ""
+msgstr "Gebruikt door"
 
 #: src/panel/cache/ListUiSmall.js:82 src/panel/cache/ItemUi.js:55
 #: src/panel/ConfigUi.js:76
 #: src/panel/order/product/attribute/ListUiSmall.js:91
 #: src/panel/order/service/attribute/ListUiSmall.js:92
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 #: src/panel/order/address/DeliveryItemUi.js:45
 #: src/panel/order/address/ItemUi.js:60
 msgid "Vat ID"
-msgstr ""
+msgstr "BTW nummer"
 
 #: src/panel/product/stock/ListUiSmall.js:82
 #: src/panel/product/stock/ItemUi.js:69
 #: src/panel/product/stock/warehouse/ListUi.js:26
 msgid "Warehouse"
-msgstr ""
+msgstr "Magazijn"
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
 #: src/panel/product/stock/warehouse/ItemUi.js:97
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
-msgstr ""
+msgstr "Magazijn: {0} ({1})"
 
 #: src/panel/order/address/DeliveryItemUi.js:105
 #: src/panel/order/address/ItemUi.js:120
 msgid "Website"
-msgstr ""
+msgstr "Website"
 
 #: src/panel/cache/ItemUi.js:63 src/panel/product/stock/ItemUi.js:98
 #: src/panel/product/ItemUi.js:110 src/panel/product/ItemUi.js:116
@@ -1408,13 +1410,13 @@ msgstr ""
 #: src/panel/AbstractListUi.js:255 src/panel/AbstractTreeUi.js:225
 #: src/elements/exportlanguage.js:292
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr ""
+msgstr "Er zullen meerdere items verwijderd worden. Doorgaan?"
 
 #: src/panel/cache/ListUiSmall.js:103
 msgid ""
 "You are going to flush the complete cache for the current site. Would you "
 "like to proceed?"
-msgstr ""
+msgstr "De gehele cache zal worden geleegd. Doorgaan?"
 
 #: src/panel/plugin/ItemUi.js:125 src/panel/plugin/type/ItemUi.js:20
 #: src/panel/attribute/ItemUi.js:127 src/panel/attribute/type/ItemUi.js:21
@@ -1430,39 +1432,39 @@ msgstr ""
 #: src/panel/service/type/ItemUi.js:18 src/panel/media/ItemUi.js:132
 #: src/panel/media/type/ItemUi.js:20
 msgid "new"
-msgstr ""
+msgstr "nieuw"
 
 #: src/elements/paymentstatus.js:48
 msgid "pay:authorized"
-msgstr ""
+msgstr "betaling:geautoriseerd"
 
 #: src/elements/paymentstatus.js:44
 msgid "pay:canceled"
-msgstr ""
+msgstr "betaling:geannuleerd"
 
 #: src/elements/paymentstatus.js:43
 msgid "pay:deleted"
-msgstr ""
+msgstr "betaling:verwijderd"
 
 #: src/elements/paymentstatus.js:47
 msgid "pay:pending"
-msgstr ""
+msgstr "betaling:inafwachting"
 
 #: src/elements/paymentstatus.js:49
 msgid "pay:received"
-msgstr ""
+msgstr "betaling:ontvangen"
 
 #: src/elements/paymentstatus.js:46
 msgid "pay:refund"
-msgstr ""
+msgstr "betaling:terugbetaling"
 
 #: src/elements/paymentstatus.js:45
 msgid "pay:refused"
-msgstr ""
+msgstr "betaling:geweigerd"
 
 #: src/elements/paymentstatus.js:42
 msgid "pay:unfinished"
-msgstr ""
+msgstr "betaling:onvoltooid"
 
 #: src/elements/deliverystatus.js:43
 msgid "stat:deleted"
