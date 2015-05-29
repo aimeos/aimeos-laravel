@@ -6,7 +6,6 @@
 @stop
 
 @section('aimeos_header')
-    <?= $aiheader['locale/select'] ?>
     <?= $aiheader['basket/mini'] ?>
     <?= $aiheader['catalog/stage'] ?>
     <?= $aiheader['catalog/detail'] ?>
@@ -14,7 +13,6 @@
 @stop
 
 @section('aimeos_head')
-    <?= $aibody['locale/select'] ?>
     <?= $aibody['basket/mini'] ?>
 @stop
 
