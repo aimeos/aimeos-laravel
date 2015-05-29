@@ -146,6 +146,16 @@ return array(
 					),
 				),
 			),
+			'locale' => array(
+				'select' => array(
+					'currency' => array(
+						'param-name' => 'currency',
+					),
+					'language' => array(
+						'param-name' => 'locale',
+					),
+				),
+			),
 		),
 	),
 
