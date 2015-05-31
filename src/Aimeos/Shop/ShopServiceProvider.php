@@ -44,11 +44,11 @@ class ShopServiceProvider extends ServiceProvider {
 		), 'migrations');
 
 		$this->publishes(array(
-			$basedir.'views' => base_path('resources/views/vendor/aimeos/shop'),
+			$basedir.'views' => base_path('resources/views/vendor/shop'),
 		), 'views');
 
 		$this->publishes(array(
-			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
+			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/shop'),
 		), 'public');
 
 
