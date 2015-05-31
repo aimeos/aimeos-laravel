@@ -48,7 +48,7 @@ class ShopServiceProvider extends ServiceProvider {
 		), 'views');
 
 		$this->publishes(array(
-			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/shop'),
+			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
 		), 'public');
 
 
