@@ -1816,7 +1816,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: none;
 }
 
-.checkout-standard > section:last-child .button-group {
+.checkout-standard section:last-child .button-group {
 	display: block;
 }
 
