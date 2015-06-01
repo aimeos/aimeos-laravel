@@ -243,18 +243,13 @@
 
 .locale-select ul.select-menu {
 	text-transform: uppercase;
-	border: 1px solid #FFF;
 	position: relative;
 	list-style: none;
-	padding: 0.4em;
-}
-
-.locale-select li.select-dropdown:hover {
-	border: solid 1px #D0D0D0;
+	padding: 0em;
 }
 
 .locale-select li.select-dropdown {
-	border: 1px solid #FFF;
+	border: 1px solid transparent;
 	display: inline-block;
 	padding: 0;
 }
@@ -283,11 +278,14 @@
 }
 
 .locale-select ul.select-menu ul {
+	list-style: outside none none;
 	background-color: #FFF;
 	position: absolute;
 	visibility: hidden;
 	z-index: 99999;
 	opacity: 0;
+	padding: 0em;
+	padding-left: 0.65em;
 }
 
 .locale-select-language,
