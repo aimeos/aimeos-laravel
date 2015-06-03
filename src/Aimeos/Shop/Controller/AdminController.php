@@ -28,12 +28,14 @@ class AdminController extends Controller
 	 */
 	public function indexAction()
 	{
-		$lang = \Input::get( 'lang', 'en' );
+		$site = \Route::input( 'site', 'default' );
+		$lang = \Route::input( 'locale', 'en' );
+
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
-		$context = app( '\Aimeos\Shop\Base\Context' )->get( array(), false );
-		$context = $this->setLocale( $context, $lang );
+		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
+		$context = $this->setLocale( $context, $site, $lang );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
 		$cssFiles = $jsFiles = array();
@@ -86,11 +88,14 @@ class AdminController extends Controller
 	 */
 	public function doAction()
 	{
+		$site = \Route::input( 'site', 'default' );
+		$lang = \Route::input( 'locale', '' );
+
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
-		$context = app( '\Aimeos\Shop\Base\Context' )->get( array(), false );
-		$context = $this->setLocale( $context );
+		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
+		$context = $this->setLocale( $context, $site, $lang );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
 
@@ -218,15 +223,19 @@ class AdminController extends Controller
 	 * Sets the locale item in the given context
 	 *
 	 * @param \MShop_Context_Item_Interface $context Context object
+	 * @param string $sitecode Unique site code
 	 * @param string $locale ISO language code, e.g. "en" or "en_GB"
 	 * @return \MShop_Context_Item_Interface Modified context object
 	 */
-	protected function setLocale( \MShop_Context_Item_Interface $context, $locale = null )
+	protected function setLocale( \MShop_Context_Item_Interface $context, $sitecode = 'default', $locale = null )
 	{
 		$localeManager = \MShop_Factory::createManager( $context, 'locale' );
 
-		$localeItem = $localeManager->createItem();
-		$localeItem->setLanguageId( $locale );
+		try {
+			$localeItem = $localeManager->bootstrap( $sitecode, $locale, '', false );
+		} catch( \MShop_Locale_Exception $e ) {
+			$localeItem = $localeManager->createItem();
+		}
 
 		$context->setLocale( $localeItem );
 
