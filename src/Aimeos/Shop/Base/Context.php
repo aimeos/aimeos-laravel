@@ -79,6 +79,9 @@ class Context
 			$logger = \MAdmin_Log_Manager_Factory::createManager( $context );
 			$context->setLogger( $logger );
 
+			$cache = new \MAdmin_Cache_Proxy_Default( $context );
+			$context->setCache( $cache );
+
 			self::$context = $context;
 		}
 
@@ -91,9 +94,6 @@ class Context
 
 			$context->setLocale( $localeItem );
 			$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $langid ) ) );
-
-			$cache = new \MAdmin_Cache_Proxy_Default( $context );
-			$context->setCache( $cache );
 		}
 
 		$session = new \MW_Session_Laravel4( $this->session );
