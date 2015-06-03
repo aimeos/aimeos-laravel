@@ -70,9 +70,6 @@ class Context
 			$dbm = new \MW_DB_Manager_PDO( $config );
 			$context->setDatabaseManager( $dbm );
 
-			$cache = new \MW_Cache_None();
-			$context->setCache( $cache );
-
 			$mail = new \MW_Mail_Swift( \Mail::getSwiftMailer() );
 			$context->setMail( $mail );
 
