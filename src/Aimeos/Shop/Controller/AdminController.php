@@ -88,14 +88,11 @@ class AdminController extends Controller
 	 */
 	public function doAction()
 	{
-		$site = \Route::input( 'site', 'default' );
-		$lang = \Route::input( 'locale', '' );
-
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
-		$context = $this->setLocale( $context, $site, $lang );
+		$context = $this->setLocale( $context );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
 
