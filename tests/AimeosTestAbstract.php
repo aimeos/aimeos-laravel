@@ -13,6 +13,9 @@ class AimeosTestAbstract extends Orchestra\Testbench\TestCase
 			'password' => env('DB_PASSWORD', ''),
 		]);
 
+		$app['config']->set('app.key', 'SomeRandomStringWith32Characters');
+		$app['config']->set('app.cipher', 'AES-256-CBC');
+
 		$app['config']->set('shop.routes.account', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.default', ['prefix' => '{site}']);
 	}
