@@ -14,7 +14,6 @@ env:
 before_script:
   - composer require "laravel/framework:${LARAVEL_VERSION}"
   - mysql -e 'create database laravel;'
-  - php artisan key:generate
 
 script: phpunit --coverage-clover coverage.xml
 
