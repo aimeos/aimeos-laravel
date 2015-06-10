@@ -2094,7 +2094,13 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: inline-block;
 	font-size: 1em;
 	margin: 0;
- }
+}
+
+
+.account-history-order li.attr-item .name,
+.account-history-order li.attr-item .value {
+	min-width: 0;
+}
 
 
 /*! jQuery UI - v1.10.0 - 2013-01-17
