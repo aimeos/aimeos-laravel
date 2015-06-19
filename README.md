@@ -77,10 +77,6 @@ Afterwards, install the Aimeos shop package using
 In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
 
-**Caution:** The latest Laravel 5 versions contain a bug that leads to an exception
-after executing `composer update` on a fresh install. You can fix this by
-deleting `vendor/compiled.php` or `storage/framework/compiled.php`.
-
 ## Setup
 
 To see all components and get everything working, you also need to adapt your
@@ -89,26 +85,18 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
 ```
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 @yield('aimeos_header')
-	<title>Laravel</title>
+	<title>Aimeos on Laravel</title>
 
+	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 @yield('aimeos_styles')
 	<link href="/css/app.css" rel="stylesheet">
-	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -155,35 +143,16 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 @yield('aimeos_scripts')
 	</body>
 </html>
 ```
 
-**Note:** Since **Laravel 5.0** CSRF protection is enabled by default but the Aimeos
-web shop package is not yet prepared to use it. You have to **disable the global
-CSRF protection** and enable it manually for specific routes for now. For that
-purpose, move the `App\Http\Middleware\VerifyCsrfToken` line in your
-`app/Http/Kernel.php` from the `$middleware` to the `$routeMiddleware` array as
-`'csrf' => 'App\Http\Middleware\VerifyCsrfToken'`:
-
-```
-	protected $middleware = [
-		'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-		'Illuminate\Cookie\Middleware\EncryptCookies',
-		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-		'Illuminate\Session\Middleware\StartSession',
-		'Illuminate\View\Middleware\ShareErrorsFromSession',
-	];
-
-	protected $routeMiddleware = [
-		'auth' => 'App\Http\Middleware\Authenticate',
-		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
-		'csrf' => 'App\Http\Middleware\VerifyCsrfToken',
-	];
-```
+**Note:** Since **Laravel 5.0** CSRF protection is enabled by default but for the
+```/confirm``` route, you may have to disable it depending on the payment provider
+you are using.
 
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
 an exception due to old cached data.
