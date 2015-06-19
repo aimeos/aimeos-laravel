@@ -415,7 +415,7 @@ AimeosBasketStandard = {
 
 		$("body").on("click", ".basket-standard a.change", function(ev) {
 
-			$.post($(this).attr("href"), function(data) {
+			$.get($(this).attr("href"), function(data) {
 				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
 			});
 
