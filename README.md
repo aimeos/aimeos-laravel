@@ -151,8 +151,8 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 ```
 
 **Note:** Since **Laravel 5.0** CSRF protection is enabled by default but for the
-```/confirm``` route, you may have to disable it depending on the payment provider
-you are using.
+```/confirm``` and ```/update``` routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
+if one of the payment providers is sending data via POST requests.
 
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
 an exception due to old cached data.
