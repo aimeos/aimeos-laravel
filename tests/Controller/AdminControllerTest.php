@@ -13,7 +13,7 @@ class AdminControllerTest extends AimeosTestAbstract
 
 	public function testDoAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@doAction', ['site' => 'unittest']);
+		$response = $this->action('POST', '\Aimeos\Shop\Controller\AdminController@doAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
 		$this->assertRegexp('#{.*}#smu', $response->getContent());
