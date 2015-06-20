@@ -67,7 +67,7 @@ class AdminController extends Controller
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
-			'site' => $this->getJsonSiteItem( $context, $site ),
+			'site' => $this->getJsonSiteItem( $context, \Input::get( 'site', 'default' ) ),
 			'i18nContent' => $this->getJsonClientI18n( $aimeos->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
