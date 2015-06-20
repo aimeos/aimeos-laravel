@@ -59,7 +59,7 @@ class AdminController extends Controller
 
 		$params = array( 'site' => '{site}', 'lang' => '{lang}', 'tab' => '{tab}' );
 		$adminUrl = route( 'aimeos_shop_admin', $params );
-		$jsonUrl = route( 'aimeos_shop_admin_json' );
+		$jsonUrl = route( 'aimeos_shop_admin_json', array( '_token' => csrf_token() ) );
 
 		$vars = array(
 			'lang' => $lang,
@@ -67,7 +67,7 @@ class AdminController extends Controller
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
-			'site' => $this->getJsonSiteItem( $context, \Input::get( 'site', 'default' ) ),
+			'site' => $this->getJsonSiteItem( $context, $site ),
 			'i18nContent' => $this->getJsonClientI18n( $aimeos->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
