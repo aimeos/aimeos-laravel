@@ -2,11 +2,11 @@
 
 Route::group(config('shop.routes.admin', []), function() {
 
-	Route::match( array( 'GET', 'POST' ), 'admin/do', array(
+	Route::match( array( 'POST' ), 'admin/do', array(
 		'as' => 'aimeos_shop_admin_json',
 		'uses' => 'Aimeos\Shop\Controller\AdminController@doAction'
 	));
-	Route::match( array( 'GET', 'POST' ), 'admin', array(
+	Route::match( array( 'GET' ), 'admin', array(
 		'as' => 'aimeos_shop_admin',
 		'uses' => 'Aimeos\Shop\Controller\AdminController@indexAction'
 	));
