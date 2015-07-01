@@ -31,6 +31,11 @@
 
                 baseurl: {
                     content: '<?= asset($uploaddir) ?>'
+                },
+
+                update: {
+                    type: 'Laravel',
+                    version: '<?= $version ?>'
                 }
             }
         }
