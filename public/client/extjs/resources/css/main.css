@@ -57,6 +57,11 @@
     max-height: 280px;
 }
 
+.icon-update {
+    max-height: 20px;
+    vertical-align: top;
+}
+
 /*
  * CSS fix for horizontal scrolling in grids
  */

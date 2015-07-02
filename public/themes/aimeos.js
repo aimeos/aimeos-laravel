@@ -790,20 +790,25 @@ AimeosCheckoutStandard = {
 			var retval = true;
 			var nodes = [];
 
-			$(".checkout-standard .item-new, .item-service")
-				.has(".header,label").has("input:checked") // combining in one has() doesn't work
-				.find(".form-list .mandatory").each(function() {
+			var testfn = function(idx, element) {
 
-				var value = $(this).find("input,select").val();
+				var elem = $(element);
+				var value = elem.find("input,select").val();
 
 				if(value === null || value.trim() === "") {
-					$(this).addClass("error");
-					nodes.push(this);
+					elem.addClass("error");
+					nodes.push(element);
 					retval = false;
 				} else {
-					$(this).removeClass("error");
+					elem.removeClass("error");
 				}
-			});
+			};
+
+			$(".checkout-standard .item-new, .item-service")
+				.has(".header,label").has("input:checked") // combining in one has() doesn't work
+				.find(".form-list .mandatory").each(testfn);
+
+			$(".checkout-standard-order-payment .form-list .mandatory").each(testfn);
 
 			if( nodes.length !== 0 ) {
 				$('html, body').animate({
@@ -821,15 +826,11 @@ AimeosCheckoutStandard = {
 	 */
 	setupPaymentRedirect: function() {
 
-		var aimeos_checkout_form = $(".checkout-standard-order-payment > form").first();
+		var form = $("form").first();
+		var node = $(".checkout-standard-order-payment", form);
 
-		if(aimeos_checkout_form.length === 0 || aimeos_checkout_form.submit() === false) {
-			$(".checkout-standard-order-payment").first().each(function(index, element) {
-				var url = $(element).data("url");
-				if(url) {
-					window.location = url;
-				}
-			});
+		if(node.length > 0 && node.has(".mandatory").length == 0 && node.has(".optional").length == 0 && form.attr("action") != '' ) {
+			form.submit();
 		}
 	},
 
