@@ -21,21 +21,10 @@ pages including routing is also available for a quick start.
 - [License](#license)
 - [Links](#links)
 
-## Installation
+## Installation or update
 
 The Aimeos Laravel web shop package is a composer based library that can be
-installed easiest by using [Composer](https://getcomposer.org). Before, the
-Aimeos provider class must be added to the `providers` array of the
-`config/app.php` file so the composer post install/update scripts won't fail:
-
-```
-return array(
-    'providers' => array(
-        ...
-        'Aimeos\Shop\ShopServiceProvider',
-    ),
-);
-```
+installed easiest by using [Composer](https://getcomposer.org).
 
 Make sure that the **database is set up and it is configured** in your
 `config/database.php` or `.env` file (depending on the Laravel version). Then
@@ -52,27 +41,33 @@ add these lines to your composer.json of your Laravel project:
         "aimeos/aimeos-laravel": "dev-master",
         ...
     },
-    "scripts": {
-        "post-install-cmd": [
-            "php artisan vendor:publish",
-            "php artisan migrate",
-            "php artisan aimeos:setup --option=setup/default/demo:1",
-            "php artisan aimeos:cache",
-            ...
-        ],
-        "post-update-cmd": [
-            "php artisan vendor:publish",
-            "php artisan migrate",
-            "php artisan aimeos:setup --option=setup/default/demo:1",
-            "php artisan aimeos:cache",
-            ...
-        ]
-    }
 ```
 
 Afterwards, install the Aimeos shop package using
 
 `composer update`
+
+Next, the Aimeos provider class must be added to the `providers` array of the
+`config/app.php` file so the application and Laravel command task will work:
+
+```
+return array(
+    'providers' => array(
+        ...
+        'Aimeos\Shop\ShopServiceProvider',
+    ),
+);
+```
+
+In the last step you must now execute these artisan commands to get a working
+or updated Aimeos installation:
+
+```
+php artisan vendor:publish --tag=public --force
+php artisan migrate
+php artisan aimeos:setup --option=setup/default/demo:1
+php artisan aimeos:cache
+```
 
 In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
