@@ -41,6 +41,18 @@ add these lines to your composer.json of your Laravel project:
         "aimeos/aimeos-laravel": "dev-master",
         ...
     },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan vendor:publish --tag=public --force",
+            "php artisan migrate",
+            ...
+        ],
+        "post-update-cmd": [
+            "php artisan vendor:publish --tag=public --force",
+            "php artisan migrate",
+            ...
+        ]
+    }
 ```
 
 Afterwards, install the Aimeos shop package using
@@ -63,8 +75,6 @@ In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```
-php artisan vendor:publish --tag=public --force
-php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
 php artisan aimeos:cache
 ```
