@@ -43,12 +43,13 @@ add these lines to your composer.json of your Laravel project:
     },
     "scripts": {
         "post-install-cmd": [
-            "php artisan vendor:publish --tag=public --force",
+            "php artisan vendor:publish",
             "php artisan migrate",
             ...
         ],
         "post-update-cmd": [
             "php artisan vendor:publish --tag=public --force",
+            "php artisan vendor:publish",
             "php artisan migrate",
             ...
         ]
