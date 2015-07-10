@@ -5,12 +5,12 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Arcavias Core\n"
+"Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2015-01-27 13:02+0000\n"
-"Last-Translator: Daniel Hoffmann <d.hoffmann@metaways.de>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/arcavias-core/language/es/)\n"
+"POT-Creation-Date: 2015-07-09 23:55+0200\n"
+"PO-Revision-Date: 2015-07-09 22:03+0000\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"Language-Team: Spanish (http://www.transifex.com/p/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,6 +39,7 @@ msgid ">="
 msgstr "después (incl.)"
 
 #: lib/ext.ux/AdvancedSearch.js:41 lib/ext.ux/AdvancedSearch.js:37
+#: lib/ext.ux/AdvancedSearch.js:37
 msgid "Search"
 msgstr "Buscar"
 

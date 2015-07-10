@@ -1703,7 +1703,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	border-bottom: solid 8px #555;
 }
 
-.checkout-standard .steps .order {
+.checkout-standard .steps .order,
+.checkout-standard .steps .process {
 	display: none;
 }
 
@@ -1732,7 +1733,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	counter-increment: step;
 }
 
-.checkout-standard .form-list .mandatory label {
+.checkout-standard .form-list .mandatory {
 	font-weight: bold;
 }
 
@@ -1881,11 +1882,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: none; 
 }
 
-.checkout-standard-address .form-list .mandatory {
-	font-weight: bold;
-	display: list-item;
-}
-
+.checkout-standard-address .form-list .mandatory,
 .checkout-standard-address .form-list .optional {
 	display: list-item;
 }
@@ -2016,12 +2013,22 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .checkout-standard-order {
 	padding: 0 0 0 1em;
 }
-.checkout-standard-order-payment {
+
+.checkout-standard-order .form-list .mandatory {
+	font-weight: bold;
+	display: list-item;
+}
+
+.checkout-standard-process {
 	text-align: center;
 }
 
-.checkout-standard-order-payment p {
+.checkout-standard-process p {
 	margin: 1em 0;
+}
+
+.checkout-standard-process .button-group {
+	display: block;
 }
 
 /* Checkout confirm basic part */

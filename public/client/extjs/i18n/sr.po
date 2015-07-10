@@ -3,9 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Bram Verhaegh <bram@beech.it>, 2015
-# Maurice Lourens <mlourens@gmail.com>, 2015
-# Sten Pelzer <pelzersten@gmail.com>, 2015
+# Mario Domonji <mario.mk.gromovi@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -13,129 +11,129 @@ msgstr ""
 "POT-Creation-Date: 2015-07-09 23:55+0200\n"
 "PO-Revision-Date: 2015-07-09 22:03+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
-"Language-Team: Dutch (http://www.transifex.com/p/aimeos-core/language/nl/)\n"
+"Language-Team: Serbian (http://www.transifex.com/p/aimeos-core/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/panel/price/ItemUi.js:99
 msgid "Actual current price"
-msgstr "Huidige prijs"
+msgstr "Trenutna stvarna cena"
 
 #: src/panel/AbstractListUi.js:138 src/panel/ConfigUi.js:37
 msgid "Add"
-msgstr "Toevoegen"
+msgstr "Dodaj"
 
 #: src/panel/order/address/ItemUi.js:80
 #: src/panel/order/address/DeliveryItemUi.js:65
 msgid "Address 1"
-msgstr "Adres 1"
+msgstr "Adresa 1"
 
 #: src/panel/order/address/ItemUi.js:84
 #: src/panel/order/address/DeliveryItemUi.js:69
 msgid "Address 2"
-msgstr "Adres 2"
+msgstr "Adresa 2"
 
 #: src/panel/order/address/ItemUi.js:88
 #: src/panel/order/address/DeliveryItemUi.js:73
 msgid "Address 3"
-msgstr "Adres 3"
+msgstr "Adresa 2"
 
 #: src/panel/order/address/ItemUi.js:52
 #: src/panel/order/address/DeliveryItemUi.js:37
 msgid "Address ID"
-msgstr "Adres ID"
+msgstr "ID adrese"
 
 #: src/panel/order/address/ItemUi.js:18
 msgid "Addresses"
-msgstr "Adressen"
+msgstr "Adrese"
 
 #: src/panel/AbstractListItemPickerUi.js:341 src/elements/language.js:19
 #: src/elements/language.js:45
 msgid "All"
-msgstr "Allemaal"
+msgstr "Sve"
 
 #: src/panel/attribute/ItemPickerUi.js:16
 msgid "Associated attributes"
-msgstr "Gekoppelde kenmerken"
+msgstr "Povezani atributi"
 
 #: src/panel/media/ItemPickerUi.js:16
 msgid "Associated media"
-msgstr "Gekoppelde media"
+msgstr "Povezani mediji"
 
 #: src/panel/price/ItemPickerUi.js:16
 msgid "Associated prices"
-msgstr "Gekoppelde prijzen"
+msgstr "Povezane cene"
 
 #: src/panel/product/ItemPickerUi.js:15
 msgid "Associated products"
-msgstr "Aanverwante producten"
+msgstr "Povezani artikli"
 
 #: src/panel/product/tag/ItemPickerUi.js:15
 msgid "Associated tags"
-msgstr "Gekoppelde labels"
+msgstr "Povezani tagovi"
 
 #: src/panel/text/ItemPickerUi.js:15
 msgid "Associated texts"
-msgstr "Gekoppelde teksten"
+msgstr "povezani tekst"
 
 #: src/panel/attribute/ItemPickerUi.js:11 src/panel/attribute/ListUi.js:29
 #: src/panel/order/service/attribute/ListUiSmall.js:11
 #: src/panel/order/product/attribute/ListUiSmall.js:11
 #: src/elements/domain.js:47
 msgid "Attribute"
-msgstr "Kenmerk"
+msgstr "Atribut"
 
 #: src/panel/attribute/type/ListUi.js:34
 msgid "Attribute type"
-msgstr "Type kenmerk"
+msgstr "Tip atributa"
 
 #. : Attribute type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/attribute/type/ItemUi.js:23
 #, python-brace-format
 msgid "Attribute type: {0} ({1})"
-msgstr "Eigenschap type: {0} ({1})"
+msgstr "Tip atributa: {0} ({1})"
 
 #. : Attribute item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/attribute/ItemUi.js:130
 #, python-brace-format
 msgid "Attribute: {0} ({1})"
-msgstr "Eigenschap: {0} ({1})"
+msgstr "Atribut: {0} ({1})"
 
 #: src/panel/attribute/ItemPickerUi.js:23
 msgid "Available attributes"
-msgstr "Beschikbare kenmerken"
+msgstr "Dostupni atributi"
 
 #: src/panel/media/ItemPickerUi.js:23
 msgid "Available media"
-msgstr "Beschikbare media"
+msgstr "Dostupni mediji"
 
 #: src/panel/price/ItemPickerUi.js:23
 msgid "Available prices"
-msgstr "Beschikbare prijzen"
+msgstr "Dostupne cene"
 
 #: src/panel/product/ItemPickerUi.js:22
 msgid "Available products"
-msgstr "Beschikbare producten"
+msgstr "Dostupni artikli"
 
 #: src/panel/product/tag/ItemPickerUi.js:22
 msgid "Available tags"
-msgstr "Beschikbare labels"
+msgstr "Dostupni tagovi"
 
 #: src/panel/text/ItemPickerUi.js:22
 msgid "Available texts"
-msgstr "Beschikbare teksten"
+msgstr "Dostupan tekst"
 
 #: src/panel/product/stock/ItemUi.js:95
 msgid "Back in stock"
-msgstr "Weer op voorraad"
+msgstr "Ponovo na zalihama"
 
 #: src/panel/order/service/ListUi.js:71 src/panel/order/product/ListUi.js:71
 #: src/panel/order/OrderItemUi.js:35 src/panel/order/coupon/ListUi.js:97
 msgid "Base ID"
-msgstr "Basis ID"
+msgstr "Base ID"
 
 #: src/panel/type/AbstractTypeItemUi.js:25 src/panel/service/ItemUi.js:20
 #: src/panel/supplier/ItemUi.js:20 src/panel/media/ItemUi.js:24
@@ -151,43 +149,43 @@ msgstr "Basis ID"
 #: src/panel/locale/currency/ItemUi.js:29 src/panel/locale/site/ItemUi.js:31
 #: src/panel/plugin/ItemUi.js:20
 msgid "Basic"
-msgstr "Basis"
+msgstr "Osnovno"
 
 #: src/panel/order/address/ItemUi.js:34
 msgid "Billing address"
-msgstr "Factuur adres"
+msgstr "Adresa za naplatu"
 
 #: src/panel/cache/ListUiSmall.js:27
 msgid "Cache"
-msgstr "Cache"
+msgstr "Keš"
 
 #: src/panel/cache/ItemUi.js:13
 msgid "Cache item details"
-msgstr "Cache details"
+msgstr "Keš detalji stavke"
 
 #: src/panel/AbstractItemUi.js:133 src/elements/exportlanguage.js:321
 msgid "Cancel"
-msgstr "Annuleer"
+msgstr "Otkaži"
 
 #: src/panel/product/UsedByCatalogListUi.js:29 src/panel/catalog/TreeUi.js:29
 #: src/elements/domain.js:48
 msgid "Catalog"
-msgstr "Catalogus"
+msgstr "Katalog"
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #: src/panel/catalog/ItemUi.js:106
 #, python-brace-format
 msgid "Catalog: {0} ({1})"
-msgstr "Catalogus: {0} ({1})"
+msgstr "Katalog: {0} ({1})"
 
 #: src/panel/order/address/ItemUi.js:96
 #: src/panel/order/address/DeliveryItemUi.js:81
 msgid "City"
-msgstr "Stad"
+msgstr "Grad"
 
 #: src/panel/media/MediaField.js:64
 msgid "Click to upload"
-msgstr "Klik om te uploaden"
+msgstr "Klik za upload"
 
 #: src/panel/type/AbstractTypeItemUi.js:65 src/panel/service/type/ListUi.js:67
 #: src/panel/service/ItemUi.js:67 src/panel/service/ListUi.js:63
@@ -213,92 +211,92 @@ msgstr "Klik om te uploaden"
 #: src/panel/locale/currency/ListUi.js:59 src/panel/locale/site/ItemUi.js:65
 #: src/panel/locale/site/ListUi.js:56 src/panel/plugin/type/ListUi.js:69
 msgid "Code"
-msgstr "Code"
+msgstr "Kod"
 
 #: src/panel/coupon/code/ListUi.js:31
 msgid "Codes"
-msgstr "Codes"
+msgstr "Kodovi"
 
 #: src/panel/order/OrderItemUi.js:59
 msgid "Comment"
-msgstr "Opmerking"
+msgstr "Komentar"
 
 #: src/panel/order/address/ItemUi.js:56
 #: src/panel/order/address/DeliveryItemUi.js:41
 msgid "Company"
-msgstr "Bedrijf"
+msgstr "Kompanija"
 
 #: src/panel/service/ListUi.js:92 src/panel/ListItemListUi.js:194
 #: src/panel/coupon/ListUi.js:83 src/panel/locale/site/ListUi.js:71
 #: src/panel/plugin/ListUi.js:91 src/panel/ConfigUi.js:14
 msgid "Configuration"
-msgstr "Configuratie"
+msgstr "Konfiguracija"
 
 #: src/panel/text/ItemUi.js:82 src/panel/text/ListUiSmall.js:81
 #: src/panel/text/ItemPickerUi.js:84
 msgid "Content"
-msgstr "Inhoud"
+msgstr "Sadržaj"
 
 #: src/panel/AbstractListUi.js:149
 msgid "Copy"
-msgstr "Kopie"
+msgstr "Kopiraj"
 
 #: src/panel/price/ListUiSmall.js:142 src/panel/price/ItemPickerUi.js:145
 #: src/panel/order/service/ItemUi.js:83 src/panel/order/service/ListUi.js:100
 #: src/panel/order/product/ItemUi.js:91 src/panel/order/product/ListUi.js:110
 #: src/panel/order/OrderItemUi.js:55
 msgid "Costs"
-msgstr "Kosten"
+msgstr "Troškovi"
 
 #: src/panel/price/ItemUi.js:111
 msgid "Costs per item"
-msgstr "Kosten per item"
+msgstr "Troškovi po stavci"
 
 #: src/panel/media/MediaField.js:153 src/panel/media/MediaField.js:208
 #: src/elements/importbutton.js:63
 msgid "Could not upload file. Please notify your administrator"
-msgstr "Kon het bestand niet uploaden, contacteer de beheerder"
+msgstr "Upload neuspešan. Molim Vas obavestite administratora"
 
 #: src/panel/coupon/code/ItemUi.js:67 src/panel/coupon/code/ListUi.js:54
 msgid "Count"
-msgstr "Aantal"
+msgstr "Broj"
 
 #: src/panel/order/address/ItemUi.js:104
 #: src/panel/order/address/DeliveryItemUi.js:89
 msgid "Country"
-msgstr "Land"
+msgstr "Država"
 
 #: src/panel/coupon/ListUi.js:27
 msgid "Coupon"
-msgstr "Coupon"
+msgstr "Kupon"
 
 #: src/panel/order/coupon/ListUi.js:104
 msgid "Coupon code"
-msgstr "Coupon code"
+msgstr "Kod kupona"
 
 #: src/panel/coupon/code/ItemUi.js:16
 msgid "Coupon code item details"
-msgstr "Coupon code item details"
+msgstr "Detalji stavke kuponskog koda"
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #: src/panel/coupon/code/ItemUi.js:112
 #, python-brace-format
 msgid "Coupon code: {0} ({1})"
-msgstr "Coupon code: {0} ({1})"
+msgstr "Kupon kod {0} ({1})"
 
 #: src/panel/coupon/ItemUi.js:16
 msgid "Coupon item details"
-msgstr "Coupon item details"
+msgstr "Detalji stavke kupona"
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #: src/panel/coupon/ItemUi.js:118
 #, python-brace-format
 msgid "Coupon: {0} ({1})"
-msgstr "Coupon: {0} ({1})"
+msgstr "Kupon: {0} ({1})"
 
 #: src/panel/order/coupon/ListUi.js:11
 msgid "Coupons"
-msgstr "Coupons"
+msgstr "Kuponi"
 
 #: src/panel/type/AbstractTypeItemUi.js:79 src/panel/service/type/ListUi.js:82
 #: src/panel/service/ItemUi.js:96 src/panel/service/ListUi.js:108
@@ -340,7 +338,7 @@ msgstr "Coupons"
 #: src/panel/plugin/type/ListUi.js:84 src/panel/plugin/ItemUi.js:98
 #: src/panel/plugin/ListUi.js:107
 msgid "Created"
-msgstr "Aangemaakt"
+msgstr "Kreirano"
 
 #: src/panel/price/ListUiSmall.js:109 src/panel/price/ItemPickerUi.js:110
 #: src/panel/order/OrderItemUi.js:47 src/panel/locale/ItemUi.js:68
@@ -351,11 +349,11 @@ msgstr "Valuta"
 
 #: src/panel/price/ItemUi.js:88 src/panel/locale/ItemUi.js:71
 msgid "Currency (required)"
-msgstr "Valuta (verplicht)"
+msgstr "Valuta (obavezno)"
 
 #: src/panel/order/OrderItemUi.js:43 src/elements/domain.js:49
 msgid "Customer"
-msgstr "Klant"
+msgstr "Kupac"
 
 #: src/panel/log/ListUiSmall.js:65
 msgid "Date"
@@ -363,29 +361,29 @@ msgstr "Datum"
 
 #: src/panel/product/stock/ListUiSmall.js:100
 msgid "Date back"
-msgstr "Vorige datum"
+msgstr "Prethodni datum"
 
 #: src/panel/cache/ListUiSmall.js:45 src/panel/AbstractListUi.js:155
 #: src/panel/ConfigUi.js:46 src/elements/exportlanguage.js:159
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Obriši"
 
 #: src/panel/AbstractListUi.js:254 src/panel/AbstractTreeUi.js:224
 #: src/elements/exportlanguage.js:290
 msgid "Delete items?"
-msgstr "Verwijder items?"
+msgstr "Obrisati stavke?"
 
 #: src/panel/order/address/DeliveryItemUi.js:11
 msgid "Delivery address"
-msgstr "Bezorg adres"
+msgstr "Adresa za dostavu"
 
 #: src/panel/order/ItemUi.js:85 src/panel/order/ListUi.js:71
 msgid "Delivery date"
-msgstr "Bezorg datum"
+msgstr "Datum dostave"
 
 #: src/panel/order/ItemUi.js:91 src/panel/order/ListUi.js:78
 msgid "Delivery status"
-msgstr "Bezorg status"
+msgstr "Status dostave"
 
 #: src/panel/job/ItemUi.js:35 src/panel/price/ItemUi.js:37
 #: src/panel/cache/ItemUi.js:36 src/panel/product/ItemUi.js:37
@@ -394,35 +392,35 @@ msgstr "Bezorg status"
 #: src/panel/order/service/ItemUi.js:44 src/panel/order/product/ItemUi.js:44
 #: src/panel/plugin/ItemUi.js:33
 msgid "Details"
-msgstr "Details"
+msgstr "Detalji"
 
 #: src/panel/AbstractListItemPickerUi.js:285
 msgid "Display field is empty"
-msgstr "Weergave veld is leeg"
+msgstr "Polje je prazno"
 
 #: src/panel/service/type/ListUi.js:62 src/panel/media/type/ListUi.js:64
 #: src/panel/price/type/ListUi.js:64 src/panel/product/type/ListUi.js:62
 #: src/panel/text/type/ListUi.js:61 src/panel/attribute/type/ListUi.js:64
 #: src/panel/plugin/type/ListUi.js:64 src/elements/domain.js:10
 msgid "Domain"
-msgstr "Domein"
+msgstr "Domen"
 
 #: src/elements/domain.js:15
 msgid "Domain (required)"
-msgstr "Domein (verplicht)"
+msgstr "Domen (obavezno)"
 
 #: src/panel/order/address/ItemUi.js:116
 #: src/panel/order/address/DeliveryItemUi.js:101
 msgid "E-Mail"
-msgstr "E-mail"
+msgstr "E-Mail"
 
 #: src/panel/product/ItemUi.js:86
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU of artikelnummer (verplicht)"
+msgstr "EAN, SKU ili broj artikla (obavezno)"
 
 #: src/panel/cache/ListUiSmall.js:39 src/panel/AbstractListUi.js:143
 msgid "Edit"
-msgstr "Aanpassen"
+msgstr "Edit"
 
 #: src/panel/type/AbstractTypeItemUi.js:87
 #: src/panel/service/type/ListUi.js:100 src/panel/service/ItemUi.js:104
@@ -474,45 +472,45 @@ msgstr "Editor"
 #: src/panel/coupon/code/ItemUi.js:80 src/panel/coupon/code/ListUi.js:67
 #: src/panel/coupon/ItemUi.js:82 src/panel/coupon/ListUi.js:76
 msgid "End date"
-msgstr "Eind datum"
+msgstr "Krajnji datum"
 
 #: src/panel/AbstractListUi.js:341 src/panel/AbstractUsedByListUi.js:173
 #: src/elements/exportlanguage.js:393
 msgid "Error"
-msgstr "Fout"
+msgstr "Greška"
 
 #: src/panel/cache/ItemUi.js:60 src/panel/cache/ListUiSmall.js:90
 msgid "Expires"
-msgstr "Verloopt"
+msgstr "Ističe"
 
 #: src/panel/AbstractListUi.js:161 src/elements/exportlanguage.js:328
 msgid "Export"
-msgstr "Export"
+msgstr "Izvoz"
 
 #: src/elements/exportlanguage.js:445
 msgid "Export successful"
-msgstr "Succesvol geexporteerd "
+msgstr "Izvoz uspešan"
 
 #: src/panel/log/ListUiSmall.js:59
 msgid "Facility"
-msgstr "Faciliteit"
+msgstr "Postrojenje"
 
 #: src/panel/media/ItemUi.js:100
 msgid "File URL"
-msgstr "Bestands URL"
+msgstr "URL fajla"
 
 #: src/panel/order/address/ItemUi.js:72
 #: src/panel/order/address/DeliveryItemUi.js:57
 msgid "Firstname"
-msgstr "Voornaam"
+msgstr "Ime"
 
 #: src/panel/cache/ListUiSmall.js:51
 msgid "Flush"
-msgstr "Legen"
+msgstr "Isprazni"
 
 #: src/panel/cache/ListUiSmall.js:101
 msgid "Flush cache?"
-msgstr "Cache legen?"
+msgstr "Isprazni keš?"
 
 #: src/panel/type/AbstractTypeItemUi.js:52 src/panel/service/type/ListUi.js:47
 #: src/panel/service/ItemUi.js:48 src/panel/service/ListUi.js:41
@@ -560,11 +558,11 @@ msgstr "ID"
 
 #: src/panel/AbstractListUi.js:167
 msgid "Import"
-msgstr "Importeer"
+msgstr "Uvezi"
 
 #: src/panel/text/ItemUi.js:79
 msgid "Internal name"
-msgstr "Interne naam"
+msgstr "Interno ime"
 
 #: src/panel/type/AbstractTypeItemUi.js:76 src/panel/service/ItemUi.js:86
 #: src/panel/supplier/ItemUi.js:59 src/panel/media/ItemUi.js:92
@@ -576,12 +574,12 @@ msgstr "Interne naam"
 #: src/panel/locale/currency/ItemUi.js:74 src/panel/locale/site/ItemUi.js:76
 #: src/panel/plugin/ItemUi.js:88
 msgid "Internal name (required)"
-msgstr "Interne naam (verplicht)"
+msgstr "Interno ime (obavezno)"
 
 #: src/panel/AbstractTreeUi.js:299
 #, python-brace-format
 msgid "Invalid action \"{0}\""
-msgstr "Invalide actie \"{0}\""
+msgstr "Nevažeća akcija \"{0}\""
 
 #: src/panel/product/stock/ItemUi.js:123
 #: src/panel/product/property/ItemUi.js:113 src/panel/AbstractItemUi.js:239
@@ -590,24 +588,24 @@ msgstr "Invalide actie \"{0}\""
 #: src/panel/ListItemItemUi.js:117 src/panel/catalog/ItemUi.js:122
 #: src/panel/locale/site/ItemUi.js:122 src/panel/ConfigUi.js:122
 msgid "Invalid data"
-msgstr "Invalide data"
+msgstr "Nevažeći podatak"
 
 #: src/panel/ConfigUi.js:123
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
-msgstr ""
+msgstr "Nevažeća vrednost za konfiguracioni ključ \"{0}\""
 
 #: src/panel/attribute/ItemUi.js:100
 msgid "Item position within the same type"
-msgstr ""
+msgstr "Pozicija stavke unutar istog tipa"
 
 #: src/panel/job/ItemUi.js:12
 msgid "Job item details"
-msgstr ""
+msgstr "Job item details"
 
 #: src/panel/job/ListUiSmall.js:32
 msgid "Jobs"
-msgstr "Jobs"
+msgstr "Poslovi"
 
 #: src/panel/type/AbstractTypeItemUi.js:73 src/panel/service/type/ListUi.js:76
 #: src/panel/service/ItemUi.js:82 src/panel/service/ListUi.js:77
@@ -640,7 +638,7 @@ msgstr "Jobs"
 #: src/panel/plugin/ItemUi.js:84 src/panel/plugin/ListUi.js:76
 #: src/elements/exportlanguage.js:85 src/elements/exportlanguage.js:113
 msgid "Label"
-msgstr "Label"
+msgstr "Etiketa"
 
 #: src/panel/media/ListUiSmall.js:68 src/panel/media/ItemPickerUi.js:79
 #: src/panel/product/tag/ListUiSmall.js:46
@@ -651,11 +649,11 @@ msgstr "Label"
 #: src/elements/siteLanguage.js:10 src/elements/siteLanguage.js:17
 #: src/elements/language.js:10
 msgid "Language"
-msgstr "Taal"
+msgstr "Jezik"
 
 #: src/panel/locale/ItemUi.js:65
 msgid "Language (required)"
-msgstr "Taal (verplicht)"
+msgstr "Jezik (obavezno)"
 
 #: src/panel/type/AbstractTypeItemUi.js:83 src/panel/service/type/ListUi.js:91
 #: src/panel/service/ItemUi.js:100 src/panel/service/ListUi.js:116
@@ -697,59 +695,59 @@ msgstr "Taal (verplicht)"
 #: src/panel/plugin/type/ListUi.js:93 src/panel/plugin/ItemUi.js:102
 #: src/panel/plugin/ListUi.js:115
 msgid "Last modified"
-msgstr "Laatst aangepast"
+msgstr "Zadnji put promenjeno"
 
 #: src/panel/order/address/ItemUi.js:76
 #: src/panel/order/address/DeliveryItemUi.js:61
 msgid "Lastname"
-msgstr "Achternaam"
+msgstr "Prezime"
 
 #: src/panel/locale/ListUi.js:32
 msgid "List"
-msgstr "Lijst"
+msgstr "Lista"
 
 #: src/panel/product/UsedByProductListUi.js:37
 #: src/panel/product/UsedByCatalogListUi.js:58
 msgid "List ID"
-msgstr "Lijst ID"
+msgstr "ID liste"
 
 #: src/panel/ListItemListUi.js:166
 msgid "List Status"
-msgstr "Lijst status"
+msgstr "Status liste"
 
 #: src/panel/product/UsedByProductListUi.js:88
 #: src/panel/product/UsedByCatalogListUi.js:100
 msgid "List creation time"
-msgstr "Lijst aanmaak tijd"
+msgstr "Zadnji put kreirano"
 
 #: src/panel/product/UsedByProductListUi.js:97
 #: src/panel/product/UsedByCatalogListUi.js:118
 msgid "List editor"
-msgstr "Lijst editor"
+msgstr "Editor liste"
 
 #: src/panel/product/UsedByProductListUi.js:63
 #: src/panel/product/UsedByCatalogListUi.js:84
 msgid "List end date"
-msgstr "Lijst einddatum"
+msgstr "Krajni datum liste"
 
 #: src/panel/ListItemItemUi.js:14
 msgid "List item details"
-msgstr "Lijst item details"
+msgstr "Detalji stavke liste"
 
 #: src/panel/product/UsedByProductListUi.js:79
 #: src/panel/product/UsedByCatalogListUi.js:109
 msgid "List modification time"
-msgstr "Lijst aanpassings-datum"
+msgstr "Vreme modifikacije liste"
 
 #: src/panel/product/UsedByProductListUi.js:71
 #: src/panel/product/UsedByCatalogListUi.js:92
 msgid "List position"
-msgstr "Lijst positie"
+msgstr "Pozicija liste"
 
 #: src/panel/product/UsedByProductListUi.js:55
 #: src/panel/product/UsedByCatalogListUi.js:76
 msgid "List start date"
-msgstr "Lijst start datum"
+msgstr "Početni datum liste"
 
 #: src/panel/media/ItemPickerUi.js:40 src/panel/price/ItemPickerUi.js:73
 #: src/panel/product/UsedByProductListUi.js:45
@@ -759,73 +757,73 @@ msgstr "Lijst start datum"
 #: src/panel/text/ItemPickerUi.js:39 src/panel/attribute/ItemPickerUi.js:40
 #: src/panel/ListItemItemUi.js:36 src/panel/ListItemItemUi.js:47
 msgid "List type"
-msgstr "Lijst Type"
+msgstr "Tip liste"
 
 #: src/panel/media/MediaField.js:59 src/elements/importbutton.js:24
 msgid "Loading"
-msgstr "Laden"
+msgstr "Učitavanje"
 
 #: src/panel/locale/TabUi.js:23
 msgid "Locale"
-msgstr "Locale"
+msgstr "Lokalizacija"
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
 #: src/panel/locale/currency/ItemUi.js:99
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr "Lokale valuta: {0} ({1})"
+msgstr "Valuta lokalizacije: {0} ({1})"
 
 #. : Locale item panel title with site code ({1)}
 #: src/panel/locale/ItemUi.js:103
 #, python-brace-format
 msgid "Locale item details ({1})"
-msgstr ""
+msgstr "Detalji stavke lokalizacije ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
 #: src/panel/locale/language/ItemUi.js:99
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr "Lokale taal: {0} ({1})"
+msgstr "Lokalni jezik: {0} ({1})"
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #: src/panel/locale/site/ItemUi.js:108
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
-msgstr "Lokale site: {0} ({1})"
+msgstr "Locale site: {0} ({1})"
 
 #: src/panel/log/ListUiSmall.js:32
 msgid "Logs"
-msgstr "Logs"
+msgstr "Logovi"
 
 #: src/panel/media/ItemPickerUi.js:11 src/elements/domain.js:50
 msgid "Media"
-msgstr "Media"
+msgstr "Mediji"
 
 #: src/panel/media/type/ListUi.js:34
 msgid "Media type"
-msgstr "Media type"
+msgstr "Tip medija"
 
 #. : Media type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/media/type/ItemUi.js:22
 #, python-brace-format
 msgid "Media type: {0} ({1})"
-msgstr "Media type: {0} ({1})"
+msgstr "Tip medija: {0} ({1})"
 
 #. : Media item panel title with media label ({0}) and site code ({1)}
 #: src/panel/media/ItemUi.js:134
 #, python-brace-format
 msgid "Media: {0} ({1})"
-msgstr "Media: {0} ({1})"
+msgstr "Medija: {0} ({1})"
 
 #: src/panel/log/ListUiSmall.js:77
 msgid "Message"
-msgstr "Bericht"
+msgstr "Poruka"
 
 #: src/panel/job/ItemUi.js:64 src/panel/job/ListUiSmall.js:67
 msgid "Method"
-msgstr "Methode"
+msgstr "Metod"
 
 #: src/panel/media/ItemUi.js:85 src/panel/media/ListUiSmall.js:75
 #: src/panel/media/ItemPickerUi.js:69
@@ -834,7 +832,7 @@ msgstr "Mimetype"
 
 #: src/panel/price/ItemUi.js:92
 msgid "Minimum quantity"
-msgstr "Minimum aantal"
+msgstr "Minimalna količina"
 
 #: src/panel/order/service/ItemUi.js:75
 #: src/panel/order/service/attribute/ListUiSmall.js:82
@@ -842,64 +840,64 @@ msgstr "Minimum aantal"
 #: src/panel/order/product/attribute/ListUiSmall.js:81
 #: src/panel/order/product/ListUi.js:97 src/panel/ConfigUi.js:70
 msgid "Name"
-msgstr "Naam"
+msgstr "Ime"
 
 #: src/panel/coupon/ItemUi.js:66
 msgid "Name of the coupon provider class (required)"
-msgstr ""
+msgstr "Ime klase provajdera kupona (obavezno)"
 
 #: src/panel/plugin/ItemUi.js:81
 msgid "Name of the plugin provider class (required)"
-msgstr ""
+msgstr "Ime klase provajdera dodatka (obavezno)"
 
 #: src/panel/service/ItemUi.js:79
 msgid "Name of the service provider class (required)"
-msgstr ""
+msgstr "Ime klase provajdera servisa (obavezno)"
 
 #: src/panel/AbstractListUi.js:342 src/panel/AbstractUsedByListUi.js:174
 #: src/elements/exportlanguage.js:394
 msgid "No error information available"
-msgstr "Geen fout informatie beschikaar"
+msgstr "Infornacija o grešci nedostupna"
 
 #: src/panel/AbstractListUi.js:120 src/panel/AbstractListItemPickerUi.js:49
 msgid "No items"
-msgstr "Geen items"
+msgstr "Nema stavke"
 
 #: src/panel/order/ListUi.js:118
 msgid "Not implemented"
-msgstr "Niet geimplementeerd "
+msgstr "Nije implementirano"
 
 #: src/panel/coupon/code/ListUi.js:103
 msgid "Notice"
-msgstr "Notificatie"
+msgstr "Obaveštenje"
 
 #: src/panel/order/OrderItemUi.js:15 src/panel/order/ListUi.js:32
 msgid "Order"
-msgstr "Aankoop"
+msgstr "Porudžbina"
 
 #: src/panel/order/ItemUi.js:20
 msgid "Order item details"
-msgstr "Aankoop item details"
+msgstr "Detalji stavke porudžbine"
 
 #: src/panel/order/product/ItemUi.js:67 src/panel/order/product/ListUi.js:83
 msgid "Order product ID"
-msgstr ""
+msgstr "ID porudžbenice proizvoda"
 
 #: src/panel/portal/ItemUi.js:19
 msgid "Overview"
-msgstr "Overzicht"
+msgstr "Pregled"
 
 #: src/panel/job/ListUiSmall.js:75
 msgid "Parameter"
-msgstr "Parameter"
+msgstr "Parametar"
 
 #: src/panel/order/ItemUi.js:68
 msgid "Payment date"
-msgstr "Betaaldatum"
+msgstr "Datum plaćanja"
 
 #: src/panel/order/ItemUi.js:74 src/panel/order/ListUi.js:65
 msgid "Payment status"
-msgstr "Betaalstatus"
+msgstr "Status plaćanja"
 
 #: src/panel/product/stock/ItemUi.js:124
 #: src/panel/product/property/ItemUi.js:114 src/panel/AbstractItemUi.js:240
@@ -907,37 +905,37 @@ msgstr "Betaalstatus"
 #: src/panel/ListItemItemUi.js:78 src/panel/catalog/ItemUi.js:123
 #: src/panel/locale/site/ItemUi.js:123
 msgid "Please recheck your data"
-msgstr "Controleer uw data nogmaals"
+msgstr "Molim Vas proverite ponovo Vaše podatke"
 
 #: src/panel/coupon/code/ListUi.js:104
 msgid "Please save the coupon first before you can add codes"
-msgstr ""
+msgstr "Molim Vas sačuvajte kupon pre nego što dodate kodove"
 
 #: src/panel/ListItemListUi.js:87
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
 " list."
-msgstr "Selecteer alstublieft een item aan de rechterzijde en voeg het hier toe door het te slepen en los te laten."
+msgstr "Molim Vas izaberite stavku na desnoj strani i dodajte provlačenjem u ovu listu"
 
 #: src/panel/plugin/ListUi.js:32 src/elements/domain.js:51
 msgid "Plugin"
-msgstr "Plugin"
+msgstr "Dodatak"
 
 #: src/panel/plugin/type/ListUi.js:34
 msgid "Plugin type"
-msgstr "Plugin type"
+msgstr "Tip dodatka"
 
 #. : Plugin type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/plugin/type/ItemUi.js:22
 #, python-brace-format
 msgid "Plugin type: {0} ({1})"
-msgstr "Plugin type: {0} ({1})"
+msgstr "Tip dodatka: {0} ({1})"
 
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/plugin/ItemUi.js:128
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
-msgstr "Plugin: {0} ({1})"
+msgstr "Dodatak: {0} ({1})"
 
 #: src/panel/service/ItemUi.js:89 src/panel/service/ListUi.js:85
 #: src/panel/attribute/ListUiSmall.js:84 src/panel/attribute/ListUi.js:79
@@ -945,125 +943,125 @@ msgstr "Plugin: {0} ({1})"
 #: src/panel/locale/ListUi.js:74 src/panel/plugin/ItemUi.js:91
 #: src/panel/plugin/ListUi.js:84
 msgid "Position"
-msgstr "Positie"
+msgstr "Pozicija"
 
 #: src/panel/order/address/ItemUi.js:92
 #: src/panel/order/address/DeliveryItemUi.js:77
 msgid "Postal code"
-msgstr "Postcode"
+msgstr "Poštanski broj"
 
 #: src/panel/media/ListUiSmall.js:88 src/panel/media/ItemPickerUi.js:94
 msgid "Preview"
-msgstr "Voorbeeld weergave"
+msgstr "Pregled"
 
 #: src/panel/media/ItemUi.js:96
 msgid "Preview URL"
-msgstr "Voorbeeld URL"
+msgstr "URL pregleda"
 
 #: src/panel/price/ListUiSmall.js:124 src/panel/price/ItemPickerUi.js:11
 #: src/panel/price/ItemPickerUi.js:127 src/panel/order/service/ItemUi.js:79
 #: src/panel/order/service/ListUi.js:96 src/panel/order/product/ItemUi.js:87
 #: src/panel/order/product/ListUi.js:106 src/elements/domain.js:52
 msgid "Price"
-msgstr "Prijs"
+msgstr "Cena"
 
 #: src/panel/price/type/ListUi.js:34
 msgid "Price type"
-msgstr "Prijs type"
+msgstr "Tip cene"
 
 #. : Price type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/price/type/ItemUi.js:22
 #, python-brace-format
 msgid "Price type: {0} ({1})"
-msgstr "Prijs type: {0} ({1})"
+msgstr "Tip cene: {0} ({1})"
 
 #. : Price item panel title with price label ({0}) and site code ({1)}
 #: src/panel/price/ItemUi.js:145
 #, python-brace-format
 msgid "Price: {0} ({1})"
-msgstr "Prijs: {0} ({1})"
+msgstr "Cena: {0} ({1})"
 
 #: src/panel/log/ListUiSmall.js:71
 msgid "Priority"
-msgstr "Prioriteit"
+msgstr "Priorited"
 
 #: src/panel/product/ItemPickerUi.js:10 src/panel/product/ListUi.js:28
 #: src/panel/order/product/ItemUi.js:31 src/elements/domain.js:53
 msgid "Product"
-msgstr "Product"
+msgstr "Proizvod"
 
 #: src/panel/product/stock/ListUiSmall.js:75
 #: src/panel/product/property/ListUi.js:81
 #: src/panel/order/product/ItemUi.js:63 src/panel/order/product/ListUi.js:77
 #: src/panel/order/coupon/ListUi.js:109
 msgid "Product ID"
-msgstr "Product ID"
+msgstr "ID proizvoda"
 
 #: src/panel/order/coupon/ListUi.js:116
 msgid "Product code"
-msgstr "Product code"
+msgstr "Kod proizvoda"
 
 #: src/panel/order/coupon/ListUi.js:147
 msgid "Product costs"
-msgstr "Product kosten"
+msgstr "Troškovi proizvoda"
 
 #: src/panel/order/product/ItemUi.js:19
 msgid "Product item details"
-msgstr "Product item details"
+msgstr "Detalji stavke proizvoda"
 
 #: src/panel/order/coupon/ListUi.js:124
 msgid "Product name"
-msgstr "Product naam"
+msgstr "Ime proizvoda"
 
 #: src/panel/order/coupon/ListUi.js:140
 msgid "Product price"
-msgstr "Product prijs"
+msgstr "Cena proizvoda"
 
 #: src/panel/order/coupon/ListUi.js:132
 msgid "Product quantity"
-msgstr "Product aantal"
+msgstr "Količina proizvoda"
 
 #: src/panel/order/coupon/ListUi.js:154
 msgid "Product rebate"
-msgstr "Product korting"
+msgstr "Rabat proizvoda"
 
 #: src/panel/product/stock/ItemUi.js:21
 msgid "Product stock"
-msgstr "Product voorraad"
+msgstr "Stanje proizvoda"
 
 #: src/panel/product/ItemUi.js:105
 msgid "Product supplier (optional)"
-msgstr "Product leverancier (optioneel)"
+msgstr "Dobavljač proizvoda (opcionalno)"
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #: src/panel/product/tag/ItemUi.js:99
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr "Product tag: {0} ({1})"
+msgstr "Tag proizvoda: {0} ({1})"
 
 #: src/panel/order/coupon/ListUi.js:161
 msgid "Product tax rate"
-msgstr "Product BTW"
+msgstr "Iznos poreza proizvoda"
 
 #: src/panel/product/type/ListUi.js:33
 msgid "Product type"
-msgstr "Product type"
+msgstr "Tip proizvoda"
 
 #. : Product type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/product/type/ItemUi.js:20
 #, python-brace-format
 msgid "Product type: {0} ({1})"
-msgstr "Product type: {0} ({1})"
+msgstr "Tip proizvoda: {0} ({1})"
 
 #. : Product item panel title with product label ({0}) and site code ({1)}
 #: src/panel/product/ItemUi.js:146
 #, python-brace-format
 msgid "Product: {0} ({1})"
-msgstr "Product: {0} ({1})"
+msgstr "Proizvod: {0} ({1})"
 
 #: src/panel/order/product/ListUi.js:11
 msgid "Products"
-msgstr "Producten"
+msgstr "Proizvodi"
 
 #: src/panel/product/property/ItemUi.js:21
 msgid "Properties"
@@ -1081,27 +1079,27 @@ msgstr ""
 #: src/panel/coupon/ItemUi.js:62 src/panel/coupon/ListUi.js:55
 #: src/panel/plugin/ItemUi.js:76 src/panel/plugin/ListUi.js:69
 msgid "Provider"
-msgstr "Provider"
+msgstr "Snabdevač"
 
 #: src/panel/order/ListUi.js:58
 msgid "Purchase date"
-msgstr "Aankoop datum"
+msgstr "Datum kupovine"
 
 #: src/panel/price/ListUiSmall.js:116 src/panel/price/ItemPickerUi.js:118
 #: src/panel/product/stock/ListUiSmall.js:92
 #: src/panel/order/product/ItemUi.js:83 src/panel/order/product/ListUi.js:102
 msgid "Quantity"
-msgstr "Aantal"
+msgstr "Količina"
 
 #: src/panel/product/stock/ItemUi.js:92
 msgid "Quantity or empty if unlimited (optional)"
-msgstr "Aantal of laat leeg voor onbeperkt (optioneel)"
+msgstr "Količina ili prazno za neograničeno (opcionalno)"
 
 #: src/panel/price/ListUiSmall.js:133 src/panel/price/ItemPickerUi.js:135
 #: src/panel/order/service/ItemUi.js:87 src/panel/order/service/ListUi.js:104
 #: src/panel/order/product/ItemUi.js:95 src/panel/order/product/ListUi.js:114
 msgid "Rebate"
-msgstr "Korting"
+msgstr "Rabat"
 
 #: src/panel/ListItemListUi.js:160
 msgid "Ref-ID"
@@ -1109,91 +1107,91 @@ msgstr "Ref-ID"
 
 #: src/panel/order/ListUi.js:84
 msgid "Related order ID"
-msgstr "Gerelateerde aankoop ID "
+msgstr "ID povezane porudžbine"
 
 #: src/panel/log/ListUiSmall.js:95
 msgid "Request"
-msgstr "Aanvraag"
+msgstr "Zahtev"
 
 #: src/panel/job/ListUiSmall.js:96
 msgid "Result"
-msgstr "Resultaat"
+msgstr "Rezultat"
 
 #: src/panel/order/address/ItemUi.js:64
 #: src/panel/order/address/DeliveryItemUi.js:49
 msgid "Salutation"
-msgstr "Aanhef"
+msgstr "Pozdrav"
 
 #: src/panel/AbstractItemUi.js:140
 msgid "Save"
-msgstr "Opslaan"
+msgstr "Sačuvaj"
 
 #: src/panel/AbstractItemUi.js:191
 msgid "Saving"
-msgstr "Bezig met opslaan"
+msgstr "Popust"
 
 #: src/Schema.js:86
 #, python-brace-format
 msgid "Schema {0} is  not registered"
-msgstr "Schema {0} is niet geregistreerd"
+msgstr "Schema {0} is not registered"
 
 #: src/Schema.js:96
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
-msgstr "Zoek schema {0} is niet geregistreerd"
+msgstr "Search schema {0} is not registered"
 
 #: src/panel/ListItemListUi.js:86
 msgid "Select Item"
-msgstr "Selecteer item"
+msgstr "Izaberite stavku"
 
 #: src/elements/exportlanguage.js:21
 msgid "Select languages to export"
-msgstr "Selecteer talen om te exporteren"
+msgstr "Izaberite jezik za izvoz"
 
 #: src/panel/service/ListUi.js:26 src/panel/order/service/ItemUi.js:31
 #: src/elements/domain.js:54
 msgid "Service"
-msgstr "Dienst"
+msgstr "Servis"
 
 #: src/panel/order/service/ItemUi.js:63 src/panel/order/service/ListUi.js:77
 msgid "Service ID"
-msgstr ""
+msgstr "ID servisa"
 
 #: src/panel/order/service/ItemUi.js:19
 msgid "Service item details"
-msgstr ""
+msgstr "Detalji stavke servisa"
 
 #: src/panel/service/type/ListUi.js:33
 msgid "Service type"
-msgstr ""
+msgstr "Tip servisa"
 
 #. : Service type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/service/type/ItemUi.js:20
 #, python-brace-format
 msgid "Service type: {0} ({1})"
-msgstr ""
+msgstr "Tip servisa: {0} ({1})"
 
 #. : Service item panel title with service label ({0}) and site code ({1)}
 #: src/panel/service/ItemUi.js:125
 #, python-brace-format
 msgid "Service: {0} ({1})"
-msgstr ""
+msgstr "Servis: {0} ({1})"
 
 #: src/panel/order/service/ListUi.js:11
 msgid "Services"
-msgstr "Diensten"
+msgstr "Servisi"
 
 #: src/panel/order/OrderItemUi.js:39 src/panel/locale/site/ListUi.js:27
 msgid "Site"
-msgstr "Site"
+msgstr "Sajt"
 
 #: src/panel/order/ListUi.js:119
 msgid "Sorry, adding orders manually is currently not implemented"
-msgstr "Sorry, handmatig orders toevoegen is momenteel nog niet mogelijk."
+msgstr "Izvinite, ručno dodavanje narudžbina nije trenutno implementirano"
 
 #: src/panel/order/ItemUi.js:64 src/panel/order/ListUi.js:51
 msgid "Source"
-msgstr "Bron"
+msgstr "Izvor"
 
 #: src/panel/product/ItemUi.js:108 src/panel/product/ListUiSmall.js:73
 #: src/panel/product/UsedByProductListUi.js:163
@@ -1202,12 +1200,12 @@ msgstr "Bron"
 #: src/panel/coupon/code/ItemUi.js:74 src/panel/coupon/code/ListUi.js:60
 #: src/panel/coupon/ItemUi.js:76 src/panel/coupon/ListUi.js:69
 msgid "Start date"
-msgstr "Start datum"
+msgstr "Početni datum"
 
 #: src/panel/order/address/ItemUi.js:100
 #: src/panel/order/address/DeliveryItemUi.js:85
 msgid "State"
-msgstr "Staat"
+msgstr "Država"
 
 #: src/panel/service/type/ListUi.js:54 src/panel/service/ListUi.js:49
 #: src/panel/supplier/ListUi.js:46 src/panel/media/type/ListUi.js:56
@@ -1236,15 +1234,15 @@ msgstr "Status"
 
 #: src/panel/product/stock/ListUiSmall.js:26
 msgid "Stock"
-msgstr "Voorraad"
+msgstr "Zalihe"
 
 #: src/panel/product/stock/ItemUi.js:90
 msgid "Stock level"
-msgstr "Voorraad niveau"
+msgstr "Stanje zaliha"
 
 #: src/panel/price/ItemUi.js:105
 msgid "Substracted rebate amount"
-msgstr ""
+msgstr "Vrednost rabata"
 
 #: src/panel/supplier/ListUi.js:26 src/panel/product/ItemUi.js:96
 #: src/panel/product/ListUiSmall.js:66
@@ -1252,39 +1250,39 @@ msgstr ""
 #: src/panel/product/ItemPickerUi.js:83 src/panel/product/ListUi.js:80
 #: src/elements/domain.js:55
 msgid "Supplier"
-msgstr "Leverancier"
+msgstr "Dobavljač"
 
 #. : Supplier item panel title with supplier label ({0}) and site code ({1)}
 #: src/panel/supplier/ItemUi.js:84
 #, python-brace-format
 msgid "Supplier: {0} ({1})"
-msgstr "Leverancier: {0} ({1})"
+msgstr "Dobavljač: {0} ({1})"
 
 #: src/elements/siteLanguage.js:46
 msgid "Switching language ..."
-msgstr "Taal aan het wisselen ..."
+msgstr "Prebacivanje jezika..."
 
 #: src/elements/site.js:41
 msgid "Switching site ..."
-msgstr "Site aan het wisselen ..."
+msgstr "Prebacivanje sajta ..."
 
 #: src/panel/product/tag/ItemUi.js:74
 msgid "Tag value (required)"
-msgstr "label waarde (verplicht)"
+msgstr "Vrednost oznake (obavezno)"
 
 #: src/panel/product/tag/ItemPickerUi.js:10
 msgid "Tags"
-msgstr "Tags"
+msgstr "Oznake"
 
 #: src/panel/price/ListUiSmall.js:151 src/panel/price/ItemPickerUi.js:156
 #: src/panel/order/service/ListUi.js:108 src/panel/order/product/ListUi.js:118
 msgid "Tax rate"
-msgstr "BTW"
+msgstr "Vrednost poreza"
 
 #: src/panel/price/ItemUi.js:117 src/panel/order/service/ItemUi.js:91
 #: src/panel/order/product/ItemUi.js:99
 msgid "Tax rate in %"
-msgstr "BTW %"
+msgstr "Vrednost poreza u %"
 
 #: src/panel/order/address/ItemUi.js:112
 #: src/panel/order/address/DeliveryItemUi.js:97
@@ -1294,7 +1292,7 @@ msgstr "Fax"
 #: src/panel/order/address/ItemUi.js:108
 #: src/panel/order/address/DeliveryItemUi.js:93
 msgid "Telephone"
-msgstr "Telefoon"
+msgstr "Telefon"
 
 #: src/panel/text/ItemPickerUi.js:10 src/elements/domain.js:56
 msgid "Text"
@@ -1302,13 +1300,13 @@ msgstr "Tekst"
 
 #: src/panel/text/type/ListUi.js:32
 msgid "Text type"
-msgstr "Tekst type"
+msgstr "Tip teksta"
 
 #. : Text type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/text/type/ItemUi.js:21
 #, python-brace-format
 msgid "Text type: {0} ({1})"
-msgstr "Tekst type: {0} ({1})"
+msgstr "Tip teksta: {0} ({1})"
 
 #. : Text item panel title with text label ({0}) and site code ({1)}
 #: src/panel/text/ItemUi.js:109
@@ -1320,27 +1318,27 @@ msgstr "Tekst: {0} ({1})"
 msgid ""
 "The file with the exported texts will be available within a few minutes. It "
 "can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr "De file met de geexporteerde teksten zal binnen enkele minuten beschikbaar zijn. Deze kan dan gedownload worden in het \"Job\" panel in het tab \"Overzicht\"."
+msgstr "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 
 #: src/elements/importbutton.js:77
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
 "tab"
-msgstr "De teksten uit uw geuploade bestand zullen binnen enkele minuten worden toegevoegd. U kunt de status van de toevoeging vinden in het \"Job\" paneel van de \"Overview\" tab."
+msgstr "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
 
 #: src/panel/AbstractListItemUi.js:73 src/panel/ListItemItemUi.js:118
 msgid "This combination already exists"
-msgstr "Deze combinatie bestaat alreeds"
+msgstr "Ova kombinacija već postoji"
 
 #: src/panel/order/address/ItemUi.js:68
 #: src/panel/order/address/DeliveryItemUi.js:53
 msgid "Title"
-msgstr "Titel"
+msgstr "Naslov"
 
 #: src/panel/order/OrderItemUi.js:51
 msgid "Total"
-msgstr "Totaal"
+msgstr "Ukupno"
 
 #: src/panel/service/ItemUi.js:55 src/panel/service/ListUi.js:57
 #: src/panel/media/ItemUi.js:60 src/panel/media/ListUiSmall.js:62
@@ -1363,11 +1361,11 @@ msgstr "Totaal"
 #: src/panel/order/product/ListUi.js:89 src/panel/plugin/ItemUi.js:54
 #: src/panel/plugin/ListUi.js:63
 msgid "Type"
-msgstr "Type"
+msgstr "Tip"
 
 #: src/panel/type/TabUi.js:22
 msgid "Types"
-msgstr "Types"
+msgstr "Tipovi"
 
 #: src/panel/type/AbstractTypeItemUi.js:69 src/panel/service/ItemUi.js:72
 #: src/panel/product/stock/warehouse/ItemUi.js:65
@@ -1375,20 +1373,20 @@ msgstr "Types"
 #: src/panel/coupon/code/ItemUi.js:64 src/panel/locale/language/ItemUi.js:68
 #: src/panel/locale/currency/ItemUi.js:68 src/panel/locale/site/ItemUi.js:70
 msgid "Unique code (required)"
-msgstr "Unieke code (verplicht)"
+msgstr "Unikatni kod (obavezno)"
 
 #: src/panel/media/MediaField.js:152 src/panel/media/MediaField.js:207
 #: src/elements/importbutton.js:62
 msgid "Upload failed"
-msgstr "Upload niet gelukt"
+msgstr "Otpremanje neuspešno"
 
 #: src/elements/importbutton.js:74
 msgid "Upload successful"
-msgstr "Upload was succesvol"
+msgstr "Otpremanje uspešno"
 
 #: src/panel/product/UsedByProductListUi.js:29
 msgid "Used by"
-msgstr "Gebruikt door"
+msgstr "Koristio"
 
 #: src/panel/cache/ItemUi.js:55 src/panel/cache/ListUiSmall.js:82
 #: src/panel/product/property/ItemUi.js:85
@@ -1397,25 +1395,25 @@ msgstr "Gebruikt door"
 #: src/panel/order/product/attribute/ListUiSmall.js:91
 #: src/panel/ConfigUi.js:76
 msgid "Value"
-msgstr "Waarde"
+msgstr "Iznos"
 
 #: src/panel/order/address/ItemUi.js:60
 #: src/panel/order/address/DeliveryItemUi.js:45
 msgid "Vat ID"
-msgstr "BTW nummer"
+msgstr "ID PDV-a"
 
 #: src/panel/product/stock/ItemUi.js:69
 #: src/panel/product/stock/ListUiSmall.js:82
 #: src/panel/product/stock/warehouse/ListUi.js:26
 msgid "Warehouse"
-msgstr "Magazijn"
+msgstr "Magacin"
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
 #: src/panel/product/stock/warehouse/ItemUi.js:97
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
-msgstr "Magazijn: {0} ({1})"
+msgstr "Magacin: {0} ({1})"
 
 #: src/panel/order/address/ItemUi.js:120
 #: src/panel/order/address/DeliveryItemUi.js:105
@@ -1429,18 +1427,18 @@ msgstr "Website"
 #: src/panel/coupon/ItemUi.js:79 src/panel/coupon/ItemUi.js:85
 #: src/panel/order/ItemUi.js:71 src/panel/order/ItemUi.js:88
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "YYYY-MM-DD hh:mm:ss (optional)"
 
 #: src/panel/AbstractListUi.js:255 src/panel/AbstractTreeUi.js:225
 #: src/elements/exportlanguage.js:292
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Er zullen meerdere items verwijderd worden. Doorgaan?"
+msgstr "Obrisaćete jednu ili više stavki. Dali želite da nastavite?"
 
 #: src/panel/cache/ListUiSmall.js:103
 msgid ""
 "You are going to flush the complete cache for the current site. Would you "
 "like to proceed?"
-msgstr "De gehele cache zal worden geleegd. Doorgaan?"
+msgstr "Upravo ćete obrisati sav keš trenutnog sajta. Dali želite da nastavite?"
 
 #: src/panel/service/type/ItemUi.js:18 src/panel/service/ItemUi.js:123
 #: src/panel/supplier/ItemUi.js:82 src/panel/media/type/ItemUi.js:20
@@ -1456,88 +1454,88 @@ msgstr "De gehele cache zal worden geleegd. Doorgaan?"
 #: src/panel/locale/currency/ItemUi.js:97 src/panel/locale/site/ItemUi.js:106
 #: src/panel/plugin/type/ItemUi.js:20 src/panel/plugin/ItemUi.js:126
 msgid "new"
-msgstr "nieuw"
+msgstr "Novi"
 
 #: src/elements/paymentstatus.js:48
 msgid "pay:authorized"
-msgstr "betaling:geautoriseerd"
+msgstr "Placanje:autorizovano"
 
 #: src/elements/paymentstatus.js:44
 msgid "pay:canceled"
-msgstr "betaling:geannuleerd"
+msgstr "Placanje:otkazano"
 
 #: src/elements/paymentstatus.js:43
 msgid "pay:deleted"
-msgstr "betaling:verwijderd"
+msgstr "Placanje:obrisano"
 
 #: src/elements/paymentstatus.js:47
 msgid "pay:pending"
-msgstr "betaling:inafwachting"
+msgstr "Placanje:na čekanju"
 
 #: src/elements/paymentstatus.js:49
 msgid "pay:received"
-msgstr "betaling:ontvangen"
+msgstr "Placanje:primljeno"
 
 #: src/elements/paymentstatus.js:46
 msgid "pay:refund"
-msgstr "betaling:terugbetaling"
+msgstr "Placanje:refundiranje"
 
 #: src/elements/paymentstatus.js:45
 msgid "pay:refused"
-msgstr "betaling:geweigerd"
+msgstr "Placanje:odbijeno"
 
 #: src/elements/paymentstatus.js:42
 msgid "pay:unfinished"
-msgstr "betaling:onvoltooid"
+msgstr "Placanje:ne završeno"
 
 #: src/elements/deliverystatus.js:43
 msgid "stat:deleted"
-msgstr ""
+msgstr "stat:obrisano"
 
 #: src/elements/deliverystatus.js:47
 msgid "stat:delivered"
-msgstr ""
+msgstr "stat:dostavljeno"
 
 #: src/elements/deliverystatus.js:46
 msgid "stat:dispatched"
-msgstr ""
+msgstr "stat:poslato"
 
 #: src/elements/deliverystatus.js:48
 msgid "stat:lost"
-msgstr ""
+msgstr "stat:izgubljeno"
 
 #: src/elements/deliverystatus.js:44
 msgid "stat:pending"
-msgstr ""
+msgstr "stat:na čekanju"
 
 #: src/elements/deliverystatus.js:45
 msgid "stat:progress"
-msgstr ""
+msgstr "stat:napredak"
 
 #: src/elements/deliverystatus.js:49
 msgid "stat:refused"
-msgstr "Status:geweigerd"
+msgstr "stat:odbijeno"
 
 #: src/elements/deliverystatus.js:50
 msgid "stat:returned"
-msgstr "Status:geretourneerd"
+msgstr "stat:vraćeno"
 
 #: src/elements/deliverystatus.js:42
 msgid "stat:unfinished"
-msgstr "status:onafgerond"
+msgstr "stat:ne završeno"
 
 #: src/elements/status.js:46
 msgid "status:archive"
-msgstr "status:gearchiveerd"
+msgstr "status:arhiva"
 
 #: src/elements/status.js:48
 msgid "status:disabled"
-msgstr "status:uitgeschakeld"
+msgstr "status:onemogućeno"
 
 #: src/elements/status.js:49
 msgid "status:enabled"
-msgstr ""
+msgstr "status:omogućeno"
 
 #: src/elements/status.js:47
 msgid "status:review"
-msgstr ""
+msgstr "status:pregled"

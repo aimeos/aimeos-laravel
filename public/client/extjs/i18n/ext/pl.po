@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jerzy Skalski <jerzy.skalski@gmail.com>, 2014
+# jerzys <jerzy.skalski@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: Arcavias Core\n"
+"Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2015-01-27 11:31+0000\n"
-"Last-Translator: Daniel Hoffmann <d.hoffmann@metaways.de>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/arcavias-core/language/pl/)\n"
+"POT-Creation-Date: 2015-07-09 23:55+0200\n"
+"PO-Revision-Date: 2015-07-09 22:03+0000\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"Language-Team: Polish (http://www.transifex.com/p/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,6 +40,7 @@ msgid ">="
 msgstr "po (łącz.)"
 
 #: lib/ext.ux/AdvancedSearch.js:41 lib/ext.ux/AdvancedSearch.js:37
+#: lib/ext.ux/AdvancedSearch.js:37
 msgid "Search"
 msgstr "Szukaj"
 
