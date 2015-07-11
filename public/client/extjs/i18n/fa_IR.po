@@ -3,138 +3,137 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Андрей Аксёнов <aksenovaa@bk.ru>, 2014
-# Андрей Аксёнов <aksenovaa@bk.ru>, 2014
+# Nima Alipour <ni.alpr@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Arcavias Core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-10 22:41+0200\n"
-"PO-Revision-Date: 2014-11-11 11:27+0000\n"
-"Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/p/arcavias-core/language/ru/)\n"
+"PO-Revision-Date: 2015-05-19 19:27+0000\n"
+"Last-Translator: Nima Alipour <ni.alpr@gmail.com>\n"
+"Language-Team: Persian (Iran) (http://www.transifex.com/p/arcavias-core/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/panel/price/ItemUi.js:99
 msgid "Actual current price"
-msgstr "Фактическая текущая цена"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:138 src/panel/ConfigUi.js:37
 msgid "Add"
-msgstr "Добавить"
+msgstr "اضافه کردن"
 
 #: src/panel/order/address/DeliveryItemUi.js:65
 #: src/panel/order/address/ItemUi.js:80
 msgid "Address 1"
-msgstr "Адрес 1"
+msgstr "آدرس 1"
 
 #: src/panel/order/address/DeliveryItemUi.js:69
 #: src/panel/order/address/ItemUi.js:84
 msgid "Address 2"
-msgstr "Адрес 2"
+msgstr "آدرس 2"
 
 #: src/panel/order/address/DeliveryItemUi.js:73
 #: src/panel/order/address/ItemUi.js:88
 msgid "Address 3"
-msgstr "Адрес 3"
+msgstr "آدرس 3"
 
 #: src/panel/order/address/DeliveryItemUi.js:37
 #: src/panel/order/address/ItemUi.js:52
 msgid "Address ID"
-msgstr "ID адреса"
+msgstr "شناسه ی آدرس"
 
 #: src/panel/order/address/ItemUi.js:18
 msgid "Addresses"
-msgstr "Адреса"
+msgstr "آدرس ها"
 
 #: src/panel/AbstractListItemPickerUi.js:341 src/elements/language.js:19
 #: src/elements/language.js:45
 msgid "All"
-msgstr "Все"
+msgstr "همه"
 
 #: src/panel/attribute/ItemPickerUi.js:16
 msgid "Associated attributes"
-msgstr "Связанные атрибуты"
+msgstr ""
 
 #: src/panel/media/ItemPickerUi.js:16
 msgid "Associated media"
-msgstr "Связанные медиа"
+msgstr ""
 
 #: src/panel/price/ItemPickerUi.js:16
 msgid "Associated prices"
-msgstr "Связанные цены"
+msgstr ""
 
 #: src/panel/product/ItemPickerUi.js:15
 msgid "Associated products"
-msgstr "Связанные товары"
+msgstr ""
 
 #: src/panel/product/tag/ItemPickerUi.js:15
 msgid "Associated tags"
-msgstr "Связанные метки"
+msgstr ""
 
 #: src/panel/text/ItemPickerUi.js:15
 msgid "Associated texts"
-msgstr "Связанные тексты"
+msgstr ""
 
 #: src/panel/attribute/ListUi.js:29 src/panel/attribute/ItemPickerUi.js:11
 #: src/panel/order/product/attribute/ListUiSmall.js:11
 #: src/panel/order/service/attribute/ListUiSmall.js:11
 #: src/elements/domain.js:47
 msgid "Attribute"
-msgstr "Атрибут"
+msgstr ""
 
 #: src/panel/attribute/type/ListUi.js:34
 msgid "Attribute type"
-msgstr "Тип атрибута"
+msgstr ""
 
 #. : Attribute type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/attribute/type/ItemUi.js:23
 #, python-brace-format
 msgid "Attribute type: {0} ({1})"
-msgstr "Тип атрибута: {0} ({1})"
+msgstr ""
 
 #. : Attribute item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/attribute/ItemUi.js:129
 #, python-brace-format
 msgid "Attribute: {0} ({1})"
-msgstr "Атрибут: {0} ({1})"
+msgstr ""
 
 #: src/panel/attribute/ItemPickerUi.js:23
 msgid "Available attributes"
-msgstr "Доступные атрибуты"
+msgstr ""
 
 #: src/panel/media/ItemPickerUi.js:23
 msgid "Available media"
-msgstr "Доступные медиа"
+msgstr ""
 
 #: src/panel/price/ItemPickerUi.js:23
 msgid "Available prices"
-msgstr "Доступные цены"
+msgstr ""
 
 #: src/panel/product/ItemPickerUi.js:22
 msgid "Available products"
-msgstr "Доступные товары"
+msgstr ""
 
 #: src/panel/product/tag/ItemPickerUi.js:22
 msgid "Available tags"
-msgstr "Доступные метки"
+msgstr ""
 
 #: src/panel/text/ItemPickerUi.js:22
 msgid "Available texts"
-msgstr "Доступные тексты"
+msgstr ""
 
 #: src/panel/product/stock/ItemUi.js:95
 msgid "Back in stock"
-msgstr "Восполнение на складе"
+msgstr ""
 
 #: src/panel/order/OrderItemUi.js:35 src/panel/order/product/ListUi.js:71
 #: src/panel/order/coupon/ListUi.js:97 src/panel/order/service/ListUi.js:71
 msgid "Base ID"
-msgstr "Базовый ID"
+msgstr ""
 
 #: src/panel/plugin/ItemUi.js:20 src/panel/cache/ItemUi.js:23
 #: src/panel/job/ItemUi.js:22 src/panel/attribute/ItemUi.js:38
@@ -150,43 +149,43 @@ msgstr "Базовый ID"
 #: src/panel/service/ItemUi.js:20 src/panel/media/ItemUi.js:24
 #: src/panel/order/ItemUi.js:32
 msgid "Basic"
-msgstr "Основное"
+msgstr ""
 
 #: src/panel/order/address/ItemUi.js:34
 msgid "Billing address"
-msgstr "Платежный адрес"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:27
 msgid "Cache"
-msgstr "Кеш"
+msgstr "کش"
 
 #: src/panel/cache/ItemUi.js:13
 msgid "Cache item details"
-msgstr "Сведения по элементу кеша"
+msgstr "جزئیات آیتم های کش"
 
 #: src/panel/AbstractItemUi.js:133 src/elements/exportlanguage.js:321
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "لغو کردن"
 
 #: src/panel/catalog/TreeUi.js:29 src/panel/product/UsedByCatalogListUi.js:29
 #: src/elements/domain.js:48
 msgid "Catalog"
-msgstr "Каталог"
+msgstr ""
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #: src/panel/catalog/ItemUi.js:105
 #, python-brace-format
 msgid "Catalog: {0} ({1})"
-msgstr "Каталог: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:81
 #: src/panel/order/address/ItemUi.js:96
 msgid "City"
-msgstr "Город"
+msgstr "شهر"
 
 #: src/panel/media/MediaField.js:64
 msgid "Click to upload"
-msgstr "Нажмите для загрузки"
+msgstr ""
 
 #: src/panel/plugin/type/ListUi.js:69 src/panel/attribute/ListUiSmall.js:71
 #: src/panel/attribute/ListUi.js:66 src/panel/attribute/ItemUi.js:85
@@ -212,92 +211,92 @@ msgstr "Нажмите для загрузки"
 #: src/panel/order/service/attribute/ListUiSmall.js:87
 #: src/panel/order/service/ListUi.js:87 src/panel/order/service/ItemUi.js:71
 msgid "Code"
-msgstr "Код"
+msgstr "کد"
 
 #: src/panel/coupon/code/ListUi.js:31
 msgid "Codes"
-msgstr "Коды"
+msgstr "کدها"
 
 #: src/panel/order/OrderItemUi.js:59
 msgid "Comment"
-msgstr "Комментарий"
+msgstr "نظر"
 
 #: src/panel/order/address/DeliveryItemUi.js:41
 #: src/panel/order/address/ItemUi.js:56
 msgid "Company"
-msgstr "Компания"
+msgstr "شرکت"
 
 #: src/panel/plugin/ListUi.js:91 src/panel/ListItemListUi.js:194
 #: src/panel/coupon/ListUi.js:83 src/panel/locale/site/ListUi.js:71
 #: src/panel/ConfigUi.js:14 src/panel/service/ListUi.js:92
 msgid "Configuration"
-msgstr "Настройка"
+msgstr "تنظیمات"
 
 #: src/panel/text/ListUiSmall.js:81 src/panel/text/ItemUi.js:82
 #: src/panel/text/ItemPickerUi.js:84
 msgid "Content"
-msgstr "Содержимое"
+msgstr "محتوا"
 
 #: src/panel/AbstractListUi.js:149
 msgid "Copy"
-msgstr "Копировать"
+msgstr "کپی"
 
 #: src/panel/price/ListUiSmall.js:113 src/panel/price/ItemPickerUi.js:113
 #: src/panel/order/OrderItemUi.js:55 src/panel/order/product/ListUi.js:110
 #: src/panel/order/product/ItemUi.js:91 src/panel/order/service/ListUi.js:100
 #: src/panel/order/service/ItemUi.js:83
 msgid "Costs"
-msgstr "Издержки"
+msgstr "هزینه ها"
 
 #: src/panel/price/ItemUi.js:111
 msgid "Costs per item"
-msgstr "Поэлементные издержки"
+msgstr "قیمت هر آیتم"
 
 #: src/panel/media/MediaField.js:153 src/panel/media/MediaField.js:208
 #: src/elements/importbutton.js:63
 msgid "Could not upload file. Please notify your administrator"
-msgstr "Невозможно загрузить файл. Известите администратора."
+msgstr ""
 
 #: src/panel/coupon/code/ListUi.js:54 src/panel/coupon/code/ItemUi.js:66
 msgid "Count"
-msgstr "Цикл"
+msgstr "تعداد"
 
 #: src/panel/order/address/DeliveryItemUi.js:89
 #: src/panel/order/address/ItemUi.js:104
 msgid "Country"
-msgstr "Страна"
+msgstr "کشور"
 
 #: src/panel/coupon/ListUi.js:27
 msgid "Coupon"
-msgstr "Купон"
+msgstr "کوپن"
 
 #: src/panel/order/coupon/ListUi.js:104
 msgid "Coupon code"
-msgstr "Код купона"
+msgstr "کد کوپن"
 
 #: src/panel/coupon/code/ItemUi.js:16
 msgid "Coupon code item details"
-msgstr "Сведения по элементу кода купона"
+msgstr ""
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #: src/panel/coupon/code/ItemUi.js:111
 #, python-brace-format
 msgid "Coupon code: {0} ({1})"
-msgstr "Код купона: {0} ({1})"
+msgstr ""
 
 #: src/panel/coupon/ItemUi.js:16
 msgid "Coupon item details"
-msgstr "Сведения по купону"
+msgstr ""
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #: src/panel/coupon/ItemUi.js:118
 #, python-brace-format
 msgid "Coupon: {0} ({1})"
-msgstr "Купон: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:11
 msgid "Coupons"
-msgstr "Купоны"
+msgstr "کوپن ها"
 
 #: src/panel/plugin/ListUi.js:107 src/panel/plugin/ItemUi.js:97
 #: src/panel/plugin/type/ListUi.js:84 src/panel/job/ListUiSmall.js:120
@@ -339,52 +338,52 @@ msgstr "Купоны"
 #: src/panel/order/service/ListUi.js:112 src/panel/order/service/ItemUi.js:95
 #: src/panel/log/ListUiSmall.js:101
 msgid "Created"
-msgstr "Создано"
+msgstr "ساخته شد"
 
 #: src/panel/price/ListUiSmall.js:80 src/panel/price/ItemPickerUi.js:78
 #: src/panel/locale/ListUi.js:66 src/panel/locale/ItemUi.js:68
 #: src/panel/locale/currency/ListUi.js:32 src/panel/order/OrderItemUi.js:47
 #: src/elements/currency.js:11
 msgid "Currency"
-msgstr "Валюта"
+msgstr "واحد پول"
 
 #: src/panel/price/ItemUi.js:88 src/panel/locale/ItemUi.js:71
 msgid "Currency (required)"
-msgstr "Валюта (обязательно)"
+msgstr "واحد پول (ضروری)"
 
 #: src/panel/order/OrderItemUi.js:43 src/elements/domain.js:49
 msgid "Customer"
-msgstr "Покупатель"
+msgstr "مشتری"
 
 #: src/panel/log/ListUiSmall.js:65
 msgid "Date"
-msgstr "Дата"
+msgstr "تاریخ"
 
 #: src/panel/product/stock/ListUiSmall.js:100
 msgid "Date back"
-msgstr "Дата восполнения"
+msgstr "تاریخ موجود شدن"
 
 #: src/panel/cache/ListUiSmall.js:45 src/panel/AbstractListUi.js:155
 #: src/panel/ConfigUi.js:46 src/elements/exportlanguage.js:159
 msgid "Delete"
-msgstr "Удалить"
+msgstr "پاک کردن"
 
 #: src/panel/AbstractListUi.js:254 src/panel/AbstractTreeUi.js:224
 #: src/elements/exportlanguage.js:290
 msgid "Delete items?"
-msgstr "Подтвердите удаление"
+msgstr "آیتم ها پاک شود؟"
 
 #: src/panel/order/address/DeliveryItemUi.js:11
 msgid "Delivery address"
-msgstr "Адрес доставки"
+msgstr "آدرس تحویل"
 
 #: src/panel/order/ListUi.js:71 src/panel/order/ItemUi.js:85
 msgid "Delivery date"
-msgstr "Дата доставки"
+msgstr "تاریخ تحویل"
 
 #: src/panel/order/ListUi.js:78 src/panel/order/ItemUi.js:91
 msgid "Delivery status"
-msgstr "Статус доставки"
+msgstr "وضعیت تحویل"
 
 #: src/panel/plugin/ItemUi.js:33 src/panel/cache/ItemUi.js:36
 #: src/panel/job/ItemUi.js:35 src/panel/attribute/ItemUi.js:51
@@ -392,35 +391,35 @@ msgstr "Статус доставки"
 #: src/panel/product/ItemUi.js:37 src/panel/order/product/ItemUi.js:44
 #: src/panel/order/service/ItemUi.js:44
 msgid "Details"
-msgstr "Подробно"
+msgstr "جزئیات"
 
 #: src/panel/AbstractListItemPickerUi.js:285
 msgid "Display field is empty"
-msgstr "Поле не заполнено"
+msgstr "فیلد نماشی خالی است"
 
 #: src/panel/plugin/type/ListUi.js:64 src/panel/attribute/type/ListUi.js:64
 #: src/panel/price/type/ListUi.js:64 src/panel/product/type/ListUi.js:62
 #: src/panel/text/type/ListUi.js:61 src/panel/service/type/ListUi.js:62
 #: src/panel/media/type/ListUi.js:64 src/elements/domain.js:10
 msgid "Domain"
-msgstr "Принадлежность"
+msgstr "دامنه"
 
 #: src/elements/domain.js:15
 msgid "Domain (required)"
-msgstr "Принадлежность (обязательно)"
+msgstr "دامنه (ضروری)"
 
 #: src/panel/order/address/DeliveryItemUi.js:101
 #: src/panel/order/address/ItemUi.js:116
 msgid "E-Mail"
-msgstr "E-Mail"
+msgstr "پست الکترونیک"
 
 #: src/panel/product/ItemUi.js:85
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU или артикулярный номер (обязательно)"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:39 src/panel/AbstractListUi.js:143
 msgid "Edit"
-msgstr "Правка"
+msgstr "ویرایش"
 
 #: src/panel/plugin/ListUi.js:123 src/panel/plugin/ItemUi.js:105
 #: src/panel/plugin/type/ListUi.js:102 src/panel/job/ListUiSmall.js:138
@@ -462,7 +461,7 @@ msgstr "Правка"
 #: src/panel/order/service/ListUi.js:128 src/panel/order/service/ItemUi.js:103
 #: src/panel/log/ListUiSmall.js:117
 msgid "Editor"
-msgstr "Редактор"
+msgstr "ویرایش کننده"
 
 #: src/panel/ListItemListUi.js:187 src/panel/product/ListUiSmall.js:81
 #: src/panel/product/ListUi.js:95 src/panel/product/ItemUi.js:113
@@ -471,45 +470,45 @@ msgstr "Редактор"
 #: src/panel/coupon/ItemUi.js:82 src/panel/coupon/code/ListUi.js:67
 #: src/panel/coupon/code/ItemUi.js:79 src/panel/ListItemItemUi.js:57
 msgid "End date"
-msgstr "Конечная дата"
+msgstr "تاریخ پایان"
 
 #: src/panel/AbstractListUi.js:341 src/panel/AbstractUsedByListUi.js:173
 #: src/elements/exportlanguage.js:393
 msgid "Error"
-msgstr "Ошибка"
+msgstr "خطا"
 
 #: src/panel/cache/ListUiSmall.js:90 src/panel/cache/ItemUi.js:60
 msgid "Expires"
-msgstr "Истекает"
+msgstr "انقضا"
 
 #: src/panel/AbstractListUi.js:161 src/elements/exportlanguage.js:328
 msgid "Export"
-msgstr "Экспорт"
+msgstr "صدور"
 
 #: src/elements/exportlanguage.js:445
 msgid "Export successful"
-msgstr "Экспорт выполнен"
+msgstr "صدور با موفقیت انحام شد"
 
 #: src/panel/log/ListUiSmall.js:59
 msgid "Facility"
-msgstr "Категория"
+msgstr ""
 
 #: src/panel/media/ItemUi.js:100
 msgid "File URL"
-msgstr "URL файла"
+msgstr "لینک فایل"
 
 #: src/panel/order/address/DeliveryItemUi.js:57
 #: src/panel/order/address/ItemUi.js:72
 msgid "Firstname"
-msgstr "Имя"
+msgstr "نام"
 
 #: src/panel/cache/ListUiSmall.js:51
 msgid "Flush"
-msgstr "Очистить"
+msgstr "خالی کردن"
 
 #: src/panel/cache/ListUiSmall.js:101
 msgid "Flush cache?"
-msgstr "Очистить кеш?"
+msgstr "کش خالی شود؟"
 
 #: src/panel/plugin/ListUi.js:47 src/panel/plugin/ItemUi.js:47
 #: src/panel/plugin/type/ListUi.js:49 src/panel/cache/ListUiSmall.js:77
@@ -553,15 +552,15 @@ msgstr "Очистить кеш?"
 #: src/panel/log/ListUiSmall.js:53 src/elements/exportlanguage.js:79
 #: src/elements/exportlanguage.js:105
 msgid "ID"
-msgstr "ID"
+msgstr "شناسه"
 
 #: src/panel/AbstractListUi.js:167
 msgid "Import"
-msgstr "Импорт"
+msgstr "وارد کردن"
 
 #: src/panel/text/ItemUi.js:79
 msgid "Internal name"
-msgstr "Внутреннее название"
+msgstr "نام داخلی"
 
 #: src/panel/plugin/ItemUi.js:87 src/panel/job/ItemUi.js:61
 #: src/panel/attribute/ItemUi.js:96 src/panel/catalog/ItemUi.js:72
@@ -573,12 +572,12 @@ msgstr "Внутреннее название"
 #: src/panel/locale/language/ItemUi.js:73 src/panel/service/ItemUi.js:85
 #: src/panel/media/ItemUi.js:92
 msgid "Internal name (required)"
-msgstr "Внутреннее название (обязательно)"
+msgstr "نام داخلی (ضروری)"
 
 #: src/panel/AbstractTreeUi.js:299
 #, python-brace-format
 msgid "Invalid action \"{0}\""
-msgstr "Недопустимое действие \"{0}\""
+msgstr "اقدام اشتباه \"{0}\""
 
 #: src/panel/catalog/ItemUi.js:121 src/panel/product/stock/ItemUi.js:123
 #: src/panel/locale/site/ItemUi.js:121 src/panel/ConfigUi.js:122
@@ -586,24 +585,24 @@ msgstr "Недопустимое действие \"{0}\""
 #: src/panel/AbstractListItemUi.js:71 src/panel/AbstractTreeItemUi.js:25
 #: src/panel/ListItemItemUi.js:77 src/panel/ListItemItemUi.js:117
 msgid "Invalid data"
-msgstr "Недопустимые данные"
+msgstr "داده ی اشتباه"
 
 #: src/panel/ConfigUi.js:123
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
-msgstr "Неверное значение ключа настройки \"{0}\""
+msgstr ""
 
 #: src/panel/attribute/ItemUi.js:99
 msgid "Item position within the same type"
-msgstr "Позиция элемента среди однотипных"
+msgstr ""
 
 #: src/panel/job/ItemUi.js:12
 msgid "Job item details"
-msgstr "Сведения по пункту задания"
+msgstr ""
 
 #: src/panel/job/ListUiSmall.js:32
 msgid "Jobs"
-msgstr "Задания"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:76 src/panel/plugin/ItemUi.js:83
 #: src/panel/plugin/type/ListUi.js:78 src/panel/job/ListUiSmall.js:60
@@ -636,7 +635,7 @@ msgstr "Задания"
 #: src/panel/media/type/ListUi.js:78 src/panel/media/ItemPickerUi.js:87
 #: src/elements/exportlanguage.js:85 src/elements/exportlanguage.js:113
 msgid "Label"
-msgstr "Надпись"
+msgstr ""
 
 #: src/panel/product/tag/ListUiSmall.js:46
 #: src/panel/product/tag/ItemPickerUi.js:59 src/panel/locale/ListUi.js:59
@@ -646,11 +645,11 @@ msgstr "Надпись"
 #: src/elements/language.js:10 src/elements/siteLanguage.js:10
 #: src/elements/siteLanguage.js:17
 msgid "Language"
-msgstr "Язык"
+msgstr "زبان"
 
 #: src/panel/locale/ItemUi.js:65
 msgid "Language (required)"
-msgstr "Язык (обязательно)"
+msgstr "زبان (ضروری)"
 
 #: src/panel/plugin/ListUi.js:115 src/panel/plugin/ItemUi.js:101
 #: src/panel/plugin/type/ListUi.js:93 src/panel/job/ListUiSmall.js:129
@@ -692,59 +691,59 @@ msgstr "Язык (обязательно)"
 #: src/panel/order/service/ListUi.js:120 src/panel/order/service/ItemUi.js:99
 #: src/panel/log/ListUiSmall.js:109
 msgid "Last modified"
-msgstr "Последнее изменение"
+msgstr "آخرین تغییر"
 
 #: src/panel/order/address/DeliveryItemUi.js:61
 #: src/panel/order/address/ItemUi.js:76
 msgid "Lastname"
-msgstr "Фамилия"
+msgstr "نام خانوادگی"
 
 #: src/panel/locale/ListUi.js:32
 msgid "List"
-msgstr "Список"
+msgstr "لیست"
 
 #: src/panel/product/UsedByCatalogListUi.js:58
 #: src/panel/product/UsedByProductListUi.js:37
 msgid "List ID"
-msgstr "ID списка"
+msgstr "شناسه لیست"
 
 #: src/panel/ListItemListUi.js:166
 msgid "List Status"
-msgstr "Статус списка"
+msgstr "وضعیت لیست"
 
 #: src/panel/product/UsedByCatalogListUi.js:100
 #: src/panel/product/UsedByProductListUi.js:88
 msgid "List creation time"
-msgstr "Время создания списка"
+msgstr "زمان ساخته شدن لیست"
 
 #: src/panel/product/UsedByCatalogListUi.js:118
 #: src/panel/product/UsedByProductListUi.js:97
 msgid "List editor"
-msgstr "Редактор списка"
+msgstr "ویرایش کننده لیست"
 
 #: src/panel/product/UsedByCatalogListUi.js:84
 #: src/panel/product/UsedByProductListUi.js:63
 msgid "List end date"
-msgstr "Конечная дата списка"
+msgstr "زمان پایان لیست"
 
 #: src/panel/ListItemItemUi.js:14
 msgid "List item details"
-msgstr "Сведения по элементу списка"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:109
 #: src/panel/product/UsedByProductListUi.js:79
 msgid "List modification time"
-msgstr "Время изменения списка"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:92
 #: src/panel/product/UsedByProductListUi.js:71
 msgid "List position"
-msgstr "Позиция списка"
+msgstr ""
 
 #: src/panel/product/UsedByCatalogListUi.js:76
 #: src/panel/product/UsedByProductListUi.js:55
 msgid "List start date"
-msgstr "Начальная дата списка"
+msgstr ""
 
 #: src/panel/attribute/ItemPickerUi.js:40 src/panel/price/ItemPickerUi.js:40
 #: src/panel/product/UsedByCatalogListUi.js:66
@@ -754,82 +753,82 @@ msgstr "Начальная дата списка"
 #: src/panel/media/ItemPickerUi.js:40 src/panel/ListItemItemUi.js:36
 #: src/panel/ListItemItemUi.js:47
 msgid "List type"
-msgstr "Тип списка"
+msgstr ""
 
 #: src/panel/media/MediaField.js:59 src/elements/importbutton.js:24
 msgid "Loading"
-msgstr "Загрузка"
+msgstr ""
 
 #: src/panel/locale/TabUi.js:23
 msgid "Locale"
-msgstr "Локаль"
+msgstr ""
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
 #: src/panel/locale/currency/ItemUi.js:98
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr "Валюта локали: {0} ({1})"
+msgstr ""
 
 #. : Locale item panel title with site code ({1)}
 #: src/panel/locale/ItemUi.js:103
 #, python-brace-format
 msgid "Locale item details ({1})"
-msgstr "Сведения по элементу локали ({1})"
+msgstr ""
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
 #: src/panel/locale/language/ItemUi.js:98
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr "Адрес локали: {0} ({1})"
+msgstr ""
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #: src/panel/locale/site/ItemUi.js:107
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
-msgstr "Локаль сайта: {0} ({1})"
+msgstr ""
 
 #: src/panel/log/ListUiSmall.js:32
 msgid "Logs"
-msgstr "Журнал"
+msgstr ""
 
 #: src/panel/media/ItemPickerUi.js:11 src/elements/domain.js:50
 msgid "Media"
-msgstr "Медиа"
+msgstr ""
 
 #: src/panel/media/type/ListUi.js:34
 msgid "Media type"
-msgstr "Тип медиа"
+msgstr ""
 
 #. : Media type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/media/type/ItemUi.js:22
 #, python-brace-format
 msgid "Media type: {0} ({1})"
-msgstr "Тип медиа: {0} ({1})"
+msgstr ""
 
 #. : Media item panel title with media label ({0}) and site code ({1)}
 #: src/panel/media/ItemUi.js:134
 #, python-brace-format
 msgid "Media: {0} ({1})"
-msgstr "Медиа: {0} ({1})"
+msgstr ""
 
 #: src/panel/log/ListUiSmall.js:77
 msgid "Message"
-msgstr "Сообщение"
+msgstr ""
 
 #: src/panel/job/ListUiSmall.js:67 src/panel/job/ItemUi.js:64
 msgid "Method"
-msgstr "Метод"
+msgstr ""
 
 #: src/panel/media/ListUiSmall.js:75 src/panel/media/ItemUi.js:85
 #: src/panel/media/ItemPickerUi.js:69
 msgid "Mimetype"
-msgstr "Тип mime"
+msgstr ""
 
 #: src/panel/price/ItemUi.js:92
 msgid "Minimum quantity"
-msgstr "Минимальное количество"
+msgstr ""
 
 #: src/panel/ConfigUi.js:70
 #: src/panel/order/product/attribute/ListUiSmall.js:81
@@ -837,101 +836,101 @@ msgstr "Минимальное количество"
 #: src/panel/order/service/attribute/ListUiSmall.js:82
 #: src/panel/order/service/ListUi.js:91 src/panel/order/service/ItemUi.js:75
 msgid "Name"
-msgstr "Название"
+msgstr ""
 
 #: src/panel/coupon/ItemUi.js:66
 msgid "Name of the coupon provider class (required)"
-msgstr "Название класса поставщика купона (обязательно)"
+msgstr ""
 
 #: src/panel/plugin/ItemUi.js:80
 msgid "Name of the plugin provider class (required)"
-msgstr "Название класса поставщика дополнения (обязательно)"
+msgstr ""
 
 #: src/panel/service/ItemUi.js:78
 msgid "Name of the service provider class (required)"
-msgstr "Название класса поставщика сервиса (обязательно)"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:342 src/panel/AbstractUsedByListUi.js:174
 #: src/elements/exportlanguage.js:394
 msgid "No error information available"
-msgstr "Информация об ошибке недоступна"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:120 src/panel/AbstractListItemPickerUi.js:49
 msgid "No items"
-msgstr "Нет элементов"
+msgstr ""
 
 #: src/panel/order/ListUi.js:118
 msgid "Not implemented"
-msgstr "Не реализовано"
+msgstr ""
 
 #: src/panel/coupon/code/ListUi.js:103
 msgid "Notice"
-msgstr "Замечание"
+msgstr ""
 
 #: src/panel/order/OrderItemUi.js:15 src/panel/order/ListUi.js:32
 msgid "Order"
-msgstr "Заказ"
+msgstr ""
 
 #: src/panel/order/ItemUi.js:20
 msgid "Order item details"
-msgstr "Сведения по элементу заказа"
+msgstr ""
 
 #: src/panel/order/product/ListUi.js:83 src/panel/order/product/ItemUi.js:67
 msgid "Order product ID"
-msgstr "ID заказанного товара"
+msgstr ""
 
 #: src/panel/portal/ItemUi.js:19
 msgid "Overview"
-msgstr "Обзор"
+msgstr ""
 
 #: src/panel/job/ListUiSmall.js:75
 msgid "Parameter"
-msgstr "Параметр"
+msgstr ""
 
 #: src/panel/order/ItemUi.js:68
 msgid "Payment date"
-msgstr "Дата платежа"
+msgstr ""
 
 #: src/panel/order/ListUi.js:65 src/panel/order/ItemUi.js:74
 msgid "Payment status"
-msgstr "Статус платежа"
+msgstr ""
 
 #: src/panel/catalog/ItemUi.js:122 src/panel/product/stock/ItemUi.js:124
 #: src/panel/locale/site/ItemUi.js:122 src/panel/AbstractItemUi.js:240
 #: src/panel/AbstractListItemUi.js:29 src/panel/AbstractTreeItemUi.js:26
 #: src/panel/ListItemItemUi.js:78
 msgid "Please recheck your data"
-msgstr "Проверьте данные"
+msgstr ""
 
 #: src/panel/coupon/code/ListUi.js:104
 msgid "Please save the coupon first before you can add codes"
-msgstr "Сохраните купон, прежде чем появиться возможность добавления кодов"
+msgstr ""
 
 #: src/panel/ListItemListUi.js:87
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
 " list."
-msgstr "Выберете элемент справа и перетащите его в этот список."
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:32 src/elements/domain.js:51
 msgid "Plugin"
-msgstr "Дополнение"
+msgstr ""
 
 #: src/panel/plugin/type/ListUi.js:34
 msgid "Plugin type"
-msgstr "Тип дополнения"
+msgstr ""
 
 #. : Plugin type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/plugin/type/ItemUi.js:22
 #, python-brace-format
 msgid "Plugin type: {0} ({1})"
-msgstr "Тип дополнения: {0} ({1})"
+msgstr ""
 
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/plugin/ItemUi.js:127
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
-msgstr "Дополнение: {0} ({1})"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:84 src/panel/plugin/ItemUi.js:90
 #: src/panel/attribute/ListUiSmall.js:84 src/panel/attribute/ListUi.js:79
@@ -939,242 +938,242 @@ msgstr "Дополнение: {0} ({1})"
 #: src/panel/locale/ItemUi.js:75 src/panel/service/ListUi.js:85
 #: src/panel/service/ItemUi.js:88
 msgid "Position"
-msgstr "Позиция"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:77
 #: src/panel/order/address/ItemUi.js:92
 msgid "Postal code"
-msgstr "Индекс"
+msgstr ""
 
 #: src/panel/media/ListUiSmall.js:88 src/panel/media/ItemPickerUi.js:94
 msgid "Preview"
-msgstr "Предпросмотр"
+msgstr ""
 
 #: src/panel/media/ItemUi.js:96
 msgid "Preview URL"
-msgstr "URL предпросмотра"
+msgstr ""
 
 #: src/panel/price/ListUiSmall.js:95 src/panel/price/ItemPickerUi.js:11
 #: src/panel/price/ItemPickerUi.js:95 src/panel/order/product/ListUi.js:106
 #: src/panel/order/product/ItemUi.js:87 src/panel/order/service/ListUi.js:96
 #: src/panel/order/service/ItemUi.js:79 src/elements/domain.js:52
 msgid "Price"
-msgstr "Цена"
+msgstr ""
 
 #: src/panel/price/type/ListUi.js:34
 msgid "Price type"
-msgstr "Тип цены"
+msgstr ""
 
 #. : Price type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/price/type/ItemUi.js:22
 #, python-brace-format
 msgid "Price type: {0} ({1})"
-msgstr "Тип цены: {0} ({1})"
+msgstr ""
 
 #. : Price item panel title with price label ({0}) and site code ({1)}
 #: src/panel/price/ItemUi.js:145
 #, python-brace-format
 msgid "Price: {0} ({1})"
-msgstr "Цена: {0} ({1})"
+msgstr ""
 
 #: src/panel/log/ListUiSmall.js:71
 msgid "Priority"
-msgstr "Приоритет"
+msgstr ""
 
 #: src/panel/product/ListUi.js:28 src/panel/product/ItemPickerUi.js:10
 #: src/panel/order/product/ItemUi.js:31 src/elements/domain.js:53
 msgid "Product"
-msgstr "Товар"
+msgstr ""
 
 #: src/panel/product/stock/ListUiSmall.js:75
 #: src/panel/order/product/ListUi.js:77 src/panel/order/product/ItemUi.js:63
 #: src/panel/order/coupon/ListUi.js:109
 msgid "Product ID"
-msgstr "ID товара"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:116
 msgid "Product code"
-msgstr "Код товара"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:147
 msgid "Product costs"
-msgstr "Издержки на товар"
+msgstr ""
 
 #: src/panel/order/product/ItemUi.js:19
 msgid "Product item details"
-msgstr "Сведения о товаре"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:124
 msgid "Product name"
-msgstr "Название товара"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:140
 msgid "Product price"
-msgstr "Цена товара"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:132
 msgid "Product quantity"
-msgstr "Количество товара"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:154
 msgid "Product rebate"
-msgstr "Скидка на товар"
+msgstr ""
 
 #: src/panel/product/stock/ItemUi.js:21
 msgid "Product stock"
-msgstr "Товар на складе"
+msgstr ""
 
 #: src/panel/product/ItemUi.js:104
 msgid "Product supplier (optional)"
-msgstr "Поставщик товара (опционально)"
+msgstr ""
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #: src/panel/product/tag/ItemUi.js:99
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr "Метка товара: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/coupon/ListUi.js:161
 msgid "Product tax rate"
-msgstr "Налоговая ставка на товар"
+msgstr ""
 
 #: src/panel/product/type/ListUi.js:33
 msgid "Product type"
-msgstr "Тип товара"
+msgstr ""
 
 #. : Product type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/product/type/ItemUi.js:20
 #, python-brace-format
 msgid "Product type: {0} ({1})"
-msgstr "Тип товара: {0} ({1})"
+msgstr ""
 
 #. : Product item panel title with product label ({0}) and site code ({1)}
 #: src/panel/product/ItemUi.js:145
 #, python-brace-format
 msgid "Product: {0} ({1})"
-msgstr "Товар: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/product/ListUi.js:11
 msgid "Products"
-msgstr "Товары"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:69 src/panel/plugin/ItemUi.js:76
 #: src/panel/coupon/ListUi.js:55 src/panel/coupon/ItemUi.js:62
 #: src/panel/service/ListUi.js:70 src/panel/service/ItemUi.js:74
 msgid "Provider"
-msgstr "Поставщик"
+msgstr ""
 
 #: src/panel/order/ListUi.js:58
 msgid "Purchase date"
-msgstr "Дата покупки"
+msgstr ""
 
 #: src/panel/price/ListUiSmall.js:87 src/panel/price/ItemPickerUi.js:86
 #: src/panel/product/stock/ListUiSmall.js:92
 #: src/panel/order/product/ListUi.js:102 src/panel/order/product/ItemUi.js:83
 msgid "Quantity"
-msgstr "Количество"
+msgstr ""
 
 #: src/panel/product/stock/ItemUi.js:92
 msgid "Quantity or empty if unlimited (optional)"
-msgstr "Количество или пусто, если без ограничений (опционально)"
+msgstr ""
 
 #: src/panel/price/ListUiSmall.js:104 src/panel/price/ItemPickerUi.js:103
 #: src/panel/order/product/ListUi.js:114 src/panel/order/product/ItemUi.js:95
 #: src/panel/order/service/ListUi.js:104 src/panel/order/service/ItemUi.js:87
 msgid "Rebate"
-msgstr "Скидка"
+msgstr ""
 
 #: src/panel/ListItemListUi.js:160
 msgid "Ref-ID"
-msgstr "Ссыл.-ID"
+msgstr ""
 
 #: src/panel/order/ListUi.js:84
 msgid "Related order ID"
-msgstr "ID связанного заказа"
+msgstr ""
 
 #: src/panel/log/ListUiSmall.js:95
 msgid "Request"
-msgstr "Запрос"
+msgstr ""
 
 #: src/panel/job/ListUiSmall.js:96
 msgid "Result"
-msgstr "Результат"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:49
 #: src/panel/order/address/ItemUi.js:64
 msgid "Salutation"
-msgstr "Обращение"
+msgstr ""
 
 #: src/panel/AbstractItemUi.js:140
 msgid "Save"
-msgstr "Сохранить"
+msgstr ""
 
 #: src/panel/AbstractItemUi.js:191
 msgid "Saving"
-msgstr "Сохранение"
+msgstr ""
 
 #: src/Schema.js:86
 #, python-brace-format
 msgid "Schema {0} is  not registered"
-msgstr "Незарегистрирована схема {0}"
+msgstr ""
 
 #: src/Schema.js:96
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
-msgstr "Незарегистрирована схема поиска {0}"
+msgstr ""
 
 #: src/panel/ListItemListUi.js:86
 msgid "Select Item"
-msgstr "Сделайте выбор"
+msgstr ""
 
 #: src/elements/exportlanguage.js:21
 msgid "Select languages to export"
-msgstr "Выберете экспортируемые языки"
+msgstr ""
 
 #: src/panel/service/ListUi.js:26 src/panel/order/service/ItemUi.js:31
 #: src/elements/domain.js:54
 msgid "Service"
-msgstr "Служба"
+msgstr ""
 
 #: src/panel/order/service/ListUi.js:77 src/panel/order/service/ItemUi.js:63
 msgid "Service ID"
-msgstr "ID службы"
+msgstr ""
 
 #: src/panel/order/service/ItemUi.js:19
 msgid "Service item details"
-msgstr "Сведения по службе"
+msgstr ""
 
 #: src/panel/service/type/ListUi.js:33
 msgid "Service type"
-msgstr "Тип службы"
+msgstr ""
 
 #. : Service type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/service/type/ItemUi.js:20
 #, python-brace-format
 msgid "Service type: {0} ({1})"
-msgstr "Тип службы: {0} ({1})"
+msgstr ""
 
 #. : Service item panel title with service label ({0}) and site code ({1)}
 #: src/panel/service/ItemUi.js:124
 #, python-brace-format
 msgid "Service: {0} ({1})"
-msgstr "Служба: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/service/ListUi.js:11
 msgid "Services"
-msgstr "Службы"
+msgstr ""
 
 #: src/panel/locale/site/ListUi.js:27 src/panel/order/OrderItemUi.js:39
 msgid "Site"
-msgstr "Сайт"
+msgstr ""
 
 #: src/panel/order/ListUi.js:119
 msgid "Sorry, adding orders manually is currently not implemented"
-msgstr "Ручное добавление заказов пока не реализовано"
+msgstr ""
 
 #: src/panel/order/ListUi.js:51 src/panel/order/ItemUi.js:64
 msgid "Source"
-msgstr "Источник"
+msgstr ""
 
 #: src/panel/ListItemListUi.js:180 src/panel/product/ListUiSmall.js:73
 #: src/panel/product/ListUi.js:87 src/panel/product/ItemUi.js:107
@@ -1183,12 +1182,12 @@ msgstr "Источник"
 #: src/panel/coupon/ItemUi.js:76 src/panel/coupon/code/ListUi.js:60
 #: src/panel/coupon/code/ItemUi.js:73 src/panel/ListItemItemUi.js:50
 msgid "Start date"
-msgstr "Начальная дата"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:85
 #: src/panel/order/address/ItemUi.js:100
 msgid "State"
-msgstr "Область"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:55 src/panel/plugin/type/ListUi.js:56
 #: src/panel/job/ListUiSmall.js:52 src/panel/attribute/ListUiSmall.js:57
@@ -1211,114 +1210,114 @@ msgstr "Область"
 #: src/panel/order/product/ItemUi.js:103 src/elements/exportlanguage.js:73
 #: src/elements/exportlanguage.js:98 src/elements/status.js:10
 msgid "Status"
-msgstr "Статус"
+msgstr ""
 
 #: src/panel/product/stock/ListUiSmall.js:26
 msgid "Stock"
-msgstr "Запас"
+msgstr ""
 
 #: src/panel/product/stock/ItemUi.js:90
 msgid "Stock level"
-msgstr "Уровень запасов"
+msgstr ""
 
 #: src/panel/price/ItemUi.js:105
 msgid "Substracted rebate amount"
-msgstr "Вычитаемая сумма скидки"
+msgstr ""
 
 #: src/panel/product/ListUiSmall.js:66 src/panel/product/ListUi.js:80
 #: src/panel/product/ItemUi.js:95 src/panel/product/UsedByProductListUi.js:152
 #: src/panel/product/ItemPickerUi.js:83 src/panel/supplier/ListUi.js:26
 #: src/elements/domain.js:55
 msgid "Supplier"
-msgstr "Поставщик"
+msgstr ""
 
 #. : Supplier item panel title with supplier label ({0}) and site code ({1)}
 #: src/panel/supplier/ItemUi.js:84
 #, python-brace-format
 msgid "Supplier: {0} ({1})"
-msgstr "Поставщик: {0} ({1})"
+msgstr ""
 
 #: src/elements/siteLanguage.js:46
 msgid "Switching language ..."
-msgstr "Переключение языка..."
+msgstr ""
 
 #: src/elements/site.js:41
 msgid "Switching site ..."
-msgstr "Переключение сайта..."
+msgstr ""
 
 #: src/panel/product/tag/ItemUi.js:74
 msgid "Tag value (required)"
-msgstr "Значение метки (обязательно)"
+msgstr ""
 
 #: src/panel/product/tag/ItemPickerUi.js:10
 msgid "Tags"
-msgstr "Метки"
+msgstr ""
 
 #: src/panel/price/ListUiSmall.js:122 src/panel/price/ItemPickerUi.js:124
 #: src/panel/order/product/ListUi.js:118 src/panel/order/service/ListUi.js:108
 msgid "Tax rate"
-msgstr "Налоговая ставка"
+msgstr ""
 
 #: src/panel/price/ItemUi.js:117 src/panel/order/product/ItemUi.js:99
 #: src/panel/order/service/ItemUi.js:91
 msgid "Tax rate in %"
-msgstr "Налоговая ставка в %"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:97
 #: src/panel/order/address/ItemUi.js:112
 msgid "Telefax"
-msgstr "Телефакс"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:93
 #: src/panel/order/address/ItemUi.js:108
 msgid "Telephone"
-msgstr "Телефон"
+msgstr ""
 
 #: src/panel/text/ItemPickerUi.js:10 src/elements/domain.js:56
 msgid "Text"
-msgstr "Текст"
+msgstr ""
 
 #: src/panel/text/type/ListUi.js:32
 msgid "Text type"
-msgstr "Тип текста"
+msgstr ""
 
 #. : Text type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/text/type/ItemUi.js:21
 #, python-brace-format
 msgid "Text type: {0} ({1})"
-msgstr "Тип текста: {0} ({1})"
+msgstr ""
 
 #. : Text item panel title with text label ({0}) and site code ({1)}
 #: src/panel/text/ItemUi.js:109
 #, python-brace-format
 msgid "Text: {0} ({1})"
-msgstr "Текст: {0} ({1})"
+msgstr ""
 
 #: src/elements/exportlanguage.js:448
 msgid ""
 "The file with the exported texts will be available within a few minutes. It "
 "can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr "Файл с экспортируемым текстом будет доступен в течение нескольких минут. Затем его можно скачать в панели \"Задание\" вкладки \"Обзор\"."
+msgstr ""
 
 #: src/elements/importbutton.js:77
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
 "tab"
-msgstr "Текст из загруженного файла будет импортирован в течение нескольких минут. Проверить статус импорта можно в панели \"Задачи\" вкладки \"Обзор\"."
+msgstr ""
 
 #: src/panel/AbstractListItemUi.js:72 src/panel/ListItemItemUi.js:118
 msgid "This combination already exists"
-msgstr "Такая комбинация уже имеется"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:53
 #: src/panel/order/address/ItemUi.js:68
 msgid "Title"
-msgstr "Титул"
+msgstr ""
 
 #: src/panel/order/OrderItemUi.js:51
 msgid "Total"
-msgstr "Всего"
+msgstr ""
 
 #: src/panel/plugin/ListUi.js:63 src/panel/plugin/ItemUi.js:54
 #: src/panel/attribute/ListUiSmall.js:65 src/panel/attribute/ListUi.js:60
@@ -1339,11 +1338,11 @@ msgstr "Всего"
 #: src/panel/order/service/attribute/ListUiSmall.js:77
 #: src/panel/order/service/ListUi.js:83 src/panel/order/service/ItemUi.js:67
 msgid "Type"
-msgstr "Тип"
+msgstr ""
 
 #: src/panel/type/TabUi.js:22
 msgid "Types"
-msgstr "Типы"
+msgstr ""
 
 #: src/panel/attribute/ItemUi.js:89 src/panel/catalog/ItemUi.js:66
 #: src/panel/type/AbstractTypeItemUi.js:67
@@ -1352,50 +1351,50 @@ msgstr "Типы"
 #: src/panel/locale/currency/ItemUi.js:67
 #: src/panel/locale/language/ItemUi.js:67 src/panel/service/ItemUi.js:71
 msgid "Unique code (required)"
-msgstr "Уникальный код (обязательно)"
+msgstr ""
 
 #: src/panel/media/MediaField.js:152 src/panel/media/MediaField.js:207
 #: src/elements/importbutton.js:62
 msgid "Upload failed"
-msgstr "Ошибка загрузки"
+msgstr ""
 
 #: src/elements/importbutton.js:74
 msgid "Upload successful"
-msgstr "Загрузка закончена"
+msgstr ""
 
 #: src/panel/product/UsedByProductListUi.js:29
 msgid "Used by"
-msgstr "Используется в"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:82 src/panel/cache/ItemUi.js:55
 #: src/panel/ConfigUi.js:76
 #: src/panel/order/product/attribute/ListUiSmall.js:91
 #: src/panel/order/service/attribute/ListUiSmall.js:92
 msgid "Value"
-msgstr "Значение"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:45
 #: src/panel/order/address/ItemUi.js:60
 msgid "Vat ID"
-msgstr "ID НДС"
+msgstr ""
 
 #: src/panel/product/stock/ListUiSmall.js:82
 #: src/panel/product/stock/ItemUi.js:69
 #: src/panel/product/stock/warehouse/ListUi.js:26
 msgid "Warehouse"
-msgstr "Склад"
+msgstr ""
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
 #: src/panel/product/stock/warehouse/ItemUi.js:97
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
-msgstr "Склад: {0} ({1})"
+msgstr ""
 
 #: src/panel/order/address/DeliveryItemUi.js:105
 #: src/panel/order/address/ItemUi.js:120
 msgid "Website"
-msgstr "Сайт"
+msgstr ""
 
 #: src/panel/cache/ItemUi.js:63 src/panel/product/stock/ItemUi.js:98
 #: src/panel/product/ItemUi.js:110 src/panel/product/ItemUi.js:116
@@ -1404,18 +1403,18 @@ msgstr "Сайт"
 #: src/panel/order/ItemUi.js:71 src/panel/order/ItemUi.js:88
 #: src/panel/ListItemItemUi.js:54 src/panel/ListItemItemUi.js:61
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "ГГГГ-ММ-ДД чч:мм:сс (опционально)"
+msgstr ""
 
 #: src/panel/AbstractListUi.js:255 src/panel/AbstractTreeUi.js:225
 #: src/elements/exportlanguage.js:292
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Подтверждаете удаление одного или нескольких элементов?"
+msgstr ""
 
 #: src/panel/cache/ListUiSmall.js:103
 msgid ""
 "You are going to flush the complete cache for the current site. Would you "
 "like to proceed?"
-msgstr "Вы собираетесь полностью очистить для текущего сайта. Подтверждаете?"
+msgstr ""
 
 #: src/panel/plugin/ItemUi.js:125 src/panel/plugin/type/ItemUi.js:20
 #: src/panel/attribute/ItemUi.js:127 src/panel/attribute/type/ItemUi.js:21
@@ -1431,88 +1430,88 @@ msgstr "Вы собираетесь полностью очистить для �
 #: src/panel/service/type/ItemUi.js:18 src/panel/media/ItemUi.js:132
 #: src/panel/media/type/ItemUi.js:20
 msgid "new"
-msgstr "новое"
+msgstr ""
 
 #: src/elements/paymentstatus.js:48
 msgid "pay:authorized"
-msgstr "оплата:разрешена"
+msgstr ""
 
 #: src/elements/paymentstatus.js:44
 msgid "pay:canceled"
-msgstr "оплата:отменена"
+msgstr ""
 
 #: src/elements/paymentstatus.js:43
 msgid "pay:deleted"
-msgstr "оплата:удалено"
+msgstr ""
 
 #: src/elements/paymentstatus.js:47
 msgid "pay:pending"
-msgstr "оплата:ожидание"
+msgstr ""
 
 #: src/elements/paymentstatus.js:49
 msgid "pay:received"
-msgstr "оплата:получена"
+msgstr ""
 
 #: src/elements/paymentstatus.js:46
 msgid "pay:refund"
-msgstr "оплата:возврат"
+msgstr ""
 
 #: src/elements/paymentstatus.js:45
 msgid "pay:refused"
-msgstr "оплата:отказ"
+msgstr ""
 
 #: src/elements/paymentstatus.js:42
 msgid "pay:unfinished"
-msgstr "оплата:незакончено"
+msgstr ""
 
 #: src/elements/deliverystatus.js:43
 msgid "stat:deleted"
-msgstr "стат:удалено"
+msgstr ""
 
 #: src/elements/deliverystatus.js:47
 msgid "stat:delivered"
-msgstr "стат:доставлено"
+msgstr ""
 
 #: src/elements/deliverystatus.js:46
 msgid "stat:dispatched"
-msgstr "стат:выслан"
+msgstr ""
 
 #: src/elements/deliverystatus.js:48
 msgid "stat:lost"
-msgstr "стат:потерян"
+msgstr ""
 
 #: src/elements/deliverystatus.js:44
 msgid "stat:pending"
-msgstr "стат:ожидание"
+msgstr ""
 
 #: src/elements/deliverystatus.js:45
 msgid "stat:progress"
-msgstr "стат:прогресс"
+msgstr ""
 
 #: src/elements/deliverystatus.js:49
 msgid "stat:refused"
-msgstr "стат:отказ"
+msgstr ""
 
 #: src/elements/deliverystatus.js:50
 msgid "stat:returned"
-msgstr "стат:возвращён"
+msgstr ""
 
 #: src/elements/deliverystatus.js:42
 msgid "stat:unfinished"
-msgstr "стат:незакончен"
+msgstr ""
 
 #: src/elements/status.js:46
 msgid "status:archive"
-msgstr "статус:архив"
+msgstr ""
 
 #: src/elements/status.js:48
 msgid "status:disabled"
-msgstr "статус:отключен"
+msgstr ""
 
 #: src/elements/status.js:49
 msgid "status:enabled"
-msgstr "статус:включен"
+msgstr ""
 
 #: src/elements/status.js:47
 msgid "status:review"
-msgstr "статус:рассмотрение"
+msgstr ""
