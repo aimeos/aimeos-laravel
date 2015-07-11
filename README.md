@@ -1,5 +1,5 @@
 <a href="http://aimeos.org/">
-    <img src="http://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
+    <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
 </a>
 
 # Aimeos Laravel package
@@ -12,6 +12,8 @@ integrating the Aimeos e-commerce library into Laravel. The package provides
 controllers for e.g. faceted filter, product lists and detail views, for
 searching products as well as baskets and the checkout process. A full set of
 pages including routing is also available for a quick start.
+
+[![Aimeos Laravel demo](https://aimeos.org/fileadmin/user_upload/laravel-demo.jpg)](http://laravel.demo.aimeos.org/)
 
 ## Table of content
 
@@ -31,10 +33,6 @@ Make sure that the **database is set up and it is configured** in your
 add these lines to your composer.json of your Laravel project:
 
 ```
-    "repositories": [ {
-        "type": "vcs",
-        "url": "https://github.com/aimeos/arcavias-core"
-    } ],
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
@@ -206,8 +204,8 @@ is available for free.
 
 ## Links
 
-* [Web site](http://aimeos.org)
-* [Documentation](http://aimeos.org/docs)
-* [Help](http://aimeos.org/help)
+* [Web site](https://aimeos.org/Laravel)
+* [Documentation](https://aimeos.org/docs/Laravel)
+* [Help](https://aimeos.org/help/laravel-package-f18/)
 * [Issue tracker](https://github.com/aimeos/aimeos-laravel/issues)
 * [Source code](https://github.com/aimeos/aimeos-laravel)
