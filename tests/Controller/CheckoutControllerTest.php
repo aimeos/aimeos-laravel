@@ -29,7 +29,7 @@ class CheckoutControllerTest extends AimeosTestAbstract
 
 	public function testUpdateAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@updateAction', ['site' => 'unittest']);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CheckoutController@updateAction', ['site' => 'unittest'], ['code' => 'paypalexpress']);
 
 		$this->assertResponseOk();
 		$this->assertEquals('', $response->getContent());
