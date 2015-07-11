@@ -22,7 +22,7 @@
     "require": {
         "php": ">=5.3.0",
         "doctrine/dbal": "~2.5",
-        "laravel/framework": "~5.0",
+        "laravel/framework": ">=5.0.0",
         "aimeos/aimeos-core": "2015.03.*",
         "aimeos/ai-swiftmailer": "2015.03.*",
         "aimeos/ai-zend2-i18n": "2015.03.*",
