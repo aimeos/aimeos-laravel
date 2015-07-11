@@ -1,6 +1,6 @@
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 /**
@@ -103,7 +103,7 @@ Ext.dd.DragDropMgr.getZIndex = function(element) {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop');
@@ -164,7 +164,7 @@ MShop.Config = {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop');
@@ -346,7 +346,7 @@ MShop.I18n = {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 /* superglobal lang stubs */
@@ -424,7 +424,7 @@ Ext.onReady(function() {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop');
@@ -533,7 +533,7 @@ MShop.Schema = {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -680,7 +680,7 @@ Ext.ux.AdvancedSearch.Filter = Ext.extend(Ext.Container, {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -804,7 +804,7 @@ Ext.ux.AdvancedSearch.FilterCriteria = Ext.extend(Ext.Container, {
 Ext.reg('ux.filtercriteria', Ext.ux.AdvancedSearch.FilterCriteria);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -1022,7 +1022,7 @@ Ext.ux.AdvancedSearch.FilterGroup = Ext.extend(Ext.Container, {
 Ext.reg('ux.filtergroup', Ext.ux.AdvancedSearch.FilterGroup);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -1042,7 +1042,7 @@ Ext.ux.AdvancedSearch.TextFilter = Ext.extend(Ext.ux.AdvancedSearch.Filter, {
 Ext.reg('ux.textfilter', Ext.ux.AdvancedSearch.TextFilter);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -1062,7 +1062,7 @@ Ext.ux.AdvancedSearch.NumberFilter = Ext.extend(Ext.ux.AdvancedSearch.Filter, {
 Ext.reg('ux.numberfilter', Ext.ux.AdvancedSearch.NumberFilter);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -1082,7 +1082,7 @@ Ext.ux.AdvancedSearch.BooleanFilter = Ext.extend(Ext.ux.AdvancedSearch.Filter, {
 Ext.reg('ux.booleanfilter', Ext.ux.AdvancedSearch.BooleanFilter);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('Ext.ux.AdvancedSearch');
@@ -1118,7 +1118,7 @@ Ext.ux.AdvancedSearch.DateFilter = Ext.extend(Ext.ux.AdvancedSearch.Filter, {
 Ext.reg('ux.datefilter', Ext.ux.AdvancedSearch.DateFilter);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: AdvancedSearch.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -1442,7 +1442,7 @@ Ext.ux.direct.JsonRpcProvider = Ext.extend(Ext.direct.RemotingProvider, {
 Ext.Direct.PROVIDERS['jsonrpcprovider'] = Ext.ux.direct.JsonRpcProvider;
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: Function.deferByTickets.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -1491,7 +1491,7 @@ Ext.applyIf(Function.prototype, {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: ItemRegistry.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -1950,7 +1950,7 @@ Ext.ux.file.BrowsePlugin.prototype = {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: Downloader.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -2046,7 +2046,7 @@ Ext.extend(Ext.ux.file.Downloader, Ext.util.Observable, {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: Uploader.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -2371,7 +2371,7 @@ Ext.ux.file.Uploader.file = Ext.data.Record.create([{
 }]);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: DecimalField.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -2490,7 +2490,7 @@ Ext.ux.form.ClearableComboBox = Ext.extend(Ext.form.ComboBox, {
 Ext.reg('ux.clearablecombo', Ext.ux.form.ClearableComboBox);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * $Id: DecimalField.js 14263 2011-12-11 16:36:17Z nsendetzky $
  */
 
@@ -2522,7 +2522,7 @@ Ext.ux.form.FormattableDisplayField = Ext.extend(Ext.form.DisplayField, {
 Ext.reg('ux.formattabledisplayfield', Ext.ux.form.FormattableDisplayField);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements');
@@ -2585,7 +2585,7 @@ Ext.extend(MShop.elements.PagingToolbar, Ext.PagingToolbar, {
 Ext.reg('MShop.elements.pagingtoolbar', MShop.elements.PagingToolbar);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop');
@@ -2649,7 +2649,7 @@ MShop.UrlManager.prototype = {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -2726,7 +2726,7 @@ Ext.onReady(function() {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.siteLanguage');
@@ -2798,7 +2798,7 @@ MShop.elements.siteLanguage.getStore = function() {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop');
@@ -2872,7 +2872,7 @@ MShop.GlobalStoreMgr = {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.language');
@@ -2966,7 +2966,7 @@ Ext.onReady(function() {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.currency');
@@ -3038,7 +3038,7 @@ Ext.onReady(function() {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.status');
@@ -3092,7 +3092,7 @@ MShop.elements.status.getStore = function() {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.domain');
@@ -3153,7 +3153,7 @@ MShop.elements.domain.getStore = function() {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -3548,7 +3548,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -3848,7 +3848,7 @@ MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
 Ext.reg('MShop.panel.abstractitemui', MShop.panel.AbstractItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @author Michael Spahn <m.spahn@metaways.de>
  */
 
@@ -3947,7 +3947,7 @@ MShop.panel.AbstractTypeItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.abstracttypeitemui', MShop.panel.AbstractTypeItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -4045,7 +4045,7 @@ MShop.panel.AbstractListItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.abstractlistitemui', MShop.panel.AbstractListItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -4106,7 +4106,7 @@ MShop.panel.AbstractTreeItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.abstracttreeitemui', MShop.panel.AbstractTreeItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -4338,7 +4338,7 @@ MShop.panel.ListItemListUi = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.listitemlistui', MShop.panel.ListItemListUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -4491,7 +4491,7 @@ MShop.panel.ListItemItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.listitemitemui', MShop.panel.ListItemItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -4852,7 +4852,7 @@ MShop.panel.AbstractListItemPickerUi = Ext.extend(Ext.Panel, {
 Ext.reg('MShop.panel.abstractlistitempickerui', MShop.panel.AbstractListItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -5176,7 +5176,7 @@ MShop.panel.AbstractTreeUi = Ext.extend(Ext.tree.TreePanel, {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -5311,7 +5311,7 @@ MShop.panel.ConfigUi = Ext.extend(Ext.grid.EditorGridPanel, {
 Ext.reg('MShop.panel.configui', MShop.panel.ConfigUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.price');
@@ -5499,7 +5499,7 @@ MShop.panel.price.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.price.listuismall', MShop.panel.price.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -5651,7 +5651,7 @@ MShop.panel.price.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.price.itemui', MShop.panel.price.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -5818,7 +5818,7 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
 Ext.reg('MShop.panel.price.itempickerui', MShop.panel.price.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements');
@@ -5899,7 +5899,7 @@ MShop.elements.ImportButton = Ext.extend(Ext.Button, {
 Ext.reg('MShop.elements.importbutton', MShop.elements.ImportButton);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.exportlanguage');
@@ -6382,7 +6382,7 @@ MShop.elements.exportlanguage.Window = Ext.extend(Ext.Window, {
 Ext.reg('MShop.elements.language.window', MShop.elements.exportlanguage.Window);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.text');
@@ -6493,7 +6493,7 @@ MShop.panel.text.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.text.listuismall', MShop.panel.text.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.text');
@@ -6609,7 +6609,7 @@ MShop.panel.text.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.text.itemui', MShop.panel.text.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.text');
@@ -6700,7 +6700,7 @@ MShop.panel.text.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi,
 Ext.reg('MShop.panel.text.itempickerui', MShop.panel.text.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.text');
@@ -6732,7 +6732,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.text.ItemUi', 'MShop.panel.text.Me
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.text');
@@ -6764,7 +6764,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.text.ItemUi', 'MShop.panel.text.At
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -6889,7 +6889,7 @@ MShop.panel.media.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.media.listuismall', MShop.panel.media.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7030,7 +7030,7 @@ MShop.panel.media.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.media.itemui', MShop.panel.media.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7138,7 +7138,7 @@ MShop.panel.media.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
 Ext.reg('MShop.panel.media.itempickerui', MShop.panel.media.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7172,7 +7172,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.media.ItemUi', 'MShop.panel.media.
 }, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7206,7 +7206,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.media.ItemUi', 'MShop.panel.media.
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7422,7 +7422,7 @@ MShop.panel.media.MediaField = Ext.extend(Ext.form.Field, {
 Ext.reg('MShop.panel.media.mediafield', MShop.panel.media.MediaField);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7535,7 +7535,7 @@ MShop.panel.attribute.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.attribute.listui', MShop.panel.attribute.ListUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7672,7 +7672,7 @@ MShop.panel.attribute.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.attribute.itemui', MShop.panel.attribute.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7788,7 +7788,7 @@ MShop.panel.attribute.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.attribute.listuismall', MShop.panel.attribute.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7872,7 +7872,7 @@ MShop.panel.attribute.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPick
 Ext.reg('MShop.panel.attribute.itempickerui', MShop.panel.attribute.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7905,7 +7905,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.attribute.ItemUi', 'MShop.panel.at
 }, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -7938,7 +7938,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.attribute.ItemUi', 'MShop.panel.at
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -8207,7 +8207,7 @@ Ext.ux.Portlet = Ext.extend(Ext.Panel, {
 Ext.reg('portlet', Ext.ux.Portlet);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -8271,7 +8271,7 @@ Ext.reg('MShop.panel.portal.itemui', MShop.panel.portal.ItemUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.portal.itemui', MShop.panel.portal.ItemUi, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8404,7 +8404,7 @@ Ext.reg('MShop.panel.product.listui', MShop.panel.product.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.product.listui', MShop.panel.product.ListUi, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8571,7 +8571,7 @@ MShop.panel.product.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.product.itemui', MShop.panel.product.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8685,7 +8685,7 @@ MShop.panel.product.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.product.listuismall', MShop.panel.product.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8795,7 +8795,7 @@ MShop.panel.product.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPicker
 Ext.reg('MShop.panel.product.itempickerui', MShop.panel.product.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8827,7 +8827,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
 }, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8859,7 +8859,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8891,7 +8891,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
 }, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -8922,7 +8922,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
 }, 40);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -9247,7 +9247,7 @@ Ext.reg('MShop.panel.product.property.listui', MShop.panel.product.property.List
 Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.product.property.listui', MShop.panel.product.property.ListUi, 5);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.tag');
@@ -9353,7 +9353,7 @@ MShop.panel.product.tag.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.product.tag.itemui', MShop.panel.product.tag.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.tag');
@@ -9437,7 +9437,7 @@ MShop.panel.product.tag.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.product.tag.listuismall', MShop.panel.product.tag.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.tag');
@@ -9511,7 +9511,7 @@ MShop.panel.product.tag.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPi
 Ext.reg('MShop.panel.product.tag.itempickerui', MShop.panel.product.tag.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -9542,7 +9542,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
 }, 100);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.stock');
@@ -9679,7 +9679,7 @@ MShop.panel.product.stock.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.product.stock.listuismall', MShop.panel.product.stock.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.stock');
@@ -9837,7 +9837,7 @@ MShop.panel.product.stock.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.product.stock.itemui', MShop.panel.product.stock.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel');
@@ -10087,7 +10087,7 @@ MShop.panel.AbstractUsedByListUi = Ext.extend(Ext.Panel, {
 });
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -10284,7 +10284,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
     MShop.panel.product.UsedByCatalogListUi, 100);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product');
@@ -10510,7 +10510,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
     MShop.panel.product.UsedByProductListUi, 110);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -10589,7 +10589,7 @@ MShop.panel.catalog.TreeUi = Ext.extend(MShop.panel.AbstractTreeUi, {
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.catalog.treeui', MShop.panel.catalog.TreeUi, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -10742,7 +10742,7 @@ MShop.panel.catalog.ItemUi = Ext.extend(MShop.panel.AbstractTreeItemUi, {
 Ext.reg('MShop.panel.catalog.itemui', MShop.panel.catalog.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -10775,7 +10775,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.catalog.ItemUi', 'MShop.panel.cata
 }, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -10808,7 +10808,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.catalog.ItemUi', 'MShop.panel.cata
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -10840,7 +10840,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.catalog.ItemUi', 'MShop.panel.cata
 }, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -10873,7 +10873,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.catalog.ItemUi', 'MShop.panel.cata
 }, 50);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service');
@@ -11009,7 +11009,7 @@ Ext.reg('MShop.panel.service.listui', MShop.panel.service.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.service.listui', MShop.panel.service.ListUi, 50);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service');
@@ -11147,7 +11147,7 @@ MShop.panel.service.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.service.itemui', MShop.panel.service.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service');
@@ -11179,7 +11179,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.service.ItemUi', 'MShop.panel.serv
 }, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service');
@@ -11211,7 +11211,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.service.ItemUi', 'MShop.panel.serv
 }, 40);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service');
@@ -11243,7 +11243,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.service.ItemUi', 'MShop.panel.serv
 }, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service');
@@ -11275,7 +11275,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.service.ItemUi', 'MShop.panel.serv
 }, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.supplier');
@@ -11365,7 +11365,7 @@ Ext.reg('MShop.panel.supplier.listui', MShop.panel.supplier.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.supplier.listui', MShop.panel.supplier.ListUi, 55);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.supplier');
@@ -11457,7 +11457,7 @@ MShop.panel.supplier.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.supplier.itemui', MShop.panel.supplier.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -11592,7 +11592,7 @@ Ext.reg('MShop.panel.plugin.listui', MShop.panel.plugin.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.plugin.listui', MShop.panel.plugin.ListUi, 60);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -11734,7 +11734,7 @@ MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.plugin.itemui', MShop.panel.plugin.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -11861,7 +11861,7 @@ Ext.reg('MShop.panel.coupon.listui', MShop.panel.coupon.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.coupon.listui', MShop.panel.coupon.ListUi, 120);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -11993,7 +11993,7 @@ MShop.panel.coupon.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.coupon.itemui', MShop.panel.coupon.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -12140,7 +12140,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.coupon.ItemUi', 'MShop.panel.coupo
     MShop.panel.coupon.code.ListUi, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -12268,7 +12268,7 @@ MShop.panel.coupon.code.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.coupon.code.itemui', MShop.panel.coupon.code.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -12397,7 +12397,7 @@ Ext.reg('MShop.panel.order.listui', MShop.panel.order.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.order.listui', MShop.panel.order.ListUi, 40);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -12519,7 +12519,7 @@ MShop.panel.order.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.order.itemui', MShop.panel.order.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -12650,7 +12650,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.order.ItemUi.BasicPanel', 'MShop.p
     MShop.panel.order.OrderUi, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -12861,7 +12861,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.order.ItemUi', 'MShop.panel.order.
     MShop.panel.order.base.address.ItemUi, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13055,7 +13055,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.order.base.address.ItemUi',
     'MShop.panel.order.base.address.DeliveryItemUi', MShop.panel.order.base.address.DeliveryItemUi, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13211,7 +13211,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.order.ItemUi', 'MShop.panel.order.
     MShop.panel.order.base.product.ListUi, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13344,7 +13344,7 @@ MShop.panel.order.product.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.order.product.itemui', MShop.panel.order.product.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13461,7 +13461,7 @@ MShop.panel.order.base.product.attribute.ListUiSmall = Ext.extend(MShop.panel.Ab
 Ext.reg('MShop.panel.order.base.product.attribute.listuismall', MShop.panel.order.base.product.attribute.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13602,7 +13602,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.order.ItemUi', 'MShop.panel.order.
     MShop.panel.order.base.service.ListUi, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13722,7 +13722,7 @@ MShop.panel.order.service.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.order.service.itemui', MShop.panel.order.service.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -13840,7 +13840,7 @@ MShop.panel.order.base.service.attribute.ListUiSmall = Ext.extend(MShop.panel.Ab
 Ext.reg('MShop.panel.order.base.service.attribute.listuismall', MShop.panel.order.base.service.attribute.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14043,7 +14043,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.order.ItemUi', 'MShop.panel.order.
     MShop.panel.order.base.coupon.ListUi, 50);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.paymentstatus');
@@ -14097,7 +14097,7 @@ MShop.elements.paymentstatus.getStore = function() {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.elements.deliverystatus');
@@ -14152,7 +14152,7 @@ MShop.elements.deliverystatus.getStore = function() {
 };
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14240,7 +14240,7 @@ MShop.panel.job.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.job.itemui', MShop.panel.job.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14386,7 +14386,7 @@ MShop.panel.job.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.job.listuismall', MShop.panel.job.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14460,7 +14460,7 @@ MShop.panel.cache.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.cache.itemui', MShop.panel.cache.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14578,7 +14578,7 @@ MShop.panel.cache.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.cache.listuismall', MShop.panel.cache.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14704,7 +14704,7 @@ MShop.panel.log.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
 Ext.reg('MShop.panel.log.listuismall', MShop.panel.log.ListUiSmall);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.stock.warehouse');
@@ -14796,7 +14796,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.stock.wareho
     MShop.panel.stock.warehouse.ListUi, 90);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.stock.warehouse');
@@ -14900,7 +14900,7 @@ MShop.panel.stock.warehouse.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 Ext.reg('MShop.panel.stock.warehouse.itemui', MShop.panel.stock.warehouse.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -14939,7 +14939,7 @@ Ext.reg('MShop.panel.locale.tabui', MShop.panel.locale.TabUi);
 Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.locale.tabui', MShop.panel.locale.TabUi, 80);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15049,7 +15049,7 @@ Ext.reg('MShop.panel.locale.listui', MShop.panel.locale.ListUi);
 Ext.ux.ItemRegistry.registerItem('MShop.panel.locale.tabui', 'MShop.panel.locale.listui', MShop.panel.locale.ListUi, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15159,7 +15159,7 @@ MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.locale.itemui', MShop.panel.locale.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15310,7 +15310,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.locale.tabui', 'MShop.panel.locale
     MShop.panel.locale.site.ListUi, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15464,7 +15464,7 @@ MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 Ext.reg('MShop.panel.locale.site.itemui', MShop.panel.locale.site.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15569,7 +15569,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.locale.tabui', 'MShop.panel.locale
     MShop.panel.locale.language.ListUi, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15676,7 +15676,7 @@ MShop.panel.locale.language.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
 Ext.reg('MShop.panel.locale.language.itemui', MShop.panel.locale.language.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15781,7 +15781,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.locale.tabui', 'MShop.panel.locale
     MShop.panel.locale.currency.ListUi, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -15888,7 +15888,7 @@ MShop.panel.locale.currency.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
 Ext.reg('MShop.panel.locale.currency.itemui', MShop.panel.locale.currency.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -16002,7 +16002,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.attribut
     MShop.panel.attribute.type.ListUi, 10);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @author Michael Spahn <m.spahn@metaways.de>
  */
 
@@ -16032,7 +16032,7 @@ MShop.panel.attribute.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.attribute.type.itemui', MShop.panel.attribute.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -16146,7 +16146,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.media.ty
     MShop.panel.media.type.ListUi, 20);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @author Michael Spahn <m.spahn@metaways.de>
  */
 
@@ -16175,7 +16175,7 @@ MShop.panel.media.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.media.type.itemui', MShop.panel.media.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -16289,7 +16289,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.plugin.t
     MShop.panel.plugin.type.ListUi, 30);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @author Michael Spahn <m.spahn@metaways.de>
  */
 
@@ -16318,7 +16318,7 @@ MShop.panel.plugin.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.plugin.type.itemui', MShop.panel.plugin.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 
@@ -16432,7 +16432,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.price.ty
     MShop.panel.price.type.ListUi, 40);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @author Michael Spahn <m.spahn@metaways.de>
  */
 
@@ -16461,7 +16461,7 @@ MShop.panel.price.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.price.type.itemui', MShop.panel.price.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.type');
@@ -16573,7 +16573,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.product.
     MShop.panel.product.type.ListUi, 50);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.product.type');
@@ -16600,7 +16600,7 @@ MShop.panel.product.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.product.type.itemui', MShop.panel.product.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service.type');
@@ -16712,7 +16712,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.service.
     MShop.panel.service.type.ListUi, 60);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.service.type');
@@ -16739,7 +16739,7 @@ MShop.panel.service.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.service.type.itemui', MShop.panel.service.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.text.type');
@@ -16850,7 +16850,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.type.tabUi', 'MShop.panel.text.typ
     MShop.panel.text.type.ListUi, 70);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @author Michael Spahn <m.spahn@metaways.de>
  */
 
@@ -16878,7 +16878,7 @@ MShop.panel.text.type.ItemUi = Ext.extend(MShop.panel.AbstractTypeItemUi, {
 Ext.reg('MShop.panel.text.type.itemui', MShop.panel.text.type.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/en/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop.panel.type');

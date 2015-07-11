@@ -1,6 +1,6 @@
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2013
- * LGPLv3, http://www.arcavias.com/license
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
 
 Ext.ns('MShop');
