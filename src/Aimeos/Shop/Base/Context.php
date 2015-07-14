@@ -70,7 +70,7 @@ class Context
 			$dbm = new \MW_DB_Manager_PDO( $config );
 			$context->setDatabaseManager( $dbm );
 
-			$mail = new \MW_Mail_Swift( \Mail::getSwiftMailer() );
+			$mail = new \MW_Mail_Swift( function() { return app( 'mail' )->getSwiftMailer(); } );
 			$context->setMail( $mail );
 
 			$logger = \MAdmin_Log_Manager_Factory::createManager( $context );
