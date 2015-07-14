@@ -4,6 +4,7 @@
 
 # Aimeos Laravel package
 [![Build Status](https://travis-ci.org/aimeos/aimeos-laravel.svg)](https://travis-ci.org/aimeos/aimeos-laravel)
+[![Coverage Status](https://coveralls.io/repos/aimeos/aimeos-laravel/badge.svg?branch=master&service=github)](https://coveralls.io/github/aimeos/aimeos-laravel?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
 [![HHVM Status](http://hhvm.h4cc.de/badge/aimeos/aimeos-laravel.svg)](http://hhvm.h4cc.de/package/aimeos/aimeos-laravel)
 
