@@ -4,6 +4,7 @@ class SetupCommandTest extends AimeosTestAbstract
 {
 	public function testSetupCommand()
 	{
-		$this->assertEquals(0, $this->artisan('aimeos:setup', array('site' => 'unittest')));
+		$params = array('--option' => 'setup/default/demo:0');
+		$this->assertEquals(0, $this->artisan('aimeos:setup', array('site' => 'unittest'), $params));
 	}
 }
