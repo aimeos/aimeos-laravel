@@ -74,6 +74,9 @@ class View
 		$helper = new \MW_View_Helper_Encoder_Default( $view );
 		$view->addHelper( 'encoder', $helper );
 
+		$helper = new \MW_View_Helper_Request_Laravel5( $view, \Request::instance() );
+		$view->addHelper( 'request', $helper );
+
 		$helper = new \MW_View_Helper_Csrf_Default( $view, '_token', csrf_token() );
 		$view->addHelper( 'csrf', $helper );
 
