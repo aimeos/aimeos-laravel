@@ -29,7 +29,7 @@ class AdminController extends Controller
 	public function indexAction()
 	{
 		$site = \Input::get( 'site', 'default' );
-		$lang = \Input::get( 'locale', 'en' );
+		$lang = \Input::get( 'lang', 'en' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
