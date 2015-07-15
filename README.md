@@ -27,11 +27,8 @@ pages including routing is also available for a quick start.
 ## Installation or update
 
 The Aimeos Laravel web shop package is a composer based library that can be
-installed easiest by using [Composer](https://getcomposer.org).
-
-Make sure that the **database is set up and it is configured** in your
-`config/database.php` or `.env` file (depending on the Laravel version). Then
-add these lines to your composer.json of your Laravel project:
+installed easiest by using [Composer](https://getcomposer.org). Add these lines
+to your composer.json of your Laravel project:
 
 ```
     "prefer-stable": true,
@@ -58,6 +55,13 @@ add these lines to your composer.json of your Laravel project:
 Afterwards, install the Aimeos shop package using
 
 `composer update`
+
+
+**Caution:** Make sure that the **database is set up and it is configured** in your
+`config/database.php` or `.env` file (depending on the Laravel version). Sometimes,
+the .env files are not available in the Laravel application and you will get exceptions
+that the connection to the database failed. In that case, add the database credentials
+to the **resource/db section of your ./config/shop.php** file too! 
 
 Next, the Aimeos provider class must be added to the `providers` array of the
 `config/app.php` file so the application and Laravel command task will work:
