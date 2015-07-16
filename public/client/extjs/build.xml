@@ -29,6 +29,7 @@
 
 	<target name="i18n-update" description="Updates translation message files">
 		<fail unless="po-filename" message="Missing file name" />
+		<echo msg="File: ${po-filename}" />
 		<exec command="msgmerge --no-wrap -s -U --backup=none ${po-filename} ${i18n-dir}/*.pot" checkreturn="true" logoutput="true" /> 
 	</target>
 
@@ -42,6 +43,7 @@
 
 	<target name="build-mo" description="Generates binary translation files">
 		<fail unless="po-filename" message="Missing file name" />
+		<echo msg="File: ${po-filename}" />
 		<exec command="msgfmt --statistics -c -o `echo ${po-filename} | sed s/\.po//` ${po-filename}" checkreturn="true" logoutput="true" /> 
     </target>
 

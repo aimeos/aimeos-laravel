@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Андрей Аксёнов <aksenovaa@bk.ru>, 2014
+# Андрей Аксёнов <aksenovaa@bk.ru>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 23:55+0200\n"
-"PO-Revision-Date: 2015-07-09 22:03+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"POT-Creation-Date: 2015-07-16 18:01+0200\n"
+"PO-Revision-Date: 2015-07-15 12:04+0000\n"
+"Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/p/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -576,7 +576,7 @@ msgstr "Внутреннее название"
 msgid "Internal name (required)"
 msgstr "Внутреннее название (обязательно)"
 
-#: src/panel/AbstractTreeUi.js:299
+#: src/panel/AbstractTreeUi.js:300
 #, python-brace-format
 msgid "Invalid action \"{0}\""
 msgstr "Недопустимое действие \"{0}\""
@@ -1065,15 +1065,15 @@ msgstr "Товары"
 
 #: src/panel/product/property/ItemUi.js:21
 msgid "Properties"
-msgstr ""
+msgstr "Свойства"
 
 #: src/panel/product/property/ListUi.js:32
 msgid "Property"
-msgstr ""
+msgstr "Свойство"
 
 #: src/panel/product/property/ItemUi.js:88
 msgid "Property value (required)"
-msgstr ""
+msgstr "Значение свойства (обязательно)"
 
 #: src/panel/service/ItemUi.js:75 src/panel/service/ListUi.js:70
 #: src/panel/coupon/ItemUi.js:62 src/panel/coupon/ListUi.js:55

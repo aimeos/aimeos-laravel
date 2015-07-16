@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 23:55+0200\n"
-"PO-Revision-Date: 2015-07-09 22:03+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"POT-Creation-Date: 2015-07-16 18:01+0200\n"
+"PO-Revision-Date: 2015-07-12 21:48+0000\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/p/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -576,7 +576,7 @@ msgstr "İç ad"
 msgid "Internal name (required)"
 msgstr "İç ad (gerekli)"
 
-#: src/panel/AbstractTreeUi.js:299
+#: src/panel/AbstractTreeUi.js:300
 #, python-brace-format
 msgid "Invalid action \"{0}\""
 msgstr "Geçersiz eylem \"{0}\""
@@ -1065,15 +1065,15 @@ msgstr "Ürünler"
 
 #: src/panel/product/property/ItemUi.js:21
 msgid "Properties"
-msgstr ""
+msgstr "Özellikler"
 
 #: src/panel/product/property/ListUi.js:32
 msgid "Property"
-msgstr ""
+msgstr "Özellik"
 
 #: src/panel/product/property/ItemUi.js:88
 msgid "Property value (required)"
-msgstr ""
+msgstr "Özellik değeri (gerekli)"
 
 #: src/panel/service/ItemUi.js:75 src/panel/service/ListUi.js:70
 #: src/panel/coupon/ItemUi.js:62 src/panel/coupon/ListUi.js:55

@@ -252,7 +252,8 @@ MShop.panel.AbstractTreeUi = Ext.extend(Ext.tree.TreePanel, {
         this.actionAdd.setDisabled(!node && this.getRootNode().id !== 'root');
         this.actionEdit.setDisabled(!node);
         this.actionDelete.setDisabled(!node);
-        this.actionExport.setDisabled(!node);
+        this.actionExport.setDisabled(!this.exportMethod || !node);
+        this.actionImport.setDisabled(!this.importMethod);
     },
 
     onStoreException : MShop.panel.AbstractListUi.prototype.onStoreException,

@@ -5104,7 +5104,8 @@ MShop.panel.AbstractTreeUi = Ext.extend(Ext.tree.TreePanel, {
         this.actionAdd.setDisabled(!node && this.getRootNode().id !== 'root');
         this.actionEdit.setDisabled(!node);
         this.actionDelete.setDisabled(!node);
-        this.actionExport.setDisabled(!node);
+        this.actionExport.setDisabled(!this.exportMethod || !node);
+        this.actionImport.setDisabled(!this.importMethod);
     },
 
     onStoreException : MShop.panel.AbstractListUi.prototype.onStoreException,
@@ -5689,7 +5690,7 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
          *
          * Due to the limited size in the panels, the tax rate of prices is
          * hidden by default. Editors can unhide the column nevertheless but this
-         * only lasts as long as the panel isn't closed.
+         * only lasts as long as the panel is not closed.
          *
          * By setting this option to true, the column will be always displayed
          * in all panels.
@@ -5706,7 +5707,7 @@ MShop.panel.price.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi
          *
          * Due to the limited size in the picker UI, the tax rate of prices is
          * hidden by default. Editors can unhide the column nevertheless but this
-         * only lasts as long as the panel isn't closed.
+         * only lasts as long as the panel is not closed.
          *
          * By setting this option to true, the column will be always displayed.
          *
