@@ -26,12 +26,9 @@ MShop.panel.locale.site.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
     initComponent : function() {
         this.title = MShop.I18n.dt('client/extjs', 'Site');
 
-        MShop.panel.AbstractListUi.prototype.initActions.call(this);
-        MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
-
-        this.initStore();
-
         MShop.panel.locale.site.ListUi.superclass.initComponent.call(this);
+
+        this.actionAdd.setDisabled(true);
     },
 
     getColumns : function() {
