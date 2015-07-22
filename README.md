@@ -41,14 +41,12 @@ to your composer.json of your Laravel project:
         "post-install-cmd": [
             "php artisan vendor:publish",
             "php artisan migrate",
-            "cp -r ext/*/client/extjs/deploy/* public/packages/aimeos/shop/client/extjs/deploy/",
             ...
         ],
         "post-update-cmd": [
             "php artisan vendor:publish --tag=public --force",
             "php artisan vendor:publish",
             "php artisan migrate",
-            "cp -r ext/*/client/extjs/deploy/* public/packages/aimeos/shop/client/extjs/deploy/",
             ...
         ]
     }
