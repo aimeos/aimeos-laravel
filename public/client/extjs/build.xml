@@ -3,8 +3,7 @@
 <project name="Arcavias ExtJS client" default="all">
 
 	<target name="check" description="Checks javascript files for common mistakes">
-		<echo msg="Executing Javascript Linter" />
-		<jsllint haltonfailure="true" haltonwarning="true" showwarnings="true">
+		<jsllint haltonfailure="true">
 			<fileset dir=".">
 				<include name="lib/ext.ux/**/*.js"/>
 				<include name="src/**/*.js"/>

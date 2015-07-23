@@ -15326,6 +15326,8 @@ MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 
     initComponent : function() {
 
+        MShop.panel.AbstractListItemUi.prototype.setSiteCheck(this);
+
         this.items = [{
             xtype : 'tabpanel',
             activeTab : 0,
