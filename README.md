@@ -38,11 +38,7 @@ to your composer.json of your Laravel project:
         ...
     },
     "scripts": {
-        "post-install-cmd": [
-            "php artisan vendor:publish",
-            "php artisan migrate",
-            ...
-        ],
+        ...
         "post-update-cmd": [
             "php artisan vendor:publish --tag=public --force",
             "php artisan vendor:publish",
@@ -70,7 +66,7 @@ Next, the Aimeos provider class must be added to the `providers` array of the
 return array(
     'providers' => array(
         ...
-        'Aimeos\Shop\ShopServiceProvider',
+        Aimeos\Shop\ShopServiceProvider::class,
     ),
 );
 ```
@@ -79,6 +75,8 @@ In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```
+php artisan vendor:publish
+php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
 php artisan aimeos:cache
 ```
