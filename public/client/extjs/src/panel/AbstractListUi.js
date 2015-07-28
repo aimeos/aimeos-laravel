@@ -342,10 +342,10 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
         var errmsg = MShop.I18n.dt('client/extjs', 'No error information available');
 
         if(response.error !== undefined) {
-            msg = response && response.error ? response.error.message : errmsg;
+            msg = response && response.error ? Ext.util.Format.nl2br( response.error.message ) : errmsg;
             code = response && response.error ? response.error.code : 0;
         } else {
-            msg = response && response.xhr.responseText[0].error ? response.xhr.responseText[0].error : errmsg;
+            msg = response && response.xhr.responseText[0].error ? Ext.util.Format.nl2br( response.xhr.responseText[0].error ) : errmsg;
             code = response && response.xhr.responseText[0].tid ? response.xhr.responseText[0].tid : 0;
         }
         Ext.Msg.alert(title + ' (' + code + ')', msg);

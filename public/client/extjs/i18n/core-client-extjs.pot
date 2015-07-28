@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-16 18:01+0200\n"
+"POT-Creation-Date: 2015-07-28 16:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,7 +145,7 @@ msgstr ""
 #: src/panel/catalog/ItemUi.js:28 src/panel/coupon/code/ItemUi.js:28
 #: src/panel/coupon/ItemUi.js:28 src/panel/order/ItemUi.js:32
 #: src/panel/locale/ItemUi.js:28 src/panel/locale/language/ItemUi.js:29
-#: src/panel/locale/currency/ItemUi.js:29 src/panel/locale/site/ItemUi.js:31
+#: src/panel/locale/currency/ItemUi.js:29 src/panel/locale/site/ItemUi.js:29
 #: src/panel/plugin/ItemUi.js:20
 msgid "Basic"
 msgstr ""
@@ -207,8 +207,8 @@ msgstr ""
 #: src/panel/order/product/ListUi.js:93 src/panel/locale/language/ItemUi.js:63
 #: src/panel/locale/language/ListUi.js:59
 #: src/panel/locale/currency/ItemUi.js:63
-#: src/panel/locale/currency/ListUi.js:59 src/panel/locale/site/ItemUi.js:65
-#: src/panel/locale/site/ListUi.js:56 src/panel/plugin/type/ListUi.js:69
+#: src/panel/locale/currency/ListUi.js:59 src/panel/locale/site/ItemUi.js:63
+#: src/panel/locale/site/ListUi.js:53 src/panel/plugin/type/ListUi.js:69
 msgid "Code"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgid "Company"
 msgstr ""
 
 #: src/panel/service/ListUi.js:92 src/panel/ListItemListUi.js:194
-#: src/panel/coupon/ListUi.js:83 src/panel/locale/site/ListUi.js:71
+#: src/panel/coupon/ListUi.js:83 src/panel/locale/site/ListUi.js:68
 #: src/panel/plugin/ListUi.js:91 src/panel/ConfigUi.js:14
 msgid "Configuration"
 msgstr ""
@@ -333,7 +333,7 @@ msgstr ""
 #: src/panel/locale/language/ListUi.js:74
 #: src/panel/locale/currency/ItemUi.js:77
 #: src/panel/locale/currency/ListUi.js:74 src/panel/locale/ListUi.js:80
-#: src/panel/locale/site/ItemUi.js:79 src/panel/locale/site/ListUi.js:87
+#: src/panel/locale/site/ItemUi.js:77 src/panel/locale/site/ListUi.js:84
 #: src/panel/plugin/type/ListUi.js:84 src/panel/plugin/ItemUi.js:98
 #: src/panel/plugin/ListUi.js:107
 msgid "Created"
@@ -458,7 +458,7 @@ msgstr ""
 #: src/panel/locale/language/ListUi.js:92
 #: src/panel/locale/currency/ItemUi.js:85
 #: src/panel/locale/currency/ListUi.js:92 src/panel/locale/ListUi.js:98
-#: src/panel/locale/site/ItemUi.js:87 src/panel/locale/site/ListUi.js:105
+#: src/panel/locale/site/ItemUi.js:85 src/panel/locale/site/ListUi.js:102
 #: src/panel/plugin/type/ListUi.js:102 src/panel/plugin/ItemUi.js:106
 #: src/panel/plugin/ListUi.js:123
 msgid "Editor"
@@ -548,7 +548,7 @@ msgstr ""
 #: src/panel/locale/language/ListUi.js:44
 #: src/panel/locale/currency/ItemUi.js:56
 #: src/panel/locale/currency/ListUi.js:44 src/panel/locale/ListUi.js:44
-#: src/panel/locale/site/ItemUi.js:58 src/panel/locale/site/ListUi.js:41
+#: src/panel/locale/site/ItemUi.js:56 src/panel/locale/site/ListUi.js:38
 #: src/panel/plugin/type/ListUi.js:49 src/panel/plugin/ItemUi.js:47
 #: src/panel/plugin/ListUi.js:47 src/elements/exportlanguage.js:79
 #: src/elements/exportlanguage.js:105
@@ -570,7 +570,7 @@ msgstr ""
 #: src/panel/product/stock/warehouse/ItemUi.js:71
 #: src/panel/attribute/ItemUi.js:97 src/panel/catalog/ItemUi.js:73
 #: src/panel/coupon/ItemUi.js:73 src/panel/locale/language/ItemUi.js:74
-#: src/panel/locale/currency/ItemUi.js:74 src/panel/locale/site/ItemUi.js:76
+#: src/panel/locale/currency/ItemUi.js:74 src/panel/locale/site/ItemUi.js:74
 #: src/panel/plugin/ItemUi.js:88
 msgid "Internal name (required)"
 msgstr ""
@@ -585,7 +585,7 @@ msgstr ""
 #: src/panel/AbstractListItemUi.js:29 src/panel/AbstractListItemUi.js:72
 #: src/panel/AbstractTreeItemUi.js:25 src/panel/ListItemItemUi.js:77
 #: src/panel/ListItemItemUi.js:117 src/panel/catalog/ItemUi.js:122
-#: src/panel/locale/site/ItemUi.js:122 src/panel/ConfigUi.js:122
+#: src/panel/locale/site/ItemUi.js:120 src/panel/ConfigUi.js:122
 msgid "Invalid data"
 msgstr ""
 
@@ -632,8 +632,8 @@ msgstr ""
 #: src/panel/coupon/ListUi.js:61 src/panel/locale/language/ItemUi.js:71
 #: src/panel/locale/language/ListUi.js:66
 #: src/panel/locale/currency/ItemUi.js:71
-#: src/panel/locale/currency/ListUi.js:66 src/panel/locale/site/ItemUi.js:73
-#: src/panel/locale/site/ListUi.js:63 src/panel/plugin/type/ListUi.js:78
+#: src/panel/locale/currency/ListUi.js:66 src/panel/locale/site/ItemUi.js:71
+#: src/panel/locale/site/ListUi.js:60 src/panel/plugin/type/ListUi.js:78
 #: src/panel/plugin/ItemUi.js:84 src/panel/plugin/ListUi.js:76
 #: src/elements/exportlanguage.js:85 src/elements/exportlanguage.js:113
 msgid "Label"
@@ -690,7 +690,7 @@ msgstr ""
 #: src/panel/locale/language/ListUi.js:83
 #: src/panel/locale/currency/ItemUi.js:81
 #: src/panel/locale/currency/ListUi.js:83 src/panel/locale/ListUi.js:89
-#: src/panel/locale/site/ItemUi.js:83 src/panel/locale/site/ListUi.js:96
+#: src/panel/locale/site/ItemUi.js:81 src/panel/locale/site/ListUi.js:93
 #: src/panel/plugin/type/ListUi.js:93 src/panel/plugin/ItemUi.js:102
 #: src/panel/plugin/ListUi.js:115
 msgid "Last modified"
@@ -785,7 +785,7 @@ msgid "Locale language: {0} ({1})"
 msgstr ""
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
-#: src/panel/locale/site/ItemUi.js:108
+#: src/panel/locale/site/ItemUi.js:106
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
 msgstr ""
@@ -900,7 +900,7 @@ msgstr ""
 #: src/panel/product/property/ItemUi.js:114 src/panel/AbstractItemUi.js:240
 #: src/panel/AbstractListItemUi.js:30 src/panel/AbstractTreeItemUi.js:26
 #: src/panel/ListItemItemUi.js:78 src/panel/catalog/ItemUi.js:123
-#: src/panel/locale/site/ItemUi.js:123
+#: src/panel/locale/site/ItemUi.js:121
 msgid "Please recheck your data"
 msgstr ""
 
@@ -1221,7 +1221,7 @@ msgstr ""
 #: src/panel/order/product/ListUi.js:122
 #: src/panel/locale/language/ListUi.js:51
 #: src/panel/locale/currency/ListUi.js:51 src/panel/locale/ListUi.js:51
-#: src/panel/locale/site/ListUi.js:48 src/panel/plugin/type/ListUi.js:56
+#: src/panel/locale/site/ListUi.js:45 src/panel/plugin/type/ListUi.js:56
 #: src/panel/plugin/ListUi.js:55 src/elements/exportlanguage.js:73
 #: src/elements/exportlanguage.js:98 src/elements/status.js:10
 msgid "Status"
@@ -1361,7 +1361,7 @@ msgstr ""
 #: src/panel/product/stock/warehouse/ItemUi.js:65
 #: src/panel/attribute/ItemUi.js:90 src/panel/catalog/ItemUi.js:67
 #: src/panel/coupon/code/ItemUi.js:64 src/panel/locale/language/ItemUi.js:68
-#: src/panel/locale/currency/ItemUi.js:68 src/panel/locale/site/ItemUi.js:70
+#: src/panel/locale/currency/ItemUi.js:68 src/panel/locale/site/ItemUi.js:68
 msgid "Unique code (required)"
 msgstr ""
 
@@ -1438,7 +1438,7 @@ msgstr ""
 #: src/panel/attribute/ItemUi.js:128 src/panel/catalog/ItemUi.js:104
 #: src/panel/coupon/code/ItemUi.js:110 src/panel/coupon/ItemUi.js:116
 #: src/panel/locale/language/ItemUi.js:97
-#: src/panel/locale/currency/ItemUi.js:97 src/panel/locale/site/ItemUi.js:106
+#: src/panel/locale/currency/ItemUi.js:97 src/panel/locale/site/ItemUi.js:104
 #: src/panel/plugin/type/ItemUi.js:20 src/panel/plugin/ItemUi.js:126
 msgid "new"
 msgstr ""
