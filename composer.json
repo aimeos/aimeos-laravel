@@ -1,7 +1,7 @@
 {
     "name": "aimeos/aimeos-laravel",
-    "description": "Full-featured Laravel web shop package for high performance shops",
-    "homepage": "https://aimeos.org",
+    "description": "Full-featured Laravel web shop package and e-commerce solution for high performance shops",
+    "homepage": "https://aimeos.org/Laravel",
     "type": "laravel-bundle",
     "license": "MIT",
     "keywords": ["aimeos", "laravel", "e-commerce", "ecommerce", "shop", "portal", "market place"],
