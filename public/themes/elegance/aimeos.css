@@ -906,6 +906,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-detail-image .image-thumbs {
 	display: inline-block;
 	vertical-align: top;
+	position: relative;
 	overflow: hidden;
 	z-index: 10;
 	width: 80px;
