@@ -6,7 +6,7 @@
 
 Ext.ns('MShop.panel.locale');
 
-MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     recordName : 'Locale',
     idProperty : 'locale.id',
@@ -37,6 +37,7 @@ MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',

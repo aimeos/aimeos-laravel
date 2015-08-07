@@ -33,6 +33,7 @@ MShop.panel.media.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     border : false,
                     flex : 1,

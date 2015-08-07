@@ -50,11 +50,16 @@ MShop.panel.supplier.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
             renderer : this.statusColumnRenderer.createDelegate(this)
         }, {
             xtype : 'gridcolumn',
+            dataIndex : 'supplier.code',
+            header : MShop.I18n.dt('client/extjs', 'Code'),
+            sortable : true,
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
             dataIndex : 'supplier.label',
             header : MShop.I18n.dt('client/extjs', 'Label'),
             sortable : true,
             width : 100,
-            editable : false,
             id : 'supplier-list-label'
         }, {
             xtype : 'datecolumn',

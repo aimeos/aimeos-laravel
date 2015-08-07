@@ -140,7 +140,7 @@ MShop.panel.AbstractTreeUi = Ext.extend(Ext.tree.TreePanel, {
                     node.getOwnerTree().actionAdd.setDisabled(node.id !== 'root');
                 }
                 // cut off item itself
-                response.responseData = response.responseText.items.children;
+                response.responseData = response.responseText.items.children || {};
                 return Ext.tree.TreeLoader.prototype.processResponse.apply(this, arguments);
             },
 

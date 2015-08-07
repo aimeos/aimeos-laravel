@@ -130,6 +130,9 @@
 			"text": "currency.js",
 			"path": "src/elements/"
 		}, {
+			"text": "salutation.js",
+			"path": "src/elements/"
+		}, {
 			"text": "status.js",
 			"path": "src/elements/"
 		}, {
@@ -344,10 +347,40 @@
 			"path": "src/panel/service/"
 		}, {
 			"text": "ListUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "ItemUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "TextItemPickerUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "AttributeItemPickerUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "MediaItemPickerUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "ProductItemPickerUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "ListUi.js",
+			"path": "src/panel/customer/address/"
+		}, {
+			"text": "ItemUi.js",
+			"path": "src/panel/customer/address/"
+		}, {
+			"text": "ListUi.js",
 			"path": "src/panel/supplier/"
 		}, {
 			"text": "ItemUi.js",
 			"path": "src/panel/supplier/"
+		}, {
+			"text": "ListUi.js",
+			"path": "src/panel/supplier/address/"
+		}, {
+			"text": "ItemUi.js",
+			"path": "src/panel/supplier/address/"
 		}, {
 			"text": "ListUi.js",
 			"path": "src/panel/plugin/"

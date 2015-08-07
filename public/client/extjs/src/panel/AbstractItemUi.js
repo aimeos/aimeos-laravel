@@ -14,14 +14,17 @@ Ext.ns('MShop.panel');
  * @extends Ext.Window
  */
 MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
+
     /**
      * @cfg {Ext.data.Store} store (required)
      */
     store : null,
+
     /**
      * @cfg {Ext.data.Record} record (optional)
      */
     record : null,
+
     /**
      * @cfg {Ext.from.FormPanel} mainForm
      */
@@ -56,6 +59,11 @@ MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
      * Start window maximized if screen is smaller than 800px
      */
     maximized : null,
+
+    /**
+     * @cfg {String} siteCssClass (inherited)
+     */
+    siteCssClass : 'site-mismatch',
 
     layout : 'fit',
     modal : true,
@@ -117,9 +125,11 @@ MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
         itemUi.fieldsReadOnly = false;
         itemUi.readOnlyClass = '';
 
-        if(itemUi.record && (itemUi.record.get(itemUi.siteidProperty) != MShop.config.site['locale.site.id'])) {
+        if(itemUi.record && itemUi.record.get(itemUi.siteidProperty) &&
+            itemUi.record.get(itemUi.siteidProperty) != MShop.config.site['locale.site.id']) {
+
             itemUi.fieldsReadOnly = true;
-            itemUi.readOnlyClass = 'site-mismatch';
+            itemUi.readOnlyClass = this.siteCssClass;
         }
     },
 

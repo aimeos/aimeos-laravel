@@ -10,7 +10,7 @@ Ext.ns('MShop.panel.locale.site');
 /**
  * @todo refactor some of these overloads to his abstracts
  */
-MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     recordName : 'Locale_Site',
     idProperty : 'locale.site.id',
@@ -38,6 +38,7 @@ MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',

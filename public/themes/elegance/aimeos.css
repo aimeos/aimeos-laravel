@@ -907,6 +907,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: inline-block;
 	vertical-align: top;
 	overflow: hidden;
+	z-index: 10;
 	width: 80px;
 	margin: 0;
 }

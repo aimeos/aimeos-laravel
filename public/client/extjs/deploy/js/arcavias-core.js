@@ -3037,6 +3037,81 @@ Ext.onReady(function() {
     MShop.elements.currency.getStore().load();
 });
 /*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.elements.salutation');
+
+MShop.elements.salutation.ComboBox = function(config) {
+    Ext.applyIf(config, {
+        fieldLabel : MShop.I18n.dt('client/extjs', 'Salutation'),
+        anchor : '100%',
+        store : MShop.elements.salutation.getStore(),
+        mode : 'local',
+        displayField : 'label',
+        valueField : 'value',
+        triggerAction : 'all',
+        typeAhead : true,
+        value : ''
+    });
+
+    MShop.elements.salutation.ComboBox.superclass.constructor.call(this, config);
+};
+
+Ext.extend(MShop.elements.salutation.ComboBox, Ext.form.ComboBox);
+
+Ext.reg('MShop.elements.salutation.combo', MShop.elements.salutation.ComboBox);
+
+
+/**
+ * @static
+ * @param {String} id
+ * @return {String} salutation
+ */
+MShop.elements.salutation.renderer = function(value) {
+
+	var store = MShop.elements.salutation.getStore();
+    var data = store.getAt(store.find('value', value));
+
+    if(data) {
+        return data.get('label');
+    }
+
+    return value;
+};
+
+
+/**
+ * @static
+ * @return {Ext.data.DirectStore}
+ */
+MShop.elements.salutation.getStore = function() {
+
+    if(!MShop.elements.salutation._store) {
+
+        MShop.elements.salutation._store = new Ext.data.ArrayStore({
+            idIndex : 0,
+            fields : [{
+                name : 'value',
+                type : 'string'
+            }, {
+                name : 'label',
+                type : 'string'
+            }],
+            data : [
+                ['', MShop.I18n.dt('client/extjs', 'unknown')],
+                ['company', MShop.I18n.dt('client/extjs', 'Company')],
+                ['mr', MShop.I18n.dt('client/extjs', 'Mr')],
+                ['mrs', MShop.I18n.dt('client/extjs', 'Mrs')],
+                ['miss', MShop.I18n.dt('client/extjs', 'Miss')]
+            ]
+        });
+    }
+
+    return MShop.elements.salutation._store;
+};
+/*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
  * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
@@ -3274,7 +3349,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
                 getRowClass : function(record, index) {
 
                     var siteid = MShop.config.site['locale.site.id'];
-                    var recSiteid = record.get(this.siteidProperty);
+                    var recSiteid = record.get(this.siteidProperty) || null;
 
                     if(record.phantom === false && recSiteid !== null && recSiteid != siteid) {
                         return this.rowCssClass;
@@ -3316,7 +3391,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
             handler : this.onExport ? this.onExport.createDelegate(this) : Ext.emptyFn
         });
 
-        this.importButton = new MShop.elements.ImportButton({
+        this.actionImport = new MShop.elements.ImportButton({
             text : MShop.I18n.dt('client/extjs', 'Import'),
             disabled : (this.importMethod === null),
             importMethod : this.importMethod,
@@ -3332,7 +3407,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
             this.actionCopy,
             this.actionDelete,
             this.actionExport,
-            this.importButton];
+            this.actionImport];
     },
 
     initStore : function() {
@@ -3562,14 +3637,17 @@ Ext.ns('MShop.panel');
  * @extends Ext.Window
  */
 MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
+
     /**
      * @cfg {Ext.data.Store} store (required)
      */
     store : null,
+
     /**
      * @cfg {Ext.data.Record} record (optional)
      */
     record : null,
+
     /**
      * @cfg {Ext.from.FormPanel} mainForm
      */
@@ -3604,6 +3682,11 @@ MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
      * Start window maximized if screen is smaller than 800px
      */
     maximized : null,
+
+    /**
+     * @cfg {String} siteCssClass (inherited)
+     */
+    siteCssClass : 'site-mismatch',
 
     layout : 'fit',
     modal : true,
@@ -3665,9 +3748,11 @@ MShop.panel.AbstractItemUi = Ext.extend(Ext.Window, {
         itemUi.fieldsReadOnly = false;
         itemUi.readOnlyClass = '';
 
-        if(itemUi.record && (itemUi.record.get(itemUi.siteidProperty) != MShop.config.site['locale.site.id'])) {
+        if(itemUi.record && itemUi.record.get(itemUi.siteidProperty) &&
+            itemUi.record.get(itemUi.siteidProperty) != MShop.config.site['locale.site.id']) {
+
             itemUi.fieldsReadOnly = true;
-            itemUi.readOnlyClass = 'site-mismatch';
+            itemUi.readOnlyClass = this.siteCssClass;
         }
     },
 
@@ -4992,7 +5077,7 @@ MShop.panel.AbstractTreeUi = Ext.extend(Ext.tree.TreePanel, {
                     node.getOwnerTree().actionAdd.setDisabled(node.id !== 'root');
                 }
                 // cut off item itself
-                response.responseData = response.responseText.items.children;
+                response.responseData = response.responseText.items.children || {};
                 return Ext.tree.TreeLoader.prototype.processResponse.apply(this, arguments);
             },
 
@@ -6526,6 +6611,7 @@ MShop.panel.text.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     border : false,
                     layout : 'fit',
@@ -6923,6 +7009,7 @@ MShop.panel.media.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     border : false,
                     flex : 1,
@@ -8965,10 +9052,8 @@ Ext.ns('MShop.panel.product.property');
  * 
  * @extends Mshop.panel.AbstractListItemUi
  */
-MShop.panel.product.property.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.product.property.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
-    recordName : 'Product_Property',
-    idProperty : 'product.property.id',
     siteidProperty : 'product.property.siteid',
 
     initComponent : function() {
@@ -9253,7 +9338,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.product.ItemUi', 'MShop.panel.prod
 
 Ext.ns('MShop.panel.product.tag');
 
-MShop.panel.product.tag.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.product.tag.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
     siteidProperty : 'product.tag.siteid',
 
     initComponent : function() {
@@ -9280,6 +9365,7 @@ MShop.panel.product.tag.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     border : false,
                     flex : 1,
@@ -9690,10 +9776,8 @@ Ext.ns('MShop.panel.product.stock');
  * 
  * @extends Mshop.panel.AbstractListItemUi
  */
-MShop.panel.product.stock.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.product.stock.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
-    recordName : 'Product_Stock',
-    idProperty : 'product.stock.id',
     siteidProperty : 'product.stock.siteid',
 
     initComponent : function() {
@@ -10627,6 +10711,7 @@ MShop.panel.catalog.ItemUi = Ext.extend(MShop.panel.AbstractTreeItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',
@@ -11017,7 +11102,11 @@ Ext.ns('MShop.panel.service');
 
 MShop.panel.service.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 
+    siteidProperty : 'service.siteid',
+
     initComponent : function() {
+
+        MShop.panel.AbstractListItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
             xtype : 'tabpanel',
@@ -11040,7 +11129,7 @@ MShop.panel.service.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                 },
                 items : [{
                     xtype : 'form',
-                    title : 'Details',
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     flex : 1,
                     ref : '../../mainForm',
                     autoScroll : true,
@@ -11275,6 +11364,912 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.service.ItemUi', 'MShop.panel.serv
     }
 }, 30);
 /*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.customer');
+
+MShop.panel.customer.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
+
+    recordName : 'Customer',
+    idProperty : 'customer.id',
+    siteidProperty : 'customer.siteid',
+    itemUiXType : 'MShop.panel.customer.itemui',
+
+    autoExpandColumn : 'customer-list-label',
+
+    filterConfig : {
+        filters : [{
+            dataIndex : 'customer.code',
+            operator : '=~',
+            value : ''
+        }]
+    },
+
+    initComponent : function() {
+        this.title = MShop.I18n.dt('client/extjs', 'Customer');
+
+        MShop.panel.AbstractListUi.prototype.initActions.call(this);
+        MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
+
+        MShop.panel.customer.ListUi.superclass.initComponent.call(this);
+    },
+
+    getColumns : function() {
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.id',
+            header : MShop.I18n.dt('client/extjs', 'ID'),
+            sortable : true,
+            width : 50,
+            editable : false,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.status',
+            header : MShop.I18n.dt('client/extjs', 'Status'),
+            sortable : true,
+            width : 70,
+            align : 'center',
+            renderer : this.statusColumnRenderer.createDelegate(this)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.code',
+            header : MShop.I18n.dt('client/extjs', 'User name'),
+            sortable : true,
+            width : 100,
+            id : 'customer-list-code'
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.password',
+            header : MShop.I18n.dt('client/extjs', 'Password'),
+            sortable : false,
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.label',
+            header : MShop.I18n.dt('client/extjs', 'Full name'),
+            sortable : true,
+            width : 100,
+            id : 'customer-list-label'
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.birthday',
+            header : MShop.I18n.dt('client/extjs', 'Birthday'),
+            sortable : false,
+            width : 100,
+            format : 'Y-m-d'
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.dateverified',
+            header : MShop.I18n.dt('client/extjs', 'Verification date'),
+            sortable : false,
+            width : 100,
+            format : 'Y-m-d'
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.ctime',
+            header : MShop.I18n.dt('client/extjs', 'Created'),
+            sortable : true,
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.mtime',
+            header : MShop.I18n.dt('client/extjs', 'Last modified'),
+            sortable : true,
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.editor',
+            header : MShop.I18n.dt('client/extjs', 'Editor'),
+            sortable : true,
+            width : 130,
+            hidden : true
+        }];
+    }
+
+});
+
+Ext.reg('MShop.panel.customer.listui', MShop.panel.customer.ListUi);
+
+// hook this into the main tab panel
+Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.customer.listui', MShop.panel.customer.ListUi, 35);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.customer');
+
+MShop.panel.customer.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+
+    siteidProperty : 'customer.siteid',
+
+    initComponent : function() {
+
+        MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
+
+        this.items = [{
+            xtype : 'tabpanel',
+            activeTab : 0,
+            border : false,
+            itemId : 'MShop.panel.customer.ItemUi',
+            plugins : ['ux.itemregistry'],
+            items : [{
+                title : MShop.I18n.dt('client/extjs', 'Basic'),
+                itemId : 'MShop.panel.customer.ItemUi.BasicPanel',
+                xtype : 'panel',
+                layout : 'fit',
+                plugins : ['ux.itemregistry'],
+                defaults : {
+                    bodyCssClass : this.readOnlyClass
+                },
+                items : [{
+                    xtype : 'form',
+                    layout : 'fit',
+                    ref : '../../mainForm',
+                    border : false,
+                    items : [{
+                        xtype : 'panel',
+                        layout : {
+                            type : 'hbox',
+                            align : 'stretch'
+                        },
+                        border : false,
+                        items : [{
+                            title : MShop.I18n.dt('client/extjs', 'Details'),
+                            xtype : 'panel',
+                            layout : 'fit',
+                            flex : 1,
+                            autoScroll : true,
+                            items : [{
+                                xtype : 'fieldset',
+                                border : false,
+                                labelAlign : 'top',
+                                defaults : {
+                                    readOnly : this.fieldsReadOnly,
+                                    anchor : '-25'
+                                },
+                                autoHeight : true,
+                                autoWidth : true,
+                                items : [{
+                                        xtype : 'displayfield',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'ID'),
+                                        name : 'customer.id'
+                                    }, {
+                                        xtype : 'MShop.elements.status.combo',
+                                        name : 'customer.status'
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.code',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'User name'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'User name, e.g. e-mail address (required)'),
+                                        allowBlank : false,
+                                        maxLength : 32
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.password',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Password'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Password (required)'),
+                                        allowBlank : false,
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.label',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Full name'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Full name (required)'),
+                                        allowBlank : false,
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'datefield',
+                                        name : 'customer.birthday',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Birthday'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'YYYY-MM-DD (optional)'),
+                                        format : 'Y-m-d'
+                                    }, {
+                                        xtype : 'datefield',
+                                        name : 'customer.dateverified',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Verification date'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'YYYY-MM-DD (optional)'),
+                                        format : 'Y-m-d'
+                                    }, {
+                                        xtype : 'displayfield',
+                                        name : 'customer.ctime',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Created')
+                                    }, {
+                                        xtype : 'displayfield',
+                                        name : 'customer.mtime',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Last modified')
+                                    }, {
+                                        xtype : 'displayfield',
+                                        name : 'customer.editor',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Editor')
+                                }]
+                            }]
+                        }, {
+                            title : MShop.I18n.dt('client/extjs', 'Billing address'),
+                            xtype : 'panel',
+                            layout : 'fit',
+                            flex : 1,
+                            autoScroll : true,
+                            items : [{
+                                xtype : 'fieldset',
+                                border : false,
+                                labelAlign : 'top',
+                                defaults : {
+                                    readOnly : this.fieldsReadOnly,
+                                    anchor : '-25'
+                                },
+                                autoHeight : true,
+                                autoWidth : true,
+                                items : [{
+                                        xtype : 'textfield',
+                                        name : 'customer.company',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Company'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Company name'),
+                                        maxLength : 100
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.vatid',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Vat ID'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Vat ID, e.g. "GB999999999"'),
+                                        maxLength : 32
+                                    }, {
+                                        xtype : 'MShop.elements.salutation.combo',
+                                        name : 'customer.salutation'
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.title',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Title'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Honorary title'),
+                                        maxLength : 64
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.firstname',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'First name'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'First name'),
+                                        maxLength : 64
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.lastname',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Last name'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Last name (required)'),
+                                        allowBlank : false,
+                                        maxLength : 64
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.address1',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Address 1'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Street (required)'),
+                                        allowBlank : false,
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.address2',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Address 2'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'House number'),
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.address3',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Address 3'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Additional information, e.g. flat number'),
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.postal',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Postal code'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Postal code'),
+                                        maxLength : 16
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.city',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'City'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'City name (required)'),
+                                        allowBlank : false,
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.state',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'State'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Country state, e.g. "NY"'),
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.countryid',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Country code'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Two letter country code, e.g. "US" (required)'),
+                                        regex : /[A-Za-z]{2}/,
+                                        allowBlank : false,
+                                        maxLength : 2
+                                    }, {
+                                        xtype : 'MShop.elements.language.combo',
+                                        name : 'customer.languageid'
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.telephone',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Telephone'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Telephone number, e.g. +155512345'),
+                                        maxLength : 32
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.telefax',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Telefax'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Facsimile number, e.g. +155512345'),
+                                        maxLength : 32
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.email',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'E-Mail'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'E-Mail, e.g. me@example.com (required)'),
+                                        allowBlank : false,
+                                        maxLength : 255
+                                    }, {
+                                        xtype : 'textfield',
+                                        name : 'customer.website',
+                                        fieldLabel : MShop.I18n.dt('client/extjs', 'Website'),
+                                        emptyText : MShop.I18n.dt('client/extjs', 'Web site, e.g. www.example.com'),
+                                        maxLength : 255
+                                }]
+                            }]
+                        }]
+                    }]
+                }]
+            }]
+        }];
+
+        MShop.panel.customer.ItemUi.superclass.initComponent.call(this);
+    },
+
+    afterRender : function() {
+        var label = this.record ? this.record.data['customer.label'] : MShop.I18n.dt('client/extjs', 'new');
+        //#: Customer item panel title with customer label ({0}) and site code ({1)}
+        var string = MShop.I18n.dt('client/extjs', 'Customer: {0} ({1})');
+        this.setTitle(String.format(string, label, MShop.config.site["locale.site.label"]));
+
+        MShop.panel.customer.ItemUi.superclass.afterRender.apply(this, arguments);
+    }
+
+});
+
+Ext.reg('MShop.panel.customer.itemui', MShop.panel.customer.ItemUi);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer');
+
+// hook text picker into the customer ItemUi
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.TextItemPickerUi', {
+
+	xtype : 'MShop.panel.text.itempickerui',
+    itemConfig : {
+        recordName : 'Customer_List',
+        idProperty : 'customer.list.id',
+        siteidProperty : 'customer.list.siteid',
+        listDomain : 'customer',
+        listNamePrefix : 'customer.list.',
+        listTypeIdProperty : 'customer.list.type.id',
+        listTypeLabelProperty : 'customer.list.type.label',
+        listTypeControllerName : 'Customer_List_Type',
+        listTypeCondition : {
+            '&&' : [{
+                '==' : {
+                    'customer.list.type.domain' : 'text'
+                }
+            }]
+        },
+        listTypeKey : 'customer/list/type/text'
+    },
+    listConfig : {
+        domain : 'customer',
+        prefix : 'text.'
+    }
+}, 30);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer');
+
+// hook attribute picker into the customer ItemUi
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.AttributeItemPickerUi', {
+
+	xtype : 'MShop.panel.attribute.itempickerui',
+    itemConfig : {
+        recordName : 'Customer_List',
+        idProperty : 'customer.list.id',
+        siteidProperty : 'customer.list.siteid',
+        listDomain : 'customer',
+        listNamePrefix : 'customer.list.',
+        listTypeIdProperty : 'customer.list.type.id',
+        listTypeLabelProperty : 'customer.list.type.label',
+        listTypeControllerName : 'Customer_List_Type',
+        listTypeCondition : {
+            '&&' : [{
+                '==' : {
+                    'customer.list.type.domain' : 'attribute'
+                }
+            }]
+        },
+        listTypeKey : 'customer/list/type/attribute'
+    },
+    listConfig : {
+        domain : 'customer',
+        prefix : 'attribute.'
+    }
+}, 50);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer');
+
+// hook media picker into the customer ItemUi
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.MediaItemPickerUi', {
+
+	xtype : 'MShop.panel.media.itempickerui',
+    itemConfig : {
+        recordName : 'Customer_List',
+        idProperty : 'customer.list.id',
+        siteidProperty : 'customer.list.siteid',
+        listDomain : 'customer',
+        listNamePrefix : 'customer.list.',
+        listTypeIdProperty : 'customer.list.type.id',
+        listTypeLabelProperty : 'customer.list.type.label',
+        listTypeControllerName : 'Customer_List_Type',
+        listTypeCondition : {
+            '&&' : [{
+                '==' : {
+                    'customer.list.type.domain' : 'media'
+                }
+            }]
+        },
+        listTypeKey : 'customer/list/type/media'
+    },
+    listConfig : {
+        domain : 'customer',
+        prefix : 'media.'
+    }
+}, 40);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer');
+
+// hook product picker into the customer ItemUi
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.ProductItemPickerUi', {
+
+	xtype : 'MShop.panel.product.itempickerui',
+    itemConfig : {
+        recordName : 'Customer_List',
+        idProperty : 'customer.list.id',
+        siteidProperty : 'customer.list.siteid',
+        listDomain : 'customer',
+        listNamePrefix : 'customer.list.',
+        listTypeIdProperty : 'customer.list.type.id',
+        listTypeLabelProperty : 'customer.list.type.label',
+        listTypeControllerName : 'Customer_List_Type',
+        listTypeCondition : {
+            '&&' : [{
+                '==' : {
+                    'customer.list.type.domain' : 'product'
+                }
+            }]
+        },
+        listTypeKey : 'customer/list/type/product'
+    },
+    listConfig : {
+        prefix : 'product.'
+    }
+}, 20);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.customer.address');
+
+MShop.panel.customer.address.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
+
+    recordName : 'Customer_Address',
+    idProperty : 'customer.address.id',
+    siteidProperty : 'customer.address.siteid',
+    itemUiXType : 'MShop.panel.customer.address.itemui',
+
+    autoExpandColumn : 'customer-address-email',
+
+    filterConfig : {
+        filters : [{
+            dataIndex : 'customer.address.lastname',
+            operator : '=~',
+            value : ''
+        }]
+    },
+
+    initComponent : function() {
+        this.title = MShop.I18n.dt('client/extjs', 'Address');
+
+        MShop.panel.AbstractListUi.prototype.initActions.call(this);
+        MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
+
+        MShop.panel.customer.ListUi.superclass.initComponent.call(this);
+    },
+
+    afterRender : function() {
+        this.itemUi = this.findParentBy(function(c) {
+            return c.isXType(MShop.panel.AbstractItemUi, false);
+        });
+
+        MShop.panel.customer.address.ListUi.superclass.afterRender.apply(this, arguments);
+    },
+
+    onBeforeLoad : function(store, options) {
+        this.setSiteParam(store);
+
+        if(this.domain) {
+            this.setDomainFilter(store, options);
+        }
+
+        options.params = options.params || {};
+        options.params.condition = {
+            '&&' : [{
+                '==' : {
+                    'customer.address.refid' : this.itemUi.record ? this.itemUi.record.id : null
+                }
+            }]
+        };
+
+    },
+
+    getColumns : function() {
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.id',
+            header : MShop.I18n.dt('client/extjs', 'ID'),
+            sortable : true,
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.company',
+            header : MShop.I18n.dt('client/extjs', 'Company'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.vatid',
+            header : MShop.I18n.dt('client/extjs', 'Vat ID'),
+            width : 100,
+            hidden : true
+        }, {
+            dataIndex : 'customer.address.salutation',
+            width : 70,
+            hidden : true,
+            renderer : MShop.elements.salutation.renderer
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.title',
+            header : MShop.I18n.dt('client/extjs', 'Title'),
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.firstname',
+            header : MShop.I18n.dt('client/extjs', 'Firstname'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.lastname',
+            header : MShop.I18n.dt('client/extjs', 'Lastname'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.address1',
+            header : MShop.I18n.dt('client/extjs', 'Street'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.address2',
+            header : MShop.I18n.dt('client/extjs', 'House no'),
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.address3',
+            header : MShop.I18n.dt('client/extjs', 'Additional'),
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.postal',
+            header : MShop.I18n.dt('client/extjs', 'Zip code'),
+            width : 70
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.city',
+            header : MShop.I18n.dt('client/extjs', 'City'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.state',
+            header : MShop.I18n.dt('client/extjs', 'State'),
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.countryid',
+            header : MShop.I18n.dt('client/extjs', 'Country'),
+            align : 'center',
+            width : 30
+        }, {
+            dataIndex : 'customer.address.languageid',
+            width : 70,
+            hidden : true,
+            renderer : MShop.elements.language.renderer
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.telephone',
+            header : MShop.I18n.dt('client/extjs', 'Telephone'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.telefax',
+            header : MShop.I18n.dt('client/extjs', 'Telefax'),
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.email',
+            header : MShop.I18n.dt('client/extjs', 'E-Mail'),
+            id : 'customer-address-email'
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.website',
+            width : 150,
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.address.ctime',
+            header : MShop.I18n.dt('client/extjs', 'Created'),
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.address.mtime',
+            header : MShop.I18n.dt('client/extjs', 'Last modified'),
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.address.editor',
+            header : MShop.I18n.dt('client/extjs', 'Editor'),
+            width : 130,
+            hidden : true
+        }];
+    }
+});
+
+Ext.reg('MShop.panel.customer.address.listui', MShop.panel.customer.address.ListUi);
+
+//hook this into the customer item tab panel
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.address.listui', MShop.panel.customer.address.ListUi, 10);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer.address');
+
+MShop.panel.customer.address.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+
+    siteidProperty : 'customer.address.siteid',
+
+
+    initComponent : function() {
+
+        MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
+
+        this.items = [{
+            xtype : 'tabpanel',
+            activeTab : 0,
+            border : false,
+            itemId : 'MShop.panel.customer.address.ItemUi',
+            plugins : ['ux.itemregistry'],
+            items : [{
+                title : MShop.I18n.dt('client/extjs', 'Basic'),
+                xtype : 'panel',
+                layout : 'fit',
+                border : false,
+                itemId : 'MShop.panel.customer.address.ItemUi.BasicPanel',
+                plugins : ['ux.itemregistry'],
+                defaults : {
+                    bodyCssClass : this.readOnlyClass
+                },
+                items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
+                    xtype : 'form',
+                    ref : '../../mainForm',
+                    autoScroll : true,
+                    items : [{
+                        xtype : 'fieldset',
+                        labelAlign : 'top',
+                        border : false,
+                        defaults : {
+                            readOnly : this.fieldsReadOnly,
+                            anchor : '-25'
+                        },
+                        items : [{
+                            xtype : 'textfield',
+                            name : 'customer.address.company',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Company'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Company name'),
+                            maxLength : 100
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.vatid',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Vat ID'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Vat ID, e.g. "GB999999999"'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'MShop.elements.salutation.combo',
+                            name : 'customer.address.salutation'
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.title',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Title'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Honorary title'),
+                            maxLength : 64
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.firstname',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'First name'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'First name'),
+                            maxLength : 64
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.lastname',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Last name'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Last name (required)'),
+                            allowBlank : false,
+                            maxLength : 64
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.address1',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Address 1'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Street (required)'),
+                            allowBlank : false,
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.address2',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Address 2'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'House number'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.address3',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Address 3'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Additional information, e.g. flat number'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.postal',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Postal code'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Postal code'),
+                            maxLength : 16
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.city',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'City'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'City name (required)'),
+                            allowBlank : false,
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.state',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'State'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Country state, e.g. "NY"'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.countryid',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Country code'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Two letter country code, e.g. "US" (required)'),
+                            regex : /[A-Za-z]{2}/,
+                            allowBlank : false,
+                            maxLength : 2
+                        }, {
+                            xtype : 'MShop.elements.language.combo',
+                            name : 'customer.address.languageid'
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.telephone',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Telephone'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Telephone number, e.g. +155512345'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.telefax',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Telefax'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Facsimile number, e.g. +155512345'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.email',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'E-Mail'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'E-Mail, e.g. me@example.com (required)'),
+                            allowBlank : false,
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.address.website',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Website'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Web site, e.g. www.example.com'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Created'),
+                            name : 'customer.address.ctime'
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Last modified'),
+                            name : 'customer.address.mtime'
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Editor'),
+                            name : 'customer.address.editor'
+                        }]
+                    }]
+                }]
+            }]
+        }];
+
+        this.store.on('beforesave', this.onBeforeSave, this);
+
+        MShop.panel.customer.ItemUi.superclass.initComponent.call(this);
+    },
+
+
+    afterRender : function() {
+
+        var label = this.record ? this.record.data['customer.address.lastname'] : MShop.I18n.dt('client/extjs', 'new');
+        //#: Customer address item panel title with customer name ({0}) and site code ({1)}
+        var string = MShop.I18n.dt('client/extjs', 'Customer address: {0} ({1})');
+        this.setTitle(String.format(string, label, MShop.config.site["locale.site.label"]));
+
+        MShop.panel.customer.address.ItemUi.superclass.afterRender.apply(this, arguments);
+    },
+
+
+    onBeforeSave : function(store, data) {
+
+        if(data.create && data.create[0]) {
+            data.create[0].data['customer.address.refid'] = this.listUI.ParentItemUi.record.id;
+        }
+    }
+
+});
+
+Ext.reg('MShop.panel.customer.address.itemui', MShop.panel.customer.address.ItemUi);
+/*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
  * LGPLv3, http://opensource.org/licenses/LGPL-3.0
  */
@@ -11326,11 +12321,16 @@ MShop.panel.supplier.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
             renderer : this.statusColumnRenderer.createDelegate(this)
         }, {
             xtype : 'gridcolumn',
+            dataIndex : 'supplier.code',
+            header : MShop.I18n.dt('client/extjs', 'Code'),
+            sortable : true,
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
             dataIndex : 'supplier.label',
             header : MShop.I18n.dt('client/extjs', 'Label'),
             sortable : true,
             width : 100,
-            editable : false,
             id : 'supplier-list-label'
         }, {
             xtype : 'datecolumn',
@@ -11396,7 +12396,7 @@ MShop.panel.supplier.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                 },
                 items : [{
                     xtype : 'form',
-                    title : 'Details',
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     flex : 1,
                     ref : '../../mainForm',
                     autoScroll : true,
@@ -11416,6 +12416,13 @@ MShop.panel.supplier.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                         }, {
                             xtype : 'MShop.elements.status.combo',
                             name : 'supplier.status'
+                        }, {
+                            xtype : 'textfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Code'),
+                            name : 'supplier.code',
+                            allowBlank : false,
+                            maxLength : 32,
+                            emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)')
                         }, {
                             xtype : 'textarea',
                             fieldLabel : MShop.I18n.dt('client/extjs', 'Label'),
@@ -11456,6 +12463,391 @@ MShop.panel.supplier.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 });
 
 Ext.reg('MShop.panel.supplier.itemui', MShop.panel.supplier.ItemUi);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.supplier.address');
+
+MShop.panel.supplier.address.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
+
+    recordName : 'Supplier_Address',
+    idProperty : 'supplier.address.id',
+    siteidProperty : 'supplier.address.siteid',
+    itemUiXType : 'MShop.panel.supplier.address.itemui',
+
+    autoExpandColumn : 'supplier-address-email',
+
+    filterConfig : {
+        filters : [{
+            dataIndex : 'supplier.address.lastname',
+            operator : '=~',
+            value : ''
+        }]
+    },
+
+    initComponent : function() {
+        this.title = MShop.I18n.dt('client/extjs', 'Address');
+
+        MShop.panel.AbstractListUi.prototype.initActions.call(this);
+        MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
+
+        MShop.panel.supplier.ListUi.superclass.initComponent.call(this);
+    },
+
+    afterRender : function() {
+        this.itemUi = this.findParentBy(function(c) {
+            return c.isXType(MShop.panel.AbstractItemUi, false);
+        });
+
+        MShop.panel.supplier.address.ListUi.superclass.afterRender.apply(this, arguments);
+    },
+
+    onBeforeLoad : function(store, options) {
+        this.setSiteParam(store);
+
+        if(this.domain) {
+            this.setDomainFilter(store, options);
+        }
+
+        options.params = options.params || {};
+        options.params.condition = {
+            '&&' : [{
+                '==' : {
+                    'supplier.address.refid' : this.itemUi.record ? this.itemUi.record.id : null
+                }
+            }]
+        };
+
+    },
+
+    getColumns : function() {
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.id',
+            header : MShop.I18n.dt('client/extjs', 'ID'),
+            sortable : true,
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.company',
+            header : MShop.I18n.dt('client/extjs', 'Company'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.vatid',
+            header : MShop.I18n.dt('client/extjs', 'Vat ID'),
+            width : 100,
+            hidden : true
+        }, {
+            dataIndex : 'supplier.address.salutation',
+            width : 70,
+            hidden : true,
+            renderer : MShop.elements.salutation.renderer
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.title',
+            header : MShop.I18n.dt('client/extjs', 'Title'),
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.firstname',
+            header : MShop.I18n.dt('client/extjs', 'Firstname'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.lastname',
+            header : MShop.I18n.dt('client/extjs', 'Lastname'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.address1',
+            header : MShop.I18n.dt('client/extjs', 'Street'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.address2',
+            header : MShop.I18n.dt('client/extjs', 'House no'),
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.address3',
+            header : MShop.I18n.dt('client/extjs', 'Additional'),
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.postal',
+            header : MShop.I18n.dt('client/extjs', 'Zip code'),
+            width : 70
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.city',
+            header : MShop.I18n.dt('client/extjs', 'City'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.state',
+            header : MShop.I18n.dt('client/extjs', 'State'),
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.countryid',
+            header : MShop.I18n.dt('client/extjs', 'Country'),
+            width : 30
+        }, {
+            dataIndex : 'supplier.address.languageid',
+            width : 70,
+            hidden : true,
+            renderer : MShop.elements.language.renderer
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.telephone',
+            header : MShop.I18n.dt('client/extjs', 'Telephone'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.telefax',
+            header : MShop.I18n.dt('client/extjs', 'Telefax'),
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.email',
+            header : MShop.I18n.dt('client/extjs', 'E-Mail'),
+            id : 'supplier-address-email'
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.website',
+            width : 150,
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'supplier.address.ctime',
+            header : MShop.I18n.dt('client/extjs', 'Created'),
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'supplier.address.mtime',
+            header : MShop.I18n.dt('client/extjs', 'Last modified'),
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'supplier.address.editor',
+            header : MShop.I18n.dt('client/extjs', 'Editor'),
+            width : 130,
+            hidden : true
+        }];
+    }
+});
+
+Ext.reg('MShop.panel.supplier.address.listui', MShop.panel.supplier.address.ListUi);
+
+//hook this into the supplier item tab panel
+Ext.ux.ItemRegistry.registerItem('MShop.panel.supplier.ItemUi', 'MShop.panel.supplier.address.listui', MShop.panel.supplier.address.ListUi, 10);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.supplier.address');
+
+MShop.panel.supplier.address.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
+
+    siteidProperty : 'supplier.address.siteid',
+
+    initComponent : function() {
+
+        MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
+
+        this.items = [{
+            xtype : 'tabpanel',
+            activeTab : 0,
+            border : false,
+            itemId : 'MShop.panel.supplier.address.ItemUi',
+            plugins : ['ux.itemregistry'],
+            items : [{
+                title : MShop.I18n.dt('client/extjs', 'Basic'),
+                xtype : 'panel',
+                layout : 'fit',
+                border : false,
+                itemId : 'MShop.panel.supplier.address.ItemUi.BasicPanel',
+                plugins : ['ux.itemregistry'],
+                defaults : {
+                    bodyCssClass : this.readOnlyClass
+                },
+                items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
+                    xtype : 'form',
+                    ref : '../../mainForm',
+                    autoScroll : true,
+                    items : [{
+                        xtype : 'fieldset',
+                        labelAlign : 'top',
+                        border : false,
+                        defaults : {
+                            readOnly : this.fieldsReadOnly,
+                            anchor : '-25'
+                        },
+                        items : [{
+                            xtype : 'textfield',
+                            name : 'supplier.address.company',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Company'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Company name'),
+                            maxLength : 100
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.vatid',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Vat ID'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Vat ID, e.g. "GB999999999"'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'MShop.elements.salutation.combo',
+                            name : 'supplier.address.salutation'
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.title',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Title'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Honorary title'),
+                            maxLength : 64
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.firstname',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'First name'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'First name'),
+                            maxLength : 64
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.lastname',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Last name'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Last name (required)'),
+                            allowBlank : false,
+                            maxLength : 64
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.address1',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Address 1'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Street (required)'),
+                            allowBlank : false,
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.address2',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Address 2'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'House number'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.address3',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Address 3'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Additional information, e.g. flat number'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.postal',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Postal code'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Postal code'),
+                            maxLength : 16
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.city',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'City'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'City name (required)'),
+                            allowBlank : false,
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.state',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'State'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Country state, e.g. "NY"'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.countryid',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Country code'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Two letter country code, e.g. "US" (required)'),
+                            regex : /[A-Za-z]{2}/,
+                            allowBlank : false,
+                            maxLength : 2
+                        }, {
+                            xtype : 'MShop.elements.language.combo',
+                            name : 'supplier.address.languageid'
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.telephone',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Telephone'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Telephone number, e.g. +155512345'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.telefax',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Telefax'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Facsimile number, e.g. +155512345'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.email',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'E-Mail'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'E-Mail, e.g. me@example.com (required)'),
+                            allowBlank : false,
+                            maxLength : 255
+                        }, {
+                            xtype : 'textfield',
+                            name : 'supplier.address.website',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Website'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Web site, e.g. www.example.com'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Created'),
+                            name : 'supplier.address.ctime'
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Last modified'),
+                            name : 'supplier.address.mtime'
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Editor'),
+                            name : 'supplier.address.editor'
+                        }]
+                    }]
+                }]
+            }]
+        }];
+
+        this.store.on('beforesave', this.onBeforeSave, this);
+
+        MShop.panel.supplier.ItemUi.superclass.initComponent.call(this);
+    },
+
+    afterRender : function() {
+        var label = this.record ? this.record.data['supplier.address.lastname'] : MShop.I18n.dt('client/extjs', 'new');
+        //#: Supplier address item panel title with supplier name ({0}) and site code ({1)}
+        var string = MShop.I18n.dt('client/extjs', 'Supplier address: {0} ({1})');
+        this.setTitle(String.format(string, label, MShop.config.site["locale.site.label"]));
+
+        MShop.panel.supplier.address.ItemUi.superclass.afterRender.apply(this, arguments);
+    },
+
+
+    onBeforeSave : function(store, data) {
+        if(data.create && data.create[0]) {
+            data.create[0].data['supplier.address.refid'] = this.listUI.ParentItemUi.record.id;
+        }
+    }
+
+});
+
+Ext.reg('MShop.panel.supplier.address.itemui', MShop.panel.supplier.address.ItemUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2011
  * LGPLv3, http://opensource.org/licenses/LGPL-3.0
@@ -11599,8 +12991,13 @@ Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.plugin.listu
 
 Ext.ns('MShop.panel.plugin');
 
-MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
+
+    siteidProperty : 'plugin.siteid',
+
     initComponent : function() {
+
+        MShop.panel.AbstractListItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
             xtype : 'tabpanel',
@@ -11875,8 +13272,6 @@ MShop.panel.coupon.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     initComponent : function() {
 
-        this.title = MShop.I18n.dt('client/extjs', 'Coupon item details');
-
         MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
@@ -11900,6 +13295,7 @@ MShop.panel.coupon.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                 },
                 items : [{
                     xtype : 'form',
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     title : 'Details',
                     flex : 1,
                     ref : '../../mainForm',
@@ -12098,7 +13494,7 @@ MShop.panel.coupon.code.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
                 'Please save the coupon first before you can add codes'));
 
             this.actionAdd.setDisabled(true);
-            this.importButton.setDisabled(true);
+            this.actionImport.setDisabled(true);
 
             return false;
         }
@@ -12128,7 +13524,7 @@ MShop.panel.coupon.code.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
 
 
     onFileSelect : function(fileSelector) {
-        this.importButton.onFileSelect(fileSelector, {
+        this.actionImport.onFileSelect(fileSelector, {
             couponid : this.ParentItemUi.record.id
         });
     }
@@ -12154,8 +13550,6 @@ MShop.panel.coupon.code.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     initComponent : function() {
 
-        this.title = MShop.I18n.dt('client/extjs', 'Coupon code item details');
-
         MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
@@ -12179,7 +13573,7 @@ MShop.panel.coupon.code.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                 },
                 items : [{
                     xtype : 'form',
-                    title : 'Details',
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     flex : 1,
                     ref : '../../mainForm',
                     autoScroll : true,
@@ -12404,7 +13798,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.order.listui
 
 Ext.ns('MShop.panel.order');
 
-MShop.panel.order.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.order.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     maximized : true,
     layout : 'fit',
@@ -12440,7 +13834,7 @@ MShop.panel.order.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                 },
                 items : [{
                     xtype : 'form',
-                    title : 'Invoice',
+                    title : MShop.I18n.dt('client/extjs', 'Invoice'),
                     flex : 1,
                     ref : '../../mainForm',
                     autoScroll : true,
@@ -14804,8 +16198,6 @@ Ext.ns('MShop.panel.stock.warehouse');
 
 MShop.panel.stock.warehouse.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
-    recordName : 'Product_Stock_Warehouse',
-    idProperty : 'product.stock.warehouse.id',
     siteidProperty : 'product.stock.warehouse.siteid',
 
     initComponent : function() {
@@ -14832,6 +16224,7 @@ MShop.panel.stock.warehouse.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     title : 'Details',
                     flex : 1,
@@ -15056,7 +16449,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.locale.tabui', 'MShop.panel.locale
 
 Ext.ns('MShop.panel.locale');
 
-MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     recordName : 'Locale',
     idProperty : 'locale.id',
@@ -15087,6 +16480,7 @@ MShop.panel.locale.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',
@@ -15268,7 +16662,7 @@ MShop.panel.locale.site.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
     },
 
     initToolbar : function() {
-        this.tbar = [this.actionAdd, this.actionEdit, this.actionDelete, this.actionExport, this.importButton];
+        this.tbar = [this.actionAdd, this.actionEdit, this.actionDelete, this.actionExport, this.actionImport];
     },
 
     initStore : function() {
@@ -15318,7 +16712,7 @@ Ext.ns('MShop.panel.locale.site');
 /**
  * @todo refactor some of these overloads to his abstracts
  */
-MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     recordName : 'Locale_Site',
     idProperty : 'locale.site.id',
@@ -15346,6 +16740,7 @@ MShop.panel.locale.site.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',
@@ -15575,7 +16970,7 @@ Ext.ns('MShop.panel.locale.language');
 /**
  * @todo refactor some of these overloads to his abstracts
  */
-MShop.panel.locale.language.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.locale.language.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     recordName : 'Locale_Language',
     idProperty : 'locale.language.id',
@@ -15603,6 +16998,7 @@ MShop.panel.locale.language.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',
@@ -15787,7 +17183,7 @@ Ext.ns('MShop.panel.locale.currency');
 /**
  * @todo refactor some of these overloads to his abstracts
  */
-MShop.panel.locale.currency.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.locale.currency.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     recordName : 'Locale_Currency',
     idProperty : 'locale.currency.id',
@@ -15815,6 +17211,7 @@ MShop.panel.locale.currency.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, 
                     bodyCssClass : this.readOnlyClass
                 },
                 items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     xtype : 'form',
                     flex : 1,
                     ref : '../../mainForm',

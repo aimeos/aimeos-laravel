@@ -7,7 +7,11 @@ Ext.ns('MShop.panel.service');
 
 MShop.panel.service.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 
+    siteidProperty : 'service.siteid',
+
     initComponent : function() {
+
+        MShop.panel.AbstractListItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
             xtype : 'tabpanel',
@@ -30,7 +34,7 @@ MShop.panel.service.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
                 },
                 items : [{
                     xtype : 'form',
-                    title : 'Details',
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     flex : 1,
                     ref : '../../mainForm',
                     autoScroll : true,

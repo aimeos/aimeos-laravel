@@ -10,10 +10,8 @@ Ext.ns('MShop.panel.product.property');
  * 
  * @extends Mshop.panel.AbstractListItemUi
  */
-MShop.panel.product.property.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.product.property.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
-    recordName : 'Product_Property',
-    idProperty : 'product.property.id',
     siteidProperty : 'product.property.siteid',
 
     initComponent : function() {

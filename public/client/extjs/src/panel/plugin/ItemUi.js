@@ -6,8 +6,13 @@
 
 Ext.ns('MShop.panel.plugin');
 
-MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+MShop.panel.plugin.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
+
+    siteidProperty : 'plugin.siteid',
+
     initComponent : function() {
+
+        MShop.panel.AbstractListItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
             xtype : 'tabpanel',

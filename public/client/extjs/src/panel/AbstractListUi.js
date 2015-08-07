@@ -121,7 +121,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
                 getRowClass : function(record, index) {
 
                     var siteid = MShop.config.site['locale.site.id'];
-                    var recSiteid = record.get(this.siteidProperty);
+                    var recSiteid = record.get(this.siteidProperty) || null;
 
                     if(record.phantom === false && recSiteid !== null && recSiteid != siteid) {
                         return this.rowCssClass;
@@ -163,7 +163,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
             handler : this.onExport ? this.onExport.createDelegate(this) : Ext.emptyFn
         });
 
-        this.importButton = new MShop.elements.ImportButton({
+        this.actionImport = new MShop.elements.ImportButton({
             text : MShop.I18n.dt('client/extjs', 'Import'),
             disabled : (this.importMethod === null),
             importMethod : this.importMethod,
@@ -179,7 +179,7 @@ MShop.panel.AbstractListUi = Ext.extend(Ext.Panel, {
             this.actionCopy,
             this.actionDelete,
             this.actionExport,
-            this.importButton];
+            this.actionImport];
     },
 
     initStore : function() {

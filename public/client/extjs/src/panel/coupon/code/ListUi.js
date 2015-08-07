@@ -104,7 +104,7 @@ MShop.panel.coupon.code.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
                 'Please save the coupon first before you can add codes'));
 
             this.actionAdd.setDisabled(true);
-            this.importButton.setDisabled(true);
+            this.actionImport.setDisabled(true);
 
             return false;
         }
@@ -134,7 +134,7 @@ MShop.panel.coupon.code.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
 
 
     onFileSelect : function(fileSelector) {
-        this.importButton.onFileSelect(fileSelector, {
+        this.actionImport.onFileSelect(fileSelector, {
             couponid : this.ParentItemUi.record.id
         });
     }

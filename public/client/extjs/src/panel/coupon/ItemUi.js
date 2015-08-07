@@ -13,8 +13,6 @@ MShop.panel.coupon.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
     initComponent : function() {
 
-        this.title = MShop.I18n.dt('client/extjs', 'Coupon item details');
-
         MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
 
         this.items = [{
@@ -38,6 +36,7 @@ MShop.panel.coupon.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
                 },
                 items : [{
                     xtype : 'form',
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
                     title : 'Details',
                     flex : 1,
                     ref : '../../mainForm',
