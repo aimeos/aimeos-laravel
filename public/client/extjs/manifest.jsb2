@@ -349,7 +349,13 @@
 			"text": "ListUi.js",
 			"path": "src/panel/customer/"
 		}, {
+			"text": "ListUiSmall.js",
+			"path": "src/panel/customer/"
+		}, {
 			"text": "ItemUi.js",
+			"path": "src/panel/customer/"
+		}, {
+			"text": "ItemPickerUi.js",
 			"path": "src/panel/customer/"
 		}, {
 			"text": "TextItemPickerUi.js",
@@ -364,11 +370,23 @@
 			"text": "ProductItemPickerUi.js",
 			"path": "src/panel/customer/"
 		}, {
+			"text": "CustomerGroupItemPickerUi.js",
+			"path": "src/panel/customer/"
+		}, {
 			"text": "ListUi.js",
 			"path": "src/panel/customer/address/"
 		}, {
 			"text": "ItemUi.js",
 			"path": "src/panel/customer/address/"
+		}, {
+			"text": "ListUiSmall.js",
+			"path": "src/panel/customer/group/"
+		}, {
+			"text": "ItemUi.js",
+			"path": "src/panel/customer/group/"
+		}, {
+			"text": "ItemPickerUi.js",
+			"path": "src/panel/customer/group/"
 		}, {
 			"text": "ListUi.js",
 			"path": "src/panel/supplier/"

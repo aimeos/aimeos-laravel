@@ -32,4 +32,4 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.cus
         domain : 'customer',
         prefix : 'attribute.'
     }
-}, 50);
+}, 60);

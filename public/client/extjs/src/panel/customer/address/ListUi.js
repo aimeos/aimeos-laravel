@@ -28,7 +28,7 @@ MShop.panel.customer.address.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
         MShop.panel.AbstractListUi.prototype.initActions.call(this);
         MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
 
-        MShop.panel.customer.ListUi.superclass.initComponent.call(this);
+        MShop.panel.customer.address.ListUi.superclass.initComponent.call(this);
     },
 
     afterRender : function() {

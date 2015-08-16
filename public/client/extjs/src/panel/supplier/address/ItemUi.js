@@ -170,7 +170,7 @@ MShop.panel.supplier.address.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
         this.store.on('beforesave', this.onBeforeSave, this);
 
-        MShop.panel.supplier.ItemUi.superclass.initComponent.call(this);
+        MShop.panel.supplier.address.ItemUi.superclass.initComponent.call(this);
     },
 
     afterRender : function() {

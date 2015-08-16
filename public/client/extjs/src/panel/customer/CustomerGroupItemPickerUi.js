@@ -6,10 +6,10 @@
 
 Ext.ns('MShop.panel.customer');
 
-// hook product picker into the customer ItemUi
-Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.ProductItemPickerUi', {
+// hook text picker into the customer ItemUi
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.CustomerGroupItemPickerUi', {
 
-	xtype : 'MShop.panel.product.itempickerui',
+	xtype : 'MShop.panel.customer.group.itempickerui',
     itemConfig : {
         recordName : 'Customer_List',
         idProperty : 'customer.list.id',
@@ -22,13 +22,13 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.cus
         listTypeCondition : {
             '&&' : [{
                 '==' : {
-                    'customer.list.type.domain' : 'product'
+                    'customer.list.type.domain' : 'customer/group'
                 }
             }]
         },
-        listTypeKey : 'customer/list/type/product'
+        listTypeKey : 'customer/list/type/customer/group'
     },
     listConfig : {
-        prefix : 'product.'
+        prefix : 'customer.group.'
     }
-}, 30);
+}, 20);

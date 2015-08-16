@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-28 16:11+0200\n"
-"PO-Revision-Date: 2015-07-12 21:48+0000\n"
+"PO-Revision-Date: 2015-08-01 06:03+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/aimeos-core/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -923,13 +923,13 @@ msgstr "Plugin"
 
 #: src/panel/plugin/type/ListUi.js:34
 msgid "Plugin type"
-msgstr "Plugin tipi"
+msgstr "Plugin türü"
 
 #. : Plugin type item panel title with type label ({0}) and site code ({1)}
 #: src/panel/plugin/type/ItemUi.js:22
 #, python-brace-format
 msgid "Plugin type: {0} ({1})"
-msgstr "Plugin tipi: {0} ({1})"
+msgstr "Plugin türü: {0} ({1})"
 
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #: src/panel/plugin/ItemUi.js:128

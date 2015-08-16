@@ -2701,6 +2701,13 @@ Ext.extend(MShop.elements.site.ComboBox, Ext.form.ComboBox, {
 Ext.reg('MShop.elements.site.combo', MShop.elements.site.ComboBox);
 
 
+MShop.elements.site.renderer = function(siteId) {
+
+    var site = MShop.elements.site.getStore().getById(siteId);
+    return (site ? site.get('locale.site.label') : siteId);
+};
+
+
 /**
  * @static
  * @return {Ext.data.DirectStore}
@@ -11487,6 +11494,117 @@ Ext.ux.ItemRegistry.registerItem('MShop.MainTabPanel', 'MShop.panel.customer.lis
 
 Ext.ns('MShop.panel.customer');
 
+MShop.panel.customer.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
+
+    recordName : 'Customer',
+    idProperty : 'customer.id',
+    siteidProperty : 'customer.siteid',
+    itemUiXType : 'MShop.panel.customer.itemui',
+
+    autoExpandColumn : 'customer-list-label',
+
+    filterConfig : {
+        filters : [{
+            dataIndex : 'customer.code',
+            operator : '=~',
+            value : ''
+        }]
+    },
+
+    initComponent : function() {
+        this.title = MShop.I18n.dt('client/extjs', 'Available customers');
+
+        MShop.panel.customer.ListUiSmall.superclass.initComponent.call(this);
+    },
+
+    getColumns : function() {
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.id',
+            header : MShop.I18n.dt('client/extjs', 'ID'),
+            sortable : true,
+            width : 50,
+            editable : false,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.status',
+            header : MShop.I18n.dt('client/extjs', 'Status'),
+            sortable : true,
+            width : 70,
+            align : 'center',
+            renderer : this.statusColumnRenderer.createDelegate(this)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.code',
+            header : MShop.I18n.dt('client/extjs', 'User name'),
+            sortable : true,
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.label',
+            header : MShop.I18n.dt('client/extjs', 'Full name'),
+            sortable : true,
+            id : 'customer-list-label'
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.password',
+            header : MShop.I18n.dt('client/extjs', 'Password'),
+            sortable : false,
+            width : 100,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.birthday',
+            header : MShop.I18n.dt('client/extjs', 'Birthday'),
+            sortable : false,
+            width : 100,
+            format : 'Y-m-d',
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.dateverified',
+            header : MShop.I18n.dt('client/extjs', 'Verification date'),
+            sortable : false,
+            width : 100,
+            format : 'Y-m-d',
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.ctime',
+            header : MShop.I18n.dt('client/extjs', 'Created'),
+            sortable : false,
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.mtime',
+            header : MShop.I18n.dt('client/extjs', 'Last modified'),
+            sortable : false,
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.editor',
+            header : MShop.I18n.dt('client/extjs', 'Editor'),
+            sortable : false,
+            width : 130,
+            hidden : true
+        }];
+    }
+
+});
+
+Ext.reg('MShop.panel.customer.listuismall', MShop.panel.customer.ListUiSmall);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.customer');
+
 MShop.panel.customer.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
 
     siteidProperty : 'customer.siteid',
@@ -11747,6 +11865,74 @@ Ext.reg('MShop.panel.customer.itemui', MShop.panel.customer.ItemUi);
 
 Ext.ns('MShop.panel.customer');
 
+MShop.panel.customer.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi, {
+
+    title : MShop.I18n.dt('client/extjs', 'Customer'),
+
+    initComponent : function() {
+
+        Ext.apply(this.itemConfig, {
+            title : MShop.I18n.dt('client/extjs', 'Associated customers'),
+            xtype : 'MShop.panel.listitemlistui',
+            domain : 'customer',
+            getAdditionalColumns : this.getAdditionalColumns.createDelegate(this)
+        });
+
+        Ext.apply(this.listConfig, {
+            title : MShop.I18n.dt('client/extjs', 'Available customers'),
+            xtype : 'MShop.panel.customer.listuismall'
+        });
+
+        MShop.panel.customer.ItemPickerUi.superclass.initComponent.call(this);
+    },
+
+
+    getAdditionalColumns : function() {
+
+        var conf = this.itemConfig;
+        this.listTypeStore = MShop.GlobalStoreMgr.get(conf.listTypeControllerName, conf.domain);
+
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'typeid',
+            header : MShop.I18n.dt('client/extjs', 'List type'),
+            id : 'listtype',
+            width : 70,
+            renderer : this.typeColumnRenderer.createDelegate(this,
+                [this.listTypeStore, conf.listTypeLabelProperty], true)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'refid',
+            header : MShop.I18n.dt('client/extjs', 'Status'),
+            id : 'refstatus',
+            width : 50,
+            renderer : this.refStatusColumnRenderer.createDelegate(this, ['customer.status'], true)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'refid',
+            header : MShop.I18n.dt('client/extjs', 'User name'),
+            id : 'refcode',
+            width : 150,
+            renderer : this.refColumnRenderer.createDelegate(this, ['customer.code'], true)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'refid',
+            header : MShop.I18n.dt('client/extjs', 'Full name'),
+            id : 'refcontent',
+            renderer : this.refColumnRenderer.createDelegate(this, ['customer.label'], true)
+        }];
+    }
+});
+
+Ext.reg('MShop.panel.customer.itempickerui', MShop.panel.customer.ItemPickerUi);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer');
+
 // hook text picker into the customer ItemUi
 Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.TextItemPickerUi', {
 
@@ -11773,7 +11959,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.cus
         domain : 'customer',
         prefix : 'text.'
     }
-}, 30);
+}, 40);
 /*!
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos.org, 2015
@@ -11808,7 +11994,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.cus
         domain : 'customer',
         prefix : 'attribute.'
     }
-}, 50);
+}, 60);
 /*!
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos.org, 2015
@@ -11843,7 +12029,7 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.cus
         domain : 'customer',
         prefix : 'media.'
     }
-}, 40);
+}, 50);
 /*!
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos.org, 2015
@@ -11877,6 +12063,40 @@ Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.cus
     listConfig : {
         prefix : 'product.'
     }
+}, 30);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer');
+
+// hook text picker into the customer ItemUi
+Ext.ux.ItemRegistry.registerItem('MShop.panel.customer.ItemUi', 'MShop.panel.customer.CustomerGroupItemPickerUi', {
+
+	xtype : 'MShop.panel.customer.group.itempickerui',
+    itemConfig : {
+        recordName : 'Customer_List',
+        idProperty : 'customer.list.id',
+        siteidProperty : 'customer.list.siteid',
+        listDomain : 'customer',
+        listNamePrefix : 'customer.list.',
+        listTypeIdProperty : 'customer.list.type.id',
+        listTypeLabelProperty : 'customer.list.type.label',
+        listTypeControllerName : 'Customer_List_Type',
+        listTypeCondition : {
+            '&&' : [{
+                '==' : {
+                    'customer.list.type.domain' : 'customer/group'
+                }
+            }]
+        },
+        listTypeKey : 'customer/list/type/customer/group'
+    },
+    listConfig : {
+        prefix : 'customer.group.'
+    }
 }, 20);
 /*!
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
@@ -11908,7 +12128,7 @@ MShop.panel.customer.address.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
         MShop.panel.AbstractListUi.prototype.initActions.call(this);
         MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
 
-        MShop.panel.customer.ListUi.superclass.initComponent.call(this);
+        MShop.panel.customer.address.ListUi.superclass.initComponent.call(this);
     },
 
     afterRender : function() {
@@ -12244,7 +12464,7 @@ MShop.panel.customer.address.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi,
 
         this.store.on('beforesave', this.onBeforeSave, this);
 
-        MShop.panel.customer.ItemUi.superclass.initComponent.call(this);
+        MShop.panel.customer.address.ItemUi.superclass.initComponent.call(this);
     },
 
 
@@ -12269,6 +12489,236 @@ MShop.panel.customer.address.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi,
 });
 
 Ext.reg('MShop.panel.customer.address.itemui', MShop.panel.customer.address.ItemUi);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+Ext.ns('MShop.panel.customer.group');
+
+MShop.panel.customer.group.ListUiSmall = Ext.extend(MShop.panel.AbstractListUi, {
+
+    recordName : 'Customer_Group',
+    idProperty : 'customer.group.id',
+    siteidProperty : 'customer.group.siteid',
+    itemUiXType : 'MShop.panel.customer.group.itemui',
+
+    autoExpandColumn : 'customer-group-label',
+
+    filterConfig : {
+        filters : [{
+            dataIndex : 'customer.group.label',
+            operator : '=~',
+            value : ''
+        }]
+    },
+
+    initComponent : function() {
+        this.title = MShop.I18n.dt('client/extjs', 'Available customer groups');
+
+        MShop.panel.customer.group.ListUiSmall.superclass.initComponent.call(this);
+    },
+
+    getColumns : function() {
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.group.id',
+            header : MShop.I18n.dt('client/extjs', 'ID'),
+            sortable : true,
+            width : 50,
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.group.code',
+            header : MShop.I18n.dt('client/extjs', 'Code'),
+            width : 100
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.group.label',
+            header : MShop.I18n.dt('client/extjs', 'Label'),
+            id : 'customer-group-label'
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.group.ctime',
+            header : MShop.I18n.dt('client/extjs', 'Created'),
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'datecolumn',
+            dataIndex : 'customer.group.mtime',
+            header : MShop.I18n.dt('client/extjs', 'Last modified'),
+            width : 130,
+            format : 'Y-m-d H:i:s',
+            hidden : true
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : 'customer.group.editor',
+            header : MShop.I18n.dt('client/extjs', 'Editor'),
+            width : 130,
+            hidden : true
+        }];
+    }
+});
+
+Ext.reg('MShop.panel.customer.group.listuismall', MShop.panel.customer.group.ListUiSmall);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer.group');
+
+MShop.panel.customer.group.ItemUi = Ext.extend(MShop.panel.AbstractListItemUi, {
+
+    siteidProperty : 'customer.group.siteid',
+
+
+    initComponent : function() {
+
+        MShop.panel.AbstractItemUi.prototype.setSiteCheck(this);
+
+        this.items = [{
+            xtype : 'tabpanel',
+            activeTab : 0,
+            border : false,
+            itemId : 'MShop.panel.customer.group.ItemUi',
+            plugins : ['ux.itemregistry'],
+            items : [{
+                title : MShop.I18n.dt('client/extjs', 'Basic'),
+                xtype : 'panel',
+                layout : 'fit',
+                border : false,
+                itemId : 'MShop.panel.customer.group.ItemUi.BasicPanel',
+                plugins : ['ux.itemregistry'],
+                defaults : {
+                    bodyCssClass : this.readOnlyClass
+                },
+                items : [{
+                    title : MShop.I18n.dt('client/extjs', 'Details'),
+                    xtype : 'form',
+                    ref : '../../mainForm',
+                    autoScroll : true,
+                    items : [{
+                        xtype : 'fieldset',
+                        labelAlign : 'top',
+                        border : false,
+                        defaults : {
+                            readOnly : this.fieldsReadOnly,
+                            anchor : '-25'
+                        },
+                        items : [{
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'ID'),
+                            name : 'customer.group.id'
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.group.code',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Code'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Unique code (required)'),
+                            maxLength : 32
+                        }, {
+                            xtype : 'textfield',
+                            name : 'customer.group.label',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Label'),
+                            emptyText : MShop.I18n.dt('client/extjs', 'Group label (required)'),
+                            maxLength : 255
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Created'),
+                            name : 'customer.group.ctime'
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Last modified'),
+                            name : 'customer.group.mtime'
+                        }, {
+                            xtype : 'displayfield',
+                            fieldLabel : MShop.I18n.dt('client/extjs', 'Editor'),
+                            name : 'customer.group.editor'
+                        }]
+                    }]
+                }]
+            }]
+        }];
+
+        MShop.panel.customer.group.ItemUi.superclass.initComponent.call(this);
+    },
+
+
+    afterRender : function() {
+
+        var label = this.record ? this.record.data['customer.group.label'] : MShop.I18n.dt('client/extjs', 'new');
+        //#: Customer group item panel title with customer name ({0}) and site code ({1)}
+        var string = MShop.I18n.dt('client/extjs', 'Customer group: {0} ({1})');
+        this.setTitle(String.format(string, label, MShop.config.site["locale.site.label"]));
+
+        MShop.panel.customer.group.ItemUi.superclass.afterRender.apply(this, arguments);
+    }
+
+});
+
+Ext.reg('MShop.panel.customer.group.itemui', MShop.panel.customer.group.ItemUi);
+/*!
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos.org, 2015
+ */
+
+
+Ext.ns('MShop.panel.customer.group');
+
+MShop.panel.customer.group.ItemPickerUi = Ext.extend(MShop.panel.AbstractListItemPickerUi, {
+
+    title : MShop.I18n.dt('client/extjs', 'Group'),
+
+    initComponent : function() {
+
+        Ext.apply(this.itemConfig, {
+            title : MShop.I18n.dt('client/extjs', 'Associated customer groups'),
+            xtype : 'MShop.panel.listitemlistui',
+            domain : 'customer/group',
+            getAdditionalColumns : this.getAdditionalColumns.createDelegate(this)
+        });
+
+        Ext.apply(this.listConfig, {
+            title : MShop.I18n.dt('client/extjs', 'Available customer groups'),
+            xtype : 'MShop.panel.customer.group.listuismall'
+        });
+
+        MShop.panel.customer.group.ItemPickerUi.superclass.initComponent.call(this);
+    },
+
+
+    getAdditionalColumns : function() {
+
+        var conf = this.itemConfig;
+        this.listTypeStore = MShop.GlobalStoreMgr.get(conf.listTypeControllerName, conf.domain);
+
+        return [{
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'typeid',
+            header : MShop.I18n.dt('client/extjs', 'List type'),
+            id : 'listtype',
+            width : 70,
+            renderer : this.typeColumnRenderer.createDelegate(this,
+                [this.listTypeStore, conf.listTypeLabelProperty], true)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'refid',
+            header : MShop.I18n.dt('client/extjs', 'Code'),
+            id : 'refcode',
+            renderer : this.refColumnRenderer.createDelegate(this, ['customer.group.code'], true)
+        }, {
+            xtype : 'gridcolumn',
+            dataIndex : conf.listNamePrefix + 'refid',
+            header : MShop.I18n.dt('client/extjs', 'Label'),
+            id : 'refcontent',
+            renderer : this.refColumnRenderer.createDelegate(this, ['customer.group.label'], true)
+        }];
+    }
+});
+
+Ext.reg('MShop.panel.customer.group.itempickerui', MShop.panel.customer.group.ItemPickerUi);
 /*!
  * Copyright (c) Metaways Infosystems GmbH, 2014
  * LGPLv3, http://opensource.org/licenses/LGPL-3.0
@@ -12493,7 +12943,7 @@ MShop.panel.supplier.address.ListUi = Ext.extend(MShop.panel.AbstractListUi, {
         MShop.panel.AbstractListUi.prototype.initActions.call(this);
         MShop.panel.AbstractListUi.prototype.initToolbar.call(this);
 
-        MShop.panel.supplier.ListUi.superclass.initComponent.call(this);
+        MShop.panel.supplier.address.ListUi.superclass.initComponent.call(this);
     },
 
     afterRender : function() {
@@ -12826,7 +13276,7 @@ MShop.panel.supplier.address.ItemUi = Ext.extend(MShop.panel.AbstractItemUi, {
 
         this.store.on('beforesave', this.onBeforeSave, this);
 
-        MShop.panel.supplier.ItemUi.superclass.initComponent.call(this);
+        MShop.panel.supplier.address.ItemUi.superclass.initComponent.call(this);
     },
 
     afterRender : function() {

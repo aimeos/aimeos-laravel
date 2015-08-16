@@ -52,6 +52,13 @@ Ext.extend(MShop.elements.site.ComboBox, Ext.form.ComboBox, {
 Ext.reg('MShop.elements.site.combo', MShop.elements.site.ComboBox);
 
 
+MShop.elements.site.renderer = function(siteId) {
+
+    var site = MShop.elements.site.getStore().getById(siteId);
+    return (site ? site.get('locale.site.label') : siteId);
+};
+
+
 /**
  * @static
  * @return {Ext.data.DirectStore}
