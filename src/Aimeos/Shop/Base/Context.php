@@ -109,8 +109,14 @@ class Context
 	 */
 	protected function addUser( \MShop_Context_Item_Interface $context )
 	{
-		if( ( $userid = \Auth::id() ) !== null ) {
+		if( ( $userid = \Auth::id() ) !== null )
+		{
 			$context->setUserId( $userid );
+			$context->setGroupIds( function() use ( $context, $userid )
+			{
+				$manager = \MShop_Factory::createManager( $context, 'customer' );
+				return $manager->getItem( $userid, array( 'customer/group' ) )->getGroups();
+			} );
 		}
 
 		if( ( $user = \Auth::user() ) !== null ) {
