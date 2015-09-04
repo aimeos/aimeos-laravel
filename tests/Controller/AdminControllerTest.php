@@ -18,4 +18,13 @@ class AdminControllerTest extends AimeosTestAbstract
 		$this->assertResponseOk();
 		$this->assertRegexp('#{.*}#smu', $response->getContent());
 	}
+
+
+	public function testFileAction()
+	{
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@fileAction');
+
+		$this->assertResponseOk();
+		$this->assertContains('EXTUTIL', $response->getContent());
+	}
 }

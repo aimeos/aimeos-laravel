@@ -2,6 +2,10 @@
 
 Route::group(config('shop.routes.admin', []), function() {
 
+	Route::match( array( 'GET' ), 'admin/file', array(
+		'as' => 'aimeos_shop_admin_file',
+		'uses' => 'Aimeos\Shop\Controller\AdminController@fileAction'
+	));
 	Route::match( array( 'POST' ), 'admin/do', array(
 		'as' => 'aimeos_shop_admin_json',
 		'uses' => 'Aimeos\Shop\Controller\AdminController@doAction'

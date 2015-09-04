@@ -41,9 +41,7 @@
         }
         </script>
 
-@foreach ($jsFiles as $jsFile)
-		<script type="text/javascript" src="<?= asset('packages/aimeos/shop/' . $jsFile) ?>"></script>
-@endforeach
+		<script type="text/javascript" src="<?= route('aimeos_shop_admin_file') ?>"></script>
 
     </head>
     <body>

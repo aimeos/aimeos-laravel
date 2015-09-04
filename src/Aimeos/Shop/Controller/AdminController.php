@@ -38,7 +38,7 @@ class AdminController extends Controller
 		$context = $this->setLocale( $context, $site, $lang );
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
-		$cssFiles = $jsFiles = array();
+		$cssFiles = array();
 
 		foreach( $aimeos->getCustomPaths( 'client/extjs' ) as $base => $paths )
 		{
@@ -47,13 +47,11 @@ class AdminController extends Controller
 				$jsbAbsPath = $base . '/' . $path;
 
 				if( !is_file( $jsbAbsPath ) ) {
-					throw new Exception( sprintf( 'JSB2 file "%1$s" not found', $jsbAbsPath ) );
+					throw new \Exception( sprintf( 'JSB2 file "%1$s" not found', $jsbAbsPath ) );
 				}
 
 				$jsb2 = new \MW_Jsb2_Default( $jsbAbsPath, dirname( $path ) );
-
 				$cssFiles = array_merge( $cssFiles, $jsb2->getUrls( 'css' ) );
-				$jsFiles = array_merge( $jsFiles, $jsb2->getUrls( 'js' ) );
 			}
 		}
 
@@ -63,7 +61,6 @@ class AdminController extends Controller
 
 		$vars = array(
 			'lang' => $lang,
-			'jsFiles' => $jsFiles,
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
@@ -99,6 +96,40 @@ class AdminController extends Controller
 
 		$response = $controller->process( \Input::instance()->request->all(), 'php://input' );
 		return \View::make('shop::admin.do', array( 'output' => $response ));
+	}
+
+
+	/**
+	 * Returns the JS file content
+	 *
+	 * @return Response Response object
+	 */
+	public function fileAction()
+	{
+		$contents = '';
+		$jsFiles = array();
+		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+
+		foreach( $aimeos->getCustomPaths( 'client/extjs' ) as $base => $paths )
+		{
+			foreach( $paths as $path )
+			{
+				$jsbAbsPath = $base . '/' . $path;
+				$jsb2 = new \MW_Jsb2_Default( $jsbAbsPath, dirname( $jsbAbsPath ) );
+				$jsFiles = array_merge( $jsFiles, $jsb2->getUrls( 'js', '' ) );
+			}
+		}
+
+		foreach( $jsFiles as $file )
+		{
+			if( ( $content = file_get_contents( $file ) ) === false ) {
+				throw new \Exception( sprintf( 'File "%1$s" not found', $jsbAbsPath ) );
+			}
+
+			$contents .= $content;
+		}
+
+		return response( $contents )->header( 'Content-Type', 'application/javascript' );
 	}
 
 
