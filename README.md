@@ -211,4 +211,5 @@ is available for free.
 * [Documentation](https://aimeos.org/docs/Laravel)
 * [Help](https://aimeos.org/help/laravel-package-f18/)
 * [Issue tracker](https://github.com/aimeos/aimeos-laravel/issues)
+* [Composer packages](https://packagist.org/packages/aimeos/aimeos-laravel)
 * [Source code](https://github.com/aimeos/aimeos-laravel)
