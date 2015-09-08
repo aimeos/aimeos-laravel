@@ -122,11 +122,9 @@ class AdminController extends Controller
 
 		foreach( $jsFiles as $file )
 		{
-			if( ( $content = file_get_contents( $file ) ) === false ) {
-				throw new \Exception( sprintf( 'File "%1$s" not found', $jsbAbsPath ) );
+			if( ( $content = file_get_contents( $file ) ) !== false ) {
+				$contents .= $content;
 			}
-
-			$contents .= $content;
 		}
 
 		return response( $contents )->header( 'Content-Type', 'application/javascript' );
