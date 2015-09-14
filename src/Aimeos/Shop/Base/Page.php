@@ -69,6 +69,7 @@ class Page
 		$langid = $context->getLocale()->getLanguageId();
 		$tmplPaths = $this->aimeos->get()->getCustomPaths( 'client/html' );
 		$view = $this->view->create( $context->getConfig(), $tmplPaths, $langid );
+		$context->setView( $view );
 
 		$pagesConfig = $this->config->get( 'shop.page', array() );
 		$result = array( 'aibody' => array(), 'aiheader' => array() );
