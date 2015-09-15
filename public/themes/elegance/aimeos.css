@@ -1548,18 +1548,19 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin: 0 0 8px 0;
 }
 
+
+/* Mini basket */
 .basket-mini {
-	text-align: center;
 	line-height: 125%;
+	margin: 0 1em;
 	color: #555;
-	padding: 0;
-	margin: 0;
+	width: 14em;
 }
 
-.basket-mini a {
+.basket-mini > a {
 	background-image: url('media/basket.png');
-	background-repeat: no-repeat;
 	background-position: left center;
+	background-repeat: no-repeat;
 	background-size: contain;
 	display: inline-block;
 	padding-left: 36px;
@@ -1567,6 +1568,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .basket-mini h1 {
 	display: none;
+}
+
+.basket-mini-main {
+	display: inline-block;
 }
 
 .basket-mini-main .quantity {
@@ -1586,6 +1591,62 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: none;
 }
 
+.basket-mini-product {
+	display: inline;
+}
+
+.basket-mini-product .minibutton {
+	display: inline-block;
+	text-decoration: none;
+	line-height: 32px;
+	margin: 0 1em;
+}
+
+.basket-mini-product .basket {
+	background-color: #FFFFFF;
+	position: absolute;
+	padding: 0.5em 1em;
+	display: none;
+	opacity: 1.0;
+	width: 14em;
+	z-index: 2;
+}
+
+.basket-mini-product th,
+.basket-mini-product .basket .quantity {
+	text-align: center;
+}
+
+.basket-mini-product .basket .name {
+	text-align: left;
+	width: 60%;
+}
+
+.basket-mini-product .basket .price {
+	white-space: nowrap;
+	text-align: right;
+	width: 25%;
+}
+
+.basket-mini-product tr.delivery,
+.basket-mini-product tr.total {
+	border-top: 1px solid #D0D0D0;
+}
+
+.basket-mini-product .total {
+	content: "= ";
+}
+
+.basket-mini-product .delivery .name:before {
+	content: "+ ";
+}
+
+.basket-mini-product .total .name:before {
+	content: "= ";
+}
+
+
+/* Standard basket */
 .basket-standard-main {
 	border: solid 1px #D0D0D0;
 	padding: 1em;

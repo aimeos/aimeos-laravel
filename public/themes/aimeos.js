@@ -318,9 +318,21 @@ AimeosAccountWatch = {
 AimeosBasketMini = {
 
 	/**
+	 * Saves a modifed watched item without page reload
+	 */
+	setupBasketToggle: function() {
+
+		$(".basket-mini-product").on("click", ".minibutton", function(ev) {
+			$(".basket", ev.delegateTarget).toggle();
+		});
+	},
+
+	/**
 	 * Initializes the basket mini actions
 	 */
 	init: function() {
+
+		this.setupBasketToggle();
 	}
 }
 
