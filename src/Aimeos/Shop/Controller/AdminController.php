@@ -122,7 +122,7 @@ class AdminController extends Controller
 
 		foreach( $jsFiles as $file )
 		{
-			if( ( $content = file_get_contents( $file ) ) !== false ) {
+			if( ( file_exists($file) ) && ( $content = file_get_contents( $file ) ) !== false ) {
 				$contents .= $content;
 			}
 		}
