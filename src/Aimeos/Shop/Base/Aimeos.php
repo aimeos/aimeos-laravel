@@ -24,7 +24,7 @@ class Aimeos
 	private $config;
 
 	/**
-	 * @var \Arcavias
+	 * @var \Aimeos
 	 */
 	private $object;
 
@@ -41,16 +41,16 @@ class Aimeos
 
 
 	/**
-	 * Returns the Arcavias object.
+	 * Returns the Aimeos object.
 	 *
-	 * @return \Arcavias Arcavias object
+	 * @return \Aimeos Aimeos object
 	 */
 	public function get()
 	{
 		if( $this->object === null )
 		{
 			$extDirs = (array) $this->config->get( 'shop.extdir', array() );
-			$this->object = new \Arcavias( $extDirs, false );
+			$this->object = new \Aimeos( $extDirs, false );
 		}
 
 		return $this->object;
