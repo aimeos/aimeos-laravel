@@ -1599,6 +1599,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: inline-block;
 	text-decoration: none;
 	line-height: 32px;
+	cursor: pointer;
+	color: #B0A060;
 	margin: 0 1em;
 }
 
