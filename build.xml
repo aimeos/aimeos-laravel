@@ -2,19 +2,9 @@
 
 <project name="Aimeos Laravel package" default="update">
 
-	<property name="coredir" value="${project.basedir}/vendor/arcavias/arcavias-core" />
-	<property name="extdir" value="${project.basedir}/ext" />
-
-
 	<target name="update" description="Updates the bundle">
 		<exec command="git pull https://github.com/aimeos/aimeos-laravel.git" checkreturn="true" logoutput="true" />
 		<exec command="composer update --working-dir ${project.basedir}" checkreturn="true" logoutput="true" />
-		<copy todir="public/client/extjs/">
-			<fileset dir="${coredir}/client/extjs/" expandsymboliclinks="true" />
-		</copy>
-		<copy todir="public/themes/">
-			<fileset dir="${coredir}/client/html/themes/" expandsymboliclinks="true" />
-		</copy>
 	</target>
 
 
