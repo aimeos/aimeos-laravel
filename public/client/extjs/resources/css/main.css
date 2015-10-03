@@ -47,12 +47,12 @@
     left: 0px;
 }
 
-.arcavias-admin-media-list-preview {
+.aimeos-admin-media-list-preview {
 	max-width: 90px;
 	max-height: 70px;
 }
 
-.arcavias-admin-media-item-preview {
+.aimeos-admin-media-item-preview {
     max-width: 360px;
     max-height: 280px;
 }
