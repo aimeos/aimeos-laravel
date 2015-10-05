@@ -34,7 +34,7 @@ to your composer.json of your Laravel project:
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "dev-master",
+        "aimeos/aimeos-laravel": "~1.0",
         ...
     },
     "scripts": {
