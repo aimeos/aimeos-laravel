@@ -17,7 +17,7 @@ return array(
 		'basket-index' => array( 'basket/standard','basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),
 		'catalog-detail' => array( 'basket/mini','catalog/stage','catalog/detail','catalog/session' ),
-		'catalog-list' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/list' ),
+		'catalog-list' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ),
 		'catalog-stock' => array( 'catalog/stock' ),
 		'catalog-suggest' => array( 'catalog/suggest' ),
 		'checkout-confirm' => array( 'checkout/confirm' ),

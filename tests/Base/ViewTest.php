@@ -5,16 +5,16 @@ class ViewTest extends AimeosTestAbstract
 {
 	public function testCreateNoLocale()
 	{
-		$config = new \MW_Config_Array();
+		$config = new \Aimeos\MW\Config\PHPArray();
 		$object = new \Aimeos\Shop\Base\View();
 
-		$this->assertInstanceOf( '\MW_View_Interface', $object->create( $config, array() ) );
+		$this->assertInstanceOf( '\Aimeos\MW\View\Iface', $object->create( $config, array() ) );
 	}
 
 
 	public function testCreate()
 	{
-		$config = new \MW_Config_Array();
+		$config = new \Aimeos\MW\Config\PHPArray();
 		$object = new \Aimeos\Shop\Base\View();
 
 /*		Breaks with orchestra/testbench
@@ -32,6 +32,6 @@ class ViewTest extends AimeosTestAbstract
 		\Route::shouldReceive('current')->once()->andReturn($routeMock);
 		\Route::shouldReceive('currentRouteName')->once();
 */
-		$this->assertInstanceOf('\MW_View_Interface', $object->create($config, array()));
+		$this->assertInstanceOf('\Aimeos\MW\View\Iface', $object->create($config, array()));
 	}
 }

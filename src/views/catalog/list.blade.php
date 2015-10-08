@@ -4,7 +4,7 @@
     <?= $aiheader['basket/mini'] ?>
     <?= $aiheader['catalog/filter'] ?>
     <?= $aiheader['catalog/stage'] ?>
-    <?= $aiheader['catalog/list'] ?>
+    <?= $aiheader['catalog/lists'] ?>
 @stop
 
 @section('aimeos_head')
@@ -20,5 +20,5 @@
 @stop
 
 @section('aimeos_body')
-     <?= $aibody['catalog/list'] ?>
+     <?= $aibody['catalog/lists'] ?>
 @stop

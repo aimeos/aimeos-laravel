@@ -78,7 +78,7 @@ class Page
 		{
 			foreach( (array) $pagesConfig[$pageName] as $clientName )
 			{
-				$client = \Client_Html_Factory::createClient( $context, $tmplPaths, $clientName );
+				$client = \Aimeos\Client\Html\Factory::createClient( $context, $tmplPaths, $clientName );
 				$client->setView( clone $view );
 				$client->process();
 

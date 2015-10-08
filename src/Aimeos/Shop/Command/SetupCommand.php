@@ -84,7 +84,7 @@ class SetupCommand extends AbstractCommand
 
 		spl_autoload_register( '\Aimeos\Shop\Command\SetupCommand::autoload', true );
 
-		$manager = new \MW_Setup_Manager_Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
+		$manager = new \Aimeos\MW\Setup\Manager\Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
 
@@ -121,10 +121,10 @@ class SetupCommand extends AbstractCommand
 	/**
 	 * Returns the database configuration from the config object.
 	 *
-	 * @param \MW_Config_Interface $conf Config object
+	 * @param \Aimeos\MW\Config\Iface $conf Config object
 	 * @return array Multi-dimensional associative list of database configuration parameters
 	 */
-	protected function getDbConfig( \MW_Config_Interface $conf )
+	protected function getDbConfig( \Aimeos\MW\Config\Iface $conf )
 	{
 		$dbconfig = $conf->get( 'resource', array() );
 
@@ -142,11 +142,11 @@ class SetupCommand extends AbstractCommand
 	/**
 	 * Extracts the configuration options from the input object and updates the configuration values in the config object.
 	 *
-	 * @param \MW_Config_Interface $conf Configuration object
+	 * @param \Aimeos\MW\Config\Iface $conf Configuration object
 	 * @param array Associative list of database configurations
 	 * @throws \RuntimeException If the format of the options is invalid
 	 */
-	protected function setOptions( \MW_Config_Interface $conf )
+	protected function setOptions( \Aimeos\MW\Config\Iface $conf )
 	{
 		foreach( (array) $this->option( 'option' ) as $option )
 		{

@@ -19,7 +19,7 @@ namespace Aimeos\Shop\Base;
 class Context
 {
 	/**
-	 * @var \MShop_Context_Item_Interface
+	 * @var \Aimeos\MShop\Context\Item\Iface
 	 */
 	private static $context;
 
@@ -29,7 +29,7 @@ class Context
 	private $config;
 
 	/**
-	 * @var \MShop_Locale_Item_Interface
+	 * @var \Aimeos\MShop\Locale\Item\Iface
 	 */
 	private $locale;
 
@@ -56,27 +56,27 @@ class Context
 	 * Returns the current context
 	 *
 	 * @param boolean $locale True to add locale object to context, false if not
-	 * @return \MShop_Context_Item_Interface Context object
+	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
 	public function get( $locale = true )
 	{
 		if( self::$context === null )
 		{
-			$context = new \MShop_Context_Item_Default();
+			$context = new \Aimeos\MShop\Context\Item\Standard();
 
 			$config = $this->getConfig();
 			$context->setConfig( $config );
 
-			$dbm = new \MW_DB_Manager_PDO( $config );
+			$dbm = new \Aimeos\MW\DB\Manager\PDO( $config );
 			$context->setDatabaseManager( $dbm );
 
-			$mail = new \MW_Mail_Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
+			$mail = new \Aimeos\MW\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
 			$context->setMail( $mail );
 
-			$logger = \MAdmin_Log_Manager_Factory::createManager( $context );
+			$logger = \Aimeos\MAdmin\Log\Manager\Factory::createManager( $context );
 			$context->setLogger( $logger );
 
-			$cache = new \MAdmin_Cache_Proxy_Default( $context );
+			$cache = new \Aimeos\MAdmin\Cache\Proxy\Standard( $context );
 			$context->setCache( $cache );
 
 			self::$context = $context;
@@ -93,7 +93,7 @@ class Context
 			$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $langid ) ) );
 		}
 
-		$session = new \MW_Session_Laravel4( $this->session );
+		$session = new \Aimeos\MW\Session\Laravel4( $this->session );
 		$context->setSession( $session );
 
 		$this->addUser( $context );
@@ -105,16 +105,16 @@ class Context
 	/**
 	 * Adds the user ID and name if available
 	 *
-	 * @param \MShop_Context_Item_Interface $context Context object
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 */
-	protected function addUser( \MShop_Context_Item_Interface $context )
+	protected function addUser( \Aimeos\MShop\Context\Item\Iface $context )
 	{
 		if( ( $userid = \Auth::id() ) !== null )
 		{
 			$context->setUserId( $userid );
 			$context->setGroupIds( function() use ( $context, $userid )
 			{
-				$manager = \MShop_Factory::createManager( $context, 'customer' );
+				$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
 				return $manager->getItem( $userid, array( 'customer/group' ) )->getGroups();
 			} );
 		}
@@ -128,17 +128,17 @@ class Context
 	/**
 	 * Creates a new configuration object.
 	 *
-	 * @return \MW_Config_Interface Configuration object
+	 * @return \Aimeos\MW\Config\Iface Configuration object
 	 */
 	protected function getConfig()
 	{
 		$conf = $this->config->get( 'shop' );
 
 		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths( 'mysql' );
-		$config = new \MW_Config_Array( $conf, $configPaths );
+		$config = new \Aimeos\MW\Config\PHPArray( $conf, $configPaths );
 
 		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
-			$config = new \MW_Config_Decorator_APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
+			$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 		}
 
 		return $config;
@@ -148,10 +148,10 @@ class Context
 	/**
 	 * Returns the locale item for the current request
 	 *
-	 * @param \MShop_Context_Item_Interface $context Context object
-	 * @return \MShop_Locale_Item_Interface Locale item object
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @return \Aimeos\MShop\Locale\Item\Iface Locale item object
 	 */
-	protected function getLocale( \MShop_Context_Item_Interface $context )
+	protected function getLocale( \Aimeos\MShop\Context\Item\Iface $context )
 	{
 		if( $this->locale === null )
 		{
@@ -161,7 +161,7 @@ class Context
 
 			$disableSites = $this->config->has( 'shop.disableSites' );
 
-			$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
+			$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
 			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
 		}
 

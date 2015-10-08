@@ -40,7 +40,7 @@ class JobsCommand extends AbstractCommand
 		$context = $this->getContext();
 
 		$jobs = explode( ' ', $this->argument( 'jobs' ) );
-		$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
+		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
 
 		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
 		{
@@ -50,7 +50,7 @@ class JobsCommand extends AbstractCommand
 			$this->info( sprintf( 'Executing the Aimeos jobs for "%s"', $siteItem->getCode() ) );
 
 			foreach( $jobs as $jobname ) {
-				\Controller_Jobs_Factory::createController( $context, $aimeos, $jobname )->run();
+				\Aimeos\Controller\Jobs\Factory::createController( $context, $aimeos, $jobname )->run();
 			}
 		}
 	}
@@ -83,7 +83,7 @@ class JobsCommand extends AbstractCommand
 	/**
 	 * Returns a context object
 	 *
-	 * @return \MShop_Context_Item_Default Context object
+	 * @return \Aimeos\MShop\Context\Item\Standard Context object
 	 */
 	protected function getContext()
 	{
@@ -93,7 +93,7 @@ class JobsCommand extends AbstractCommand
 		$tmplPaths = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getCustomPaths( 'controller/jobs/layouts' );
 		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
 
-		$langManager = \MShop_Locale_Manager_Factory::createManager( $context )->getSubManager( 'language' );
+		$langManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context )->getSubManager( 'language' );
 		$langids = array_keys( $langManager->searchItems( $langManager->createSearch( true ) ) );
 		$i18n = $lv->make( '\Aimeos\Shop\Base\I18n' )->get( $langids );
 

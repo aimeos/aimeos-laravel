@@ -38,7 +38,7 @@ class CacheCommand extends AbstractCommand
 		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false );
 		$context->setEditor( 'aimeos:cache' );
 
-		$localeManager = \MShop_Locale_Manager_Factory::createManager( $context );
+		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
 
 		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
 		{
@@ -47,12 +47,12 @@ class CacheCommand extends AbstractCommand
 			$lcontext = clone $context;
 			$lcontext->setLocale( $localeItem );
 
-			$cache = new \MAdmin_Cache_Proxy_Default( $lcontext );
+			$cache = new \Aimeos\MAdmin\Cache\Proxy\Standard( $lcontext );
 			$lcontext->setCache( $cache );
 
 			$this->info( sprintf( 'Clearing the Aimeos cache for site "%1$s"', $siteItem->getCode() ) );
 
-			\MAdmin_Cache_Manager_Factory::createManager( $lcontext )->getCache()->flush();
+			\Aimeos\MAdmin\Cache\Manager\Factory::createManager( $lcontext )->getCache()->flush();
 		}
 	}
 
