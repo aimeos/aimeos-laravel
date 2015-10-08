@@ -24,7 +24,7 @@ class Aimeos
 	private $config;
 
 	/**
-	 * @var \Aimeos
+	 * @var \Aimeos\Bootstrap
 	 */
 	private $object;
 
@@ -43,7 +43,7 @@ class Aimeos
 	/**
 	 * Returns the Aimeos object.
 	 *
-	 * @return \Aimeos Aimeos object
+	 * @return \Aimeos\Bootstrap Aimeos bootstrap object
 	 */
 	public function get()
 	{
