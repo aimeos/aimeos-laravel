@@ -39,14 +39,6 @@ return array(
 		),
 	),
 
-	'classes' => array(
-		'customer' => array(
-			'manager' => array(
-				'name' => 'Laravel',
-			),
-		),
-	),
-
 	'client' => array(
 		'html' => array(
 			'account' => array(
@@ -287,8 +279,26 @@ return array(
 	'mshop' => array(
 		'customer' => array(
 			'manager' => array(
+				'name' => 'Laravel',
 				'password' => array(
 					'name' => 'Bcrypt',
+				),
+			),
+		),
+		'index' => array(
+			'manager' => array(
+				'name' => 'MySQL',
+				'attribute' => array(
+					'name' => 'MySQL',
+				),
+				'catalog' => array(
+					'name' => 'MySQL',
+				),
+				'price' => array(
+					'name' => 'MySQL',
+				),
+				'text' => array(
+					'name' => 'MySQL',
 				),
 			),
 		),
