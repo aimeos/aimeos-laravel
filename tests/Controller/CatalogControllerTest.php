@@ -52,7 +52,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testSuggestAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@suggestAction', ['site' => 'unittest']);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@suggestAction', ['site' => 'unittest'], ['f_search' => 'unit']);
 
 		$this->assertResponseOk();
 		$this->assertRegexp('/[{.*}]/', $response->getContent());
