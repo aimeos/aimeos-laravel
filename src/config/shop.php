@@ -45,6 +45,25 @@ return array(
 				'name' => 'Laravel',
 			),
 		),
+		'catalog' => array(
+			'manager' => array(
+				'index' => array(
+					'name' => 'MySQL',
+					'attribute' => array(
+						'name' => 'MySQL',
+					),
+					'catalog' => array(
+						'name' => 'MySQL',
+					),
+					'price' => array(
+						'name' => 'MySQL',
+					),
+					'text' => array(
+						'name' => 'MySQL',
+					),
+				),
+			),
+		),
 	),
 
 	'client' => array(
