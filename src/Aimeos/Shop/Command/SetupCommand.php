@@ -68,12 +68,13 @@ class SetupCommand extends AbstractCommand
 
 		$config = $ctx->getConfig();
 		$site = $this->argument( 'site' );
+		$parent = $this->argument( 'parent' );
 
 		$config->set( 'setup/site', $site );
 		$dbconfig = $this->getDbConfig( $config );
 		$this->setOptions( $config );
 
-		$taskPaths = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $site );
+		$taskPaths = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $parent );
 
 		$includePaths = $taskPaths;
 		$includePaths[] = get_include_path();
@@ -101,6 +102,7 @@ class SetupCommand extends AbstractCommand
 	{
 		return array(
 			array( 'site', InputArgument::OPTIONAL, 'Site for updating database entries', 'default' ),
+			array( 'parent', InputArgument::OPTIONAL, 'Parent site used as reference', 'default' ),
 		);
 	}
 
