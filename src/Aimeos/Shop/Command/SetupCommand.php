@@ -68,7 +68,7 @@ class SetupCommand extends AbstractCommand
 
 		$config = $ctx->getConfig();
 		$site = $this->argument( 'site' );
-		$template = $this->argument( 'template' );
+		$template = $this->argument( 'tplsite' );
 
 		$config->set( 'setup/site', $site );
 		$dbconfig = $this->getDbConfig( $config );
@@ -102,7 +102,7 @@ class SetupCommand extends AbstractCommand
 	{
 		return array(
 			array( 'site', InputArgument::OPTIONAL, 'Site for updating database entries', 'default' ),
-			array( 'template', InputArgument::OPTIONAL, 'Site used as template for creating the new one', 'default' ),
+			array( 'tplsite', InputArgument::OPTIONAL, 'Site used as template for creating the new one', 'default' ),
 		);
 	}
 
