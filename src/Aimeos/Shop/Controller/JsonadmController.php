@@ -11,10 +11,11 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
 
 
 /**
- * Aimeos controller for the JSON REST API.
+ * Aimeos controller for the JSON REST API
  *
  * @package laravel-bundle
  * @subpackage Controller
@@ -22,93 +23,150 @@ use Illuminate\Routing\Controller;
 class JsonadmController extends Controller
 {
 	/**
-	 * Deletes the resource list.
+	 * Deletes the resource object or a list of resource objects
 	 *
+	 * @param \Illuminate\Http\Request $request Request object
+	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @return Response Response object containing the generated output
+	 * @param integer|null $id Unique resource ID
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function deleteAction( $site, $resource, $id = null )
+	public function deleteAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
 		$header = array();
 
-		$cntl = \Aimeos\Controller\JsonAdm\Factory::createController( $this->getContext(), $templatePaths, $resource );
-		$result = $cntl->delete( file_get_contents( 'php://input' ), $header, $status );
+		$cntl = $this->createController( $site, $resource );
+		$result = $cntl->delete( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
 
 
 	/**
-	 * Returns the requested resource list.
+	 * Returns the requested resource object or list of resource objects
 	 *
+	 * @param \Illuminate\Http\Request $request Request object
+	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @return Response Response object containing the generated output
+	 * @param integer|null $id Unique resource ID
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function getAction( $site, $resource, $id = null )
+	public function getAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
 		$header = array();
 
-		$cntl = \Aimeos\Controller\JsonAdm\Factory::createController( $this->getContext(), $templatePaths, $resource );
-		$result = $cntl->get( file_get_contents( 'php://input' ), $header, $status );
+		$cntl = $this->createController( $site, $resource );
+		$result = $cntl->get( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
 
 
 	/**
-	 * Returns the requested resource item identified by its unique ID.
+	 * Updates a resource object or a list of resource objects
 	 *
+	 * @param \Illuminate\Http\Request $request Request object
+	 * @param string $sitecode Unique site code
+	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param integer|null $id Unique resource ID
+	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 */
+	public function patchAction( Request $request, $site, $resource, $id = null )
+	{
+		$status = 500;
+		$header = array();
+
+		$cntl = $this->createController( $site, $resource );
+		$result = $cntl->patch( $request->getContent(), $header, $status );
+
+		return $this->createResponse( $result, $status, $header );
+	}
+
+
+	/**
+	 * Creates a new resource object or a list of resource objects
+	 *
+	 * @param \Illuminate\Http\Request $request Request object
+	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
 	 * @param integer $id Unique ID of the resource
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function postAction( $site, $resource, $id = null )
+	public function postAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
 		$header = array();
 
-		$cntl = \Aimeos\Controller\JsonAdm\Factory::createController( $this->getContext(), $templatePaths, $resource );
-		$result = $cntl->post( file_get_contents( 'php://input' ), $header, $status );
+		$cntl = $this->createController( $site, $resource );
+		$result = $cntl->post( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
 
 
 	/**
-	 * Creates or updates the resource list.
+	 * Creates or updates a single resource object
 	 *
+	 * @param \Illuminate\Http\Request $request Request object
+	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @return Response Response object containing the generated output
+	 * @param integer|null $id Unique resource ID
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function putAction( $site, $resource, $id = null )
+	public function putAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
 		$header = array();
 
-		$cntl = \Aimeos\Controller\JsonAdm\Factory::createController( $this->getContext(), $templatePaths, $resource );
-		$result = $cntl->put( file_get_contents( 'php://input' ), $header, $status );
+		$cntl = $this->createController( $site, $resource );
+		$result = $cntl->put( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
 
 
 	/**
-	 * Creates or updates the resource item identified by its unique ID.
+	 * Returns the available HTTP verbs and the resource URLs
 	 *
+	 * @param \Illuminate\Http\Request $request Request object
+	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function optionsAction( $site = 'default', $resource = '' )
+	public function optionsAction( Request $request, $site = 'default', $resource = '' )
 	{
 		$status = 500;
 		$header = array();
 
-		$cntl = \Aimeos\Controller\JsonAdm\Factory::createController( $this->getContext(), $templatePaths, $resource );
-		$result = $cntl->options( file_get_contents( 'php://input' ), $header, $status );
+		$cntl = $this->createController( $site, $resource );
+		$result = $cntl->options( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
+	}
+
+
+	/**
+	 * Returns the resource controller
+	 *
+	 * @param string $sitecode Unique site code
+	 * @return \Aimeos\MShop\Context\Item\Iface Context item
+	 */
+	protected function createController( $sitecode, $resource )
+	{
+		$lang = \Input::get( 'lang', 'en' );
+
+		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$templatePaths = $aimeos->getCustomPaths( 'controller/jsonadm/templates' );
+
+		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
+		$context = $this->setLocale( $context, $sitecode, $lang );
+
+		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang );
+		$context->setView( $view );
+
+		return \Aimeos\Controller\JsonAdm\Factory::createController( $context, $templatePaths, $resource );
 	}
 
 
@@ -118,39 +176,17 @@ class JsonadmController extends Controller
 	 * @param string $content Body of the HTTP response
 	 * @param integer $status HTTP status
 	 * @param array $header List of HTTP headers
-	 * @return \Response HTTP response object
+	 * @return \Illuminate\Http\Response HTTP response object
 	 */
 	protected function createResponse( $content, $status, array $header )
 	{
-		$response = \Response::make( $result, $status );
+		$response = \Response::make( $content, $status );
 
 		foreach( $header as $key => $value ) {
 			$response->header( $key, $value );
 		}
 
 		return $response;
-	}
-
-
-	/**
-	 * Returns the context item populated with the necessary objects
-	 *
-	 * @return \Aimeos\MShop\Context\Item\Iface Context item
-	 */
-	protected function getContext()
-	{
-		$lang = \Input::get( 'lang', 'en' );
-
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$templatePaths = $aimeos->getCustomPaths( 'controller/jsonadm/templates' );
-
-		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
-		$context = $this->setLocale( $context, $site, $lang );
-
-		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang );
-		$context->setView( $view );
-
-		return $context;
 	}
 
 
@@ -162,7 +198,7 @@ class JsonadmController extends Controller
 	 * @param string $lang ISO language code, e.g. "en" or "en_GB"
 	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
-	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default', $lang )
+	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode, $lang )
 	{
 		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
 

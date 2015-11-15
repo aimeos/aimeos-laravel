@@ -105,6 +105,11 @@ Route::group(config('shop.routes.jsonadm', []), function() {
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@getAction'
 	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
 
+	Route::match( array( 'PATCH' ), 'jsonadm/{site}/{resource}/{id?}', array(
+		'as' => 'aimeos_shop_jsonadm_patch',
+		'uses' => 'Aimeos\Shop\Controller\JsonadmController@patchAction'
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+
 	Route::match( array( 'POST' ), 'jsonadm/{site}/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_post',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@postAction'
@@ -119,4 +124,5 @@ Route::group(config('shop.routes.jsonadm', []), function() {
 		'as' => 'aimeos_shop_jsonadm_options',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@optionsAction'
 	))->where( array( 'resource' => '[^0-9]*' ) );
+
 });
