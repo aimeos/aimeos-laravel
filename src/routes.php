@@ -91,3 +91,32 @@ Route::group(config('shop.routes.default', []), function() {
 	));
 
 });
+
+
+Route::group(config('shop.routes.jsonadm', []), function() {
+
+	Route::match( array( 'DELETE' ), 'jsonadm/{site}/{resource}/{id?}', array(
+		'as' => 'aimeos_shop_jsonadm_delete',
+		'uses' => 'Aimeos\Shop\Controller\JsonadmController@deleteAction'
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+
+	Route::match( array( 'GET' ), 'jsonadm/{site}/{resource}/{id?}', array(
+		'as' => 'aimeos_shop_jsonadm_get',
+		'uses' => 'Aimeos\Shop\Controller\JsonadmController@getAction'
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+
+	Route::match( array( 'POST' ), 'jsonadm/{site}/{resource}/{id?}', array(
+		'as' => 'aimeos_shop_jsonadm_post',
+		'uses' => 'Aimeos\Shop\Controller\JsonadmController@postAction'
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+
+	Route::match( array( 'PUT' ), 'jsonadm/{site}/{resource}', array(
+		'as' => 'aimeos_shop_jsonadm_put',
+		'uses' => 'Aimeos\Shop\Controller\JsonadmController@putAction'
+	))->where( array( 'resource' => '[^0-9]+' ) );
+
+	Route::match( array( 'OPTIONS' ), 'jsonadm/{site?}/{resource?}', array(
+		'as' => 'aimeos_shop_jsonadm_options',
+		'uses' => 'Aimeos\Shop\Controller\JsonadmController@optionsAction'
+	))->where( array( 'resource' => '[^0-9]*' ) );
+});

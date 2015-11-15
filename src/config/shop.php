@@ -268,6 +268,14 @@ return array(
 				),
 			),
 		),
+		'jsonadm' => array(
+			'url' => array(
+				'target' => 'aimeos_shop_jsonadm_get',
+				'config' => array(
+					'absoluteUri' => true,
+				),
+			),
+		),
 	),
 
 	'i18n' => array(
