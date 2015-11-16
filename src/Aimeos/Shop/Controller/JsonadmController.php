@@ -34,7 +34,7 @@ class JsonadmController extends Controller
 	public function deleteAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
-		$header = array();
+		$header = $request->headers->all();
 
 		$cntl = $this->createController( $site, $resource );
 		$result = $cntl->delete( $request->getContent(), $header, $status );
@@ -55,7 +55,7 @@ class JsonadmController extends Controller
 	public function getAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
-		$header = array();
+		$header = $request->headers->all();
 
 		$cntl = $this->createController( $site, $resource );
 		$result = $cntl->get( $request->getContent(), $header, $status );
@@ -76,7 +76,7 @@ class JsonadmController extends Controller
 	public function patchAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
-		$header = array();
+		$header = $request->headers->all();
 
 		$cntl = $this->createController( $site, $resource );
 		$result = $cntl->patch( $request->getContent(), $header, $status );
@@ -97,7 +97,7 @@ class JsonadmController extends Controller
 	public function postAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
-		$header = array();
+		$header = $request->headers->all();
 
 		$cntl = $this->createController( $site, $resource );
 		$result = $cntl->post( $request->getContent(), $header, $status );
@@ -118,7 +118,7 @@ class JsonadmController extends Controller
 	public function putAction( Request $request, $site, $resource, $id = null )
 	{
 		$status = 500;
-		$header = array();
+		$header = $request->headers->all();
 
 		$cntl = $this->createController( $site, $resource );
 		$result = $cntl->put( $request->getContent(), $header, $status );
@@ -138,7 +138,7 @@ class JsonadmController extends Controller
 	public function optionsAction( Request $request, $site = 'default', $resource = '' )
 	{
 		$status = 500;
-		$header = array();
+		$header = $request->headers->all();
 
 		$cntl = $this->createController( $site, $resource );
 		$result = $cntl->options( $request->getContent(), $header, $status );
