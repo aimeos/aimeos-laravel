@@ -8,6 +8,7 @@ return array(
 
 	'routes' => array(
 		'admin' => array(),
+		'jsonadm' => array(),
 		'account' => array('middleware' => 'auth'),
 		'default' => array(),
 	),
