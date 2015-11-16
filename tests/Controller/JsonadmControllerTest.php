@@ -17,7 +17,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 		$json = json_decode( $response->getContent(), true );
 
-		$this->assertEquals( 201, $response->status() );
+		$this->assertEquals( 201, $response->getStatusCode() );
 		$this->assertNotNull( $json );
 		$this->assertArrayHasKey( 'product.stock.warehouse.id', $json['data']['attributes'] );
 		$this->assertEquals( 'laravel', $json['data']['attributes']['product.stock.warehouse.code'] );
@@ -78,7 +78,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 		$json = json_decode( $response->getContent(), true );
 
-		$this->assertEquals( 201, $response->status() );
+		$this->assertEquals( 201, $response->getStatusCode() );
 		$this->assertNotNull( $json );
 		$this->assertEquals( 2, count( $json['data'] ) );
 		$this->assertArrayHasKey( 'product.stock.warehouse.id', $json['data'][0]['attributes'] );
