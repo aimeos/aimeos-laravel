@@ -9,6 +9,31 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	}
 
 
+	public function testOptionsAction()
+	{
+		$params = ['site' => 'unittest', 'resource' => 'product'];
+		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params);
+
+		$json = json_decode( $response->getContent(), true );
+
+		$this->assertNotNull( $json );
+		$this->assertEquals( 200, $response->getStatusCode() );
+		$this->assertArrayHasKey( 'resources', $json['meta'] );
+		$this->assertGreaterThan( 1, count( $json['meta']['resources'] ) );
+
+
+		$params = ['site' => 'unittest'];
+		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params);
+
+		$json = json_decode( $response->getContent(), true );
+
+		$this->assertNotNull( $json );
+		$this->assertEquals( 200, $response->getStatusCode() );
+		$this->assertArrayHasKey( 'resources', $json['meta'] );
+		$this->assertGreaterThan( 1, count( $json['meta']['resources'] ) );
+	}
+
+
 	public function testActionsSingle()
 	{
 		$params = ['site' => 'unittest', 'resource' => 'product/stock/warehouse'];
