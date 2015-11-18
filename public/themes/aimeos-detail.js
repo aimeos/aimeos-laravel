@@ -96,6 +96,11 @@ AimeosCatalogDetail = {
 	 */
 	zoomImage: function(item, container) {
 
+		// No zoom if there is no image
+		if( item.length === 0 ) {
+			return;
+		}
+
 		// No zoom on small mobile devices
 		if( item.offset().left + item.outerWidth() + container.width() + 10 > $(window).width() ) {
 			return;
