@@ -26,12 +26,12 @@ class JsonadmController extends Controller
 	 * Deletes the resource object or a list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param string $sitecode Unique site code
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function deleteAction( Request $request, $site, $resource, $id = null )
+	public function deleteAction( Request $request, $resource, $site = 'default', $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -47,12 +47,12 @@ class JsonadmController extends Controller
 	 * Returns the requested resource object or list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param string $sitecode Unique site code
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function getAction( Request $request, $site, $resource, $id = null )
+	public function getAction( Request $request, $resource, $site = 'default', $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -68,12 +68,12 @@ class JsonadmController extends Controller
 	 * Updates a resource object or a list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param string $sitecode Unique site code
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function patchAction( Request $request, $site, $resource, $id = null )
+	public function patchAction( Request $request, $resource, $site = 'default', $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -89,12 +89,12 @@ class JsonadmController extends Controller
 	 * Creates a new resource object or a list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param string $sitecode Unique site code
 	 * @param integer $id Unique ID of the resource
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function postAction( Request $request, $site, $resource, $id = null )
+	public function postAction( Request $request, $resource, $site = 'default', $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -110,12 +110,12 @@ class JsonadmController extends Controller
 	 * Creates or updates a single resource object
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param string $sitecode Unique site code
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function putAction( Request $request, $site, $resource, $id = null )
+	public function putAction( Request $request, $resource, $site = 'default', $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -131,11 +131,11 @@ class JsonadmController extends Controller
 	 * Returns the available HTTP verbs and the resource URLs
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string $sitecode Unique site code
 	 * @param string Resource location, e.g. "product/stock/wareshouse"
+	 * @param string $sitecode Unique site code
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function optionsAction( Request $request, $site = 'default', $resource = '' )
+	public function optionsAction( Request $request, $resource = '', $site = 'default' )
 	{
 		$status = 500;
 		$header = $request->headers->all();
