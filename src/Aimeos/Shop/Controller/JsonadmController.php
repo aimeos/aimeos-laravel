@@ -31,7 +31,7 @@ class JsonadmController extends Controller
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function deleteAction( Request $request, $resource, $site = 'default', $id = null )
+	public function deleteAction( Request $request, $site = 'default', $resource, $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -52,7 +52,7 @@ class JsonadmController extends Controller
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function getAction( Request $request, $resource, $site = 'default', $id = null )
+	public function getAction( Request $request, $site = 'default', $resource, $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -73,7 +73,7 @@ class JsonadmController extends Controller
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function patchAction( Request $request, $resource, $site = 'default', $id = null )
+	public function patchAction( Request $request, $site = 'default', $resource, $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -94,7 +94,7 @@ class JsonadmController extends Controller
 	 * @param integer $id Unique ID of the resource
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function postAction( Request $request, $resource, $site = 'default', $id = null )
+	public function postAction( Request $request, $site = 'default', $resource, $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -115,7 +115,7 @@ class JsonadmController extends Controller
 	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function putAction( Request $request, $resource, $site = 'default', $id = null )
+	public function putAction( Request $request, $site = 'default', $resource, $id = null )
 	{
 		$status = 500;
 		$header = $request->headers->all();
@@ -135,7 +135,7 @@ class JsonadmController extends Controller
 	 * @param string $sitecode Unique site code
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function optionsAction( Request $request, $resource = '', $site = 'default' )
+	public function optionsAction( Request $request, $site = 'default', $resource = '' )
 	{
 		$status = 500;
 		$header = $request->headers->all();
