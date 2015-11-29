@@ -17,14 +17,19 @@
     </php>
 
 	<testsuites>
-		<testsuite name="base">
-			<directory>./tests/Base</directory>
+		<testsuite name="aimeos">
+			<file>./tests/Base/AimeosTest.php</file>
 		</testsuite>
 		<testsuite name="command">
 			<file>./tests/Command/SetupCommandTest.php</file>
 			<file>./tests/Command/CacheCommandTest.php</file>
 			<file>./tests/Command/JobsCommandTest.php</file>
 			<file>./tests/Command/AccountCommandTest.php</file>
+		</testsuite>
+		<testsuite name="base">
+			<file>./tests/Base/I18nTest.php</file>
+			<file>./tests/Base/ViewTest.php</file>
+			<file>./tests/Base/SupportTest.php</file>
 		</testsuite>
 		<testsuite name="controller">
 			<directory>./tests/Controller</directory>
