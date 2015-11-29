@@ -39,15 +39,18 @@ class AccountCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get();
-		$context->setEditor( 'aimeos:account' );
-
 		$code = $this->argument( 'email' );
 		if( ( $password = $this->option( 'password' ) ) === null ) {
 			$password = $this->secret( 'Password' );
 		}
 
-		$user = $this->getCustomerItem( $context, $code, $password );
+		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false );
+		$context->setEditor( 'aimeos:account' );
+
+		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
+		$context->setLocale( $localeManager->createItem() );
+
+		$user = $this->createCustomerItem( $context, $code, $password );
 
 		if( $this->option( 'admin' ) ) {
 			$this->addPrivilege( $context, $user, 'admin' );
@@ -120,20 +123,6 @@ class AccountCommand extends AbstractCommand
 
 
 	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array( 'email', InputArgument::REQUIRED, 'E-mail address of the account that should be created' ),
-			array( 'site', InputArgument::OPTIONAL, 'Site codes to create accounts for like "default unittest" (none for all)' ),
-		);
-	}
-
-
-	/**
 	 * Returns the customer item for the given e-mail and set its password
 	 *
 	 * If the customer doesn't exist yet, it will be created.
@@ -143,7 +132,7 @@ class AccountCommand extends AbstractCommand
 	 * @param string $password New user password
 	 * @return \Aimeos\MShop\Customer\Item\Iface Aimeos customer item object
 	 */
-	protected function getCustomerItem( \Aimeos\MShop\Context\Item\Iface $context, $email, $password )
+	protected function createCustomerItem( \Aimeos\MShop\Context\Item\Iface $context, $email, $password )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
 
@@ -160,6 +149,20 @@ class AccountCommand extends AbstractCommand
 		$manager->saveItem( $item );
 
 		return $item;
+	}
+
+
+	/**
+	 * Get the console command arguments.
+	 *
+	 * @return array
+	 */
+	protected function getArguments()
+	{
+		return array(
+			array( 'email', InputArgument::REQUIRED, 'E-mail address of the account that should be created' ),
+			array( 'site', InputArgument::OPTIONAL, 'Site codes to create accounts for like "default unittest" (none for all)' ),
+		);
 	}
 
 
