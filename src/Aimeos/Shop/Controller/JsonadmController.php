@@ -10,8 +10,9 @@
 
 namespace Aimeos\Shop\Controller;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
 /**
@@ -22,6 +23,9 @@ use Illuminate\Http\Request;
  */
 class JsonadmController extends Controller
 {
+	use AuthorizesRequests;
+
+
 	/**
 	 * Deletes the resource object or a list of resource objects
 	 *

@@ -11,6 +11,7 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
 /**
@@ -21,6 +22,9 @@ use Illuminate\Routing\Controller;
  */
 class AdminController extends Controller
 {
+	use AuthorizesRequests;
+
+
 	/**
 	 * Returns the initial HTML view for the admin interface.
 	 *
