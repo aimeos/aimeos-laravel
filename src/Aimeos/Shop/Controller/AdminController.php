@@ -28,6 +28,8 @@ class AdminController extends Controller
 	 */
 	public function indexAction()
 	{
+		$this->authorize( 'admin' );
+
 		$site = \Input::get( 'site', 'default' );
 		$lang = \Input::get( 'lang', 'en' );
 
@@ -86,6 +88,8 @@ class AdminController extends Controller
 	 */
 	public function doAction()
 	{
+		$this->authorize( 'admin' );
+
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
@@ -106,6 +110,8 @@ class AdminController extends Controller
 	 */
 	public function fileAction()
 	{
+		$this->authorize( 'admin' );
+
 		$contents = '';
 		$jsFiles = array();
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();

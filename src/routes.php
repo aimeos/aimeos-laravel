@@ -1,6 +1,6 @@
 <?php
 
-Route::group(config('shop.routes.admin', []), function() {
+Route::group(config('shop.routes.admin', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'GET' ), 'admin/file', array(
 		'as' => 'aimeos_shop_admin_file',
@@ -18,7 +18,7 @@ Route::group(config('shop.routes.admin', []), function() {
 });
 
 
-Route::group(config('shop.routes.jsonadm', []), function() {
+Route::group(config('shop.routes.jsonadm', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'DELETE' ), 'jsonadm/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',

@@ -33,6 +33,8 @@ class JsonadmController extends Controller
 	 */
 	public function deleteAction( Request $request, $site = 'default', $resource, $id = null )
 	{
+		$this->authorize( 'admin' );
+
 		$status = 500;
 		$header = $request->headers->all();
 
@@ -54,6 +56,8 @@ class JsonadmController extends Controller
 	 */
 	public function getAction( Request $request, $site = 'default', $resource, $id = null )
 	{
+		$this->authorize( 'admin' );
+
 		$status = 500;
 		$header = $request->headers->all();
 
@@ -75,6 +79,8 @@ class JsonadmController extends Controller
 	 */
 	public function patchAction( Request $request, $site = 'default', $resource, $id = null )
 	{
+		$this->authorize( 'admin' );
+
 		$status = 500;
 		$header = $request->headers->all();
 
@@ -96,6 +102,8 @@ class JsonadmController extends Controller
 	 */
 	public function postAction( Request $request, $site = 'default', $resource, $id = null )
 	{
+		$this->authorize( 'admin' );
+
 		$status = 500;
 		$header = $request->headers->all();
 
@@ -117,6 +125,8 @@ class JsonadmController extends Controller
 	 */
 	public function putAction( Request $request, $site = 'default', $resource, $id = null )
 	{
+		$this->authorize( 'admin' );
+
 		$status = 500;
 		$header = $request->headers->all();
 
@@ -137,6 +147,8 @@ class JsonadmController extends Controller
 	 */
 	public function optionsAction( Request $request, $site = 'default', $resource = '' )
 	{
+		$this->authorize( 'admin' );
+
 		$status = 500;
 		$header = $request->headers->all();
 
