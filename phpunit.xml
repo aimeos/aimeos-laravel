@@ -24,6 +24,7 @@
 			<file>./tests/Command/SetupCommandTest.php</file>
 			<file>./tests/Command/CacheCommandTest.php</file>
 			<file>./tests/Command/JobsCommandTest.php</file>
+			<file>./tests/Command/AccountCommandTest.php</file>
 		</testsuite>
 		<testsuite name="controller">
 			<directory>./tests/Controller</directory>

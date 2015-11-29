@@ -84,6 +84,10 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 
+		$this->app['command.aimeos.account'] = $this->app->share(function() {
+			return new Command\AccountCommand();
+		});
+
 		$this->app['command.aimeos.cache'] = $this->app->share(function() {
 			return new Command\CacheCommand();
 		});
@@ -96,6 +100,7 @@ class ShopServiceProvider extends ServiceProvider {
 			return new Command\SetupCommand();
 		});
 
+		$this->commands('command.aimeos.account');
 		$this->commands('command.aimeos.cache');
 		$this->commands('command.aimeos.setup');
 		$this->commands('command.aimeos.jobs');
@@ -110,7 +115,7 @@ class ShopServiceProvider extends ServiceProvider {
 	public function provides()
 	{
 		return array(
-			'command.aimeos.cache', 'command.aimeos.jobs', 'command.aimeos.setup',
+			'command.aimeos.account', 'command.aimeos.cache', 'command.aimeos.jobs', 'command.aimeos.setup',
 			'\Aimeos\Shop\Base\Aimeos', '\Aimeos\Shop\Base\I18n', '\Aimeos\Shop\Base\Context',
 			'\Aimeos\Shop\Base\View', '\Aimeos\Shop\Base\Page'
 		);
