@@ -39,7 +39,7 @@ class AccountCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false );
+		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get();
 		$context->setEditor( 'aimeos:account' );
 
 		$code = $this->argument( 'email' );
@@ -111,7 +111,7 @@ class AccountCommand extends AbstractCommand
 			$lcontext = clone $context;
 			$lcontext->setLocale( $localeItem );
 
-			$this->info( $siteItem->getCode() );
+			$this->info( '- ' . $siteItem->getCode() );
 
 			$groupItem = $this->getGroupItem( $lcontext, $privilege );
 			$this->addListItem( $lcontext, $user->getId(), $groupItem->getId() );
