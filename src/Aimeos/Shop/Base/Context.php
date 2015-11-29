@@ -158,9 +158,17 @@ class Context
 	{
 		if( $this->locale === null )
 		{
-			$site = \Route::input( 'site', 'default' );
-			$lang = \Route::input( 'locale', '' );
-			$currency = \Route::input( 'currency', '' );
+			if( \Route::current() !== null )
+			{
+				$site = \Route::input( 'site', 'default' );
+				$lang = \Route::input( 'locale', '' );
+				$currency = \Route::input( 'currency', '' );
+			}
+			else
+			{
+				$site = 'default';
+				$lang = $currency = '';
+			}
 
 			$disableSites = $this->config->has( 'shop.disableSites' );
 
