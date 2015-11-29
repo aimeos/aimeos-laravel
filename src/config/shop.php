@@ -7,8 +7,8 @@ return array(
 	'uploaddir' => '/',
 
 	'routes' => array(
-		'admin' => array(),
-		'jsonadm' => array(),
+		'admin' => array('middleware' => 'auth'),
+		'jsonadm' => array('middleware' => 'auth'),
 		'account' => array('middleware' => 'auth'),
 		'default' => array(),
 	),
