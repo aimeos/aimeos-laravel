@@ -70,8 +70,8 @@ class Context
 			$dbm = new \Aimeos\MW\DB\Manager\PDO( $config );
 			$context->setDatabaseManager( $dbm );
 
-			$fs = new \Aimeos\MW\Filesystem\Laravel( app( 'filesystem.disk' ) );
-			$context->setFilesystem( $fs );
+			$fs = new \Aimeos\MW\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, storage_path( 'aimeos' ) );
+			$context->setFilesystemManager( $fs );
 
 			$mail = new \Aimeos\MW\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
 			$context->setMail( $mail );

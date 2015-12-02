@@ -7,10 +7,10 @@ return array(
 	'uploaddir' => '/',
 
 	'routes' => array(
-		'admin' => array('middleware' => 'auth'),
-		'jsonadm' => array('middleware' => 'auth'),
-		'account' => array('middleware' => 'auth'),
-		'default' => array(),
+		// 'admin' => array('middleware' => 'auth'),
+		// 'jsonadm' => array('middleware' => 'auth'),
+		// 'account' => array('middleware' => 'auth'),
+		// 'default' => array(),
 	),
 
 	'page' => array(
@@ -38,6 +38,21 @@ return array(
 			'opt-persistent' => 0,
 			'limit' => 2,
 		),
+		'fs' => array(
+			'adapter' => 'Standard',
+			'basedir' => public_path(),
+			'tempdir' => storage_path( 'aimeos' ),
+		),
+		'fs-admin' => array(
+			'adapter' => 'Standard',
+			'basedir' => public_path( 'uploads' ),
+			'tempdir' => storage_path( 'aimeos' ),
+		),
+		/* 'fs-media' => array(
+			'adapter' => 'Standard',
+			'basedir' => public_path( 'uploads' ),
+			'tempdir' => storage_path( 'aimeos' ),
+		), */
 	),
 
 	'client' => array(
@@ -155,36 +170,18 @@ return array(
 	'controller' => array(
 		'extjs' => array(
 			'attribute' => array(
-				'import' => array(
-					'text' => array(
-						'default' => array(
-							'uploaddir' => public_path( 'uploads' ),
-							'fileperms' => '0660',
-						),
-					),
-				),
 				'export' => array(
 					'text' => array(
 						'default' => array(
-							'exportdir' => public_path( 'uploads' ),
 							'downloaddir' => 'uploads',
 						),
 					),
 				),
 			),
 			'catalog' => array(
-				'import' => array(
-					'text' => array(
-						'default' => array(
-							'uploaddir' => public_path( 'uploads' ),
-							'fileperms' => '0660',
-						),
-					),
-				),
 				'export' => array(
 					'text' => array(
 						'default' => array(
-							'exportdir' => public_path( 'uploads' ),
 							'downloaddir' => 'uploads',
 						),
 					),
@@ -192,25 +189,13 @@ return array(
 			),
 			'media' => array(
 				'default' => array(
-					# Base directory to the document root of the website
-					'basedir' => public_path(),
-					# Upload related settings
-					'upload' => array(
-						# Media directory where the uploaded files will be stored, must be relative to the path in "basedir"
-						'directory' => 'uploads',
-						# Directory permissions (in octal notation) which are applied to newly created directories
-						# dirperms: 0775
-						# File permissions (in octal notation) which are applied to newly created files
-						#fileperms: 0664
-						# Mime icon related settings
-					),
 					'mimeicon' => array(
-						# Directory where icons for the mime types stored. Must be relative to the path in "basedir"
-						'directory' => '/packages/aimeos/shop/mimeicons',
+						# Directory where icons for the mime types stored
+						'directory' => public_path( '/packages/aimeos/shop/mimeicons' ),
 						# File extension of mime type icons
 						'extension' => '.png'
-						# Parameter for images
 					),
+					# Parameters for images
 					'files' => array(
 						# Allowed image mime types, other image types will be converted
 						# allowedtypes: [image/jpeg, image/png, image/gif ]
@@ -230,6 +215,7 @@ return array(
 						# maxheight:
 						# Parameter for preview images
 					),
+					# Parameters for preview images
 					'preview' => array(
 						# Allowed image mime types, other image types will be converted
 						# allowedtypes: [image/jpeg, image/png, image/gif ]
@@ -248,21 +234,13 @@ return array(
 						# in the "maxwidth" parameter
 						# maxheight: 280
 					),
+					'tempdir' => storage_path( 'aimeos' ),
 				),
 			),
 			'product' => array(
-				'import' => array(
-					'text' => array(
-						'default' => array(
-							'uploaddir' => public_path( 'uploads' ),
-							'fileperms' => '0660',
-						),
-					),
-				),
 				'export' => array(
 					'text' => array(
 						'default' => array(
-							'exportdir' => public_path( 'uploads' ),
 							'downloaddir' => 'uploads',
 						),
 					),
