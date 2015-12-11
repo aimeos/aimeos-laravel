@@ -18,7 +18,7 @@ Route::group(config('shop.routes.admin', ['middleware' => 'auth']), function() {
 });
 
 
-Route::group(config('shop.routes.jsonadm', ['middleware' => 'auth']), function() {
+Route::group(config('shop.routes.jqadm', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'jqadm/copy/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_copy',
@@ -45,7 +45,7 @@ Route::group(config('shop.routes.jsonadm', ['middleware' => 'auth']), function()
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@saveAction'
 	))->where( array( 'resource' => '[^0-9]+' ) );
 
-	Route::match( array( 'GET', 'POST' ), 'jqadm/{resource}', array(
+	Route::match( array( 'GET', 'POST' ), 'jqadm/search/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_search',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@searchAction'
 	))->where( array( 'resource' => '[^0-9]+' ) );

@@ -8,6 +8,7 @@ return array(
 
 	'routes' => array(
 		// 'admin' => array('middleware' => 'auth'),
+		// 'jqadm' => array('middleware' => 'auth'),
 		// 'jsonadm' => array('middleware' => 'auth'),
 		// 'account' => array('middleware' => 'auth'),
 		// 'default' => array(),
@@ -164,6 +165,28 @@ return array(
 					),
 				),
 			),
+		),
+		'jqadm' => array(
+			'url' => array(
+				'copy' => array(
+					'target' => 'aimeos_shop_jqadm_copy'
+				),
+				'create' => array(
+					'target' => 'aimeos_shop_jqadm_create'
+				),
+				'delete' => array(
+					'target' => 'aimeos_shop_jqadm_delete'
+				),
+				'get' => array(
+					'target' => 'aimeos_shop_jqadm_get'
+				),
+				'save' => array(
+					'target' => 'aimeos_shop_jqadm_save'
+				),
+				'search' => array(
+					'target' => 'aimeos_shop_jqadm_search'
+				),
+			)
 		),
 	),
 
