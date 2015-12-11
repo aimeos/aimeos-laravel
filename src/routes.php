@@ -20,6 +20,41 @@ Route::group(config('shop.routes.admin', ['middleware' => 'auth']), function() {
 
 Route::group(config('shop.routes.jsonadm', ['middleware' => 'auth']), function() {
 
+	Route::match( array( 'GET', 'POST' ), 'jqadm/copy/{resource}/{id}', array(
+		'as' => 'aimeos_shop_jqadm_copy',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+
+	Route::match( array( 'GET', 'POST' ), 'jqadm/create/{resource}', array(
+		'as' => 'aimeos_shop_jqadm_create',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@createAction'
+	))->where( array( 'resource' => '[^0-9]+' ) );
+
+	Route::match( array( 'GET', 'POST' ), 'jqadm/delete/{resource}/{id}', array(
+		'as' => 'aimeos_shop_jqadm_delete',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@deleteAction'
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+
+	Route::match( array( 'GET' ), 'jqadm/get/{resource}/{id}', array(
+		'as' => 'aimeos_shop_jqadm_get',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@getAction'
+	))->where( array( 'resource' => '[^0-9]*', 'id' => '[0-9]*' ) );
+
+	Route::match( array( 'POST' ), 'jqadm/save/{resource}', array(
+		'as' => 'aimeos_shop_jqadm_save',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@saveAction'
+	))->where( array( 'resource' => '[^0-9]+' ) );
+
+	Route::match( array( 'GET', 'POST' ), 'jqadm/{resource}', array(
+		'as' => 'aimeos_shop_jqadm_search',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@searchAction'
+	))->where( array( 'resource' => '[^0-9]+' ) );
+
+});
+
+
+Route::group(config('shop.routes.jsonadm', ['middleware' => 'auth']), function() {
+
 	Route::match( array( 'DELETE' ), 'jsonadm/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@deleteAction'
