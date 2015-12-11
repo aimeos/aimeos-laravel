@@ -183,7 +183,7 @@ class JsonadmController extends Controller
 	 */
 	protected function createController( $sitecode, $resource )
 	{
-		$lang = \Input::get( 'lang', 'en' );
+		$lang = \Input::get( 'lang', config( 'app.locale', 'en' ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$templatePaths = $aimeos->getCustomPaths( 'controller/jsonadm/templates' );
