@@ -33,8 +33,6 @@ class View
 		if( $locale !== null )
 		{
 			$params = \Route::current()->parameters() + \Input::all();
-			$params['target'] = \Route::currentRouteName();
-
 			$fixed = $this->getFixedParams();
 
 			$i18n = app('\Aimeos\Shop\Base\I18n')->get( array( $locale ) );
@@ -54,7 +52,7 @@ class View
 		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app('url'), $fixed );
 		$view->addHelper( 'url', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Parameter\Standard( $view, $params );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
@@ -64,9 +62,6 @@ class View
 		$sep1000 = $config->get( 'client/html/common/format/seperator1000', ' ' );
 		$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, $sepDec, $sep1000 );
 		$view->addHelper( 'number', $helper );
-
-		$helper = new \Aimeos\MW\View\Helper\FormParam\Standard( $view, array() );
-		$view->addHelper( 'formparam', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Request\Laravel5( $view, \Request::instance() );
 		$view->addHelper( 'request', $helper );

@@ -96,7 +96,7 @@ class Context
 			$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $langid ) ) );
 		}
 
-		$session = new \Aimeos\MW\Session\Laravel4( $this->session );
+		$session = new \Aimeos\MW\Session\Laravel5( $this->session );
 		$context->setSession( $session );
 
 		$this->addUser( $context );
