@@ -7,8 +7,8 @@
 		<title>Aimeos administration interface</title>
 
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<?= asset('packages/aimeos/shop/default/admin.css') ?>">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/packages/aimeos/shop/admin/default/admin.css">
 
     	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     	<!--[if lt IE 9]>
@@ -17,7 +17,7 @@
 		<![endif]-->
 
 	</head>
-	<body>
+	<body data-url="<?= $jsonadmurl ?>">
 		<div class="container aimeos">
 
 <?= $content ?>
@@ -27,6 +27,6 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="<?= asset('packages/aimeos/shop/admin.js') ?>"></script>
+		<script src="/packages/aimeos/shop/admin/admin.js"></script>
 	</body>
 </html>
