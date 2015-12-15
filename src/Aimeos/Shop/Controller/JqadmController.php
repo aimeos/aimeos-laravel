@@ -61,7 +61,7 @@ class JqadmController extends Controller
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = $cntl->create( $id );
+		$content = $cntl->create();
 
 		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
 		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
@@ -83,7 +83,7 @@ class JqadmController extends Controller
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = ( $cntl->delete( $id ) ? : $cntl->search() );
+		$content = $cntl->delete( $id ) . $cntl->search();
 
 		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
 		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
