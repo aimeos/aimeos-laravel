@@ -165,7 +165,7 @@ class JqadmController extends Controller
 		$lang = \Input::get( 'lang', config( 'app.locale', 'en' ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$templatePaths = $aimeos->getCustomPaths( 'client/jqadm/templates' );
+		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
 		$context = $this->setLocale( $context, $sitecode, $lang );
