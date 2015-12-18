@@ -48,7 +48,7 @@ class AdminController extends Controller
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 		$cssFiles = array();
 
-		foreach( $aimeos->getCustomPaths( 'client/extjs' ) as $base => $paths )
+		foreach( $aimeos->getCustomPaths( 'admin/extjs' ) as $base => $paths )
 		{
 			foreach( $paths as $path )
 			{
