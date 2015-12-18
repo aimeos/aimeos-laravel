@@ -173,7 +173,7 @@ class JqadmController extends Controller
 		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang );
 		$context->setView( $view );
 
-		return \Aimeos\Client\JQAdm\Factory::createClient( $context, $templatePaths, $resource );
+		return \Aimeos\Admin\JQAdm\Factory::createClient( $context, $templatePaths, $resource );
 	}
 
 
