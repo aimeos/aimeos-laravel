@@ -1,0 +1,234 @@
+/**
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2015
+ */
+
+.card-block:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+
+.aimeos .logo {
+	max-height: 40px;
+}
+
+.aimeos .navbar-brand {
+	padding: 5px 10px;
+}
+
+
+
+/* Common styles */
+
+.aimeos thead th {
+	text-align: center;
+}
+
+.aimeos thead th,
+.aimeos thead td {
+	vertical-align: middle;
+}
+
+.aimeos .actions {
+	text-align: right;
+	min-width: 20%;
+	max-width: 9rem;
+}
+
+.aimeos .actions-group {
+	text-align: center;
+	clear: both;
+}
+
+.aimeos .actions-group .btn {
+	min-width: 8rem;
+	margin: 0.5rem;
+}
+
+
+
+/* Errors */
+
+.aimeos .error-list {
+	list-style: none;
+}
+
+.aimeos .error-list .sr-only:after {
+	content: ":";
+}
+
+
+
+/* List view */
+
+.aimeos .list-search {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.aimeos .list-search .action {
+	font-weight: 700;
+}
+
+.aimeos .list-filter .action {
+	margin-bottom: 1rem;
+	float: left;
+}
+
+.aimeos .list-filter .action:before {
+	content:"\f0d7";
+	margin: 0 1rem;
+}
+
+.aimeos .list-filter .action-close:before {
+	content:"\f0d8";
+}
+
+.aimeos .list-search .actions-group {
+	display: none;
+}
+
+.aimeos .list-filter td {
+	line-height: 1;
+}
+
+.aimeos .list-filter input {
+	margin: 0 0.5rem;
+}
+
+.aimeos .list-filter fieldset {
+	margin: 0.5rem 0;
+}
+
+.aimeos .list-filter .filter-items {
+	text-align: left;
+	display: none;
+	margin: auto;
+}
+
+.aimeos .list-filter .form-control {
+	padding: 0.5rem 0.75rem;
+	display: inline-block;
+	vertical-align: top;
+	width: 16rem;
+	float: none;
+}
+
+.aimeos .list-filter .ui-selectmenu-button {
+	margin: 0rem 0.5rem;
+}
+
+.ui-selectmenu-menu .ui-menu {
+	max-height: 20rem;
+}
+
+.aimeos .list-filter .filter-operator {
+	width: 8rem;
+}
+
+.aimeos .list-filter .filter-operator option {
+	display: none;
+}
+
+.aimeos .list-fields .action {
+	margin-bottom: 1rem;
+	float: right;
+}
+
+.aimeos .list-fields .action:after {
+	content:"\f0d7";
+	margin: 0 1rem;
+}
+
+.aimeos .list-fields .action-close:after {
+	content:"\f0d8";
+}
+
+
+.aimeos .list-fields .fields-items {
+	text-align: left;
+	max-width: 45rem;
+	padding: 0.5rem;
+	padding-left: 3.5rem;
+	margin: auto;
+	display: none;
+}
+
+.aimeos .list-fields .fields-item {
+	display: inline-block;
+	list-style: none;
+	min-width: 7.95rem;
+	margin: auto;
+}
+
+
+.aimeos .list-page {
+	text-align: center;
+}
+
+.aimeos .list-page .pagination {
+	margin: 1rem;
+}
+
+.aimeos .list-page .page-limit {
+	vertical-align: top;
+	margin: 1rem;
+}
+
+.aimeos .list-page .btn {
+	padding: 0.5rem 1rem;
+}
+
+.aimeos .list-page .page-link {
+	min-width: 3rem;
+}
+
+
+.aimeos .list-items a.items-field {
+	display: inline-block;
+	width: 100%;
+}
+
+.aimeos .list-items .fa {
+	margin: 0 0.5rem;
+}
+
+
+.aimeos .list-items .status-1:before {
+	content:"\f00c";
+}
+
+.aimeos .list-items .status-0:before {
+	content:"\f00d";
+}
+
+.aimeos .list-items .status--1:before {
+	content:"\f06e";
+}
+
+.aimeos .list-items .status--2:before {
+	content:"\f187";
+}
+
+
+
+/* Detail view */
+
+.aimeos .card-header.has-danger {
+	border: solid 1px #A94442;
+	color: #A94442;
+}
+
+.aimeos .item .form-group.mandatory label:after {
+	content: " *";
+}
+
+
+
+
+
+.prototype {
+	display: none;
+}

@@ -45,11 +45,13 @@
         "post-install-cmd": [
             "cp -r vendor/aimeos/aimeos-core/admin/extjs/resources/* public/admin/extjs/resources/",
             "cp -r vendor/aimeos/aimeos-core/admin/extjs/lib/* public/admin/extjs/lib/",
+            "cp -r vendor/aimeos/aimeos-core/admin/jqadm/themes/* public/themes/",
             "cp -r vendor/aimeos/aimeos-core/client/html/themes/* public/themes/"
         ],
         "post-update-cmd": [
             "cp -r vendor/aimeos/aimeos-core/admin/extjs/resources/* public/admin/extjs/resources/",
             "cp -r vendor/aimeos/aimeos-core/admin/extjs/lib/* public/admin/extjs/lib/",
+            "cp -r vendor/aimeos/aimeos-core/admin/jqadm/themes/* public/themes/",
             "cp -r vendor/aimeos/aimeos-core/client/html/themes/* public/themes/"
         ]
     }

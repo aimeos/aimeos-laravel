@@ -56,6 +56,30 @@ return array(
 		), */
 	),
 
+	'admin' => array(
+		'jqadm' => array(
+			'url' => array(
+				'copy' => array(
+					'target' => 'aimeos_shop_jqadm_copy'
+				),
+				'create' => array(
+					'target' => 'aimeos_shop_jqadm_create'
+				),
+				'delete' => array(
+					'target' => 'aimeos_shop_jqadm_delete'
+				),
+				'get' => array(
+					'target' => 'aimeos_shop_jqadm_get'
+				),
+				'save' => array(
+					'target' => 'aimeos_shop_jqadm_save'
+				),
+				'search' => array(
+					'target' => 'aimeos_shop_jqadm_search'
+				),
+			)
+		),
+	),
 	'client' => array(
 		'html' => array(
 			'account' => array(
@@ -165,28 +189,6 @@ return array(
 					),
 				),
 			),
-		),
-		'jqadm' => array(
-			'url' => array(
-				'copy' => array(
-					'target' => 'aimeos_shop_jqadm_copy'
-				),
-				'create' => array(
-					'target' => 'aimeos_shop_jqadm_create'
-				),
-				'delete' => array(
-					'target' => 'aimeos_shop_jqadm_delete'
-				),
-				'get' => array(
-					'target' => 'aimeos_shop_jqadm_get'
-				),
-				'save' => array(
-					'target' => 'aimeos_shop_jqadm_save'
-				),
-				'search' => array(
-					'target' => 'aimeos_shop_jqadm_search'
-				),
-			)
 		),
 	),
 
