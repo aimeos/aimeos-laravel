@@ -45,7 +45,7 @@ class Support
 	public function checkGroup( $userid, $groupcode )
 	{
 		$context = $this->context->get();
-		$group = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' )->getItem( $groupcode );
+		$group = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' )->findItem( $groupcode );
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
 
 		$search = $manager->createSearch();
