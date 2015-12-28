@@ -9,6 +9,7 @@ php:
 
 env:
   - LARAVEL_VERSION=5.1.*
+  - LARAVEL_VERSION=5.2.*
 
 before_script:
   - composer require "laravel/framework:${LARAVEL_VERSION}"
