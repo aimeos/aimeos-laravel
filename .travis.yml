@@ -27,4 +27,6 @@ matrix:
   exclude:
     - php: 5.4
       env: "LARAVEL_VERSION=5.1.*"
+    - php: 5.4
+      env: "LARAVEL_VERSION=5.2.*"
 
