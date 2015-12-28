@@ -80,8 +80,8 @@ class AdminController extends Controller
 			'itemSchemas' => $controller->getJsonItemSchemas(),
 			'smd' => $controller->getJsonSmd( $jsonUrl ),
 			'urlTemplate' => urldecode( $adminUrl ),
-			'uploaddir' => \Config::get( 'shop::uploaddir' ),
-			'activeTab' => \Input::get( 'tab', 0 ),
+			'uploaddir' => config( 'shop::uploaddir' ),
+			'activeTab' => Input::get( 'tab', 0 ),
 			'version' => $this->getVersion(),
 		);
 
