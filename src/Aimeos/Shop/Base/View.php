@@ -10,6 +10,11 @@
 namespace Aimeos\Shop\Base;
 
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+
+
 /**
  * Service providing the view objects
  *
@@ -32,8 +37,8 @@ class View
 
 		if( $locale !== null )
 		{
-			$params = \Route::current()->parameters() + \Input::all();
-			$params['target'] = \Route::currentRouteName();
+			$params = Route::current()->parameters() + Input::all();
+			$params['target'] = Route::currentRouteName();
 
 			$fixed = $this->getFixedParams();
 
@@ -74,7 +79,7 @@ class View
 		$helper = new \MW_View_Helper_Encoder_Default( $view );
 		$view->addHelper( 'encoder', $helper );
 
-		$helper = new \MW_View_Helper_Request_Laravel5( $view, \Request::instance() );
+		$helper = new \MW_View_Helper_Request_Laravel5( $view, Request::instance() );
 		$view->addHelper( 'request', $helper );
 
 		$helper = new \MW_View_Helper_Csrf_Default( $view, '_token', csrf_token() );
@@ -93,15 +98,15 @@ class View
 	{
 		$fixed = array();
 
-		if( ( $value = \Route::input( 'site' ) ) !== null ) {
+		if( ( $value = Route::input( 'site' ) ) !== null ) {
 			$fixed['site'] = $value;
 		}
 
-		if( ( $value = \Route::input( 'locale' ) ) !== null ) {
+		if( ( $value = Route::input( 'locale' ) ) !== null ) {
 			$fixed['locale'] = $value;
 		}
 
-		if( ( $value = \Route::input( 'currency' ) ) !== null ) {
+		if( ( $value = Route::input( 'currency' ) ) !== null ) {
 			$fixed['currency'] = $value;
 		}
 

@@ -11,14 +11,14 @@ class PageControllerTest extends AimeosTestAbstract
 
 	public function testPrivacyAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\PageController@privacyAction');
+		$this->action('GET', '\Aimeos\Shop\Controller\PageController@privacyAction', ['site' => 'unittest']);
 		$this->assertResponseOk();
 	}
 
 
 	public function testTermsAction()
 	{
-		$this->action('GET', '\Aimeos\Shop\Controller\PageController@termsAction');
+		$this->action('GET', '\Aimeos\Shop\Controller\PageController@termsAction', ['site' => 'unittest']);
 		$this->assertResponseOk();
 	}
 }

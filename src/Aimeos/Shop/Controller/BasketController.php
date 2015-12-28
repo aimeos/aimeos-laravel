@@ -11,6 +11,7 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
 
 
 /**
@@ -29,6 +30,6 @@ class BasketController extends Controller
 	public function indexAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'basket-index' );
-		return \View::make('shop::basket.index', $params);
+		return View::make('shop::basket.index', $params);
 	}
 }

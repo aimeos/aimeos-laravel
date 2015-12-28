@@ -11,6 +11,8 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
 
 
 /**
@@ -28,8 +30,8 @@ class AdminController extends Controller
 	 */
 	public function indexAction()
 	{
-		$site = \Input::get( 'site', 'default' );
-		$lang = \Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$site = Input::get( 'site', 'default' );
+		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
@@ -64,14 +66,14 @@ class AdminController extends Controller
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
-			'site' => $this->getJsonSiteItem( $context, \Input::get( 'site', 'default' ) ),
+			'site' => $this->getJsonSiteItem( $context, Input::get( 'site', 'default' ) ),
 			'i18nContent' => $this->getJsonClientI18n( $aimeos->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
 			'smd' => $controller->getJsonSmd( $jsonUrl ),
 			'urlTemplate' => urldecode( $adminUrl ),
-			'uploaddir' => \Config::get( 'shop::uploaddir' ),
-			'activeTab' => \Input::get( 'tab', 0 ),
+			'uploaddir' => config( 'shop::uploaddir' ),
+			'activeTab' => Input::get( 'tab', 0 ),
 			'version' => $this->getVersion(),
 		);
 
@@ -94,8 +96,8 @@ class AdminController extends Controller
 
 		$controller = new \Controller_ExtJS_JsonRpc( $context, $cntlPaths );
 
-		$response = $controller->process( \Input::instance()->request->all(), 'php://input' );
-		return \View::make('shop::admin.do', array( 'output' => $response ));
+		$response = $controller->process( Input::instance()->request->all(), 'php://input' );
+		return View::make('shop::admin.do', array( 'output' => $response ));
 	}
 
 

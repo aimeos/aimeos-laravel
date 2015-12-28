@@ -10,6 +10,10 @@
 namespace Aimeos\Shop\Base;
 
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+
 /**
  * Service providing the context objects
  *
@@ -109,7 +113,7 @@ class Context
 	 */
 	protected function addUser( \MShop_Context_Item_Interface $context )
 	{
-		if( ( $userid = \Auth::id() ) !== null )
+		if( ( $userid = Auth::id() ) !== null )
 		{
 			$context->setUserId( $userid );
 			$context->setGroupIds( function() use ( $context, $userid )
@@ -119,7 +123,7 @@ class Context
 			} );
 		}
 
-		if( ( $user = \Auth::user() ) !== null ) {
+		if( ( $user = Auth::user() ) !== null ) {
 			$context->setEditor( $user->name );
 		}
 	}
@@ -155,9 +159,9 @@ class Context
 	{
 		if( $this->locale === null )
 		{
-			$site = \Route::input( 'site', 'default' );
-			$lang = \Route::input( 'locale', '' );
-			$currency = \Route::input( 'currency', '' );
+			$site = Route::input( 'site', 'default' );
+			$lang = Route::input( 'locale', '' );
+			$currency = Route::input( 'currency', '' );
 
 			$disableSites = $this->config->has( 'shop.disableSites' );
 
