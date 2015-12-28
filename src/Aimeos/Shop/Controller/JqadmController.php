@@ -11,6 +11,8 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -42,8 +44,7 @@ class JqadmController extends Controller
 		$cntl = $this->createClient( $site, $resource );
 		$content = $cntl->copy( $id );
 
-		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
-		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
+		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
 	}
 
 
@@ -63,8 +64,7 @@ class JqadmController extends Controller
 		$cntl = $this->createClient( $site, $resource );
 		$content = $cntl->create();
 
-		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
-		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
+		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
 	}
 
 
@@ -85,8 +85,7 @@ class JqadmController extends Controller
 		$cntl = $this->createClient( $site, $resource );
 		$content = $cntl->delete( $id ) . $cntl->search();
 
-		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
-		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
+		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
 	}
 
 
@@ -107,8 +106,7 @@ class JqadmController extends Controller
 		$cntl = $this->createClient( $site, $resource );
 		$content = $cntl->get( $id );
 
-		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
-		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
+		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
 	}
 
 
@@ -128,8 +126,7 @@ class JqadmController extends Controller
 		$cntl = $this->createClient( $site, $resource );
 		$content = ( $cntl->save() ? : $cntl->search() );
 
-		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
-		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
+		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
 	}
 
 
@@ -149,8 +146,7 @@ class JqadmController extends Controller
 		$cntl = $this->createClient( $site, $resource );
 		$content = $cntl->search();
 
-		$url = route( 'aimeos_shop_jsonadm_options', ['site' => $site, 'resource' => $resource] );
-		return \View::make('shop::admin.jqadm', array( 'content' => $content, 'jsonadmurl' => $url ) );
+		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
 	}
 
 
@@ -162,7 +158,7 @@ class JqadmController extends Controller
 	 */
 	protected function createClient( $sitecode, $resource )
 	{
-		$lang = \Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );

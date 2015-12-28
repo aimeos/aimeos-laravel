@@ -12,6 +12,8 @@ namespace Aimeos\Shop\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -183,7 +185,7 @@ class JsonadmController extends Controller
 	 */
 	protected function createController( $sitecode, $resource )
 	{
-		$lang = \Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$templatePaths = $aimeos->getCustomPaths( 'controller/jsonadm/templates' );
@@ -208,7 +210,7 @@ class JsonadmController extends Controller
 	 */
 	protected function createResponse( $content, $status, array $header )
 	{
-		$response = \Response::make( $content, $status );
+		$response = Response::make( $content, $status );
 
 		foreach( $header as $key => $value ) {
 			$response->header( $key, $value );

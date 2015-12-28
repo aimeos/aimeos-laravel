@@ -17,7 +17,7 @@
 		<![endif]-->
 
 	</head>
-	<body data-url="<?= $jsonadmurl ?>">
+	<body data-url="<?= route( 'aimeos_shop_jsonadm_options', ['site' => $site] ); ?>">
 		<div class="container aimeos">
 
 <?= $content ?>
