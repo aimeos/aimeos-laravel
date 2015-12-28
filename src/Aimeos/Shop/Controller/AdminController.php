@@ -11,6 +11,8 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -36,8 +38,8 @@ class AdminController extends Controller
 			$this->authorize( 'admin' );
 		}
 
-		$site = \Input::get( 'site', 'default' );
-		$lang = \Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$site = Input::get( 'site', 'default' );
+		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
@@ -72,7 +74,7 @@ class AdminController extends Controller
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
-			'site' => $this->getJsonSiteItem( $context, \Input::get( 'site', 'default' ) ),
+			'site' => $this->getJsonSiteItem( $context, Input::get( 'site', 'default' ) ),
 			'i18nContent' => $this->getJsonClientI18n( $aimeos->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
@@ -106,8 +108,8 @@ class AdminController extends Controller
 
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 
-		$response = $controller->process( \Input::instance()->request->all(), 'php://input' );
-		return \View::make('shop::admin.do', array( 'output' => $response ));
+		$response = $controller->process( Input::instance()->request->all(), 'php://input' );
+		return View::make('shop::admin.do', array( 'output' => $response ));
 	}
 
 

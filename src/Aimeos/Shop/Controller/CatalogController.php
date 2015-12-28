@@ -11,6 +11,8 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
 
 
 /**
@@ -46,7 +48,7 @@ class CatalogController extends Controller
 	public function detailAction()
 	{
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-detail' );
-		return \View::make('shop::catalog.detail', $params);
+		return View::make('shop::catalog.detail', $params);
 	}
 
 
@@ -58,7 +60,7 @@ class CatalogController extends Controller
 	public function listAction()
 	{
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-list' );
-		return \View::make('shop::catalog.list', $params);
+		return View::make('shop::catalog.list', $params);
 	}
 
 
@@ -70,7 +72,7 @@ class CatalogController extends Controller
 	public function stockAction()
 	{
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-stock' );
-		$contents = \View::make('shop::catalog.stock', $params);
+		$contents = View::make('shop::catalog.stock', $params);
 
 		$response = \Response::make($contents, 200);
 		$response->header('Content-Type', 'application/javascript');
@@ -87,9 +89,9 @@ class CatalogController extends Controller
 	public function suggestAction()
 	{
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-suggest' );
-		$contents = \View::make('shop::catalog.suggest', $params);
+		$contents = View::make('shop::catalog.suggest', $params);
 
-		$response = \Response::make($contents, 200);
+		$response = Response::make($contents, 200);
 		$response->header('Content-Type', 'application/json');
 
 		return $response;
