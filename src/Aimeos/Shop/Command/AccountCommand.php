@@ -206,35 +206,4 @@ class AccountCommand extends AbstractCommand
 				array( 'admin', null, InputOption::VALUE_NONE, 'If account should have administrator privileges' ),
 		);
 	}
-
-
-	/**
-	 * Returns the customer group type item for the given code
-	 *
-	 * @param \Aimeos\MShop\Common\Manager\Iface $listManager Aimeos customer list manager object
-	 * @param string $code Unique code for a customer list type
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface Aimeos customer list type item object
-	 * @throws \Exception If no customer list type item for the given code is found
-	 */
-	protected function getTypeItem( \Aimeos\MShop\Common\Manager\Iface $listManager, $code )
-	{
-		$manager = $listManager->getSubmanager( 'type' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'customer.lists.type.domain', 'customer/group' ),
-			$search->compare( '==', 'customer.lists.type.code', $code ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		$result = $manager->searchItems( $search );
-
-		if( ( $item = reset( $result ) ) === false )
-		{
-			$msg = sprintf( 'No user list type item for domain "%1$s" and code "%2$s" found', 'customer/group', $code );
-			throw new \Exception( $msg );
-		}
-
-		return $item;
-	}
 }
