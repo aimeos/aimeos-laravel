@@ -734,7 +734,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	text-align: left;
 	overflow: hidden;
 	line-height: 1.1;
-	padding: 1em;
+	padding: 0.5em 1em;
 	color: #555;
 }
 
@@ -743,12 +743,12 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	font-weight: normal;
 	font-size: 100%;
 	overflow: hidden;
-	height: 2.4em;
+	height: 2em;
 	margin: 0;
 }
 
 .catalog-list .text-list .text-item {
-	height: 2.4em;
+	height: 2em;
 }
 
 /* price list */
@@ -762,6 +762,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-list .price {
+	box-sizing: content-box;
 	text-align: left;
 	padding: 0.5em;
 }

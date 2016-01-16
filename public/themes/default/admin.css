@@ -3,35 +3,104 @@
  * @copyright Aimeos (aimeos.org), 2015
  */
 
-.card-block:after {
+
+/*
+ * Bootstrap bugfixes
+ */
+
+.card-block:after,
+.card-header:after {
 	display: block;
-	clear: both;
 	content: "";
+	clear: both;
 }
 
 
-.aimeos .logo {
-	max-height: 40px;
+
+/**
+ * JQuery UI styles
+ */
+
+.ai-combobox {
+	position: relative;
+	display: inline-block;
 }
 
-.aimeos .navbar-brand {
+.ai-combobox-toggle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin-left: -1px;
+	padding: 0;
+}
+
+.ai-combobox-input {
+	margin: 0;
 	padding: 5px 10px;
+	width: 90%;
+}
+
+.ai-combobox .ui-button-icons-only {
+    width: 2em;
+}
+
+.ui-autocomplete.ui-menu {
+	max-height: 20rem;
+	overflow-y: scroll;
 }
 
 
 
 /* Common styles */
 
-.aimeos thead th {
+.aimeos .error-list {
+	list-style: none;
+}
+
+.aimeos .error-list .sr-only:after {
+	content: ":";
+}
+
+.aimeos .fa {
+	margin: 0 0.25rem;
+}
+
+.aimeos .header {
+	background-color: #333333;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.aimeos .header .ai-combobox {
+	float: left;
+	margin-top: -0.375rem;
+	margin-bottom: -0.375rem;
+}
+
+.aimeos .header .btn {
+	float: right;
+	margin-top: -0.375rem;
+	margin-bottom: -0.375rem;
+}
+
+.aimeos .header.has-danger {
+	border: solid 1px #D9534F;
+	background-color: #D9534F;
+}
+
+.aimeos .card-block .card-header {
 	text-align: center;
+	padding: 0.75em;
 }
 
-.aimeos thead th,
-.aimeos thead td {
+.aimeos table th,
+.aimeos table td {
 	vertical-align: middle;
+	text-align: center;
+	padding: 0.5rem;
 }
 
-.aimeos .actions {
+.aimeos .list-items .actions {
 	text-align: right;
 	min-width: 20%;
 	max-width: 9rem;
@@ -49,18 +118,6 @@
 
 
 
-/* Errors */
-
-.aimeos .error-list {
-	list-style: none;
-}
-
-.aimeos .error-list .sr-only:after {
-	content: ":";
-}
-
-
-
 /* List view */
 
 .aimeos .list-search {
@@ -74,12 +131,13 @@
 
 .aimeos .list-filter .action {
 	margin-bottom: 1rem;
+	font-size: 90%;
 	float: left;
 }
 
 .aimeos .list-filter .action:before {
 	content:"\f0d7";
-	margin: 0 1rem;
+	margin-right: 0.5rem;
 }
 
 .aimeos .list-filter .action-close:before {
@@ -134,12 +192,13 @@
 
 .aimeos .list-fields .action {
 	margin-bottom: 1rem;
+	font-size: 90%;
 	float: right;
 }
 
 .aimeos .list-fields .action:after {
 	content:"\f0d7";
-	margin: 0 1rem;
+	margin-left: 0.5rem;
 }
 
 .aimeos .list-fields .action-close:after {
@@ -164,12 +223,21 @@
 }
 
 
+/**
+ * Pagination
+ */
+
 .aimeos .list-page {
 	text-align: center;
 }
 
 .aimeos .list-page .pagination {
 	margin: 1rem;
+}
+
+.aimeos .list-page .page-item {
+	display: inline-block;
+	text-align: center;
 }
 
 .aimeos .list-page .page-limit {
@@ -186,13 +254,30 @@
 }
 
 
+.aimeos .list-items {
+	text-align: center;
+}
+
+.aimeos .list-items th {
+	background-color: #333333;
+	color: #FFF;
+}
+
+.aimeos .list-items th:first-child {
+	border-top-left-radius: 0.25rem;
+}
+
+.aimeos .list-items th:last-child {
+	border-top-right-radius: 0.25rem;
+}
+
+.aimeos .list-items th a {
+	color: #FFFFFF;
+}
+
 .aimeos .list-items a.items-field {
 	display: inline-block;
 	width: 100%;
-}
-
-.aimeos .list-items .fa {
-	margin: 0 0.5rem;
 }
 
 
@@ -216,16 +301,84 @@
 
 /* Detail view */
 
-.aimeos .card-header.has-danger {
-	border: solid 1px #A94442;
-	color: #A94442;
-}
-
 .aimeos .item .form-group.mandatory label:after {
 	content: " *";
 }
 
+.aimeos .product-item-selection-groupitem:first-child .header .fa-trash {
+	display: none;
+}
 
+
+/* Bundles */
+
+.aimeos .product-item-bundle {
+	display: none;
+}
+
+.aimeos .product-item-bundle .ai-combobox {
+	width: 100%;
+}
+
+
+/* Categories */
+
+.aimeos .product-item-category .ai-combobox {
+	width: 100%;
+}
+
+
+/* Images */
+
+.aimeos .image-list .actions .btn-primary {
+	position: relative;
+	overflow: hidden;
+}
+
+.aimeos .image-list .fileupload {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 0px;
+	opacity: 0;
+	font-size: 200px;
+	direction: ltr;
+	cursor: pointer;
+}
+
+.aimeos .image-list .image-preview img {
+	max-width: 100px;
+	max-height: 100px;
+}
+
+.aimeos .image-language .ai-combobox-input {
+	width: 3rem;
+}
+
+
+/** Prices */
+
+.aimeos .product-item-price .header .ai-combobox {
+	width: 5rem;
+}
+
+
+/** Selection */
+
+.aimeos .product-item-selection {
+	display: none;
+}
+
+.aimeos .product-item-selection .ai-combobox {
+	width: 100%;
+}
+
+
+/** Texts */
+
+.aimeos .product-item-text .header .ai-combobox-input {
+	width: 3rem;
+}
 
 
 
