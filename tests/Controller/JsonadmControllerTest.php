@@ -9,6 +9,18 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	}
 
 
+	public function testOptionsActionSite()
+	{
+		$params = ['site' => 'invalid', 'resource' => 'product'];
+		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params);
+
+		$json = json_decode( $response->getContent(), true );
+
+		$this->assertResponseOk();
+		$this->assertNotNull( $json );
+	}
+
+
 	public function testOptionsAction()
 	{
 		$params = ['site' => 'unittest', 'resource' => 'product'];
