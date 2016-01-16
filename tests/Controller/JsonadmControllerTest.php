@@ -172,4 +172,20 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertNotNull( $json );
 		$this->assertEquals( 2, $json['meta']['total'] );
 	}
+
+
+	public function testPutAction()
+	{
+		$params = ['site' => 'unittest', 'resource' => 'product/stock/warehouse'];
+		$content = '{"data":[
+			{"type":"product/stock/warehouse","attributes":{"product.stock.warehouse.code":"laravel","product.stock.warehouse.label":"laravel"}},
+			{"type":"product/stock/warehouse","attributes":{"product.stock.warehouse.code":"laravel2","product.stock.warehouse.label":"laravel"}}
+		]}';
+		$response = $this->action('PUT', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content);
+
+		$json = json_decode( $response->getContent(), true );
+
+		$this->assertEquals( 501, $response->getStatusCode() );
+		$this->assertNotNull( $json );
+	}
 }
