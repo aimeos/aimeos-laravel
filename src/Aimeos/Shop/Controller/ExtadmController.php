@@ -65,9 +65,9 @@ class ExtadmController extends AdminController
 			}
 		}
 
-		$jqadmUrl = route( 'aimeos_shop_jqadm_search', array( 'site' => $site ) );
-		$adminUrl = route( 'aimeos_shop_extadm', array( 'site' => '%site%', 'lang' => '%lang%', 'tab' => '%tab%' ) );
+		$jqadmUrl = route( 'aimeos_shop_jqadm_search', array( 'site' => $site, 'resource' => 'product' ) );
 		$jsonUrl = route( 'aimeos_shop_extadm_json', array( 'site' => $site, '_token' => csrf_token() ) );
+		$adminUrl = route( 'aimeos_shop_extadm', array( 'site' => '<site>', 'lang' => '<lang>', 'tab' => '<tab>' ) );
 
 		$vars = array(
 			'lang' => $lang,
@@ -79,7 +79,7 @@ class ExtadmController extends AdminController
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
 			'smd' => $controller->getJsonSmd( $jsonUrl ),
-			'urlTemplate' => urldecode( $adminUrl ),
+			'urlTemplate' => str_replace( ['<', '>'], ['{', '}'], urldecode( $adminUrl ) ),
 			'uploaddir' => config( 'shop::uploaddir' ),
 			'activeTab' => Input::get( 'tab', 0 ),
 			'version' => $this->getVersion(),
