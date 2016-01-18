@@ -6,7 +6,7 @@ Route::match( array( 'GET' ), 'admin', array(
 ));
 
 
-Route::group(config('shop.routes.admin', ['middleware' => 'auth']), function() {
+Route::group(config('shop.routes.admin', ['middleware' => 'auth', 'prefix' => '{site}']), function() {
 
 	Route::match( array( 'GET' ), 'extadm', array(
 		'as' => 'aimeos_shop_extadm',
