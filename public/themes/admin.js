@@ -956,7 +956,7 @@ Aimeos.Product.Item.Text = {
 /**
  * Load JSON admin resource definition immediately
  */
-Aimeos.options = $.ajax($("body").data("url"), {
+Aimeos.options = $.ajax($(".aimeos").data("url"), {
 	"method": "OPTIONS",
 	"dataType": "json"
 });
