@@ -43,7 +43,7 @@
 				<directory>./ext/</directory>
 				<directory>./public/</directory>
 				<directory>./src/database/migrations/</directory>
-				<directory>./src/view/</directory>
+				<directory>./src/views/</directory>
 				<directory>./tests/</directory>
 				<directory>./vendor/</directory>
 			</exclude>

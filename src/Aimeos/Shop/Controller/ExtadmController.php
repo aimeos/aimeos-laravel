@@ -65,6 +65,7 @@ class ExtadmController extends AdminController
 			}
 		}
 
+		$jqadmUrl = route( 'aimeos_shop_jqadm_search', array( 'site' => $site ) );
 		$adminUrl = route( 'aimeos_shop_extadm', array( 'site' => '%site%', 'lang' => '%lang%', 'tab' => '%tab%' ) );
 		$jsonUrl = route( 'aimeos_shop_extadm_json', array( 'site' => $site, '_token' => csrf_token() ) );
 
@@ -82,6 +83,7 @@ class ExtadmController extends AdminController
 			'uploaddir' => config( 'shop::uploaddir' ),
 			'activeTab' => Input::get( 'tab', 0 ),
 			'version' => $this->getVersion(),
+			'jqadmurl' => $jqadmUrl,
 		);
 
 		return \View::make('shop::admin.extadm-index', $vars);
