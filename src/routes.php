@@ -1,24 +1,28 @@
 <?php
 
+Route::match( array( 'GET' ), 'admin', array(
+	'as' => 'aimeos_shop_admin',
+	'uses' => 'Aimeos\Shop\Controller\AdminController@indexAction'
+));
+
+
 Route::group(config('shop.routes.admin', ['middleware' => 'auth']), function() {
 
-	Route::match( array( 'GET' ), 'admin/file', array(
-		'as' => 'aimeos_shop_admin_file',
-		'uses' => 'Aimeos\Shop\Controller\AdminController@fileAction'
-	));
-	Route::match( array( 'POST' ), 'admin/do', array(
-		'as' => 'aimeos_shop_admin_json',
-		'uses' => 'Aimeos\Shop\Controller\AdminController@doAction'
-	));
-	Route::match( array( 'GET' ), 'admin', array(
-		'as' => 'aimeos_shop_admin',
-		'uses' => 'Aimeos\Shop\Controller\AdminController@indexAction'
+	Route::match( array( 'GET' ), 'extadm', array(
+		'as' => 'aimeos_shop_extadm',
+		'uses' => 'Aimeos\Shop\Controller\ExtadmController@indexAction'
 	));
 
-});
+	Route::match( array( 'GET' ), 'extadm/file', array(
+		'as' => 'aimeos_shop_extadm_file',
+		'uses' => 'Aimeos\Shop\Controller\ExtadmController@fileAction'
+	));
 
+	Route::match( array( 'POST' ), 'extadm/do', array(
+		'as' => 'aimeos_shop_extadm_json',
+		'uses' => 'Aimeos\Shop\Controller\ExtadmController@doAction'
+	));
 
-Route::group(config('shop.routes.jqadm', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'jqadm/copy/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_copy',
@@ -50,10 +54,6 @@ Route::group(config('shop.routes.jqadm', ['middleware' => 'auth']), function() {
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@searchAction'
 	))->where( array( 'resource' => '[^0-9]+' ) );
 
-});
-
-
-Route::group(config('shop.routes.jsonadm', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'DELETE' ), 'jsonadm/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',

@@ -18,12 +18,9 @@
 		<![endif]-->
 
 	</head>
-	<body data-url="<?= route( 'aimeos_shop_jsonadm_options', ['site' => $site] ); ?>">
-		<div class="container aimeos">
+	<body>
 
 <?= $content ?>
-
-		</div>
 
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

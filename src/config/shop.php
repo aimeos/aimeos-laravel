@@ -57,6 +57,11 @@ return array(
 	),
 
 	'admin' => array(
+		'extjs' => array(
+			'url' => array(
+				'target' => 'aimeos_shop_extadm',
+			),
+		),
 		'jqadm' => array(
 			'url' => array(
 				'copy' => array(
@@ -274,7 +279,7 @@ return array(
 		),
 		'jsonadm' => array(
 			'url' => array(
-				'target' => 'aimeos_shop_jsonadm_get',
+				'target' => 'aimeos_shop_jsonadm_options',
 				'config' => array(
 					'absoluteUri' => true,
 				),

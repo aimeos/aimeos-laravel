@@ -4,27 +4,8 @@ class AdminControllerTest extends AimeosTestAbstract
 {
 	public function testIndexAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@indexAction', [], ['site' => 'unittest']);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@indexAction');
 
-		$this->assertResponseOk();
-		$this->assertRegexp('#<script type="text/javascript">.*window.MShop = {#smu', $response->getContent());
-	}
-
-
-	public function testDoAction()
-	{
-		$response = $this->action('POST', '\Aimeos\Shop\Controller\AdminController@doAction', ['site' => 'unittest']);
-
-		$this->assertResponseOk();
-		$this->assertRegexp('#{.*}#smu', $response->getContent());
-	}
-
-
-	public function testFileAction()
-	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\AdminController@fileAction');
-
-		$this->assertResponseOk();
-		$this->assertContains('EXTUTIL', $response->getContent());
+		$this->assertEquals( '302', $response->getStatusCode() );
 	}
 }

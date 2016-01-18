@@ -17,9 +17,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\TestCase
 		$app['config']->set('app.cipher', MCRYPT_RIJNDAEL_128);
 
 		$app['config']->set('shop.authorize', false);
-		$app['config']->set('shop.routes.admin', []);
-		$app['config']->set('shop.routes.jqadm', ['prefix' => '{site}']);
-		$app['config']->set('shop.routes.jsonadm', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.admin', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.account', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.default', ['prefix' => '{site}']);
 	}

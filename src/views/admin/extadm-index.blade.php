@@ -41,7 +41,7 @@
         }
         </script>
 
-		<script type="text/javascript" src="<?= route('aimeos_shop_admin_file') ?>"></script>
+		<script type="text/javascript" src="<?= route( 'aimeos_shop_extadm_file', array( 'site' => 'default' ) ); ?>"></script>
 
     </head>
     <body>

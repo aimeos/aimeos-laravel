@@ -10,7 +10,6 @@
 
 namespace Aimeos\Shop\Controller;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -22,7 +21,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
  * @package laravel-package
  * @subpackage Controller
  */
-class JqadmController extends Controller
+class JqadmController extends AdminController
 {
 	use AuthorizesRequests;
 
@@ -170,35 +169,5 @@ class JqadmController extends Controller
 		$context->setView( $view );
 
 		return \Aimeos\Admin\JQAdm\Factory::createClient( $context, $templatePaths, $resource );
-	}
-
-
-	/**
-	 * Sets the locale item in the given context
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @param string $sitecode Unique site code
-	 * @param string $lang ISO language code, e.g. "en" or "en_GB"
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
-	 */
-	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode, $lang )
-	{
-		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
-
-		try
-		{
-			$localeItem = $localeManager->bootstrap( $sitecode, '', '', false );
-			$localeItem->setLanguageId( null );
-			$localeItem->setCurrencyId( null );
-		}
-		catch( \Aimeos\MShop\Locale\Exception $e )
-		{
-			$localeItem = $localeManager->createItem();
-		}
-
-		$context->setLocale( $localeItem );
-		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang ) ) );
-
-		return $context;
 	}
 }
