@@ -41,9 +41,7 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = $cntl->copy( $id );
-
-		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
+		return $this->getHtml( $site, $cntl->copy( $id ) );
 	}
 
 
@@ -61,9 +59,7 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = $cntl->create();
-
-		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
+		return $this->getHtml( $site, $cntl->create() );
 	}
 
 
@@ -82,9 +78,7 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = $cntl->delete( $id ) . $cntl->search();
-
-		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
+		return $this->getHtml( $site, $cntl->delete( $id ) . $cntl->search() );
 	}
 
 
@@ -103,9 +97,7 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = $cntl->get( $id );
-
-		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
+		return $this->getHtml( $site, $cntl->get( $id ) );
 	}
 
 
@@ -123,9 +115,7 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = ( $cntl->save() ? : $cntl->search() );
-
-		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
+		return $this->getHtml( $site, ( $cntl->save() ? : $cntl->search() ) );
 	}
 
 
@@ -143,9 +133,7 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient( $site, $resource );
-		$content = $cntl->search();
-
-		return View::make('shop::admin.jqadm', array( 'content' => $content, 'site' => $site ) );
+		return $this->getHtml( $site, $cntl->search() );
 	}
 
 
@@ -169,5 +157,20 @@ class JqadmController extends AdminController
 		$context->setView( $view );
 
 		return \Aimeos\Admin\JQAdm\Factory::createClient( $context, $templatePaths, $resource );
+	}
+
+
+	/**
+	 * Returns the generated HTML code
+	 *
+	 * @param string $site
+	 * @param string $content
+	 */
+	protected function getHtml( $site, $content )
+	{
+		$content = str_replace( ['{type}', '{version}'], ['Laravel', $this->getVersion()], $content );
+		$params = array( 'site' => $site, 'content' => $content );
+
+		return View::make('shop::admin.jqadm', $params );
 	}
 }
