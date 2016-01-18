@@ -27,8 +27,8 @@
                 itemschema: <?= $itemSchemas ?>,
                 searchschema: <?= $searchSchemas ?>,
                 urlTemplate: '<?= $urlTemplate ?>',
+                jqadmurl: '<?= $jqadmurl ?>',
                 activeTab: <?= $activeTab ?>,
-                jqadmurl: '<?= $jqadmurl ?>,
 
                 baseurl: {
                     content: '<?= asset($uploaddir) ?>'
