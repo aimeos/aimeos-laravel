@@ -45,7 +45,7 @@ class AdminController extends Controller
 			'lang' => Input::get( 'lang', config( 'app.locale', 'en' ) ),
 		);
 
-		return redirect()->action( 'Aimeos\Shop\Controller\JqadmController@searchAction', $param );
+		return redirect()->route( 'aimeos_shop_jqadm_search', $param );
 	}
 
 
