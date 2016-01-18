@@ -51,6 +51,40 @@
 
 
 
+/* Navbar */
+
+.aimeos .navbar {
+	color: #EEE;
+	background-color: #333;
+	text-align: right;
+}
+
+.aimeos .navbar-brand img {
+	max-height: 30px;
+}
+
+.aimeos .navbar-nav {
+	text-align: right;
+}
+
+.aimeos .navbar-nav .nav-item {
+	display: inline-block;
+	float: none;
+}
+
+.aimeos .navbar-nav .nav-item + .nav-item {
+	margin: 0;
+}
+
+.aimeos .navbar-nav .nav-item {
+	padding: 0.05rem 0.25rem;
+}
+
+.aimeos .navbar-nav .nav-link {
+	color: #EEE;
+}
+
+
 /* Common styles */
 
 .aimeos .error-list {
