@@ -147,12 +147,12 @@ Aimeos = {
 	},
 
 
-	addClone : function(node, getfcn) {
+	addClone : function(node, getfcn, selectfn) {
 
 		var clone = node.clone().removeClass("prototype");
 		var combo = $(".combobox-prototype", clone);
 
-		combo.combobox({getfcn: getfcn});
+		combo.combobox({getfcn: getfcn, select: selectfn});
 		combo.removeClass("combobox-prototype");
 		combo.addClass("combobox");
 
@@ -175,11 +175,11 @@ Aimeos = {
 		});
 
 
-		$(".aimeos .item .form-group").on("blur", "input[pattern]", function(ev) {
+		$(".aimeos .item .form-group").on("blur", "input[data-pattern]", function(ev) {
 
 			var elem = $(this);
 
-			if(elem.val().match(elem.attr("pattern"))) {
+			if(elem.val().match(elem.data("pattern"))) {
 				$(ev.delegateTarget).removeClass("has-danger").addClass("has-success");
 			} else {
 				$(ev.delegateTarget).removeClass("has-success").addClass("has-danger");
@@ -201,25 +201,25 @@ Aimeos = {
 				var value = elem.find("input,select").val();
 
 				if(value === null || value.trim() === "") {
-					elem.addClass("has-danger");
+					elem.parents(".form-group").addClass("has-danger");
 					nodes.push(element);
 					retval = false;
 				} else {
-					elem.removeClass("has-danger");
+					elem.parents(".form-group").removeClass("has-danger");
 				}
 			});
 
-			$("input[pattern]", this).each(function(idx, element) {
+			$("input[data-pattern]", this).each(function(idx, element) {
 				var elem = $(element);
 				var value = elem.val();
-				var regex = new RegExp(elem.data('regex'));
+				var regex = new RegExp(elem.data('pattern'));
 
-				if(value !== null && value.match(regex) === false) {
-					elem.addClass("has-danger");
+				if(value !== null && value.match(regex) === null) {
+					elem.parents(".form-group").addClass("has-danger");
 					nodes.push(element);
 					retval = false;
 				} else {
-					elem.removeClass("has-danger");
+					elem.parents(".form-group").removeClass("has-danger");
 				}
 			});
 
@@ -584,7 +584,11 @@ Aimeos.Product.Item.Bundle = {
 	addLine : function() {
 
 		$(".product-item-bundle").on("click", ".fa-plus", function(ev) {
-			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsProducts);
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsProducts,
+				Aimeos.Product.Item.Bundle.select
+			);
 		});
 	},
 
@@ -597,9 +601,19 @@ Aimeos.Product.Item.Bundle = {
 	},
 
 
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget)
+		node.parents("tr").find("input.item-label").val(node.val());
+	},
+
+
 	setupComponents : function() {
 
-		$(".product-item-bundle .combobox").combobox({getfcn: Aimeos.getOptionsProducts});
+		$(".product-item-bundle .combobox").combobox({
+			getfcn: Aimeos.getOptionsProducts,
+			select: Aimeos.Product.Item.Bundle.select
+		});
 	},
 
 
@@ -629,7 +643,11 @@ Aimeos.Product.Item.Category = {
 	addLine : function() {
 
 		$(".product-item-category").on("click", ".fa-plus", function(ev) {
-			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsCategories);
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsCategories,
+				Aimeos.Product.Item.Category.select
+			);
 		});
 	},
 
@@ -642,9 +660,19 @@ Aimeos.Product.Item.Category = {
 	},
 
 
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget)
+		node.parents("tr").find("input.item-label").val(node.val());
+	},
+
+
 	setupComponents : function() {
 
-		$(".product-item-category .combobox").combobox({getfcn: Aimeos.getOptionsCategories});
+		$(".product-item-category .combobox").combobox({
+			getfcn: Aimeos.getOptionsCategories,
+			select: Aimeos.Product.Item.Category.select
+		});
 	}
 };
 
@@ -776,7 +804,7 @@ Aimeos.Product.Item.Selection = {
 
 			var code = $(this).parents(".group-item").find("input.item-code").val();
 			var line = $(this).parents(".selection-item-attributes").find(".prototype");
-			var clone = Aimeos.addClone(line, Aimeos.getOptionsAttributes);
+			var clone = Aimeos.addClone(line, Aimeos.getOptionsAttributes, Aimeos.Product.Item.Selection.select);
 
 			$("input.item-attr-ref", clone).val(code);
 		});
@@ -799,7 +827,10 @@ Aimeos.Product.Item.Selection = {
 
 			clone.insertAfter(block);
 			$(".ai-combobox", clone).remove();
-			$(".combobox", clone).combobox({getfcn: Aimeos.getOptionsAttributes});
+			$(".combobox", clone).combobox({
+				getfcn: Aimeos.getOptionsAttributes,
+				select: Aimeos.Product.Item.Selection.select
+			});
 
 			var codeNode = $("input.item-code", clone);
 			codeNode.val(codeNode.val() + '_copy');
@@ -820,9 +851,19 @@ Aimeos.Product.Item.Selection = {
 	},
 
 
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget)
+		node.parents("tr").find("input.item-attr-label").val(node.val());
+	},
+
+
 	setupComponents : function() {
 
-		$(".product-item-selection .combobox").combobox({getfcn: Aimeos.getOptionsProducts});
+		$(".product-item-selection .combobox").combobox({
+			getfcn: Aimeos.getOptionsAttributes,
+			select: Aimeos.Product.Item.Selection.select
+		});
 	},
 
 

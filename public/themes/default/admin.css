@@ -47,7 +47,17 @@
 .ui-autocomplete.ui-menu {
 	max-height: 20rem;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
+
+
+
+/* Fixes */
+
+html {
+	overflow-y: scroll;
+}
+
 
 
 
