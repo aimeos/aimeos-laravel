@@ -55,7 +55,7 @@ Route::group(config('shop.routes.admin', ['middleware' => 'auth', 'prefix' => '{
 	))->where( array( 'resource' => '[^0-9]+' ) );
 
 
-	Route::match( array( 'DELETE' ), 'jsonadm/{resource}/{id}', array(
+	Route::match( array( 'DELETE' ), 'jsonadm/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@deleteAction'
 	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
