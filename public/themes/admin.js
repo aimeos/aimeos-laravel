@@ -196,7 +196,7 @@ Aimeos = {
 
 			$(".card-header", this).removeClass("has-danger");
 
-			$(".mandatory", this).each(function(idx, element) {
+			$(".card:visible .mandatory", this).each(function(idx, element) {
 				var elem = $(element);
 				var value = elem.find("input,select").val();
 
@@ -209,7 +209,7 @@ Aimeos = {
 				}
 			});
 
-			$("input[data-pattern]", this).each(function(idx, element) {
+			$(".card:visible input[data-pattern]", this).each(function(idx, element) {
 				var elem = $(element);
 				var value = elem.val();
 				var regex = new RegExp(elem.data('pattern'));
