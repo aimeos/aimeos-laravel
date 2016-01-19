@@ -12,7 +12,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 	public function testCopyAction()
 	{
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@createAction', $params);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@copyAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
 		$this->assertContains( '<div class="product-item', $response->getContent() );
