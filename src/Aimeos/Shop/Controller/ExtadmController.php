@@ -10,6 +10,7 @@
 
 namespace Aimeos\Shop\Controller;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,10 @@ class ExtadmController extends AdminController
 	/**
 	 * Returns the initial HTML view for the admin interface.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @param \Illuminate\Http\Request $request Laravel request object
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
-	public function indexAction()
+	public function indexAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -86,14 +88,14 @@ class ExtadmController extends AdminController
 			'jqadmurl' => $jqadmUrl,
 		);
 
-		return \View::make('shop::admin.extadm-index', $vars);
+		return View::make('shop::admin.extadm-index', $vars);
 	}
 
 
 	/**
 	 * Single entry point for all JSON admin requests.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function doAction()
 	{
@@ -117,7 +119,7 @@ class ExtadmController extends AdminController
 	/**
 	 * Returns the JS file content
 	 *
-	 * @return Response Response object
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
 	public function fileAction()
 	{

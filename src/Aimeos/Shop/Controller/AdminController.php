@@ -10,10 +10,12 @@
 
 namespace Aimeos\Shop\Controller;
 
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -31,12 +33,13 @@ class AdminController extends Controller
 	/**
 	 * Returns the initial HTML view for the admin interface.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @param \Illuminate\Http\Request $request Laravel request object
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
-	public function indexAction()
+	public function indexAction( Request $request )
 	{
-		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+		if( config( 'shop.authorize', true ) && !( Auth::check() && $request->user()->can( 'admin' ) ) ) {
+			return View::make( 'shop::admin.index' );
 		}
 
 		$param = array(
