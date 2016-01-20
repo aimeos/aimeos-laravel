@@ -20,6 +20,7 @@ pages including routing is also available for a quick start.
 
 - [Installation/Update](#installation-or-update)
 - [Setup](#setup)
+- [Admin](#admin)
 - [Hints](#hints)
 - [License](#license)
 - [Links](#links)
@@ -226,7 +227,7 @@ do this in the `config/shop.php` file of your Laravel application by adding
 these lines at the bottom:
 
 ```
-    'classes' => array(
+    'madmin' => array(
         'cache' => array(
             'manager' => array(
                 'name' => 'None',
