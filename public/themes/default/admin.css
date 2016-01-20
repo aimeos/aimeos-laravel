@@ -60,6 +60,20 @@ html {
 }
 
 
+/* Login */
+
+form.login {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 24rem;
+	margin: -6rem -12rem;
+}
+
+form.login .input-group-addon {
+	font-size: 1.25rem;
+	min-width: 3rem;
+}
 
 
 /* Navbar */
@@ -147,6 +161,7 @@ html {
 .aimeos table td {
 	vertical-align: middle;
 	text-align: center;
+	padding: 0.5rem;
 }
 
 .aimeos .list-items .actions {
@@ -198,6 +213,7 @@ html {
 }
 
 .aimeos .list-filter td {
+	padding: 0 0.5rem;
 	line-height: 1;
 }
 
