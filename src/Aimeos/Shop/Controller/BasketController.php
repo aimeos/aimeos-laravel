@@ -2,8 +2,8 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
- * @package laravel-bundle
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
  * @subpackage Controller
  */
 
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\View;
 /**
  * Aimeos controller for basket related functionality.
  *
- * @package laravel-bundle
+ * @package laravel
  * @subpackage Controller
  */
 class BasketController extends Controller
@@ -25,7 +25,7 @@ class BasketController extends Controller
 	/**
 	 * Returns the html for the standard basket page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function indexAction()
 	{

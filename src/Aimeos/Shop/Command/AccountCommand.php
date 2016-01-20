@@ -2,7 +2,9 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
+ * @subpackage Command
  */
 
 
@@ -14,6 +16,8 @@ use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Creates new accounts or resets their passwords
+ * @package laravel
+ * @subpackage Command
  */
 class AccountCommand extends AbstractCommand
 {

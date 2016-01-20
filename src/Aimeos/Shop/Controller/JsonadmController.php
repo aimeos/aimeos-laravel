@@ -2,8 +2,8 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
- * @package laravel-bundle
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
  * @subpackage Controller
  */
 
@@ -20,7 +20,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 /**
  * Aimeos controller for the JSON REST API
  *
- * @package laravel-bundle
+ * @package laravel
  * @subpackage Controller
  */
 class JsonadmController extends Controller

@@ -2,7 +2,9 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
+ * @subpackage Command
  */
 
 
@@ -12,6 +14,11 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 
+/**
+ * Command for initializing or updating the Aimeos database tables
+ * @package laravel
+ * @subpackage Command
+ */
 class SetupCommand extends AbstractCommand
 {
 	/**

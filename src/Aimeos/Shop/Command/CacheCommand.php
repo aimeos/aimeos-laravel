@@ -2,7 +2,9 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
+ * @subpackage Command
  */
 
 
@@ -11,6 +13,11 @@ namespace Aimeos\Shop\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
 
+/**
+ * Command for clearing the content cache
+ * @package laravel
+ * @subpackage Command
+ */
 class CacheCommand extends AbstractCommand
 {
 	/**

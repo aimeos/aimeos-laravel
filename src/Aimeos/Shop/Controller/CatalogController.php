@@ -2,8 +2,8 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
- * @package laravel-bundle
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
  * @subpackage Controller
  */
 
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Response;
 /**
  * Aimeos controller for catalog related functionality.
  *
- * @package laravel-bundle
+ * @package laravel
  * @subpackage Controller
  */
 class CatalogController extends Controller
@@ -26,7 +26,7 @@ class CatalogController extends Controller
 	/**
 	 * Returns the view for the XHR response with the counts for the facetted search.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
 	public function countAction()
 	{
@@ -43,7 +43,7 @@ class CatalogController extends Controller
 	/**
 	 * Returns the html for the catalog detail page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function detailAction()
 	{
@@ -55,7 +55,7 @@ class CatalogController extends Controller
 	/**
 	 * Returns the html for the catalog list page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function listAction()
 	{
@@ -67,7 +67,7 @@ class CatalogController extends Controller
 	/**
 	 * Returns the html body part for the catalog stock page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
 	public function stockAction()
 	{
@@ -84,7 +84,7 @@ class CatalogController extends Controller
 	/**
 	 * Returns the view for the XHR response with the product information for the search suggestion.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
 	public function suggestAction()
 	{

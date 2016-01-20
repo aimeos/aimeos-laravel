@@ -2,7 +2,8 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
  */
 
 
@@ -11,6 +12,10 @@ namespace Aimeos\Shop;
 use Illuminate\Support\ServiceProvider;
 
 
+/**
+ * Aimeos shop service provider for Laravel
+ * @package laravel
+ */
 class ShopServiceProvider extends ServiceProvider {
 
 	/**

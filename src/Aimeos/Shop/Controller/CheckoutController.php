@@ -2,8 +2,8 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
- * @package laravel-bundle
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
  * @subpackage Controller
  */
 
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\View;
 /**
  * Aimeos controller for checkout related functionality.
  *
- * @package laravel-bundle
+ * @package laravel
  * @subpackage Controller
  */
 class CheckoutController extends Controller
@@ -25,7 +25,7 @@ class CheckoutController extends Controller
 	/**
 	 * Returns the html for the checkout confirmation page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function confirmAction()
 	{
@@ -37,7 +37,7 @@ class CheckoutController extends Controller
 	/**
 	 * Returns the html for the standard checkout page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function indexAction()
 	{
@@ -49,7 +49,7 @@ class CheckoutController extends Controller
 	/**
 	 * Returns the view for the order update page.
 	 *
-	 * @return Response Response object containing the generated output
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	public function updateAction()
 	{

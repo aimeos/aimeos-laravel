@@ -2,7 +2,9 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
+ * @subpackage Command
  */
 
 
@@ -12,6 +14,11 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 
 
+/**
+ * Command for executing the Aimeos job controllers
+ * @package laravel
+ * @subpackage Command
+ */
 class JobsCommand extends AbstractCommand
 {
 	/**

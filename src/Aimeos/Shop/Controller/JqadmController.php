@@ -2,8 +2,8 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015
- * @package laravel-package
+ * @copyright Aimeos (aimeos.org), 2015-2016
+ * @package laravel
  * @subpackage Controller
  */
 
@@ -18,7 +18,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 /**
  * Aimeos controller for the JQuery admin interface
  *
- * @package laravel-package
+ * @package laravel
  * @subpackage Controller
  */
 class JqadmController extends AdminController
@@ -163,8 +163,9 @@ class JqadmController extends AdminController
 	/**
 	 * Returns the generated HTML code
 	 *
-	 * @param string $site
-	 * @param string $content
+	 * @param string $site Unique site code
+	 * @param string $content Content from admin client
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
 	protected function getHtml( $site, $content )
 	{
