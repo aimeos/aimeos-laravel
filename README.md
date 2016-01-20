@@ -20,6 +20,7 @@ pages including routing is also available for a quick start.
 
 - [Installation/Update](#installation-or-update)
 - [Setup](#setup)
+- [Admin](#admin)
 - [Hints](#hints)
 - [License](#license)
 - [Links](#links)
@@ -34,7 +35,7 @@ to your composer.json of your Laravel project:
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~1.0",
+        "aimeos/aimeos-laravel": "~2016.01",
         ...
     },
     "scripts": {
@@ -172,17 +173,52 @@ Simply execute this command in the base directory of your application:
 
 ```php -S 127.0.0.1:8000 -t public```
 
-Afterwards, you will be able to open the list page of the shop in your browser using:
+Point your browser to the list page of the shop using:
 
 http://127.0.0.1:8000/index.php/list
 
-or for the administration interface:
+## Admin
+
+To use the admin interface, you have to set up Laravel authentication first.
+Please follow the [Laravel documentation](https://laravel.com/docs/5.1/authentication)
+to create the necessary code. Test if your authentication setup works before you
+continue.
+
+Create an admin account for your Laravel application so you will be able to log
+into the Aimeos admin interface:
+
+```php artisan aimeos:account <email> --admin```
+
+The e-mail address is the user name for login and the account will work for the
+frontend too. To protect the new account, the command will ask you for a password.
+
+As a last step, you need to extend the ```boot()``` method of your
+```App\Providers\AuthServiceProvider``` class and add the lines to define how
+authorization for "admin" is checked:
+
+```
+public function boot(GateContract $gate)
+{
+	// ...
+
+	$gate->define('admin', function($user) {
+	    return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, 'admin' );
+	});
+}
+```
+
+If you've still started the internal PHP web server (```php -S 127.0.0.1:8000 -t public```)
+you should now open this URL in your browser:
 
 http://127.0.0.1:8000/index.php/admin
 
-**Caution:** You need to protect the ```/admin``` routes so only editors are
-able to access them. This is especially crucial as it grants direct access to
-the administration interface where you can manage your shop!
+Enter the e-mail address and the password of the newly created user and press "Login".
+If you don't get redirected to the admin interface (that depends on the authentication
+code you've created according to the Laravel documentation), point your browser to the
+```/admin``` URL again.
+
+**Caution:** Make sure that you aren't already logged in as a non-admin user! In this
+case, login won't work because Laravel requires to log out first.
 
 ## Hints
 
@@ -191,7 +227,7 @@ do this in the `config/shop.php` file of your Laravel application by adding
 these lines at the bottom:
 
 ```
-    'classes' => array(
+    'madmin' => array(
         'cache' => array(
             'manager' => array(
                 'name' => 'None',
