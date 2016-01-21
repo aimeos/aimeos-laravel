@@ -27,6 +27,9 @@ pages including routing is also available for a quick start.
 
 ## Installation or update
 
+If you want to **upgrade between major versions**, please have a look into the
+[upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
+
 The Aimeos Laravel web shop package is a composer based library that can be
 installed easiest by using [Composer](https://getcomposer.org). Add these lines
 to your composer.json of your Laravel project:
