@@ -6,7 +6,7 @@ Route::match( array( 'GET' ), 'admin', array(
 ));
 
 
-Route::group(config('shop.routes.admin', ['middleware' => 'auth', 'prefix' => '{site}']), function() {
+Route::group(config('shop.routes.admin', ['middleware' => 'auth']), function() {
 
 	Route::match( array( 'GET' ), 'extadm', array(
 		'as' => 'aimeos_shop_extadm',
@@ -27,7 +27,7 @@ Route::group(config('shop.routes.admin', ['middleware' => 'auth', 'prefix' => '{
 	Route::match( array( 'GET', 'POST' ), 'jqadm/copy/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_copy',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]+' ) );
 
 	Route::match( array( 'GET', 'POST' ), 'jqadm/create/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_create',
@@ -37,12 +37,12 @@ Route::group(config('shop.routes.admin', ['middleware' => 'auth', 'prefix' => '{
 	Route::match( array( 'GET', 'POST' ), 'jqadm/delete/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_delete',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@deleteAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]+' ) );
 
 	Route::match( array( 'GET' ), 'jqadm/get/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_get',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@getAction'
-	))->where( array( 'resource' => '[^0-9]*', 'id' => '[0-9]*' ) );
+	))->where( array( 'resource' => '[^0-9]*', 'id' => '[0-9]+' ) );
 
 	Route::match( array( 'POST' ), 'jqadm/save/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jqadm_save',

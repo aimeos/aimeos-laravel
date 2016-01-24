@@ -277,9 +277,15 @@ return array(
 		),
 		'jsonadm' => array(
 			'url' => array(
-				'target' => 'aimeos_shop_jsonadm_options',
+				'target' => 'aimeos_shop_jsonadm_get',
 				'config' => array(
 					'absoluteUri' => true,
+				),
+				'options' => array(
+					'target' => 'aimeos_shop_jsonadm_options',
+					'config' => array(
+						'absoluteUri' => true,
+					),
 				),
 			),
 		),

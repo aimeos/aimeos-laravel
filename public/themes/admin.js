@@ -587,8 +587,7 @@ Aimeos.Product.Item.Bundle = {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsProducts,
-				Aimeos.Product.Item.Bundle.select
-			);
+				Aimeos.Product.Item.Bundle.select);
 		});
 	},
 
@@ -603,7 +602,7 @@ Aimeos.Product.Item.Bundle = {
 
 	select: function(ev, ui) {
 
-		var node = $(ev.delegateTarget)
+		var node = $(ev.delegateTarget);
 		node.parents("tr").find("input.item-label").val(node.val());
 	},
 
@@ -646,8 +645,7 @@ Aimeos.Product.Item.Category = {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsCategories,
-				Aimeos.Product.Item.Category.select
-			);
+				Aimeos.Product.Item.Category.select);
 		});
 	},
 
@@ -662,7 +660,7 @@ Aimeos.Product.Item.Category = {
 
 	select: function(ev, ui) {
 
-		var node = $(ev.delegateTarget)
+		var node = $(ev.delegateTarget);
 		node.parents("tr").find("input.item-label").val(node.val());
 	},
 
@@ -853,7 +851,7 @@ Aimeos.Product.Item.Selection = {
 
 	select: function(ev, ui) {
 
-		var node = $(ev.delegateTarget)
+		var node = $(ev.delegateTarget);
 		node.parents("tr").find("input.item-attr-label").val(node.val());
 	},
 

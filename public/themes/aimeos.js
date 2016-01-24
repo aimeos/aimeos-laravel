@@ -334,7 +334,7 @@ AimeosBasketMini = {
 
 		this.setupBasketToggle();
 	}
-}
+};
 
 
 
@@ -350,7 +350,7 @@ AimeosBasketRelated = {
 	 */
 	init: function() {
 	}
-}
+};
 
 
 
@@ -560,7 +560,7 @@ AimeosCatalog = {
 			var attrDeps = $(event.delegateTarget).data("attrdeps") || {}; // {"<attrid>":["prodid",...],...}
 
 
-			$(".select-option:checked", event.delegateTarget).each(function(i, option) {
+			$(".select-option:checked", event.delegateTarget).each(function(idx, option) {
 
 				var value = $(option).val();
 
@@ -627,7 +627,7 @@ AimeosCatalog = {
 
 			$(".selection .select-item", event.delegateTarget).each( function() {
 
-				if( $(".select-list", this).val() != '' || $(".select-option:checked", this).length > 0 ) {
+				if( $(".select-list", this).val() !== '' || $(".select-option:checked", this).length > 0 ) {
 					$(this).removeClass("error");
 				} else {
 					$(this).addClass("error");
@@ -725,10 +725,7 @@ AimeosCatalogFilter = {
 
 					if($(this).has(".search-hint").length === 0) {
 
-						var node = $('<div/>', {
-							html : input.data("hint"),
-							class : "search-hint"
-						});
+						var node = $('<div class="search-hint">' + input.data("hint") + '</div>');
 						$(".catalog-filter-search", form).after(node);
 
 						var pos = node.position();
@@ -898,7 +895,7 @@ AimeosCatalogSession = {
 	 */
 	init: function() {
 	}
-}
+};
 
 
 
@@ -914,7 +911,7 @@ AimeosCatalogStage = {
 	 */
 	init: function() {
 	}
-}
+};
 
 
 
@@ -1009,7 +1006,7 @@ AimeosCheckoutStandard = {
 			var node = $(ev.delegateTarget);
 			var regex = new RegExp(node.data('regex'));
 
-			if((value != '' && value.match(regex)) || (value == '' && !node.hasClass("mandatory"))) {
+			if((value !== '' && value.match(regex)) || (value === '' && !node.hasClass("mandatory"))) {
 				node.removeClass("error").addClass("success");
 			} else {
 				node.removeClass("success").addClass("error");
@@ -1034,9 +1031,9 @@ AimeosCheckoutStandard = {
 				}
 			};
 
-			$(".checkout-standard .item-new, .item-service")
-				.has(".header,label").has("input:checked") // combining in one has() doesn't work
-				.find(".form-list .mandatory").each(testfn);
+			var item = $(".checkout-standard .item-new, .item-service");
+			 // combining in one has() doesn't work
+			item.has(".header,label").has("input:checked").find(".form-list .mandatory").each(testfn);
 
 			$(".checkout-standard-process .form-list .mandatory").each(testfn);
 
@@ -1059,7 +1056,7 @@ AimeosCheckoutStandard = {
 		var form = $("form").first();
 		var node = $(".checkout-standard-process", form);
 
-		if(node.length > 0 && node.has(".mandatory").length == 0 && node.has(".optional").length == 0 && form.attr("action") != '' ) {
+		if(node.length > 0 && node.has(".mandatory").length === 0 && node.has(".optional").length === 0 && form.attr("action") !== '' ) {
 			form.submit();
 		}
 	},
@@ -1095,7 +1092,7 @@ AimeosCheckoutConfirm = {
 	 */
 	init: function() {
 	}
-}
+};
 
 
 

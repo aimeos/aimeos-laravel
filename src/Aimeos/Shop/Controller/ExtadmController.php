@@ -43,8 +43,10 @@ class ExtadmController extends AdminController
 		$site = Route::input( 'site', 'default' );
 		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
+		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' );
+
+		$bootstrap = $aimeos->get();
+		$cntlPaths = $bootstrap->getCustomPaths( 'controller/extjs' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
 		$context = $this->setLocale( $context, $site, $lang );
@@ -52,7 +54,7 @@ class ExtadmController extends AdminController
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 		$cssFiles = array();
 
-		foreach( $aimeos->getCustomPaths( 'admin/extjs' ) as $base => $paths )
+		foreach( $bootstrap->getCustomPaths( 'admin/extjs' ) as $base => $paths )
 		{
 			foreach( $paths as $path )
 			{
@@ -77,18 +79,18 @@ class ExtadmController extends AdminController
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
 			'site' => $this->getJsonSiteItem( $context, $site ),
-			'i18nContent' => $this->getJsonClientI18n( $aimeos->getI18nPaths(), $lang ),
+			'i18nContent' => $this->getJsonClientI18n( $bootstrap->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
 			'smd' => $controller->getJsonSmd( $jsonUrl ),
 			'urlTemplate' => str_replace( ['<', '>'], ['{', '}'], urldecode( $adminUrl ) ),
 			'uploaddir' => config( 'shop::uploaddir' ),
 			'activeTab' => Input::get( 'tab', 0 ),
-			'version' => $this->getVersion(),
+			'version' => $aimeos->getVersion(),
 			'jqadmurl' => $jqadmUrl,
 		);
 
-		return View::make('shop::admin.extadm-index', $vars);
+		return View::make( 'shop::extadm.index', $vars );
 	}
 
 
@@ -112,7 +114,7 @@ class ExtadmController extends AdminController
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 
 		$response = $controller->process( Input::instance()->request->all(), 'php://input' );
-		return View::make('shop::admin.extadm-do', array( 'output' => $response ));
+		return View::make( 'shop::extadm.do', array( 'output' => $response ) );
 	}
 
 
@@ -137,7 +139,7 @@ class ExtadmController extends AdminController
 			{
 				$jsbAbsPath = $base . '/' . $path;
 				$jsb2 = new \Aimeos\MW\Jsb2\Standard( $jsbAbsPath, dirname( $jsbAbsPath ) );
-				$jsFiles = array_merge( $jsFiles, $jsb2->getUrls( 'js', '' ) );
+				$jsFiles = array_merge( $jsFiles, $jsb2->getFiles( 'js' ) );
 			}
 		}
 
@@ -160,28 +162,13 @@ class ExtadmController extends AdminController
 	 */
 	protected function getJsonLanguages( \Aimeos\MShop\Context\Item\Iface $context )
 	{
-		$paths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getI18nPaths();
-		$langs = array();
+		$result = array();
 
-		if( !isset( $paths['admin'] ) ) {
-			return json_encode( array() );
+		foreach( app( '\Aimeos\Shop\Base\Aimeos' )->get()->getI18nList( 'admin' ) as $id ) {
+			$result[] = array( 'id' => $id, 'label' => $id );
 		}
 
-		foreach( $paths['admin'] as $path )
-		{
-			$iter = new \DirectoryIterator( $path );
-
-			foreach( $iter as $file )
-			{
-				$name = $file->getFilename();
-
-				if( preg_match('/^[a-z]{2,3}(_[A-Z]{2})?$/', $name ) ) {
-					$langs[$name] = null;
-				}
-			}
-		}
-
-		return json_encode( $this->getLanguages( $context, array_keys( $langs ) ) );
+		return json_encode( $result );
 	}
 
 
@@ -239,31 +226,6 @@ class ExtadmController extends AdminController
 		}
 
 		return json_encode( $item->toArray() );
-	}
-
-
-	/**
-	 * Returns a list of arrays with "id" and "label"
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @param array $langIds List of language IDs
-	 * @return array List of associative lists with "id" and "label" as keys
-	 */
-	protected function getLanguages( \Aimeos\MShop\Context\Item\Iface $context, array $langIds )
-	{
-		$languageManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
-		$result = array();
-
-		$search = $languageManager->createSearch();
-		$search->setConditions( $search->compare('==', 'locale.language.id', $langIds ) );
-		$search->setSortations( array( $search->sort( '-', 'locale.language.status' ), $search->sort( '+', 'locale.language.label' ) ) );
-		$langItems = $languageManager->searchItems( $search );
-
-		foreach( $langItems as $id => $item ) {
-			$result[] = array( 'id' => $id, 'label' => $item->getLabel() );
-		}
-
-		return $result;
 	}
 
 

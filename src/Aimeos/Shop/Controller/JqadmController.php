@@ -169,9 +169,39 @@ class JqadmController extends AdminController
 	 */
 	protected function getHtml( $site, $content )
 	{
-		$content = str_replace( ['{type}', '{version}'], ['Laravel', $this->getVersion()], $content );
-		$params = array( 'site' => $site, 'content' => $content );
+		$version = app( '\Aimeos\Shop\Base\Aimeos' )->getVersion();
+		$content = str_replace( ['{type}', '{version}'], ['Laravel', $version], $content );
 
-		return View::make('shop::admin.jqadm', $params );
+		return View::make( 'shop::jqadm.index', array( 'content' => $content ) );
+	}
+
+
+	/**
+	 * Sets the locale item in the given context
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @param string $sitecode Unique site code
+	 * @param string $lang ISO language code, e.g. "en" or "en_GB"
+	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 */
+	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default', $lang = null )
+	{
+		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
+
+		try
+		{
+			$localeItem = $localeManager->bootstrap( $sitecode, '', '', false );
+			$localeItem->setLanguageId( null );
+			$localeItem->setCurrencyId( null );
+		}
+		catch( \Aimeos\MShop\Locale\Exception $e )
+		{
+			$localeItem = $localeManager->createItem();
+		}
+
+		$context->setLocale( $localeItem );
+		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang ) ) );
+
+		return $context;
 	}
 }
