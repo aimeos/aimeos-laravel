@@ -7,7 +7,7 @@ return array(
 	'uploaddir' => '/',
 
 	'routes' => array(
-		// 'admin' => array('middleware' => 'auth', 'prefix' => '{site}'),
+		// 'admin' => array('middleware' => 'auth'),
 		// 'account' => array('middleware' => 'auth'),
 		// 'default' => array(),
 	),
