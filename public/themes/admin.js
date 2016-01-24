@@ -492,7 +492,7 @@ Aimeos.Product.List = {
 
 		$(".list-items").on("click", ".fa-trash", function(e) {
 			$("#confirm-delete").modal("show", $(this));
-			self.element = this;
+			self.element = $(this).parents("form.delete");
 			return false;
 		});
 	},
@@ -502,7 +502,7 @@ Aimeos.Product.List = {
 		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
-			window.location.href = $(self.element).attr("href");
+			$(self.element).submit();
 		});
 	}
 };

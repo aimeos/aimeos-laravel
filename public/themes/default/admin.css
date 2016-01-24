@@ -170,6 +170,10 @@ form.login .input-group-addon {
 	max-width: 9rem;
 }
 
+.aimeos .list-items .actions form.delete {
+	display: inline-block;
+}
+
 .aimeos .actions-group {
 	text-align: center;
 	clear: both;
