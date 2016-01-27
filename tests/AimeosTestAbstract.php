@@ -20,6 +20,8 @@ class AimeosTestAbstract extends Orchestra\Testbench\TestCase
 		$app['config']->set('shop.routes.admin', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.account', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.default', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.confirm', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.update', ['prefix' => '{site}']);
 	}
 
 

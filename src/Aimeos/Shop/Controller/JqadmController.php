@@ -11,6 +11,7 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -29,129 +30,115 @@ class JqadmController extends AdminController
 	/**
 	 * Returns the HTML code for a copy of a resource object
 	 *
-	 * @param string Resource location, e.g. "product"
-	 * @param string $sitecode Unique site code
-	 * @param integer $id Unique resource ID
 	 * @return string Generated output
 	 */
-	public function copyAction( $site = 'default', $resource, $id )
+	public function copyAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
 		}
 
-		$cntl = $this->createClient( $site, $resource );
-		return $this->getHtml( $site, $cntl->copy( $id ) );
+		$cntl = $this->createClient();
+		return $this->getHtml( $cntl->copy() );
 	}
 
 
 	/**
 	 * Returns the HTML code for a new resource object
 	 *
-	 * @param string Resource location, e.g. "product"
-	 * @param string $sitecode Unique site code
 	 * @return string Generated output
 	 */
-	public function createAction( $site = 'default', $resource )
+	public function createAction( $resource )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
 		}
 
-		$cntl = $this->createClient( $site, $resource );
-		return $this->getHtml( $site, $cntl->create() );
+		$cntl = $this->createClient();
+		return $this->getHtml( $cntl->create() );
 	}
 
 
 	/**
 	 * Deletes the resource object or a list of resource objects
 	 *
-	 * @param string Resource location, e.g. "product"
-	 * @param string $sitecode Unique site code
-	 * @param integer $id Unique resource ID
 	 * @return string Generated output
 	 */
-	public function deleteAction( $site = 'default', $resource, $id )
+	public function deleteAction( $resource, $id )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
 		}
 
-		$cntl = $this->createClient( $site, $resource );
-		return $this->getHtml( $site, $cntl->delete( $id ) . $cntl->search() );
+		$cntl = $this->createClient();
+		return $this->getHtml( $cntl->delete() . $cntl->search() );
 	}
 
 
 	/**
 	 * Returns the HTML code for the requested resource object
 	 *
-	 * @param string Resource location, e.g. "product"
-	 * @param string $sitecode Unique site code
-	 * @param integer $id Unique resource ID
 	 * @return string Generated output
 	 */
-	public function getAction( $site = 'default', $resource, $id )
+	public function getAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
 		}
 
-		$cntl = $this->createClient( $site, $resource );
-		return $this->getHtml( $site, $cntl->get( $id ) );
+		$cntl = $this->createClient();
+		return $this->getHtml( $cntl->get() );
 	}
 
 
 	/**
 	 * Saves a new resource object
 	 *
-	 * @param string Resource location, e.g. "product"
-	 * @param string $sitecode Unique site code
 	 * @return string Generated output
 	 */
-	public function saveAction( $site = 'default', $resource )
+	public function saveAction( $resource )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
 		}
 
-		$cntl = $this->createClient( $site, $resource );
-		return $this->getHtml( $site, ( $cntl->save() ? : $cntl->search() ) );
+		$cntl = $this->createClient();
+		return $this->getHtml( ( $cntl->save() ? : $cntl->search() ) );
 	}
 
 
 	/**
 	 * Returns the HTML code for a list of resource objects
 	 *
-	 * @param string Resource location, e.g. "product"
-	 * @param string $sitecode Unique site code
 	 * @return string Generated output
 	 */
-	public function searchAction( $site = 'default', $resource )
+	public function searchAction( $resource )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
 		}
 
-		$cntl = $this->createClient( $site, $resource );
-		return $this->getHtml( $site, $cntl->search() );
+		$cntl = $this->createClient();
+		return $this->getHtml( $cntl->search() );
 	}
 
 
 	/**
 	 * Returns the resource controller
 	 *
-	 * @param string $sitecode Unique site code
 	 * @return \Aimeos\MShop\Context\Item\Iface Context item
 	 */
-	protected function createClient( $sitecode, $resource )
+	protected function createClient()
 	{
+		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
 		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$resource = Route::input( 'resource' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
-		$context = $this->setLocale( $context, $sitecode, $lang );
+		$context = $this->setLocale( $context, $site, $lang );
 
 		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang );
 		$context->setView( $view );
@@ -163,11 +150,10 @@ class JqadmController extends AdminController
 	/**
 	 * Returns the generated HTML code
 	 *
-	 * @param string $site Unique site code
 	 * @param string $content Content from admin client
 	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
-	protected function getHtml( $site, $content )
+	protected function getHtml( $content )
 	{
 		$version = app( '\Aimeos\Shop\Base\Aimeos' )->getVersion();
 		$content = str_replace( ['{type}', '{version}'], ['Laravel', $version], $content );

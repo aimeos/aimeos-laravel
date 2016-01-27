@@ -13,6 +13,7 @@ namespace Aimeos\Shop\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -32,12 +33,9 @@ class JsonadmController extends Controller
 	 * Deletes the resource object or a list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @param string $sitecode Unique site code
-	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function deleteAction( Request $request, $site = 'default', $resource, $id = null )
+	public function deleteAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -46,7 +44,7 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController( $site, $resource );
+		$cntl = $this->createController();
 		$result = $cntl->delete( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
@@ -57,12 +55,9 @@ class JsonadmController extends Controller
 	 * Returns the requested resource object or list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @param string $sitecode Unique site code
-	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function getAction( Request $request, $site = 'default', $resource, $id = null )
+	public function getAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -71,7 +66,7 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController( $site, $resource );
+		$cntl = $this->createController();
 		$result = $cntl->get( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
@@ -82,12 +77,9 @@ class JsonadmController extends Controller
 	 * Updates a resource object or a list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @param string $sitecode Unique site code
-	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function patchAction( Request $request, $site = 'default', $resource, $id = null )
+	public function patchAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -96,7 +88,7 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController( $site, $resource );
+		$cntl = $this->createController();
 		$result = $cntl->patch( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
@@ -107,12 +99,9 @@ class JsonadmController extends Controller
 	 * Creates a new resource object or a list of resource objects
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @param string $sitecode Unique site code
-	 * @param integer $id Unique ID of the resource
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function postAction( Request $request, $site = 'default', $resource, $id = null )
+	public function postAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -121,7 +110,7 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController( $site, $resource );
+		$cntl = $this->createController();
 		$result = $cntl->post( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
@@ -132,12 +121,9 @@ class JsonadmController extends Controller
 	 * Creates or updates a single resource object
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @param string $sitecode Unique site code
-	 * @param integer|null $id Unique resource ID
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function putAction( Request $request, $site = 'default', $resource, $id = null )
+	public function putAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -146,7 +132,7 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController( $site, $resource );
+		$cntl = $this->createController();
 		$result = $cntl->put( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
@@ -157,11 +143,9 @@ class JsonadmController extends Controller
 	 * Returns the available HTTP verbs and the resource URLs
 	 *
 	 * @param \Illuminate\Http\Request $request Request object
-	 * @param string Resource location, e.g. "product/stock/wareshouse"
-	 * @param string $sitecode Unique site code
 	 * @return \Illuminate\Http\Response Response object containing the generated output
 	 */
-	public function optionsAction( Request $request, $site = 'default', $resource = '' )
+	public function optionsAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -170,7 +154,7 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController( $site, $resource );
+		$cntl = $this->createController();
 		$result = $cntl->options( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
@@ -180,18 +164,19 @@ class JsonadmController extends Controller
 	/**
 	 * Returns the resource controller
 	 *
-	 * @param string $sitecode Unique site code
 	 * @return \Aimeos\MShop\Context\Item\Iface Context item
 	 */
-	protected function createController( $sitecode, $resource )
+	protected function createController()
 	{
+		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
 		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$resource = Route::input( 'resource' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$templatePaths = $aimeos->getCustomPaths( 'controller/jsonadm/templates' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
-		$context = $this->setLocale( $context, $sitecode, $lang );
+		$context = $this->setLocale( $context, $site, $lang );
 
 		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang );
 		$context->setView( $view );
