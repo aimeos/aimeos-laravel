@@ -7,11 +7,11 @@ return array(
 	'uploaddir' => '/',
 
 	'routes' => array(
-		// 'login' => array('middleware' => array('web')),
-		// 'admin' => array('middleware' => array('web', 'auth')),
-		// 'account' => array('middleware' => array('web', 'auth')),
-		// 'default' => array('middleware' => array('web')),
-		// 'confirm' => array('middleware' => array('web')),
+		// 'login' => array('middleware' => ['web']),
+		// 'admin' => array('middleware' => ['web', 'auth']),
+		// 'account' => array('middleware' => ['web', 'auth']),
+		// 'default' => array('middleware' => ['web']),
+		// 'confirm' => array('middleware' => ['web']),
 		// 'update' => array(),
 	),
 
