@@ -7,9 +7,12 @@ return array(
 	'uploaddir' => '/',
 
 	'routes' => array(
-		// 'admin' => array('middleware' => 'auth'),
-		// 'account' => array('middleware' => 'auth'),
-		// 'default' => array(),
+		// 'login' => array('middleware' => array('web')),
+		// 'admin' => array('middleware' => array('web', 'auth')),
+		// 'account' => array('middleware' => array('web', 'auth')),
+		// 'default' => array('middleware' => array('web')),
+		// 'confirm' => array('middleware' => array('web')),
+		// 'update' => array(),
 	),
 
 	'page' => array(

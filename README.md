@@ -87,6 +87,19 @@ php artisan aimeos:cache
 In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
 
+**Note:** For Laravel 5.1 the ```routes``` section in your **config/shop.php**
+must be changed like this because in 5.1 there's no middleware group "web" as in 5.2:
+```
+	'routes' => array(
+		'login' => array(),
+		'admin' => array('middleware' => array('auth')),
+		'account' => array('middleware' => array('auth')),
+		'default' => array(),
+		'confirm' => array(),
+		'update' => array(),
+	),
+```
+
 ## Setup
 
 To see all components and get everything working, you also need to adapt your
@@ -160,8 +173,8 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 </html>
 ```
 
-**Note:** Since **Laravel 5.0** CSRF protection is enabled by default but for the
-```/confirm``` and ```/update``` routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
+**Note:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
+routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
 if one of the payment providers is sending data via POST requests.
 
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
