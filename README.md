@@ -197,7 +197,7 @@ frontend too. To protect the new account, the command will ask you for a passwor
 
 As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
-authorization for "admin" is checked:
+authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```:
 
 ```
 public function boot(GateContract $gate)
