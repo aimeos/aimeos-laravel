@@ -27,7 +27,10 @@ pages including routing is also available for a quick start.
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **beta release**, for production there's a [stable/LTS release](https://github.com/aimeos/aimeos-laravel/tree/1.2) you want to **upgrade between major versions**, please have a look into the [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
+This document is for the latest Aimeos Laravel **beta release**, for production
+there's a [stable/LTS release](https://github.com/aimeos/aimeos-laravel/tree/1.2).
+If you want to **upgrade between major versions**, please have a look into the
+[upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
 
 The Aimeos Laravel web shop package is a composer based library that can be
 installed easiest by using [Composer](https://getcomposer.org). Add these lines
