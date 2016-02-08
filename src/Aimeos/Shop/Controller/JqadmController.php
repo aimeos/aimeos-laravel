@@ -48,7 +48,7 @@ class JqadmController extends AdminController
 	 *
 	 * @return string Generated output
 	 */
-	public function createAction( $resource )
+	public function createAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -64,7 +64,7 @@ class JqadmController extends AdminController
 	 *
 	 * @return string Generated output
 	 */
-	public function deleteAction( $resource, $id )
+	public function deleteAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -96,7 +96,7 @@ class JqadmController extends AdminController
 	 *
 	 * @return string Generated output
 	 */
-	public function saveAction( $resource )
+	public function saveAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -112,7 +112,7 @@ class JqadmController extends AdminController
 	 *
 	 * @return string Generated output
 	 */
-	public function searchAction( $resource )
+	public function searchAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -126,7 +126,7 @@ class JqadmController extends AdminController
 	/**
 	 * Returns the resource controller
 	 *
-	 * @return \Aimeos\MShop\Context\Item\Iface Context item
+	 * @return \Aimeos\Admin\JQAdm\Iface JQAdm client
 	 */
 	protected function createClient()
 	{
@@ -166,17 +166,17 @@ class JqadmController extends AdminController
 	 * Sets the locale item in the given context
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @param string $sitecode Unique site code
+	 * @param string $site Unique site code
 	 * @param string $lang ISO language code, e.g. "en" or "en_GB"
 	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
-	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default', $lang = null )
+	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $site, $lang )
 	{
 		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
 
 		try
 		{
-			$localeItem = $localeManager->bootstrap( $sitecode, '', '', false );
+			$localeItem = $localeManager->bootstrap( $site, '', '', false );
 			$localeItem->setLanguageId( null );
 			$localeItem->setCurrencyId( null );
 		}
@@ -186,7 +186,7 @@ class JqadmController extends AdminController
 		}
 
 		$context->setLocale( $localeItem );
-		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang ) ) );
+		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang, 'en' ) ) );
 
 		return $context;
 	}
