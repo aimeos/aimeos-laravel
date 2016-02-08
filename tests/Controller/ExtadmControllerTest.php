@@ -25,6 +25,6 @@ class ExtadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\ExtadmController@fileAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
-		$this->assertContains('EXTUTIL', $response->getContent());
+		$this->assertContains('Ext.', $response->getContent());
 	}
 }
