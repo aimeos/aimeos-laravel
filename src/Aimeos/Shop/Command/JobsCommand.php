@@ -95,9 +95,11 @@ class JobsCommand extends AbstractCommand
 	protected function getContext()
 	{
 		$lv = $this->getLaravel();
-
+		$aimeos = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( false );
-		$tmplPaths = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getCustomPaths( 'controller/jobs/layouts' );
+
+		$tmplPaths = $aimeos->getCustomPaths( 'controller/jobs/templates' );
+		$tmplPaths = array_merge( $tmplPaths, $aimeos->getCustomPaths( 'client/html/templates' ) );
 		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
 
 		$langManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context )->getSubManager( 'language' );
