@@ -145,13 +145,13 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<li><a href="{{ URL::action('Auth\AuthController@login') }}">Login</a></li>
-						<li><a href="{{ URL::action('Auth\AuthController@register') }}">Register</a></li>
+						<li><a href="{{ URL::action('Auth\AuthController@postLogin') }}">Login</a></li>
+						<li><a href="{{ URL::action('Auth\AuthController@postRegister') }}">Register</a></li>
 					@else
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ URL::action('Auth\AuthController@logout') }}">Logout</a></li>
+								<li><a href="{{ URL::action('Auth\AuthController@getLogout') }}">Logout</a></li>
 							</ul>
 						</li>
 					@endif
