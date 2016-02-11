@@ -254,19 +254,26 @@ Aimeos = {
 
 		Aimeos.options.done(function(data) {
 
-			var compare = {}, field = {};
+			var compare = {}, field = {}, params = {}, param = {};
+			var prefix = $("body").data("prefix");
 
 			compare[key] = request.term;
 			field[domain] = key;
 
+			param['filter'] = {'&&': [{'=~': compare}]};
+			param['fields'] = field;
+			param['sort'] = sort;
+
+			if( prefix ) {
+				params[prefix] = param;
+			} else {
+				$params = param;
+			}
+
 			$.ajax({
 				dataType: "json",
 				url: data.meta.resources[domain] || null,
-				data: {
-					filter: {'&&': [{'=~': compare}]},
-					fields: field,
-					sort: sort
-				},
+				data: params,
 				success: function(result) {
 					var list = result.data || [];
 
@@ -524,6 +531,7 @@ Aimeos.Product.Item = {
 		Aimeos.Product.Item.Selection.init();
 		Aimeos.Product.Item.Stock.init();
 		Aimeos.Product.Item.Text.init();
+		Aimeos.Product.Item.Download.init();
 	},
 
 
@@ -986,6 +994,46 @@ Aimeos.Product.Item.Text = {
 			var value = $(this).val();
 
 			$(".header .item-name-content", item).html(value);
+		});
+	}
+};
+
+
+
+Aimeos.Product.Item.Download = {
+
+	init : function() {
+
+		this.addLines();
+		this.removeLine();
+	},
+
+
+	addLines : function() {
+
+		$(".product-item-download").on("change", ".fileupload", function(ev) {
+
+			$(this).each( function(idx, el) {
+				$(".upload", ev.delegateTarget).remove();
+				var line = $(".prototype", ev.delegateTarget);
+
+				for(i=0; i<el.files.length; i++) {
+
+					var file = el.files[i];
+					var clone = Aimeos.addClone(line, Aimeos.getOptionsLanguages);
+
+					clone.addClass("upload");
+					$("input.item-label", clone).val(el.files[i].name);
+				}
+			});
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".product-item-download").on("click", ".fa-trash", function() {
+			$(this).parents("tr").remove();
 		});
 	}
 };
