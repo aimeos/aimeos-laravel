@@ -2115,6 +2115,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: inline-block;
 }
 
+.checkout-standard-summary-option input[type="checkbox"] {
+	margin-left: 0.5em;
+}
+
 /* Checkout order */
 .checkout-standard-order {
 	padding: 0 0 0 1em;
