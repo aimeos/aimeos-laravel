@@ -109,6 +109,11 @@ Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), f
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
 
+	Route::match( array( 'GET', 'POST' ), 'myaccount/download/{dl_id}', array(
+		'as' => 'aimeos_shop_download',
+		'uses' => 'Aimeos\Shop\Controller\AccountController@downloadAction'
+	));
+
 });
 
 

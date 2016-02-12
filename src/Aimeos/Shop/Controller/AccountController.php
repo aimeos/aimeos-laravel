@@ -32,4 +32,16 @@ class AccountController extends Controller
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'account-index' );
 		return View::make('shop::account.index', $params);
 	}
+
+
+	/**
+	 * Returns the html for the "My account" download page.
+	 *
+	 * @return \Illuminate\Contracts\View\View View for rendering the output
+	 */
+	public function downloadAction()
+	{
+		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'account-download' );
+		return View::make('shop::account.download', $params);
+	}
 }

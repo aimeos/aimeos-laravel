@@ -18,4 +18,12 @@ class AccountControllerTest extends AimeosTestAbstract
 		$this->assertContains('<section class="aimeos account-favorite">', $response->getContent());
 		$this->assertContains('<section class="aimeos account-watch">', $response->getContent());
 	}
+
+
+	public function testDownload()
+	{
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@downloadAction', ['site' => 'unittest', 'dl_id' => 1]);
+
+		$this->assertResponseOk();
+	}
 }

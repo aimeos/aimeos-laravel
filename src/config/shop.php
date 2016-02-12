@@ -16,6 +16,7 @@ return array(
 	),
 
 	'page' => array(
+		'account-download' => array( 'account/download' ),
 		'account-index' => array( 'account/history','account/favorite','account/watch','basket/mini','catalog/session' ),
 		'basket-index' => array( 'basket/standard','basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),
@@ -43,18 +44,18 @@ return array(
 		'fs' => array(
 			'adapter' => 'Standard',
 			'basedir' => public_path(),
-			'tempdir' => storage_path( 'aimeos' ),
+			'tempdir' => storage_path( 'tmp' ),
 		),
 		'fs-admin' => array(
 			'adapter' => 'Standard',
 			'basedir' => public_path( 'uploads' ),
-			'tempdir' => storage_path( 'aimeos' ),
+			'tempdir' => storage_path( 'tmp' ),
 		),
-		/* 'fs-media' => array(
+		'fs-secure' => array(
 			'adapter' => 'Standard',
-			'basedir' => public_path( 'uploads' ),
-			'tempdir' => storage_path( 'aimeos' ),
-		), */
+			'basedir' => storage_path( 'secure' ),
+			'tempdir' => storage_path( 'tmp' ),
+		),
 	),
 
 	'admin' => array(
@@ -102,6 +103,11 @@ return array(
 				'watch' => array(
 					'url' => array(
 						'target' => 'aimeos_shop_account_watch',
+					),
+				),
+				'download' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_account_download',
 					),
 				),
 			),
