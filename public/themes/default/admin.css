@@ -454,25 +454,6 @@ form.login .input-group-addon {
 }
 
 
-/* Downloads */
-
-.aimeos .product-item-download .actions .btn-primary {
-	position: relative;
-	overflow: hidden;
-}
-
-.aimeos .product-item-download .fileupload {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	margin: 0px;
-	opacity: 0;
-	font-size: 200px;
-	direction: ltr;
-	cursor: pointer;
-}
-
-
 
 .prototype {
 	display: none;

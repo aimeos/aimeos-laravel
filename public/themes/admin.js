@@ -1004,36 +1004,16 @@ Aimeos.Product.Item.Download = {
 
 	init : function() {
 
-		this.addLines();
-		this.removeLine();
+		this.updateName();
 	},
 
 
-	addLines : function() {
+	updateName : function() {
 
 		$(".product-item-download").on("change", ".fileupload", function(ev) {
-
-			$(this).each( function(idx, el) {
-				$(".upload", ev.delegateTarget).remove();
-				var line = $(".prototype", ev.delegateTarget);
-
-				for(i=0; i<el.files.length; i++) {
-
-					var file = el.files[i];
-					var clone = Aimeos.addClone(line, Aimeos.getOptionsLanguages);
-
-					clone.addClass("upload");
-					$("input.item-label", clone).val(el.files[i].name);
-				}
+			$(this.files).each( function(idx, file) {
+				$("input.item-label", ev.delegateTarget).val(file.name);
 			});
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".product-item-download").on("click", ".fa-trash", function() {
-			$(this).parents("tr").remove();
 		});
 	}
 };
