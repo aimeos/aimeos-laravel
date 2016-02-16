@@ -19,7 +19,7 @@
 	</head>
 	<body>
 
-		<form class="login" method="POST" action="/auth/login" >
+		<form class="login" method="POST" action="{{ URL::action('Auth\AuthController@postLogin') }}" >
 			{!! csrf_field() !!}
 			<div class="form-group input-group input-group-lg">
 				<span class="input-group-addon fa fa-at" id="email-addon"></span>
