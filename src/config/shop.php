@@ -16,7 +16,6 @@ return array(
 	),
 
 	'page' => array(
-		'account-download' => array( 'account/download' ),
 		'account-index' => array( 'account/history','account/favorite','account/watch','basket/mini','catalog/session' ),
 		'basket-index' => array( 'basket/standard','basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),

@@ -13,6 +13,7 @@ namespace Aimeos\Shop\Base;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 
 /**
@@ -70,6 +71,9 @@ class View
 
 		$helper = new \Aimeos\MW\View\Helper\Request\Laravel5( $view, Request::instance() );
 		$view->addHelper( 'request', $helper );
+
+		$helper = new \Aimeos\MW\View\Helper\Response\Laravel5( $view );
+		$view->addHelper( 'response', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Csrf\Standard( $view, '_token', csrf_token() );
 		$view->addHelper( 'csrf', $helper );

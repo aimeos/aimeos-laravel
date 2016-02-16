@@ -12,6 +12,7 @@ namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
 
 
 /**
@@ -41,7 +42,17 @@ class AccountController extends Controller
 	 */
 	public function downloadAction()
 	{
-		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'account-download' );
-		return View::make('shop::account.download', $params);
+		$context = app( '\Aimeos\Shop\Base\Context' )->get();
+		$langid = $context->getLocale()->getLanguageId();
+
+		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), array(), $langid );
+		$context->setView( $view );
+
+		$client = \Aimeos\Client\Html\Factory::createClient( $context, array(), 'account/download' );
+		$client->setView( $view );
+		$client->process();
+
+		$response = $view->response();
+		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() );
 	}
 }

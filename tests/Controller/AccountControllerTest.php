@@ -22,8 +22,8 @@ class AccountControllerTest extends AimeosTestAbstract
 
 	public function testDownload()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@downloadAction', ['site' => 'unittest', 'dl_id' => 1]);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@downloadAction', ['site' => 'unittest', 'dl_id' => 0]);
 
-		$this->assertResponseOk();
+		$this->assertEquals( 401, $response->getStatusCode() );
 	}
 }
