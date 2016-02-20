@@ -121,7 +121,7 @@ return array(
 						'target' => 'aimeos_shop_detail',
 					),
 				),
-				'list' => array(
+				'lists' => array(
 					'url' => array(
 						'target' => 'aimeos_shop_list',
 					),
