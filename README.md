@@ -176,9 +176,10 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 </html>
 ```
 
-**Note:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
-routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
-if one of the payment providers is sending data via POST requests.
+The template contains URLs to register and login users. To generate these URLs, you have to
+set up authentication first in your Laravel application. This is done by executing:
+
+```php ./artisan make:auth```
 
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
 an exception due to old cached data.
@@ -194,6 +195,10 @@ Simply execute this command in the base directory of your application:
 Point your browser to the list page of the shop using:
 
 http://127.0.0.1:8000/index.php/list
+
+**Note:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
+routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
+if one of the payment providers is sending data via POST requests.
 
 ## Admin
 
