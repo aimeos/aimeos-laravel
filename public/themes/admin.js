@@ -224,7 +224,9 @@ Aimeos = {
 			});
 
 			$.each(nodes, function(idx, node) {
-				$(node).parents(".card").find(".card-header").addClass("has-danger");
+				var card = $(node).closest(".card");
+				card.find(".card-header").addClass("has-danger");
+				card.parents(".card").find(" > .card-header").addClass("has-danger");
 			});
 
 			if( nodes.length !== 0 ) {
@@ -267,7 +269,7 @@ Aimeos = {
 			if( prefix ) {
 				params[prefix] = param;
 			} else {
-				$params = param;
+				params = param;
 			}
 
 			$.ajax({
