@@ -61,7 +61,7 @@ class I18n
 		{
 			if( !isset( $this->i18n[$langid] ) )
 			{
-				$i18n = new \Aimeos\MW\Translation\Zend2( $i18nPaths, 'gettext', $langid, array( 'disableNotices' => true ) );
+				$i18n = new \Aimeos\MW\Translation\Gettext( $i18nPaths, $langid );
 
 				if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
 					$i18n = new \Aimeos\MW\Translation\Decorator\APC( $i18n, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );

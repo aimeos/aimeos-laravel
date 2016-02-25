@@ -97,9 +97,10 @@ class ExtadmController extends AdminController
 	/**
 	 * Single entry point for all JSON admin requests.
 	 *
+	 * @param \Illuminate\Http\Request $request Laravel request object
 	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
-	public function doAction()
+	public function doAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin' );
@@ -113,7 +114,7 @@ class ExtadmController extends AdminController
 
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 
-		$response = $controller->process( Input::instance()->request->all(), 'php://input' );
+		$response = $controller->process( Input::instance()->request->all(), $request->getContent() );
 		return View::make( 'shop::extadm.do', array( 'output' => $response ) );
 	}
 
@@ -194,7 +195,7 @@ class ExtadmController extends AdminController
 	 */
 	protected function getJsonClientI18n( array $i18nPaths, $lang )
 	{
-		$i18n = new \Aimeos\MW\Translation\Zend2( $i18nPaths, 'gettext', $lang, array( 'disableNotices' => true ) );
+		$i18n = new \Aimeos\MW\Translation\Gettext( $i18nPaths, $lang );
 
 		$content = array(
 			'admin' => $i18n->getAll( 'admin' ),
