@@ -651,7 +651,7 @@ Aimeos.Product.Item.Category = {
 
 	addLine : function() {
 
-		$(".product-item-category").on("click", ".fa-plus", function(ev) {
+		$(".product-item-category .category-list").on("click", ".fa-plus", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsCategories,
@@ -662,7 +662,7 @@ Aimeos.Product.Item.Category = {
 
 	removeLine : function() {
 
-		$(".product-item-category").on("click", ".fa-trash", function() {
+		$(".product-item-category .category-list").on("click", ".fa-trash", function() {
 			$(this).parents("tr").remove();
 		});
 	},
