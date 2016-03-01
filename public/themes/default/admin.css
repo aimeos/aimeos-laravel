@@ -164,13 +164,13 @@ form.login .input-group-addon {
 	padding: 0.5rem;
 }
 
-.aimeos .list-items .actions {
+.aimeos table .actions {
 	text-align: right;
 	min-width: 20%;
 	max-width: 9rem;
 }
 
-.aimeos .list-items .actions form.delete {
+.aimeos table .actions form.delete {
 	display: inline-block;
 }
 
