@@ -79,7 +79,8 @@
 }
 
 .common-summary .content {
-	margin: 1em;
+	margin: 0.5em;
+	padding: 0.5em 1em;
 }
 
 .common-summary .item .name {
@@ -131,7 +132,7 @@
 }
 
 .common-summary-service .item .item {
-	margin: 0;
+	margin: 0 0.5em;
 }
 
 .common-summary-service .item h4 {
@@ -143,7 +144,6 @@
 
 .common-summary-detail .header {
 	border-bottom: none;
-	background-color: #FFFFFF;
 }
 
 .common-summary-detail .basket {
