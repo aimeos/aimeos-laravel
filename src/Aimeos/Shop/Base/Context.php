@@ -141,7 +141,7 @@ class Context
 	{
 		$conf = $this->config->get( 'shop' );
 
-		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths( 'mysql' );
+		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths();
 		$config = new \Aimeos\MW\Config\PHPArray( $conf, $configPaths );
 
 		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
