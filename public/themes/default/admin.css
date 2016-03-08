@@ -144,6 +144,8 @@ form.login .input-group-addon {
 
 .aimeos .header .btn {
 	float: right;
+	margin-top: 0.34rem;
+	margin-bottom: 0.35rem;
 }
 
 .aimeos .header.has-danger {
@@ -162,13 +164,13 @@ form.login .input-group-addon {
 	padding: 0.5rem;
 }
 
-.aimeos .list-items .actions {
+.aimeos table .actions {
 	text-align: right;
 	min-width: 20%;
 	max-width: 9rem;
 }
 
-.aimeos .list-items .actions form.delete {
+.aimeos table .actions form.delete {
 	display: inline-block;
 }
 
@@ -180,6 +182,12 @@ form.login .input-group-addon {
 .aimeos .actions-group .btn {
 	min-width: 8rem;
 	margin: 0.5rem;
+}
+
+.aimeos input[type="checkbox"],
+.aimeos input[type="radio"] {
+	height: 2.25rem;
+	width: auto;
 }
 
 

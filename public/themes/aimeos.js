@@ -196,7 +196,7 @@ AimeosAccountHistory = {
 	 */
 	setupOrderShow: function() {
 
-		$(".account-history .history-item").on("click", "a", function(ev) {
+		$(".account-history .history-item").on("click", "> a", function(ev) {
 
 			var details = $(".account-history-order", ev.delegateTarget);
 

@@ -2,8 +2,18 @@
  * Aimeos elegance template CSS
  * 
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2014
+ * @copyright Aimeos (aimeos.org), 2014-2016
  */
+
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.eot');
+	src: url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+		url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff2') format('woff2'),
+		url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff') format('woff'),
+		url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+		url('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+}
 
 .aimeos,
 .aimeos h1, .aimeos h2,
@@ -302,6 +312,14 @@
 
 .catalog-filter h1 {
 	display: none;
+}
+
+.catalog-filter-tree .catcode-home > a:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 133%;
+	content: "\f015";
+	color: #B0A060;
+	vertical-align: bottom;
 }
 
 .catalog-filter-tree .media-list {
@@ -1039,29 +1057,25 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-detail-social .social-button {
-	background-image: url('media/social.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	position: relative;
-	display: inline-block;
-	height: 2em;
-	width: 2em;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 150%;
+	padding: 0 0.33em;
 }
 
-.catalog-detail-social .social-button-facebook {
-	background-position: 0 -0em;
+.catalog-detail-social .social-button-facebook:before {
+	content: "\f082";
 }
 
-.catalog-detail-social .social-button-gplus {
-	background-position: 0 -2em;
+.catalog-detail-social .social-button-gplus:before {
+	content: "\f0d5";
 }
 
-.catalog-detail-social .social-button-twitter {
-	background-position: 0 -4em;
+.catalog-detail-social .social-button-twitter:before {
+	content: "\f099";
 }
 
-.catalog-detail-social .social-button-pinterest {
-	background-position: 0 -6em;
+.catalog-detail-social .social-button-pinterest:before {
+	content: "\f0d2";
 }
 
 /* Product detail, action buttions */
@@ -1071,26 +1085,21 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-detail-actions .actions-button {
-	background-image: url('media/detail-actions.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	display: inline-block;
-	position: relative;
-	margin: 0 0.5em;
-	height: 2em;
-	width: 2em;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 150%;
+	padding: 0 0.5em;
 }
 
-.catalog-detail-actions .actions-button-favorite {
-	background-position: 0 -0em;
+.catalog-detail-actions .actions-button-favorite:before {
+	content: "\f004";
 }
 
-.catalog-detail-actions .actions-button-pin {
-	background-position: 0 -2em;
+.catalog-detail-actions .actions-button-pin:before {
+	content: "\f08d";
 }
 
-.catalog-detail-actions .actions-button-watch {
-	background-position: 0 -4em;
+.catalog-detail-actions .actions-button-watch:before {
+	content: "\f06e";
 }
 
 /* Product detail, basket section */
@@ -1325,18 +1334,14 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-detail-additional .header:after {
-	background-image: url(media/plus.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	content: "";
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 120%;
+	content: "\f196";
 	float: right;
-	height: 1.1em;
-	width: 1.1em;
 }
 
 .catalog-detail-additional .header.toggle-js:after {
-	background-image: url(media/minus.png);
+	content: "\f147";
 }
 
 .catalog-detail-additional .content {
@@ -1598,13 +1603,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	width: 14em;
 }
 
-.basket-mini > a {
-	background-image: url('media/basket.png');
-	background-position: left center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	display: inline-block;
-	padding-left: 36px;
+.basket-mini > a:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 125%;
+	content: "\f07a";
 }
 
 .basket-mini h1 {
@@ -1815,13 +1817,13 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .checkout-standard .steps .active:after {
-	background-image: url("media/check.png");
-	background-repeat: no-repeat;
-	display: inline-block;
-	content: "";
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 125%;
+	content: "\f00c";
 	width: 1em;
 	height: 1em;
 	margin: 0 0.5em;
+	display: inline-block;
 }
 
 .checkout-standard .step {
@@ -1937,7 +1939,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 220px;
-	width: 50%;
+	width: 49%;
 }
 
 @media (max-width: 580px) {
