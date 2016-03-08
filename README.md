@@ -144,17 +144,6 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					@if (Auth::guest())
-						<li><a href="{{ URL::action('Auth\AuthController@postLogin') }}">Login</a></li>
-						<li><a href="{{ URL::action('Auth\AuthController@postRegister') }}">Register</a></li>
-					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ URL::action('Auth\AuthController@getLogout') }}">Logout</a></li>
-							</ul>
-						</li>
-					@endif
 				</ul>
 			</div>
 		</div>
@@ -175,11 +164,6 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 	</body>
 </html>
 ```
-
-The template contains URLs to register and login users. To generate these URLs, you have to
-set up authentication first in your Laravel application. This is done by executing:
-
-```php ./artisan make:auth```
 
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
 an exception due to old cached data.
