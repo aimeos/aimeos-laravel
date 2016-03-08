@@ -122,11 +122,9 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 @yield('aimeos_styles')
-	<link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
 	<nav class="navbar navbar-default">
-@yield('aimeos_head')
 	<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -143,8 +141,9 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 					<li><a href="/">Home</a></li>
 				</ul>
 
-				<ul class="nav navbar-nav navbar-right">
-				</ul>
+				<div class="navbar-right">
+@yield('aimeos_head')
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -187,9 +186,12 @@ if one of the payment providers is sending data via POST requests.
 ## Admin
 
 To use the admin interface, you have to set up Laravel authentication first.
-Please follow the [Laravel documentation](https://laravel.com/docs/5.1/authentication)
-to create the necessary code. Test if your authentication setup works before you
-continue.
+Please follow the Laravel documentation to create the necessary code:
+* [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
+* [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
+
+**Note:** You need a route for **/login in Laravel 5.1** too! Test if your
+authentication setup works before you continue.
 
 Create an admin account for your Laravel application so you will be able to log
 into the Aimeos admin interface:
