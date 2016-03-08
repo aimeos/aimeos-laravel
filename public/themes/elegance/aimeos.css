@@ -314,6 +314,10 @@
 	display: none;
 }
 
+.catalog-filter-tree .catcode-home > a {
+	white-space: nowrap;
+}
+
 .catalog-filter-tree .catcode-home > a:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	font-size: 133%;
@@ -1601,6 +1605,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin: 0 1em;
 	color: #555;
 	width: 14em;
+}
+
+.basket-mini > a {
+	white-space: nowrap;
 }
 
 .basket-mini > a:before {
