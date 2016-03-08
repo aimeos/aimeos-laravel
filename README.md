@@ -190,11 +190,10 @@ Please follow the Laravel documentation to create the necessary code:
 * [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
 * [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
 
-**Note:** You need a route for **/login in Laravel 5.1** too! Test if your
-authentication setup works before you continue.
+**Note:** You need a route for **/login in Laravel 5.1** too!
 
-Create an admin account for your Laravel application so you will be able to log
-into the Aimeos admin interface:
+Test if your authentication setup works before you continue. Create an admin account
+for your Laravel application so you will be able to log into the Aimeos admin interface:
 
 ```php artisan aimeos:account <email> --admin```
 
