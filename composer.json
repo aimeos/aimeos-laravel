@@ -38,7 +38,8 @@
             "Aimeos\\Shop\\": "src/"
         },
         "classmap": [
-        	"tests/AimeosTestAbstract.php"
+            "src/database/migrations",
+            "tests/AimeosTestAbstract.php"
         ]
     },
     "scripts": {

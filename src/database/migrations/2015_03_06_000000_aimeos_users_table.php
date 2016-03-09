@@ -57,7 +57,7 @@ class AimeosUsersTable extends Migration {
 		{
 			$table->dropIndex('users_langid_index');
 			$table->dropIndex('users_status_lastname_firstname_index');
-			$table->dropIndex('users_status_address1_address2_index');
+			$table->dropIndex('users_status_address1_index');
 			$table->dropIndex('users_lastname_index');
 			$table->dropIndex('users_address1_index');
 			$table->dropIndex('users_city_index');
