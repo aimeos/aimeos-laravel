@@ -215,6 +215,14 @@ public function boot(GateContract $gate)
 }
 ```
 
+If your `./public` directory isn't writable by your web server, you have to create these
+directories:
+```
+mkdir public/files public/preview public/uploads
+chmod 777 public/files public/preview public/uploads
+```
+
+In a production environment, you should be more specific about the granted permissions!
 If you've still started the internal PHP web server (```php -S 127.0.0.1:8000 -t public```)
 you should now open this URL in your browser:
 
