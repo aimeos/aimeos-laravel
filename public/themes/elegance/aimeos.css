@@ -681,7 +681,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	white-space: pre;
 }
 
-.catalog-stage-navigator a:first-child:before {
+.catalog-stage-navigator a:first-of-type:before {
 	content: '';
 }
 
@@ -1117,16 +1117,16 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	color: #555;
 }
 
-.catalog-detail-basket .price-item:first-child {
+.catalog-detail-basket .price-item:first-of-type {
 	display: block;
 	cursor: pointer;
 }
 
-.catalog-detail-basket .price-item:first-child:after {
+.catalog-detail-basket .price-item:first-of-type:after {
 	content: "+";
 }
 
-.catalog-detail-basket .price-item.toggle-js:first-child:after {
+.catalog-detail-basket .price-item.toggle-js:first-of-type:after {
 	content: "-";
 }
 
@@ -1152,12 +1152,12 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: inline-block;
 }
 
-.catalog-detail-basket .price-item:first-child .taxrate {
+.catalog-detail-basket .price-item:first-of-type .taxrate {
 	display: inline-block;
 	padding: 0 1em;
 }
 
-.catalog-detail-basket .price-item:first-child .quantity,
+.catalog-detail-basket .price-item:first-of-type .quantity,
 .catalog-detail-basket .price-item .rebate,
 .catalog-detail-basket .price-item .taxrate {
 	display: none;

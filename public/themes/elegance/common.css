@@ -39,14 +39,14 @@
 	display: none;
 }
 
-.aimeos .price-item:first-child {
+.aimeos .price-item:first-of-type {
 	display: block;
 }
 
-.aimeos .price-item:first-child .quantity,
-.aimeos .price-item:first-child .rebate,
-.aimeos .price-item:first-child .costs,
-.aimeos .price-item:first-child .taxrate {
+.aimeos .price-item:first-of-type .quantity,
+.aimeos .price-item:first-of-type .rebate,
+.aimeos .price-item:first-of-type .costs,
+.aimeos .price-item:first-of-type .taxrate {
 	display: none;
 }
 
