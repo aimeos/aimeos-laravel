@@ -223,11 +223,11 @@ AimeosCatalogDetail = {
 	 */
 	setupBlockPriceSlider: function() {
 
-		$(".catalog-detail-basket .price-item:not(.price-item:first-child)").hide();
+		$(".catalog-detail-basket .price-item:not(.price-item:first-of-type)").hide();
 
 	    $(".catalog-detail-basket .price").on("click", function(ev) {
-	        $(".price-item:not(.price-item:first-child)", this).slideToggle();
-	    	$(".price-item:first-child", ev.delegateTarget).toggleClass("toggle-js");
+	        $(".price-item:not(.price-item:first-of-type)", this).slideToggle();
+	    	$(".price-item:first-of-type", ev.delegateTarget).toggleClass("toggle-js");
 	    });
 	},
 
