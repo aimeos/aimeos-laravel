@@ -139,7 +139,8 @@ class Context
 	 */
 	protected function getConfig()
 	{
-		$conf = $this->config->get( 'shop' );
+		$default = include dirname( dirname( dirname( __DIR__ ) ) ) . DIRECTORY_SEPARATOR . 'default.php';
+		$conf = array_replace_recursive( $default, $this->config->get( 'shop' ) );
 
 		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths();
 		$config = new \Aimeos\MW\Config\PHPArray( $conf, $configPaths );
