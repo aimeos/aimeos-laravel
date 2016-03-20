@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Aimeos administration interface</title>
 
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/css/tether.min.css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/packages/aimeos/shop/themes/default/admin.css">
@@ -33,6 +34,8 @@
 			<button class="btn btn-block btn-lg btn-primary" type="submit">Login</button>
 		</form>
 
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 	</body>
 </html>
