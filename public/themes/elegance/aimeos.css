@@ -958,7 +958,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-detail-image .thumbs .item {
-	display: block;
+	display: inline-block;
 	height: 105px;
 	width: 80px;
 	opacity: 0.7;

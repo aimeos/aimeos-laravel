@@ -73,6 +73,7 @@
 			});
 
 			btn.click(function(ev) {
+				ev.stopPropagation();
 				ev.preventDefault();
 				input.focus();
 
