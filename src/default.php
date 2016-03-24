@@ -30,6 +30,20 @@ return array(
 				),
 			)
 		),
+		'jsonadm' => array(
+			'url' => array(
+				'target' => 'aimeos_shop_jsonadm_get',
+				'config' => array(
+					'absoluteUri' => true,
+				),
+				'options' => array(
+					'target' => 'aimeos_shop_jsonadm_options',
+					'config' => array(
+						'absoluteUri' => true,
+					),
+				),
+			),
+		),
 	),
 	'client' => array(
 		'html' => array(
@@ -134,23 +148,6 @@ return array(
 					),
 					'language' => array(
 						'param-name' => 'locale',
-					),
-				),
-			),
-		),
-	),
-
-	'controller' => array(
-		'jsonadm' => array(
-			'url' => array(
-				'target' => 'aimeos_shop_jsonadm_get',
-				'config' => array(
-					'absoluteUri' => true,
-				),
-				'options' => array(
-					'target' => 'aimeos_shop_jsonadm_options',
-					'config' => array(
-						'absoluteUri' => true,
 					),
 				),
 			),

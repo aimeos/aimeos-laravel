@@ -44,8 +44,8 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController();
-		$result = $cntl->delete( $request->getContent(), $header, $status );
+		$client = $this->createClient();
+		$result = $client->delete( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -66,8 +66,8 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController();
-		$result = $cntl->get( $request->getContent(), $header, $status );
+		$client = $this->createClient();
+		$result = $client->get( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -88,8 +88,8 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController();
-		$result = $cntl->patch( $request->getContent(), $header, $status );
+		$client = $this->createClient();
+		$result = $client->patch( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -110,8 +110,8 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController();
-		$result = $cntl->post( $request->getContent(), $header, $status );
+		$client = $this->createClient();
+		$result = $client->post( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -132,8 +132,8 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController();
-		$result = $cntl->put( $request->getContent(), $header, $status );
+		$client = $this->createClient();
+		$result = $client->put( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -154,8 +154,8 @@ class JsonadmController extends Controller
 		$status = 500;
 		$header = $request->headers->all();
 
-		$cntl = $this->createController();
-		$result = $cntl->options( $request->getContent(), $header, $status );
+		$client = $this->createClient();
+		$result = $client->options( $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -166,14 +166,14 @@ class JsonadmController extends Controller
 	 *
 	 * @return \Aimeos\MShop\Context\Item\Iface Context item
 	 */
-	protected function createController()
+	protected function createClient()
 	{
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
 		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$templatePaths = $aimeos->getCustomPaths( 'controller/jsonadm/templates' );
+		$templatePaths = $aimeos->getCustomPaths( 'admin/jsonadm/templates' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
 		$context = $this->setLocale( $context, $site, $lang );
@@ -181,7 +181,7 @@ class JsonadmController extends Controller
 		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang );
 		$context->setView( $view );
 
-		return \Aimeos\Controller\JsonAdm\Factory::createController( $context, $templatePaths, $resource );
+		return \Aimeos\Admin\JsonAdm\Factory::createClient( $context, $templatePaths, $resource );
 	}
 
 
