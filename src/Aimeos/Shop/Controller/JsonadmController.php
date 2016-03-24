@@ -162,9 +162,9 @@ class JsonadmController extends Controller
 
 
 	/**
-	 * Returns the resource controller
+	 * Returns the JsonAdm client
 	 *
-	 * @return \Aimeos\MShop\Context\Item\Iface Context item
+	 * @return \Aimeos\Admin\JsonAdm\Iface JsonAdm client
 	 */
 	protected function createClient()
 	{
