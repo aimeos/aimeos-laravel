@@ -207,7 +207,7 @@ authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php
 ```
 public function boot(GateContract $gate)
 {
-	// ...
+	// Keep the lines before
 
 	$gate->define('admin', function($user) {
 	    return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, 'admin' );
