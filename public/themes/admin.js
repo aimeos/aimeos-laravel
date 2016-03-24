@@ -528,6 +528,7 @@ Aimeos.Product.Item = {
 		this.deleteConfigLine();
 		this.configComplete();
 
+		Aimeos.Product.Item.Attribute.init();
 		Aimeos.Product.Item.Bundle.init();
 		Aimeos.Product.Item.Category.init();
 		Aimeos.Product.Item.Image.init();
@@ -576,6 +577,53 @@ Aimeos.Product.Item = {
 
 		$(".aimeos .item").on("click", " .config-key", function(ev) {
 			$(this).autocomplete("search", "");
+		});
+	}
+};
+
+
+
+Aimeos.Product.Item.Attribute = {
+
+	init : function() {
+
+		this.addLine();
+		this.removeLine();
+		this.setupComponents();
+	},
+
+
+	addLine : function() {
+
+		$(".product-item-attribute").on("click", ".fa-plus", function(ev) {
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsAttributes,
+				Aimeos.Product.Item.Attribute.select);
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".product-item-attribute").on("click", ".fa-trash", function() {
+			$(this).parents("tr").remove();
+		});
+	},
+
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.parents("tr").find("input.item-label").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".product-item-attribute .combobox").combobox({
+			getfcn: Aimeos.getOptionsAttributes,
+			select: Aimeos.Product.Item.Attribute.select
 		});
 	}
 };
