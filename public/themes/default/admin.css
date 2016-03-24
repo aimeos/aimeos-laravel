@@ -385,6 +385,13 @@ form.login .input-group-addon {
 }
 
 
+/* Attributes */
+
+.aimeos .product-item-attribute .ai-combobox {
+	width: 100%;
+}
+
+
 /* Bundles */
 
 .aimeos .product-item-bundle {
