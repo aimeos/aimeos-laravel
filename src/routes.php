@@ -28,6 +28,11 @@ Route::group(config('shop.routes.admin', ['middleware' => ['web', 'auth']]), fun
 	));
 
 
+	Route::match( array( 'GET' ), 'jqadm/file/{type}', array(
+		'as' => 'aimeos_shop_jqadm_file',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@fileAction'
+	));
+
 	Route::match( array( 'GET', 'POST' ), 'jqadm/copy/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_copy',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'

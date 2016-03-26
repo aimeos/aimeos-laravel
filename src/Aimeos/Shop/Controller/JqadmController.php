@@ -28,6 +28,51 @@ class JqadmController extends AdminController
 
 
 	/**
+	 * Returns the JS file content
+	 *
+	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 */
+	public function fileAction()
+	{
+		if( config( 'shop.authorize', true ) ) {
+			$this->authorize( 'admin' );
+		}
+
+		$contents = '';
+		$files = array();
+		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$type = Route::input( 'type', Input::get( 'type', 'js' ) );
+
+		foreach( $aimeos->getCustomPaths( 'admin/jqadm' ) as $base => $paths )
+		{
+			foreach( $paths as $path )
+			{
+				$jsbAbsPath = $base . '/' . $path;
+				$jsb2 = new \Aimeos\MW\Jsb2\Standard( $jsbAbsPath, dirname( $jsbAbsPath ) );
+				$files = array_merge( $files, $jsb2->getFiles( $type ) );
+			}
+		}
+
+		foreach( $files as $file )
+		{
+			if( ( $content = file_get_contents( $file ) ) !== false ) {
+				$contents .= $content;
+			}
+		}
+
+		$response = response( $contents );
+
+		if( $type === 'js' ) {
+			$response->header( 'Content-Type', 'application/javascript' );
+		} elseif( $type === 'css' ) {
+			$response->header( 'Content-Type', 'text/css' );
+		}
+
+		return $response;
+	}
+
+
+	/**
 	 * Returns the HTML code for a copy of a resource object
 	 *
 	 * @return string Generated output

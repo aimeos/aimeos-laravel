@@ -9,6 +9,24 @@ class JqadmControllerTest extends AimeosTestAbstract
 	}
 
 
+	public function testFileActionCss()
+	{
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@fileAction', ['site' => 'unittest', 'type' => 'css']);
+
+		$this->assertResponseOk();
+		$this->assertContains('.aimeos', $response->getContent());
+	}
+
+
+	public function testFileActionJs()
+	{
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@fileAction', ['site' => 'unittest', 'type' => 'js']);
+
+		$this->assertResponseOk();
+		$this->assertContains('Aimeos = {', $response->getContent());
+	}
+
+
 	public function testCopyAction()
 	{
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];
