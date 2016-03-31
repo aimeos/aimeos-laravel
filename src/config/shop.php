@@ -55,6 +55,10 @@ return array(
 			'basedir' => storage_path( 'secure' ),
 			'tempdir' => storage_path( 'tmp' ),
 		),
+		'mq' => array(
+			'adapter' => 'Standard',
+			'db' => 'db',
+		),
 	),
 
 	'client' => array(

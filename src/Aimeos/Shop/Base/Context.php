@@ -77,6 +77,9 @@ class Context
 			$fs = new \Aimeos\MW\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, storage_path( 'aimeos' ) );
 			$context->setFilesystemManager( $fs );
 
+			$mq = new \Aimeos\MW\MQueue\Manager\Standard( $config );
+			$context->setMessageQueueManager( $mq );
+
 			$mail = new \Aimeos\MW\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
 			$context->setMail( $mail );
 
