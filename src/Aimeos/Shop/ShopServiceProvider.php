@@ -35,7 +35,12 @@ class ShopServiceProvider extends ServiceProvider {
 	{
 		$basedir = dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR;
 
-		$this->mergeConfigFrom(dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR.'config/shop.php', 'shop');
+		$config = array_replace_recursive(
+			$this->app['config']->get('shop', []),
+			require $basedir.'default.php',
+			require $basedir.'config/shop.php'
+		);
+		$this->app['config']->set('shop', $config);
 
 		$this->loadViewsFrom($basedir.'views', 'shop');
 

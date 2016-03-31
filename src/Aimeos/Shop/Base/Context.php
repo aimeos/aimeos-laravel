@@ -142,11 +142,8 @@ class Context
 	 */
 	protected function getConfig()
 	{
-		$default = include dirname( dirname( dirname( __DIR__ ) ) ) . DIRECTORY_SEPARATOR . 'default.php';
-		$conf = array_replace_recursive( $default, $this->config->get( 'shop' ) );
-
 		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths();
-		$config = new \Aimeos\MW\Config\PHPArray( $conf, $configPaths );
+		$config = new \Aimeos\MW\Config\PHPArray( $this->config->get( 'shop' ), $configPaths );
 
 		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
 			$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
