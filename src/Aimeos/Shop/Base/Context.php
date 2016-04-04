@@ -175,7 +175,7 @@ class Context
 				$lang = $currency = '';
 			}
 
-			$disableSites = $this->config->has( 'shop.disableSites' );
+			$disableSites = $this->config->get( 'shop.disableSites', true );
 
 			$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
 			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
