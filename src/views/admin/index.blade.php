@@ -9,7 +9,6 @@
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/css/tether.min.css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/packages/aimeos/shop/themes/default/admin.css">
 
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -17,6 +16,20 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+		<style type="text/css">
+			form.login {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 20rem;
+				margin: -6rem -10rem;
+			}
+
+			form.login .input-group-addon {
+				font-size: 1.25rem;
+				min-width: 3.65rem;
+			}
+		</style>
 	</head>
 	<body>
 
