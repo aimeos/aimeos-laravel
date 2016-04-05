@@ -27,8 +27,7 @@ pages including routing is also available for a quick start.
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **beta release**, for production
-there's a [stable/LTS release](https://github.com/aimeos/aimeos-laravel/tree/1.2).
+This document is for the latest Aimeos Laravel **2016.04 release and later**.
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
 
@@ -40,7 +39,7 @@ to your composer.json of your Laravel project:
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2016.01",
+        "aimeos/aimeos-laravel": "~2016.04",
         ...
     },
     "scripts": {
