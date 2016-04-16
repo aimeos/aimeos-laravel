@@ -40,8 +40,9 @@ class ExtadmController extends AdminController
 			$this->authorize( 'admin' );
 		}
 
-		$site = Route::input( 'site', 'default' );
-		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
+		$lang = Route::input( 'lang', Input::get( 'lang', config( 'app.locale', 'en' ) ) );
+		$tab = Route::input( 'tab', Input::get( 'tab', 0 ) );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' );
 
@@ -85,9 +86,9 @@ class ExtadmController extends AdminController
 			'smd' => $controller->getJsonSmd( $jsonUrl ),
 			'urlTemplate' => str_replace( ['<', '>'], ['{', '}'], urldecode( $adminUrl ) ),
 			'uploaddir' => config( 'shop::uploaddir' ),
-			'activeTab' => Input::get( 'tab', 0 ),
 			'version' => $aimeos->getVersion(),
 			'jqadmurl' => $jqadmUrl,
+			'activeTab' => $tab,
 		);
 
 		return View::make( 'shop::extadm.index', $vars );
