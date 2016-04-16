@@ -34,11 +34,12 @@ class ShopServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$basedir = dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR;
+		$confpath = config_path('shop.php');
 
 		$config = array_replace_recursive(
 			$this->app['config']->get('shop', []),
 			require $basedir.'default.php',
-			require config_path('shop.php')
+			(file_exists($confpath) ? require $confpath : array())
 		);
 		$this->app['config']->set('shop', $config);
 
