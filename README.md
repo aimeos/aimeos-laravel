@@ -67,7 +67,7 @@ to the **resource/db section of your ./config/shop.php** file too!
 Next, the Aimeos provider class must be added to the `providers` array of the
 `config/app.php` file so the application and Laravel command task will work:
 
-```
+```php
 return array(
     'providers' => array(
         ...
@@ -91,7 +91,7 @@ installed, leave out the `--option=setup/default/demo:1` option.
 
 **Note:** For Laravel 5.1 the ```routes``` section in your **config/shop.php**
 must be changed like this because in 5.1 there's no middleware group "web" as in 5.2:
-```
+```php
 	'routes' => array(
 		'login' => array(),
 		'admin' => array('middleware' => array('auth')),
@@ -108,7 +108,7 @@ To see all components and get everything working, you also need to adapt your
 main Blade template in `resources/views/app.blade.php`. This is a working
 example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -203,7 +203,7 @@ As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
 authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```:
 
-```
+```php
 public function boot(GateContract $gate)
 {
 	// Keep the lines before
@@ -241,7 +241,7 @@ To simplify development, you should configure to use no content cache. You can
 do this in the `config/shop.php` file of your Laravel application by adding
 these lines at the bottom:
 
-```
+```php
     'madmin' => array(
         'cache' => array(
             'manager' => array(
