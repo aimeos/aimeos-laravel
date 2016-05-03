@@ -233,6 +233,20 @@ AimeosCatalogDetail = {
 
 
 	/**
+	 * Initializes the slide in/out for delivery/payment services
+	 */
+	setupServiceSlider: function() {
+
+		$(".catalog-detail-basket-service .service-list").hide();
+
+		$(".catalog-detail-basket").on("click", ".service-intro", function(ev) {
+			$(".service-list", ev.delegateTarget).slideToggle();
+			$(".service-intro", ev.delegateTarget).toggleClass("toggle-js");
+		});
+	},
+
+
+	/**
 	 * Initializes the slide in/out for additional content
 	 */
 	setupAdditionalContentSlider: function() {
@@ -303,6 +317,7 @@ AimeosCatalogDetail = {
 	 */
 	init: function() {
 
+		this.setupServiceSlider();
 		this.setupBlockPriceSlider();
 		this.setupAdditionalContentSlider();
 

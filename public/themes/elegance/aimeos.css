@@ -465,6 +465,27 @@ html.no-js .catalog-filter-tree:hover > ul {
 	color: #555;
 }
 
+.catalog-filter-tree .category-selected {
+	display: none;
+	text-align: left;
+	clear: both;
+}
+
+.catalog-filter-tree .category-selected .selected-intro:after {
+	content: ":";
+}
+
+.catalog-filter-tree .category-selected .selected-category {
+	border: solid 1px #D0D0D0;
+	display: inline-block;
+	margin: 0.5em;
+	padding: 0 0.25em;
+}
+
+.catalog-filter-tree .category-selected .selected-category:after {
+	content: " ×";
+}
+
 /* Catalog filter, attribute section */
 .catalog-filter-attribute {
 	margin: 1em 0;
@@ -1123,14 +1144,16 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-detail-basket .price-item:first-of-type:after {
-	content: "+";
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f107";
 }
 
 .catalog-detail-basket .price-item.toggle-js:first-of-type:after {
-	content: "-";
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f106";
 }
 
-.catalog-detail-basket .price-item:last-child:after {
+.catalog-detail-basket .price-item:last-of-type:after {
 	content: "";
 }
 
@@ -1194,6 +1217,42 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	text-align: center;
 	height: 1.6em;
 	width: 5em;
+}
+
+/* services */
+.catalog-detail-basket .service-intro {
+	cursor: pointer;
+	color: #B0A060;
+}
+
+.catalog-detail-basket-service .service-list {
+	list-style: none;
+	color: #999;
+	padding: 0;
+}
+
+.catalog-detail-basket-service .service-name {
+	display: inline-block;
+	min-width: 8em;
+}
+
+.catalog-detail-basket-service .service-item .price-item {
+	display: inline-block;
+	text-align: right;
+	min-width: 4em;
+}
+
+.catalog-detail-basket-service .service-item .price-item .costs {
+	display: block;
+}
+
+.catalog-detail-basket-service .service-item .price-item .value,
+.catalog-detail-basket-service .service-item .price-item .taxrate {
+	display: none;
+}
+
+.catalog-detail-basket-service .service-item .service-short {
+	display: none;
 }
 
 /* product attributes */
