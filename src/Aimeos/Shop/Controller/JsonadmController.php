@@ -45,7 +45,7 @@ class JsonadmController extends Controller
 		$header = $request->headers->all();
 
 		$client = $this->createClient();
-		$result = $client->delete( $request->getContent(), $header, $status );
+		$result = $client->delete( (string) $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -67,7 +67,7 @@ class JsonadmController extends Controller
 		$header = $request->headers->all();
 
 		$client = $this->createClient();
-		$result = $client->get( $request->getContent(), $header, $status );
+		$result = $client->get( (string) $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -89,7 +89,7 @@ class JsonadmController extends Controller
 		$header = $request->headers->all();
 
 		$client = $this->createClient();
-		$result = $client->patch( $request->getContent(), $header, $status );
+		$result = $client->patch( (string) $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -111,7 +111,7 @@ class JsonadmController extends Controller
 		$header = $request->headers->all();
 
 		$client = $this->createClient();
-		$result = $client->post( $request->getContent(), $header, $status );
+		$result = $client->post( (string) $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -133,7 +133,7 @@ class JsonadmController extends Controller
 		$header = $request->headers->all();
 
 		$client = $this->createClient();
-		$result = $client->put( $request->getContent(), $header, $status );
+		$result = $client->put( (string) $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
@@ -155,7 +155,7 @@ class JsonadmController extends Controller
 		$header = $request->headers->all();
 
 		$client = $this->createClient();
-		$result = $client->options( $request->getContent(), $header, $status );
+		$result = $client->options( (string) $request->getContent(), $header, $status );
 
 		return $this->createResponse( $result, $status, $header );
 	}
