@@ -104,7 +104,7 @@ must be changed like this because in 5.1 there's no middleware group "web" as in
 
 ## Setup
 
-To see all components and get everything working, you also need to adapt your
+To see all components and get everything working, you also need to create your
 main Blade template in `resources/views/app.blade.php`. This is a working
 example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
