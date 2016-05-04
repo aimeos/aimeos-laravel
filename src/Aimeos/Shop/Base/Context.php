@@ -11,6 +11,7 @@ namespace Aimeos\Shop\Base;
 
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
 
 
@@ -163,17 +164,9 @@ class Context
 	{
 		if( $this->locale === null )
 		{
-			if( Route::current() !== null )
-			{
-				$site = Route::input( 'site', 'default' );
-				$lang = Route::input( 'locale', '' );
-				$currency = Route::input( 'currency', '' );
-			}
-			else
-			{
-				$site = 'default';
-				$lang = $currency = '';
-			}
+			$site = Route::input( 'site', Input::get( 'site', 'default' ) );
+			$currency = Route::input( 'currency', Input::get( 'currency', '' ) );
+			$lang = Route::input( 'locale', Input::get( 'locale', '' ) );
 
 			$disableSites = $this->config->get( 'shop.disableSites', true );
 
