@@ -214,30 +214,12 @@ return array(
 	),
 
 	'controller' => array(
-		'extjs' => array(
-			'attribute' => array(
-				'export' => array(
-					'text' => array(
-						'default' => array(
-							'downloaddir' => 'uploads',
-						),
-					),
-				),
-			),
-			'catalog' => array(
-				'export' => array(
-					'text' => array(
-						'default' => array(
-							'downloaddir' => 'uploads',
-						),
-					),
-				),
-			),
+		'common' => array(
 			'media' => array(
-				'default' => array(
+				'standard' => array(
 					'mimeicon' => array(
 						# Directory where icons for the mime types stored
-						'directory' => public_path( '/packages/aimeos/shop/mimeicons' ),
+						'directory' => 'packages/aimeos/shop/mimeicons',
 						# File extension of mime type icons
 						'extension' => '.png'
 					),
@@ -286,6 +268,26 @@ return array(
 						# 'maxheight' => 280,
 					),
 					'tempdir' => storage_path( 'aimeos' ),
+				),
+			),
+		),
+		'extjs' => array(
+			'attribute' => array(
+				'export' => array(
+					'text' => array(
+						'default' => array(
+							'downloaddir' => 'uploads',
+						),
+					),
+				),
+			),
+			'catalog' => array(
+				'export' => array(
+					'text' => array(
+						'default' => array(
+							'downloaddir' => 'uploads',
+						),
+					),
 				),
 			),
 			'product' => array(
