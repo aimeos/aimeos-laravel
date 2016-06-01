@@ -72,7 +72,7 @@ class Context
 			$config = $this->getConfig();
 			$context->setConfig( $config );
 
-			$dbm = new \Aimeos\MW\DB\Manager\PDO( $config );
+			$dbm = new \Aimeos\MW\DB\Manager\DBAL( $config );
 			$context->setDatabaseManager( $dbm );
 
 			$fs = new \Aimeos\MW\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, storage_path( 'aimeos' ) );
