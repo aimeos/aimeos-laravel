@@ -685,25 +685,21 @@ AimeosCatalogFilter = {
 		aimeosInputComplete.autocomplete({
 			minLength : 3,
 			delay : 200,
-			source : function(req, add) {
+			source : function(req, resp) {
 				var nameTerm = {};
 				nameTerm[aimeosInputComplete.attr("name")] = req.term;
 
 				$.getJSON(aimeosInputComplete.data("url"), nameTerm, function(data) {
-					var suggestions = [];
-
-					$.each(data, function(idx, val) {
-						suggestions.push(val.name);
-					});
-
-					add(suggestions);
+					resp(data);
 				});
 			},
 			select : function(ev, ui) {
-				aimeosInputComplete.val(ui.item.value);
-				$(ev.target).parents(".catalog-filter form").submit();
+				aimeosInputComplete.val(ui.item.label);
+				return false;
 			}
-		});
+		}).autocomplete("instance")._renderItem = function(ul, item) {
+			return $("<li>").append(item.value).appendTo(ul);
+		};
 	},
 
 
