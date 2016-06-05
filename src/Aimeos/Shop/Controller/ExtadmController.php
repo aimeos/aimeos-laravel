@@ -37,7 +37,7 @@ class ExtadmController extends AdminController
 	public function indexAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
@@ -104,7 +104,7 @@ class ExtadmController extends AdminController
 	public function doAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
@@ -129,7 +129,7 @@ class ExtadmController extends AdminController
 	public function fileAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$contents = '';

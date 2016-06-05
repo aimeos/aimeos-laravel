@@ -39,19 +39,26 @@ class Support
 	 * Checks if the user with the given ID is in the specified group
 	 *
 	 * @param string $userid Unique user ID
-	 * @param string $groupcode Unique user/customer group code
+	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
 	 * @return boolean True if user is part of the group, false if not
 	 */
-	public function checkGroup( $userid, $groupcode )
+	public function checkGroup( $userid, $groupcodes )
 	{
 		$context = $this->context->get();
-		$group = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' )->findItem( $groupcode );
+
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'customer.group.code', $groupcodes ) );
+		$groupIds = array_keys( $manager->searchItems( $search ) );
+
+
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
 			$search->compare( '==', 'customer.lists.parentid', $userid ),
-			$search->compare( '==', 'customer.lists.refid', $group->getId() ),
+			$search->compare( '==', 'customer.lists.refid', $groupIds ),
 			$search->compare( '==', 'customer.lists.domain', 'customer/group' ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );

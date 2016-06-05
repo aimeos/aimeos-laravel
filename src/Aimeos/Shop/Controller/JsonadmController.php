@@ -38,7 +38,7 @@ class JsonadmController extends Controller
 	public function deleteAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$status = 500;
@@ -60,7 +60,7 @@ class JsonadmController extends Controller
 	public function getAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin', 'editor']] );
 		}
 
 		$status = 500;
@@ -82,7 +82,7 @@ class JsonadmController extends Controller
 	public function patchAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$status = 500;
@@ -104,7 +104,7 @@ class JsonadmController extends Controller
 	public function postAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$status = 500;
@@ -126,7 +126,7 @@ class JsonadmController extends Controller
 	public function putAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin']] );
 		}
 
 		$status = 500;
@@ -148,7 +148,7 @@ class JsonadmController extends Controller
 	public function optionsAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin' );
+			$this->authorize( 'admin', [['admin', 'editor']] );
 		}
 
 		$status = 500;
