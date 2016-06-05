@@ -44,26 +44,35 @@ class Support
 	 */
 	public function checkGroup( $userid, $groupcodes )
 	{
-		$context = $this->context->get();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'customer.group.code', $groupcodes ) );
-		$groupIds = array_keys( $manager->searchItems( $search ) );
-
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
+		$groupItems = $this->getGroups( (array) $groupcodes );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context->get(), 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
 			$search->compare( '==', 'customer.lists.parentid', $userid ),
-			$search->compare( '==', 'customer.lists.refid', $groupIds ),
+			$search->compare( '==', 'customer.lists.refid', array_keys( $groupItems ) ),
 			$search->compare( '==', 'customer.lists.domain', 'customer/group' ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$search->setSlice( 0, 1 );
 
 		return (bool) count( $manager->searchItems( $search ) );
+	}
+
+
+	/**
+	 * Returns the groups items for the given codes
+	 *
+	 * @param array $codes List of group codes
+	 * @return array Associative list of group IDs as keys and \Aimeos\MShop\Customer\Item\Group\Iface as values
+	 */
+	protected function getGroups( array $codes )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context->get(), 'customer/group' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'customer.group.code', $codes ) );
+
+		return $manager->searchItems( $search );
 	}
 }
