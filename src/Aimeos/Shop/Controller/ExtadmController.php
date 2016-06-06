@@ -244,9 +244,14 @@ class ExtadmController extends AdminController
 	{
 		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
 
-		try {
-			$localeItem = $localeManager->bootstrap( $sitecode, $locale, '', false );
-		} catch( \Aimeos\MShop\Locale\Exception $e ) {
+		try
+		{
+			$localeItem = $localeManager->bootstrap( $sitecode, '', '', false );
+			$localeItem->setLanguageId( null );
+			$localeItem->setCurrencyId( null );
+		}
+		catch( \Aimeos\MShop\Locale\Exception $e )
+		{
 			$localeItem = $localeManager->createItem();
 		}
 
