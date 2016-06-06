@@ -201,9 +201,10 @@ class JqadmController extends AdminController
 	protected function getHtml( $content )
 	{
 		$version = app( '\Aimeos\Shop\Base\Aimeos' )->getVersion();
+		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
 		$content = str_replace( ['{type}', '{version}'], ['Laravel', $version], $content );
 
-		return View::make( 'shop::jqadm.index', array( 'content' => $content ) );
+		return View::make( 'shop::jqadm.index', array( 'content' => $content, 'site' => $site ) );
 	}
 
 

@@ -45,7 +45,7 @@
 
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/adapter/ext/ext-base.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/extjs/3.4.1-1/ext-all.js"></script>
-        <script type="text/javascript" src="<?= route( 'aimeos_shop_extadm_file', array( 'site' => 'default' ) ); ?>"></script>
+        <script type="text/javascript" src="<?= route( 'aimeos_shop_extadm_file', array( 'site' => $site ) ); ?>"></script>
 
     </head>
     <body>

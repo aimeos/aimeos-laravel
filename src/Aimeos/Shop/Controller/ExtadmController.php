@@ -75,6 +75,7 @@ class ExtadmController extends AdminController
 		$adminUrl = route( 'aimeos_shop_extadm', array( 'site' => '<site>', 'lang' => '<lang>', 'tab' => '<tab>' ) );
 
 		$vars = array(
+			'site' => $site,
 			'lang' => $lang,
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),

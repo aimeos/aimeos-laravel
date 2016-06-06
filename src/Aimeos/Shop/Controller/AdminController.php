@@ -38,16 +38,18 @@ class AdminController extends Controller
 	 */
 	public function indexAction( Request $request )
 	{
-		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-		$lang = Route::input( 'lang', Input::get( 'lang', config( 'app.locale', 'en' ) ) );
-
 		if( config( 'shop.authorize', true ) && ( Auth::check() === false
 			|| $request->user()->can( 'admin', ['admin', 'editor'] ) ) === false
 		) {
 			return View::make( 'shop::admin.index' );
 		}
 
-		$param = array( 'resource' => 'product', 'site' => $site, 'lang' => $lang, );
+		$param = array(
+			'resource' => 'product',
+			'site' => Route::input( 'site', Input::get( 'site', 'default' ) ),
+			'lang' => Route::input( 'lang', Input::get( 'lang', config( 'app.locale', 'en' ) ) )
+		);
+
 		return redirect()->route( 'aimeos_shop_jqadm_search', $param );
 	}
 }
