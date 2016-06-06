@@ -237,7 +237,6 @@ class ExtadmController extends AdminController
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @param string $sitecode Unique site code
-	 * @param string $locale ISO language code, e.g. "en" or "en_GB"
 	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
 	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default' )

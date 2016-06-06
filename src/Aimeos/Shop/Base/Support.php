@@ -19,9 +19,21 @@ namespace Aimeos\Shop\Base;
 class Support
 {
 	/**
-	 * @var \Aimeos\Shop\Base\Context
+	 * @var \Aimeos\MShop\Context\Item\Iface
 	 */
 	private $context;
+
+
+	/**
+	 * Initializes the object
+	 *
+	 * @param \Aimeos\Shop\Base\Context $context Context provider
+	 */
+	public function __construct( \Aimeos\Shop\Base\Context $context, $site )
+	{
+		$this->context = $context->get( false );
+		$this->context = $this->setLocale( $this->context, $site );
+	}
 
 
 	/**
@@ -31,11 +43,10 @@ class Support
 	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
 	 * @return boolean True if user is part of the group, false if not
 	 */
-	public function checkGroup( $userid, $groupcodes, $site = 'default' )
+	public function checkGroup( $userid, $groupcodes )
 	{
-		$context = $this->getContext( $site );
-		$groupItems = $this->getGroups( $context, (array) $groupcodes );
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
+		$groupItems = $this->getGroups( (array) $groupcodes );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
@@ -53,13 +64,12 @@ class Support
 	/**
 	 * Returns the groups items for the given codes
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @param array $codes List of group codes
 	 * @return array Associative list of group IDs as keys and \Aimeos\MShop\Customer\Item\Group\Iface as values
 	 */
-	protected function getGroups( \Aimeos\MShop\Context\Item\Iface $context, array $codes )
+	protected function getGroups( array $codes )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/group' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.code', $codes ) );
@@ -71,31 +81,27 @@ class Support
 	/**
 	 * Returns the context with the locale item set
 	 *
-	 * @param string $sitecode Unique site code
-	 * @return \Aimeos\MShop\Context\Item\Iface Context object
+	 * @param \Aimeos\MShop\Context\Item\Iface Context object
+	 * @param string Unique site code
+	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
-	protected function getContext( $sitecode )
+	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $site )
 	{
-		if( !isset( $this->context ) )
+		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
+
+		try
 		{
-			$this->context = app( '\Aimeos\Shop\Base\Context' )->get( false );
-
-			$localeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale' );
-
-			try
-			{
-				$localeItem = $localeManager->bootstrap( $sitecode, '', '', false );
-				$localeItem->setLanguageId( null );
-				$localeItem->setCurrencyId( null );
-			}
-			catch( \Aimeos\MShop\Locale\Exception $e )
-			{
-				$localeItem = $localeManager->createItem();
-			}
-
-			$this->context->setLocale( $localeItem );
+			$localeItem = $localeManager->bootstrap( $site, '', '', false );
+			$localeItem->setLanguageId( null );
+			$localeItem->setCurrencyId( null );
+		}
+		catch( \Aimeos\MShop\Locale\Exception $e )
+		{
+			$localeItem = $localeManager->createItem();
 		}
 
-		return $this->context;
+		$context->setLocale( $localeItem );
+
+		return $context;
 	}
 }

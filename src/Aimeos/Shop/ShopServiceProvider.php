@@ -10,6 +10,8 @@
 namespace Aimeos\Shop;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Route;
 
 
 /**
@@ -95,7 +97,8 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Support', function($app) {
-			return new \Aimeos\Shop\Base\Support();
+			$site = Route::input( 'site', Input::get( 'site', 'default' ) );
+			return new \Aimeos\Shop\Base\Support($app['\Aimeos\Shop\Base\Context'], $site);
 		});
 
 
