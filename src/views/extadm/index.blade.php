@@ -22,7 +22,7 @@
             },
 
             config: {
-                site: <?= $site ?>,
+                site: <?= $siteitem ?>,
                 data: <?= $config ?>,
                 smd: <?= $smd ?>,
                 itemschema: <?= $itemSchemas ?>,

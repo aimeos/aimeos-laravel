@@ -80,7 +80,7 @@ class ExtadmController extends AdminController
 			'cssFiles' => $cssFiles,
 			'languages' => $this->getJsonLanguages( $context),
 			'config' => $this->getJsonClientConfig( $context ),
-			'site' => $this->getJsonSiteItem( $context, $site ),
+			'siteitem' => $this->getJsonSiteItem( $context, $site ),
 			'i18nContent' => $this->getJsonClientI18n( $bootstrap->getI18nPaths(), $lang ),
 			'searchSchemas' => $controller->getJsonSearchSchemas(),
 			'itemSchemas' => $controller->getJsonItemSchemas(),
