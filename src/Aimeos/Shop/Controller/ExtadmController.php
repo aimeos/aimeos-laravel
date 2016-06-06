@@ -50,7 +50,7 @@ class ExtadmController extends AdminController
 		$cntlPaths = $bootstrap->getCustomPaths( 'controller/extjs' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
-		$context = $this->setLocale( $context, $site, $lang );
+		$context = $this->setLocale( $context, $site );
 
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 		$cssFiles = array();
@@ -240,7 +240,7 @@ class ExtadmController extends AdminController
 	 * @param string $locale ISO language code, e.g. "en" or "en_GB"
 	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
-	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default', $locale = null )
+	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default' )
 	{
 		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
 
