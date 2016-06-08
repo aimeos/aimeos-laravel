@@ -49,7 +49,6 @@
     "scripts": {
         "post-update-cmd": [
             "cp -r ext/ai-admin-extadm/admin/extjs/resources/* public/admin/extjs/resources/",
-            "cp -r ext/ai-admin-extadm/admin/extjs/lib/* public/admin/extjs/lib/",
             "cp -r ext/ai-client-html/client/html/themes/* public/themes/"
         ]
     }
