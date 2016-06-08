@@ -57,7 +57,11 @@ class AccountCommand extends AbstractCommand
 		$user = $this->createCustomerItem( $context, $code, $password );
 
 		if( $this->option( 'admin' ) ) {
-			$this->addPrivilege( $context, $user, 'admin' );
+			$this->addGroup( $context, $user, 'admin' );
+		}
+
+		if( $this->option( 'editor' ) ) {
+			$this->addGroup( $context, $user, 'editor' );
 		}
 	}
 
@@ -99,15 +103,15 @@ class AccountCommand extends AbstractCommand
 
 
 	/**
-	 * Adds the privilege to the given user
+	 * Adds the group to the given user
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
 	 * @param \Aimeos\MShop\Customer\Item\Iface $user Aimeos customer object
-	 * @param string $privilege Unique customer group code
+	 * @param string $group Unique customer group code
 	 */
-	protected function addPrivilege( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user, $privilege )
+	protected function addGroup( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user, $group )
 	{
-		$this->info( sprintf( 'Add "%1$s" privilege to user "%2$s" for sites', $privilege, $user->getCode() ) );
+		$this->info( sprintf( 'Add "%1$s" group to user "%2$s" for sites', $group, $user->getCode() ) );
 
 		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
 
@@ -120,7 +124,7 @@ class AccountCommand extends AbstractCommand
 
 			$this->info( '- ' . $siteItem->getCode() );
 
-			$groupItem = $this->getGroupItem( $lcontext, $privilege );
+			$groupItem = $this->getGroupItem( $lcontext, $group );
 			$this->addListItem( $lcontext, $user->getId(), $groupItem->getId() );
 		}
 	}
@@ -206,8 +210,9 @@ class AccountCommand extends AbstractCommand
 	protected function getOptions()
 	{
 		return array(
-				array( 'password', null, InputOption::VALUE_REQUIRED, 'Optional password for the account (will ask for if not given)' ),
-				array( 'admin', null, InputOption::VALUE_NONE, 'If account should have administrator privileges' ),
+			array( 'password', null, InputOption::VALUE_REQUIRED, 'Optional password for the account (will ask for if not given)' ),
+			array( 'admin', null, InputOption::VALUE_NONE, 'If account should have administrator privileges' ),
+			array( 'editor', null, InputOption::VALUE_NONE, 'If account should have limited editor privileges' ),
 		);
 	}
 }
