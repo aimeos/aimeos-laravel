@@ -87,7 +87,7 @@ class SetupCommand extends AbstractCommand
 		$includePaths[] = get_include_path();
 
 		if( set_include_path( implode( PATH_SEPARATOR, $includePaths ) ) === false ) {
-			throw new Exception( 'Unable to extend include path' );
+			throw new \Exception( 'Unable to extend include path' );
 		}
 
 		spl_autoload_register( '\Aimeos\Shop\Command\SetupCommand::autoload', true );
@@ -96,7 +96,18 @@ class SetupCommand extends AbstractCommand
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
 
-		$manager->run( 'mysql' );
+		$task = $this->option( 'task' );
+		switch( $this->option( 'action' ) )
+		{
+			case 'migrate':
+				$manager->migrate(); break;
+			case 'rollback':
+				$manager->rollback(); break;
+			case 'clean':
+				$manager->clean(); break;
+			default:
+				throw new \Exception( sprintf( 'Invalid setup action "%1$s"', $this->option( 'action' ) ) );
+		}
 	}
 
 
@@ -122,7 +133,9 @@ class SetupCommand extends AbstractCommand
 	protected function getOptions()
 	{
 		return array(
-			array( 'option', null, InputOption::VALUE_REQUIRED, 'Optional setup configuration, name and value are separated by ":" like "setup/default/demo:1"', array() ),
+			array( 'option', null, InputOption::VALUE_REQUIRED, 'Setup configuration, name and value are separated by ":" like "setup/default/demo:1"', array() ),
+			array( 'action', null, InputOption::VALUE_REQUIRED, 'Action name that should be executed, i.e. "migrate", "rollback", "clean"', 'migrate' ),
+			array( 'task', null, InputOption::VALUE_REQUIRED, 'Name of the setup task that should be executed', null ),
 		);
 	}
 
