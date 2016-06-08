@@ -100,11 +100,14 @@ class SetupCommand extends AbstractCommand
 		switch( $this->option( 'action' ) )
 		{
 			case 'migrate':
-				$manager->migrate(); break;
+				$manager->migrate( $task );
+				break;
 			case 'rollback':
-				$manager->rollback(); break;
+				$manager->rollback( $task );
+				break;
 			case 'clean':
-				$manager->clean(); break;
+				$manager->clean( $task );
+				break;
 			default:
 				throw new \Exception( sprintf( 'Invalid setup action "%1$s"', $this->option( 'action' ) ) );
 		}
