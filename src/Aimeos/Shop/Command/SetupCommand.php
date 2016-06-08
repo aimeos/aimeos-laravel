@@ -96,7 +96,10 @@ class SetupCommand extends AbstractCommand
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
 
-		$task = $this->option( 'task' );
+		if( ( $task = $this->option( 'task' ) ) && is_array( $task ) ) {
+			$task = reset( $task );
+		}
+
 		switch( $this->option( 'action' ) )
 		{
 			case 'migrate':
