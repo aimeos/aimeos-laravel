@@ -27,12 +27,12 @@ class View
 	/**
 	 * Creates the view object for the HTML client.
 	 *
-	 * @param \Aimeos\MW\Config\Iface $config Configuration object
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @param array $templatePaths List of base path names with relative template paths as key/value pairs
 	 * @param string|null $locale Code of the current language or null for no translation
 	 * @return \Aimeos\MW\View\Iface View object
 	 */
-	public function create( \Aimeos\MW\Config\Iface $config, array $templatePaths, $locale = null )
+	public function create( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $locale = null )
 	{
 		$params = $fixed = array();
 
@@ -61,7 +61,7 @@ class View
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
 
-		$config = new \Aimeos\MW\Config\Decorator\Protect( clone $config, array( 'admin', 'client' ) );
+		$config = new \Aimeos\MW\Config\Decorator\Protect( clone $context->getConfig(), array( 'admin', 'client' ) );
 		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
@@ -79,7 +79,35 @@ class View
 		$helper = new \Aimeos\MW\View\Helper\Csrf\Standard( $view, '_token', csrf_token() );
 		$view->addHelper( 'csrf', $helper );
 
+		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $this->getGroups( $context ) );
+		$view->addHelper( 'access', $helper );
+
 		return $view;
+	}
+
+
+	/**
+	 * Returns the closure for retrieving the user groups
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @return \Closure Function which returns the user group codes
+	 */
+	protected function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
+	{
+		return function() use ( $context )
+		{
+			$list = array();
+			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+
+			$search = $manager->createSearch();
+			$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
+
+			foreach( $manager->searchItems( $search ) as $item ) {
+				$list[] = $item->getCode();
+			}
+
+			return $list;
+		};
 	}
 
 

@@ -99,7 +99,7 @@ class JobsCommand extends AbstractCommand
 		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( false );
 
 		$tmplPaths = $aimeos->getCustomPaths( 'controller/jobs/templates' );
-		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $tmplPaths );
+		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context, $tmplPaths );
 
 		$langManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context )->getSubManager( 'language' );
 		$langids = array_keys( $langManager->searchItems( $langManager->createSearch( true ) ) );
