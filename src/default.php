@@ -25,6 +25,7 @@ return array(
 			'adapter' => 'mysql',
 			'host' => env('DB_HOST', 'localhost'),
 			'port' => env('DB_PORT', ''),
+			'socket' => '',
 			'database' => env('DB_DATABASE', 'laravel'),
 			'username' => env('DB_USERNAME', 'root'),
 			'password' => env('DB_PASSWORD', ''),
