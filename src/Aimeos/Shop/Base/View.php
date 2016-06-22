@@ -87,31 +87,6 @@ class View
 
 
 	/**
-	 * Returns the closure for retrieving the user groups
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Closure Function which returns the user group codes
-	 */
-	protected function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
-	{
-		return function() use ( $context )
-		{
-			$list = array();
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
-
-			$search = $manager->createSearch();
-			$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
-
-			foreach( $manager->searchItems( $search ) as $item ) {
-				$list[] = $item->getCode();
-			}
-
-			return $list;
-		};
-	}
-
-
-	/**
 	 * Returns the routing parameters passed in the URL
 	 *
 	 * @return array Associative list of parameters with "site", "locale" and "currency" if available
@@ -133,5 +108,30 @@ class View
 		}
 
 		return $fixed;
+	}
+
+
+	/**
+	 * Returns the closure for retrieving the user groups
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @return \Closure Function which returns the user group codes
+	 */
+	protected function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
+	{
+		return function() use ( $context )
+		{
+			$list = array();
+			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+
+			$search = $manager->createSearch();
+			$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
+
+			foreach( $manager->searchItems( $search ) as $item ) {
+				$list[] = $item->getCode();
+			}
+
+			return $list;
+		};
 	}
 }
