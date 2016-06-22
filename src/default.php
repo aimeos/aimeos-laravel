@@ -22,7 +22,7 @@ return array(
 
 	'resource' => array(
 		'db' => array(
-			'adapter' => 'mysql',
+			'adapter' => env('DB_CONNECTION', 'mysql'),
 			'host' => env('DB_HOST', 'localhost'),
 			'port' => env('DB_PORT', ''),
 			'database' => env('DB_DATABASE', 'laravel'),
