@@ -60,6 +60,10 @@ class AccountCommand extends AbstractCommand
 			$this->addGroup( $context, $user, 'admin' );
 		}
 
+		if( $this->option( 'api' ) ) {
+			$this->addGroup( $context, $user, 'api' );
+		}
+
 		if( $this->option( 'editor' ) ) {
 			$this->addGroup( $context, $user, 'editor' );
 		}
@@ -213,6 +217,7 @@ class AccountCommand extends AbstractCommand
 		return array(
 			array( 'password', null, InputOption::VALUE_REQUIRED, 'Optional password for the account (will ask for if not given)' ),
 			array( 'admin', null, InputOption::VALUE_NONE, 'If account should have administrator privileges' ),
+			array( 'api', null, InputOption::VALUE_NONE, 'If account should be able to access the APIs' ),
 			array( 'editor', null, InputOption::VALUE_NONE, 'If account should have limited editor privileges' ),
 		);
 	}

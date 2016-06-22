@@ -14,4 +14,18 @@ class AccountCommandTest extends AimeosTestAbstract
 		$args = array('site' => 'unittest', 'email' => 'unitCustomer@example.com', '--password' => 'test', '--admin' => true);
 		$this->assertEquals(0, $this->artisan('aimeos:account', $args));
 	}
+
+
+	public function testAccountCommandApi()
+	{
+		$args = array('site' => 'unittest', 'email' => 'unitCustomer@example.com', '--password' => 'test', '--api' => true);
+		$this->assertEquals(0, $this->artisan('aimeos:account', $args));
+	}
+
+
+	public function testAccountCommandEditor()
+	{
+		$args = array('site' => 'unittest', 'email' => 'unitCustomer@example.com', '--password' => 'test', '--editor' => true);
+		$this->assertEquals(0, $this->artisan('aimeos:account', $args));
+	}
 }
