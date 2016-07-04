@@ -29,6 +29,7 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.4/ckeditor.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.4/adapters/jquery.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 		<script src="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'type' => 'js' ) ); ?>"></script>
 	</body>
 </html>
