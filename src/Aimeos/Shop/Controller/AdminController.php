@@ -45,7 +45,7 @@ class AdminController extends Controller
 		}
 
 		$param = array(
-			'resource' => 'product',
+			'resource' => 'dashboard',
 			'site' => Route::input( 'site', Input::get( 'site', 'default' ) ),
 			'lang' => Route::input( 'lang', Input::get( 'lang', config( 'app.locale', 'en' ) ) )
 		);
