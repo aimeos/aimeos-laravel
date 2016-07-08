@@ -23,10 +23,10 @@
         "php": ">=5.5.0",
         "doctrine/dbal": "~2.5",
         "laravel/framework": "~5.1,>=5.1.11",
-        "aimeos/aimeos-core": "~2016.04",
-        "aimeos/ai-swiftmailer": "~2016.04",
-        "aimeos/ai-gettext": "~2016.04",
-        "aimeos/ai-laravel": "~2016.04"
+        "aimeos/aimeos-core": "2016.04.*",
+        "aimeos/ai-swiftmailer": "2016.04.*",
+        "aimeos/ai-gettext": "2016.04.*",
+        "aimeos/ai-laravel": "2016.04.*"
     },
     "require-dev": {
         "mockery/mockery": "~0.9",
