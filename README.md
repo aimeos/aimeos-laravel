@@ -194,10 +194,12 @@ Please follow the Laravel documentation to create the necessary code:
 Test if your authentication setup works before you continue. Create an admin account
 for your Laravel application so you will be able to log into the Aimeos admin interface:
 
-```php artisan aimeos:account <email> --admin```
+```php artisan aimeos:account --admin <email>```
 
 The e-mail address is the user name for login and the account will work for the
 frontend too. To protect the new account, the command will ask you for a password.
+The same command can create limited accounts by using "--editor" or "--api" instead of
+"--admin".
 
 As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
@@ -208,8 +210,8 @@ public function boot(GateContract $gate)
 {
 	// Keep the lines before
 
-	$gate->define('admin', function($user) {
-	    return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, 'admin' );
+	$gate->define('admin', function($user, $roles) {
+		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }
 ```
