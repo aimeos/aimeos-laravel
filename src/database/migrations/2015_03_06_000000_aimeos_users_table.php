@@ -14,27 +14,27 @@ class AimeosUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->string('salutation', 8);
-			$table->string('company', 100);
-			$table->string('vatid', 32);
-			$table->string('title', 64);
-			$table->string('firstname', 64);
-			$table->string('lastname', 64);
-			$table->string('address1');
-			$table->string('address2');
-			$table->string('address3');
-			$table->string('postal', 16);
-			$table->string('city');
-			$table->string('state');
+			$table->string('salutation', 8)->default('');
+			$table->string('company', 100)->default('');
+			$table->string('vatid', 32)->default('');
+			$table->string('title', 64)->default('');
+			$table->string('firstname', 64)->default('');
+			$table->string('lastname', 64)->default('');
+			$table->string('address1')->default('');
+			$table->string('address2')->default('');
+			$table->string('address3')->default('');
+			$table->string('postal', 16)->default('');
+			$table->string('city')->default('');
+			$table->string('state')->default('');
 			$table->string('langid', 5)->nullable();
 			$table->char('countryid', 2)->nullable();
-			$table->string('telephone', 32);
-			$table->string('telefax');
-			$table->string('website');
+			$table->string('telephone', 32)->default('');
+			$table->string('telefax', 32)->default('');
+			$table->string('website')->default('');
 			$table->date('birthday')->nullable();
 			$table->smallInteger('status')->default('1');
 			$table->date('vdate')->nullable();
-			$table->string('editor');
+			$table->string('editor')->default('');
 
 			$table->index('langid');
 			$table->index(array('status', 'lastname', 'firstname'));
