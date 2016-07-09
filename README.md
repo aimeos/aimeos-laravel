@@ -178,9 +178,12 @@ Point your browser to the list page of the shop using:
 
 http://127.0.0.1:8000/index.php/list
 
-**Note:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
+**Caution:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
 routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
 if one of the payment providers is sending data via POST requests.
+
+**Note:** Integrating the Aimeos package adds some routes like `/list` or `/admin` to your
+Laravel installation but the **home page stays untouched!**
 
 ## Admin
 
