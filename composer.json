@@ -48,6 +48,9 @@
     },
     "scripts": {
         "post-update-cmd": [
+            "mkdir -p public/admin/extjs/lib/ext.ux/AdvancedSearch/resources public/admin/extjs/lib/ext.ux/Portal/resources",
+            "cp -r ext/ai-admin-extadm/admin/extjs/lib/ext.ux/AdvancedSearch/resources/* public/admin/extjs/lib/ext.ux/AdvancedSearch/resources/",
+            "cp -r ext/ai-admin-extadm/admin/extjs/lib/ext.ux/Portal/resources/* public/admin/extjs/lib/ext.ux/Portal/resources/",
             "cp -r ext/ai-admin-extadm/admin/extjs/resources/* public/admin/extjs/resources/",
             "cp -r ext/ai-client-html/client/html/themes/* public/themes/"
         ]

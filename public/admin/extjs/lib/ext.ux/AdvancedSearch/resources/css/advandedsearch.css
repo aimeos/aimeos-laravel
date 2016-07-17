@@ -1,0 +1,28 @@
+/*!
+ * Copyright (c) Metaways Infosystems GmbH, 2011
+ * LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * $Id: advandedsearch.css 14263 2011-12-11 16:36:17Z nsendetzky $
+ */
+
+
+.ux-advancedsearch-action-addcriteria {
+	background-image:url(../images/plus-gray.png) !important;
+}
+
+.ux-advancedsearch-action-delcriteria {
+	background-image:url(../images/minus-gray.png) !important;
+}
+
+.ux-advancedsearch-action-resetgroup {
+	background-image:url(../images/x-gray.png) !important;
+}
+
+.ux-advancedsearch-action-resetall {
+	background-image:url(../images/x-gray.png) !important;
+}
+
+.ux-advancedsearch-panel {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+}
