@@ -67,7 +67,8 @@ class View
 
 		$sepDec = $config->get( 'client/html/common/format/seperatorDecimal', '.' );
 		$sep1000 = $config->get( 'client/html/common/format/seperator1000', ' ' );
-		$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, $sepDec, $sep1000 );
+		$decimals = $config->get( 'client/html/common/format/decimals', 2 );
+		$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, $sepDec, $sep1000, $decimals );
 		$view->addHelper( 'number', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Request\Laravel5( $view, Request::instance() );
