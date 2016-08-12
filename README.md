@@ -39,7 +39,7 @@ to your composer.json of your Laravel project:
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2016.04",
+        "aimeos/aimeos-laravel": "~2016.07",
         ...
     },
     "scripts": {
