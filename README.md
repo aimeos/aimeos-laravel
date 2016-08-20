@@ -214,7 +214,7 @@ public function boot(GateContract $gate)
 	// Keep the lines before
 
 	$gate->define('admin', function($user, $roles) {
-		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, 'admin' );
 	});
 }
 ```
