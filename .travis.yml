@@ -10,6 +10,7 @@ php:
 env:
   - LARAVEL_VERSION=5.1.*
   - LARAVEL_VERSION=5.2.*
+  - LARAVEL_VERSION=5.3.*
 
 before_script:
   - composer self-update
@@ -23,3 +24,6 @@ after_success:
 
 matrix:
   fast_finish: true
+  exclude:
+    - php: 5.5
+      env: LARAVEL_VERSION=5.3.*
