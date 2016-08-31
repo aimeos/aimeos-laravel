@@ -6,7 +6,6 @@
 [![Build Status](https://travis-ci.org/aimeos/aimeos-laravel.svg)](https://travis-ci.org/aimeos/aimeos-laravel)
 [![Coverage Status](https://coveralls.io/repos/aimeos/aimeos-laravel/badge.svg?branch=master&service=github)](https://coveralls.io/github/aimeos/aimeos-laravel?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
-[![HHVM Status](http://hhvm.h4cc.de/badge/aimeos/aimeos-laravel.svg)](http://hhvm.h4cc.de/package/aimeos/aimeos-laravel)
 
 The repository contains the web shop package for Laravel 5
 integrating the Aimeos e-commerce library into Laravel. The package provides
@@ -66,7 +65,7 @@ Afterwards, install the Aimeos shop package using
 `config/database.php` or `.env` file (depending on the Laravel version). Sometimes,
 the .env files are not available in the Laravel application and you will get exceptions
 that the connection to the database failed. In that case, add the database credentials
-to the **resource/db section of your ./config/shop.php** file too! 
+to the **resource/db section of your ./config/shop.php** file too!
 
 Next, the Aimeos provider class must be added to the `providers` array of the
 `config/app.php` file so the application and Laravel command task will work:
