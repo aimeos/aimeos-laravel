@@ -159,7 +159,7 @@ return array(
 					'baseurl' => '/',
 				),
 				'template' => array(
-					'baseurl' => 'packages/aimeos/shop/elegance',
+					'baseurl' => 'packages/aimeos/shop/themes/elegance',
 				),
 			),
 			'basket' => array(
