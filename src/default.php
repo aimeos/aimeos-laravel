@@ -8,7 +8,7 @@ return array(
 	'uploaddir' => '/',
 
 	'page' => array(
-		'account-index' => array( 'account/history','account/favorite','account/watch','basket/mini','catalog/session' ),
+		'account-index' => array( 'account/profile','account/history','account/favorite','account/watch','basket/mini','catalog/session' ),
 		'basket-index' => array( 'basket/standard','basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),
 		'catalog-detail' => array( 'basket/mini','catalog/stage','catalog/detail','catalog/session' ),

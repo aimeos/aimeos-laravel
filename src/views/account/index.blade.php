@@ -2,6 +2,7 @@
 
 @section('aimeos_header')
     <?= $aiheader['basket/mini'] ?>
+    <?= $aiheader['account/profile'] ?>
     <?= $aiheader['account/history'] ?>
     <?= $aiheader['account/favorite'] ?>
     <?= $aiheader['account/watch'] ?>
@@ -13,6 +14,7 @@
 @stop
 
 @section('aimeos_body')
+    <?= $aibody['account/profile'] ?>
     <?= $aibody['account/history'] ?>
     <?= $aibody['account/favorite'] ?>
     <?= $aibody['account/watch'] ?>
