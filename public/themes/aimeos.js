@@ -19,7 +19,7 @@
 
 /**
  * Aimeos related Javascript code
- * 
+ *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Metaways Infosystems GmbH, 2012
  * @copyright Aimeos (aimeos.org), 2014
@@ -722,7 +722,7 @@ AimeosCatalogFilter = {
 				return false;
 			}
 		}).autocomplete("instance")._renderItem = function(ul, item) {
-			return $("<li>").append(item.value).appendTo(ul);
+			return $(item.html).appendTo(ul);
 		};
 	},
 
@@ -1019,6 +1019,21 @@ AimeosCheckoutStandard = {
 
 
 	/**
+	 * Shows date picker for birthday field
+	 */
+	setupBirthdayPicker: function() {
+
+		$( ".checkout-standard-address .form-list input.birthday" ).datepicker({
+			minDate: '-100Y', maxDate: '0Y',
+			yearRange: 'c-100:c-0',
+			dateFormat: 'yy-mm-dd',
+			changeMonth: true,
+			changeYear: true
+		});
+	},
+
+
+	/**
 	 * Shows only form fields of selected service option
 	 */
 	setupServiceForms: function() {
@@ -1113,6 +1128,7 @@ AimeosCheckoutStandard = {
 
 		this.setupSalutationCompany();
 		this.setupCountryState();
+		this.setupBirthdayPicker();
 
 		this.setupMandatoryCheck();
 		this.setupPaymentRedirect();
