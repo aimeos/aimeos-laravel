@@ -36,6 +36,9 @@ return array(
 		),
 	),
 
+
+	'admin' => array(),
+
 	'client' => array(
 		'html' => array(
 			'common' => array(
@@ -63,6 +66,7 @@ return array(
 
 
 	'frontend' => array(
+		'admin' => array(),
 		'client' => array(),
 		'controller' => array(),
 		'i18n' => array(),
@@ -71,6 +75,7 @@ return array(
 	),
 
 	'backend' => array(
+		'admin' => array(),
 		'client' => array(),
 		'controller' => array(),
 		'i18n' => array(),
