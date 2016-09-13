@@ -48,7 +48,7 @@ class AccountCommand extends AbstractCommand
 			$password = $this->secret( 'Password' );
 		}
 
-		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false );
+		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'backend' );
 		$context->setEditor( 'aimeos:account' );
 
 		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );

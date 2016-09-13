@@ -61,15 +61,17 @@ class Context
 	 * Returns the current context
 	 *
 	 * @param boolean $locale True to add locale object to context, false if not
+	 * @param integer $type Configuration type ("frontend" or "backend")
 	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
-	public function get( $locale = true )
+	public function get( $locale = true, $type = 'frontend' )
 	{
+		$config = $this->getConfig( $type );
+
 		if( self::$context === null )
 		{
 			$context = new \Aimeos\MShop\Context\Item\Standard();
 
-			$config = $this->getConfig();
 			$context->setConfig( $config );
 
 			$dbm = new \Aimeos\MW\DB\Manager\DBAL( $config );
@@ -94,6 +96,7 @@ class Context
 		}
 
 		$context = self::$context;
+		$context->setConfig( $config );
 
 		if( $locale === true )
 		{
@@ -139,9 +142,10 @@ class Context
 	/**
 	 * Creates a new configuration object.
 	 *
+	 * @param integer $type Configuration type ("frontend" or "backend")
 	 * @return \Aimeos\MW\Config\Iface Configuration object
 	 */
-	protected function getConfig()
+	protected function getConfig( $type = 'frontend' )
 	{
 		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths();
 		$config = new \Aimeos\MW\Config\PHPArray( array(), $configPaths );
@@ -150,7 +154,13 @@ class Context
 			$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 		}
 
-		return new \Aimeos\MW\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
+		$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
+
+		if( ( $conf = $this->config->get( 'shop.' . $type, null ) ) !== null ) {
+			$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $conf );
+		}
+
+		return $config;
 	}
 
 
