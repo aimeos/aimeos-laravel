@@ -61,4 +61,20 @@ return array(
 	'mshop' => array(
 	),
 
+
+	'frontend' => array(
+		'client' => array(),
+		'controller' => array(),
+		'i18n' => array(),
+		'madmin' => array(),
+		'mshop' => array(),
+	),
+
+	'backend' => array(
+		'client' => array(),
+		'controller' => array(),
+		'i18n' => array(),
+		'madmin' => array(),
+		'mshop' => array(),
+	),
 );
