@@ -38,14 +38,10 @@
 
 	<filter>
 		<whitelist>
-			<directory suffix=".php">./</directory>
+			<directory suffix=".php">./src/</directory>
 			<exclude>
-				<directory>./ext/</directory>
-				<directory>./public/</directory>
 				<directory>./src/database/migrations/</directory>
 				<directory>./src/views/</directory>
-				<directory>./tests/</directory>
-				<directory>./vendor/</directory>
 			</exclude>
 		</whitelist>
 	</filter>
