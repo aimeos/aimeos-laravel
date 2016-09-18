@@ -45,14 +45,17 @@ class Page
 	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
 	 * @param \Aimeos\Shop\Base\Aimeos $aimeos Aimeos object
 	 * @param \Aimeos\Shop\Base\Context $context Context object
+	 * @param \Aimeos\Shop\Base\Locale $locale Locale object
 	 * @param \Aimeos\Shop\Base\View $view View object
 	 */
 	public function __construct( \Illuminate\Contracts\Config\Repository $config,
-		\Aimeos\Shop\Base\Aimeos $aimeos, \Aimeos\Shop\Base\Context $context, \Aimeos\Shop\Base\View $view )
+		\Aimeos\Shop\Base\Aimeos $aimeos, \Aimeos\Shop\Base\Context $context,
+		\Aimeos\Shop\Base\Locale $locale, \Aimeos\Shop\Base\View $view )
 	{
 		$this->config = $config;
 		$this->aimeos = $aimeos;
 		$this->context = $context;
+		$this->locale = $locale;
 		$this->view = $view;
 	}
 

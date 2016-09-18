@@ -80,12 +80,20 @@ class ShopServiceProvider extends ServiceProvider {
 			return new \Aimeos\Shop\Base\Aimeos($app['config']);
 		});
 
+		$this->app->singleton('\Aimeos\Shop\Base\Config', function($app) {
+			return new \Aimeos\Shop\Base\Config($app['config'], $app['\Aimeos\Shop\Base\Aimeos']);
+		});
+
 		$this->app->singleton('\Aimeos\Shop\Base\I18n', function($app) {
-			return new \Aimeos\Shop\Base\I18n($app['\Aimeos\Shop\Base\Aimeos'], $this->app['config']);
+			return new \Aimeos\Shop\Base\I18n($this->app['config'], $app['\Aimeos\Shop\Base\Aimeos']);
+		});
+
+		$this->app->singleton('\Aimeos\Shop\Base\Locale', function($app) {
+			return new \Aimeos\Shop\Base\Locale($app['\Aimeos\Shop\Base\Config']);
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Context', function($app) {
-			return new \Aimeos\Shop\Base\Context($app['config'], $app['session.store']);
+			return new \Aimeos\Shop\Base\Context($app['session.store'], $app['\Aimeos\Shop\Base\Config'], $app['\Aimeos\Shop\Base\I18n'], $app['\Aimeos\Shop\Base\Locale']);
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\View', function() {
@@ -93,7 +101,7 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Page', function($app) {
-			return new \Aimeos\Shop\Base\Page($app['config'], $app['\Aimeos\Shop\Base\Aimeos'], $app['\Aimeos\Shop\Base\Context'], $app['\Aimeos\Shop\Base\View']);
+			return new \Aimeos\Shop\Base\Page($app['config'], $app['\Aimeos\Shop\Base\Aimeos'], $app['\Aimeos\Shop\Base\Context'], $app['\Aimeos\Shop\Base\Locale'], $app['\Aimeos\Shop\Base\View']);
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Support', function($app) {
@@ -135,7 +143,8 @@ class ShopServiceProvider extends ServiceProvider {
 		return array(
 			'command.aimeos.account', 'command.aimeos.cache', 'command.aimeos.jobs', 'command.aimeos.setup',
 			'\Aimeos\Shop\Base\Aimeos', '\Aimeos\Shop\Base\I18n', '\Aimeos\Shop\Base\Context',
-			'\Aimeos\Shop\Base\View', '\Aimeos\Shop\Base\Page', '\Aimeos\Shop\Base\Support'
+			'\Aimeos\Shop\Base\Config', '\Aimeos\Shop\Base\Locale', '\Aimeos\Shop\Base\View',
+			'\Aimeos\Shop\Base\Page', '\Aimeos\Shop\Base\Support'
 		);
 	}
 

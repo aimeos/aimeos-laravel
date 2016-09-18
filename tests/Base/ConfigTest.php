@@ -1,16 +1,13 @@
 <?php
 
-class I18nTest extends AimeosTestAbstract
+class ConfigTest extends AimeosTestAbstract
 {
 	public function testGet()
 	{
 		$aimeos = $this->app->make('\Aimeos\Shop\Base\Aimeos');
 
 		$configMock = $this->getMockBuilder('\Illuminate\Config\Repository')
-			->setMethods( array('get', 'has') )->getMock();
-
-		$configMock->expects( $this->once() )->method('has')
-			->will( $this->returnValue(true) );
+			->setMethods( array('get') )->getMock();
 
 		if( function_exists('apc_store') ) {
 			$configMock->expects( $this->exactly(3) )->method('get')
@@ -20,9 +17,8 @@ class I18nTest extends AimeosTestAbstract
 				->will( $this->returnValue( array() ) );
 		}
 
-		$object = new \Aimeos\Shop\Base\I18n($configMock, $aimeos);
-		$list = $object->get( array('en') );
+		$object = new \Aimeos\Shop\Base\Config($configMock, $aimeos);
 
-		$this->assertInstanceOf( '\Aimeos\MW\Translation\Iface', $list['en'] );
+		$this->assertInstanceOf( '\Aimeos\MW\Config\Iface', $object->get() );
 	}
 }

@@ -11,8 +11,6 @@ namespace Aimeos\Shop\Base;
 
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Route;
 
 
 /**
@@ -26,15 +24,20 @@ class Context
 	/**
 	 * @var \Aimeos\MShop\Context\Item\Iface
 	 */
-	private static $context;
+	private $context;
 
 	/**
-	 * @var \Illuminate\Contracts\Config\Repository
+	 * @var \Aimeos\Shop\Base\Config
 	 */
 	private $config;
 
 	/**
-	 * @var \Aimeos\MShop\Locale\Item\Iface
+	 * @var \Aimeos\Shop\Base\I18n
+	 */
+	private $i18n;
+
+	/**
+	 * @var \Aimeos\Shop\Base\Locale
 	 */
 	private $locale;
 
@@ -47,31 +50,34 @@ class Context
 	/**
 	 * Initializes the object
 	 *
-	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
 	 * @param \Illuminate\Session\Store $session Laravel session object
+	 * @param \Aimeos\Shop\Base\Config $config Configuration object
+	 * @param \Aimeos\Shop\Base\I18n $i18n Internationalisation object
+	 * @param \Aimeos\Shop\Base\Locale $locale Locale object
 	 */
-	public function __construct( \Illuminate\Contracts\Config\Repository $config, \Illuminate\Session\Store $session )
+	public function __construct( \Illuminate\Session\Store $session, \Aimeos\Shop\Base\Config $config, \Aimeos\Shop\Base\I18n $i18n, \Aimeos\Shop\Base\Locale $locale )
 	{
-		$this->config = $config;
 		$this->session = $session;
+		$this->locale = $locale;
+		$this->config = $config;
+		$this->i18n = $i18n;
 	}
 
 
 	/**
 	 * Returns the current context
 	 *
-	 * @param boolean $locale True to add locale object to context, false if not
-	 * @param integer $type Configuration type ("frontend" or "backend")
+	 * @param boolean $locale True to add locale object to context, false if not (deprecated, use \Aimeos\Shop\Base\Locale)
+	 * @param string $type Configuration type ("frontend" or "backend")
 	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
 	public function get( $locale = true, $type = 'frontend' )
 	{
-		$config = $this->getConfig( $type );
+		$config = $this->config->get( $type );
 
-		if( self::$context === null )
+		if( $this->context === null )
 		{
 			$context = new \Aimeos\MShop\Context\Item\Standard();
-
 			$context->setConfig( $config );
 
 			$dbm = new \Aimeos\MW\DB\Manager\DBAL( $config );
@@ -92,27 +98,23 @@ class Context
 			$cache = new \Aimeos\MAdmin\Cache\Proxy\Standard( $context );
 			$context->setCache( $cache );
 
-			self::$context = $context;
+			$session = new \Aimeos\MW\Session\Laravel5( $this->session );
+			$context->setSession( $session );
+
+			$this->context = $context;
 		}
 
-		$context = self::$context;
-		$context->setConfig( $config );
+		$this->context->setConfig( $config );
+		$this->addUser( $this->context );
 
 		if( $locale === true )
 		{
-			$localeItem = $this->getLocale( $context );
-			$langid = $localeItem->getLanguageId();
-
+			$localeItem = $this->locale->get( $context );
 			$context->setLocale( $localeItem );
-			$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $langid ) ) );
+			$context->setI18n( $this->i18n->get( array( $localeItem->getLanguageId() ) ) );
 		}
 
-		$session = new \Aimeos\MW\Session\Laravel5( $this->session );
-		$context->setSession( $session );
-
-		$this->addUser( $context );
-
-		return $context;
+		return $this->context;
 	}
 
 
@@ -136,54 +138,5 @@ class Context
 		if( ( $user = Auth::user() ) !== null ) {
 			$context->setEditor( $user->name );
 		}
-	}
-
-
-	/**
-	 * Creates a new configuration object.
-	 *
-	 * @param integer $type Configuration type ("frontend" or "backend")
-	 * @return \Aimeos\MW\Config\Iface Configuration object
-	 */
-	protected function getConfig( $type = 'frontend' )
-	{
-		$configPaths = app( '\Aimeos\Shop\Base\Aimeos' )->get()->getConfigPaths();
-		$config = new \Aimeos\MW\Config\PHPArray( array(), $configPaths );
-
-		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
-			$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
-		}
-
-		$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
-
-		if( ( $conf = $this->config->get( 'shop.' . $type, null ) ) !== null ) {
-			$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $conf );
-		}
-
-		return $config;
-	}
-
-
-	/**
-	 * Returns the locale item for the current request
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Locale\Item\Iface Locale item object
-	 */
-	protected function getLocale( \Aimeos\MShop\Context\Item\Iface $context )
-	{
-		if( $this->locale === null )
-		{
-			$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-			$currency = Route::input( 'currency', Input::get( 'currency', '' ) );
-			$lang = Route::input( 'locale', Input::get( 'locale', '' ) );
-
-			$disableSites = $this->config->get( 'shop.disableSites', true );
-
-			$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
-			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
-		}
-
-		return $this->locale;
 	}
 }

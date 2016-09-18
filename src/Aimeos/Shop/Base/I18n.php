@@ -37,10 +37,10 @@ class I18n
 	/**
 	 * Initializes the object
 	 *
-	 * @param \Aimeos\Shop\Base\Aimeos $aimeos Aimeos object
 	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
+	 * @param \Aimeos\Shop\Base\Aimeos $aimeos Aimeos object
 	 */
-	public function __construct( \Aimeos\Shop\Base\Aimeos $aimeos, \Illuminate\Contracts\Config\Repository $config )
+	public function __construct( \Illuminate\Contracts\Config\Repository $config, \Aimeos\Shop\Base\Aimeos $aimeos )
 	{
 		$this->aimeos = $aimeos;
 		$this->config = $config;
