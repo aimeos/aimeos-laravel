@@ -34,6 +34,11 @@ class Page
 	private $context;
 
 	/**
+	 * @var \Aimeos\Shop\Base\Locale
+	 */
+	private $locale;
+
+	/**
 	 * @var \Aimeos\Shop\Base\View
 	 */
 	private $view;

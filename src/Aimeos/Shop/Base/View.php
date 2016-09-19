@@ -237,7 +237,7 @@ class View
 	{
 		if( $locale !== null )
 		{
-			$i18n = $this->i18n->get( array( $locale ), $config->get( 'i18n', array() ) );
+			$i18n = $this->i18n->get( array( $locale ) );
 			$translation = $i18n[$locale];
 		}
 		else
