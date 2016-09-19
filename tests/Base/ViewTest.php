@@ -5,10 +5,17 @@ class ViewTest extends AimeosTestAbstract
 {
 	public function testCreateNoLocale()
 	{
-		$object = new \Aimeos\Shop\Base\View();
-		$context = new \Aimeos\MShop\Context\Item\Standard();
-		$context->setConfig( new \Aimeos\MW\Config\PHPArray() );
+		$i18n = $this->getMockBuilder( '\Aimeos\Shop\Base\I18n' )
+			->disableOriginalConstructor()
+			->getMock();
 
-		$this->assertInstanceOf( '\Aimeos\MW\View\Iface', $object->create( $context, array() ) );
+		$support = $this->getMockBuilder( '\Aimeos\Shop\Base\Support' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$config = new \Aimeos\MW\Config\PHPArray();
+		$object = new \Aimeos\Shop\Base\View( $i18n, $support );
+
+		$this->assertInstanceOf( '\Aimeos\MW\View\Iface', $object->create( $config, array() ) );
 	}
 }

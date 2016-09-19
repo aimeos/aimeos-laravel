@@ -183,10 +183,9 @@ class JqadmController extends AdminController
 		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
-		$context = $this->setLocale( $context, $site, $lang );
-
-		$view = app( '\Aimeos\Shop\Base\View' )->create( $context, $templatePaths, $lang );
-		$context->setView( $view );
+		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang, 'en' ) ) );
+		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
+		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), $templatePaths, $lang ) );
 
 		return \Aimeos\Admin\JQAdm\Factory::createClient( $context, $templatePaths, $resource );
 	}
@@ -205,35 +204,5 @@ class JqadmController extends AdminController
 		$content = str_replace( ['{type}', '{version}'], ['Laravel', $version], $content );
 
 		return View::make( 'shop::jqadm.index', array( 'content' => $content, 'site' => $site ) );
-	}
-
-
-	/**
-	 * Sets the locale item in the given context
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @param string $site Unique site code
-	 * @param string $lang ISO language code, e.g. "en" or "en_GB"
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
-	 */
-	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $site, $lang )
-	{
-		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
-
-		try
-		{
-			$localeItem = $localeManager->bootstrap( $site, '', '', false );
-			$localeItem->setLanguageId( null );
-			$localeItem->setCurrencyId( null );
-		}
-		catch( \Aimeos\MShop\Locale\Exception $e )
-		{
-			$localeItem = $localeManager->createItem();
-		}
-
-		$context->setLocale( $localeItem );
-		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang, 'en' ) ) );
-
-		return $context;
 	}
 }

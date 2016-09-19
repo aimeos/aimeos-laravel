@@ -50,7 +50,7 @@ class ExtadmController extends AdminController
 		$cntlPaths = $bootstrap->getCustomPaths( 'controller/extjs' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
-		$context = $this->setLocale( $context, $site );
+		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
 
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 		$cssFiles = array();
@@ -108,12 +108,14 @@ class ExtadmController extends AdminController
 			$this->authorize( 'admin', [['admin']] );
 		}
 
+		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
+
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
-		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, array() ) );
-		$context = $this->setLocale( $context );
+		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), array() ) );
+		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
 
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );
 
@@ -230,33 +232,5 @@ class ExtadmController extends AdminController
 		}
 
 		return json_encode( $item->toArray() );
-	}
-
-
-	/**
-	 * Sets the locale item in the given context
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @param string $sitecode Unique site code
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
-	 */
-	protected function setLocale( \Aimeos\MShop\Context\Item\Iface $context, $sitecode = 'default' )
-	{
-		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
-
-		try
-		{
-			$localeItem = $localeManager->bootstrap( $sitecode, '', '', false );
-			$localeItem->setLanguageId( null );
-			$localeItem->setCurrencyId( null );
-		}
-		catch( \Aimeos\MShop\Locale\Exception $e )
-		{
-			$localeItem = $localeManager->createItem();
-		}
-
-		$context->setLocale( $localeItem );
-
-		return $context;
 	}
 }

@@ -71,7 +71,7 @@ class Page
 		$context = $this->context->get();
 		$langid = $context->getLocale()->getLanguageId();
 		$tmplPaths = $this->aimeos->get()->getCustomPaths( 'client/html/templates' );
-		$view = $this->view->create( $context, $tmplPaths, $langid );
+		$view = $this->view->create( $context->getConfig(), $tmplPaths, $langid );
 		$context->setView( $view );
 
 		$pagesConfig = $this->config->get( 'shop.page', array() );

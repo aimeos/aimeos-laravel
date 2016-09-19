@@ -10,10 +10,10 @@ class ConfigTest extends AimeosTestAbstract
 			->setMethods( array('get') )->getMock();
 
 		if( function_exists('apc_store') ) {
-			$configMock->expects( $this->exactly(3) )->method('get')
-				->will( $this->onConsecutiveCalls( true, 'laravel:', array() ) );
+			$configMock->expects( $this->exactly(4) )->method('get')
+				->will( $this->onConsecutiveCalls( true, 'laravel:', array(), array() ) );
 		} else {
-			$configMock->expects( $this->once() )->method('get')
+			$configMock->expects( $this->exactly(2) )->method('get')
 				->will( $this->returnValue( array() ) );
 		}
 

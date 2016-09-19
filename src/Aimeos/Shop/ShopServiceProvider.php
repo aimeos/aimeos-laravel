@@ -89,15 +89,11 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Locale', function($app) {
-			return new \Aimeos\Shop\Base\Locale($app['\Aimeos\Shop\Base\Config']);
+			return new \Aimeos\Shop\Base\Locale($app['config']);
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Context', function($app) {
-			return new \Aimeos\Shop\Base\Context($app['session.store'], $app['\Aimeos\Shop\Base\Config'], $app['\Aimeos\Shop\Base\I18n'], $app['\Aimeos\Shop\Base\Locale']);
-		});
-
-		$this->app->singleton('\Aimeos\Shop\Base\View', function() {
-			return new \Aimeos\Shop\Base\View();
+			return new \Aimeos\Shop\Base\Context($app['session.store'], $app['\Aimeos\Shop\Base\Config'], $app['\Aimeos\Shop\Base\Locale'], $app['\Aimeos\Shop\Base\I18n']);
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Page', function($app) {
@@ -105,8 +101,11 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 		$this->app->singleton('\Aimeos\Shop\Base\Support', function($app) {
-			$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-			return new \Aimeos\Shop\Base\Support($app['\Aimeos\Shop\Base\Context'], $site);
+			return new \Aimeos\Shop\Base\Support($app['\Aimeos\Shop\Base\Context'], $app['\Aimeos\Shop\Base\Locale']);
+		});
+
+		$this->app->singleton('\Aimeos\Shop\Base\View', function($app) {
+			return new \Aimeos\Shop\Base\View($app['\Aimeos\Shop\Base\I18n'], $app['\Aimeos\Shop\Base\Support']);
 		});
 
 

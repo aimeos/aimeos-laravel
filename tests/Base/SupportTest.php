@@ -5,18 +5,21 @@ class SupportTest extends AimeosTestAbstract
 	public function testCheckGroup()
 	{
 		$context = $this->app->make( '\Aimeos\Shop\Base\Context' );
-		$ctx = $context->get( false );
+		$locale = $this->app->make( '\Aimeos\Shop\Base\Locale' );
 
-		$ctxMock = $this->getMockBuilder( '\Aimeos\Shop\Base\Context' )
-			->disableOriginalConstructor()
-			->setMethods( array( 'get' ) )
-			->getMock();
-
-		$ctxMock->expects( $this->once() )->method( 'get' )
-			->will( $this->returnValue( $ctx ) );
-
-		$object = new \Aimeos\Shop\Base\Support( $ctxMock, 'unittest' );
+		$object = new \Aimeos\Shop\Base\Support( $context, $locale, 'unittest' );
 
 		$this->assertFalse( $object->checkGroup( -1, 'admin' ) );
+	}
+
+
+	public function testGetGroups()
+	{
+		$context = $this->app->make( '\Aimeos\Shop\Base\Context' );
+		$locale = $this->app->make( '\Aimeos\Shop\Base\Locale' );
+
+		$object = new \Aimeos\Shop\Base\Support( $context, $locale, 'unittest' );
+
+		$this->assertEquals( array(), $object->getGroups() );
 	}
 }
