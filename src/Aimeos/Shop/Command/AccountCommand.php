@@ -79,8 +79,10 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function addListItem( \Aimeos\MShop\Context\Item\Iface $context, $userid, $groupid )
 	{
-		$manager = \Aimeos\MShop\Customer\Manager\Factory::createManager( $context )->getSubmanager( 'lists' );
-		$typeid = $manager->getSubmanager( 'type' )->findItem( 'default', array(), 'customer/group' )->getId();
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists/type' );
+
+		$typeid = $typeManager->findItem( 'default', array(), 'customer/group' )->getId();
 
 		$search = $manager->createSearch();
 		$expr = array(
