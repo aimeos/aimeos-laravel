@@ -23,9 +23,14 @@ use Illuminate\Support\Facades\Route;
 class Support
 {
 	/**
-	 * @var \Aimeos\MShop\Context\Item\Iface
+	 * @var \Aimeos\Shop\Base\Context
 	 */
 	private $context;
+
+	/**
+	 * @var \Aimeos\Shop\Base\Locale
+	 */
+	private $locale;
 
 
 	/**
@@ -36,10 +41,8 @@ class Support
 	 */
 	public function __construct( \Aimeos\Shop\Base\Context $context, \Aimeos\Shop\Base\Locale $locale )
 	{
-		$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
-
-		$this->context = $context->get( false );
-		$this->context->setLocale( $locale->getBackend( $this->context, $site ) );
+		$this->context = $context;
+		$this->locale = $locale;
 	}
 
 
@@ -52,14 +55,20 @@ class Support
 	 */
 	public function checkGroup( $userid, $groupcodes )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/group' );
+		$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
+
+		$context = $this->context->get( false );
+		$context->setLocale( $this->locale->getBackend( $context, $site ) );
+
+
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.code', (array) $groupcodes ) );
 		$groupItems = $manager->searchItems( $search );
 
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/lists' );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
@@ -74,13 +83,13 @@ class Support
 	}
 
 
-	public function getGroups()
+	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
 	{
 		$list = array();
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/group' );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'customer.group.id', $this->context->getGroupIds() ) );
+		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
 
 		foreach( $manager->searchItems( $search ) as $item ) {
 			$list[] = $item->getCode();

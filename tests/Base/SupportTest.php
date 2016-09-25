@@ -7,7 +7,7 @@ class SupportTest extends AimeosTestAbstract
 		$context = $this->app->make( '\Aimeos\Shop\Base\Context' );
 		$locale = $this->app->make( '\Aimeos\Shop\Base\Locale' );
 
-		$object = new \Aimeos\Shop\Base\Support( $context, $locale, 'unittest' );
+		$object = new \Aimeos\Shop\Base\Support( $context, $locale );
 
 		$this->assertFalse( $object->checkGroup( -1, 'admin' ) );
 	}
@@ -18,8 +18,11 @@ class SupportTest extends AimeosTestAbstract
 		$context = $this->app->make( '\Aimeos\Shop\Base\Context' );
 		$locale = $this->app->make( '\Aimeos\Shop\Base\Locale' );
 
-		$object = new \Aimeos\Shop\Base\Support( $context, $locale, 'unittest' );
+		$ctx = $context->get( false );
+		$ctx->setLocale( $locale->getBackend( $ctx, 'unittest' ) );
 
-		$this->assertEquals( array(), $object->getGroups() );
+		$object = new \Aimeos\Shop\Base\Support( $context, $locale );
+
+		$this->assertEquals( array(), $object->getGroups( $ctx ) );
 	}
 }

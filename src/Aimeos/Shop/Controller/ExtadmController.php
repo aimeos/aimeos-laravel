@@ -114,7 +114,7 @@ class ExtadmController extends AdminController
 		$cntlPaths = $aimeos->getCustomPaths( 'controller/extjs' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
-		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), array() ) );
+		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, array() ) );
 		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
 
 		$controller = new \Aimeos\Controller\ExtJS\JsonRpc( $context, $cntlPaths );

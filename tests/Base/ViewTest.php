@@ -13,9 +13,11 @@ class ViewTest extends AimeosTestAbstract
 			->disableOriginalConstructor()
 			->getMock();
 
-		$config = new \Aimeos\MW\Config\PHPArray();
+		$context = new \Aimeos\MShop\Context\Item\Standard();
+		$context->setConfig( new \Aimeos\MW\Config\PHPArray() );
+
 		$object = new \Aimeos\Shop\Base\View( $i18n, $support );
 
-		$this->assertInstanceOf( '\Aimeos\MW\View\Iface', $object->create( $config, array() ) );
+		$this->assertInstanceOf( '\Aimeos\MW\View\Iface', $object->create( $context, array() ) );
 	}
 }

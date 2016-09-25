@@ -45,7 +45,7 @@ class AccountController extends Controller
 		$context = app( '\Aimeos\Shop\Base\Context' )->get();
 		$langid = $context->getLocale()->getLanguageId();
 
-		$view = app( '\Aimeos\Shop\Base\View' )->create( $context->getConfig(), array(), $langid );
+		$view = app( '\Aimeos\Shop\Base\View' )->create( $context, array(), $langid );
 		$context->setView( $view );
 
 		$client = \Aimeos\Client\Html\Factory::createClient( $context, array(), 'account/download' );
