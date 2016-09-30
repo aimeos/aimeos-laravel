@@ -958,6 +958,56 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	clear: both;
 }
 
+.catalog-list-items .list .product {
+	border-left: solid 1px #B0A060;
+	border-bottom: none;
+	text-align: left;
+	width: 481px;
+}
+
+.catalog-list-items .list .product:first-of-type {
+	border-left: none;
+}
+
+.catalog-list-items .list .product a {
+	vertical-align: top;
+}
+
+.catalog-list-items .list .media-list,
+.catalog-list-items .list .text-list,
+.catalog-list-items .list .basket,
+.catalog-list-items .list .offer {
+	display: inline-block;
+	width: 240px;
+	float: right;
+}
+
+.catalog-list-items .list .media-list {
+	overflow: hidden;
+	height: 320px;
+	float: left;
+}
+
+.catalog-list-items .list .text-list h2 {
+	font-weight: bold;
+}
+
+.catalog-list-items .list .text-item {
+	color: #555;
+}
+
+.catalog-list-items .list .basket {
+	padding: 0.5em 1em;
+}
+
+.catalog-list-items .list .selection .select-value {
+	margin: 0 !important;
+}
+
+.catalog-list-items .list .add-basket {
+	margin: 1em 0;
+}
+
 /* Product list type switcher */
 .catalog-list-type {
 	text-align: right;
@@ -1909,7 +1959,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	text-align: center !important;
 }
 
-.basket-standard .basket-related h1 {
+.aimeos .basket-related h1 {
 	display: none;
 }
 
@@ -2208,6 +2258,57 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .checkout-standard-summary .modify {
 	float: right;
 }
+
+.aimeos .common-summary-coupon {
+	display: inline-block;
+	vertical-align: top;
+	min-width: 232px;
+	width: 48.75%;
+	clear: both;
+	height: 8em;
+	margin: 0.5em;
+	margin-left: 1%;
+	margin-right: 0.25%;
+}
+
+.aimeos .checkout-standard-summary-comment h2 {
+	display: none;
+}
+
+.aimeos .checkout-standard-summary-comment {
+	display: inline-block;
+	vertical-align: top;
+	min-width: 232px;
+	width: 48.75%;
+	clear: both;
+	height: 8em;
+	margin: 0.5em;
+	margin-right: 1%;
+	margin-left: 0.25%;
+}
+
+.aimeos .checkout-standard-summary-comment .comment-value {
+	border: solid 1px #D0D0D0;
+	width: 98%;
+	margin: 0.5em 1%;
+	padding: 0.5em;
+	height: 4em;
+}
+
+@media (max-width: 480px) {
+	.aimeos .common-summary-coupon {
+		display: block;
+		margin: 1em 1%;
+		width: 98%;
+	}
+
+	.aimeos .checkout-standard-summary-comment {
+		display: block;
+		margin: 1em 1%;
+		width: 98%;
+	}
+}
+
 
 /* Checkout summary option terms */
 .checkout-standard-summary-option-terms {
