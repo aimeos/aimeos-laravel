@@ -36,6 +36,7 @@
 			<directory suffix=".php">./src/</directory>
 			<exclude>
 				<directory>./src/database/migrations/</directory>
+				<directory>./src/config/</directory>
 				<directory>./src/views/</directory>
 			</exclude>
 		</whitelist>
