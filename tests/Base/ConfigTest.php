@@ -14,7 +14,7 @@ class ConfigTest extends AimeosTestAbstract
 				->will( $this->onConsecutiveCalls( true, 'laravel:', array(), array() ) );
 		} else {
 			$configMock->expects( $this->exactly(2) )->method('get')
-				->will( $this->returnValue( array() ) );
+				->will( $this->returnValue( array( 'test' => 1 ) ) );
 		}
 
 		$object = new \Aimeos\Shop\Base\Config($configMock, $aimeos);
