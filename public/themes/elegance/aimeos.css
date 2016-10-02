@@ -965,10 +965,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	width: 481px;
 }
 
-.catalog-list-items .list .product:first-of-type {
-	border-left: none;
-}
-
 .catalog-list-items .list .product a {
 	vertical-align: top;
 }
