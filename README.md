@@ -194,6 +194,7 @@ To use the admin interface, you have to set up Laravel authentication first.
 Please follow the Laravel documentation to create the necessary code:
 * [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
 * [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
+* [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
 
 **Note:** You need a route for **/login in Laravel 5.1** too!
 
@@ -209,14 +210,27 @@ The same command can create limited accounts by using "--editor" or "--api" inst
 
 As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
-authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```:
+authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```.
 
+For Laravel 5.1 and 5.2 you have to use:
 ```php
 public function boot(GateContract $gate)
 {
 	// Keep the lines before
 
 	$gate->define('admin', function($user, $roles) {
+		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+	});
+}
+```
+
+In Laravel 5.3 use instead:
+```
+public function boot()
+{
+	// Keep the lines before
+
+	Gate::define('admin', function($user, $roles) {
 		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }
