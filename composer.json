@@ -23,14 +23,15 @@
         "php": ">=5.5.0",
         "doctrine/dbal": "~2.5",
         "laravel/framework": "~5.1,>=5.1.11",
-        "aimeos/aimeos-core": "dev-master",
-        "aimeos/ai-swiftmailer": "dev-master",
-        "aimeos/ai-gettext": "dev-master",
-        "aimeos/ai-laravel": "dev-master",
-        "aimeos/ai-admin-extadm": "dev-master",
-        "aimeos/ai-admin-jqadm": "dev-master",
-        "aimeos/ai-admin-jsonadm": "dev-master",
-        "aimeos/ai-client-html": "dev-master"
+        "aimeos/aimeos-core": "~2016.10",
+        "aimeos/ai-gettext": "~2016.10",
+        "aimeos/ai-laravel": "~2016.10",
+        "aimeos/ai-swiftmailer": "~2016.10",
+        "aimeos/ai-admin-extadm": "~2016.10",
+        "aimeos/ai-admin-jqadm": "~2016.10",
+        "aimeos/ai-admin-jsonadm": "~2016.10",
+        "aimeos/ai-client-html": "~2016.10",
+        "aimeos/ai-controller-jobs": "~2016.10"
     },
     "require-dev": {
         "mockery/mockery": "~0.9",

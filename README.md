@@ -42,7 +42,7 @@ to your composer.json of your Laravel project:
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2016.07",
+        "aimeos/aimeos-laravel": "~2016.10",
         ...
     },
     "scripts": {
@@ -225,7 +225,7 @@ public function boot(GateContract $gate)
 ```
 
 In Laravel 5.3 use instead:
-```
+```php
 public function boot()
 {
 	// Keep the lines before
