@@ -514,6 +514,16 @@ AimeosCatalog = {
 					return;
 				}
 
+				if( index === 0 ) {
+
+					var options = $(".select-option", this);
+
+					options.removeAttr("disabled");
+					options.data("disabled", 0);
+					options.data("by", {});
+				}
+
+
 				$(".select-option", this).each(function(i, option) {
 
 					var opt = $(option);
