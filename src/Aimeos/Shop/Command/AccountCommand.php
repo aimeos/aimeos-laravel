@@ -160,6 +160,7 @@ class AccountCommand extends AbstractCommand
 		$item->setLabel( $email );
 		$item->getPaymentAddress()->setEmail( $email );
 		$item->setPassword( $password );
+		$item->setStatus( 1 );
 
 		$manager->saveItem( $item );
 
