@@ -179,7 +179,7 @@ class SetupCommand extends AbstractCommand
 		foreach( (array) $this->option( 'option' ) as $option )
 		{
 			list( $name, $value ) = explode( ':', $option );
-			$conf->set( $name, $value );
+			$conf->set( str_replace( '\\', '/', $name ), $value );
 		}
 	}
 }
