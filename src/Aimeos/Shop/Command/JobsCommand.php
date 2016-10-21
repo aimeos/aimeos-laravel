@@ -52,6 +52,9 @@ class JobsCommand extends AbstractCommand
 		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
 		{
 			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), 'en', '', false );
+			$localeItem->setLanguageId( null );
+			$localeItem->setCurrencyId( null );
+
 			$context->setLocale( $localeItem );
 
 			$this->info( sprintf( 'Executing the Aimeos jobs for "%s"', $siteItem->getCode() ) );
