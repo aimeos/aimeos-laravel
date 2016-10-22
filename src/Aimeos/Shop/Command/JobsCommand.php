@@ -51,7 +51,7 @@ class JobsCommand extends AbstractCommand
 
 		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
 		{
-			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), 'en', '', false );
+			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
 			$localeItem->setLanguageId( null );
 			$localeItem->setCurrencyId( null );
 
