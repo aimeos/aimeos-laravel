@@ -42,7 +42,7 @@ class CacheCommand extends AbstractCommand
 	 */
 	public function fire()
 	{
-		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'backend' );
+		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:cache' );
 
 		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );

@@ -99,7 +99,7 @@ class JobsCommand extends AbstractCommand
 	{
 		$lv = $this->getLaravel();
 		$aimeos = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
+		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( false, 'command' );
 
 		$tmplPaths = $aimeos->getCustomPaths( 'controller/jobs/templates' );
 		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context, $tmplPaths );

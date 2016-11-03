@@ -65,21 +65,12 @@ return array(
 	),
 
 
+	'command' => array(
+	),
+
 	'frontend' => array(
-		'admin' => array(),
-		'client' => array(),
-		'controller' => array(),
-		'i18n' => array(),
-		'madmin' => array(),
-		'mshop' => array(),
 	),
 
 	'backend' => array(
-		'admin' => array(),
-		'client' => array(),
-		'controller' => array(),
-		'i18n' => array(),
-		'madmin' => array(),
-		'mshop' => array(),
 	),
 );
