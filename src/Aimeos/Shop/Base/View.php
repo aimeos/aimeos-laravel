@@ -138,8 +138,8 @@ class View
 	 */
 	protected function addNumber( \Aimeos\MW\View\Iface $view, \Aimeos\MW\Config\Iface $config )
 	{
-		$sepDec = $config->get( 'client/html/common/format/seperatorDecimal', '.' );
-		$sep1000 = $config->get( 'client/html/common/format/seperator1000', ' ' );
+		$sepDec = $config->get( 'client/html/common/format/separatorDecimal', '.' );
+		$sep1000 = $config->get( 'client/html/common/format/separator1000', ' ' );
 		$decimals = $config->get( 'client/html/common/format/decimals', 2 );
 
 		$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, $sepDec, $sep1000, $decimals );
