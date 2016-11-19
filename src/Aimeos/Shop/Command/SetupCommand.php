@@ -37,33 +37,6 @@ class SetupCommand extends AbstractCommand
 
 
 	/**
-	 * Loads the requested setup task class
-	 *
-	 * @param string $classname Name of the setup task class
-	 * @return boolean True if class is found, false if not
-	 */
-	public static function autoload( $classname )
-	{
-		if( strncmp( $classname, 'Aimeos\\MW\\Setup\\Task\\', 21 ) === 0 )
-		{
-			$fileName = substr( $classname, 21 ) . '.php';
-			$paths = explode( PATH_SEPARATOR, get_include_path() );
-
-			foreach( $paths as $path )
-			{
-				$file = $path . DIRECTORY_SEPARATOR . $fileName;
-
-				if( file_exists( $file ) === true && ( include_once $file ) !== false ) {
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-
-	/**
 	 * Execute the console command.
 	 *
 	 * @return mixed
@@ -82,16 +55,6 @@ class SetupCommand extends AbstractCommand
 		$this->setOptions( $config );
 
 		$taskPaths = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $template );
-
-		$includePaths = $taskPaths;
-		$includePaths[] = get_include_path();
-
-		if( set_include_path( implode( PATH_SEPARATOR, $includePaths ) ) === false ) {
-			throw new \Exception( 'Unable to extend include path' );
-		}
-
-		spl_autoload_register( '\Aimeos\Shop\Command\SetupCommand::autoload', true );
-
 		$manager = new \Aimeos\MW\Setup\Manager\Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
