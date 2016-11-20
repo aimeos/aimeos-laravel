@@ -159,8 +159,10 @@
 }
 
 .aimeos .pagination {
+	text-align: center;
 	display: block;
 	clear: left;
+	color: #555;
 	margin: 0;
 }
 
@@ -332,11 +334,11 @@
 
 .catalog-filter-tree .media-list {
 	display: inline-block;
+	vertical-align: top;
 	margin: 0px 0.5em;
 }
 
 .catalog-filter-tree .media-item img {
-	vertical-align: top;
 	height: 1.25em;
 	width: 1.25em;
 }
@@ -831,15 +833,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 /* price list */
-.catalog-list .price-list,
-.catalog-list .price {
-	display: none;
-}
-
-.catalog-list .price-actual {
-	display: block;
-}
-
 .catalog-list .price {
 	box-sizing: content-box;
 	text-align: left;
@@ -907,18 +900,12 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	color: #555;
 }
 
-.catalog-list-head .head-search {
+.catalog-list .list-search {
 	font-weight: bold;
 }
 
-.catalog-list-head .searchstring {
+.catalog-list .searchstring {
 	font-size: 133%;
-	color: #555;
-}
-
-/* Product list, pagination section */
-.catalog-list-pagination {
-	text-align: center;
 	color: #555;
 }
 
@@ -937,9 +924,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	color: #555;
 }
 
-.catalog-list-promo .promo-items {
+.catalog-list-promo .list-items {
     white-space: nowrap;
 	overflow: auto;
+	font-size: 90%;
 	padding: 0;
 }
 
@@ -1329,33 +1317,36 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	color: #B0A060;
 }
 
-.catalog-detail-basket-service .service-list {
+.catalog-detail-service .service-list {
 	list-style: none;
 	color: #999;
 	padding: 0;
+    max-width: 20em;
+    max-height: 10em;
+    overflow-y: auto;
 }
 
-.catalog-detail-basket-service .service-name {
+.catalog-detail-service .service-name {
 	display: inline-block;
 	min-width: 8em;
 }
 
-.catalog-detail-basket-service .service-item .price-item {
+.catalog-detail-service .service-item .price-item {
 	display: inline-block;
 	text-align: right;
 	min-width: 4em;
 }
 
-.catalog-detail-basket-service .service-item .price-item .costs {
+.catalog-detail-service .service-item .price-item .costs {
 	display: block;
 }
 
-.catalog-detail-basket-service .service-item .price-item .value,
-.catalog-detail-basket-service .service-item .price-item .taxrate {
+.catalog-detail-service .service-item .price-item .value,
+.catalog-detail-service .service-item .price-item .taxrate {
 	display: none;
 }
 
-.catalog-detail-basket-service .service-item .service-short {
+.catalog-detail-service .service-item .service-short {
 	display: none;
 }
 
@@ -1613,10 +1604,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .account-watch .watch-items,
 .account-favorite .favorite-items,
-.basket-related-bought .bought-items,
-.catalog-detail-bought .bought-items,
-.catalog-detail-bundle .bundle-items,
-.catalog-detail-suggest .suggest-items,
+.basket-related-bought .list-items,
+.catalog-detail-bought .list-items,
+.catalog-detail-bundle .list-items,
+.catalog-detail-suggest .list-items,
 .catalog-session-seen .seen-items,
 .catalog-session-pinned .pinned-items {
 	padding: 0;
@@ -1638,10 +1629,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .account-watch .watch-item,
 .account-favorite .favorite-item,
-.basket-related-bought .bought-item,
-.catalog-detail-bought .bought-item,
-.catalog-detail-bundle .bundle-item,
-.catalog-detail-suggest .suggest-item,
+.basket-related-bought .product,
+.catalog-detail-bought .product,
+.catalog-detail-bundle .product,
+.catalog-detail-suggest .product,
 .catalog-session-seen .seen-item,
 .catalog-session-pinned .pinned-item {
 	display: inline-block;
@@ -2255,7 +2246,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	float: right;
 }
 
-.aimeos .common-summary-coupon {
+.aimeos .common-summary-additional .coupon {
+.aimeos .common-summary-additional .comment {
 	display: inline-block;
 	vertical-align: top;
 	min-width: 232px;
@@ -2267,23 +2259,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin-right: 0.25%;
 }
 
-.aimeos .checkout-standard-summary-comment h2 {
-	display: none;
-}
-
-.aimeos .checkout-standard-summary-comment {
-	display: inline-block;
-	vertical-align: top;
-	min-width: 232px;
-	width: 48.75%;
-	clear: both;
-	height: 8em;
-	margin: 0.5em;
-	margin-right: 1%;
-	margin-left: 0.25%;
-}
-
-.aimeos .checkout-standard-summary-comment .comment-value {
+.aimeos .common-summary-additional .comment .content {
 	border: solid 1px #D0D0D0;
 	width: 98%;
 	margin: 0.5em 1%;
@@ -2292,13 +2268,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 @media (max-width: 480px) {
-	.aimeos .common-summary-coupon {
-		display: block;
-		margin: 1em 1%;
-		width: 98%;
-	}
-
-	.aimeos .checkout-standard-summary-comment {
+	.aimeos .common-summary-additional .coupon,
+	.aimeos .common-summary-additional .comment {
 		display: block;
 		margin: 1em 1%;
 		width: 98%;
@@ -2307,6 +2278,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 
 /* Checkout summary option terms */
+.checkout-standard-summary-option-account,
 .checkout-standard-summary-option-terms {
 	margin: 1em;
 }
