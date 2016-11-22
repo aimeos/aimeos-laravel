@@ -811,15 +811,20 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 /* text list */
-.catalog-list .text-list {
+.aimeos .product .text-list {
 	text-align: left;
 	overflow: hidden;
 	line-height: 1.1;
-	padding: 0.5em 1em;
+	margin: 0.5em 1em;
 	color: #555;
 }
 
-.catalog-list .text-list h2 {
+.catalog-detail .product .text-list,
+.basket-related .product .text-list {
+	margin: 0.5em;
+}
+
+.aimeos .product .text-list h2 {
 	text-transform: uppercase;
 	font-weight: normal;
 	font-size: 100%;
@@ -828,20 +833,21 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin: 0;
 }
 
-.catalog-list .text-list .text-item {
+.aimeos .product .text-list .text-item {
+	overflow: hidden;
 	height: 2em;
 }
 
 /* price list */
-.catalog-list .price {
+.aimeos .product .price {
 	box-sizing: content-box;
 	text-align: left;
-	padding: 0.5em;
+	margin: 0.5em;
 }
 
 /* Stock level */
 .catalog-list .stock {
-	padding: 0.5em 1em;
+	margin: 0 1em;
 	float: left;
 }
 
@@ -1639,7 +1645,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	vertical-align: top;
 	position: relative;
 	width: 160px;
-	margin: 2% 1%;
+	margin: 1%;
 	padding: 0;
 }
 
@@ -1652,6 +1658,23 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .account-watch a.watch-item {
 	width: 160px;
 	margin: 0;
+}
+
+.basket-related-bought .media-list,
+.catalog-detail-bought .media-list,
+.catalog-detail-bundle .media-list,
+.catalog-detail-suggest .media-list,
+.catalog-session-seen .media-list {
+	background-color: #FFFFFF;
+	background-image: url(media/aimeos.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	height: 213px;
+	width: 160px;
 }
 
 .account-watch .media-item,
@@ -2246,7 +2269,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	float: right;
 }
 
-.aimeos .common-summary-additional .coupon {
+.aimeos .common-summary-additional .coupon,
 .aimeos .common-summary-additional .comment {
 	display: inline-block;
 	vertical-align: top;
@@ -2259,11 +2282,9 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin-right: 0.25%;
 }
 
-.aimeos .common-summary-additional .comment .content {
+.aimeos .common-summary-additional .comment .content textarea {
 	border: solid 1px #D0D0D0;
-	width: 98%;
-	margin: 0.5em 1%;
-	padding: 0.5em;
+	width: 100%;
 	height: 4em;
 }
 
@@ -2281,10 +2302,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .checkout-standard-summary-option-account,
 .checkout-standard-summary-option-terms {
 	margin: 1em;
-}
-
-.checkout-standard-summary-option h2 {
-	display: none;
 }
 
 .checkout-standard-summary-option h3 {

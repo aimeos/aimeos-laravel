@@ -102,7 +102,7 @@ Aimeos = {
 	 */
 	loadImages: function() {
 
-		var elements = $(".catalog-list-items .lazy-image, .catalog-list-promo .lazy-image");
+		var elements = $(".aimeos .lazy-image");
 
 		for( var i = 0; i < elements.length; i++) {
 			var element = $(elements[i]);
