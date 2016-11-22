@@ -104,12 +104,12 @@ Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), f
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'myaccount/favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{l_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'myaccount/favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_favorite',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'myaccount/watch/{wat_action?}/{wat_id?}/{d_prodid?}/{d_name?}/{l_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'myaccount/watch/{wat_action?}/{wat_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_watch',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
@@ -129,12 +129,12 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@countAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'detail/{d_prodid}/{d_name?}/{l_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'detail/{d_prodid}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_detail',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'detail/pin/{pin_action?}/{pin_id?}/{d_prodid?}/{d_name?}/{l_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'detail/pin/{pin_action?}/{pin_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_session_pinned',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 	));
