@@ -41,9 +41,10 @@
     "autoload": {
         "psr-0": {
             "Aimeos\\Shop\\": "src/"
-        },
+        }
+    },
+    "autoload-dev": {
         "classmap": [
-            "src/database/migrations",
             "tests/AimeosTestAbstract.php"
         ]
     },
