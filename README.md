@@ -140,7 +140,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 					<li><a href="/">Home</a></li>
 				</ul>
 
-				<div class="navbar-right">
+				<div class="nav navbar-nav navbar-right">
 @yield('aimeos_head')
 				</div>
 			</div>
