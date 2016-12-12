@@ -812,10 +812,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 /* text list */
 .aimeos .product .text-list {
+	padding: 0.5em 1em;
+	line-height: 1.1;
 	text-align: left;
 	overflow: hidden;
-	line-height: 1.1;
-	margin: 0.5em 1em;
 	color: #555;
 }
 
@@ -838,25 +838,30 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	height: 2em;
 }
 
-/* price list */
-.aimeos .product .price {
-	box-sizing: content-box;
+/* product offer part */
+.catalog-list .offer {
 	text-align: left;
+}
+
+/* price list */
+.aimeos .product .price-list {
+	box-sizing: content-box;
+	display: inline-block;
 	margin: 0.5em;
 }
 
 /* Stock level */
-.catalog-list .stock {
-	margin: 0 1em;
-	float: left;
+.catalog-list .stock-list {
+	display: inline-block;
 }
 
 .catalog-list .stockitem {
 	display: none;
+	margin: 0 1em;
 }
 
-.catalog-list .stock-actual {
-	display: block;
+.catalog-list .stock-actual .stockitem {
+	display: inline-block;
 }
 
 .catalog-list .stocklevel {
@@ -1228,7 +1233,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	clear: right;
 }
 
-.catalog-detail-basket .price {
+.catalog-detail-basket .price-list {
 	display: none;
 	color: #555;
 }
@@ -1557,16 +1562,16 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 
 /* Stock level */
-.catalog-detail .stock {
+.catalog-detail .stock-list {
 	text-align: center;
-	margin: 0.5em 0;
+	padding: 0.5em 0;
 }
 
 .catalog-detail .stockitem {
 	display: none;
 }
 
-.catalog-detail .stock-actual {
+.catalog-detail .stock-actual .stockitem {
 	display: block;
 }
 

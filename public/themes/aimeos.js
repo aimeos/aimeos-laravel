@@ -596,22 +596,22 @@ AimeosCatalog = {
 				if( map.hasOwnProperty(prodId) && map[prodId] === len ) {
 
 					var parent = $(this).parents(".catalog-detail-basket, .catalog-list .product");
-					var newPrice = $(".price-prodid-" + prodId, parent);
-					var newStock = $(".stock-prodid-" + prodId, parent);
-
-					if( newPrice.length === 0 ) {
-						newPrice = $(".price-main", parent);
-					}
+					var newStock = $(".stock-list [data-prodid=" + prodId + "]", parent);
+					var newPrice = $(".price-list [data-prodid=" + prodId + "]", parent);
 
 					if( newStock.length === 0 ) {
-						newStock = $(".stockitem:first-child", parent);
+						newStock = $(".stock-list .articleitem:first-child", parent);
 					}
 
-					$(".price", parent).removeClass("price-actual");
-					newPrice.addClass("price-actual");
+					if( newPrice.length === 0 ) {
+						newPrice = $(".price-list .articleitem:first-child", parent);
+					}
 
-					$(".stockitem", parent).removeClass("stock-actual");
+					$(".articleitem", parent).removeClass("stock-actual");
 					newStock.addClass("stock-actual");
+
+					$(".articleitem", parent).removeClass("price-actual");
+					newPrice.addClass("price-actual");
 
 					if( parent.data("reqstock") && newStock.hasClass("stock-out") ) {
 						$(".addbasket .btn-action", parent).addClass("btn-disabled").attr("disabled", "disabled");

@@ -225,7 +225,7 @@ AimeosCatalogDetail = {
 
 		$(".catalog-detail-basket .price-item:not(.price-item:first-of-type)").hide();
 
-		$(".catalog-detail-basket .price").on("click", function(ev) {
+		$(".catalog-detail-basket .price-list").on("click", function(ev) {
 			$(".price-item:not(.price-item:first-of-type)", this).slideToggle();
 			$(".price-item:first-of-type", ev.delegateTarget).toggleClass("toggle-js");
 		});
