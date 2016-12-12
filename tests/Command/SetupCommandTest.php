@@ -11,7 +11,7 @@ class SetupCommandTest extends AimeosTestAbstract
 
 	public function testSetupCommandClean()
 	{
-		$args = array('site' => 'unittest', 'tplsite' => 'unittest', '--task' => 'TablesCreateMShop', '--action' => 'clean');
+		$args = array('site' => 'unittest', 'tplsite' => 'unittest', '--action' => 'clean');
 		$this->assertEquals(0, $this->artisan('aimeos:setup', $args));
 	}
 
