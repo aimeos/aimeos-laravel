@@ -14,8 +14,9 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\Response;
 
 
 /**
@@ -32,132 +33,96 @@ class JsonadmController extends Controller
 	/**
 	 * Deletes the resource object or a list of resource objects
 	 *
-	 * @param \Illuminate\Http\Request $request Request object
-	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 * @param \Psr\Http\Message\ServerRequestInterface $request Request object
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
 	 */
-	public function deleteAction( Request $request )
+	public function deleteAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin', [['admin', 'api']] );
 		}
 
-		$status = 500;
-		$header = $request->headers->all();
-
-		$client = $this->createClient();
-		$result = $client->delete( (string) $request->getContent(), $header, $status );
-
-		return $this->createResponse( $result, $status, $header );
+		return $this->createClient()->delete( $request, new Response() );
 	}
 
 
 	/**
 	 * Returns the requested resource object or list of resource objects
 	 *
-	 * @param \Illuminate\Http\Request $request Request object
-	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 * @param \Psr\Http\Message\ServerRequestInterface $request Request object
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
 	 */
-	public function getAction( Request $request )
+	public function getAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin', [['admin', 'api', 'editor']] );
 		}
 
-		$status = 500;
-		$header = $request->headers->all();
-
-		$client = $this->createClient();
-		$result = $client->get( (string) $request->getContent(), $header, $status );
-
-		return $this->createResponse( $result, $status, $header );
+		return $this->createClient()->get( $request, new Response() );
 	}
 
 
 	/**
 	 * Updates a resource object or a list of resource objects
 	 *
-	 * @param \Illuminate\Http\Request $request Request object
-	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 * @param \Psr\Http\Message\ServerRequestInterface $request Request object
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
 	 */
-	public function patchAction( Request $request )
+	public function patchAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin', [['admin', 'api']] );
 		}
 
-		$status = 500;
-		$header = $request->headers->all();
-
-		$client = $this->createClient();
-		$result = $client->patch( (string) $request->getContent(), $header, $status );
-
-		return $this->createResponse( $result, $status, $header );
+		return $this->createClient()->patch( $request, new Response() );
 	}
 
 
 	/**
 	 * Creates a new resource object or a list of resource objects
 	 *
-	 * @param \Illuminate\Http\Request $request Request object
-	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 * @param \Psr\Http\Message\ServerRequestInterface $request Request object
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
 	 */
-	public function postAction( Request $request )
+	public function postAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin', [['admin', 'api']] );
 		}
 
-		$status = 500;
-		$header = $request->headers->all();
-
-		$client = $this->createClient();
-		$result = $client->post( (string) $request->getContent(), $header, $status );
-
-		return $this->createResponse( $result, $status, $header );
+		return $this->createClient()->post( $request, new Response() );
 	}
 
 
 	/**
 	 * Creates or updates a single resource object
 	 *
-	 * @param \Illuminate\Http\Request $request Request object
-	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 * @param \Psr\Http\Message\ServerRequestInterface $request Request object
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
 	 */
-	public function putAction( Request $request )
+	public function putAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin', [['admin', 'api']] );
 		}
 
-		$status = 500;
-		$header = $request->headers->all();
-
-		$client = $this->createClient();
-		$result = $client->put( (string) $request->getContent(), $header, $status );
-
-		return $this->createResponse( $result, $status, $header );
+		return $this->createClient()->put( $request, new Response() );
 	}
 
 
 	/**
 	 * Returns the available HTTP verbs and the resource URLs
 	 *
-	 * @param \Illuminate\Http\Request $request Request object
-	 * @return \Illuminate\Http\Response Response object containing the generated output
+	 * @param \Psr\Http\Message\ServerRequestInterface $request Request object
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
 	 */
-	public function optionsAction( Request $request )
+	public function optionsAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
 			$this->authorize( 'admin', [['admin', 'api', 'editor']] );
 		}
 
-		$status = 500;
-		$header = $request->headers->all();
-
-		$client = $this->createClient();
-		$result = $client->options( (string) $request->getContent(), $header, $status );
-
-		return $this->createResponse( $result, $status, $header );
+		return $this->createClient()->options( $request, new Response() );
 	}
 
 
@@ -181,25 +146,5 @@ class JsonadmController extends Controller
 		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $templatePaths, $lang ) );
 
 		return \Aimeos\Admin\JsonAdm\Factory::createClient( $context, $templatePaths, $resource );
-	}
-
-
-	/**
-	 * Creates a new response object
-	 *
-	 * @param string $content Body of the HTTP response
-	 * @param integer $status HTTP status
-	 * @param array $header List of HTTP headers
-	 * @return \Illuminate\Http\Response HTTP response object
-	 */
-	protected function createResponse( $content, $status, array $header )
-	{
-		$response = Response::make( $content, $status );
-
-		foreach( $header as $key => $value ) {
-			$response->header( $key, $value );
-		}
-
-		return $response;
 	}
 }

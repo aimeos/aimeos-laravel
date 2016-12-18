@@ -20,9 +20,10 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.5.0",
         "doctrine/dbal": "~2.5",
-        "laravel/framework": "~5.1,>=5.1.11",
+        "laravel/framework": "^5.1.11",
+        "symfony/psr-http-message-bridge": "~1.0",
+        "zendframework/zend-diactoros": "~1.3",
         "aimeos/aimeos-core": "dev-master",
         "aimeos/ai-swiftmailer": "dev-master",
         "aimeos/ai-gettext": "dev-master",
