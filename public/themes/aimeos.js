@@ -1,22 +1,3 @@
-/*
- * backgroundSize: A jQuery cssHook adding support for "cover" and "contain" to IE6,7,8
- *
- * Requirements:
- * - jQuery 1.7.0+
- *
- * latest version and complete README available on Github:
- * https://github.com/louisremi/jquery.backgroundSize.js
- *
- * Copyright 2012 @louis_remi
- * Licensed under the MIT license.
- *
- * This saved you an hour of work?
- * Send me music http://www.amazon.co.uk/wishlist/HNTU0468LQON
- */
-(function(e,t,n,r,i){var s=e("<div>")[0],o=/url\(["']?(.*?)["']?\)/,u=[],a={top:0,left:0,bottom:1,right:1,center:.5};if("backgroundSize"in s.style&&!e.debugBGS){return}e.cssHooks.backgroundSize={set:function(t,n){var r=!e.data(t,"bgsImg"),i,s,o;e.data(t,"bgsValue",n);if(r){u.push(t);e.refreshBackgroundDimensions(t,true);s=e("<div>").css({position:"absolute",zIndex:-1,top:0,right:0,left:0,bottom:0,overflow:"hidden"});o=e("<img>").css({position:"absolute"}).appendTo(s),s.prependTo(t);e.data(t,"bgsImg",o[0]);i=(e.css(t,"backgroundPosition")||e.css(t,"backgroundPositionX")+" "+e.css(t,"backgroundPositionY")).split(" ");e.data(t,"bgsPos",[a[i[0]]||parseFloat(i[0])/100,a[i[1]]||parseFloat(i[1])/100]);e.css(t,"zIndex")=="auto"&&(t.style.zIndex=0);e.css(t,"position")=="static"&&(t.style.position="relative");e.refreshBackgroundImage(t)}else{e.refreshBackground(t)}},get:function(t){return e.data(t,"bgsValue")||""}};e.cssHooks.backgroundImage={set:function(t,n){return e.data(t,"bgsImg")?e.refreshBackgroundImage(t,n):n}};e.refreshBackgroundDimensions=function(t,n){var r=e(t),i={width:r.innerWidth(),height:r.innerHeight()},s=e.data(t,"bgsDim"),o=!s||i.width!=s.width||i.height!=s.height;e.data(t,"bgsDim",i);if(o&&!n){e.refreshBackground(t)}};e.refreshBackgroundImage=function(t,n){var r=e.data(t,"bgsImg"),i=(o.exec(n||e.css(t,"backgroundImage"))||[])[1],s=r&&r.src,u=i!=s,a,f;if(u){r.style.height=r.style.width="auto";r.onload=function(){var n={width:r.width,height:r.height};if(n.width==1&&n.height==1){return}e.data(t,"bgsImgDim",n);e.data(t,"bgsConstrain",false);e.refreshBackground(t);r.style.visibility="visible";r.onload=null};r.style.visibility="hidden";r.src=i;if(r.readyState||r.complete){r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";r.src=i}t.style.backgroundImage="none"}};e.refreshBackground=function(t){var n=e.data(t,"bgsValue"),i=e.data(t,"bgsDim"),s=e.data(t,"bgsImgDim"),o=e(e.data(t,"bgsImg")),u=e.data(t,"bgsPos"),a=e.data(t,"bgsConstrain"),f,l=i.width/i.height,c=s.width/s.height,h;if(n=="contain"){if(c>l){e.data(t,"bgsConstrain",f="width");h=r.floor((i.height-i.width/c)*u[1]);o.css({top:h});if(f!=a){o.css({width:"100%",height:"auto",left:0})}}else{e.data(t,"bgsConstrain",f="height");h=r.floor((i.width-i.height*c)*u[0]);o.css({left:h});if(f!=a){o.css({height:"100%",width:"auto",top:0})}}}else if(n=="cover"){if(c>l){e.data(t,"bgsConstrain",f="height");h=r.floor((i.height*c-i.width)*u[0]);o.css({left:-h});if(f!=a){o.css({height:"100%",width:"auto",top:0})}}else{e.data(t,"bgsConstrain",f="width");h=r.floor((i.width/c-i.height)*u[1]);o.css({top:-h});if(f!=a){o.css({width:"100%",height:"auto",left:0})}}}};var f=e.event,l,c={_:0},h=0,p,d;l=f.special.throttledresize={setup:function(){e(this).on("resize",l.handler)},teardown:function(){e(this).off("resize",l.handler)},handler:function(t,n){var r=this,i=arguments;p=true;if(!d){e(c).animate(c,{duration:Infinity,step:function(){h++;if(h>l.threshold&&p||n){t.type="throttledresize";f.dispatch.apply(r,i);p=false;h=0}if(h>9){e(c).stop();d=false;h=0}}});d=true}},threshold:1};e(t).on("throttledresize",function(){e(u).each(function(){e.refreshBackgroundDimensions(this)})})})(jQuery,window,document,Math);
-
-
-
 /**
  * Aimeos related Javascript code
  *
@@ -78,6 +59,17 @@ Aimeos = {
 
 
 	/**
+	 *  Adds a spinner on top of the current page
+	 */
+	createSpinner: function() {
+
+		var spinner = $(document.createElement("div"));
+		spinner.addClass("aimeos-spinner");
+		$("body").append(spinner);
+	},
+
+
+	/**
 	 * Removes an existing overlay from the current page
 	 */
 	removeOverlay: function() {
@@ -94,6 +86,14 @@ Aimeos = {
 		}
 
 		return true;
+	},
+
+
+	/**
+	 * Removes an existing spinner from the current page
+	 */
+	removeSpinner: function() {
+		$(".aimeos-spinner").remove();
 	},
 
 
@@ -411,8 +411,11 @@ AimeosBasketStandard = {
 		$("body").on("submit", ".basket-standard form", function(ev) {
 			var form = $(this);
 
+			Aimeos.createSpinner();
 			$.post(form.attr("action"), form.serialize(), function(data) {
 				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
+			}).always(function() {
+				Aimeos.removeSpinner();
 			});
 
 			return false;
@@ -427,8 +430,11 @@ AimeosBasketStandard = {
 
 		$("body").on("click", ".basket-standard a.change", function(ev) {
 
+			Aimeos.createSpinner();
 			$.get($(this).attr("href"), function(data) {
 				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
+			}).always(function() {
+				Aimeos.removeSpinner();
 			});
 
 			return false;
@@ -716,24 +722,26 @@ AimeosCatalogFilter = {
 
 		var aimeosInputComplete = $(".catalog-filter-search .value");
 
-		aimeosInputComplete.autocomplete({
-			minLength : 3,
-			delay : 200,
-			source : function(req, resp) {
-				var nameTerm = {};
-				nameTerm[aimeosInputComplete.attr("name")] = req.term;
+		if(aimeosInputComplete.length) {
+			aimeosInputComplete.autocomplete({
+				minLength : 3,
+				delay : 200,
+				source : function(req, resp) {
+					var nameTerm = {};
+					nameTerm[aimeosInputComplete.attr("name")] = req.term;
 
-				$.getJSON(aimeosInputComplete.data("url"), nameTerm, function(data) {
-					resp(data);
-				});
-			},
-			select : function(ev, ui) {
-				aimeosInputComplete.val(ui.item.label);
-				return false;
-			}
-		}).autocomplete("instance")._renderItem = function(ul, item) {
-			return $(item.html).appendTo(ul);
-		};
+					$.getJSON(aimeosInputComplete.data("url"), nameTerm, function(data) {
+						resp(data);
+					});
+				},
+				select : function(ev, ui) {
+					aimeosInputComplete.val(ui.item.label);
+					return false;
+				}
+			}).autocomplete("instance")._renderItem = function(ul, item) {
+				return $(item.html).appendTo(ul);
+			};
+		}
 	},
 
 
@@ -1214,8 +1222,8 @@ jQuery(document).ready(function($) {
 
 	/* Lazy product image loading in list view */
 	Aimeos.loadImages();
-	$(window).bind("resize", Aimeos.loadImages);
-	$(window).bind("scroll", Aimeos.loadImages);
+	$(window).on("resize", Aimeos.loadImages);
+	$(window).on("scroll", Aimeos.loadImages);
 
 
 	Aimeos.init();
