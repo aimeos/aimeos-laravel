@@ -1058,15 +1058,15 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin: 0 30px;
 }
 
+.catalog-detail-image .image-single figcaption {
+	display: none;
+}
+
 .catalog-detail-image .item {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #FFFFFF;
 	background-size: contain;
-}
-
-.catalog-detail-image .carousel {
-	margin: 0;
 }
 
 .catalog-detail-image .image-single .item {
@@ -1075,27 +1075,70 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	height: 533px;
 }
 
-.catalog-detail-image .image-thumbs {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	overflow: hidden;
-	z-index: 10;
-	width: 80px;
-	margin: 0;
-}
-
-.catalog-detail-image .thumbs {
-	width: 80px;
-	margin: 0;
-}
-
 .catalog-detail-image .thumbs .item {
 	display: inline-block;
 	height: 105px;
 	width: 80px;
 	opacity: 0.7;
 	margin: 0;
+}
+
+.catalog-detail-image .image-thumbs button {
+	border: none;
+	background: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: transparent;
+}
+
+.catalog-detail-image .thumbs-vertical {
+	display: inline-block;
+	overflow: hidden;
+	height: 533px;
+	width: 80px;
+}
+
+.catalog-detail-image .thumbs-vertical button {
+	height: 40px;
+	width: 80px;
+}
+
+.catalog-detail-image .thumbs-vertical .slick-prev {
+	background-image: url('media/arrow_small_top.png');
+}
+
+.catalog-detail-image .thumbs-vertical .slick-next {
+	background-image: url('media/arrow_small_bottom.png');
+}
+
+.catalog-detail-image .thumbs-horizontal {
+	overflow: hidden;
+	height: 105px;
+	width: 540px;
+}
+
+.catalog-detail-image .thumbs-horizontal button {
+	display: inline-block;
+	vertical-align: top;
+	height: 105px;
+	width: 40px;
+}
+
+.catalog-detail-image .thumbs-horizontal .thumbs {
+	display: inline-block !important;
+	width: 420px;
+}
+
+.catalog-detail-image .thumbs-horizontal .item {
+	width: 105px;
+}
+
+.catalog-detail-image .thumbs-horizontal .slick-prev {
+	background-image: url('media/arrow_small_left.png');
+}
+
+.catalog-detail-image .thumbs-horizontal .slick-next {
+	background-image: url('media/arrow_small_right.png');
 }
 
 @media (max-width: 559px) {
@@ -1127,36 +1170,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-detail-image .thumbs .selected,
 .catalog-detail-image .thumbs .item:hover {
 	opacity: 1;
-}
-
-.catalog-detail-image .prev-thumbs,
-.catalog-detail-image .next-thumbs {
-	margin: 0;
-	height: 10px;
-	width: 80px;
-	z-index: 2;
-}
-
-.catalog-detail-image .prev-thumbs {
-	background: url(media/arrow_small_top.png) no-repeat;
-}
-
-.catalog-detail-image .next-thumbs {
-	background: url(media/arrow_small_bottom.png) no-repeat;
-}
-
-.catalog-detail-image .prev-thumbs.disabled,
-.catalog-detail-image .next-thumbs.disabled {
-	display: none !important;
-}
-
-@media (max-width: 360px) {
-	.catalog-detail-image #prev-image {
-		display: none !important;
-	}
-	.catalog-detail-image #next-image {
-		display: none !important;
-	}
 }
 
 /* Product detail, basic section */
@@ -2675,174 +2688,744 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 
-/* PrettyPhoto lightbox CSS */
-div.pp_default .pp_top,div.pp_default .pp_top .pp_middle,div.pp_default .pp_top .pp_left,div.pp_default .pp_top .pp_right,div.pp_default .pp_bottom,div.pp_default .pp_bottom .pp_left,div.pp_default .pp_bottom .pp_middle,div.pp_default .pp_bottom .pp_right{height:13px}
-div.pp_default .pp_top .pp_left{background:url(media/prettyPhoto/default/sprite.png) -78px -93px no-repeat}
-div.pp_default .pp_top .pp_middle{background:url(media/prettyPhoto/default/sprite_x.png) top left repeat-x}
-div.pp_default .pp_top .pp_right{background:url(media/prettyPhoto/default/sprite.png) -112px -93px no-repeat}
-div.pp_default .pp_content .ppt{color:#f8f8f8}
-div.pp_default .pp_content_container .pp_left{background:url(media/prettyPhoto/default/sprite_y.png) -7px 0 repeat-y;padding-left:13px}
-div.pp_default .pp_content_container .pp_right{background:url(media/prettyPhoto/default/sprite_y.png) top right repeat-y;padding-right:13px}
-div.pp_default .pp_next:hover{background:url(media/prettyPhoto/default/sprite_next.png) center right no-repeat;cursor:pointer}
-div.pp_default .pp_previous:hover{background:url(media/prettyPhoto/default/sprite_prev.png) center left no-repeat;cursor:pointer}
-div.pp_default .pp_expand{background:url(media/prettyPhoto/default/sprite.png) 0 -29px no-repeat;cursor:pointer;width:28px;height:28px}
-div.pp_default .pp_expand:hover{background:url(media/prettyPhoto/default/sprite.png) 0 -56px no-repeat;cursor:pointer}
-div.pp_default .pp_contract{background:url(media/prettyPhoto/default/sprite.png) 0 -84px no-repeat;cursor:pointer;width:28px;height:28px}
-div.pp_default .pp_contract:hover{background:url(media/prettyPhoto/default/sprite.png) 0 -113px no-repeat;cursor:pointer}
-div.pp_default .pp_close{width:30px;height:30px;background:url(media/prettyPhoto/default/sprite.png) 2px 1px no-repeat;cursor:pointer}
-div.pp_default .pp_gallery ul li a{background:url(media/prettyPhoto/default/default_thumb.png) center center #f8f8f8;border:1px solid #aaa}
-div.pp_default .pp_social{margin-top:7px}
-div.pp_default .pp_gallery a.pp_arrow_previous,div.pp_default .pp_gallery a.pp_arrow_next{position:static;left:auto}
-div.pp_default .pp_nav .pp_play,div.pp_default .pp_nav .pp_pause{background:url(media/prettyPhoto/default/sprite.png) -51px 1px no-repeat;height:30px;width:30px}
-div.pp_default .pp_nav .pp_pause{background-position:-51px -29px}
-div.pp_default a.pp_arrow_previous,div.pp_default a.pp_arrow_next{background:url(media/prettyPhoto/default/sprite.png) -31px -3px no-repeat;height:20px;width:20px;margin:4px 0 0}
-div.pp_default a.pp_arrow_next{left:52px;background-position:-82px -3px}
-div.pp_default .pp_content_container .pp_details{margin-top:5px}
-div.pp_default .pp_nav{clear:none;height:30px;width:110px;position:relative}
-div.pp_default .pp_nav .currentTextHolder{font-family:Georgia;font-style:italic;color:#999;font-size:11px;left:75px;line-height:25px;position:absolute;top:2px;margin:0;padding:0 0 0 10px}
-div.pp_default .pp_close:hover,div.pp_default .pp_nav .pp_play:hover,div.pp_default .pp_nav .pp_pause:hover,div.pp_default .pp_arrow_next:hover,div.pp_default .pp_arrow_previous:hover{opacity:0.7}
-div.pp_default .pp_description{font-size:11px;font-weight:700;line-height:14px;margin:5px 50px 5px 0}
-div.pp_default .pp_bottom .pp_left{background:url(media/prettyPhoto/default/sprite.png) -78px -127px no-repeat}
-div.pp_default .pp_bottom .pp_middle{background:url(media/prettyPhoto/default/sprite_x.png) bottom left repeat-x}
-div.pp_default .pp_bottom .pp_right{background:url(media/prettyPhoto/default/sprite.png) -112px -127px no-repeat}
-div.pp_default .pp_loaderIcon{background:url(media/prettyPhoto/default/loader.gif) center center no-repeat}
-div.light_rounded .pp_top .pp_left{background:url(media/prettyPhoto/light_rounded/sprite.png) -88px -53px no-repeat}
-div.light_rounded .pp_top .pp_right{background:url(media/prettyPhoto/light_rounded/sprite.png) -110px -53px no-repeat}
-div.light_rounded .pp_next:hover{background:url(media/prettyPhoto/light_rounded/btnNext.png) center right no-repeat;cursor:pointer}
-div.light_rounded .pp_previous:hover{background:url(media/prettyPhoto/light_rounded/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.light_rounded .pp_expand{background:url(media/prettyPhoto/light_rounded/sprite.png) -31px -26px no-repeat;cursor:pointer}
-div.light_rounded .pp_expand:hover{background:url(media/prettyPhoto/light_rounded/sprite.png) -31px -47px no-repeat;cursor:pointer}
-div.light_rounded .pp_contract{background:url(media/prettyPhoto/light_rounded/sprite.png) 0 -26px no-repeat;cursor:pointer}
-div.light_rounded .pp_contract:hover{background:url(media/prettyPhoto/light_rounded/sprite.png) 0 -47px no-repeat;cursor:pointer}
-div.light_rounded .pp_close{width:75px;height:22px;background:url(media/prettyPhoto/light_rounded/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.light_rounded .pp_nav .pp_play{background:url(media/prettyPhoto/light_rounded/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
-div.light_rounded .pp_nav .pp_pause{background:url(media/prettyPhoto/light_rounded/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
-div.light_rounded .pp_arrow_previous{background:url(media/prettyPhoto/light_rounded/sprite.png) 0 -71px no-repeat}
-div.light_rounded .pp_arrow_next{background:url(media/prettyPhoto/light_rounded/sprite.png) -22px -71px no-repeat}
-div.light_rounded .pp_bottom .pp_left{background:url(media/prettyPhoto/light_rounded/sprite.png) -88px -80px no-repeat}
-div.light_rounded .pp_bottom .pp_right{background:url(media/prettyPhoto/light_rounded/sprite.png) -110px -80px no-repeat}
-div.dark_rounded .pp_top .pp_left{background:url(media/prettyPhoto/dark_rounded/sprite.png) -88px -53px no-repeat}
-div.dark_rounded .pp_top .pp_right{background:url(media/prettyPhoto/dark_rounded/sprite.png) -110px -53px no-repeat}
-div.dark_rounded .pp_content_container .pp_left{background:url(media/prettyPhoto/dark_rounded/contentPattern.png) top left repeat-y}
-div.dark_rounded .pp_content_container .pp_right{background:url(media/prettyPhoto/dark_rounded/contentPattern.png) top right repeat-y}
-div.dark_rounded .pp_next:hover{background:url(media/prettyPhoto/dark_rounded/btnNext.png) center right no-repeat;cursor:pointer}
-div.dark_rounded .pp_previous:hover{background:url(media/prettyPhoto/dark_rounded/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.dark_rounded .pp_expand{background:url(media/prettyPhoto/dark_rounded/sprite.png) -31px -26px no-repeat;cursor:pointer}
-div.dark_rounded .pp_expand:hover{background:url(media/prettyPhoto/dark_rounded/sprite.png) -31px -47px no-repeat;cursor:pointer}
-div.dark_rounded .pp_contract{background:url(media/prettyPhoto/dark_rounded/sprite.png) 0 -26px no-repeat;cursor:pointer}
-div.dark_rounded .pp_contract:hover{background:url(media/prettyPhoto/dark_rounded/sprite.png) 0 -47px no-repeat;cursor:pointer}
-div.dark_rounded .pp_close{width:75px;height:22px;background:url(media/prettyPhoto/dark_rounded/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.dark_rounded .pp_description{margin-right:85px;color:#fff}
-div.dark_rounded .pp_nav .pp_play{background:url(media/prettyPhoto/dark_rounded/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
-div.dark_rounded .pp_nav .pp_pause{background:url(media/prettyPhoto/dark_rounded/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
-div.dark_rounded .pp_arrow_previous{background:url(media/prettyPhoto/dark_rounded/sprite.png) 0 -71px no-repeat}
-div.dark_rounded .pp_arrow_next{background:url(media/prettyPhoto/dark_rounded/sprite.png) -22px -71px no-repeat}
-div.dark_rounded .pp_bottom .pp_left{background:url(media/prettyPhoto/dark_rounded/sprite.png) -88px -80px no-repeat}
-div.dark_rounded .pp_bottom .pp_right{background:url(media/prettyPhoto/dark_rounded/sprite.png) -110px -80px no-repeat}
-div.dark_rounded .pp_loaderIcon{background:url(media/prettyPhoto/dark_rounded/loader.gif) center center no-repeat}
-div.dark_square .pp_left,div.dark_square .pp_middle,div.dark_square .pp_right,div.dark_square .pp_content{background:#000}
-div.dark_square .pp_description{color:#fff;margin:0 85px 0 0}
-div.dark_square .pp_loaderIcon{background:url(media/prettyPhoto/dark_square/loader.gif) center center no-repeat}
-div.dark_square .pp_expand{background:url(media/prettyPhoto/dark_square/sprite.png) -31px -26px no-repeat;cursor:pointer}
-div.dark_square .pp_expand:hover{background:url(media/prettyPhoto/dark_square/sprite.png) -31px -47px no-repeat;cursor:pointer}
-div.dark_square .pp_contract{background:url(media/prettyPhoto/dark_square/sprite.png) 0 -26px no-repeat;cursor:pointer}
-div.dark_square .pp_contract:hover{background:url(media/prettyPhoto/dark_square/sprite.png) 0 -47px no-repeat;cursor:pointer}
-div.dark_square .pp_close{width:75px;height:22px;background:url(media/prettyPhoto/dark_square/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.dark_square .pp_nav{clear:none}
-div.dark_square .pp_nav .pp_play{background:url(media/prettyPhoto/dark_square/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
-div.dark_square .pp_nav .pp_pause{background:url(media/prettyPhoto/dark_square/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
-div.dark_square .pp_arrow_previous{background:url(media/prettyPhoto/dark_square/sprite.png) 0 -71px no-repeat}
-div.dark_square .pp_arrow_next{background:url(media/prettyPhoto/dark_square/sprite.png) -22px -71px no-repeat}
-div.dark_square .pp_next:hover{background:url(media/prettyPhoto/dark_square/btnNext.png) center right no-repeat;cursor:pointer}
-div.dark_square .pp_previous:hover{background:url(media/prettyPhoto/dark_square/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.light_square .pp_expand{background:url(media/prettyPhoto/light_square/sprite.png) -31px -26px no-repeat;cursor:pointer}
-div.light_square .pp_expand:hover{background:url(media/prettyPhoto/light_square/sprite.png) -31px -47px no-repeat;cursor:pointer}
-div.light_square .pp_contract{background:url(media/prettyPhoto/light_square/sprite.png) 0 -26px no-repeat;cursor:pointer}
-div.light_square .pp_contract:hover{background:url(media/prettyPhoto/light_square/sprite.png) 0 -47px no-repeat;cursor:pointer}
-div.light_square .pp_close{width:75px;height:22px;background:url(media/prettyPhoto/light_square/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.light_square .pp_nav .pp_play{background:url(media/prettyPhoto/light_square/sprite.png) -1px -100px no-repeat;height:15px;width:14px}
-div.light_square .pp_nav .pp_pause{background:url(media/prettyPhoto/light_square/sprite.png) -24px -100px no-repeat;height:15px;width:14px}
-div.light_square .pp_arrow_previous{background:url(media/prettyPhoto/light_square/sprite.png) 0 -71px no-repeat}
-div.light_square .pp_arrow_next{background:url(media/prettyPhoto/light_square/sprite.png) -22px -71px no-repeat}
-div.light_square .pp_next:hover{background:url(media/prettyPhoto/light_square/btnNext.png) center right no-repeat;cursor:pointer}
-div.light_square .pp_previous:hover{background:url(media/prettyPhoto/light_square/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.facebook .pp_top .pp_left{background:url(media/prettyPhoto/facebook/sprite.png) -88px -53px no-repeat}
-div.facebook .pp_top .pp_middle{background:url(media/prettyPhoto/facebook/contentPatternTop.png) top left repeat-x}
-div.facebook .pp_top .pp_right{background:url(media/prettyPhoto/facebook/sprite.png) -110px -53px no-repeat}
-div.facebook .pp_content_container .pp_left{background:url(media/prettyPhoto/facebook/contentPatternLeft.png) top left repeat-y}
-div.facebook .pp_content_container .pp_right{background:url(media/prettyPhoto/facebook/contentPatternRight.png) top right repeat-y}
-div.facebook .pp_expand{background:url(media/prettyPhoto/facebook/sprite.png) -31px -26px no-repeat;cursor:pointer}
-div.facebook .pp_expand:hover{background:url(media/prettyPhoto/facebook/sprite.png) -31px -47px no-repeat;cursor:pointer}
-div.facebook .pp_contract{background:url(media/prettyPhoto/facebook/sprite.png) 0 -26px no-repeat;cursor:pointer}
-div.facebook .pp_contract:hover{background:url(media/prettyPhoto/facebook/sprite.png) 0 -47px no-repeat;cursor:pointer}
-div.facebook .pp_close{width:22px;height:22px;background:url(media/prettyPhoto/facebook/sprite.png) -1px -1px no-repeat;cursor:pointer}
-div.facebook .pp_description{margin:0 37px 0 0}
-div.facebook .pp_loaderIcon{background:url(media/prettyPhoto/facebook/loader.gif) center center no-repeat}
-div.facebook .pp_arrow_previous{background:url(media/prettyPhoto/facebook/sprite.png) 0 -71px no-repeat;height:22px;margin-top:0;width:22px}
-div.facebook .pp_arrow_previous.disabled{background-position:0 -96px;cursor:default}
-div.facebook .pp_arrow_next{background:url(media/prettyPhoto/facebook/sprite.png) -32px -71px no-repeat;height:22px;margin-top:0;width:22px}
-div.facebook .pp_arrow_next.disabled{background-position:-32px -96px;cursor:default}
-div.facebook .pp_nav{margin-top:0}
-div.facebook .pp_nav p{font-size:15px;padding:0 3px 0 4px}
-div.facebook .pp_nav .pp_play{background:url(media/prettyPhoto/facebook/sprite.png) -1px -123px no-repeat;height:22px;width:22px}
-div.facebook .pp_nav .pp_pause{background:url(media/prettyPhoto/facebook/sprite.png) -32px -123px no-repeat;height:22px;width:22px}
-div.facebook .pp_next:hover{background:url(media/prettyPhoto/facebook/btnNext.png) center right no-repeat;cursor:pointer}
-div.facebook .pp_previous:hover{background:url(media/prettyPhoto/facebook/btnPrevious.png) center left no-repeat;cursor:pointer}
-div.facebook .pp_bottom .pp_left{background:url(media/prettyPhoto/facebook/sprite.png) -88px -80px no-repeat}
-div.facebook .pp_bottom .pp_middle{background:url(media/prettyPhoto/facebook/contentPatternBottom.png) top left repeat-x}
-div.facebook .pp_bottom .pp_right{background:url(media/prettyPhoto/facebook/sprite.png) -110px -80px no-repeat}
-div.pp_pic_holder a:focus{outline:none}
-div.pp_overlay{background:#000;display:none;left:0;position:absolute;top:0;width:100%;z-index:9500}
-div.pp_pic_holder{display:none;position:absolute;width:100px;z-index:10000}
-.pp_content{height:40px;min-width:40px}
-* html .pp_content{width:40px}
-.pp_content_container{position:relative;text-align:left;width:100%}
-.pp_content_container .pp_left{padding-left:20px}
-.pp_content_container .pp_right{padding-right:20px}
-.pp_content_container .pp_details{float:left;margin:10px 0 2px}
-.pp_description{display:none;margin:0}
-.pp_social{float:left;margin:0}
-.pp_social .facebook{float:left;margin-left:5px;width:55px;overflow:hidden}
-.pp_social .twitter{float:left}
-.pp_nav{clear:right;float:left;margin:3px 10px 0 0}
-.pp_nav p{float:left;white-space:nowrap;margin:2px 4px}
-.pp_nav .pp_play,.pp_nav .pp_pause{float:left;margin-right:4px;text-indent:-10000px}
-a.pp_arrow_previous,a.pp_arrow_next{display:block;float:left;height:15px;margin-top:3px;overflow:hidden;text-indent:-10000px;width:14px}
-.pp_hoverContainer{position:absolute;top:0;width:100%;z-index:2000}
-.pp_gallery{display:none;left:50%;margin-top:-50px;position:absolute;z-index:10000}
-.pp_gallery div{float:left;overflow:hidden;position:relative}
-.pp_gallery ul{float:left;height:35px;position:relative;white-space:nowrap;margin:0 0 0 5px;padding:0}
-.pp_gallery ul a{border:1px rgba(0,0,0,0.5) solid;display:block;float:left;height:33px;overflow:hidden}
-.pp_gallery ul a img{border:0}
-.pp_gallery li{display:block;float:left;margin:0 5px 0 0;padding:0}
-.pp_gallery li.default a{background:url(media/prettyPhoto/facebook/default_thumbnail.gif) 0 0 no-repeat;display:block;height:33px;width:50px}
-.pp_gallery .pp_arrow_previous,.pp_gallery .pp_arrow_next{margin-top:7px!important}
-a.pp_next{background:url(media/prettyPhoto/light_rounded/btnNext.png) 10000px 10000px no-repeat;display:block;float:right;height:100%;text-indent:-10000px;width:49%}
-a.pp_previous{background:url(media/prettyPhoto/light_rounded/btnNext.png) 10000px 10000px no-repeat;display:block;float:left;height:100%;text-indent:-10000px;width:49%}
-a.pp_expand,a.pp_contract{cursor:pointer;display:none;height:20px;position:absolute;right:30px;text-indent:-10000px;top:10px;width:20px;z-index:20000}
-a.pp_close{position:absolute;right:0;top:0;display:block;line-height:22px;text-indent:-10000px}
-.pp_loaderIcon{display:block;height:24px;left:50%;position:absolute;top:50%;width:24px;margin:-12px 0 0 -12px}
-#pp_full_res{line-height:1!important}
-#pp_full_res .pp_inline{text-align:left}
-#pp_full_res .pp_inline p{margin:0 0 15px}
-div.ppt{color:#fff;display:none;font-size:17px;z-index:9999;margin:0 0 5px 15px}
-div.pp_default .pp_content,div.light_rounded .pp_content{background-color:#fff}
-div.pp_default #pp_full_res .pp_inline,div.light_rounded .pp_content .ppt,div.light_rounded #pp_full_res .pp_inline,div.light_square .pp_content .ppt,div.light_square #pp_full_res .pp_inline,div.facebook .pp_content .ppt,div.facebook #pp_full_res .pp_inline{color:#000}
-div.pp_default .pp_gallery ul li a:hover,div.pp_default .pp_gallery ul li.selected a,.pp_gallery ul a:hover,.pp_gallery li.selected a{border-color:#fff}
-div.pp_default .pp_details,div.light_rounded .pp_details,div.dark_rounded .pp_details,div.dark_square .pp_details,div.light_square .pp_details,div.facebook .pp_details{position:relative}
-div.light_rounded .pp_top .pp_middle,div.light_rounded .pp_content_container .pp_left,div.light_rounded .pp_content_container .pp_right,div.light_rounded .pp_bottom .pp_middle,div.light_square .pp_left,div.light_square .pp_middle,div.light_square .pp_right,div.light_square .pp_content,div.facebook .pp_content{background:#fff}
-div.light_rounded .pp_description,div.light_square .pp_description{margin-right:85px}
-div.light_rounded .pp_gallery a.pp_arrow_previous,div.light_rounded .pp_gallery a.pp_arrow_next,div.dark_rounded .pp_gallery a.pp_arrow_previous,div.dark_rounded .pp_gallery a.pp_arrow_next,div.dark_square .pp_gallery a.pp_arrow_previous,div.dark_square .pp_gallery a.pp_arrow_next,div.light_square .pp_gallery a.pp_arrow_previous,div.light_square .pp_gallery a.pp_arrow_next{margin-top:12px!important}
-div.light_rounded .pp_arrow_previous.disabled,div.dark_rounded .pp_arrow_previous.disabled,div.dark_square .pp_arrow_previous.disabled,div.light_square .pp_arrow_previous.disabled{background-position:0 -87px;cursor:default}
-div.light_rounded .pp_arrow_next.disabled,div.dark_rounded .pp_arrow_next.disabled,div.dark_square .pp_arrow_next.disabled,div.light_square .pp_arrow_next.disabled{background-position:-22px -87px;cursor:default}
-div.light_rounded .pp_loaderIcon,div.light_square .pp_loaderIcon{background:url(media/prettyPhoto/light_rounded/loader.gif) center center no-repeat}
-div.dark_rounded .pp_top .pp_middle,div.dark_rounded .pp_content,div.dark_rounded .pp_bottom .pp_middle{background:url(media/prettyPhoto/dark_rounded/contentPattern.png) top left repeat}
-div.dark_rounded .currentTextHolder,div.dark_square .currentTextHolder{color:#c4c4c4}
-div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline{color:#fff}
-.pp_top,.pp_bottom{height:20px;position:relative}
-* html .pp_top,* html .pp_bottom{padding:0 20px}
-.pp_top .pp_left,.pp_bottom .pp_left{height:20px;left:0;position:absolute;width:20px}
-.pp_top .pp_middle,.pp_bottom .pp_middle{height:20px;left:20px;position:absolute;right:20px}
-* html .pp_top .pp_middle,* html .pp_bottom .pp_middle{left:0;position:static}
-.pp_top .pp_right,.pp_bottom .pp_right{height:20px;left:auto;position:absolute;right:0;top:0;width:20px}
-.pp_fade,.pp_gallery li.default a img{display:none}
+
+/* PhotoSwipe CSS */
+.pswp {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  -ms-touch-action: none;
+  touch-action: none;
+  z-index: 1500;
+  -webkit-text-size-adjust: 100%;
+  /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
+  -webkit-backface-visibility: hidden;
+  outline: none; }
+  .pswp * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .pswp img {
+    max-width: none; }
+
+/* style is added when JS option showHideOpacity is set to true */
+.pswp--animate_opacity {
+  /* 0.001, because opacity:0 doesn't trigger Paint action, which causes lag at start of transition */
+  opacity: 0.001;
+  will-change: opacity;
+  /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--open {
+  display: block; }
+
+.pswp--zoom-allowed .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in; }
+
+.pswp--zoomed-in .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab; }
+
+.pswp--dragging .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing; }
+
+/*
+	Background is added as a separate element.
+	As animating opacity is much faster than animating rgba() background-color.
+*/
+.pswp__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+  opacity: 0;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  will-change: opacity; }
+
+.pswp__scroll-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+  -ms-touch-action: none;
+  touch-action: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; }
+
+.pswp__zoom-wrap {
+  position: absolute;
+  width: 100%;
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+  /* for open/close transition */
+  -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp__bg {
+  will-change: opacity;
+  /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--animated-in .pswp__bg,
+.pswp--animated-in .pswp__zoom-wrap {
+  -webkit-transition: none;
+  transition: none; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+  -webkit-backface-visibility: hidden; }
+
+.pswp__item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; }
+
+.pswp__img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 0;
+  left: 0; }
+
+/*
+	stretched thumbnail or div placeholder element (see below)
+	style is added to avoid flickering in webkit/blink when layers overlap
+*/
+.pswp__img--placeholder {
+  -webkit-backface-visibility: hidden; }
+
+/*
+	div element that matches size of large image
+	large image loads on top of it
+*/
+.pswp__img--placeholder--blank {
+  background: #222; }
+
+.pswp--ie .pswp__img {
+  width: 100% !important;
+  height: auto !important;
+  left: 0;
+  top: 0; }
+
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: -8px;
+  color: #CCC; }
+
+.pswp__error-msg a {
+  color: #CCC;
+  text-decoration: underline;
+}
+
+.pswp__button {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  background: none;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-appearance: none;
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  float: right;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.2s;
+          transition: opacity 0.2s;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+  .pswp__button:focus,
+  .pswp__button:hover {
+    opacity: 1; }
+  .pswp__button:active {
+    outline: none;
+    opacity: 0.9; }
+  .pswp__button::-moz-focus-inner {
+    padding: 0;
+    border: 0; }
+
+/* pswp__ui--over-close class it added when mouse is over element that should close gallery */
+.pswp__ui--over-close .pswp__button--close {
+  opacity: 1; }
+
+.pswp__button,
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+  background: url(media/pswp.png) 0 0 no-repeat;
+  background-size: 264px 88px;
+  width: 44px;
+  height: 44px; }
+
+@media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+  /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
+  .pswp--svg .pswp__button,
+  .pswp--svg .pswp__button--arrow--left:before,
+  .pswp--svg .pswp__button--arrow--right:before {
+    background-image: url(media/pswp.svg); }
+  .pswp--svg .pswp__button--arrow--left,
+  .pswp--svg .pswp__button--arrow--right {
+    background: none; } }
+
+.pswp__button--close {
+  background-position: 0 -44px; }
+
+.pswp__button--share {
+  background-position: -44px -44px; }
+
+.pswp__button--fs {
+  display: none; }
+
+.pswp--supports-fs .pswp__button--fs {
+  display: block; }
+
+.pswp--fs .pswp__button--fs {
+  background-position: -44px 0; }
+
+.pswp__button--zoom {
+  display: none;
+  background-position: -88px 0; }
+
+.pswp--zoom-allowed .pswp__button--zoom {
+  display: block; }
+
+.pswp--zoomed-in .pswp__button--zoom {
+  background-position: -132px 0; }
+
+/* no arrows on touch screens */
+.pswp--touch .pswp__button--arrow--left,
+.pswp--touch .pswp__button--arrow--right {
+  visibility: hidden; }
+
+/*
+	Arrow buttons hit area
+	(icon is added to :before pseudo-element)
+*/
+.pswp__button--arrow--left,
+.pswp__button--arrow--right {
+  background: none;
+  top: 50%;
+  margin-top: -50px;
+  width: 70px;
+  height: 100px;
+  position: absolute; }
+
+.pswp__button--arrow--left {
+  left: 0; }
+
+.pswp__button--arrow--right {
+  right: 0; }
+
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+  content: '';
+  top: 35px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 30px;
+  width: 32px;
+  position: absolute; }
+
+.pswp__button--arrow--left:before {
+  left: 6px;
+  background-position: -138px -44px; }
+
+.pswp__button--arrow--right:before {
+  right: 6px;
+  background-position: -94px -44px; }
+
+/*
+	2. Share modal/popup and links
+ */
+.pswp__counter,
+.pswp__share-modal {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none; }
+
+.pswp__share-modal {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  z-index: 1600;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-out;
+          transition: opacity 0.25s ease-out;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity; }
+
+.pswp__share-modal--hidden {
+  display: none; }
+
+.pswp__share-tooltip {
+  z-index: 1620;
+  position: absolute;
+  background: #FFF;
+  top: 56px;
+  border-radius: 2px;
+  display: block;
+  width: auto;
+  right: 44px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -webkit-transform: translateY(6px);
+      -ms-transform: translateY(6px);
+          transform: translateY(6px);
+  -webkit-transition: -webkit-transform 0.25s;
+          transition: transform 0.25s;
+  -webkit-backface-visibility: hidden;
+  will-change: transform; }
+  .pswp__share-tooltip a {
+    display: block;
+    padding: 8px 12px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 18px; }
+    .pswp__share-tooltip a:hover {
+      text-decoration: none;
+      color: #000; }
+    .pswp__share-tooltip a:first-child {
+      /* round corners on the first/last list item */
+      border-radius: 2px 2px 0 0; }
+    .pswp__share-tooltip a:last-child {
+      border-radius: 0 0 2px 2px; }
+
+.pswp__share-modal--fade-in {
+  opacity: 1; }
+  .pswp__share-modal--fade-in .pswp__share-tooltip {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0); }
+
+/* increase size of share links on touch devices */
+.pswp--touch .pswp__share-tooltip a {
+  padding: 16px 12px; }
+
+a.pswp__share--facebook:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  border: 6px solid transparent;
+  border-bottom-color: #FFF;
+  -webkit-pointer-events: none;
+  -moz-pointer-events: none;
+  pointer-events: none; }
+
+a.pswp__share--facebook:hover {
+  background: #3E5C9A;
+  color: #FFF; }
+  a.pswp__share--facebook:hover:before {
+    border-bottom-color: #3E5C9A; }
+
+a.pswp__share--twitter:hover {
+  background: #55ACEE;
+  color: #FFF; }
+
+a.pswp__share--pinterest:hover {
+  background: #CCC;
+  color: #CE272D; }
+
+a.pswp__share--download:hover {
+  background: #DDD; }
+
+/*
+	3. Index indicator ("1 of X" counter)
+ */
+.pswp__counter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 44px;
+  font-size: 13px;
+  line-height: 44px;
+  color: #FFF;
+  opacity: 0.75;
+  padding: 0 10px; }
+
+/*
+
+	4. Caption
+ */
+.pswp__caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 44px; }
+  .pswp__caption small {
+    font-size: 11px;
+    color: #BBB; }
+
+.pswp__caption__center {
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto;
+  font-size: 13px;
+  padding: 10px;
+  line-height: 20px;
+  color: #CCC; }
+
+.pswp__caption--empty {
+  display: none; }
+
+/* Fake caption element, used to calculate height of next/prev image */
+.pswp__caption--fake {
+  visibility: hidden; }
+
+/*
+	5. Loading indicator (preloader)
+	You can play with it here - http://codepen.io/dimsemenov/pen/yyBWoR
+ */
+.pswp__preloader {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -22px;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-out;
+          transition: opacity 0.25s ease-out;
+  will-change: opacity;
+  direction: ltr; }
+
+.pswp__preloader__icn {
+  width: 20px;
+  height: 20px;
+  margin: 12px; }
+
+.pswp__preloader--active {
+  opacity: 1; }
+  .pswp__preloader--active .pswp__preloader__icn {
+    /* We use .gif in browsers that don't support CSS animation */
+    background: url(media/preloader.gif) 0 0 no-repeat; }
+
+.pswp--css_animation .pswp__preloader--active {
+  opacity: 1; }
+  .pswp--css_animation .pswp__preloader--active .pswp__preloader__icn {
+    -webkit-animation: clockwise 500ms linear infinite;
+            animation: clockwise 500ms linear infinite; }
+  .pswp--css_animation .pswp__preloader--active .pswp__preloader__donut {
+    -webkit-animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite;
+            animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite; }
+
+.pswp--css_animation .pswp__preloader__icn {
+  background: none;
+  opacity: 0.75;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  margin: 0; }
+
+.pswp--css_animation .pswp__preloader__cut {
+  /*
+			The idea of animating inner circle is based on Polymer ("material") loading indicator
+			 by Keanu Lee https://blog.keanulee.com/2014/10/20/the-tale-of-three-spinners.html
+		*/
+  position: relative;
+  width: 7px;
+  height: 14px;
+  overflow: hidden; }
+
+.pswp--css_animation .pswp__preloader__donut {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  margin: 0; }
+
+@media screen and (max-width: 1024px) {
+  .pswp__preloader {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0;
+    float: right; } }
+
+@-webkit-keyframes clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes donut-rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  50% {
+    -webkit-transform: rotate(-140deg);
+            transform: rotate(-140deg); }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); } }
+
+@keyframes donut-rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  50% {
+    -webkit-transform: rotate(-140deg);
+            transform: rotate(-140deg); }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); } }
+
+/*
+
+	6. Additional styles
+ */
+/* root element of UI */
+.pswp__ui {
+  -webkit-font-smoothing: auto;
+  visibility: visible;
+  opacity: 1;
+  z-index: 1550; }
+
+/* top black bar with buttons and "1 of X" indicator */
+.pswp__top-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 44px;
+  width: 100%; }
+
+.pswp__caption,
+.pswp__top-bar,
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+  -webkit-backface-visibility: hidden;
+  will-change: opacity;
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+/* pswp--has_mouse class is added only when two subsequent mousemove events occur */
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+  visibility: visible; }
+
+.pswp__top-bar,
+.pswp__caption {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+/* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
+.pswp__ui--fit .pswp__top-bar,
+.pswp__ui--fit .pswp__caption {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+/* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
+.pswp__ui--idle .pswp__top-bar {
+  opacity: 0; }
+
+.pswp__ui--idle .pswp__button--arrow--left,
+.pswp__ui--idle .pswp__button--arrow--right {
+  opacity: 0; }
+
+/*
+	pswp__ui--hidden class is added when controls are hidden
+	e.g. when user taps to toggle visibility of controls
+*/
+.pswp__ui--hidden .pswp__top-bar,
+.pswp__ui--hidden .pswp__caption,
+.pswp__ui--hidden .pswp__button--arrow--left,
+.pswp__ui--hidden .pswp__button--arrow--right {
+  /* Force paint & create composition layer for controls. */
+  opacity: 0.001; }
+
+/* pswp__ui--one-slide class is added when there is just one item in gallery */
+.pswp__ui--one-slide .pswp__button--arrow--left,
+.pswp__ui--one-slide .pswp__button--arrow--right,
+.pswp__ui--one-slide .pswp__counter {
+  display: none; }
+
+.pswp__element--disabled {
+  display: none !important; }
+
+.pswp--minimal--dark .pswp__top-bar {
+background: none; }
+
+
+
+/* Slick slider */
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
