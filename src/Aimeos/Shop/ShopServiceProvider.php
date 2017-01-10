@@ -53,10 +53,6 @@ class ShopServiceProvider extends ServiceProvider {
 		), 'config');
 
 		$this->publishes(array(
-			$basedir.'database/migrations' => base_path('database/migrations'),
-		), 'migrations');
-
-		$this->publishes(array(
 			$basedir.'views' => base_path('resources/views/vendor/shop'),
 		), 'views');
 
