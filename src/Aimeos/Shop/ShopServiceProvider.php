@@ -10,6 +10,7 @@
 namespace Aimeos\Shop;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +63,23 @@ class ShopServiceProvider extends ServiceProvider {
 
 
 		require $basedir.'routes.php';
+
+
+		$i18n = $this->app->make( '\Aimeos\Shop\Base\I18n' );
+		$config = $this->app->make( '\Aimeos\Shop\Base\Config' );
+
+		Blade::directive('ai:config', function( $key, $default = null ) use ( $config )
+		{
+			return $config->get( $key, $default );
+		});
+
+		Blade::directive('ai:translate', function( $domain, $singular, $plural, $number ) use ( $i18n )
+		{
+			if( $plural !== '' ) {
+				return $this->translator->dn( $domain, $singular, $plural, $number );
+			}
+			return $this->translator->dt( $domain, $singular );
+		});
 	}
 
 

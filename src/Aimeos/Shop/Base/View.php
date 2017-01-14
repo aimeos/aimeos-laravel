@@ -58,8 +58,9 @@ class View
 	 */
 	public function create( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $locale = null )
 	{
+		$engines = array( '.blade.php' => new \Aimeos\MW\View\Engine\Blade( app( '\Illuminate\View\Factory' ) ) );
+		$view = new \Aimeos\MW\View\Standard( $templatePaths, $engines );
 		$config = $context->getConfig();
-		$view = new \Aimeos\MW\View\Standard( $templatePaths );
 
 		$this->addCsrf( $view );
 		$this->addAccess( $view, $context );
