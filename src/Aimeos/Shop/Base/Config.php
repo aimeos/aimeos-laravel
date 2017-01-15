@@ -19,6 +19,11 @@ namespace Aimeos\Shop\Base;
 class Config
 {
 	/**
+	 * @var \Aimeos\Shop\Base\Config[]
+	 */
+	private $objects = array();
+
+	/**
 	 * @var \Aimeos\Shop\Base\Aimeos
 	 */
 	private $aimeos;
@@ -50,19 +55,24 @@ class Config
 	 */
 	public function get( $type = 'frontend' )
 	{
-		$configPaths = $this->aimeos->get()->getConfigPaths();
-		$config = new \Aimeos\MW\Config\PHPArray( array(), $configPaths );
+		if( !isset( $this->objects[$type] ) )
+		{
+			$configPaths = $this->aimeos->get()->getConfigPaths();
+			$config = new \Aimeos\MW\Config\PHPArray( array(), $configPaths );
 
-		if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
-			$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
+			if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
+				$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
+			}
+
+			$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
+
+			if( ( $conf = $this->config->get( 'shop.' . $type, array() ) ) !== array() ) {
+				$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $conf );
+			}
+
+			$this->objects[$type] = $config;
 		}
 
-		$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
-
-		if( ( $conf = $this->config->get( 'shop.' . $type, array() ) ) !== array() ) {
-			$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $conf );
-		}
-
-		return $config;
+		return $this->objects[$type];
 	}
 }

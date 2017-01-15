@@ -54,9 +54,16 @@ class Locale
 	{
 		if( $this->locale === null )
 		{
-			$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-			$currency = Route::input( 'currency', Input::get( 'currency', '' ) );
-			$lang = Route::input( 'locale', Input::get( 'locale', '' ) );
+			$site = Input::get( 'site', 'default' );
+			$currency = Input::get( 'currency', '' );
+			$lang = Input::get( 'locale', '' );
+
+			if( Route::current() )
+			{
+				$site =  Route::input( 'site', $site );
+				$currency = Route::input( 'currency', $currency );
+				$lang = Route::input( 'locale', $lang );
+			}
 
 			$disableSites = $this->config->get( 'shop.disableSites', true );
 
