@@ -17,9 +17,6 @@
     </php>
 
 	<testsuites>
-		<testsuite name="helpers">
-			<file>./tests/HelpersTest.php</file>
-		</testsuite>
 		<testsuite name="command">
 			<file>./tests/Command/SetupCommandTest.php</file>
 			<file>./tests/Command/CacheCommandTest.php</file>
@@ -31,6 +28,9 @@
 		</testsuite>
 		<testsuite name="controller">
 			<directory>./tests/Controller</directory>
+		</testsuite>
+		<testsuite name="helpers">
+			<file>./tests/HelpersTest.php</file>
 		</testsuite>
 	</testsuites>
 
