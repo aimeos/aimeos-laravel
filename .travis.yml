@@ -10,6 +10,7 @@ env:
   - LARAVEL_VERSION=5.1.*
   - LARAVEL_VERSION=5.2.*
   - LARAVEL_VERSION=5.3.*
+  - LARAVEL_VERSION=5.4.*
 
 before_script:
   - composer self-update
@@ -26,3 +27,5 @@ matrix:
   exclude:
     - php: 5.5
       env: LARAVEL_VERSION=5.3.*
+    - php: 5.5
+      env: LARAVEL_VERSION=5.4.*
