@@ -26,7 +26,10 @@ pages including routing is also available for a quick start.
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **2016.04 release and later**.
+This document is for the latest Aimeos Laravel **2016.10 release and later**.
+
+- Beta release: 2017.01 (Laravel 5.1 to 5.4)
+- LTS release: 2016.10 (Laravel 5.1 to 5.3)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -191,6 +194,7 @@ Please follow the Laravel documentation to create the necessary code:
 * [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
 * [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
 * [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
+* [Laravel 5.4](https://laravel.com/docs/5.4/authentication)
 
 **Note:** You need a route for **/login in Laravel 5.1** too!
 
@@ -208,7 +212,7 @@ As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
 authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```.
 
-For Laravel 5.1 and 5.2 you have to use:
+For Laravel 5.1/5.2 and Aimeos 2016.x/2017.x you have to use:
 ```php
 public function boot(GateContract $gate)
 {
@@ -220,13 +224,25 @@ public function boot(GateContract $gate)
 }
 ```
 
-In Laravel 5.3 use instead:
+For Laravel 5.3 and Aimeos 2016.x use instead:
 ```php
 public function boot()
 {
 	// Keep the lines before
 
 	Gate::define('admin', function($user, $roles) {
+		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+	});
+}
+```
+
+For Laravel 5.3/5.4 and Aimeos 2017.x use instead:
+```php
+public function boot()
+{
+	// Keep the lines before
+
+	Gate::define('admin', function($user, $class, $roles) {
 		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }

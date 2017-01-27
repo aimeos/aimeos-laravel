@@ -39,7 +39,7 @@ class AdminController extends Controller
 	public function indexAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) && ( Auth::check() === false
-			|| $request->user()->can( 'admin', ['admin', 'editor'] ) ) === false
+			|| $request->user()->can( 'admin', [AdminController::class, ['admin', 'editor']] ) ) === false
 		) {
 			return View::make( 'shop::admin.index' );
 		}
