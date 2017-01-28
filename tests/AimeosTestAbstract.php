@@ -1,6 +1,6 @@
 <?php
 
-class AimeosTestAbstract extends Orchestra\Testbench\TestCase
+class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 {
 	protected function getEnvironmentSetUp($app)
 	{

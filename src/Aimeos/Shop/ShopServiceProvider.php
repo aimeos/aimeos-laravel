@@ -101,31 +101,17 @@ class ShopServiceProvider extends ServiceProvider {
 			return new \Aimeos\Shop\Base\Support($app['Aimeos\Shop\Base\Context'], $app['Aimeos\Shop\Base\Locale']);
 		});
 
-		$this->app->singleton('\Aimeos\Shop\Base\View', function($app) {
+		$this->app->singleton('Aimeos\Shop\Base\View', function($app) {
 			return new \Aimeos\Shop\Base\View($app['Aimeos\Shop\Base\I18n'], $app['Aimeos\Shop\Base\Support']);
 		});
 
 
-		$this->app['command.aimeos.account'] = $this->app->share(function() {
-			return new Command\AccountCommand();
-		});
-
-		$this->app['command.aimeos.cache'] = $this->app->share(function() {
-			return new Command\CacheCommand();
-		});
-
-		$this->app['command.aimeos.jobs'] = $this->app->share(function() {
-			return new Command\JobsCommand();
-		});
-
-		$this->app['command.aimeos.setup'] = $this->app->share(function() {
-			return new Command\SetupCommand();
-		});
-
-		$this->commands('command.aimeos.account');
-		$this->commands('command.aimeos.cache');
-		$this->commands('command.aimeos.setup');
-		$this->commands('command.aimeos.jobs');
+		$this->commands( array(
+			'Aimeos\Shop\Command\AccountCommand',
+			'Aimeos\Shop\Command\CacheCommand',
+			'Aimeos\Shop\Command\SetupCommand',
+			'Aimeos\Shop\Command\JobsCommand',
+		) );
 	}
 
 
@@ -137,10 +123,11 @@ class ShopServiceProvider extends ServiceProvider {
 	public function provides()
 	{
 		return array(
-			'command.aimeos.account', 'command.aimeos.cache', 'command.aimeos.jobs', 'command.aimeos.setup',
 			'Aimeos\Shop\Base\Aimeos', 'Aimeos\Shop\Base\I18n', 'Aimeos\Shop\Base\Context',
 			'Aimeos\Shop\Base\Config', 'Aimeos\Shop\Base\Locale', 'Aimeos\Shop\Base\View',
-			'Aimeos\Shop\Base\Page', 'Aimeos\Shop\Base\Support'
+			'Aimeos\Shop\Base\Page', 'Aimeos\Shop\Base\Support',
+			'Aimeos\Shop\Command\AccountCommand', 'Aimeos\Shop\Command\CacheCommand',
+			'Aimeos\Shop\Command\SetupCommand', 'Aimeos\Shop\Command\JobsCommand',
 		);
 	}
 
