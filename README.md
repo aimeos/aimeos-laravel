@@ -26,6 +26,8 @@ pages including routing is also available for a quick start.
 
 ## Installation or update
 
+**Laravel 5.4** is currently supported in the **dev-master branch** only!
+
 This document is for the latest Aimeos Laravel **2016.10 release and later**.
 
 - Beta release: 2017.01
@@ -194,6 +196,7 @@ Please follow the Laravel documentation to create the necessary code:
 * [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
 * [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
 * [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
+* [Laravel 5.3](https://laravel.com/docs/5.4/authentication)
 
 **Note:** You need a route for **/login in Laravel 5.1** too!
 
@@ -223,13 +226,13 @@ public function boot(GateContract $gate)
 }
 ```
 
-In Laravel 5.3 use instead:
+For Laravel 5.3 and 5.4 use instead:
 ```php
 public function boot()
 {
 	// Keep the lines before
 
-	Gate::define('admin', function($user, $roles) {
+	Gate::define('admin', function($user, $class, $roles) {
 		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }
