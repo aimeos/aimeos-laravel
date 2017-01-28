@@ -306,7 +306,7 @@
 }
 
 .locale-select ul.select-menu ul {
-	list-style: outside none none;
+	list-style: none outside none;
 	background-color: #FFF;
 	position: absolute;
 	visibility: hidden;
@@ -1547,11 +1547,11 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	padding: 1%;
 }
 
-/* Hide attributes from sub-products*/
-.catalog-detail-additional .attributes .subproduct {
+/* Hide attributes and properties from sub-products*/
+.catalog-detail-additional .subproduct {
 	display: none;
 }
-.catalog-detail-additional .attributes .subproduct-actual {
+.catalog-detail-additional .subproduct-actual {
 	display: table-row;
 }
 

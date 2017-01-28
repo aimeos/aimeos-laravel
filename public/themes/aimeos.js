@@ -627,8 +627,8 @@ AimeosCatalog = {
 				}
 			}
 
-			$(".catalog-detail-additional .attributes .subproduct-actual").removeClass("subproduct-actual");
-			$(".catalog-detail-additional .attributes .subproduct-" + prodId).addClass("subproduct-actual");
+			$(".catalog-detail-additional .subproduct-actual").removeClass("subproduct-actual");
+			$(".catalog-detail-additional .subproduct-" + prodId).addClass("subproduct-actual");
 		});
 	},
 
