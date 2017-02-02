@@ -212,13 +212,25 @@ As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
 authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```.
 
-For Laravel 5.1/5.2 and Aimeos 2016.x/2017.x you have to use:
+For Laravel 5.1/5.2 and Aimeos 2016.x you have to use:
 ```php
 public function boot(GateContract $gate)
 {
 	// Keep the lines before
 
 	$gate->define('admin', function($user, $roles) {
+		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+	});
+}
+```
+
+Laravel 5.1/5.2 and Aimeos 2017.x need:
+```php
+public function boot(GateContract $gate)
+{
+	// Keep the lines before
+
+	$gate->define('admin', function($user, $class, $roles) {
 		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }
