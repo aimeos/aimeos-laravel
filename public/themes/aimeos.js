@@ -78,7 +78,7 @@ Aimeos = {
 		var overlay = $(".aimeos-overlay");
 
 		// remove only if in overlay mode
-		if(container.size() + overlay.size() > 0) {
+		if(container.length + overlay.length > 0) {
 
 			container.remove();
 			overlay.remove();
