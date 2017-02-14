@@ -24,6 +24,22 @@ pages including routing is also available for a quick start.
 - [License](#license)
 - [Links](#links)
 
+## Important notice
+
+If you use **Laravel 5.4+** and don't have the latest MySQL version installed, you
+will probably get an error like `Specified key was too long; max key length is 767 bytes`.
+To circumvent this problem, you should change the database charset/collation in your
+`config/database.php` file **before the tables are created** to:
+
+```
+'mysql' => [
+    // ...
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    // ...
+]
+```
+
 ## Installation or update
 
 This document is for the latest Aimeos Laravel **2016.10 release and later**.
