@@ -58,7 +58,9 @@ class Config
 		if( !isset( $this->objects[$type] ) )
 		{
 			$configPaths = $this->aimeos->get()->getConfigPaths();
-			$config = new \Aimeos\MW\Config\PHPArray( array(), $configPaths );
+			$cfgfile = dirname( dirname( dirname( __DIR__ ) ) ) . DIRECTORY_SEPARATOR . 'default.php';
+
+			$config = new \Aimeos\MW\Config\PHPArray( require $cfgfile, $configPaths );
 
 			if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
 				$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );

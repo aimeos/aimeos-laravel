@@ -79,20 +79,17 @@ class Page
 		$view = $this->view->create( $context, $tmplPaths, $langid );
 		$context->setView( $view );
 
-		$pagesConfig = $this->config->get( 'shop.page', array() );
 		$result = array( 'aibody' => array(), 'aiheader' => array() );
+		$page = $context->getConfig()->get( 'page/' . $pageName, array() );
 
-		if( isset( $pagesConfig[$pageName] ) )
+		foreach( (array) $page as $clientName )
 		{
-			foreach( (array) $pagesConfig[$pageName] as $clientName )
-			{
-				$client = \Aimeos\Client\Html\Factory::createClient( $context, $tmplPaths, $clientName );
-				$client->setView( clone $view );
-				$client->process();
+			$client = \Aimeos\Client\Html\Factory::createClient( $context, $tmplPaths, $clientName );
+			$client->setView( clone $view );
+			$client->process();
 
-				$result['aibody'][$clientName] = $client->getBody();
-				$result['aiheader'][$clientName] = $client->getHeader();
-			}
+			$result['aibody'][$clientName] = $client->getBody();
+			$result['aiheader'][$clientName] = $client->getHeader();
 		}
 
 		return $result;

@@ -41,7 +41,6 @@ class ShopServiceProvider extends ServiceProvider {
 
 		$config = array_replace_recursive(
 			$this->app['config']->get('shop', []),
-			require $basedir.'default.php',
 			(file_exists($confpath) ? require $confpath : array())
 		);
 		$this->app['config']->set('shop', $config);

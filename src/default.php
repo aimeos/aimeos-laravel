@@ -4,7 +4,7 @@ return array(
 
 	'apc_enabled' => false,
 	'apc_prefix' => 'laravel:',
-	'extdir' => ( is_dir(base_path('ext')) ? base_path('ext') : dirname(__DIR__) . DIRECTORY_SEPARATOR . 'ext' ),
+	'extdir' => base_path('ext'),
 	'uploaddir' => '/',
 
 	'page' => array(

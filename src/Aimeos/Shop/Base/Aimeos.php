@@ -49,7 +49,13 @@ class Aimeos
 	{
 		if( $this->object === null )
 		{
-			$extDirs = (array) $this->config->get( 'shop.extdir', array() );
+			$dir = base_path( 'ext' );
+
+			if( !is_dir( $dir ) ) {
+				$dir = dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . DIRECTORY_SEPARATOR . 'ext';
+			}
+
+			$extDirs = (array) $this->config->get( 'shop.extdir', $dir );
 			$this->object = new \Aimeos\Bootstrap( $extDirs, false );
 		}
 
