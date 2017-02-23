@@ -40,6 +40,16 @@ To circumvent this problem, you should change the database charset/collation in 
 ]
 ```
 
+Some MySQL installations have a very low value for the `sort_buffer_size`
+setting by default. If you get this error:
+
+```
+SQLSTATE[HY001]: Memory allocation error: 1038 Out of sort memory,
+consider increasing server sort buffer size
+```
+
+add this to your MySQL my.cnf configuration file: `sort_buffer_size=1M`
+
 ## Installation or update
 
 This document is for the latest Aimeos Laravel **2016.10 release and later**.
