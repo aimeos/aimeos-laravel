@@ -31,7 +31,7 @@ will probably get an error like `Specified key was too long; max key length is 7
 To circumvent this problem, you should change the database charset/collation in your
 `config/database.php` file **before the tables are created** to:
 
-```
+```php
 'mysql' => [
     // ...
     'charset' => 'utf8',
@@ -40,15 +40,18 @@ To circumvent this problem, you should change the database charset/collation in 
 ]
 ```
 
-Some MySQL installations have a very low value for the `sort_buffer_size`
-setting by default. If you get this error:
+**MySQL 5.6.4+** installations have a very low value for the `sort_buffer_size`
+setting by default. If you get an error like this:
 
 ```
 SQLSTATE[HY001]: Memory allocation error: 1038 Out of sort memory,
 consider increasing server sort buffer size
 ```
 
-add this to your MySQL my.cnf configuration file: `sort_buffer_size=1M`
+Add that line to your MySQL my.cnf configuration file and restart the MySQL daemon:
+```
+sort_buffer_size=1M
+```
 
 ## Installation or update
 
