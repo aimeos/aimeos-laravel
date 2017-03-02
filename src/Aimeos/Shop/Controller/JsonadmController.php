@@ -134,7 +134,7 @@ class JsonadmController extends Controller
 	protected function createClient()
 	{
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
+		$lang = Input::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
