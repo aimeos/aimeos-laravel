@@ -6,6 +6,7 @@ return array(
 		// 'login' => array('middleware' => ['web']),
 		// 'admin' => array('middleware' => ['web', 'auth']),
 		// 'account' => array('middleware' => ['web', 'auth']),
+		// 'jsonapi' => array('middleware' => ['web']),
 		// 'default' => array('middleware' => ['web']),
 		// 'confirm' => array('middleware' => ['web']),
 		// 'update' => array(),

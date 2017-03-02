@@ -32,6 +32,7 @@
         "aimeos/ai-admin-jqadm": "dev-master",
         "aimeos/ai-admin-jsonadm": "dev-master",
         "aimeos/ai-client-html": "dev-master",
+        "aimeos/ai-client-jsonapi": "dev-master",
         "aimeos/ai-controller-jobs": "dev-master"
     },
     "require-dev": {
