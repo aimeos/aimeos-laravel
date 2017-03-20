@@ -34,6 +34,7 @@ return array(
 			// 'database' => env('DB_DATABASE', 'laravel'),
 			// 'username' => env('DB_USERNAME', 'root'),
 			// 'password' => env('DB_PASSWORD', ''),
+			// 'stmt' => array( "SET NAMES 'utf8'", "SET SESSION sql_mode='ANSI'" ),
 		),
 	),
 
