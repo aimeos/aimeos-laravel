@@ -37,7 +37,8 @@
 
                 update: {
                     type: 'Laravel',
-                    version: '<?= $version ?>'
+                    version: '<?= $version ?>',
+                    extensions: '<?= $extensions ?>'
                 }
             }
         }
