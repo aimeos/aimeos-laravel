@@ -63,6 +63,10 @@ Route::group(config('shop.routes.admin', ['middleware' => ['web', 'auth']]), fun
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@searchAction'
 	))->where( array( 'resource' => '[^0-9]+' ) );
 
+});
+
+
+Route::group(config('shop.routes.jsonadm', ['middleware' => ['api', 'auth']]), function() {
 
 	Route::match( array( 'DELETE' ), 'jsonadm/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',
