@@ -1,6 +1,6 @@
 /*
  * Shared CSS between website and e-mails
- * 
+ *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2014
  */
@@ -276,7 +276,7 @@
 		display: block;
 		width: 100%;
 	}
-	
+
 	.common-summary-detail td.quantity .change {
 		display: block;
 	}

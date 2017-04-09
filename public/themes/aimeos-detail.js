@@ -156,60 +156,8 @@ AimeosCatalogDetail = {
 		$(".catalog-detail-additional .content").hide();
 
 		$(".catalog-detail-additional .additional-box").on("click", ".header", function(ev) {
-	        $(".content", ev.delegateTarget).slideToggle();
-	    	$(".header", ev.delegateTarget).toggleClass("toggle-js");
-	    });
-	},
-
-
-	/**
-	 * Adds a product to the favorite list without page reload
-	 */
-	setupFavoriteAction: function() {
-
-		$(".catalog-detail-actions .actions-button-favorite").on("click", function(ev) {
-
-		    if($(this).data("login")) {
-		        return true;
-		    }
-
-		    Aimeos.createOverlay();
-
-		    $.get($(this).attr("href"), function(data) {
-
-		        var doc = document.createElement("html");
-		        doc.innerHTML = data;
-
-		        Aimeos.createContainer($(".account-favorite", doc));
-		    });
-
-		    return false;
-		});
-	},
-
-
-	/**
-	 * Adds a product to the watch list without page reload
-	 */
-	setupWatchAction: function() {
-
-		$(".catalog-detail-actions .actions-button-watch").on("click", function(ev) {
-
-		    if($(this).data("login")) {
-		        return true;
-		    }
-
-		    Aimeos.createOverlay();
-
-		    $.get($(this).attr("href"), function(data) {
-
-		        var doc = document.createElement("html");
-		        doc.innerHTML = data;
-
-		        Aimeos.createContainer($(".account-watch", doc));
-		    });
-
-		    return false;
+			$(".content", ev.delegateTarget).slideToggle();
+			$(".header", ev.delegateTarget).toggleClass("toggle-js");
 		});
 	},
 
@@ -226,9 +174,6 @@ AimeosCatalogDetail = {
 		this.setupThumbnailSlider();
 		this.setupImageLightbox();
 		this.setupImageSwap();
-
-		this.setupFavoriteAction();
-		this.setupWatchAction();
 	}
 };
 
