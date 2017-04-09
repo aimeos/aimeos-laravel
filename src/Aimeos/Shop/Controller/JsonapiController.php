@@ -10,11 +10,9 @@
 
 namespace Aimeos\Shop\Controller;
 
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
 
@@ -107,6 +105,7 @@ class JsonapiController extends Controller
 	protected function createClient()
 	{
 		$resource = Route::input( 'resource' );
+		$related = Input::get( 'related' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$tmplPaths = $aimeos->getCustomPaths( 'client/jsonapi/templates' );
@@ -116,6 +115,6 @@ class JsonapiController extends Controller
 
 		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $tmplPaths, $langid ) );
 
-		return \Aimeos\Client\JsonApi\Factory::createClient( $context, $tmplPaths, $resource );
+		return \Aimeos\Client\JsonApi\Factory::createClient( $context, $tmplPaths, $resource . '/' . $related );
 	}
 }

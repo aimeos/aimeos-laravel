@@ -52,4 +52,52 @@ class JsonapiControllerTest extends AimeosTestAbstract
 		$this->assertArrayHasKey( 'id', $json['data'] );
 		$this->assertEquals( 'CNC', $json['data']['attributes']['product.code'] );
 	}
+
+
+	public function testPostPatchDeleteAction()
+	{
+		// get CNC product
+		$params = ['site' => 'unittest', 'resource' => 'product'];
+		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19']];
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams);
+
+		$json = json_decode( $response->getContent(), true );
+		$this->assertEquals( 'CNC', $json['data'][0]['attributes']['product.code'] );
+
+		// add CNC product to basket
+		$getParams = ['related' => 'product'];
+		$params = ['site' => 'unittest', 'resource' => 'basket'];
+		$content = json_encode( ['data' => ['attributes' => ['product.id' => $json['data'][0]['id']]]] );
+		$response = $this->action('POST', '\Aimeos\Shop\Controller\JsonapiController@postAction', $params, $getParams, [], [], [], $content);
+
+		$json = json_decode( $response->getContent(), true );
+		$this->assertEquals( 'CNC', $json['included'][0]['attributes']['order.base.product.prodcode'] );
+
+		// change product quantity in basket
+		$getParams = ['related' => 'product', 'relatedid' => 0];
+		$params = ['site' => 'unittest', 'resource' => 'basket'];
+		$content = json_encode( ['data' => ['attributes' => ['quantity' => 2]]] );
+		$response = $this->action('PATCH', '\Aimeos\Shop\Controller\JsonapiController@patchAction', $params, $getParams, [], [], [], $content);
+
+		$json = json_decode( $response->getContent(), true );
+		$this->assertEquals( 2, $json['included'][0]['attributes']['order.base.product.quantity'] );
+
+		// delete product from basket
+		$getParams = ['related' => 'product', 'relatedid' => 0];
+		$params = ['site' => 'unittest', 'resource' => 'basket'];
+		$response = $this->action('DELETE', '\Aimeos\Shop\Controller\JsonapiController@deleteAction', $params, $getParams);
+
+		$json = json_decode( $response->getContent(), true );
+		$this->assertEquals( 0, count( $json['included'] ) );
+	}
+
+
+	public function testPutAction()
+	{
+		$params = ['site' => 'unittest', 'resource' => 'basket'];
+		$response = $this->action('PUT', '\Aimeos\Shop\Controller\JsonapiController@putAction', $params);
+
+		$json = json_decode( $response->getContent(), true );
+		$this->assertArrayHasKey( 'errors', $json );
+	}
 }

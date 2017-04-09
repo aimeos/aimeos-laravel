@@ -97,37 +97,37 @@ Route::group(config('shop.routes.admin', ['middleware' => ['web', 'auth']]), fun
 });
 
 
-Route::group(config('shop.routes.jsonapi', ['middleware' => ['web']]), function() {
+Route::group(config('shop.routes.jsonapi', ['middleware' => ['api']]), function() {
 
 	Route::match( array( 'DELETE' ), 'jsonapi/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonapi_delete',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@deleteAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	));
 
 	Route::match( array( 'GET' ), 'jsonapi/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonapi_get',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@getAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	));
 
 	Route::match( array( 'PATCH' ), 'jsonapi/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonapi_patch',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@patchAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	));
 
 	Route::match( array( 'POST' ), 'jsonapi/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonapi_post',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@postAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	));
 
 	Route::match( array( 'PUT' ), 'jsonapi/{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonapi_put',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@putAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
+	));
 
 	Route::match( array( 'OPTIONS' ), 'jsonapi/{resource?}', array(
 		'as' => 'aimeos_shop_jsonapi_options',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@optionsAction'
-	))->where( array( 'resource' => '[^0-9]*' ) );
+	));
 
 });
 
