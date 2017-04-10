@@ -9,13 +9,8 @@ class ConfigTest extends AimeosTestAbstract
 		$configMock = $this->getMockBuilder('\Illuminate\Config\Repository')
 			->setMethods( array('get') )->getMock();
 
-		if( function_exists('apc_store') ) {
-			$configMock->expects( $this->exactly(4) )->method('get')
-				->will( $this->onConsecutiveCalls( true, 'laravel:', array(), array() ) );
-		} else {
-			$configMock->expects( $this->exactly(2) )->method('get')
-				->will( $this->returnValue( array( 'test' => 1 ) ) );
-		}
+		$configMock->expects( $this->exactly(4) )->method('get')
+			->will( $this->onConsecutiveCalls( true, 'laravel:', array(), array() ) );
 
 		$object = new \Aimeos\Shop\Base\Config($configMock, $aimeos);
 
