@@ -22,10 +22,10 @@ Route::group(config('shop.routes.extadm', ['prefix' => 'admin/{site}/extadm', 'm
 		'uses' => 'Aimeos\Shop\Controller\ExtadmController@fileAction'
 	));
 
-	Route::match( array( 'GET' ), '{lang?}/{tab?}', array(
+	Route::match( array( 'GET' ), '', array(
 		'as' => 'aimeos_shop_extadm',
 		'uses' => 'Aimeos\Shop\Controller\ExtadmController@indexAction'
-	))->defaults( 'lang', 'en' )->defaults( 'tab', 0 );
+	));
 
 });
 
@@ -75,27 +75,27 @@ Route::group(config('shop.routes.jsonadm', ['prefix' => 'admin/{site}/jsonadm', 
 	Route::match( array( 'DELETE' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@deleteAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
 
 	Route::match( array( 'GET' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_get',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@getAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
 
 	Route::match( array( 'PATCH' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_patch',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@patchAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
 
 	Route::match( array( 'POST' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_post',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@postAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
 
 	Route::match( array( 'PUT' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_put',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@putAction'
-	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9]+', 'id' => '[0-9]*' ) );
 
 	Route::match( array( 'OPTIONS' ), '{resource?}', array(
 		'as' => 'aimeos_shop_jsonadm_options',
@@ -107,45 +107,40 @@ Route::group(config('shop.routes.jsonadm', ['prefix' => 'admin/{site}/jsonadm', 
 
 Route::group(config('shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' => ['api']]), function() {
 
-	Route::match( array( 'DELETE' ), '{resource}/{id?}/{related?}/{relatedid?}', array(
+	Route::match( array( 'DELETE' ), '{resource}', array(
 		'as' => 'aimeos_shop_jsonapi_delete',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@deleteAction'
-	))->defaults( 'id', '' )->defaults( 'related', '' )->defaults( 'relatedid', '' );
+	));
 
-	Route::match( array( 'GET' ), '{resource}/{id?}/{related?}/{relatedid?}', array(
+	Route::match( array( 'GET' ), '{resource}', array(
 		'as' => 'aimeos_shop_jsonapi_get',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@getAction'
-	))->defaults( 'id', '' )->defaults( 'related', '' )->defaults( 'relatedid', '' );
+	));
 
-	Route::match( array( 'PATCH' ), '{resource}/{id?}/{related?}/{relatedid?}', array(
+	Route::match( array( 'PATCH' ), '{resource}', array(
 		'as' => 'aimeos_shop_jsonapi_patch',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@patchAction'
-	))->defaults( 'id', '' )->defaults( 'related', '' )->defaults( 'relatedid', '' );
+	));
 
-	Route::match( array( 'POST' ), '{resource}/{id?}/{related?}/{relatedid?}', array(
+	Route::match( array( 'POST' ), '{resource}', array(
 		'as' => 'aimeos_shop_jsonapi_post',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@postAction'
-	))->defaults( 'id', '' )->defaults( 'related', '' )->defaults( 'relatedid', '' );
+	));
 
-	Route::match( array( 'PUT' ), '{resource}/{id?}/{related?}/{relatedid?}', array(
+	Route::match( array( 'PUT' ), '{resource}', array(
 		'as' => 'aimeos_shop_jsonapi_put',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@putAction'
-	))->defaults( 'id', '' )->defaults( 'related', '' )->defaults( 'relatedid', '' );
+	));
 
 	Route::match( array( 'OPTIONS' ), '{resource?}', array(
 		'as' => 'aimeos_shop_jsonapi_options',
 		'uses' => 'Aimeos\Shop\Controller\JsonapiController@optionsAction'
-	))->defaults( 'resource', '' );
+	));
 
 });
 
 
 Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), function() {
-
-	Route::match( array( 'GET', 'POST' ), 'myaccount', array(
-		'as' => 'aimeos_shop_account',
-		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
-	));
 
 	Route::match( array( 'GET', 'POST' ), 'myaccount/favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_favorite',
@@ -164,6 +159,11 @@ Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), f
 		'uses' => 'Aimeos\Shop\Controller\AccountController@downloadAction'
 	));
 
+	Route::match( array( 'GET', 'POST' ), 'myaccount', array(
+		'as' => 'aimeos_shop_account',
+		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
+	));
+
 });
 
 
@@ -177,18 +177,17 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 	Route::match( array( 'GET', 'POST' ), 'detail/{d_prodid}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_detail',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
-	))->defaults( 'd_name', '' )->defaults( 'd_pos', 0 );
+	));
 
 	Route::match( array( 'GET', 'POST' ), 'detail/pin/{pin_action?}/{pin_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_session_pinned',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
-	))->defaults( 'pin_action', '' )->defaults( 'pin_id', '' )->defaults( 'd_prodid', '' )
-	->defaults( 'd_name', '' )->defaults( 'd_pos', 0 );
+	));
 
-	Route::match( array( 'GET', 'POST' ), 'list/{f_catid?}/{f_name?}', array(
+	Route::match( array( 'GET', 'POST' ), 'list', array(
 		'as' => 'aimeos_shop_list',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@listAction'
-	))->defaults( 'f_catid', '' )->defaults( 'f_name', '' );
+	));
 
 	Route::match( array( 'GET', 'POST' ), 'suggest', array(
 		'as' => 'aimeos_shop_suggest',
@@ -200,35 +199,35 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@stockAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'basket/{b_action?}', array(
+	Route::match( array( 'GET', 'POST' ), 'basket', array(
 		'as' => 'aimeos_shop_basket',
 		'uses' => 'Aimeos\Shop\Controller\BasketController@indexAction'
-	))->defaults( 'b_action', '' );
+	));
 
 	Route::match( array( 'GET', 'POST' ), 'checkout/{c_step?}', array(
 		'as' => 'aimeos_shop_checkout',
 		'uses' => 'Aimeos\Shop\Controller\CheckoutController@indexAction'
-	))->defaults( 'c_step', '' );
+	));
 
 });
 
 
 Route::group(config('shop.routes.confirm', ['middleware' => ['web']]), function() {
 
-	Route::match( array( 'GET', 'POST' ), 'confirm/{code?}/{orderid?}', array(
+	Route::match( array( 'GET', 'POST' ), 'confirm', array(
 		'as' => 'aimeos_shop_confirm',
 		'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
-	))->defaults( 'code', '' )->defaults( 'orderid', '' );
+	));
 
 });
 
 
 Route::group(config('shop.routes.update', []), function() {
 
-	Route::match( array( 'GET', 'POST' ), 'update/{code?}/{orderid?}', array(
+	Route::match( array( 'GET', 'POST' ), 'update', array(
 		'as' => 'aimeos_shop_update',
 		'uses' => 'Aimeos\Shop\Controller\CheckoutController@updateAction'
-	))->defaults( 'code', '' )->defaults( 'orderid', '' );
+	));
 
 });
 
