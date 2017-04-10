@@ -62,7 +62,7 @@ class Config
 
 			$config = new \Aimeos\MW\Config\PHPArray( require $cfgfile, $configPaths );
 
-			if( function_exists( 'apc_store' ) === true && $this->config->get( 'shop.apc_enabled', false ) == true ) {
+			if( $this->config->get( 'shop.apc_enabled', false ) == true ) {
 				$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 			}
 
