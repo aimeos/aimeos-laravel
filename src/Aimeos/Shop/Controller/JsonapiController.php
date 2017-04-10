@@ -105,7 +105,7 @@ class JsonapiController extends Controller
 	protected function createClient()
 	{
 		$resource = Route::input( 'resource' );
-		$related = Input::get( 'related' );
+		$related = Route::input( 'related' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$tmplPaths = $aimeos->getCustomPaths( 'client/jsonapi/templates' );

@@ -3,14 +3,15 @@
 return array(
 
 	'routes' => array(
-		// 'login' => array('middleware' => ['web']),
-		// 'admin' => array('middleware' => ['web', 'auth']),
-		// 'account' => array('middleware' => ['web', 'auth']),
-		// 'jsonadm' => array('middleware' => ['api', 'auth']),
-		// 'jsonapi' => array('middleware' => ['api']),
-		// 'default' => array('middleware' => ['web']),
-		// 'confirm' => array('middleware' => ['web']),
-		// 'update' => array(),
+		// 'login' => ['middleware' => ['web']],
+		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
+		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
+		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
+		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['api']],
+		// 'account' => ['middleware' => ['web', 'auth']],
+		// 'default' => ['middleware' => ['web']],
+		// 'confirm' => ['middleware' => ['web']],
+		// 'update' => [],
 	),
 
 	'page' => array(

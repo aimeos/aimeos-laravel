@@ -21,9 +21,10 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 		$app['config']->set('shop.authorize', false);
 		$app['config']->set('shop.disableSites', false);
 		$app['config']->set('shop.routes.login', []);
-		$app['config']->set('shop.routes.admin', ['prefix' => '{site}']);
-		$app['config']->set('shop.routes.jsonadm', ['prefix' => '{site}']);
-		$app['config']->set('shop.routes.jsonapi', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.jqadm', ['prefix' => '{site}/jqadm']);
+		$app['config']->set('shop.routes.extadm', ['prefix' => '{site}/extadm']);
+		$app['config']->set('shop.routes.jsonadm', ['prefix' => '{site}/jsonadm']);
+		$app['config']->set('shop.routes.jsonapi', ['prefix' => '{site}/jsonapi']);
 		$app['config']->set('shop.routes.account', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.default', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.confirm', ['prefix' => '{site}']);

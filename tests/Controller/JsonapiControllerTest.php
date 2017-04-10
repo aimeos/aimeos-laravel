@@ -65,27 +65,24 @@ class JsonapiControllerTest extends AimeosTestAbstract
 		$this->assertEquals( 'CNC', $json['data'][0]['attributes']['product.code'] );
 
 		// add CNC product to basket
-		$getParams = ['related' => 'product'];
-		$params = ['site' => 'unittest', 'resource' => 'basket'];
+		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product'];
 		$content = json_encode( ['data' => ['attributes' => ['product.id' => $json['data'][0]['id']]]] );
-		$response = $this->action('POST', '\Aimeos\Shop\Controller\JsonapiController@postAction', $params, $getParams, [], [], [], $content);
+		$response = $this->action('POST', '\Aimeos\Shop\Controller\JsonapiController@postAction', $params, [], [], [], [], $content);
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 'CNC', $json['included'][0]['attributes']['order.base.product.prodcode'] );
 
 		// change product quantity in basket
-		$getParams = ['related' => 'product', 'relatedid' => 0];
-		$params = ['site' => 'unittest', 'resource' => 'basket'];
+		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product', 'relatedid' => 0];
 		$content = json_encode( ['data' => ['attributes' => ['quantity' => 2]]] );
-		$response = $this->action('PATCH', '\Aimeos\Shop\Controller\JsonapiController@patchAction', $params, $getParams, [], [], [], $content);
+		$response = $this->action('PATCH', '\Aimeos\Shop\Controller\JsonapiController@patchAction', $params, [], [], [], [], $content);
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 2, $json['included'][0]['attributes']['order.base.product.quantity'] );
 
 		// delete product from basket
-		$getParams = ['related' => 'product', 'relatedid' => 0];
-		$params = ['site' => 'unittest', 'resource' => 'basket'];
-		$response = $this->action('DELETE', '\Aimeos\Shop\Controller\JsonapiController@deleteAction', $params, $getParams);
+		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product', 'relatedid' => 0];
+		$response = $this->action('DELETE', '\Aimeos\Shop\Controller\JsonapiController@deleteAction', $params);
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 0, count( $json['included'] ) );
