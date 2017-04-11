@@ -145,14 +145,12 @@ Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), f
 	Route::match( array( 'GET', 'POST' ), 'myaccount/favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_favorite',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
-	))->defaults( 'fav_action', '' )->defaults( 'fav_id', '' )->defaults( 'd_prodid', '' )
-	->defaults( 'd_name', '' )->defaults( 'd_pos', 0 );
+	));
 
 	Route::match( array( 'GET', 'POST' ), 'myaccount/watch/{wat_action?}/{wat_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_watch',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
-	))->defaults( 'wat_action', '' )->defaults( 'wat_id', '' )->defaults( 'd_prodid', '' )
-	->defaults( 'd_name', '' )->defaults( 'd_pos', 0 );
+	));
 
 	Route::match( array( 'GET', 'POST' ), 'myaccount/download/{dl_id}', array(
 		'as' => 'aimeos_shop_account_download',
