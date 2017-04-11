@@ -55,9 +55,9 @@ sort_buffer_size=1M
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **2016.10 release and later**.
+This document is for the latest Aimeos Laravel **2017.04 release and later**.
 
-- Beta release: 2017.01 (Laravel 5.3 and 5.4)
+- Stable release: 2017.04 (Laravel 5.3 and 5.4)
 - LTS release: 2016.10 (Laravel 5.1 to 5.3)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -71,7 +71,7 @@ to your composer.json of your Laravel project:
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2016.10",
+        "aimeos/aimeos-laravel": "~2017.04",
         ...
     },
     "scripts": {
@@ -85,16 +85,15 @@ to your composer.json of your Laravel project:
     }
 ```
 
-Afterwards, install the Aimeos shop package using
-
-`composer update`
-
-
-**Caution:** Make sure that the **database is set up and it is configured** in your
+Make sure that the **database is set up and it is configured** in your
 `config/database.php` or `.env` file (depending on the Laravel version). Sometimes,
 the .env files are not available in the Laravel application and you will get exceptions
 that the connection to the database failed. In that case, add the database credentials
 to the **resource/db section of your ./config/shop.php** file too!
+
+Afterwards, install the Aimeos shop package using
+
+`composer update`
 
 Next, the Aimeos provider class must be added to the `providers` array of the
 `config/app.php` file so the application and Laravel command task will work:
@@ -122,7 +121,8 @@ In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
 
 **Note:** For Laravel 5.1 the ```routes``` section in your **config/shop.php**
-must be changed like this because in 5.1 there's no middleware group "web" as in 5.2:
+must be changed like this because in 5.1 there's no middleware group "web" as
+in 5.2 and later:
 ```php
 	'routes' => array(
 		'login' => array(),
@@ -241,42 +241,6 @@ As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
 authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```.
 
-For Laravel 5.1/5.2 and Aimeos 2016.x you have to use:
-```php
-public function boot(GateContract $gate)
-{
-	// Keep the lines before
-
-	$gate->define('admin', function($user, $roles) {
-		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
-	});
-}
-```
-
-Laravel 5.1/5.2 and Aimeos 2017.x need:
-```php
-public function boot(GateContract $gate)
-{
-	// Keep the lines before
-
-	$gate->define('admin', function($user, $class, $roles) {
-		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
-	});
-}
-```
-
-For Laravel 5.3 and Aimeos 2016.x use instead:
-```php
-public function boot()
-{
-	// Keep the lines before
-
-	Gate::define('admin', function($user, $roles) {
-		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
-	});
-}
-```
-
 For Laravel 5.3/5.4 and Aimeos 2017.x use instead:
 ```php
 public function boot()
@@ -284,6 +248,18 @@ public function boot()
 	// Keep the lines before
 
 	Gate::define('admin', function($user, $class, $roles) {
+		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+	});
+}
+```
+
+For Laravel 5.1/5.2 and Aimeos 2016.x you have to use:
+```php
+public function boot(GateContract $gate)
+{
+	// Keep the lines before
+
+	$gate->define('admin', function($user, $roles) {
 		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }
