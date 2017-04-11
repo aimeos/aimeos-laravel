@@ -55,7 +55,7 @@ sort_buffer_size=1M
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **2017.04 release and later**.
+This document is for the latest Aimeos Laravel **2016.10 release and later**.
 
 - Stable release: 2017.04 (Laravel 5.3 and 5.4)
 - LTS release: 2016.10 (Laravel 5.1 to 5.3)
