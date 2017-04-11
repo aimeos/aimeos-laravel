@@ -156,9 +156,9 @@ AimeosCatalogDetail = {
 		$(".catalog-detail-additional .content").hide();
 
 		$(".catalog-detail-additional .additional-box").on("click", ".header", function(ev) {
-			$(".content", ev.delegateTarget).slideToggle();
-			$(".header", ev.delegateTarget).toggleClass("toggle-js");
-		});
+	        $(".content", ev.delegateTarget).slideToggle();
+	    	$(".header", ev.delegateTarget).toggleClass("toggle-js");
+	    });
 	},
 
 
