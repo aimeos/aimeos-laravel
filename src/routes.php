@@ -75,27 +75,27 @@ Route::group(config('shop.routes.jsonadm', ['prefix' => 'admin/{site}/jsonadm', 
 	Route::match( array( 'DELETE' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_delete',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@deleteAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
 
 	Route::match( array( 'GET' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_get',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@getAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
 
 	Route::match( array( 'PATCH' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_patch',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@patchAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
 
 	Route::match( array( 'POST' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_post',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@postAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
 
 	Route::match( array( 'PUT' ), '{resource}/{id?}', array(
 		'as' => 'aimeos_shop_jsonadm_put',
 		'uses' => 'Aimeos\Shop\Controller\JsonadmController@putAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
 
 	Route::match( array( 'OPTIONS' ), '{resource?}', array(
 		'as' => 'aimeos_shop_jsonadm_options',
