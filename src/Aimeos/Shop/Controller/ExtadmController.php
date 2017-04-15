@@ -70,8 +70,8 @@ class ExtadmController extends AdminController
 			}
 		}
 
-		$jqadmUrl = route( 'aimeos_shop_jqadm_search', array( 'site' => $site, 'resource' => 'product' ) );
 		$jsonUrl = route( 'aimeos_shop_extadm_json', array( 'site' => $site, '_token' => csrf_token() ) );
+		$jqadmUrl = route( 'aimeos_shop_jqadm_search', array( 'site' => $site, 'lang' => $lang, 'resource' => 'dashboard' ) );
 		$adminUrl = route( 'aimeos_shop_extadm', array( 'site' => '<site>', 'lang' => '<lang>', 'tab' => '<tab>' ) );
 
 		$vars = array(
