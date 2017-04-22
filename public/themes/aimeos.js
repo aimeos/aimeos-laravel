@@ -1183,7 +1183,7 @@ AimeosCheckoutStandard = {
 	 */
 	setupPaymentRedirect: function() {
 
-		var form = $("form").first();
+		var form = $(".checkout-standard form").first();
 		var node = $(".checkout-standard-process", form);
 
 		if(node.length > 0 && node.has(".mandatory").length === 0 && node.has(".optional").length === 0 && form.attr("action") !== '' ) {

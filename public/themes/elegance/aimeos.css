@@ -2235,16 +2235,15 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .checkout-standard-address .item-address .header input {
-	display: inline;
+	display: inline-block;
 	vertical-align: middle;
-	margin: 0;
 	margin-right: 1em;
 	border: none;
+	margin: 0;
 }
 
 .checkout-standard-address .item-address .values {
-	display: inline-block;
-	vertical-align: middle;
+	margin: 0;
 }
 
 .checkout-standard .form-list .mandatory,
