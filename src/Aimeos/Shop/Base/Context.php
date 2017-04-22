@@ -229,6 +229,8 @@ class Context
 
 		if( ( $user = Auth::user() ) !== null ) {
 			$context->setEditor( $user->name );
+		} else {
+			$context->setEditor( \Request::ip() );
 		}
 
 		return $context;
