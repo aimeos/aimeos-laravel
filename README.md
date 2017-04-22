@@ -91,6 +91,10 @@ the .env files are not available in the Laravel application and you will get exc
 that the connection to the database failed. In that case, add the database credentials
 to the **resource/db section of your ./config/shop.php** file too!
 
+If you want to use a database server other than MySQL, please have a look into the article about
+[supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
+and their specific configuration.
+
 Afterwards, install the Aimeos shop package using
 
 `composer update`
