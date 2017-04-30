@@ -105,7 +105,7 @@ Route::group(config('shop.routes.jsonadm', ['prefix' => 'admin/{site}/jsonadm', 
 });
 
 
-Route::group(config('shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' => ['api']]), function() {
+Route::group(config('shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']]), function() {
 
 	Route::match( array( 'DELETE' ), '{resource}', array(
 		'as' => 'aimeos_shop_jsonapi_delete',
