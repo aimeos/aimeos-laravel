@@ -14,10 +14,10 @@ class AccountControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\AccountController@indexAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();
-		$this->assertContains('<section class="aimeos account-profile">', $response->getContent());
-		$this->assertContains('<section class="aimeos account-history">', $response->getContent());
-		$this->assertContains('<section class="aimeos account-favorite">', $response->getContent());
-		$this->assertContains('<section class="aimeos account-watch">', $response->getContent());
+		$this->assertContains('<section class="aimeos account-profile"', $response->getContent());
+		$this->assertContains('<section class="aimeos account-history"', $response->getContent());
+		$this->assertContains('<section class="aimeos account-favorite"', $response->getContent());
+		$this->assertContains('<section class="aimeos account-watch"', $response->getContent());
 	}
 
 
