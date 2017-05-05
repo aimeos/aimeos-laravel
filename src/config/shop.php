@@ -1,8 +1,8 @@
 <?php
 
-return array(
+return [
 
-	'routes' => array(
+	'routes' => [
 		// 'login' => ['middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
@@ -12,24 +12,24 @@ return array(
 		// 'default' => ['middleware' => ['web']],
 		// 'confirm' => ['middleware' => ['web']],
 		// 'update' => [],
-	),
+	],
 
-	'page' => array(
-		// 'account-index' => array( 'account/profile','account/history','account/favorite','account/watch','basket/mini','catalog/session' ),
-		// 'basket-index' => array( 'basket/standard','basket/related' ),
-		// 'catalog-count' => array( 'catalog/count' ),
-		// 'catalog-detail' => array( 'basket/mini','catalog/stage','catalog/detail','catalog/session' ),
-		// 'catalog-list' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ),
-		// 'catalog-stock' => array( 'catalog/stock' ),
-		// 'catalog-suggest' => array( 'catalog/suggest' ),
-		// 'checkout-confirm' => array( 'checkout/confirm' ),
-		// 'checkout-index' => array( 'checkout/standard' ),
-		// 'checkout-update' => array( 'checkout/update'),
-	),
+	'page' => [
+		// 'account-index' => [ 'account/profile','account/history','account/favorite','account/watch','basket/mini','catalog/session' ],
+		// 'basket-index' => [ 'basket/standard','basket/related' ],
+		// 'catalog-count' => [ 'catalog/count' ],
+		// 'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session' ],
+		// 'catalog-list' => [ 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ],
+		// 'catalog-stock' => [ 'catalog/stock' ],
+		// 'catalog-suggest' => [ 'catalog/suggest' ],
+		// 'checkout-confirm' => [ 'checkout/confirm' ],
+		// 'checkout-index' => [ 'checkout/standard' ],
+		// 'checkout-update' => [ 'checkout/update' ],
+	],
 
 	/*
-	'resource' => array(
-		'db' => array(
+	'resource' => [
+		'db' => [
 			'adapter' => env('DB_CONNECTION', 'mysql'),
 			'host' => env('DB_HOST', 'localhost'),
 			'port' => env('DB_PORT', ''),
@@ -37,45 +37,63 @@ return array(
 			'database' => env('DB_DATABASE', 'laravel'),
 			'username' => env('DB_USERNAME', 'root'),
 			'password' => env('DB_PASSWORD', ''),
-			'stmt' => array( "SET NAMES 'utf8'", "SET SESSION sql_mode='ANSI'" ),
-		),
-	),
+			'stmt' => [ "SET NAMES 'utf8'", "SET SESSION sql_mode='ANSI'" ],
+		],
+	],
 	*/
 
-	'admin' => array(),
+	'admin' => [],
 
-	'client' => array(
-		'html' => array(
-			'common' => array(
-				'content' => array(
+	'client' => [
+		'html' => [
+			'basket' => [
+				'cache' => [
+					// 'enable' => false, // Disable basket content caching
+				],
+			],
+			'common' => [
+				'content' => [
 					// 'baseurl' => '/',
-				),
-				'template' => array(
+				],
+				'template' => [
 					// 'baseurl' => 'packages/aimeos/shop/themes/elegance',
-				),
-			),
-		),
-	),
+				],
+			],
+		],
+	],
 
-	'controller' => array(
-	),
+	'controller' => [
+	],
 
-	'i18n' => array(
-	),
+	'i18n' => [
+	],
 
-	'madmin' => array(
-	),
+	'madmin' => [
+		'cache' => [
+			'manager' => [
+				// 'name' => 'None', // Disable caching
+			],
+		],
+		'log' => [
+			'manager' => [
+				'standard' => [
+					// 'loglevel' => 7, // Enable debug logging into madmin_log table
+				],
+			],
+		],
+	],
 
-	'mshop' => array(
-	),
+	'mshop' => [
+	],
 
 
-	'command' => array(
-	),
+	'command' => [
+	],
 
-	'frontend' => array(
-	),
+	'frontend' => [
+	],
 
-	'backend' => array(
-	),
-);
+	'backend' => [
+	],
+
+];
