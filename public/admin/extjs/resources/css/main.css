@@ -62,6 +62,15 @@
     vertical-align: top;
 }
 
+
+.x-grid3-row td, .x-grid3-summary-row td {
+    user-select: text;
+    -moz-user-select: text;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+}
+
 /*
  * CSS fix for horizontal scrolling in grids
  */

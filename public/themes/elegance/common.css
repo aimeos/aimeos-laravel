@@ -17,6 +17,10 @@
 	padding: 0;
 }
 
+.aimeos .prototype {
+	display: none;
+}
+
 .aimeos .container {
 	border: solid 1px #D0D0D0;
 	min-width: 240px;
@@ -171,7 +175,7 @@
 }
 
 .common-summary-detail tr.subtotal {
-  color: #555;
+	color: #555;
 }
 
 .common-summary-detail tr.total {
@@ -197,6 +201,10 @@
 .common-summary-detail .details .product-name {
 	margin: 0.5em;
 	display: block;
+}
+
+.common-summary-detail .code {
+    margin: 0.5em;
 }
 
 .common-summary-detail .attr-list {
@@ -246,6 +254,12 @@
 	text-align: center;
 	display: inline;
 	width: 3em;
+}
+
+.common-summary-detail .action .delete:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 100%;
+	content: "\f014";
 }
 
 .common-summary-detail th.action,
