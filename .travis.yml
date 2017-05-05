@@ -16,7 +16,7 @@ before_script:
   - composer require "laravel/framework:${LARAVEL_VERSION}"
   - mysql -e 'create database laravel;'
 
-script: phpunit --coverage-clover coverage.xml
+script: vendor/bin/phpunit --coverage-clover coverage.xml
 
 after_success:
   - php vendor/bin/coveralls
