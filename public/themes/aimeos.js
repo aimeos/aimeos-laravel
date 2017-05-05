@@ -78,6 +78,17 @@ Aimeos = {
 
 
 	/**
+	 *  Adds a spinner on top of the current page
+	 */
+	createSpinner: function() {
+
+		var spinner = $(document.createElement("div"));
+		spinner.addClass("aimeos-spinner");
+		$("body").append(spinner);
+	},
+
+
+	/**
 	 * Removes an existing overlay from the current page
 	 */
 	removeOverlay: function() {
@@ -94,6 +105,14 @@ Aimeos = {
 		}
 
 		return true;
+	},
+
+
+	/**
+	 * Removes an existing spinner from the current page
+	 */
+	removeSpinner: function() {
+		$(".aimeos-spinner").remove();
 	},
 
 
@@ -411,8 +430,11 @@ AimeosBasketStandard = {
 		$("body").on("submit", ".basket-standard form", function(ev) {
 			var form = $(this);
 
+			Aimeos.createSpinner();
 			$.post(form.attr("action"), form.serialize(), function(data) {
 				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
+			}).always(function() {
+				Aimeos.removeSpinner();
 			});
 
 			return false;
@@ -427,8 +449,11 @@ AimeosBasketStandard = {
 
 		$("body").on("click", ".basket-standard a.change", function(ev) {
 
+			Aimeos.createSpinner();
 			$.get($(this).attr("href"), function(data) {
 				$(".basket-standard").html(AimeosBasketStandard.updateBasket(data).html());
+			}).always(function() {
+				Aimeos.removeSpinner();
 			});
 
 			return false;

@@ -217,6 +217,18 @@
 	background-position: center;
 }
 
+.aimeos-spinner {
+	background-image: url(media/spinner.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	position: fixed;
+	z-index: 10000;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
 .aimeos-overlay {
 	background-color: #FFFFFF;
 	position: fixed;
@@ -332,11 +344,11 @@
 
 .catalog-filter-tree .media-list {
 	display: inline-block;
+	vertical-align: top;
 	margin: 0px 0.5em;
 }
 
 .catalog-filter-tree .media-item img {
-	vertical-align: top;
 	height: 1.25em;
 	width: 1.25em;
 }
@@ -831,15 +843,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 /* price list */
-.catalog-list .price-list,
-.catalog-list .price {
-	display: none;
-}
-
-.catalog-list .price-actual {
-	display: block;
-}
-
 .catalog-list .price {
 	box-sizing: content-box;
 	text-align: left;
@@ -940,6 +943,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-list-promo .promo-items {
     white-space: nowrap;
 	overflow: auto;
+	font-size: 90%;
 	padding: 0;
 }
 
@@ -1333,6 +1337,9 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	list-style: none;
 	color: #999;
 	padding: 0;
+    max-width: 20em;
+    max-height: 10em;
+    overflow-y: auto;
 }
 
 .catalog-detail-basket-service .service-name {
@@ -2307,6 +2314,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 
 /* Checkout summary option terms */
+.checkout-standard-summary-option-account,
 .checkout-standard-summary-option-terms {
 	margin: 1em;
 }
