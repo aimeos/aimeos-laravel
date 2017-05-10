@@ -11,7 +11,6 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Response;
 
 
@@ -26,12 +25,12 @@ class AccountController extends Controller
 	/**
 	 * Returns the html for the "My account" page.
 	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
+	 * @return \Illuminate\Http\Response Response object with output and headers
 	 */
 	public function indexAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'account-index' );
-		return View::make('shop::account.index', $params);
+		return Response::view('shop::account.index', $params)->header('Cache-Control', 'private, max-age=300');
 	}
 
 
@@ -53,6 +52,7 @@ class AccountController extends Controller
 		$client->process();
 
 		$response = $view->response();
-		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() );
+		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() )
+			->header('Cache-Control', 'private, max-age=300', false);
 	}
 }

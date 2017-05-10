@@ -11,7 +11,7 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
 
 
 /**
@@ -25,11 +25,11 @@ class BasketController extends Controller
 	/**
 	 * Returns the html for the standard basket page.
 	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
+	 * @return \Illuminate\Http\Response Response object with output and headers
 	 */
 	public function indexAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'basket-index' );
-		return View::make('shop::basket.index', $params);
+		return Response::view('shop::basket.index', $params)->header('Cache-Control', 'no-store');
 	}
 }

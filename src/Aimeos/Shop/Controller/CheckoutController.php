@@ -11,7 +11,7 @@
 namespace Aimeos\Shop\Controller;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
 
 
 /**
@@ -25,35 +25,35 @@ class CheckoutController extends Controller
 	/**
 	 * Returns the html for the checkout confirmation page.
 	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
+	 * @return \Illuminate\Http\Response Response object with output and headers
 	 */
 	public function confirmAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-confirm' );
-		return View::make('shop::checkout.confirm', $params);
+		return Response::view('shop::checkout.confirm', $params)->header('Cache-Control', 'no-store');
 	}
 
 
 	/**
 	 * Returns the html for the standard checkout page.
 	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
+	 * @return \Illuminate\Http\Response Response object with output and headers
 	 */
 	public function indexAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-index' );
-		return View::make('shop::checkout.index', $params);
+		return Response::view('shop::checkout.index', $params)->header('Cache-Control', 'no-store');
 	}
 
 
 	/**
 	 * Returns the view for the order update page.
 	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
+	 * @return \Illuminate\Http\Response Response object with output and headers
 	 */
 	public function updateAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-update' );
-		return View::make('shop::checkout.update', $params);
+		return Response::view('shop::checkout.update', $params)->header('Cache-Control', 'no-store');
 	}
 }
