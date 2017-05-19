@@ -33,7 +33,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@copyAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<div class="product-item', $response->getContent() );
+		$this->assertContains( 'item-product', $response->getContent() );
 	}
 
 
@@ -43,7 +43,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@createAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<div class="product-item', $response->getContent() );
+		$this->assertContains( 'item-product', $response->getContent() );
 	}
 
 
@@ -53,7 +53,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@deleteAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<table class="list-items', $response->getContent() );
+		$this->assertContains( 'list-items', $response->getContent() );
 	}
 
 
@@ -63,7 +63,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@getAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<div class="product-item', $response->getContent() );
+		$this->assertContains( 'item-product', $response->getContent() );
 	}
 
 
@@ -73,7 +73,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('POST', '\Aimeos\Shop\Controller\JqadmController@saveAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<div class="product-item', $response->getContent() );
+		$this->assertContains( 'item-product', $response->getContent() );
 	}
 
 
@@ -83,7 +83,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@searchAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<table class="list-items', $response->getContent() );
+		$this->assertContains( 'list-items', $response->getContent() );
 	}
 
 
@@ -93,6 +93,6 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@searchAction', $params);
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( '<table class="list-items', $response->getContent() );
+		$this->assertContains( 'list-items', $response->getContent() );
 	}
 }
