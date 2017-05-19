@@ -1416,40 +1416,40 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 /* product attributes */
 .catalog-list-items .selection,
-.catalog-detail-basket-selection,
+.catalog-detail-basket .selection,
 .catalog-detail-basket-attribute {
 	margin: 0.5em 0;
 	color: #555;
 }
 
 .catalog-list-items .selection,
-.catalog-detail-basket-selection .selection,
+.catalog-detail-basket .selection .selection,
 .catalog-detail-basket-attribute .selection {
 	padding: 0;
 }
 
 .catalog-list-items .selection .select-item,
-.catalog-detail-basket-selection .select-item,
+.catalog-detail-basket .selection .select-item,
 .catalog-detail-basket-attribute .select-item {
 	margin-top: 1em;
 	list-style: none;
 }
 
 .catalog-list-items .selection .select-name,
-.catalog-detail-basket-selection .select-name,
+.catalog-detail-basket .selection .select-name,
 .catalog-detail-basket-attribute .select-name {
 	min-width: 5em;
 }
 
 .catalog-list-items .selection .select-hint,
-.catalog-detail-basket-selection .select-hint,
+.catalog-detail-basket .selection .select-hint,
 .catalog-detail-basket-attribute .select-hint {
 	font-size: 80%;
 	min-width: 5em;
 }
 
 .catalog-list-items .selection .select .select-value,
-.catalog-detail-basket-selection .select .select-value,
+.catalog-detail-basket .selection .select .select-value,
 .catalog-detail-basket-attribute .select .select-value {
 	background: url("media/select.png") no-repeat right center transparent;
 	border: solid 1px #D0D0D0;
@@ -1465,7 +1465,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-list-items .selection select,
-.catalog-detail-basket-selection select,
+.catalog-detail-basket .selection select,
 .catalog-detail-basket-attribute select {
 	background: transparent;
 	border: none;
@@ -1476,23 +1476,23 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-list-items .selection ul.select-list,
-.catalog-detail-basket-selection ul.select-list {
+.catalog-detail-basket .selection ul.select-list {
 	padding: 0;
 }
 
 .catalog-list-items .selection li.select-entry,
-.catalog-detail-basket-selection li.select-entry {
+.catalog-detail-basket .selection li.select-entry {
 	display: inline-block;
 	margin: 0;
 }
 
 .catalog-list-items .selection input.select-option,
-.catalog-detail-basket-selection input.select-option {
+.catalog-detail-basket .selection input.select-option {
 	display: none;
 }
 
 .catalog-list-items .selection .select-label,
-.catalog-detail-basket-selection .select-label {
+.catalog-detail-basket .selection .select-label {
 	border: solid 1px #D0D0D0;
 	font-weight: normal;
 	padding: 1px;
@@ -1500,29 +1500,34 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-list-items .selection .color .select-label,
-.catalog-detail-basket-selection .color .select-label {
+.catalog-detail-basket .selection .color .select-label {
 	border: solid 1px #FFF;
 	line-height: 0;
 }
 
 .catalog-list-items .selection .select-label > span,
-.catalog-detail-basket-selection .select-label > span {
+.catalog-detail-basket .selection .select-label > span {
 	padding: 0 0.25em;
 	min-width: 1.5em;
 }
 
 .catalog-list-items .selection .select-option:checked + .select-label,
-.catalog-detail-basket-selection .select-option:checked + .select-label {
+.catalog-detail-basket .selection .select-option:checked + .select-label {
 	border: solid 1px #B0A060;
 }
 
 .catalog-list-items .selection .select-option:disabled + .select-label,
-.catalog-detail-basket-selection .select-option:disabled + .select-label {
+.catalog-detail-basket .selection .select-option:disabled + .select-label {
 	opacity: 0.25;
 }
 
+.catalog-list-items .selection .custom input[type=number],
+.catalog-detail-basket .selection .custom input[type=number] {
+	text-align: center;
+}
+
 .catalog-list-items .selection .media-item,
-.catalog-detail-basket-selection .media-item {
+.catalog-detail-basket .selection .media-item {
 	display: inline-block;
 	line-height: 0;
 	padding: 0;
@@ -1530,14 +1535,14 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .catalog-list-items .selection .media-item > img,
-.catalog-detail-basket-selection .media-item > img {
+.catalog-detail-basket .selection .media-item > img {
 	border: none;
 	height: 1.33em;
 	width: 1.33em;
 }
 
 .catalog-list-items .selection .media-item + span,
-.catalog-detail-basket-selection .media-item + span {
+.catalog-detail-basket .selection .media-item + span {
 	display: none;
 }
 
