@@ -49,7 +49,7 @@ class Support
 	/**
 	 * Checks if the user is in the specified group and associatied to the site
 	 *
-	 * @param string $userid Unique user ID
+	 * @param \Illuminate\Foundation\Auth\User $user Authenticated user
 	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
 	 * @return boolean True if user is part of the group, false if not
 	 */
