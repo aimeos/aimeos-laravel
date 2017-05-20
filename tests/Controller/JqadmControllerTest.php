@@ -92,7 +92,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$params = ['site' => 'invalid', 'resource' => 'product'];
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@searchAction', $params);
 
-		$this->assertEquals( 200, $response->getStatusCode() );
+		$this->assertEquals( 500, $response->getStatusCode() );
 		$this->assertContains( 'list-items', $response->getContent() );
 	}
 }
