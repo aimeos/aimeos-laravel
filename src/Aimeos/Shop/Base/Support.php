@@ -47,11 +47,42 @@ class Support
 
 
 	/**
+	 * Checks if the user is in the specified group and associatied to the site
+	 *
+	 * @param string $userid Unique user ID
+	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
+	 * @return boolean True if user is part of the group, false if not
+	 */
+	public function checkUserGroup( \Illuminate\Foundation\Auth\User $user, $groupcodes )
+	{
+		$context = $this->context->get( false );
+
+		try {
+			$site = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' )->getItem( $user->siteid )->getCode();
+		} catch( \Exception $e ) {
+			$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
+		}
+
+		$context->setLocale( $this->locale->getBackend( $context, $site ) );
+
+		foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
+		{
+			if( $user->siteid === $siteid ) {
+				return $this->checkGroups( $context, $user->id, $groupcodes );
+			}
+		}
+
+		return false;
+	}
+
+
+	/**
 	 * Checks if the user with the given ID is in the specified group
 	 *
 	 * @param string $userid Unique user ID
 	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
 	 * @return boolean True if user is part of the group, false if not
+	 * @deprecated Use checkUserGroup() instead
 	 */
 	public function checkGroup( $userid, $groupcodes )
 	{
@@ -60,7 +91,42 @@ class Support
 		$context = $this->context->get( false );
 		$context->setLocale( $this->locale->getBackend( $context, $site ) );
 
+		return $this->checkGroups( $context, $userid, $groupcodes );
+	}
 
+
+	/**
+	 * Returns the available group codes
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
+	 * @return string[] List of group codes
+	 */
+	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
+	{
+		$list = array();
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
+
+		foreach( $manager->searchItems( $search ) as $item ) {
+			$list[] = $item->getCode();
+		}
+
+		return $list;
+	}
+
+
+	/**
+	 * Checks if one of the groups is associated to the given user ID
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
+	 * @param string $userid ID of the logged in user
+	 * @param string[] $groupcodes List of group codes to check against
+	 * @return boolean True if the user is in one of the groups, false if not
+	 */
+	protected function checkGroups( \Aimeos\MShop\Context\Item\Iface $context, $userid, $groupcodes )
+	{
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
 
 		$search = $manager->createSearch();
@@ -80,21 +146,5 @@ class Support
 		$search->setSlice( 0, 1 );
 
 		return (bool) count( $manager->searchItems( $search ) );
-	}
-
-
-	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
-	{
-		$list = array();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
-
-		foreach( $manager->searchItems( $search ) as $item ) {
-			$list[] = $item->getCode();
-		}
-
-		return $list;
 	}
 }

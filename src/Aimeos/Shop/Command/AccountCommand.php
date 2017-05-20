@@ -51,8 +51,9 @@ class AccountCommand extends AbstractCommand
 		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:account' );
 
-		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
-		$context->setLocale( $localeManager->createItem() );
+		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
+		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false );
+		$context->setLocale( $localeItem );
 
 		$user = $this->createCustomerItem( $context, $code, $password );
 
@@ -117,22 +118,11 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function addGroup( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user, $group )
 	{
-		$this->info( sprintf( 'Add "%1$s" group to user "%2$s" for sites', $group, $user->getCode() ) );
+		$msg = 'Add "%1$s" group to user "%2$s" for site "%3$s"';
+		$this->info( sprintf( $msg, $group, $user->getCode(), $this->argument( 'site' ) ) );
 
-		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
-
-		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
-		{
-			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
-
-			$lcontext = clone $context;
-			$lcontext->setLocale( $localeItem );
-
-			$this->info( '- ' . $siteItem->getCode() );
-
-			$groupItem = $this->getGroupItem( $lcontext, $group );
-			$this->addListItem( $lcontext, $user->getId(), $groupItem->getId() );
-		}
+		$groupItem = $this->getGroupItem( $context, $group );
+		$this->addListItem( $context, $user->getId(), $groupItem->getId() );
 	}
 
 
@@ -177,7 +167,7 @@ class AccountCommand extends AbstractCommand
 	{
 		return array(
 			array( 'email', InputArgument::REQUIRED, 'E-mail address of the account that should be created' ),
-			array( 'site', InputArgument::OPTIONAL, 'Site codes to create accounts for like "default unittest" (none for all)' ),
+			array( 'site', InputArgument::OPTIONAL, 'Site code to create the account for', 'default' ),
 		);
 	}
 
