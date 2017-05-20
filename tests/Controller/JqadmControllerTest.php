@@ -93,6 +93,5 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@searchAction', $params);
 
 		$this->assertEquals( 500, $response->getStatusCode() );
-		$this->assertContains( 'list-items', $response->getContent() );
 	}
 }
