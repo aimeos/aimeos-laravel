@@ -68,6 +68,10 @@ class AccountCommand extends AbstractCommand
 		if( $this->option( 'editor' ) ) {
 			$this->addGroup( $context, $user, 'editor' );
 		}
+
+		if( $this->option( 'viewer' ) ) {
+			$this->addGroup( $context, $user, 'viewer' );
+		}
 	}
 
 
@@ -212,6 +216,7 @@ class AccountCommand extends AbstractCommand
 			array( 'admin', null, InputOption::VALUE_NONE, 'If account should have administrator privileges' ),
 			array( 'api', null, InputOption::VALUE_NONE, 'If account should be able to access the APIs' ),
 			array( 'editor', null, InputOption::VALUE_NONE, 'If account should have limited editor privileges' ),
+			array( 'viewer', null, InputOption::VALUE_NONE, 'If account should only have view privileges' ),
 		);
 	}
 }

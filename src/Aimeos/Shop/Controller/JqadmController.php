@@ -35,7 +35,7 @@ class JqadmController extends AdminController
 	public function fileAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor', 'viewer']] );
 		}
 
 		$contents = '';
@@ -128,7 +128,7 @@ class JqadmController extends AdminController
 	public function getAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor', 'viewer']] );
 		}
 
 		$cntl = $this->createClient();
@@ -160,7 +160,7 @@ class JqadmController extends AdminController
 	public function searchAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor', 'viewer']] );
 		}
 
 		$cntl = $this->createClient();
