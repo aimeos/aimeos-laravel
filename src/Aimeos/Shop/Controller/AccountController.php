@@ -30,7 +30,7 @@ class AccountController extends Controller
 	public function indexAction()
 	{
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'account-index' );
-		return Response::view('shop::account.index', $params)->header('Cache-Control', 'private, max-age=300');
+		return Response::view('shop::account.index', $params);
 	}
 
 
@@ -52,7 +52,6 @@ class AccountController extends Controller
 		$client->process();
 
 		$response = $view->response();
-		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() )
-			->header('Cache-Control', 'private, max-age=300', false);
+		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() );
 	}
 }

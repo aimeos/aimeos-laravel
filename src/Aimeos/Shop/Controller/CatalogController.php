@@ -32,8 +32,7 @@ class CatalogController extends Controller
 		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'catalog-count' );
 
 		return Response::view('shop::catalog.count', $params)
-			->header('Content-Type', 'application/javascript')
-			->header('Cache-Control', 'max-age=43200');
+			->header('Content-Type', 'application/javascript');
 	}
 
 
@@ -45,7 +44,7 @@ class CatalogController extends Controller
 	public function detailAction()
 	{
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-detail' );
-		return Response::view('shop::catalog.detail', $params)->header('Cache-Control', 'max-age=43200');
+		return Response::view('shop::catalog.detail', $params);
 	}
 
 
@@ -57,7 +56,7 @@ class CatalogController extends Controller
 	public function listAction()
 	{
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-list' );
-		return Response::view('shop::catalog.list', $params)->header('Cache-Control', 'max-age=43200');
+		return Response::view('shop::catalog.list', $params);
 	}
 
 
@@ -71,8 +70,7 @@ class CatalogController extends Controller
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-stock' );
 
 		return Response::view('shop::catalog.stock', $params)
-			->header('Content-Type', 'application/javascript')
-			->header('Cache-Control', 'max-age=30');
+			->header('Content-Type', 'application/javascript');
 	}
 
 
@@ -86,7 +84,6 @@ class CatalogController extends Controller
 		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-suggest' );
 
 		return Response::view('shop::catalog.suggest', $params)
-			->header('Content-Type', 'application/json')
-			->header('Cache-Control', 'max-age=43200');
+			->header('Content-Type', 'application/json');
 	}
 }
