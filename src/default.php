@@ -5,6 +5,8 @@ return array(
 	'apc_enabled' => false,
 	'apc_prefix' => 'laravel:',
 	'extdir' => base_path('ext'),
+	'pcntl_max' => 4,
+	'pcntl_priority' => 19,
 	'uploaddir' => '/',
 
 	'page' => array(

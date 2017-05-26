@@ -46,6 +46,7 @@ class JobsCommand extends AbstractCommand
 		$aimeos = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$context = $this->getContext();
 
+		$process = $context->getProcess();
 		$jobs = explode( ' ', $this->argument( 'jobs' ) );
 		$localeManager = \Aimeos\MShop\Locale\Manager\Factory::createManager( $context );
 
@@ -59,10 +60,17 @@ class JobsCommand extends AbstractCommand
 
 			$this->info( sprintf( 'Executing the Aimeos jobs for "%s"', $siteItem->getCode() ) );
 
-			foreach( $jobs as $jobname ) {
-				\Aimeos\Controller\Jobs\Factory::createController( $context, $aimeos, $jobname )->run();
+			foreach( $jobs as $jobname )
+			{
+				$fcn = function( $context, $aimeos, $jobname ) {
+					\Aimeos\Controller\Jobs\Factory::createController( $context, $aimeos, $jobname )->run();
+				};
+
+				$process->start( $fcn, [$context, $aimeos, $jobname], true );
 			}
 		}
+
+		$process->wait();
 	}
 
 
