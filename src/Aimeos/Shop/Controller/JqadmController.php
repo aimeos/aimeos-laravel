@@ -116,7 +116,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( $cntl->delete() . $cntl->search() );
+
+		if( ( $html = $cntl->delete() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
@@ -148,7 +153,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( ( $cntl->save() ? : $cntl->search() ) );
+
+		if( ( $html = $cntl->save() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
