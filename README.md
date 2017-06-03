@@ -64,8 +64,13 @@ If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
 
 The Aimeos Laravel web shop package is a composer based library that can be
-installed easiest by using [Composer](https://getcomposer.org). Add these lines
-to your composer.json of your Laravel project:
+installed easiest by using [Composer](https://getcomposer.org). First, you need
+to install a Laravel skeleton application if you don't have one already:
+```
+composer create-project --prefer-dist laravel/laravel myshop
+```
+
+Then, add these lines to the composer.json of the Laravel skeleton application:
 
 ```
     "prefer-stable": true,
