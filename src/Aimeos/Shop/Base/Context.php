@@ -241,7 +241,7 @@ class Context
 		}
 
 		if( ( $user = Auth::user() ) !== null ) {
-			$context->setEditor( $user->name );
+			$context->setEditor( $user->getName() );
 		} else {
 			$context->setEditor( \Request::ip() );
 		}
