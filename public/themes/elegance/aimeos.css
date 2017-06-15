@@ -41,8 +41,7 @@
 	padding: 0.5em 0;
 }
 
-.aimeos input:not([type=radio]),
-.aimeos input:not([type=checkbox]) {
+.aimeos input:not([type=radio]):not([type=checkbox]) {
 	width: 12em;
 }
 
@@ -150,7 +149,7 @@
 	padding: 0.5em 0;
 }
 
-.aimeos .form-list input {
+.aimeos .form-list input:not(type=radio):not(type=checkbox) {
 	width: 215px;
 	background-color: #F0F0F0;
 	border: solid 1px #D0D0D0;
@@ -2134,7 +2133,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	font-weight: bold;
 }
 
-.checkout-standard .form-list .mandatory label:after {
+.checkout-standard .form-list .mandatory > label:after {
 	content: "*";
 }
 
@@ -2149,7 +2148,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	width: 50%;
 }
 
-.checkout-standard .form-list input {
+.checkout-standard .form-list input:not(type=radio):not(type=checkbox) {
 	background-color: #F0F0F0;
 	border: solid 1px #D0D0D0;
 	vertical-align: bottom;
@@ -2324,6 +2323,31 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .checkout-standard .item-service .icon {
 	display: inline-block;
+}
+
+.checkout-standard .item-service li.form-item {
+	padding-top: 0;
+}
+
+.checkout-standard .item-service .form-item-value {
+	display: inline-block;
+	min-width: 220px;
+	max-width: 66%;
+	width: 50%;
+}
+
+.checkout-standard .item-service .form-item-value input {
+	display: none;
+}
+
+.checkout-standard .item-service .form-item-value label {
+	border-left: 2px solid transparent;
+	padding: 0.5em 0;
+	padding-left: 1em;
+}
+
+.checkout-standard .item-service .form-item-value input:checked + label {
+	border-left: 2px solid #D0D0D0;
 }
 
 /* Checkout delivery/payment */
