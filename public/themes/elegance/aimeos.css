@@ -41,10 +41,6 @@
 	padding: 0.5em 0;
 }
 
-.aimeos input:not([type=radio]):not([type=checkbox]) {
-	width: 12em;
-}
-
 .aimeos .standardbutton {
 	display: inline-block;
 	background-color: #BBB;
@@ -149,7 +145,7 @@
 	padding: 0.5em 0;
 }
 
-.aimeos .form-list input:not(type=radio):not(type=checkbox) {
+.aimeos .form-list input:not([type=radio]):not([type=checkbox]) {
 	width: 215px;
 	background-color: #F0F0F0;
 	border: solid 1px #D0D0D0;
@@ -265,6 +261,15 @@
 	display: block;
 	cursor: pointer;
 	text-align: right;
+}
+
+.aimeos .selection select {
+	height: 3.25rem;
+}
+
+.aimeos .selection input:not([type=radio]):not([type=checkbox]) {
+	height: calc(3.25rem + 2px);
+	width: 12em;
 }
 
 
@@ -881,6 +886,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	overflow: hidden;
 	height: 2em;
 	margin: 0;
+    margin-bottom: 1rem;
 }
 
 .aimeos .product .text-list .text-item {
@@ -901,39 +907,39 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 /* Stock level */
-.catalog-list .stock-list {
+.aimeos .product .stock-list {
 	display: inline-block;
 }
 
-.catalog-list .stockitem {
+.aimeos .product .stockitem {
 	display: none;
 	margin: 0 1em;
 }
 
-.catalog-list .stock-actual .stockitem {
+.aimeos .product .stock-actual .stockitem {
 	display: inline-block;
 }
 
-.catalog-list .stocklevel {
+.aimeos .product .stocklevel {
 	display: inline-block;
-	height: 0.85em;
-	width: 0.85em;
+	height: 1em;
+	width: 1em;
 }
 
-.catalog-list .stocktext {
+.aimeos .product .stocktext {
 	display: none;
 }
 
-.catalog-list .stock-unlimited .stocklevel,
-.catalog-list .stock-high .stocklevel {
+.aimeos .product .stock-unlimited .stocklevel,
+.aimeos .product .stock-high .stocklevel {
 	background-color: #006000;
 }
 
-.catalog-list .stock-low .stocklevel {
+.aimeos .product .stock-low .stocklevel {
 	background-color: #B06000;
 }
 
-.catalog-list-items .stock-out .stocklevel {
+.aimeos .product .stock-out .stocklevel {
 	background-color: #A00000;
 }
 
@@ -1632,33 +1638,33 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 
 /* Stock level */
-.catalog-detail .stock-list {
+.aimeos .catalog-detail-basket .stock-list {
 	padding: 0.5em 0;
 }
 
-.catalog-detail .stockitem {
-	display: none;
-}
-
-.catalog-detail .stock-actual .stockitem {
+.aimeos .catalog-detail-basket .stock-actual .stockitem {
 	display: block;
 }
 
-.catalog-detail .stocklevel {
+.aimeos .catalog-detail-basket .stocklevel {
 	display: none;
 }
 
-.catalog-detail .stock-unlimited,
-.catalog-detail .stock-high {
-	color: #0BA008;
+.aimeos .catalog-detail-basket .stocktext {
+	display: block;
 }
 
-.catalog-detail .stock-low {
-	color: #F0A008;
+.aimeos .catalog-detail-basket .stock-unlimited,
+.aimeos .catalog-detail-basket .stock-high {
+	color: #006000;
 }
 
-.catalog-detail .stock-out {
-	color: #F01800;
+.aimeos .catalog-detail-basket .stock-low {
+	color: #B06000;
+}
+
+.aimeos .catalog-detail-basket .stock-out {
+	color: #A00000;
 }
 
 
@@ -2148,7 +2154,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	width: 50%;
 }
 
-.checkout-standard .form-list input:not(type=radio):not(type=checkbox) {
+.checkout-standard .form-list input:not([type=radio]):not([type=checkbox]) {
 	background-color: #F0F0F0;
 	border: solid 1px #D0D0D0;
 	vertical-align: bottom;
@@ -2161,7 +2167,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	vertical-align: top;
 	text-align: left;
 	min-width: 220px;
-	width: 33%;
+	width: 50%;
 }
 
 .checkout-standard .item-service .description {
@@ -2373,7 +2379,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .checkout-standard-delivery .item-service .price-value,
 .checkout-standard-payment .item-service .price-value {
-	margin: 1em;
+	margin: 1.25em;
 }
 
 /* Checkout summary */
