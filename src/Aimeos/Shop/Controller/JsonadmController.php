@@ -55,7 +55,7 @@ class JsonadmController extends Controller
 	public function getAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor', 'viewer']] );
 		}
 
 		return $this->createClient()->get( $request, new Response() );
@@ -119,7 +119,7 @@ class JsonadmController extends Controller
 	public function optionsAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor', 'viewer']] );
 		}
 
 		return $this->createClient()->options( $request, new Response() );
