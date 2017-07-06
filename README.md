@@ -40,24 +40,11 @@ To circumvent this problem, you should change the database charset/collation in 
 ]
 ```
 
-**MySQL 5.6.4+** installations have a very low value for the `sort_buffer_size`
-setting by default. If you get an error like this:
-
-```
-SQLSTATE[HY001]: Memory allocation error: 1038 Out of sort memory,
-consider increasing server sort buffer size
-```
-
-Add that line to your MySQL my.cnf configuration file and restart the MySQL daemon:
-```
-sort_buffer_size=1M
-```
-
 ## Installation or update
 
 This document is for the latest Aimeos Laravel **2016.10 release and later**.
 
-- Stable release: 2017.04 (Laravel 5.3 and 5.4)
+- Stable release: 2017.07 (Laravel 5.3 and 5.4)
 - LTS release: 2016.10 (Laravel 5.1 to 5.3)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -76,7 +63,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2017.04",
+        "aimeos/aimeos-laravel": "~2017.07",
         ...
     },
     "scripts": {
