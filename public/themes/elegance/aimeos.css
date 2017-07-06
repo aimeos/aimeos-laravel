@@ -906,6 +906,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin: 0.5em;
 }
 
+.catalog-detail .product .price-list .rebate {
+	display: none;
+}
+
 /* Stock level */
 .aimeos .product .stock-list {
 	display: inline-block;
