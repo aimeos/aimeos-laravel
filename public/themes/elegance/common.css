@@ -32,9 +32,8 @@
 
 .aimeos .price-list {
 	font-weight: normal;
-	text-align: left;
+	text-align: center;
 	color: #555;
-	height: 1em;
 	padding: 0;
 	margin: 0;
 }
@@ -57,7 +56,7 @@
 .aimeos .price-item .rebatepercent {
 	background-color: #A03030;
 	padding: 0em 0.25em;
-	margin-left: 2em;
+	margin-left: 1em;
 	color: #FFF;
 }
 

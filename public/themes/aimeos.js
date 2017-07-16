@@ -409,7 +409,7 @@ AimeosBasketMini = {
 
 		$(".aimeos .basket-mini-product").on("click", ".delete", function(ev) {
 
-			var product = $(this).parents(".product").first();
+			var product = $(this).closest(".product");
 
 			$.ajax(product.data("url"), {
 				"method": "DELETE",
@@ -418,6 +418,8 @@ AimeosBasketMini = {
 			}).then(function(basket) {
 				AimeosBasketMini.updateBasket(basket);
 			});
+
+			return false;
 		});
 	},
 

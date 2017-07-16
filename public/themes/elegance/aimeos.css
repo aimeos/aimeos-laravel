@@ -269,7 +269,7 @@
 
 .aimeos .selection input:not([type=radio]):not([type=checkbox]) {
 	height: calc(3.25rem + 2px);
-	width: 12em;
+	width: 15em;
 }
 
 
@@ -815,7 +815,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	outline: none;
 }
 
-.catalog-list .list-items {
+.aimeos .product .list-items {
 	text-align: center;
 	font-size: 90%;
 	padding: 0;
@@ -828,7 +828,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	white-space: normal;
 	position: relative;
 	overflow: hidden;
-	margin: 1em 0;
+	margin: 1em 1%;
 	width: 240px;
 }
 
@@ -867,16 +867,16 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 /* text list */
 .aimeos .product .text-list {
-	padding: 0.5em 1em;
 	line-height: 1.1;
-	text-align: left;
 	overflow: hidden;
 	color: #555;
+	max-width: 15em;
+	margin: 0.5em auto;
 }
 
 .catalog-detail .product .text-list,
 .basket-related .product .text-list {
-	margin: 0.5em;
+	margin: 0.5em 0;
 }
 
 .aimeos .product .text-list h2 {
@@ -896,14 +896,14 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 /* product offer part */
 .catalog-list .offer {
-	text-align: left;
+	max-width: 15em;
+	margin: auto;
 }
 
 /* price list */
 .aimeos .product .price-list {
 	box-sizing: content-box;
 	display: inline-block;
-	margin: 0.5em;
 }
 
 .catalog-detail .product .price-list .rebate {
@@ -925,6 +925,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 .aimeos .product .stocklevel {
+	vertical-align: middle;
 	display: inline-block;
 	height: 1em;
 	width: 1em;
@@ -1377,7 +1378,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-list-items .addbasket button.btn-action {
 	vertical-align: inherit;
 	min-width: 8em;
-	margin: 0.33em 0;
+	margin: 0.3em 0;
 }
 
 .catalog-list-items .addbasket input,
@@ -1385,7 +1386,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	border: 1px solid #B0A060;
 	text-align: center;
 	font-size: 125%;
-	padding: 0.5em;
 	width: 4em;
 }
 
@@ -1470,7 +1470,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
-	width: 12em;
+	width: 15em;
 	display: block;
 }
 
@@ -1485,8 +1485,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	border: none;
 	font-weight: normal;
 	text-transform: none;
-	padding: 0.5em 0;
-	width: 15em;
+	width: 17em;
 }
 
 .catalog-list-items .selection ul.select-list,
@@ -1690,6 +1689,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-session-pinned,
 .catalog-session-seen {
 	margin-bottom: 0.5em;
+	font-size: 90%;
 }
 
 .account-watch .watch-items,
@@ -1791,9 +1791,11 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	height: 3em;
 	font-size: 100%;
 	font-weight: normal;
-	text-align: left;
+	text-align: center;
 	overflow: hidden;
-	text-transform: uppercase
+	text-transform: uppercase;
+	max-width: 15em;
+	margin: auto;
 }
 
 .account-watch .modify,
