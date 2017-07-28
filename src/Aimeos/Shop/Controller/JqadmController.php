@@ -126,6 +126,27 @@ class JqadmController extends AdminController
 
 
 	/**
+	 * Exports the data for a resource object
+	 *
+	 * @return string Generated output
+	 */
+	public function exportAction()
+	{
+		if( config( 'shop.authorize', true ) ) {
+			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor', 'viewer']] );
+		}
+
+		$cntl = $this->createClient();
+
+		if( ( $html = $cntl->export() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
+	}
+
+
+	/**
 	 * Returns the HTML code for the requested resource object
 	 *
 	 * @return string Generated output
@@ -138,6 +159,22 @@ class JqadmController extends AdminController
 
 		$cntl = $this->createClient();
 		return $this->getHtml( $cntl->get() );
+	}
+
+
+	/**
+	 * Imports the uploaded file for a resource object
+	 *
+	 * @return string Generated output
+	 */
+	public function importAction()
+	{
+		if( config( 'shop.authorize', true ) ) {
+			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+		}
+
+		$cntl = $this->createClient();
+		return $this->getHtml( $cntl->import() );
 	}
 
 

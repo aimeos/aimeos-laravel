@@ -52,9 +52,19 @@ Route::group(config('shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'mid
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@deleteAction'
 	));
 
+	Route::match( array( 'GET', 'POST' ), 'export/{resource}', array(
+		'as' => 'aimeos_shop_jqadm_export',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@exportAction'
+	));
+
 	Route::match( array( 'GET' ), 'get/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_get',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@getAction'
+	));
+
+	Route::match( array( 'GET', 'POST' ), 'import/{resource}', array(
+		'as' => 'aimeos_shop_jqadm_import',
+		'uses' => 'Aimeos\Shop\Controller\JqadmController@importAction'
 	));
 
 	Route::match( array( 'POST' ), 'save/{resource}/{id?}', array(
