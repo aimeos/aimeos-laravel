@@ -57,6 +57,16 @@ class JqadmControllerTest extends AimeosTestAbstract
 	}
 
 
+	public function testExportAction()
+	{
+		$params = ['site' => 'unittest', 'resource' => 'order'];
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@exportAction', $params);
+
+		$this->assertEquals( 200, $response->getStatusCode() );
+		$this->assertContains( 'list-items', $response->getContent() );
+	}
+
+
 	public function testGetAction()
 	{
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];

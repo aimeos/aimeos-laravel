@@ -84,7 +84,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( $cntl->copy() );
+
+		if( ( $html = $cntl->copy() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
@@ -100,7 +105,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( $cntl->create() );
+
+		if( ( $html = $cntl->create() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
@@ -158,7 +168,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( $cntl->get() );
+
+		if( ( $html = $cntl->get() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
@@ -174,7 +189,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( $cntl->import() );
+
+		if( ( $html = $cntl->import() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
@@ -211,7 +231,12 @@ class JqadmController extends AdminController
 		}
 
 		$cntl = $this->createClient();
-		return $this->getHtml( $cntl->search() );
+
+		if( ( $html = $cntl->search() ) == '' ) {
+			return $cntl->getView()->response();
+		}
+
+		return $this->getHtml( $html );
 	}
 
 
