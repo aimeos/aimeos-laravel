@@ -207,12 +207,7 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 		'uses' => 'Aimeos\Shop\Controller\CheckoutController@indexAction'
 	));
 
-});
-
-
-Route::group(config('shop.routes.confirm', ['middleware' => ['web']]), function() {
-
-	Route::match( array( 'GET', 'POST' ), 'confirm', array(
+	Route::match( array( 'GET', 'POST' ), 'confirm/{code?}', array(
 		'as' => 'aimeos_shop_confirm',
 		'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
 	));

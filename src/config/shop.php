@@ -10,7 +10,6 @@ return [
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['middleware' => ['web', 'auth']],
 		// 'default' => ['middleware' => ['web']],
-		// 'confirm' => ['middleware' => ['web']],
 		// 'update' => [],
 	],
 
