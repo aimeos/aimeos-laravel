@@ -380,7 +380,9 @@ AimeosBasketMini = {
 
 			$(".aimeos .basket-mini-product .product").not(".prototype").remove();
 
-			for(entry of basket.included) {
+			for(var i=0; i<basket.included.length; i++) {
+				var entry = basket.included[i];
+
 				if(entry.type === 'basket/product') {
 					var product = prototype.clone();
 

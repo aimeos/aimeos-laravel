@@ -65,6 +65,20 @@
 	background-color: #BBB;
 }
 
+.aimeos input:disabled {
+	border-color: #D0D0D0;
+}
+
+.aimeos .standardbutton:disabled {
+	background-color: #D0D0D0;
+	border-color: #D0D0D0;
+	cursor: not-allowed;
+}
+
+.aimeos .standardbutton:disabled:hover {
+	background-color: #D0D0D0;
+}
+
 /* Buttons calculate width incl. padding, links not! */
 .aimeos button.standardbutton {
 	min-width: 12.01em;
@@ -828,6 +842,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	white-space: normal;
 	position: relative;
 	overflow: hidden;
+	font-size: 90%;
 	margin: 1em 1%;
 	width: 240px;
 }
@@ -1312,6 +1327,16 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	color: #555;
 }
 
+.catalog-list-items .price,
+.catalog-detail-basket .price {
+	display: none;
+}
+
+.catalog-list-items .price-actual,
+.catalog-detail-basket .price-actual {
+	display: inline-block;
+}
+
 .catalog-detail-basket .price-item:first-of-type {
 	display: block;
 	cursor: pointer;
@@ -1336,6 +1361,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-detail-basket .price-item .costs,
 .catalog-detail-basket .price-item .rebate,
 .catalog-detail-basket .price-item .taxrate {
+	vertical-align: middle;
 	display: inline-block;
 	margin: 0.25em 0;
 	min-width: 4em;
@@ -1343,10 +1369,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .catalog-detail-basket .price-item .rebatepercent {
 	min-width: auto;
-}
-
-.catalog-detail-basket .price-actual {
-	display: inline-block;
 }
 
 .catalog-detail-basket .price-item:first-of-type .taxrate {
