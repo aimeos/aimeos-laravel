@@ -41,7 +41,7 @@ return array(
 		),
 		'fs-admin' => array(
 			'adapter' => 'Standard',
-			'basedir' => public_path( 'uploads' ),
+			'basedir' => storage_path( 'admin' ),
 			'tempdir' => storage_path( 'tmp' ),
 		),
 		'fs-secure' => array(
