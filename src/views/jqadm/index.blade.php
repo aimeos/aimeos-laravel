@@ -14,6 +14,14 @@
 		<link rel="stylesheet" href="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'lang' => 'en', 'type' => 'css' ) ); ?>">
 	</head>
 	<body>
+		<div class="app-menu" style="text-align: right; margin: 0 2.5%;">
+			<a class="logout" style="padding: 0.25rem 0.75rem; font-weight: bold" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+				Logout
+			</a>
+			<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+				{{ csrf_field() }}
+			</form>
+		</div>
 
 <?= $content ?>
 
