@@ -44,6 +44,11 @@ return array(
 			'basedir' => storage_path( 'admin' ),
 			'tempdir' => storage_path( 'tmp' ),
 		),
+		'fs-import' => array(
+			'adapter' => 'Standard',
+			'basedir' => storage_path( 'import' ),
+			'tempdir' => storage_path( 'tmp' ),
+		),
 		'fs-secure' => array(
 			'adapter' => 'Standard',
 			'basedir' => storage_path( 'secure' ),
