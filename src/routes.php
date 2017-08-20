@@ -40,7 +40,7 @@ Route::group(config('shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'mid
 	Route::match( array( 'GET', 'POST' ), 'copy/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_copy',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]+' ) );
 
 	Route::match( array( 'GET', 'POST' ), 'create/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_create',
@@ -50,7 +50,7 @@ Route::group(config('shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'mid
 	Route::match( array( 'GET', 'POST' ), 'delete/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_delete',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@deleteAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]+' ) );
 
 	Route::match( array( 'GET', 'POST' ), 'export/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_export',
@@ -60,17 +60,17 @@ Route::group(config('shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'mid
 	Route::match( array( 'GET' ), 'get/{resource}/{id}', array(
 		'as' => 'aimeos_shop_jqadm_get',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@getAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]+' ) );
 
 	Route::match( array( 'GET', 'POST' ), 'import/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_import',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@importAction'
 	))->where( array( 'resource' => '[^0-9A-Z\-\_]+' ) );
 
-	Route::match( array( 'POST' ), 'save/{resource}/{id?}', array(
+	Route::match( array( 'POST' ), 'save/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_save',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@saveAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]*' ) )->defaults( 'id', '' );
+	))->where( array( 'resource' => '[^0-9A-Z\-\_]+' ) );
 
 	Route::match( array( 'GET', 'POST' ), 'search/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_search',
