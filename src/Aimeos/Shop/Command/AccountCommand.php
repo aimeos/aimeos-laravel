@@ -41,7 +41,7 @@ class AccountCommand extends AbstractCommand
 	 *
 	 * @return mixed
 	 */
-	public function fire()
+	public function handle()
 	{
 		$code = $this->argument( 'email' );
 		if( ( $password = $this->option( 'password' ) ) === null ) {
