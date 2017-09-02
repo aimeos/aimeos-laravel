@@ -41,7 +41,7 @@ class JobsCommand extends AbstractCommand
 	 *
 	 * @return mixed
 	 */
-	public function fire()
+	public function handle()
 	{
 		$aimeos = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$context = $this->getContext();

@@ -40,7 +40,7 @@ class CacheCommand extends AbstractCommand
 	 *
 	 * @return mixed
 	 */
-	public function fire()
+	public function handle()
 	{
 		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:cache' );
