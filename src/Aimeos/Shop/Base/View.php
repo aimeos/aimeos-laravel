@@ -25,6 +25,11 @@ use Illuminate\Support\Facades\Response;
 class View
 {
 	/**
+	 * @var \Illuminate\Contracts\Config\Repository
+	 */
+	private $config;
+
+	/**
 	 * @var \Aimeos\Shop\Base\I18n
 	 */
 	private $i18n;
@@ -38,12 +43,15 @@ class View
 	/**
 	 * Initializes the object
 	 *
+	 * @param \Illuminate\Contracts\Config\Repository $config Configuration object
 	 * @param \Aimeos\Shop\Base\I18n $i18n I18n object
 	 * @param \Aimeos\Shop\Base\Support $support Support object
 	 */
-	public function __construct( \Aimeos\Shop\Base\I18n $i18n, \Aimeos\Shop\Base\Support $support )
+	public function __construct( \Illuminate\Contracts\Config\Repository $config,
+		\Aimeos\Shop\Base\I18n $i18n, \Aimeos\Shop\Base\Support $support )
 	{
 		$this->i18n = $i18n;
+		$this->config = $config;
 		$this->support = $support;
 	}
 
@@ -88,13 +96,21 @@ class View
 	 */
 	protected function addAccess( \Aimeos\MW\View\Iface $view, \Aimeos\MShop\Context\Item\Iface $context )
 	{
-		$support = $this->support;
+		if( $this->config->get( 'shop.accessControl', true ) !== false )
+		{
+			$support = $this->support;
 
-		$fcn = function() use ( $support, $context ) {
-			return $support->getGroups( $context );
-		};
+			$fcn = function() use ( $support, $context ) {
+				return $support->getGroups( $context );
+			};
 
-		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $fcn );
+			$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $fcn );
+		}
+		else
+		{
+			$helper = new \Aimeos\MW\View\Helper\Access\All( $view );
+		}
+
 		$view->addHelper( 'access', $helper );
 
 		return $view;

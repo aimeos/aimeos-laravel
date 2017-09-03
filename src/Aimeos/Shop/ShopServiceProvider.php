@@ -101,7 +101,7 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 		$this->app->singleton('Aimeos\Shop\Base\View', function($app) {
-			return new \Aimeos\Shop\Base\View($app['Aimeos\Shop\Base\I18n'], $app['Aimeos\Shop\Base\Support']);
+			return new \Aimeos\Shop\Base\View($app['config'], $app['Aimeos\Shop\Base\I18n'], $app['Aimeos\Shop\Base\Support']);
 		});
 
 

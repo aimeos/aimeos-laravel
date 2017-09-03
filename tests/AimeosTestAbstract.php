@@ -20,7 +20,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 
 		$app['config']->set('shop.authorize', false);
 		$app['config']->set('shop.disableSites', false);
-		$app['config']->set('shop.routes.login', []);
+		$app['config']->set('shop.accessControl', false);
 		$app['config']->set('shop.routes.jqadm', ['prefix' => '{site}/jqadm']);
 		$app['config']->set('shop.routes.extadm', ['prefix' => '{site}/extadm']);
 		$app['config']->set('shop.routes.jsonadm', ['prefix' => '{site}/jsonadm']);
@@ -29,6 +29,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 		$app['config']->set('shop.routes.default', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.confirm', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.update', ['prefix' => '{site}']);
+		$app['config']->set('shop.routes.login', []);
 	}
 
 
