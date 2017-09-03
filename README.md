@@ -44,7 +44,7 @@ To circumvent this problem, you should change the database charset/collation in 
 
 This document is for the latest Aimeos Laravel **2016.10 release and later**.
 
-- Stable release: 2017.07 (Laravel 5.3 and 5.4)
+- Stable release: 2017.07 (Laravel 5.3/5.4/5.5)
 - LTS release: 2016.10 (Laravel 5.1 to 5.3)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -216,10 +216,11 @@ Laravel installation but the **home page stays untouched!**
 
 To use the admin interface, you have to set up Laravel authentication first.
 Please follow the Laravel documentation to create the necessary code:
-* [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
-* [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
-* [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
+* [Laravel 5.5](https://laravel.com/docs/5.5/authentication)
 * [Laravel 5.4](https://laravel.com/docs/5.4/authentication)
+* [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
+* [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
+* [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
 
 **Note:** You need a route for **/login in Laravel 5.1** too!
 
@@ -237,7 +238,7 @@ As a last step, you need to extend the ```boot()``` method of your
 ```App\Providers\AuthServiceProvider``` class and add the lines to define how
 authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```.
 
-For Laravel 5.3/5.4 and Aimeos 2017.x use instead:
+For Laravel 5.3/5.4/5.5 and Aimeos 2017.x use instead:
 ```php
 public function boot()
 {
