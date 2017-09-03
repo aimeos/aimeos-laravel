@@ -7,12 +7,13 @@ php:
   - 7.1
 
 env:
-  - LARAVEL_VERSION=5.4.*
-  - LARAVEL_VERSION=5.3.*
+  - LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
+  - LARAVEL_VERSION=5.4.* PHPUNIT_VERSION=~5.7
+  - LARAVEL_VERSION=5.3.* PHPUNIT_VERSION=~5.7
 
 before_script:
   - composer self-update
-  - composer require "laravel/framework:${LARAVEL_VERSION}"
+  - composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
   - mysql -e 'create database laravel;'
 
 script: vendor/bin/phpunit --coverage-clover coverage.xml
@@ -22,3 +23,6 @@ after_success:
 
 matrix:
   fast_finish: true
+  exclude:
+  - php: 5.6
+    env: LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
