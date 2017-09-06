@@ -30,6 +30,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 		$app['config']->set('shop.routes.confirm', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.update', ['prefix' => '{site}']);
 		$app['config']->set('shop.routes.login', []);
+		$app['config']->set('shop.extdir', dirname( __DIR__ ) . DIRECTORY_SEPARATOR . 'ext' );
 	}
 
 

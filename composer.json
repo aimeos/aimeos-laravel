@@ -64,5 +64,12 @@
             "cp -r ext/ai-admin-extadm/admin/extjs/resources/* public/admin/extjs/resources/",
             "cp -r ext/ai-client-html/client/html/themes/* public/themes/"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aimeos\\Shop\\ShopServiceProvider"
+            ]
+        }
     }
 }

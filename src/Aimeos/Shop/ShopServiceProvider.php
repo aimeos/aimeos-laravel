@@ -36,32 +36,14 @@ class ShopServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$basedir = dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR;
-		$confpath = config_path('shop.php');
+		$ds = DIRECTORY_SEPARATOR;
+		$basedir = dirname( dirname( __DIR__ ) ) . $ds;
 
-		$config = array_replace_recursive(
-			$this->app['config']->get('shop', []),
-			(file_exists($confpath) ? require $confpath : array())
-		);
-		$this->app['config']->set('shop', $config);
+		$this->loadRoutesFrom( $basedir . 'routes.php' );
+		$this->loadViewsFrom( $basedir . 'views', 'shop' );
 
-		$this->loadViewsFrom($basedir.'views', 'shop');
-
-
-		$this->publishes(array(
-			$basedir.'config/shop.php' => config_path('shop.php'),
-		), 'config');
-
-		$this->publishes(array(
-			$basedir.'views' => base_path('resources/views/vendor/shop'),
-		), 'views');
-
-		$this->publishes(array(
-			dirname($basedir).DIRECTORY_SEPARATOR.'public' => public_path('packages/aimeos/shop'),
-		), 'public');
-
-
-		require $basedir.'routes.php';
+		$this->publishes( [ $basedir . 'config/shop.php' => config_path( 'shop.php' ) ], 'config' );
+		$this->publishes( [ dirname( $basedir ) . $ds . 'public' => public_path( 'packages/aimeos/shop' ) ], 'public' );
 	}
 
 
@@ -72,6 +54,8 @@ class ShopServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+		$this->mergeConfigFrom( dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR . 'default.php', 'shop');
+
 		$this->app->singleton('Aimeos\Shop\Base\Aimeos', function($app) {
 			return new \Aimeos\Shop\Base\Aimeos($app['config']);
 		});
