@@ -21,11 +21,13 @@ use Symfony\Component\Console\Input\InputArgument;
 class CacheCommand extends AbstractCommand
 {
 	/**
-	 * The console command name.
+	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $name = 'aimeos:cache';
+	protected $signature = 'aimeos:cache
+		{site? : Site codes to clear the Aimeos content cache for like "default unittest" (none for all)}
+	';
 
 	/**
 	 * The console command description.
@@ -61,29 +63,5 @@ class CacheCommand extends AbstractCommand
 
 			\Aimeos\MAdmin\Cache\Manager\Factory::createManager( $lcontext )->getCache()->clear();
 		}
-	}
-
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array( 'site', InputArgument::OPTIONAL, 'Site codes to clear the cache like "default unittest" (none for all)' ),
-		);
-	}
-
-
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions()
-	{
-		return array();
 	}
 }

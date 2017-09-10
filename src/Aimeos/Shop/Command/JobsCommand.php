@@ -22,11 +22,14 @@ use Symfony\Component\Console\Input\InputArgument;
 class JobsCommand extends AbstractCommand
 {
 	/**
-	 * The console command name.
+	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $name = 'aimeos:jobs';
+	protected $signature = 'aimeos:jobs
+		{jobs : One or more job controller names like "admin/job customer/email/watch"}
+		{site? : Site codes to execute the jobs for like "default unittest" (none for all)}
+	';
 
 	/**
 	 * The console command description.
@@ -71,30 +74,6 @@ class JobsCommand extends AbstractCommand
 		}
 
 		$process->wait();
-	}
-
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array( 'jobs', InputArgument::REQUIRED, 'One or more job controller names like "admin/job customer/email/watch"' ),
-			array( 'site', InputArgument::OPTIONAL, 'Site codes to execute the jobs for like "default unittest" (none for all)' ),
-		);
-	}
-
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions()
-	{
-		return array();
 	}
 
 

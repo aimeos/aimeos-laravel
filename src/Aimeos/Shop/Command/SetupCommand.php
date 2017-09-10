@@ -22,11 +22,17 @@ use Symfony\Component\Console\Input\InputArgument;
 class SetupCommand extends AbstractCommand
 {
 	/**
-	 * The console command name.
+	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $name = 'aimeos:setup';
+	protected $signature = 'aimeos:setup
+		{site=default : Site for updating database entries}
+		{tplsite=default : Site used as template for creating the new one}
+		{--task : Name of the setup task that should be executed}
+		{--action=migrate : Action name that should be executed, i.e. "migrate", "rollback", "clean"}
+		{--option= : Setup configuration, name and value are separated by ":" like "setup/default/demo:1"}
+	';
 
 	/**
 	 * The console command description.
@@ -77,35 +83,6 @@ class SetupCommand extends AbstractCommand
 			default:
 				throw new \Exception( sprintf( 'Invalid setup action "%1$s"', $this->option( 'action' ) ) );
 		}
-	}
-
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array( 'site', InputArgument::OPTIONAL, 'Site for updating database entries', 'default' ),
-			array( 'tplsite', InputArgument::OPTIONAL, 'Site used as template for creating the new one', 'default' ),
-		);
-	}
-
-
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions()
-	{
-		return array(
-			array( 'option', null, InputOption::VALUE_REQUIRED, 'Setup configuration, name and value are separated by ":" like "setup/default/demo:1"', array() ),
-			array( 'action', null, InputOption::VALUE_REQUIRED, 'Action name that should be executed, i.e. "migrate", "rollback", "clean"', 'migrate' ),
-			array( 'task', null, InputOption::VALUE_REQUIRED, 'Name of the setup task that should be executed', null ),
-		);
 	}
 
 

@@ -22,11 +22,20 @@ use Symfony\Component\Console\Input\InputArgument;
 class AccountCommand extends AbstractCommand
 {
 	/**
-	 * The console command name.
+	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $name = 'aimeos:account';
+	protected $signature = 'aimeos:account
+		{email? : E-Mail adress of the (admin) user (will ask for if not given)}
+		{site=default : Site to create account for}
+		{--password= : Secret password for the account (will ask for if not given)}
+		{--super : If account should have super user privileges for all sites}
+		{--admin : If account should have site administrator privileges}
+		{--editor : If account should have limited editor privileges}
+		{--viewer : If account should only have view privileges only}
+		{--api : If account should be able to access the APIs}
+	';
 
 	/**
 	 * The console command description.
@@ -43,7 +52,10 @@ class AccountCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		$code = $this->argument( 'email' );
+		if( ( $code = $this->argument( 'email' ) ) === null ) {
+			$code = $this->ask( 'E-Mail' );
+		}
+
 		if( ( $password = $this->option( 'password' ) ) === null ) {
 			$password = $this->secret( 'Password' );
 		}
@@ -56,6 +68,10 @@ class AccountCommand extends AbstractCommand
 		$context->setLocale( $localeItem );
 
 		$user = $this->createCustomerItem( $context, $code, $password );
+
+		if( $this->option( 'super' ) ) {
+			$this->addGroup( $context, $user, 'super' );
+		}
 
 		if( $this->option( 'admin' ) ) {
 			$this->addGroup( $context, $user, 'admin' );
