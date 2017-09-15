@@ -33,7 +33,6 @@ class AccountCommand extends AbstractCommand
 		{--super : If account should have super user privileges for all sites}
 		{--admin : If account should have site administrator privileges}
 		{--editor : If account should have limited editor privileges}
-		{--viewer : If account should only have view privileges only}
 		{--api : If account should be able to access the APIs}
 	';
 
@@ -67,27 +66,7 @@ class AccountCommand extends AbstractCommand
 		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false );
 		$context->setLocale( $localeItem );
 
-		$user = $this->createCustomerItem( $context, $code, $password );
-
-		if( $this->option( 'super' ) ) {
-			$this->addGroup( $context, $user, 'super' );
-		}
-
-		if( $this->option( 'admin' ) ) {
-			$this->addGroup( $context, $user, 'admin' );
-		}
-
-		if( $this->option( 'api' ) ) {
-			$this->addGroup( $context, $user, 'api' );
-		}
-
-		if( $this->option( 'editor' ) ) {
-			$this->addGroup( $context, $user, 'editor' );
-		}
-
-		if( $this->option( 'viewer' ) ) {
-			$this->addGroup( $context, $user, 'viewer' );
-		}
+		$this->addGroups( $context, $this->createCustomerItem( $context, $code, $password ) );
 	}
 
 
@@ -125,6 +104,32 @@ class AccountCommand extends AbstractCommand
 			$item->setStatus( 1 );
 
 			$manager->saveItem( $item, false );
+		}
+	}
+
+
+	/**
+	 * Adds the group to the given user
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
+	 * @param \Aimeos\MShop\Customer\Item\Iface $user Aimeos customer object
+	 */
+	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user )
+	{
+		if( $this->option( 'super' ) ) {
+			$this->addGroup( $context, $user, 'super' );
+		}
+
+		if( $this->option( 'admin' ) ) {
+			$this->addGroup( $context, $user, 'admin' );
+		}
+
+		if( $this->option( 'editor' ) ) {
+			$this->addGroup( $context, $user, 'editor' );
+		}
+
+		if( $this->option( 'api' ) ) {
+			$this->addGroup( $context, $user, 'api' );
 		}
 	}
 
