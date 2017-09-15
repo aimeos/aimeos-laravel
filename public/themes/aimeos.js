@@ -837,7 +837,12 @@ AimeosCatalog = {
 
 			Aimeos.createOverlay();
 
-			$.get($(this).attr("href"), function(data) {
+			$.ajax({
+				url: $(this).attr("href"),
+				headers: {
+					"X-Requested-With": "jQuery"
+				}
+			}).done(function(data) {
 
 				var doc = document.createElement("html");
 				doc.innerHTML = data;
@@ -864,7 +869,12 @@ AimeosCatalog = {
 
 			Aimeos.createOverlay();
 
-			$.get($(this).attr("href"), function(data) {
+			$.ajax({
+				url: $(this).attr("href"),
+				headers: {
+					"X-Requested-With": "jQuery"
+				}
+			}).done(function(data) {
 
 				var doc = document.createElement("html");
 				doc.innerHTML = data;
