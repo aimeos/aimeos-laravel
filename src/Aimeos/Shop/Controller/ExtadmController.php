@@ -37,7 +37,7 @@ class ExtadmController extends AdminController
 	public function indexAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [ExtadmController::class, ['admin']] );
+			$this->authorize( 'admin', [ExtadmController::class, ['admin', 'super']] );
 		}
 
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
@@ -106,7 +106,7 @@ class ExtadmController extends AdminController
 	public function doAction( Request $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [ExtadmController::class, ['admin']] );
+			$this->authorize( 'admin', [ExtadmController::class, ['admin', 'super']] );
 		}
 
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
@@ -133,7 +133,7 @@ class ExtadmController extends AdminController
 	public function fileAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [ExtadmController::class, ['admin']] );
+			$this->authorize( 'admin', [ExtadmController::class, ['admin', 'super']] );
 		}
 
 		$contents = '';
