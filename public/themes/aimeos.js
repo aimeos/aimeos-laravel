@@ -12,8 +12,6 @@
  */
 Aimeos = {
 
-	jsonOptions: null,
-
 
 	/**
 	 * Creates a floating container over the page displaying the given content node
@@ -141,12 +139,6 @@ Aimeos = {
 	 * Initializes the setup methods
 	 */
 	init: function() {
-
-		this.jsonOptions = $.ajax($(".aimeos[data-jsonurl]").first().data("jsonurl"), {
-			"method": "OPTIONS",
-			"dataType": "json"
-		});
-
 		this.setupContainerClose();
 	}
 };
@@ -334,10 +326,13 @@ AimeosBasketMini = {
 	 */
 	update: function() {
 
-		$.when(Aimeos.jsonOptions).then(function(options) {
+		$.ajax($(".aimeos.basket-mini[data-jsonurl]").data("jsonurl"), {
+			"method": "OPTIONS",
+			"dataType": "json"
+		}).then(function(options) {
 			$.ajax({
 				dataType: "json",
-				url: options.meta.resources['basket'] || null
+				url: options.meta.resources['basket']
 			}).then(function(basket) {
 				AimeosBasketMini.updateBasket(basket);
 			});
@@ -431,30 +426,27 @@ AimeosBasketMini = {
 	 */
 	setupBasketToggle: function() {
 
-		var basketmini = $(".aimeos.basket-mini");
-		var width = basketmini.innerWidth();
+		var width = $(".aimeos.basket-mini").innerWidth();
 
-		$(".aimeos.basket-mini").on("click", ".basket-toggle", function(ev) {
+		$(".aimeos.basket-mini").on("click", ".basket-toggle.toggle-open", function(ev) {
 
-			if($(ev.delegateTarget).innerWidth() > width ) {
+			$(".basket", ev.delegateTarget).toggle();
+			$(".basket", ev.delegateTarget).css("width", width);
 
-				$(".basket", ev.delegateTarget).css("width", width);
+			$(ev.delegateTarget).animate({"width": width}, {done: function() {
+				$(ev.currentTarget).removeClass("toggle-open").addClass("toggle-close");
+			}});
+		});
+
+		$(".aimeos.basket-mini").on("click", ".basket-toggle.toggle-close", function(ev) {
+
+			$(ev.delegateTarget).animate({"width": AimeosBasketMini.WIDTH}, {done: function() {
+
 				$(".basket", ev.delegateTarget).toggle();
+				$(".basket", ev.delegateTarget).css("width", AimeosBasketMini.WIDTH);
 
-				$(ev.delegateTarget).animate({"width": width}, {done: function() {
-					$(ev.currentTarget).removeClass("toggle-open").addClass("toggle-close");
-				}});
-
-			} else {
-
-				$(ev.delegateTarget).animate({"width": AimeosBasketMini.WIDTH}, {done: function() {
-
-					$(".basket", ev.delegateTarget).toggle();
-					$(".basket", ev.delegateTarget).css("width", AimeosBasketMini.WIDTH);
-					$(ev.currentTarget).removeClass("toggle-close").addClass("toggle-open");
-				}});
-
-			}
+				$(ev.currentTarget).removeClass("toggle-close").addClass("toggle-open");
+			}});
 		});
 	},
 
