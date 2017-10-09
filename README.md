@@ -50,10 +50,9 @@ To circumvent this problem, you should change the database charset/collation in 
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **2016.10 release and later**.
+This document is for the latest Aimeos Laravel **2017.10 release and later**.
 
-- Stable release: 2017.07 (Laravel 5.3/5.4/5.5)
-- LTS release: 2016.10 (Laravel 5.1 to 5.3)
+- LTS release: 2017.10 (Laravel 5.3 to 5.5)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -71,7 +70,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2017.07",
+        "aimeos/aimeos-laravel": "~2017.10",
         ...
     },
     "scripts": {
