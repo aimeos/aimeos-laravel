@@ -743,7 +743,7 @@ AimeosCatalog = {
 					$(".articleitem", parent).removeClass("price-actual");
 					newPrice.addClass("price-actual");
 
-					if( parent.data("reqstock") && newStock.hasClass("stock-out") ) {
+					if( parent.data("reqstock") && $(".stockitem", newStock).hasClass("stock-out") ) {
 						$(".addbasket .btn-action", parent).addClass("btn-disabled").attr("disabled", "disabled");
 					} else {
 						$(".addbasket .btn-action", parent).removeClass("btn-disabled").removeAttr("disabled");
