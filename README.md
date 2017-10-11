@@ -114,7 +114,7 @@ In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```
-php artisan vendor:publish
+php artisan vendor:publish --all
 php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
 php artisan aimeos:cache
