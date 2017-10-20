@@ -762,7 +762,7 @@ AimeosCatalog = {
 	 */
 	setupVariantCheck: function() {
 
-		$(".catalog-detail-basket, .catalog-list-items").on("click", ".addbasket .btn-action", {}, function(event) {
+		$(".catalog-detail-basket-selection, .catalog-list-items .items-selection").on("click", ".addbasket .btn-action", {}, function(event) {
 
 			var result = true;
 

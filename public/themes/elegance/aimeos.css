@@ -1517,12 +1517,17 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .catalog-list-items .selection li.select-entry,
 .catalog-detail-basket .selection li.select-entry {
+	list-style: none;
+}
+
+.catalog-list-items .selection .radio li.select-entry,
+.catalog-detail-basket .selection .radio li.select-entry {
 	display: inline-block;
 	margin: 0;
 }
 
-.catalog-list-items .selection input.select-option,
-.catalog-detail-basket .selection input.select-option {
+.catalog-list-items .selection .radio input.select-option,
+.catalog-detail-basket .selection .radio input.select-option {
 	display: none;
 }
 
@@ -1554,6 +1559,25 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-list-items .selection .select-option:disabled + .select-label,
 .catalog-detail-basket .selection .select-option:disabled + .select-label {
 	opacity: 0.25;
+}
+
+.catalog-list-items .selection .input .select-entry,
+.catalog-detail-basket .selection .input .select-entry {
+	margin: 0.1em 0;
+}
+
+.catalog-list-items .selection input.select-option[type=number],
+.catalog-detail-basket .selection input.select-option[type=number] {
+	border: solid 1px #B0A060;
+	text-align: center;
+	width: 3em;
+}
+
+.catalog-list-items .selection .input .select-label,
+.catalog-detail-basket .selection .input .select-label {
+	height: calc(3.25rem + 2px);
+	min-width: 12em;
+	padding: 0.45em;
 }
 
 .catalog-list-items .selection .custom input[type=number],
