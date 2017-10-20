@@ -61,11 +61,6 @@ return array(
 	),
 
 	'admin' => array(
-		'extjs' => array(
-			'url' => array(
-				'target' => 'aimeos_shop_extadm',
-			),
-		),
 		'jqadm' => array(
 			'url' => array(
 				'copy' => array(
@@ -289,35 +284,6 @@ return array(
 						# 'maxheight' => 280,
 					),
 					'tempdir' => storage_path( 'aimeos' ),
-				),
-			),
-		),
-		'extjs' => array(
-			'attribute' => array(
-				'export' => array(
-					'text' => array(
-						'default' => array(
-							'downloaddir' => 'uploads',
-						),
-					),
-				),
-			),
-			'catalog' => array(
-				'export' => array(
-					'text' => array(
-						'default' => array(
-							'downloaddir' => 'uploads',
-						),
-					),
-				),
-			),
-			'product' => array(
-				'export' => array(
-					'text' => array(
-						'default' => array(
-							'downloaddir' => 'uploads',
-						),
-					),
 				),
 			),
 		),

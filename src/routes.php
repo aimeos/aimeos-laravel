@@ -10,26 +10,6 @@ Route::group(config('shop.routes.login', ['middleware' => ['web']]), function() 
 });
 
 
-Route::group(config('shop.routes.extadm', ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']]), function() {
-
-	Route::match( array( 'POST' ), 'do', array(
-		'as' => 'aimeos_shop_extadm_json',
-		'uses' => 'Aimeos\Shop\Controller\ExtadmController@doAction'
-	));
-
-	Route::match( array( 'GET' ), 'file', array(
-		'as' => 'aimeos_shop_extadm_file',
-		'uses' => 'Aimeos\Shop\Controller\ExtadmController@fileAction'
-	));
-
-	Route::match( array( 'GET' ), '/{lang?}/{tab?}', array(
-		'as' => 'aimeos_shop_extadm',
-		'uses' => 'Aimeos\Shop\Controller\ExtadmController@indexAction'
-	));
-
-});
-
-
 Route::group(config('shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']]), function() {
 
 	Route::match( array( 'GET' ), 'file/{type}', array(
@@ -61,11 +41,6 @@ Route::group(config('shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'mid
 		'as' => 'aimeos_shop_jqadm_get',
 		'uses' => 'Aimeos\Shop\Controller\JqadmController@getAction'
 	))->where( array( 'resource' => '[^0-9A-Z\-\_]+', 'id' => '[0-9A-Z\-\_]+' ) );
-
-	Route::match( array( 'GET', 'POST' ), 'import/{resource}', array(
-		'as' => 'aimeos_shop_jqadm_import',
-		'uses' => 'Aimeos\Shop\Controller\JqadmController@importAction'
-	))->where( array( 'resource' => '[^0-9A-Z\-\_]+' ) );
 
 	Route::match( array( 'POST' ), 'save/{resource}', array(
 		'as' => 'aimeos_shop_jqadm_save',
