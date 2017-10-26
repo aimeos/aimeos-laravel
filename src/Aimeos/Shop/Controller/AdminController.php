@@ -44,13 +44,14 @@ class AdminController extends Controller
 			return redirect()->guest( 'login' );
 		}
 
+		$siteId = $request->user()->siteid;
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
 		$siteManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
-		$siteItem = $siteManager->getItem( $request->user()->siteid );
+		$siteCode = ( $siteId ? $siteManager->getItem( $siteId )->getCode() : 'default' );
 
 		$param = array(
 			'resource' => 'dashboard',
-			'site' => Route::input( 'site', Input::get( 'site', $siteItem->getCode() ) ),
+			'site' => Route::input( 'site', Input::get( 'site', $siteCode ) ),
 			'lang' => Route::input( 'lang', Input::get( 'lang', $request->user()->langid ?: config( 'app.locale', 'en' ) ) )
 		);
 
