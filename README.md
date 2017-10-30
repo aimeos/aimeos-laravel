@@ -104,8 +104,14 @@ Next, the Aimeos provider class must be added to the `providers` array of the
 ```php
 return array(
     'providers' => array(
-        ...
+        /*
+         * Package Service Providers...
+         */
         Aimeos\Shop\ShopServiceProvider::class,
+
+        /*
+         * Application Service Providers...
+         */
     ),
 );
 ```
