@@ -128,20 +128,6 @@ php artisan aimeos:cache
 In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
 
-**Note:** For Laravel 5.1 the ```routes``` section in your **config/shop.php**
-must be changed like this because in 5.1 there's no middleware group "web" as
-in 5.2 and later:
-```php
-	'routes' => array(
-		'login' => array(),
-		'admin' => array('middleware' => array('auth')),
-		'account' => array('middleware' => array('auth')),
-		'default' => array(),
-		'confirm' => array(),
-		'update' => array(),
-	),
-```
-
 ## Setup
 
 To see all components and get everything working, you also need to create your
@@ -217,12 +203,12 @@ Point your browser to the list page of the shop using:
 
 http://127.0.0.1:8000/index.php/list
 
+**Note:** Integrating the Aimeos package adds some routes like `/list` or `/admin` to your
+Laravel installation but the **home page stays untouched!**
+
 **Caution:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
 routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
 if one of the payment providers is sending data via POST requests.
-
-**Note:** Integrating the Aimeos package adds some routes like `/list` or `/admin` to your
-Laravel installation but the **home page stays untouched!**
 
 ## Admin
 
@@ -231,10 +217,6 @@ Please follow the Laravel documentation to create the necessary code:
 * [Laravel 5.5](https://laravel.com/docs/5.5/authentication)
 * [Laravel 5.4](https://laravel.com/docs/5.4/authentication)
 * [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
-* [Laravel 5.2](https://laravel.com/docs/5.2/authentication)
-* [Laravel 5.1](https://laravel.com/docs/5.1/authentication)
-
-**Note:** You need a route for **/login in Laravel 5.1** too!
 
 Test if your authentication setup works before you continue. Create an admin account
 for your Laravel application so you will be able to log into the Aimeos admin interface:
@@ -246,29 +228,16 @@ frontend too. To protect the new account, the command will ask you for a passwor
 The same command can create limited accounts by using "--editor" or "--api" instead of
 "--admin".
 
-As a last step, you need to extend the ```boot()``` method of your
-```App\Providers\AuthServiceProvider``` class and add the lines to define how
-authorization for "admin" is checked in ```app/Providers/AuthServiceProvider.php```.
+As a last step, you need to extend the `boot()` method of your
+`App\Providers\AuthServiceProvider` class and add the lines to define how
+authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
 
-For Laravel 5.3/5.4/5.5 and Aimeos 2017.x use instead:
 ```php
 public function boot()
 {
 	// Keep the lines before
 
 	Gate::define('admin', function($user, $class, $roles) {
-		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
-	});
-}
-```
-
-For Laravel 5.1/5.2 and Aimeos 2016.x you have to use:
-```php
-public function boot(GateContract $gate)
-{
-	// Keep the lines before
-
-	$gate->define('admin', function($user, $roles) {
 		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
 	});
 }
