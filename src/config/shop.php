@@ -37,6 +37,7 @@ return [
 			'username' => env('DB_USERNAME', 'root'),
 			'password' => env('DB_PASSWORD', ''),
 			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'"],
+			'limit' => 3, // maximum number of concurrent database connections
 		],
 	],
 	*/
