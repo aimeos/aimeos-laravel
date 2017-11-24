@@ -1,8 +1,8 @@
 <?php
 
-Route::group(config('shop.routes.login', ['middleware' => ['web']]), function() {
+Route::group(config('shop.routes.login', ['prefix' => 'admin', 'middleware' => ['web']]), function() {
 
-	Route::match( array( 'GET' ), 'admin', array(
+	Route::match( array( 'GET' ), '', array(
 		'as' => 'aimeos_shop_admin',
 		'uses' => 'Aimeos\Shop\Controller\AdminController@indexAction'
 	));

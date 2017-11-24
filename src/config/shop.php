@@ -4,6 +4,7 @@ return [
 
 	'routes' => [
 		// 'login' => ['middleware' => ['web']],
+		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
 		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
