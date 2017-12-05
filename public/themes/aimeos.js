@@ -1287,7 +1287,7 @@ AimeosCheckoutStandard = {
 			var testfn = function(idx, element) {
 
 				var elem = $(element);
-				var value = elem.find("input,select").val();
+				var value = $("input,select", elem).val();
 
 				if(value === null || value.trim() === "") {
 					elem.addClass("error");
@@ -1298,9 +1298,12 @@ AimeosCheckoutStandard = {
 				}
 			};
 
-			var item = $(".checkout-standard .item-new, .item-service");
-			 // combining in one has() doesn't work
-			item.has(".header,label").has("input:checked").find(".form-list .mandatory").each(testfn);
+			var item = $(".checkout-standard .item-new, .item-service").each(function(node) {
+
+				if($(".header,label input", this).is(":checked")) {
+					$(".form-list .mandatory", this).each(testfn);
+				}
+			});
 
 			$(".checkout-standard-process .form-list .mandatory").each(testfn);
 

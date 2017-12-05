@@ -5,8 +5,8 @@
  * @copyright Aimeos (aimeos.org), 2014
  */
 
-.aimeos a:link,
-.aimeos a:visited {
+.aimeos a:link:not(.btn),
+.aimeos a:visited:not(.btn) {
 	color: #B0A060;
 }
 
