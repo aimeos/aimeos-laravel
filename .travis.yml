@@ -2,10 +2,9 @@ sudo: false
 language: php
 
 php:
-  - 7.2
-  - 7.1
-  - 7.0
   - 5.6
+  - 7.0
+  - 7.1
 
 env:
   - LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
