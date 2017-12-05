@@ -231,12 +231,19 @@ class JqadmController extends AdminController
 		$resource = Route::input( 'resource' );
 
 		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
+		$paths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
 		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang, 'en' ) ) );
 		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
-		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $templatePaths, $lang ) );
+
+		$view = app( '\Aimeos\Shop\Base\View' )->create( $context, $paths, $lang );
+
+		$view->aimeosType = 'Laravel';
+		$view->aimeosVersion = app( '\Aimeos\Shop\Base\Aimeos' )->getVersion();
+		$view->aimeosExtensions = implode( ',', $aimeos->getExtensions() );
+
+		$context->setView( $view );
 
 		return \Aimeos\Admin\JQAdm\Factory::createClient( $context, $aimeos, $resource );
 	}
@@ -250,13 +257,7 @@ class JqadmController extends AdminController
 	 */
 	protected function getHtml( $content )
 	{
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' );
-		$extnames = implode( ',', $aimeos->get()->getExtensions() );
-		$version = $aimeos->getVersion();
-
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-		$content = str_replace( ['{type}', '{version}', '{extensions}'], ['Laravel', $version, $extnames], $content );
-
 		return View::make( 'shop::jqadm.index', array( 'content' => $content, 'site' => $site ) );
 	}
 }
