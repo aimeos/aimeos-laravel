@@ -145,6 +145,6 @@ class JsonadmController extends Controller
 		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
 		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $templatePaths, $lang ) );
 
-		return \Aimeos\Admin\JsonAdm\Factory::createClient( $context, $templatePaths, $resource );
+		return \Aimeos\Admin\JsonAdm\Factory::createClient( $context, $aimeos, $resource );
 	}
 }

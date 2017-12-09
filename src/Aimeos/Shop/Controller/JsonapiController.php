@@ -115,6 +115,6 @@ class JsonapiController extends Controller
 
 		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $tmplPaths, $langid ) );
 
-		return \Aimeos\Client\JsonApi\Factory::createClient( $context, $tmplPaths, $resource . '/' . $related );
+		return \Aimeos\Client\JsonApi\Factory::createClient( $context, $resource . '/' . $related );
 	}
 }

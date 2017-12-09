@@ -84,7 +84,7 @@ class Page
 
 		foreach( (array) $page as $clientName )
 		{
-			$client = \Aimeos\Client\Html\Factory::createClient( $context, $tmplPaths, $clientName );
+			$client = \Aimeos\Client\Html\Factory::createClient( $context, $clientName );
 			$client->setView( clone $view );
 			$client->process();
 
