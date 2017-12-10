@@ -58,15 +58,8 @@ AimeosCatalogDetail = {
 
 		$(".catalog-detail-image").on("click", ".thumbs .item", {}, function(ev) {
 
-			var imageId = this.href.split("#").pop();
-			var container = $(".image-single", ev.delegateTarget);
-
-			window.location.hash = '#' + imageId;
-
 			$(".thumbs .item", ev.delegateTarget).removeClass("selected");
 			$(this).addClass("selected");
-
-			return false;
 		});
 	},
 

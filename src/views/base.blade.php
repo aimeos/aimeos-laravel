@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('aimeos_styles')
-    <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/common.css') }}" />
     <link type="text/css" rel="stylesheet" href="{{ asset('packages/aimeos/shop/themes/elegance/aimeos.css') }}" />
 @stop
 

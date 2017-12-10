@@ -58,6 +58,9 @@
 	width: 4em;
 }
 
+.aimeos .input-lg {
+	height: auto;
+}
 
 
 
@@ -81,10 +84,14 @@
 	font-size: 110%;
 }
 
+.aimeos a:link:not(.btn),
+.aimeos a:visited:not(.btn) {
+	color: #B0A060;
+}
+
 .aimeos input {
 	border: solid 1px #D0D0D0;
 	text-indent: 0.25em;
-	padding: 0.5em 0;
 }
 
 .aimeos input:disabled {
@@ -130,28 +137,15 @@
 	margin: 0;
 }
 
-.aimeos .form-list label {
-	display: inline;
-	width: 210px;
-	margin: 0.25em 0;
-	padding: 0.5em 0;
+.aimeos li.attr-item,
+.aimeos li.form-item {
+	list-style: none;
+	margin: 0.5em 0;
+	padding: 0;
 }
 
-.aimeos .form-list input:not([type=radio]):not([type=checkbox]) {
-	width: 215px;
-	background-color: #F0F0F0;
-	border: solid 1px #D0D0D0;
-	vertical-align: bottom;
-	margin: 0.25em 0;
-	padding: 0.5em 0;
-}
-
-.aimeos .form-list select {
-	width: 219px;
-	border: 1px solid #D0D0D0;
-	vertical-align: bottom;
-	margin: 0.25em 0;
-	padding: 0.5em 0;
+.aimeos .prototype {
+	display: none;
 }
 
 .aimeos .pagination {
@@ -253,6 +247,36 @@
 	display: block;
 	cursor: pointer;
 	text-align: right;
+}
+
+
+.aimeos .price-list {
+	font-weight: normal;
+	color: #555;
+	padding: 0;
+	margin: 0;
+}
+
+.aimeos .price-item {
+	display: none;
+}
+
+.aimeos .price-item:first-of-type {
+	display: block;
+}
+
+.aimeos .price-item:first-of-type .quantity,
+.aimeos .price-item:first-of-type .rebate,
+.aimeos .price-item:first-of-type .costs,
+.aimeos .price-item:first-of-type .taxrate {
+	display: none;
+}
+
+.aimeos .price-item .rebatepercent {
+	background-color: #A03030;
+	padding: 0em 0.25em;
+	margin-left: 1em;
+	color: #FFF;
 }
 
 
@@ -1439,6 +1463,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 .catalog-detail-basket .selection input.select-option[type=number] {
 	border: solid 1px #B0A060;
 	text-align: center;
+	padding: 0;
 	width: 3em;
 }
 
@@ -2033,33 +2058,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	content: "*";
 }
 
-.checkout-standard li.form-item {
-	vertical-align: bottom;
-	text-align: center;
-	padding-top: 0.75em;
-}
-
-.checkout-standard .form-list select {
-	min-width: 220px;
-	width: 50%;
-}
-
-.checkout-standard .form-list input:not([type=radio]):not([type=checkbox]) {
-	background-color: #F0F0F0;
-	border: solid 1px #D0D0D0;
-	vertical-align: bottom;
-	min-width: 220px;
-	width: 50%;
-}
-
-.checkout-standard .form-list label {
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
-	min-width: 220px;
-	width: 50%;
-}
-
 .checkout-standard .item-service .description {
 	display: inline-block;
 	vertical-align: top;
@@ -2118,21 +2116,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 /* Checkout address */
 .checkout-standard-address h2 {
 	padding: 1%;
-}
-
-.checkout-standard-address-billing,
-.checkout-standard-address-delivery {
-	display: inline-block;
-	vertical-align: top;
-	min-width: 220px;
-	width: 49%;
-}
-
-@media (max-width: 580px) {
-	.checkout-standard-address-billing,
-	.checkout-standard-address-delivery {
-		width: 100%;
-	}
 }
 
 .checkout-standard-address .item-address {
@@ -2208,13 +2191,11 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	background-color: #bbffbb;
 }
 
-.checkout-standard .item-service .form-list {
-	display: inline-block;
-	vertical-align: top;
-	min-width: 240px;
-	max-width: 480px;
-	width: 50%;
-	padding: 0.5em 1em 1em 1em;
+.checkout-standard .form-item label {
+	border-left: 2px solid transparent;
+	padding-left: 1em;
+	margin-bottom: 7px;
+	margin-top: 7px;
 }
 
 .checkout-standard .item-service .icon {
@@ -2225,21 +2206,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	padding-top: 0;
 }
 
-.checkout-standard .item-service .form-item-value {
-	display: inline-block;
-	min-width: 220px;
-	max-width: 66%;
-	width: 50%;
-}
-
 .checkout-standard .item-service .form-item-value input {
 	display: none;
-}
-
-.checkout-standard .item-service .form-item-value label {
-	border-left: 2px solid transparent;
-	padding: 0.5em 0;
-	padding-left: 1em;
 }
 
 .checkout-standard .item-service .form-item-value input:checked + label {
@@ -2291,17 +2259,226 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	float: right;
 }
 
-.aimeos .common-summary-additional .coupon,
-.aimeos .common-summary-additional .comment {
+
+/* Common summary */
+.aimeos .common-summary .error,
+.aimeos .common-summary-detail .error {
+	background-color: #ffeeee;
+	border-bottom: 1px solid #FF3300;
+}
+
+.aimeos .common-summary .item li {
+	vertical-align: top;
+	padding-top: 0.5em;
+}
+
+.aimeos .common-summary .content {
+	margin: 0.5em;
+	padding: 0.5em 1em;
+}
+
+.aimeos .common-summary .item .name {
 	display: inline-block;
 	vertical-align: top;
-	min-width: 232px;
-	width: 48.75%;
-	clear: both;
-	height: 8em;
+	color: #555;
+	width: 198px;
+}
+
+.aimeos .common-summary .item .name:after {
+	content: ":";
+}
+
+.aimeos .common-summary .item .value {
+	display: inline-block;
+	vertical-align: top;
+	width: 198px;
+}
+
+.aimeos .common-summary .item h4,
+.aimeos .common-summary .item .item-icons {
+	vertical-align: middle;
+	display: inline-block;
+	margin: 0 1em;
+}
+
+.aimeos .common-summary .item .item-icons img {
+	max-height: 4em;
+}
+
+.aimeos .common-summary .item .attr-list {
+	list-style: none;
+	margin: 1em;
+	margin-top: 0;
+}
+
+.aimeos .common-summary .header,
+.aimeos .common-summary-detail .header {
+	border-bottom: solid 1px #B0A060;
+	padding: 0.5em 1em;
 	margin: 0.5em;
-	margin-left: 1%;
-	margin-right: 0.25%;
+	margin-top: 0;
+}
+
+.aimeos .common-summary-address h2,
+.aimeos .common-summary-service h2,
+.aimeos .common-summary-coupon h2 {
+	display: none;
+}
+
+.aimeos .common-summary-service .item .item {
+	margin: 0 0.5em;
+}
+
+.aimeos .common-summary-service .item h4 {
+	margin: 1em;
+	padding: 0;
+	color: #555;
+	font-size: 1em;
+}
+
+.aimeos .common-summary-detail .header {
+	border-bottom: none;
+}
+
+.aimeos .common-summary-detail .basket {
+	margin: 0.5em;
+	margin-top: 0;
+}
+
+.aimeos .common-summary-detail table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.aimeos .common-summary-detail tbody tr {
+	border-bottom: 1px solid #D0D0D0;
+}
+
+.aimeos .common-summary-detail thead {
+	font-weight: bold;
+	background-color: #F0F0F0;
+}
+
+.aimeos .common-summary-detail thead tr {
+	border-bottom: 1px solid #D0D0D0;
+	color: #555;
+}
+
+.aimeos .common-summary-detail tr.subtotal {
+	color: #555;
+}
+
+.aimeos .common-summary-detail tr.total {
+	border-top: 1px solid #D0D0D0;
+	color: #555;
+	background-color: #F0F0F0
+}
+
+.aimeos .common-summary-detail th,
+.aimeos .common-summary-detail td {
+	vertical-align: middle;
+	padding: 0.5em;
+}
+
+.aimeos .common-summary-detail .details img {
+	float: left;
+	max-width: 6em;
+	max-height: 8em;
+	overflow: hidden;
+	margin-right: 5%;
+}
+
+.aimeos .common-summary-detail .details .product-name {
+	margin: 0.5em;
+	display: block;
+}
+
+.aimeos .common-summary-detail .code {
+    margin: 0.5em;
+}
+
+.aimeos .common-summary-detail .attr-list {
+	color: #555;
+	margin: 0.5em;
+	vertical-align: top;
+}
+
+.aimeos .common-summary-detail .attr-list-variant li.attr-item {
+	list-style: disc inside none;
+}
+
+.aimeos .common-summary-detail .attr-list-config .attr-item {
+	font-weight: bold;
+}
+
+.aimeos .common-summary-detail .attr-item .name:after {
+	content: ":";
+}
+
+.aimeos .common-summary-detail tfoot tr.quantity,
+.aimeos .common-summary-detail tr.subtotal,
+.aimeos .common-summary-detail tr.delivery,
+.aimeos .common-summary-detail tr.payment,
+.aimeos .common-summary-detail tr.total,
+.aimeos .common-summary-detail tr.rebate,
+.aimeos .common-summary-detail tr.tax,
+.aimeos .common-summary-detail th.unitprice,
+.aimeos .common-summary-detail th.price,
+.aimeos .common-summary-detail td.unitprice,
+.aimeos .common-summary-detail td.price {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.aimeos .common-summary-detail th.price {
+	width: 20%;
+}
+
+.aimeos .common-summary-detail th.quantity,
+.aimeos .common-summary-detail td.quantity {
+	white-space: nowrap;
+	text-align: center;
+}
+
+.aimeos .common-summary-detail td.quantity input {
+	text-align: center;
+	display: inline;
+	width: 3em;
+}
+
+.aimeos .common-summary-detail .action .delete:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 100%;
+	content: "\f014";
+}
+
+.aimeos .common-summary-detail th.action,
+.aimeos .common-summary-detail td.action {
+	text-align: center;
+}
+
+.aimeos .common-summary-detail tr.delivery td:first-child:after,
+.aimeos .common-summary-detail tr.payment td:first-child:after {
+	content: " +";
+}
+
+.aimeos .common-summary-detail tfoot {
+	vertical-align: bottom;
+	font-weight: bold;
+}
+
+.aimeos .common-summary-detail tfoot .quantity,
+.aimeos .common-summary-detail tfoot .delivery,
+.aimeos .common-summary-detail tfoot .payment,
+.aimeos .common-summary-detail tr.rebate,
+.aimeos .common-summary-detail tr.tax {
+	font-weight: normal;
+}
+
+.aimeos .common-summary-additional .coupon,
+.aimeos .common-summary-additional .comment {
+	vertical-align: top;
+	height: 8em;
 }
 
 .aimeos .common-summary-additional .comment .content textarea {
@@ -2311,11 +2488,13 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 @media (max-width: 480px) {
-	.aimeos .common-summary-additional .coupon,
-	.aimeos .common-summary-additional .comment {
+	.aimeos .common-summary-detail td.quantity .change {
 		display: block;
-		margin: 1em 1%;
-		width: 98%;
+	}
+
+	.aimeos .common-summary-detail .unitprice {
+		display: table-column;
+		width: 0;
 	}
 }
 
