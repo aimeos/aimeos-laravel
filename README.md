@@ -18,6 +18,7 @@ pages including routing is also available for a quick start.
 ## Table of content
 
 - [Distribution](#distribution)
+- [Important notice](#important-notice)
 - [Installation/Update](#installation-or-update)
 - [Setup](#setup)
 - [Admin](#admin)
