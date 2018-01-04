@@ -53,6 +53,7 @@ To circumvent this problem, you should change the database charset/collation in 
 
 This document is for the latest Aimeos Laravel **2017.10 release and later**.
 
+- Beta release: 2018.01 (Laravel 5.3 to 5.5)
 - LTS release: 2017.10 (Laravel 5.3 to 5.5)
 
 If you want to **upgrade between major versions**, please have a look into the
