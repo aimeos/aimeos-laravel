@@ -1406,6 +1406,12 @@ document.createElement("section");
 document.createElement("article");
 
 
+/*
+ * Disable CSS rules only necessary if no Javascript is available
+ */
+$("html").removeClass("no-js");
+
+
 Aimeos.loadImages();
 
 
