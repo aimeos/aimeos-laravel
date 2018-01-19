@@ -1886,6 +1886,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 /* Mini basket */
 .basket-mini {
+	display: inline-block;
 	background-color: #B0A060;
 	color: #555;
 }
