@@ -199,7 +199,7 @@ Then, you should be able to call the catalog list page in your browser. For a
 quick start, you can use the integrated web server that is available since PHP 5.4.
 Simply execute this command in the base directory of your application:
 
-```php -S 127.0.0.1:8000 -t public```
+```php artisan serve```
 
 Point your browser to the list page of the shop using:
 
@@ -253,7 +253,7 @@ chmod 777 public/files public/preview public/uploads
 ```
 
 In a production environment, you should be more specific about the granted permissions!
-If you've still started the internal PHP web server (```php -S 127.0.0.1:8000 -t public```)
+If you've still started the internal PHP web server (`php artisan serve`)
 you should now open this URL in your browser:
 
 http://127.0.0.1:8000/index.php/admin
@@ -261,7 +261,7 @@ http://127.0.0.1:8000/index.php/admin
 Enter the e-mail address and the password of the newly created user and press "Login".
 If you don't get redirected to the admin interface (that depends on the authentication
 code you've created according to the Laravel documentation), point your browser to the
-```/admin``` URL again.
+`/admin` URL again.
 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires to log out first.
