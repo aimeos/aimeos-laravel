@@ -30,3 +30,5 @@ matrix:
     env: LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
   - php: 5.6
     env: LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
+  - php: 7.0
+    env: LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
