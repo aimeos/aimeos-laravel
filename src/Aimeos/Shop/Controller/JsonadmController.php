@@ -39,7 +39,7 @@ class JsonadmController extends Controller
 	public function deleteAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'super']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
 		return $this->createClient()->delete( $request, new Response() );
@@ -55,7 +55,7 @@ class JsonadmController extends Controller
 	public function getAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor', 'super']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
 		return $this->createClient()->get( $request, new Response() );
@@ -71,7 +71,7 @@ class JsonadmController extends Controller
 	public function patchAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'super']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
 		return $this->createClient()->patch( $request, new Response() );
@@ -87,7 +87,7 @@ class JsonadmController extends Controller
 	public function postAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'super']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
 		return $this->createClient()->post( $request, new Response() );
@@ -103,7 +103,7 @@ class JsonadmController extends Controller
 	public function putAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'super']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
 		return $this->createClient()->put( $request, new Response() );
@@ -119,7 +119,7 @@ class JsonadmController extends Controller
 	public function optionsAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor', 'super']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
 		return $this->createClient()->options( $request, new Response() );

@@ -39,7 +39,7 @@ class AdminController extends Controller
 	public function indexAction( Request $request )
 	{
 		if( Auth::check() === false
-			|| $request->user()->can( 'admin', [AdminController::class, ['admin', 'editor', 'super']] ) === false
+			|| $request->user()->can( 'admin', [AdminController::class, ['admin', 'editor']] ) === false
 		) {
 			return redirect()->guest( 'login' );
 		}
