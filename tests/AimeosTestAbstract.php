@@ -16,7 +16,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 		]);
 
 		$app['config']->set('app.key', 'SomeRandomStringWith32Characters');
-		$app['config']->set('app.cipher', MCRYPT_RIJNDAEL_128);
+		$app['config']->set('app.cipher', 'AES-256-CBC');
 
 		$app['config']->set('shop.authorize', false);
 		$app['config']->set('shop.disableSites', false);
