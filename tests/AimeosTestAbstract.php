@@ -13,6 +13,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 			'database' => env('DB_DATABASE', 'laravel'),
 			'username' => env('DB_USERNAME', 'root'),
 			'password' => env('DB_PASSWORD', ''),
+			'collation' => 'utf8_unicode_ci',
 		]);
 
 		$app['config']->set('app.key', 'SomeRandomStringWith32Characters');
