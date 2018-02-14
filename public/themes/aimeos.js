@@ -1022,6 +1022,19 @@ AimeosCatalogFilter = {
 
 
 	/**
+	 * Hides the attribute filter if no products are available for
+	 */
+	setupAttributeListsEmtpy: function() {
+
+		$(".catalog-filter-attribute .attribute-lists fieldset").hide();
+
+		$(".catalog-filter-attribute .attribute-lists .attr-count").each(function(ev) {
+			$(this).parents('fieldset').show();
+		});
+	},
+
+
+	/**
 	 * Submits the form when clicking on filter attribute names or counts
 	 */
 	setupAttributeItemSubmit: function() {
@@ -1051,7 +1064,9 @@ AimeosCatalogFilter = {
 
 		$(".catalog-filter-search").on("click", ".reset", function(ev) {
 			$(".symbol", this).css("visibility", "hidden");
+			$(".value", ev.delegateTarget).val("");
 			$(".value", ev.delegateTarget).focus();
+			return false;
 		});
 	},
 
@@ -1063,6 +1078,7 @@ AimeosCatalogFilter = {
 
 		this.setupCategoryToggle();
 		this.setupAttributeToggle();
+		this.setupAttributeListsEmtpy();
 		this.setupAttributeListsToggle();
 		this.setupListFadeout();
 
