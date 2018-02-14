@@ -116,9 +116,9 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user )
 	{
-		if( $this->option( 'super' ) ) {
-			$this->addGroup( $context, $user, 'super' );
-		}
+		\Illuminate\Foundation\Auth\User::findOrFail( $user->getId() )
+			->forceFill( ['superuser' => ( $this->option( 'super' ) ? 1 : 0 )] )
+			->save();
 
 		if( $this->option( 'admin' ) ) {
 			$this->addGroup( $context, $user, 'admin' );

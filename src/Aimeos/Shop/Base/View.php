@@ -96,7 +96,12 @@ class View
 	 */
 	protected function addAccess( \Aimeos\MW\View\Iface $view, \Aimeos\MShop\Context\Item\Iface $context )
 	{
-		if( $this->config->get( 'shop.accessControl', true ) !== false )
+		if( $this->config->get( 'shop.accessControl', true ) === false
+			|| ( ( $user = \Illuminate\Support\Facades\Auth::user() ) !== null && $user->superuser )
+		) {
+			$helper = new \Aimeos\MW\View\Helper\Access\All( $view );
+		}
+		else
 		{
 			$support = $this->support;
 
@@ -105,10 +110,6 @@ class View
 			};
 
 			$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $fcn );
-		}
-		else
-		{
-			$helper = new \Aimeos\MW\View\Helper\Access\All( $view );
 		}
 
 		$view->addHelper( 'access', $helper );
