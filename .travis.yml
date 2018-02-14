@@ -2,11 +2,13 @@ sudo: false
 language: php
 
 php:
-  - 5.6
-  - 7.0
+  - 7.2
   - 7.1
+  - 7.0
+  - 5.6
 
 env:
+  - LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
   - LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
   - LARAVEL_VERSION=5.4.* PHPUNIT_VERSION=~5.7
   - LARAVEL_VERSION=5.3.* PHPUNIT_VERSION=~5.7
@@ -26,3 +28,5 @@ matrix:
   exclude:
   - php: 5.6
     env: LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
+  - php: 5.6
+    env: LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
