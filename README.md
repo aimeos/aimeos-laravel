@@ -241,11 +241,14 @@ authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
 ```php
 public function boot()
 {
-	// Keep the lines before
+    // Keep the lines before
 
-	Gate::define('admin', function($user, $class, $roles) {
-		return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
-	});
+    Gate::define('admin', function($user, $class, $roles) {
+        if( isset( $user->superuser ) && $user->superuser ) {
+            return true;
+        }
+        return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+    });
 }
 ```
 
