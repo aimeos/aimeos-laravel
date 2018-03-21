@@ -1638,6 +1638,7 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	padding: 0;
 }
 
+.account-subscription .header,
 .account-history .header,
 .account-watch .header,
 .account-favorite .header,
@@ -2626,6 +2627,69 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 .account-history-order li.attr-item .name,
 .account-history-order li.attr-item .value {
+	min-width: 0;
+}
+
+/* Account history */
+.account-subscription {
+	min-width: 240px;
+	margin: 0 auto;
+}
+
+.account-subscription-list .subscription-list {
+	padding: 0;
+}
+
+.account-subscription-list .subscription-item {
+	border: solid 1px #D0D0D0;
+	display: block;
+	margin: 1em;
+}
+
+.account-subscription-list .attr-list {
+	padding: 0.25em 0;
+}
+
+.account-subscription-list li.attr-item {
+	display: inline-block;
+	padding: 0.25em 1em;
+	margin: 0;
+	width: 50%;
+}
+
+.account-subscription-list li.attr-item .name,
+.account-subscription-list li.attr-item .value {
+	display: inline-block;
+	vertical-align: top;
+	min-width: 208px;
+}
+
+.account-subscription-list li.attr-item .name:after {
+	content: ": ";
+}
+
+.account-subscription-detail a:hover {
+	text-decoration: underline;
+}
+
+.account-subscription-detail .modify {
+	float: right;
+	margin: 0 1em;
+}
+
+.account-subscription-detail h2 {
+	margin: 0.5em 0;
+}
+
+.account-subscription-detail h3 {
+	display: inline-block;
+	font-size: 1em;
+	margin: 0;
+}
+
+
+.account-subscription-detail li.attr-item .name,
+.account-subscription-detail li.attr-item .value {
 	min-width: 0;
 }
 

@@ -33,6 +33,9 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
  */
 AimeosCatalogDetail = {
 
+	OFFSET: $(".catalog-detail-image").offset().top,
+
+
 	/**
 	 * Initializes the slider for the thumbnail gallery (small images)
 	 */
@@ -60,6 +63,11 @@ AimeosCatalogDetail = {
 
 			$(".thumbs .item", ev.delegateTarget).removeClass("selected");
 			$(this).addClass("selected");
+
+			window.location = $(this).attr("href");
+			window.scroll(0, AimeosCatalogDetail.OFFSET);
+
+			return false;
 		});
 	},
 
