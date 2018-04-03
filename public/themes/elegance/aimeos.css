@@ -2569,7 +2569,6 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 
 /* Account history */
 .account-history {
-	min-width: 240px;
 	margin: 0 auto;
 }
 
@@ -2587,18 +2586,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	padding: 0.25em 0;
 }
 
-.account-history-list li.attr-item {
-	display: inline-block;
+.account-history-list .attr-item {
 	padding: 0.25em 1em;
-	margin: 0;
-	width: 50%;
-}
-
-.account-history-list li.attr-item .name,
-.account-history-list li.attr-item .value {
-	display: inline-block;
-	vertical-align: top;
-	min-width: 208px;
 }
 
 .account-history-list li.attr-item .name:after {
@@ -2630,9 +2619,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	min-width: 0;
 }
 
-/* Account history */
+/* Account subscription */
 .account-subscription {
-	min-width: 240px;
 	margin: 0 auto;
 }
 
@@ -2650,22 +2638,32 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	padding: 0.25em 0;
 }
 
-.account-subscription-list li.attr-item {
-	display: inline-block;
+.account-subscription-list .attr-item {
 	padding: 0.25em 1em;
-	margin: 0;
-	width: 50%;
 }
 
-.account-subscription-list li.attr-item .name,
-.account-subscription-list li.attr-item .value {
-	display: inline-block;
-	vertical-align: top;
-	min-width: 208px;
-}
-
-.account-subscription-list li.attr-item .name:after {
+.account-subscription-list .attr-item .name:after {
 	content: ": ";
+}
+
+.account-subscription-list .subscription-cancel {
+	text-align: center;
+}
+
+.account-subscription-list .subscription-cancel .delete {
+	display: block;
+	margin: 0.5em 0;
+}
+
+.account-subscription-list .subscription-cancel .delete:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f014";
+}
+
+.account-subscription-list .subscription-item {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .account-subscription-detail a:hover {
@@ -2688,8 +2686,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 }
 
 
-.account-subscription-detail li.attr-item .name,
-.account-subscription-detail li.attr-item .value {
+.account-subscription-detail .attr-item .name,
+.account-subscription-detail .attr-item .value {
 	min-width: 0;
 }
 
