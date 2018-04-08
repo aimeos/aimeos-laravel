@@ -1,6 +1,19 @@
-# NOT OFFICIAL - JUST PLAYING
+<a href="https://aimeos.org/">
+    <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
+</a>
 
-`composer require dev7ch/aimeos-laravel-bs4-test:dev-bs4-test`
+# Aimeos Laravel package
+[![Build Status](https://travis-ci.org/aimeos/aimeos-laravel.svg)](https://travis-ci.org/aimeos/aimeos-laravel)
+[![Coverage Status](https://coveralls.io/repos/aimeos/aimeos-laravel/badge.svg?branch=master&service=github)](https://coveralls.io/github/aimeos/aimeos-laravel?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
+
+The repository contains the Aimeos online shop package for Laravel 5
+integrating the Aimeos e-commerce library into Laravel. The package provides
+controllers for e.g. faceted filter, product lists and detail views, for
+searching products as well as baskets and the checkout process. A full set of
+pages including routing is also available for a quick start.
+
+[![Aimeos Laravel demo](https://aimeos.org/fileadmin/user_upload/laravel-demo.jpg)](http://laravel.demo.aimeos.org/)
 
 ## Table of content
 
