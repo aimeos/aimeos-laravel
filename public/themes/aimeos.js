@@ -1524,6 +1524,7 @@ jQuery(document).ready(function($) {
 	AimeosCheckoutStandard.init();
 	AimeosCheckoutConfirm.init();
 
+	AimeosAccountSubscription.init();
 	AimeosAccountHistory.init();
 	AimeosAccountFavorite.init();
 	AimeosAccountWatch.init();
