@@ -6,8 +6,8 @@
     "license": "MIT",
     "keywords": ["aimeos", "laravel", "e-commerce", "ecommerce", "shop", "portal", "market place"],
     "support": {
-        "source": "https://github.com/dev7ch/aimeos-laravel",
-        "issues": "https://github.com/dev7ch/aimeos-laravel/issues",
+        "source": "https://github.com/dev7ch/aimeos-laravel-bs4-test",
+        "issues": "https://github.com/dev7ch/aimeos-laravel-bs4-test/issues",
         "forum": "https://aimeos.org/help",
         "wiki": "https://aimeos.org/docs"
     },
@@ -17,7 +17,7 @@
             "url": "https://github.com/aimeos/php-coveralls"
         }
     ],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "minimum-stability": "dev",
     "require": {
         "doctrine/dbal": "~2.5",
