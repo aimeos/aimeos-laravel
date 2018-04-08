@@ -2594,6 +2594,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	content: ": ";
 }
 
+.account-history-order {
+	padding-top: 1em;
+}
+
 .account-history-order a:hover {
 	text-decoration: underline;
 }
@@ -2664,6 +2668,10 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	display: -webkit-flex;
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.account-subscription-detail {
+	padding-top: 1em;
 }
 
 .account-subscription-detail a:hover {
