@@ -1474,7 +1474,92 @@ AimeosLocaleSelect = {
 };
 
 
+// Common JS handler for each one Payment Provider
+AimeosPurchaseHandler = {
+	CurrentPaymentMethod: -1,
+	AimeosProviders: {},
+	AvailableCards: {},
 
+	init: function () {
+
+
+		$('body').on('click', '#purchase-order-btn', function (e) {
+			e.preventDefault();
+			AimeosPurchaseHandler.detectCurrentPaymentMethod();
+			console.log('CurrentPaymentMethod ' + AimeosPurchaseHandler.CurrentPaymentMethod);
+			//return null;
+			AimeosPurchaseHandler.handlePurchase();
+		});
+
+		$('body').on('click', '.existing_card', function () {
+			var cardID = $(this).data('card-id');
+			$(".paymentFieldsList .form-control").val("___");
+			$("#payment-selected_card").val(cardID);
+			$(".paymentFieldsList").slideUp();
+
+			$(".checkout-btn.description").removeClass('active');
+			$(this).addClass('active');
+		});
+		$('body').on('click', '.new_card', function () {
+			$(".paymentFieldsList .form-control").val("");
+			$("#payment-available_cards").val(JSON.stringify(AimeosPurchaseHandler.AvailableCards));
+			$(".paymentFieldsList").slideDown();
+
+			$(".checkout-btn.description").removeClass('active');
+			$(this).addClass('active');
+		});
+	},
+
+	// Detect what payment method is chosen.
+	detectCurrentPaymentMethod: function () {
+
+		if($("#CurrentPaymentMethod").val() !== undefined){
+			AimeosPurchaseHandler.CurrentPaymentMethod = $("#CurrentPaymentMethod").val();
+			return;
+		}
+
+		AimeosPurchaseHandler.CurrentPaymentMethod = $("input[name=c_paymentoption]:checked").data('provider');
+	},
+
+
+	// Loking for specific JS for selected payment method and run it
+	// Or Sumbit the payment form if specific JS does not exist.
+	handlePurchase: function () {
+		console.log('handlePurchase');
+
+
+		//this.submitPurchaseForm();
+
+		var function_handler = 'beforePurchase' + this.CurrentPaymentMethod;
+		console.log('function_handler ' + function_handler);
+		if (AimeosPurchaseHandler.AimeosProviders[function_handler] !== undefined) {
+			console.log('Custom payment handler');
+			AimeosPurchaseHandler.AimeosProviders[function_handler]();
+		} else {
+			console.log('Default payment handler');
+			this.submitPurchaseForm();
+		}
+	},
+
+
+	submitPurchaseForm: function () {
+		console.log('submit form');
+		$(".checkout-standard form").submit();
+	},
+
+
+	GetAvailableCards: function () {
+		var cards = $("#payment-available_cards").val();
+
+		if (cards !== undefined) {
+
+			AimeosPurchaseHandler.AvailableCards = JSON.parse(cards);
+			return AimeosPurchaseHandler.AvailableCards;
+
+		} else return {};
+	}
+};
+AimeosPurchaseHandler.init();
 
 
 /*
