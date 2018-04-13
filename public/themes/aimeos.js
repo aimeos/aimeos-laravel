@@ -1486,28 +1486,9 @@ AimeosPurchaseHandler = {
 		$('body').on('click', '#purchase-order-btn', function (e) {
 			e.preventDefault();
 			AimeosPurchaseHandler.detectCurrentPaymentMethod();
-			console.log('CurrentPaymentMethod ' + AimeosPurchaseHandler.CurrentPaymentMethod);
-			//return null;
 			AimeosPurchaseHandler.handlePurchase();
 		});
 
-		$('body').on('click', '.existing_card', function () {
-			var cardID = $(this).data('card-id');
-			$(".paymentFieldsList .form-control").val("___");
-			$("#payment-selected_card").val(cardID);
-			$(".paymentFieldsList").slideUp();
-
-			$(".checkout-btn.description").removeClass('active');
-			$(this).addClass('active');
-		});
-		$('body').on('click', '.new_card', function () {
-			$(".paymentFieldsList .form-control").val("");
-			$("#payment-available_cards").val(JSON.stringify(AimeosPurchaseHandler.AvailableCards));
-			$(".paymentFieldsList").slideDown();
-
-			$(".checkout-btn.description").removeClass('active');
-			$(this).addClass('active');
-		});
 	},
 
 	// Detect what payment method is chosen.
@@ -1548,16 +1529,6 @@ AimeosPurchaseHandler = {
 	},
 
 
-	GetAvailableCards: function () {
-		var cards = $("#payment-available_cards").val();
-
-		if (cards !== undefined) {
-
-			AimeosPurchaseHandler.AvailableCards = JSON.parse(cards);
-			return AimeosPurchaseHandler.AvailableCards;
-
-		} else return {};
-	}
 };
 AimeosPurchaseHandler.init();
 
