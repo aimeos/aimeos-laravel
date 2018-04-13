@@ -1481,24 +1481,19 @@ AimeosPurchaseHandler = {
 	AvailableCards: {},
 
 	init: function () {
-
-
-		$('body').on('click', '#purchase-order-btn', function (e) {
+		$('body').on('click', '#payment-button', function (e) {
 			e.preventDefault();
 			AimeosPurchaseHandler.detectCurrentPaymentMethod();
 			AimeosPurchaseHandler.handlePurchase();
 		});
-
 	},
 
 	// Detect what payment method is chosen.
 	detectCurrentPaymentMethod: function () {
-
 		if($("#CurrentPaymentMethod").val() !== undefined){
 			AimeosPurchaseHandler.CurrentPaymentMethod = $("#CurrentPaymentMethod").val();
 			return;
 		}
-
 		AimeosPurchaseHandler.CurrentPaymentMethod = $("input[name=c_paymentoption]:checked").data('provider');
 	},
 
@@ -1507,8 +1502,6 @@ AimeosPurchaseHandler = {
 	// Or Sumbit the payment form if specific JS does not exist.
 	handlePurchase: function () {
 		console.log('handlePurchase');
-
-
 		//this.submitPurchaseForm();
 
 		var function_handler = 'beforePurchase' + this.CurrentPaymentMethod;
