@@ -1110,6 +1110,32 @@ AimeosCatalogFilter = {
 
 
 	/**
+	 * Toggles the supplier filters if hover isn't available
+	 */
+	setupSupplierToggle: function() {
+
+		$(".catalog-filter-supplier").on("click", "h2", function(ev) {
+			$(".supplier-lists", ev.delegateTarget).slideToggle();
+		});
+	},
+
+
+	/**
+	 * Submits the form when clicking on filter supplier names or counts
+	 */
+	setupSupplierItemSubmit: function() {
+
+		$(".catalog-filter-supplier li.attr-item").on("click", ".attr-name, .attr-count", function(ev) {
+			var input = $("input", ev.delegateTarget);
+			input.prop("checked") ? input.prop("checked", false) : input.prop("checked", true);
+
+			$(this).parents(".catalog-filter form").submit();
+			$(".catalog-list").fadeTo(1000, 0.5);
+		});
+	},
+
+
+	/**
 	 * Registers events for the catalog filter search input reset
 	 */
 	setupSearchTextReset: function() {
@@ -1137,12 +1163,14 @@ AimeosCatalogFilter = {
 	init: function() {
 
 		this.setupCategoryToggle();
+		this.setupSupplierToggle();
 		this.setupAttributeToggle();
 		this.setupAttributeListsEmtpy();
 		this.setupAttributeListsToggle();
 		this.setupListFadeout();
 
 		this.setupAttributeItemSubmit();
+		this.setupSupplierItemSubmit();
 
 		this.setupFormChecks();
 		this.setupSearchTextReset();

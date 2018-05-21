@@ -21,7 +21,6 @@
 	vertical-align: top;
 	font-weight: bold;
 	border-radius: 0;
-	margin: 0.25em;
 	width: 12em;
 }
 
@@ -120,6 +119,10 @@
 .aimeos .button-group {
 	text-align: center;
 	padding: 1em 0;
+}
+
+.aimeos .button-group .btn {
+	margin: 0.25em;
 }
 
 .aimeos .error-list {
@@ -424,6 +427,7 @@
 .catalog-filter-search .value {
 	border-color: #B0A060;
 	border-right: none;
+	margin: 0;
 }
 
 .catalog-filter-search .reset {
@@ -432,6 +436,7 @@
 	border-right: none;
 	border-left: none;
 	width: 10% !important;
+	margin: 0;
 }
 
 .catalog-filter-search .reset .symbol {
@@ -450,6 +455,7 @@
 
 .catalog-filter-search .btn-primary {
 	width: 20% !important;
+	margin: 0;
 }
 
 .catalog-filter-search .ui-helper-hidden-accessible {
@@ -467,7 +473,7 @@
 	font-size: 100%;
 	cursor: pointer;
 	float: left;
-	width: 49.99%;
+	width: 33.33%;
 	padding: 0.5em;
 	margin: 0 0 1em 0;
 }
@@ -530,30 +536,33 @@ html.no-js .catalog-filter-tree:hover > ul {
 	content: " ×";
 }
 
-/* Catalog filter, attribute section */
+/* Catalog filter, attribute and supplier section */
 .catalog-filter-attribute {
 	margin: 1em 0;
 }
 
-.catalog-filter-attribute > h2 {
+.catalog-filter-attribute > h2,
+.catalog-filter-supplier > h2 {
 	border-bottom: solid 1px #B0A060;
 	display: inline-block;
 	text-align: center;
 	font-size: 100%;
 	cursor: pointer;
-	width: 49.99%;
-	float: right;
+	width: 33.33%;
+	float: left;
 	padding: 0.5em;
 	margin: 0 0 1em 0;
 }
 
-.catalog-filter-attribute .attribute-lists {
+.catalog-filter-attribute .attribute-lists,
+.catalog-filter-supplier .supplier-lists {
 	text-align: left;
 	display: none;
 	clear: both;
 }
 
-html.no-js .catalog-filter-attribute:hover .attribute-lists {
+html.no-js .catalog-filter-attribute:hover .attribute-lists,
+html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	display: block;
 }
 
@@ -587,7 +596,8 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	content: " ×";
 }
 
-.catalog-filter-attribute fieldset {
+.catalog-filter-attribute fieldset,
+.catalog-filter-supplier fieldset {
 	border-left: 1px solid #D0D0D0;
 	background-color: #FFF;
 	display: inline-block;
@@ -618,31 +628,37 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	content: "▼ ";
 }
 
-.catalog-filter-attribute .attribute-lists .attr-list {
+.catalog-filter-attribute .attribute-lists .attr-list,
+.catalog-filter-supplier .supplier-lists .attr-list {
 	overflow: auto;
 	padding: 0 0.5em;
 	height: 12em;
 }
 
-.catalog-filter-attribute .attribute-lists li.attr-item {
+.catalog-filter-attribute .attribute-lists li.attr-item,
+.catalog-filter-supplier .supplier-lists li.attr-item {
 	display: block;
 	padding: 0.4em 0;
 	margin: 0;
 }
 
-.catalog-filter-attribute input.attr-item {
+.catalog-filter-attribute input.attr-item,
+.catalog-filter-supplier input.attr-item {
 	border: 1px solid #D0D0D0;
 }
 
-.catalog-filter-attribute input.attr-item[type=checkbox] {
+.catalog-filter-attribute input.attr-item[type=checkbox],
+.catalog-filter-supplier input.attr-item[type=checkbox] {
 	display: none;
 }
 
-.catalog-filter-attribute input.attr-item[type=checkbox]:checked + label:before {
+.catalog-filter-attribute input.attr-item[type=checkbox]:checked + label:before,
+.catalog-filter-supplier input.attr-item[type=checkbox]:checked + label:before {
 	content: "\2713";
 }
 
-.catalog-filter-attribute label:before {
+.catalog-filter-attribute label:before,
+.catalog-filter-supplier label:before {
 	border: solid 1px #555;
 	display: inline-block;
 	vertical-align: top;
@@ -653,24 +669,30 @@ html.no-js .catalog-filter-attribute:hover .attribute-lists {
 	margin-right: 0.25em;
 }
 
-.catalog-filter-attribute .media-list {
+.catalog-filter-attribute .media-list,
+.catalog-filter-supplier .media-list {
 	display: inline-block;
 }
 
-.catalog-filter-attribute .media-item img {
+.catalog-filter-attribute .media-item img,
+.catalog-filter-supplier .media-item img {
 	vertical-align: top;
 	height: 1em;
 	width: 1em;
 }
 
 .catalog-filter-attribute .attr-name,
-.catalog-filter-attribute .attr-count {
+.catalog-filter-attribute .attr-count,
+.catalog-filter-supplier .attr-name,
+.catalog-filter-supplier .attr-count {
 	font-weight: normal;
 	cursor: pointer;
 }
 
 .catalog-filter-attribute .attr-length li.attr-item,
-.catalog-filter-attribute .attr-width li.attr-item {
+.catalog-filter-attribute .attr-width li.attr-item,
+.catalog-filter-supplier .attr-length li.attr-item,
+.catalog-filter-supplier .attr-width li.attr-item {
 	display: inline-block;
 	min-width: 7.5em;
 	width: 50%;
