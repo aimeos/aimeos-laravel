@@ -232,7 +232,7 @@ for your Laravel application so you will be able to log into the Aimeos admin in
 The e-mail address is the user name for login and the account will work for the
 frontend too. To protect the new account, the command will ask you for a password.
 The same command can create limited accounts by using "--editor" or "--api" instead of
-"--admin".
+"--admin". If you use "--super" the account will have access to all sites.
 
 As a last step, you need to extend the `boot()` method of your
 `App\Providers\AuthServiceProvider` class and add the lines to define how
