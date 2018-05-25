@@ -247,7 +247,7 @@ public function boot()
         if( isset( $user->superuser ) && $user->superuser ) {
             return true;
         }
-        return app( '\Aimeos\Shop\Base\Support' )->checkGroup( $user->id, $roles );
+        return app( '\Aimeos\Shop\Base\Support' )->checkUserGroup( $user, $roles );
     });
 }
 ```
