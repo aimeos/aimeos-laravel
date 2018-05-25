@@ -32,6 +32,11 @@ class Support
 	 */
 	private $locale;
 
+	/**
+	 * @var array
+	 */
+	private $cache = [];
+
 
 	/**
 	 * Initializes the object
@@ -55,6 +60,13 @@ class Support
 	 */
 	public function checkUserGroup( \Illuminate\Foundation\Auth\User $user, $groupcodes )
 	{
+		$groups = ( is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
+
+		if( isset( $this->cache[$user->id][$groups] ) ) {
+			return $this->cache[$user->id][$groups];
+		}
+
+		$this->cache[$user->id][$groups] = false;
 		$context = $this->context->get( false );
 
 		try {
@@ -68,11 +80,11 @@ class Support
 		foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
 		{
 			if( $user->siteid === $siteid ) {
-				return $this->checkGroups( $context, $user->id, $groupcodes );
+				$this->cache[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
 			}
 		}
 
-		return false;
+		return $this->cache[$user->id][$groups];
 	}
 
 
@@ -86,12 +98,18 @@ class Support
 	 */
 	public function checkGroup( $userid, $groupcodes )
 	{
+		$groups = ( is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
+
+		if( isset( $this->cache[$userid][$groups] ) ) {
+			return $this->cache[$userid][$groups];
+		}
+
 		$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
 
 		$context = $this->context->get( false );
 		$context->setLocale( $this->locale->getBackend( $context, $site ) );
 
-		return $this->checkGroups( $context, $userid, $groupcodes );
+		return $this->cache[$userid][$groups] = $this->checkGroups( $context, $userid, $groupcodes );
 	}
 
 
