@@ -203,6 +203,11 @@ return array(
 										'target' => 'aimeos_shop_privacy',
 									),
 								),
+								'cancel' => array(
+									'url' => array(
+										'target' => 'aimeos_shop_terms',
+									),
+								),
 							),
 						),
 					),
