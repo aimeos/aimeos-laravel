@@ -48,6 +48,10 @@ return [
 
 	'client' => [
 		'html' => [
+			'email' => [
+				'from-email' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+				'from-name' => env('MAIL_FROM_NAME', 'Aimeos online shop'),
+			],
 			'basket' => [
 				'cache' => [
 					// 'enable' => false, // Disable basket content caching
