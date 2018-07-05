@@ -891,6 +891,7 @@ AimeosCatalog = {
 
 			$.ajax({
 				url: $(this).attr("href"),
+				dataType: 'html',
 				headers: {
 					"X-Requested-With": "jQuery"
 				}
@@ -923,6 +924,7 @@ AimeosCatalog = {
 
 			$.ajax({
 				url: $(this).attr("href"),
+				dataType: 'html',
 				headers: {
 					"X-Requested-With": "jQuery"
 				}
