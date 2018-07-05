@@ -169,10 +169,10 @@ return array(
 			),
 			'common' => array(
 				'content' => array(
-					'baseurl' => '/',
+					'baseurl' => config( 'app.url' ),
 				),
 				'template' => array(
-					'baseurl' => 'packages/aimeos/shop/themes/elegance',
+					'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
 				),
 			),
 			'basket' => array(
@@ -218,6 +218,10 @@ return array(
 					),
 				),
 			),
+			'email' => [
+				'from-email' => config( 'mail.from.address' ),
+				'from-name' => config( 'mail.from.name' ),
+			],
 			'locale' => array(
 				'select' => array(
 					'currency' => array(

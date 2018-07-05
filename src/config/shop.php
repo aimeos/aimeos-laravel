@@ -48,10 +48,6 @@ return [
 
 	'client' => [
 		'html' => [
-			'email' => [
-				'from-email' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-				'from-name' => env('MAIL_FROM_NAME', 'Aimeos online shop'),
-			],
 			'basket' => [
 				'cache' => [
 					// 'enable' => false, // Disable basket content caching
@@ -59,10 +55,10 @@ return [
 			],
 			'common' => [
 				'content' => [
-					// 'baseurl' => '/',
+					// 'baseurl' => config( 'app.url' ),
 				],
 				'template' => [
-					// 'baseurl' => 'packages/aimeos/shop/themes/elegance',
+					// 'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
 				],
 			],
 		],
