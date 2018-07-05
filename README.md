@@ -53,7 +53,7 @@ To circumvent this problem, you should change the database charset/collation in 
 
 This document is for the latest Aimeos Laravel **2017.10 release and later**.
 
-- Stable release: 2018.04 (Laravel 5.3 to 5.6)
+- Stable release: 2018.07 (Laravel 5.3 to 5.6)
 - LTS release: 2017.10 (Laravel 5.3 to 5.6)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -72,7 +72,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2018.04",
+        "aimeos/aimeos-laravel": "~2018.07",
         ...
     },
     "scripts": {
