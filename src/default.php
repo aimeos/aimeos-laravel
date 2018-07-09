@@ -169,7 +169,7 @@ return array(
 			),
 			'common' => array(
 				'content' => array(
-					'baseurl' => config( 'app.url' ),
+					'baseurl' => config( 'app.url' ) . '/',
 				),
 				'template' => array(
 					'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),

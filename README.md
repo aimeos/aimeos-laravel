@@ -270,6 +270,10 @@ If you don't get redirected to the admin interface (that depends on the authenti
 code you've created according to the Laravel documentation), point your browser to the
 `/admin` URL again.
 
+To see your uploaded images, you have to adapt your `.env` file and set the `APP_URL`:
+
+```APP_URL=http://127.0.0.1:8000```
+
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires to log out first.
 
