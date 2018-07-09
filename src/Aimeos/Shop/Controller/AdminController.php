@@ -48,11 +48,12 @@ class AdminController extends Controller
 		$context = app( '\Aimeos\Shop\Base\Context' )->get( false );
 		$siteManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
 		$siteCode = ( $siteId ? $siteManager->getItem( $siteId )->getCode() : 'default' );
+		$locale = $request->user()->langid ?: config( 'app.locale', 'en' );
 
 		$param = array(
 			'resource' => 'dashboard',
 			'site' => Route::input( 'site', Input::get( 'site', $siteCode ) ),
-			'lang' => Route::input( 'lang', Input::get( 'lang', $request->user()->langid ?: config( 'app.locale', 'en' ) ) )
+			'lang' => Route::input( 'lang', Input::get( 'lang', $locale ) )
 		);
 
 		return redirect()->route( 'aimeos_shop_jqadm_search', $param );
