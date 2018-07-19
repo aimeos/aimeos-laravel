@@ -15,7 +15,7 @@ env:
 
 before_script:
   - composer self-update
-  - composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
+  - php -d memory_limit=-1 composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
   - mysql -e 'create database laravel;'
 
 script: vendor/bin/phpunit --coverage-clover coverage.xml
