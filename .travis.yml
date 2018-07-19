@@ -15,7 +15,8 @@ env:
 
 before_script:
   - composer self-update
-  - php -d memory_limit=-1 composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
+  - echo 'date.memory_limit = -1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
   - mysql -e 'create database laravel;'
 
 script: vendor/bin/phpunit --coverage-clover coverage.xml
