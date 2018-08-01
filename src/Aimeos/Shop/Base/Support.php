@@ -79,7 +79,7 @@ class Support
 
 		foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
 		{
-			if( (string) $user->siteid === $siteid ) {
+			if( (string) $user->siteid === (string) $siteid ) {
 				$this->cache[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
 			}
 		}
