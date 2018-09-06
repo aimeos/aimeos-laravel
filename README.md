@@ -53,8 +53,8 @@ To circumvent this problem, you should change the database charset/collation in 
 
 This document is for the latest Aimeos Laravel **2017.10 release and later**.
 
-- Stable release: 2018.07 (Laravel 5.3 to 5.6)
-- LTS release: 2017.10 (Laravel 5.3 to 5.6)
+- Stable release: 2018.07 (Laravel 5.3 to 5.7)
+- LTS release: 2017.10 (Laravel 5.3 to 5.7)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -219,6 +219,7 @@ To use the admin interface, you have to set up Laravel authentication first:
 ```php artisan make:auth```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 5.7](https://laravel.com/docs/5.7/authentication)
 * [Laravel 5.6](https://laravel.com/docs/5.6/authentication)
 * [Laravel 5.5](https://laravel.com/docs/5.5/authentication)
 * [Laravel 5.4](https://laravel.com/docs/5.4/authentication)
