@@ -3,7 +3,7 @@
  *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Metaways Infosystems GmbH, 2012
- * @copyright Aimeos (aimeos.org), 2014-2017
+ * @copyright Aimeos (aimeos.org), 2014-2018
  */
 
 
@@ -1358,7 +1358,7 @@ AimeosCheckoutStandard = {
 		/* Hide form fields if delivery/payment option is not selected */
 		$(".checkout-standard-delivery,.checkout-standard-payment").each(function(idx, elem) {
 			$(elem).find(".form-list").hide();
-			$(elem).find(".item-service").has("input:checked").find(".form-list").show();
+			$(elem).find(".item-service").has("input.option:checked").find(".form-list").show();
 		});
 
 		/* Delivery/payment form slide up/down when selected */

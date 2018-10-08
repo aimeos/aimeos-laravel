@@ -2,7 +2,7 @@
  * Aimeos elegance template CSS
  *
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2014-2017
+ * @copyright Aimeos (aimeos.org), 2014-2018
  */
 
 @font-face {
@@ -385,16 +385,19 @@
 .catalog-filter-tree .disabled > .cat-item,
 .catalog-filter-tree .disabled > .cat-item:link,
 .catalog-filter-tree .disabled > .cat-item:visited,
+.catalog-filter-supplier .disabled .attr-name,
 .catalog-filter-attribute .disabled .attr-name {
 	color: #B0B0B0;
 }
 
 .catalog-filter-tree .cat-count:before,
+.catalog-filter-supplier .attr-count:before,
 .catalog-filter-attribute .attr-count:before {
 	content: "(";
 }
 
 .catalog-filter-tree .cat-count:after,
+.catalog-filter-supplier .attr-count:after,
 .catalog-filter-attribute .attr-count:after {
 	content: ")";
 }
@@ -469,9 +472,9 @@
 
 .catalog-filter-tree > h2 {
 	border-bottom: solid 1px #B0A060;
-	display: inline-block;
 	font-size: 100%;
 	cursor: pointer;
+	display: block;
 	float: left;
 	width: 33.33%;
 	padding: 0.5em;
@@ -544,12 +547,12 @@ html.no-js .catalog-filter-tree:hover > ul {
 .catalog-filter-attribute > h2,
 .catalog-filter-supplier > h2 {
 	border-bottom: solid 1px #B0A060;
-	display: inline-block;
 	text-align: center;
 	font-size: 100%;
 	cursor: pointer;
 	width: 33.33%;
 	float: left;
+	display: block;
 	padding: 0.5em;
 	margin: 0 0 1em 0;
 }
@@ -860,9 +863,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	width: 240px;
 }
 
-.catalog-list a .media-list:hover {
-}
-
 .catalog-list a .media-item {
 	background-color: #FFFFFF;
 	background-image: url(media/progress.gif);
@@ -1047,7 +1047,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .catalog-list-items .list .basket,
 .catalog-list-items .list .offer,
 .catalog-list-items .list .addbasket {
-	display: inline-block;
+	display: block;
 	width: 240px;
 	float: right;
 }
@@ -2266,10 +2266,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	margin: 1em 0.5em;
 }
 
-.checkout-standard-delivery .item-service  input,
-.checkout-standard-payment .item-service  input {
-}
-
 .checkout-standard-delivery .item-service .price-value,
 .checkout-standard-payment .item-service .price-value {
 	margin: 1.25em;
@@ -2476,8 +2472,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .aimeos .common-summary-detail td.quantity input {
+	display: inline-block;
 	text-align: center;
-	display: inline;
 	width: 3em;
 }
 
@@ -2979,11 +2975,14 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
   -webkit-text-size-adjust: 100%;
   /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   outline: none; }
-  .pswp * {
+
+.pswp * {
 	-webkit-box-sizing: border-box;
-		box-sizing: border-box; }
-  .pswp img {
+	box-sizing: border-box; }
+
+.pswp img {
 	max-width: none; }
 
 /* style is added when JS option showHideOpacity is set to true */
@@ -3030,6 +3029,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
   opacity: 0;
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   will-change: opacity; }
 
 .pswp__scroll-wrap {
@@ -3083,7 +3083,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .pswp__container,
 .pswp__zoom-wrap {
-  -webkit-backface-visibility: hidden; }
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden; }
 
 .pswp__item {
   position: absolute;
@@ -3105,7 +3106,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	style is added to avoid flickering in webkit/blink when layers overlap
 */
 .pswp__img--placeholder {
-  -webkit-backface-visibility: hidden; }
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden; }
 
 /*
 	div element that matches size of large image
@@ -3280,6 +3282,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
   -webkit-transition: opacity 0.25s ease-out;
 	  transition: opacity 0.25s ease-out;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   will-change: opacity; }
 
 .pswp__share-modal--hidden {
@@ -3302,6 +3305,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
   -webkit-transition: -webkit-transform 0.25s;
 	  transition: transform 0.25s;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   will-change: transform; }
   .pswp__share-tooltip a {
 	display: block;
@@ -3547,6 +3551,7 @@ a.pswp__share--download:hover {
 .pswp--has_mouse .pswp__button--arrow--left,
 .pswp--has_mouse .pswp__button--arrow--right {
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   will-change: opacity;
   -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 	  transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
