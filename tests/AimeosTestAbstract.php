@@ -6,6 +6,9 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 	{
 		putenv( 'APP_DEBUG=1' );
 
+		$app['config']->set('app.key', 'SomeRandomStringWith32Characters');
+		$app['config']->set('app.cipher', 'AES-256-CBC');
+
 		$app['config']->set('database.default', 'mysql');
 		$app['config']->set('database.connections.mysql', [
 			'driver' => 'mysql',
@@ -16,8 +19,20 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 			'collation' => 'utf8_unicode_ci',
 		]);
 
-		$app['config']->set('app.key', 'SomeRandomStringWith32Characters');
-		$app['config']->set('app.cipher', 'AES-256-CBC');
+		$app['config']->set('shop.resource.db', [
+			'adapter' => 'mysql',
+			'host' => env('DB_HOST', 'localhost'),
+			'database' => env('DB_DATABASE', 'laravel'),
+			'username' => env('DB_USERNAME', 'root'),
+			'password' => env('DB_PASSWORD', ''),
+			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET SESSION sql_mode='ANSI'; SET NAMES 'utf8_bin'"],
+			'opt-persistent' => 0,
+			'limit' => 3,
+			'defaultTableOptions' => [
+				'collate' => 'utf8_unicode_ci',
+				'charset' => 'utf8',
+			],
+		]);
 
 		$app['config']->set('shop.authorize', false);
 		$app['config']->set('shop.disableSites', false);
