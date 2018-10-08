@@ -33,6 +33,10 @@ return array(
 			'stmt' => array("SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'"),
 			'opt-persistent' => 0,
 			'limit' => 3,
+			'defaultTableOptions' => [
+				'charset' => config('database.connections.mysql.charset'),
+				'collate' => config('database.connections.mysql.collation'),
+			],
 		),
 		'fs' => array(
 			'adapter' => 'Standard',

@@ -40,6 +40,10 @@ return [
 			'password' => env('DB_PASSWORD', ''),
 			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'"],
 			'limit' => 3, // maximum number of concurrent database connections
+			'defaultTableOptions' => [
+					'charset' => config('database.connections.mysql.charset'), // MySQL only
+					'collate' => config('database.connections.mysql.collation'), // MySQL only
+			],
 		],
 	],
 	*/
