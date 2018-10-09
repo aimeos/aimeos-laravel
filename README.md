@@ -18,7 +18,7 @@ pages including routing is also available for a quick start.
 ## Table of content
 
 - [Distribution](#distribution)
-- [Important notice](#important-notice)
+- [Database](#database)
 - [Installation/Update](#installation-or-update)
 - [Setup](#setup)
 - [Admin](#admin)
@@ -33,21 +33,49 @@ If you want to set up a new application or test Aimeos, we recommend the
 complete shop system including demo data for a quick start without the need
 to follow the steps described in this readme.
 
-## Important notice
+## Database
 
-If you use **Laravel 5.4+** and don't have the latest MySQL version installed, you
-will probably get an error like `Specified key was too long; max key length is 767 bytes`.
-To circumvent this problem, you should change the database charset/collation in your
-`config/database.php` file **before the tables are created** to:
+Make sure that you've **created the database** in advance and added the configuration
+to the `.env` file in your application directory. Sometimes, using the .env file makes
+problems and you will get exceptions that the connection to the database failed. In that
+case, add the database credentials to the **resource/db section of your ./config/shop.php**
+file too!
+
+For MySQL, you should change the database charset/collation in your `config/database.php`
+file **before the tables are created** to:
 
 ```php
-'mysql' => [
-    // ...
-    'charset' => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    // ...
+'connections' => [
+    'mysql' => [
+        // ...
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_bin',
+        // ...
+    ]
 ]
 ```
+
+If you don't have at least MySQL 5.7 installed, you will probably get an error like
+
+```Specified key was too long; max key length is 767 bytes```
+
+To circumvent this problem, drop the new tables if there have been any created and
+change the charset/collation setting to these values before installing Aimeos again:
+
+```php
+'connections' => [
+    'mysql' => [
+        // ...
+        'charset' => 'utf8',
+        'collation' => 'utf8_bin',
+        // ...
+    ]
+]
+```
+
+If you want to use a database server other than MySQL, please have a look into the article about
+[supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
+and their specific configuration.
 
 ## Installation or update
 
@@ -78,22 +106,11 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "scripts": {
         ...
         "post-update-cmd": [
-            "php artisan vendor:publish --tag=public --force",
-            "php artisan migrate",
-            ...
+            "@php artisan vendor:publish --tag=public --force",
+            "@php artisan migrate"
         ]
     }
 ```
-
-Make sure that the **database is set up and it is configured** in your
-`config/database.php` or `.env` file (depending on the Laravel version). Sometimes,
-the .env files are not available in the Laravel application and you will get exceptions
-that the connection to the database failed. In that case, add the database credentials
-to the **resource/db section of your ./config/shop.php** file too!
-
-If you want to use a database server other than MySQL, please have a look into the article about
-[supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
-and their specific configuration.
 
 Afterwards, install the Aimeos shop package using
 
