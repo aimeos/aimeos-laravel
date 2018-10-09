@@ -79,10 +79,9 @@ and their specific configuration.
 
 ## Installation or update
 
-This document is for the latest Aimeos Laravel **2017.10 release and later**.
+This document is for the latest Aimeos Laravel **2018.10 release and later**.
 
-- Stable release: 2018.07 (Laravel 5.3 to 5.7)
-- LTS release: 2017.10 (Laravel 5.3 to 5.7)
+- LTS release: 2018.10 (Laravel 5.3 to 5.7)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -100,7 +99,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2018.07",
+        "aimeos/aimeos-laravel": "~2018.10",
         ...
     },
     "scripts": {
