@@ -24,13 +24,14 @@ return array(
 
 	'resource' => array(
 		'db' => array(
-			'adapter' => env('DB_CONNECTION', 'mysql'),
-			'host' => env('DB_HOST', 'localhost'),
-			'port' => env('DB_PORT', ''),
-			'database' => env('DB_DATABASE', 'laravel'),
-			'username' => env('DB_USERNAME', 'root'),
-			'password' => env('DB_PASSWORD', ''),
-			'stmt' => array("SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'"),
+			'adapter' => config('database.connections.mysql.driver', 'mysql'),
+			'host' => config('database.connections.mysql.host', '127.0.0.1'),
+			'port' => config('database.connections.mysql.port', '3306'),
+			'socket' => config('database.connections.mysql.unix_socket', ''),
+			'database' => config('database.connections.mysql.database', 'forge'),
+			'username' => config('database.connections.mysql.username', 'forge'),
+			'password' => config('database.connections.mysql.password', ''),
+			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET SESSION sql_mode='ANSI'; SET NAMES 'utf8mb4_bin'"],
 			'opt-persistent' => 0,
 			'limit' => 3,
 			'defaultTableOptions' => [
