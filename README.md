@@ -17,21 +17,40 @@ pages including routing is also available for a quick start.
 
 ## Table of content
 
-- [Distribution](#distribution)
+- [Supported versions](#supported-versions)
+- [Basic application](#basic-application)
 - [Database](#database)
-- [Installation/Update](#installation-or-update)
+- [Installation](#installation)
 - [Setup](#setup)
 - [Admin](#admin)
 - [Hints](#hints)
 - [License](#license)
 - [Links](#links)
 
-## Distribution
+## Supported versions
+
+This document is for the Aimeos Laravel package **2018.10 and later**.
+
+- LTS release: 2018.10 (Laravel 5.3 to 5.7)
+
+If you want to **upgrade between major versions**, please have a look into the
+[upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
+
+## Basic application
 
 If you want to set up a new application or test Aimeos, we recommend the
 [Aimeos distribution](https://github.com/aimeos/aimeos). It will install a
 complete shop system including demo data for a quick start without the need
 to follow the steps described in this readme.
+
+The Aimeos Laravel online shop package is a composer based library that can be
+installed easiest by using [Composer](https://getcomposer.org). For manual setup
+of the application, you need to **install a Laravel skeleton application** if
+you don't have one already:
+
+```
+composer create-project --prefer-dist laravel/laravel myshop
+```
 
 ## Database
 
@@ -77,21 +96,7 @@ If you want to use a database server other than MySQL, please have a look into t
 [supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
 and their specific configuration.
 
-## Installation or update
-
-This document is for the latest Aimeos Laravel **2018.10 release and later**.
-
-- LTS release: 2018.10 (Laravel 5.3 to 5.7)
-
-If you want to **upgrade between major versions**, please have a look into the
-[upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
-
-The Aimeos Laravel web shop package is a composer based library that can be
-installed easiest by using [Composer](https://getcomposer.org). First, you need
-to **install a Laravel skeleton application** if you don't have one already:
-```
-composer create-project --prefer-dist laravel/laravel myshop
-```
+## Installation
 
 Then, add these lines to the composer.json of the **Laravel skeleton application**:
 
