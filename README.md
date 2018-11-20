@@ -292,6 +292,8 @@ If you don't get redirected to the admin interface (that depends on the authenti
 code you've created according to the Laravel documentation), point your browser to the
 `/admin` URL again.
 
+it's necessary to use a table to save the cache. You can run `php artisan cache:table` to generate the migration file and then `php artisan migrate` to create the table.
+
 To see your uploaded images, you have to adapt your `.env` file and set the `APP_URL`:
 
 ```APP_URL=http://127.0.0.1:8000```
