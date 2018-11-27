@@ -26,15 +26,15 @@ class JsonapiControllerTest extends AimeosTestAbstract
 	public function testGetAction()
 	{
 		$params = ['site' => 'unittest', 'resource' => 'product'];
-		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19']];
+		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap']];
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams);
 
 		$json = json_decode( $response->getContent(), true );
 
 		$this->assertResponseOk();
 		$this->assertNotNull( $json );
-		$this->assertEquals( 1, $json['meta']['total'] );
-		$this->assertEquals( 1, count( $json['data'] ) );
+		$this->assertEquals( 2, $json['meta']['total'] );
+		$this->assertEquals( 2, count( $json['data'] ) );
 		$this->assertArrayHasKey( 'id', $json['data'][0] );
 		$this->assertEquals( 'CNC', $json['data'][0]['attributes']['product.code'] );
 
