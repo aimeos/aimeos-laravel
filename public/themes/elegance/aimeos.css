@@ -679,7 +679,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .catalog-filter-attribute .media-item img,
 .catalog-filter-supplier .media-item img {
-	vertical-align: top;
 	height: 1em;
 	width: 1em;
 }
@@ -1095,6 +1094,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 /* Product images */
 .catalog-detail-image {
 	background-color: #ffffff;
+	margin-bottom: 2em;
 }
 
 .catalog-detail-image .image-single {
@@ -1203,10 +1203,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 /* Product detail, basic section */
-.catalog-detail-basic {
-	margin: 1% 2%;
-}
-
 .catalog-detail-basic h1.name {
 	text-transform: uppercase;
 	font-size: 110%;
@@ -1471,6 +1467,21 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .catalog-detail-basket .selection .select-label > span {
 	padding: 0 0.25em;
 	min-width: 1.5em;
+}
+
+.catalog-list-items .selection .radio .select-label > span,
+.catalog-detail-basket .selection .radio .select-label > span {
+	text-align: center;
+	min-width: 2.5em;
+	display: block;
+	padding: 0;
+}
+
+.catalog-list-items .selection .radio .select-label,
+.catalog-detail-basket .selection .radio .select-label {
+	border: solid 1px #ccc;
+	padding: 0.5em;
+	width: auto;
 }
 
 .catalog-list-items .selection .select-option:checked + .select-label,
@@ -2531,9 +2542,9 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 
 /* Checkout summary option terms */
-.checkout-standard-summary-option-account,
-.checkout-standard-summary-option-terms {
-	margin: 1em;
+.checkout-standard-summary-option {
+	padding-top: 0.5em;
+	padding-bottom: 1em;
 }
 
 .checkout-standard-summary-option h3 {
@@ -2559,6 +2570,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .checkout-standard-summary-option input[type="checkbox"] {
 	margin-left: 0.5em;
 }
+
 
 /* Checkout order */
 .checkout-standard-order {
