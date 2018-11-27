@@ -7,11 +7,12 @@
 [![Coverage Status](https://coveralls.io/repos/aimeos/aimeos-laravel/badge.svg?branch=master&service=github)](https://coveralls.io/github/aimeos/aimeos-laravel?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
 
-The repository contains the Aimeos online shop package for Laravel 5
-integrating the Aimeos e-commerce library into Laravel. The package provides
-controllers for e.g. faceted filter, product lists and detail views, for
-searching products as well as baskets and the checkout process. A full set of
-pages including routing is also available for a quick start.
+:star: Star us on GitHub — it helps!
+
+[Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
+high performance e-commerce package for Laravel!  You can install it in your
+existing Laravel application within 5 minutes and can adapt, extend, overwrite
+and customize anything to your needs. 
 
 [![Aimeos Laravel demo](https://aimeos.org/fileadmin/user_upload/laravel-demo.jpg)](http://laravel.demo.aimeos.org/)
 
