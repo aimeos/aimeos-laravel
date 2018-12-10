@@ -3,7 +3,6 @@
 return [
 
 	'routes' => [
-		// 'login' => ['middleware' => ['web']],
 		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
@@ -34,7 +33,7 @@ return [
 			'adapter' => config('database.connections.mysql.driver', 'mysql'),
 			'host' => config('database.connections.mysql.host', '127.0.0.1'),
 			'port' => config('database.connections.mysql.port', '3306'),
-			'socket' => config('database.connections.mysql.unix_socket', ''),,
+			'socket' => config('database.connections.mysql.unix_socket', ''),
 			'database' => config('database.connections.mysql.database', 'forge'),
 			'username' => config('database.connections.mysql.username', 'forge'),
 			'password' => config('database.connections.mysql.password', ''),
