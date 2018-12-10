@@ -1487,6 +1487,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .catalog-list-items .selection .select-option:checked + .select-label,
 .catalog-detail-basket .selection .select-option:checked + .select-label {
 	border: solid 1px #B0A060;
+	background-color: #B0A060;
+	color: #fff;
 }
 
 .catalog-list-items .selection .select-option:disabled + .select-label,
