@@ -4,7 +4,7 @@
     "homepage": "https://aimeos.org/Laravel",
     "type": "laravel-bundle",
     "license": "MIT",
-    "keywords": ["aimeos", "laravel", "e-commerce", "ecommerce", "shop", "portal", "market place"],
+    "keywords": ["aimeos", "laravel", "e-commerce", "ecommerce", "B2B", "shop", "portal", "market place"],
     "support": {
         "source": "https://github.com/Aimeos/aimeos-laravel",
         "issues": "https://github.com/Aimeos/aimeos-laravel/issues",
