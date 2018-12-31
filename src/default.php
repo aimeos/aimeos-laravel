@@ -14,9 +14,10 @@ return array(
 		'basket-index' => array( 'basket/standard','basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),
 		'catalog-detail' => array( 'basket/mini','catalog/stage','catalog/detail','catalog/session' ),
-		'catalog-list' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ),
+		'catalog-list' => array( 'basket/mini','catalog/filter','catalog/lists' ),
 		'catalog-stock' => array( 'catalog/stock' ),
 		'catalog-suggest' => array( 'catalog/suggest' ),
+		'catalog-tree' => array( 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ),
 		'checkout-confirm' => array( 'checkout/confirm' ),
 		'checkout-index' => array( 'checkout/standard' ),
 		'checkout-update' => array( 'checkout/update'),
@@ -169,6 +170,11 @@ return array(
 				'suggest' => array(
 					'url' => array(
 						'target' => 'aimeos_shop_suggest',
+					),
+				),
+				'tree' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_tree',
 					),
 				),
 			),

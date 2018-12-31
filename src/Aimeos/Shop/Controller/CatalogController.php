@@ -86,4 +86,16 @@ class CatalogController extends Controller
 		return Response::view('shop::catalog.suggest', $params)
 			->header('Content-Type', 'application/json');
 	}
+
+
+	/**
+	 * Returns the html for the catalog tree page.
+	 *
+	 * @return \Illuminate\Http\Response Response object with output and headers
+	 */
+	public function treeAction()
+	{
+		$params = app( 'Aimeos\Shop\Base\Page' )->getSections( 'catalog-tree' );
+		return Response::view('shop::catalog.tree', $params);
+	}
 }

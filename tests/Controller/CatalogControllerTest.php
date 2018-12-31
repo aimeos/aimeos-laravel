@@ -36,7 +36,6 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos catalog-filter"', $response->getContent());
-		$this->assertContains('<section class="aimeos catalog-stage"', $response->getContent());
 		$this->assertContains('<section class="aimeos catalog-list"', $response->getContent());
 	}
 
@@ -56,5 +55,16 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertRegexp('/[{.*}]/', $response->getContent());
+	}
+
+
+	public function testTreeAction()
+	{
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@treeAction', ['site' => 'unittest', 'f_catid' => 1, 'f_name' => 'test']);
+
+		$this->assertResponseOk();
+		$this->assertContains('<section class="aimeos catalog-filter"', $response->getContent());
+		$this->assertContains('<section class="aimeos catalog-stage"', $response->getContent());
+		$this->assertContains('<section class="aimeos catalog-list"', $response->getContent());
 	}
 }

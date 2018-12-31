@@ -157,7 +157,7 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@countAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'detail/{d_prodid}/{d_name?}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'detail/{d_name}/{d_prodid}/{d_pos?}', array(
 		'as' => 'aimeos_shop_detail',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 	));
@@ -170,6 +170,11 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 	Route::match( array( 'GET', 'POST' ), 'list', array(
 		'as' => 'aimeos_shop_list',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@listAction'
+	));
+
+	Route::match( array( 'GET', 'POST' ), 'cat/{f_name}/{f_catid}', array(
+		'as' => 'aimeos_shop_tree',
+		'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
 	));
 
 	Route::match( array( 'GET', 'POST' ), 'suggest', array(
