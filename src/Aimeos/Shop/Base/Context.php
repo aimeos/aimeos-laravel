@@ -160,7 +160,7 @@ class Context
 	 */
 	protected function addLogger( \Aimeos\MShop\Context\Item\Iface $context )
 	{
-		$logger = \Aimeos\MAdmin\Log\Manager\Factory::createManager( $context );
+		$logger = \Aimeos\MAdmin::create( $context, 'log' );
 
 		return $context->setLogger( $logger );
 	}
@@ -262,7 +262,7 @@ class Context
 		{
 			$context->setGroupIds( function() use ( $context, $userid )
 			{
-				$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+				$manager = \Aimeos\MShop::create( $context, 'customer' );
 				return $manager->getItem( $userid, array( 'customer/group' ) )->getGroups();
 			} );
 		}

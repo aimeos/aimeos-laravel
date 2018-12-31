@@ -83,7 +83,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->copy() ) == '' ) {
 			return $cntl->getView()->response();
@@ -104,7 +104,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->create() ) == '' ) {
 			return $cntl->getView()->response();
@@ -125,7 +125,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->delete() ) == '' ) {
 			return $cntl->getView()->response();
@@ -146,7 +146,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->export() ) == '' ) {
 			return $cntl->getView()->response();
@@ -167,7 +167,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->get() ) == '' ) {
 			return $cntl->getView()->response();
@@ -188,7 +188,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->save() ) == '' ) {
 			return $cntl->getView()->response();
@@ -209,7 +209,7 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
 		}
 
-		$cntl = $this->createClient();
+		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->search() ) == '' ) {
 			return $cntl->getView()->response();
@@ -224,7 +224,7 @@ class JqadmController extends AdminController
 	 *
 	 * @return \Aimeos\Admin\JQAdm\Iface JQAdm client
 	 */
-	protected function createClient()
+	protected function createAdmin()
 	{
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
 		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
@@ -245,7 +245,7 @@ class JqadmController extends AdminController
 
 		$context->setView( $view );
 
-		return \Aimeos\Admin\JQAdm\Factory::createClient( $context, $aimeos, $resource );
+		return \Aimeos\Admin\JQAdm::create( $context, $aimeos, $resource );
 	}
 
 

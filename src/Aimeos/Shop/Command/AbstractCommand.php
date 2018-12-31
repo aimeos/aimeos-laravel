@@ -31,7 +31,7 @@ abstract class AbstractCommand extends Command
 	 */
 	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$search = $manager->createSearch();
 
 		if( is_scalar( $sites ) && $sites != '' ) {

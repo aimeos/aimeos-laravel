@@ -70,7 +70,7 @@ class Support
 		$context = $this->context->get( false );
 
 		try {
-			$site = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' )->getItem( $user->siteid )->getCode();
+			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $user->siteid )->getCode();
 		} catch( \Exception $e ) {
 			$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
 		}
@@ -122,7 +122,7 @@ class Support
 	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
 	{
 		$list = array();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
@@ -145,14 +145,14 @@ class Support
 	 */
 	protected function checkGroups( \Aimeos\MShop\Context\Item\Iface $context, $userid, $groupcodes )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.code', (array) $groupcodes ) );
 		$groupItems = $manager->searchItems( $search );
 
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(

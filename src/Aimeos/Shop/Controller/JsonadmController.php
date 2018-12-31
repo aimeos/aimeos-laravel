@@ -42,7 +42,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createClient()->delete( $request, new Response() );
+		return $this->createAdmin()->delete( $request, new Response() );
 	}
 
 
@@ -58,7 +58,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
-		return $this->createClient()->get( $request, new Response() );
+		return $this->createAdmin()->get( $request, new Response() );
 	}
 
 
@@ -74,7 +74,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createClient()->patch( $request, new Response() );
+		return $this->createAdmin()->patch( $request, new Response() );
 	}
 
 
@@ -90,7 +90,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createClient()->post( $request, new Response() );
+		return $this->createAdmin()->post( $request, new Response() );
 	}
 
 
@@ -106,7 +106,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createClient()->put( $request, new Response() );
+		return $this->createAdmin()->put( $request, new Response() );
 	}
 
 
@@ -122,7 +122,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
-		return $this->createClient()->options( $request, new Response() );
+		return $this->createAdmin()->options( $request, new Response() );
 	}
 
 
@@ -131,7 +131,7 @@ class JsonadmController extends Controller
 	 *
 	 * @return \Aimeos\Admin\JsonAdm\Iface JsonAdm client
 	 */
-	protected function createClient()
+	protected function createAdmin()
 	{
 		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
 		$lang = Input::get( 'locale', config( 'app.locale', 'en' ) );
@@ -145,6 +145,6 @@ class JsonadmController extends Controller
 		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
 		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $templatePaths, $lang ) );
 
-		return \Aimeos\Admin\JsonAdm\Factory::createClient( $context, $aimeos, $resource );
+		return \Aimeos\Admin\JsonAdm::create( $context, $aimeos, $resource );
 	}
 }

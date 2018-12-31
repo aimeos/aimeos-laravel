@@ -62,7 +62,7 @@ class AccountCommand extends AbstractCommand
 		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:account' );
 
-		$localeManager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
+		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
 		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false );
 		$context->setLocale( $localeItem );
 
@@ -79,17 +79,14 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function addListItem( \Aimeos\MShop\Context\Item\Iface $context, $userid, $groupid )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists/type' );
-
-		$typeid = $typeManager->findItem( 'default', array(), 'customer/group' )->getId();
+		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
 			$search->compare( '==', 'customer.lists.parentid', $userid ),
 			$search->compare( '==', 'customer.lists.refid', $groupid ),
+			$search->compare( '==', 'customer.lists.type', 'default' ),
 			$search->compare( '==', 'customer.lists.domain', 'customer/group' ),
-			$search->compare( '==', 'customer.lists.typeid', $typeid ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$search->setSlice( 0, 1 );
@@ -99,8 +96,8 @@ class AccountCommand extends AbstractCommand
 			$item = $manager->createItem();
 			$item->setDomain( 'customer/group' );
 			$item->setParentId( $userid );
-			$item->setTypeId( $typeid );
 			$item->setRefId( $groupid );
+			$item->setType( 'default' );
 			$item->setStatus( 1 );
 
 			$manager->saveItem( $item, false );
@@ -163,7 +160,7 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function createCustomerItem( \Aimeos\MShop\Context\Item\Iface $context, $email, $password )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 		try {
 			$item = $manager->findItem( $email );
@@ -206,7 +203,7 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function getGroupItem( \Aimeos\MShop\Context\Item\Iface $context, $code )
 	{
-		$manager = \Aimeos\MShop\Customer\Manager\Factory::createManager( $context )->getSubmanager( 'group' );
+		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
 		try
 		{
