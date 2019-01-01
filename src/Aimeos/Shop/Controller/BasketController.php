@@ -10,6 +10,7 @@
 
 namespace Aimeos\Shop\Controller;
 
+use Aimeos\Shop\Facades\Shop;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 
@@ -29,7 +30,14 @@ class BasketController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'basket-index' );
+		$default = ['basket/standard','basket/related'];
+
+		foreach( app( 'config' )->get( 'shop.page.basket-index', $default ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
 		return Response::view('shop::basket.index', $params)->header('Cache-Control', 'no-store');
 	}
 }

@@ -10,6 +10,7 @@
 
 namespace Aimeos\Shop\Controller;
 
+use Aimeos\Shop\Facades\Shop;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 
@@ -29,7 +30,14 @@ class AccountController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'account-index' );
+		$default = ['account/profile','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session'];
+
+		foreach( app( 'config' )->get( 'shop.page.account-index', $default ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
 		return Response::view('shop::account.index', $params);
 	}
 
@@ -41,17 +49,7 @@ class AccountController extends Controller
 	 */
 	public function downloadAction()
 	{
-		$context = app( '\Aimeos\Shop\Base\Context' )->get();
-		$langid = $context->getLocale()->getLanguageId();
-
-		$view = app( '\Aimeos\Shop\Base\View' )->create( $context, array(), $langid );
-		$context->setView( $view );
-
-		$client = \Aimeos\Client\Html::create( $context, 'account/download' );
-		$client->setView( $view );
-		$client->process();
-
-		$response = $view->response();
+		$response = Shop::get( 'account/download' )->getView()->response();
 		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() );
 	}
 }

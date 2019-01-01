@@ -10,6 +10,7 @@
 
 namespace Aimeos\Shop\Controller;
 
+use Aimeos\Shop\Facades\Shop;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 
@@ -29,7 +30,12 @@ class CheckoutController extends Controller
 	 */
 	public function confirmAction()
 	{
-		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-confirm' );
+		foreach( app( 'config' )->get( 'shop.page.checkout-confirm', ['checkout/confirm'] ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
 		return Response::view('shop::checkout.confirm', $params)->header('Cache-Control', 'no-store');
 	}
 
@@ -41,7 +47,12 @@ class CheckoutController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-index' );
+		foreach( app( 'config' )->get( 'shop.page.checkout-index', ['checkout/standard'] ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
 		return Response::view('shop::checkout.index', $params)->header('Cache-Control', 'no-store');
 	}
 
@@ -53,7 +64,12 @@ class CheckoutController extends Controller
 	 */
 	public function updateAction()
 	{
-		$params = app( '\Aimeos\Shop\Base\Page' )->getSections( 'checkout-update' );
+		foreach( app( 'config' )->get( 'shop.page.checkout-update', ['checkout/update'] ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
 		return Response::view('shop::checkout.update', $params)->header('Cache-Control', 'no-store');
 	}
 }
