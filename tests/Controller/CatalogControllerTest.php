@@ -64,7 +64,6 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos catalog-filter"', $response->getContent());
-		$this->assertContains('<section class="aimeos catalog-stage"', $response->getContent());
 		$this->assertContains('<section class="aimeos catalog-list"', $response->getContent());
 	}
 }
