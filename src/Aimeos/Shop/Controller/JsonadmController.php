@@ -137,13 +137,13 @@ class JsonadmController extends Controller
 		$lang = Input::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = app( 'aimeos' )->get();
 		$templatePaths = $aimeos->getCustomPaths( 'admin/jsonadm/templates' );
 
-		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
-		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang, 'en' ) ) );
-		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
-		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $templatePaths, $lang ) );
+		$context = app( 'aimeos.context' )->get( false, 'backend' );
+		$context->setI18n( app('aimeos.i18n')->get( array( $lang, 'en' ) ) );
+		$context->setLocale( app('aimeos.locale')->getBackend( $context, $site ) );
+		$context->setView( app( 'aimeos.view' )->create( $context, $templatePaths, $lang ) );
 
 		return \Aimeos\Admin\JsonAdm::create( $context, $aimeos, $resource );
 	}

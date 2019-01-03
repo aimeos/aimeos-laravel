@@ -25,6 +25,6 @@ class Shop extends \Illuminate\Support\Facades\Facade
      */
     protected static function getFacadeAccessor()
     {
-        return '\Aimeos\Shop\Base\Shop';
+        return 'aimeos.shop';
     }
 }

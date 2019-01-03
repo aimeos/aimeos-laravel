@@ -56,36 +56,36 @@ class ShopServiceProvider extends ServiceProvider {
 	{
 		$this->mergeConfigFrom( dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR . 'default.php', 'shop');
 
-		$this->app->singleton('Aimeos\Shop\Base\Aimeos', function($app) {
+		$this->app->singleton('aimeos', function($app) {
 			return new \Aimeos\Shop\Base\Aimeos($app['config']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\Config', function($app) {
-			return new \Aimeos\Shop\Base\Config($app['config'], $app['Aimeos\Shop\Base\Aimeos']);
+		$this->app->singleton('aimeos.config', function($app) {
+			return new \Aimeos\Shop\Base\Config($app['config'], $app['aimeos']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\I18n', function($app) {
-			return new \Aimeos\Shop\Base\I18n($this->app['config'], $app['Aimeos\Shop\Base\Aimeos']);
+		$this->app->singleton('aimeos.i18n', function($app) {
+			return new \Aimeos\Shop\Base\I18n($this->app['config'], $app['aimeos']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\Locale', function($app) {
+		$this->app->singleton('aimeos.locale', function($app) {
 			return new \Aimeos\Shop\Base\Locale($app['config']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\Context', function($app) {
-			return new \Aimeos\Shop\Base\Context($app['session.store'], $app['Aimeos\Shop\Base\Config'], $app['Aimeos\Shop\Base\Locale'], $app['Aimeos\Shop\Base\I18n']);
+		$this->app->singleton('aimeos.context', function($app) {
+			return new \Aimeos\Shop\Base\Context($app['session.store'], $app['aimeos.config'], $app['aimeos.locale'], $app['aimeos.i18n']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\Support', function($app) {
-			return new \Aimeos\Shop\Base\Support($app['Aimeos\Shop\Base\Context'], $app['Aimeos\Shop\Base\Locale']);
+		$this->app->singleton('aimeos.support', function($app) {
+			return new \Aimeos\Shop\Base\Support($app['aimeos.context'], $app['aimeos.locale']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\View', function($app) {
-			return new \Aimeos\Shop\Base\View($app['config'], $app['Aimeos\Shop\Base\I18n'], $app['Aimeos\Shop\Base\Support']);
+		$this->app->singleton('aimeos.view', function($app) {
+			return new \Aimeos\Shop\Base\View($app['config'], $app['aimeos.i18n'], $app['aimeos.support']);
 		});
 
-		$this->app->singleton('Aimeos\Shop\Base\Shop', function($app) {
-			return new \Aimeos\Shop\Base\Shop($app['Aimeos\Shop\Base\Aimeos'], $app['Aimeos\Shop\Base\Context'], $app['Aimeos\Shop\Base\View']);
+		$this->app->singleton('aimeos.shop', function($app) {
+			return new \Aimeos\Shop\Base\Shop($app['aimeos'], $app['aimeos.context'], $app['aimeos.view']);
 		});
 
 

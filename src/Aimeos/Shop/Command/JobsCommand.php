@@ -46,7 +46,7 @@ class JobsCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		$aimeos = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = $this->getLaravel()->make( 'aimeos' )->get();
 		$context = $this->getContext();
 
 		$process = $context->getProcess();
@@ -85,15 +85,15 @@ class JobsCommand extends AbstractCommand
 	protected function getContext()
 	{
 		$lv = $this->getLaravel();
-		$aimeos = $lv->make( '\Aimeos\Shop\Base\Aimeos' )->get();
-		$context = $lv->make( '\Aimeos\Shop\Base\Context' )->get( false, 'command' );
+		$aimeos = $lv->make( 'aimeos' )->get();
+		$context = $lv->make( 'aimeos.context' )->get( false, 'command' );
 
 		$tmplPaths = $aimeos->getCustomPaths( 'controller/jobs/templates' );
-		$view = $lv->make( '\Aimeos\Shop\Base\View' )->create( $context, $tmplPaths );
+		$view = $lv->make( 'aimeos.view' )->create( $context, $tmplPaths );
 
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$langids = array_keys( $langManager->searchItems( $langManager->createSearch( true ) ) );
-		$i18n = $lv->make( '\Aimeos\Shop\Base\I18n' )->get( $langids );
+		$i18n = $lv->make( 'aimeos.i18n' )->get( $langids );
 
 		$context->setEditor( 'aimeos:jobs' );
 		$context->setView( $view );

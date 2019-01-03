@@ -40,7 +40,7 @@ class JqadmController extends AdminController
 
 		$contents = '';
 		$files = array();
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = app( 'aimeos' )->get();
 		$type = Route::input( 'type', Input::get( 'type', 'js' ) );
 
 		foreach( $aimeos->getCustomPaths( 'admin/jqadm' ) as $base => $paths )
@@ -230,17 +230,17 @@ class JqadmController extends AdminController
 		$lang = Input::get( 'lang', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = app( 'aimeos' )->get();
 		$paths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
-		$context = app( '\Aimeos\Shop\Base\Context' )->get( false, 'backend' );
-		$context->setI18n( app('\Aimeos\Shop\Base\I18n')->get( array( $lang, 'en' ) ) );
-		$context->setLocale( app('\Aimeos\Shop\Base\Locale')->getBackend( $context, $site ) );
+		$context = app( 'aimeos.context' )->get( false, 'backend' );
+		$context->setI18n( app('aimeos.i18n')->get( array( $lang, 'en' ) ) );
+		$context->setLocale( app('aimeos.locale')->getBackend( $context, $site ) );
 
-		$view = app( '\Aimeos\Shop\Base\View' )->create( $context, $paths, $lang );
+		$view = app( 'aimeos.view' )->create( $context, $paths, $lang );
 
 		$view->aimeosType = 'Laravel';
-		$view->aimeosVersion = app( '\Aimeos\Shop\Base\Aimeos' )->getVersion();
+		$view->aimeosVersion = app( 'aimeos' )->getVersion();
 		$view->aimeosExtensions = implode( ',', $aimeos->getExtensions() );
 
 		$context->setView( $view );

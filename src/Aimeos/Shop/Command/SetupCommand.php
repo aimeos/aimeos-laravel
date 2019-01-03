@@ -49,7 +49,7 @@ class SetupCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		$ctx = $this->getLaravel()->make( '\Aimeos\Shop\Base\Context' )->get( false, 'command' );
+		$ctx = $this->getLaravel()->make( 'aimeos.context' )->get( false, 'command' );
 		$ctx->setEditor( 'aimeos:setup' );
 
 		$config = $ctx->getConfig();
@@ -60,7 +60,7 @@ class SetupCommand extends AbstractCommand
 		$dbconfig = $this->getDbConfig( $config );
 		$this->setOptions( $config );
 
-		$taskPaths = $this->getLaravel()->make( '\Aimeos\Shop\Base\Aimeos' )->get()->getSetupPaths( $template );
+		$taskPaths = $this->getLaravel()->make( 'aimeos' )->get()->getSetupPaths( $template );
 		$manager = new \Aimeos\MW\Setup\Manager\Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );

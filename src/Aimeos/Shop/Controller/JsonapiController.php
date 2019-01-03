@@ -107,13 +107,13 @@ class JsonapiController extends Controller
 		$resource = Route::input( 'resource' );
 		$related = Route::input( 'related', Input::get( 'related' ) );
 
-		$aimeos = app( '\Aimeos\Shop\Base\Aimeos' )->get();
+		$aimeos = app( 'aimeos' )->get();
 		$tmplPaths = $aimeos->getCustomPaths( 'client/jsonapi/templates' );
 
-		$context = app( '\Aimeos\Shop\Base\Context' )->get();
+		$context = app( 'aimeos.context' )->get();
 		$langid = $context->getLocale()->getLanguageId();
 
-		$context->setView( app( '\Aimeos\Shop\Base\View' )->create( $context, $tmplPaths, $langid ) );
+		$context->setView( app( 'aimeos.view' )->create( $context, $tmplPaths, $langid ) );
 
 		return \Aimeos\Client\JsonApi::create( $context, $resource . '/' . $related );
 	}
