@@ -44,6 +44,7 @@ return array(
 			'adapter' => 'Standard',
 			'basedir' => public_path(),
 			'tempdir' => storage_path( 'tmp' ),
+			'baseurl' => config( 'app.url' ) . '/',
 		),
 		'fs-admin' => array(
 			'adapter' => 'Standard',
@@ -137,6 +138,11 @@ return array(
 					'url' => array(
 						'target' => 'aimeos_shop_account_download',
 					),
+					'error' => array(
+						'url' => array(
+							'target' => 'aimeos_shop_account',
+						),
+					),
 				),
 			),
 			'catalog' => array(
@@ -179,9 +185,6 @@ return array(
 				),
 			),
 			'common' => array(
-				'content' => array(
-					'baseurl' => config( 'app.url' ) . '/',
-				),
 				'template' => array(
 					'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
 				),

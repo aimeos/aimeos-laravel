@@ -58,9 +58,6 @@ return [
 				],
 			],
 			'common' => [
-				'content' => [
-					// 'baseurl' => config( 'app.url' ) . '/',
-				],
 				'template' => [
 					// 'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
 				],
