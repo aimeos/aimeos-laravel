@@ -10,9 +10,9 @@
 :star: Star us on GitHub — it helps!
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
-high performance e-commerce package for Laravel!  You can install it in your
+ultra fast e-commerce package for Laravel!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
-and customize anything to your needs. 
+and customize anything to your needs.
 
 [![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](http://laravel.demo.aimeos.org/)
 
@@ -32,6 +32,7 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2018.10 and later**.
 
+- Beta release: 2019.01 (Laravel 5.3 to 5.7)
 - LTS release: 2018.10 (Laravel 5.3 to 5.7)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -217,6 +218,11 @@ an exception due to old cached data.
 
 ```php artisan cache:clear```
 
+To reference images correctly, you have to adapt your `.env` file and set the `APP_URL`
+to your real URL, e.g.
+
+```APP_URL=http://127.0.0.1:8000```
+
 Then, you should be able to call the catalog list page in your browser. For a
 quick start, you can use the integrated web server that is available since PHP 5.4.
 Simply execute this command in the base directory of your application:
@@ -292,10 +298,6 @@ Enter the e-mail address and the password of the newly created user and press "L
 If you don't get redirected to the admin interface (that depends on the authentication
 code you've created according to the Laravel documentation), point your browser to the
 `/admin` URL again.
-
-To see your uploaded images, you have to adapt your `.env` file and set the `APP_URL`:
-
-```APP_URL=http://127.0.0.1:8000```
 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires to log out first.
