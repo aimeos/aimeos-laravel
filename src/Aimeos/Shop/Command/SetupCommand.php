@@ -60,6 +60,9 @@ class SetupCommand extends AbstractCommand
 		$dbconfig = $this->getDbConfig( $config );
 		$this->setOptions( $config );
 
+		\Aimeos\MShop::cache( false );
+		\Aimeos\MAdmin::cache( false );
+
 		$taskPaths = $this->getLaravel()->make( 'aimeos' )->get()->getSetupPaths( $template );
 		$manager = new \Aimeos\MW\Setup\Manager\Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
 
