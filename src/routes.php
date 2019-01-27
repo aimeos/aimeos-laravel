@@ -162,7 +162,7 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'd/pin/{pin_action?}/{pin_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'd/pin/{pin_action}/{pin_id}/{d_name?}', array(
 		'as' => 'aimeos_shop_session_pinned',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 	));

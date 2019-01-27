@@ -21,7 +21,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testDetailAction()
 	{
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction', ['site' => 'unittest']);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction', ['site' => 'unittest', 'pin_action' => 'add', 'pin_id' => 0]);
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos catalog-stage"', $response->getContent());
