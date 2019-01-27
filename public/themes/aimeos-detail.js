@@ -61,7 +61,7 @@ AimeosCatalogDetail = {
 			var scrollPosition = document.documentElement.scrollTop;
 			$(".thumbs .item", ev.delegateTarget).removeClass("selected");
 			$(this).addClass("selected");
-			
+
 			window.location = $(this).attr("href");
 			window.scroll(0, scrollPosition);
 
