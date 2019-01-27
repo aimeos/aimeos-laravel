@@ -2622,7 +2622,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .account-history-list .history-item {
 	border: solid 1px #D0D0D0;
-	display: block;
 	margin: 1em;
 }
 
@@ -2678,7 +2677,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .account-subscription-list .subscription-item {
 	border: solid 1px #D0D0D0;
-	display: block;
 	margin: 1em;
 }
 
@@ -2706,12 +2704,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .account-subscription-list .subscription-cancel .delete:after {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: "\f014";
-}
-
-.account-subscription-list .subscription-item {
-	display: -webkit-flex;
-	display: flex;
-	flex-wrap: wrap;
 }
 
 .account-subscription-detail {
