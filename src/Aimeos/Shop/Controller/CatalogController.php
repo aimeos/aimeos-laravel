@@ -30,7 +30,7 @@ class CatalogController extends Controller
 	 */
 	public function countAction()
 	{
-		foreach( app( 'config' )->get( 'shop.page.catalog-count', ['catalog/count'] ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.catalog-count' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
@@ -48,9 +48,7 @@ class CatalogController extends Controller
 	 */
 	public function detailAction()
 	{
-		$default = ['basket/mini','catalog/stage','catalog/detail','catalog/session'];
-
-		foreach( app( 'config' )->get( 'shop.page.catalog-detail', $default ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.catalog-detail' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
@@ -67,9 +65,7 @@ class CatalogController extends Controller
 	 */
 	public function listAction()
 	{
-		$default = ['basket/mini','catalog/filter','catalog/lists'];
-
-		foreach( app( 'config' )->get( 'shop.page.catalog-list', $default ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.catalog-list' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
@@ -86,7 +82,7 @@ class CatalogController extends Controller
 	 */
 	public function stockAction()
 	{
-		foreach( app( 'config' )->get( 'shop.page.catalog-stock', ['catalog/stock'] ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.catalog-stock' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
@@ -104,7 +100,7 @@ class CatalogController extends Controller
 	 */
 	public function suggestAction()
 	{
-		foreach( app( 'config' )->get( 'shop.page.catalog-suggest', ['catalog/suggest'] ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.catalog-suggest' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
@@ -122,9 +118,7 @@ class CatalogController extends Controller
 	 */
 	public function treeAction()
 	{
-		$default = ['basket/mini','catalog/filter','catalog/stage','catalog/lists'];
-
-		foreach( app( 'config' )->get( 'shop.page.catalog-tree', $default ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.catalog-tree' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();

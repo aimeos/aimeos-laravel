@@ -30,9 +30,7 @@ class BasketController extends Controller
 	 */
 	public function indexAction()
 	{
-		$default = ['basket/standard','basket/related'];
-
-		foreach( app( 'config' )->get( 'shop.page.basket-index', $default ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.basket-index' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();

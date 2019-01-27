@@ -30,9 +30,7 @@ class AccountController extends Controller
 	 */
 	public function indexAction()
 	{
-		$default = ['account/profile','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session'];
-
-		foreach( app( 'config' )->get( 'shop.page.account-index', $default ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.account-index' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
