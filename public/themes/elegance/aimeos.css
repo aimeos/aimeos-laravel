@@ -393,13 +393,13 @@
 .catalog-filter-tree .cat-count:before,
 .catalog-filter-supplier .attr-count:before,
 .catalog-filter-attribute .attr-count:before {
-	content: "(";
+	content: " (";
 }
 
 .catalog-filter-tree .cat-count:after,
 .catalog-filter-supplier .attr-count:after,
 .catalog-filter-attribute .attr-count:after {
-	content: ")";
+	content: ") ";
 }
 
 /* Catalog filter search section */
@@ -1817,12 +1817,12 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .catalog-session-seen .count:before,
 .catalog-session-pinned .count:before {
-	content: "(";
+	content: " (";
 }
 
 .catalog-session-seen .count:after,
 .catalog-session-pinned .count:after {
-	content: ")";
+	content: ") ";
 }
 
 
@@ -1874,11 +1874,11 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .basket-mini-main .quantity:before {
-	content: "(";
+	content: " (";
 }
 
 .basket-mini-main .quantity:after {
-	content: ")";
+	content: ") ";
 }
 
 .basket-mini-main .value {
@@ -2424,8 +2424,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	padding: 0.5em;
 }
 
-.aimeos .common-summary-detail .details img {
-	float: left;
+.aimeos .common-summary-detail .image img.detail {
 	max-width: 6em;
 	max-height: 8em;
 	overflow: hidden;
