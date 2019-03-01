@@ -2,15 +2,10 @@
 
 class JsonapiControllerTest extends AimeosTestAbstract
 {
-	public function setUp()
-	{
-		parent::setUp();
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
-	}
-
-
 	public function testOptionsAction()
 	{
+		View::addLocation(dirname(__DIR__).'/fixtures/views');
+
 		$params = ['site' => 'unittest'];
 		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonapiController@optionsAction', $params);
 
@@ -25,6 +20,8 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 	public function testGetAction()
 	{
+		View::addLocation(dirname(__DIR__).'/fixtures/views');
+
 		$params = ['site' => 'unittest', 'resource' => 'product'];
 		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19']];
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams);
@@ -56,6 +53,8 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 	public function testPostPatchDeleteAction()
 	{
+		View::addLocation(dirname(__DIR__).'/fixtures/views');
+
 		// get CNC product
 		$params = ['site' => 'unittest', 'resource' => 'product'];
 		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19']];
@@ -91,6 +90,8 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 	public function testPutAction()
 	{
+		View::addLocation(dirname(__DIR__).'/fixtures/views');
+
 		$params = ['site' => 'unittest', 'resource' => 'basket'];
 		$response = $this->action('PUT', '\Aimeos\Shop\Controller\JsonapiController@putAction', $params);
 

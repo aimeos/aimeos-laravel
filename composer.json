@@ -35,7 +35,6 @@
         "aimeos/ai-controller-jobs": "2018.10.*"
     },
     "require-dev": {
-        "mockery/mockery": "~0.9",
         "orchestra/testbench": "~3.0",
         "orchestra/testbench-browser-kit": "~3.1",
         "satooshi/php-coveralls": "dev-master",
