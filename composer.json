@@ -35,7 +35,6 @@
         "aimeos/ai-controller-jobs": "dev-master"
     },
     "require-dev": {
-        "mockery/mockery": "~0.9",
         "orchestra/testbench": "~3.0",
         "orchestra/testbench-browser-kit": "~3.1",
         "phpunit/phpunit": "~4.0||~5.0||~6.0||~7.0",
