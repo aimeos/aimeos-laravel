@@ -2,15 +2,10 @@
 
 class BasketControllerTest extends AimeosTestAbstract
 {
-	public function setUp()
-	{
-		parent::setUp();
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
-	}
-
-
 	public function testActions()
 	{
+		View::addLocation(dirname(__DIR__).'/fixtures/views');
+
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\BasketController@indexAction', ['site' => 'unittest']);
 
 		$this->assertResponseOk();

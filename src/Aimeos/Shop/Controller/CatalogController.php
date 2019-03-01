@@ -36,8 +36,9 @@ class CatalogController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::catalog.count', $params)
-			->header('Content-Type', 'application/javascript');
+		return Response::view( 'shop::catalog.count', $params )
+			->header( 'Content-Type', 'application/javascript' )
+			->header( 'Cache-Control', 'max-age=300' );
 	}
 
 
@@ -56,7 +57,8 @@ class CatalogController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::catalog.detail', $params);
+		return Response::view( 'shop::catalog.detail', $params )
+			->header( 'Cache-Control', 'max-age=3600' );
 	}
 
 
@@ -75,7 +77,8 @@ class CatalogController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::catalog.list', $params);
+		return Response::view( 'shop::catalog.list', $params )
+			->header( 'Cache-Control', 'max-age=3600' );
 	}
 
 
@@ -92,8 +95,9 @@ class CatalogController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::catalog.stock', $params)
-			->header('Content-Type', 'application/javascript');
+		return Response::view( 'shop::catalog.stock', $params )
+			->header( 'Content-Type', 'application/javascript' )
+			->header( 'Cache-Control', 'max-age=30' );
 	}
 
 
@@ -111,7 +115,8 @@ class CatalogController extends Controller
 		}
 
 		return Response::view('shop::catalog.suggest', $params)
-			->header('Content-Type', 'application/json');
+			->header('Content-Type', 'application/json')
+			->header( 'Cache-Control', 'max-age=300' );
 	}
 
 
@@ -130,6 +135,7 @@ class CatalogController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::catalog.tree', $params);
+		return Response::view( 'shop::catalog.tree', $params )
+			->header( 'Cache-Control', 'max-age=3600' );
 	}
 }
