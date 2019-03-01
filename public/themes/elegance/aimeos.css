@@ -2424,8 +2424,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	padding: 0.5em;
 }
 
-.aimeos .common-summary-detail .details img {
-	float: left;
+.aimeos .common-summary-detail .image img.detail {
 	max-width: 6em;
 	max-height: 8em;
 	overflow: hidden;
