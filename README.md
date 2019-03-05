@@ -32,8 +32,8 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2018.10 and later**.
 
-- Beta release: 2019.01 (Laravel 5.3 to 5.7)
-- LTS release: 2018.10 (Laravel 5.3 to 5.7)
+- Beta release: 2019.01 (Laravel 5.3 to 5.8)
+- LTS release: 2018.10 (Laravel 5.3 to 5.8)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -247,6 +247,7 @@ To use the admin interface, you have to set up Laravel authentication first:
 ```php artisan make:auth```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 5.8](https://laravel.com/docs/5.8/authentication)
 * [Laravel 5.7](https://laravel.com/docs/5.7/authentication)
 * [Laravel 5.6](https://laravel.com/docs/5.6/authentication)
 * [Laravel 5.5](https://laravel.com/docs/5.5/authentication)
