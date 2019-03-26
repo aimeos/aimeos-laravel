@@ -2450,10 +2450,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	list-style: disc inside none;
 }
 
-.aimeos .common-summary-detail .attr-list-config .attr-item {
-	font-weight: bold;
-}
-
 .aimeos .common-summary-detail .attr-item .name:after {
 	content: ":";
 }
