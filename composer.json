@@ -40,6 +40,9 @@
         "phpunit/phpunit": "~4.0||~5.0||~6.0||~7.0",
         "php-coveralls/php-coveralls": "~2.0"
     },
+    "conflict": {
+        "zendframework/zend-diactoros": "1.9.6"
+    },
     "autoload": {
         "psr-0": {
             "Aimeos\\Shop\\": "src/"
