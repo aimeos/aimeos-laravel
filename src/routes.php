@@ -157,7 +157,7 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@countAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'd/{d_name}/{d_prodid}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'd/{d_name}/{d_pos?}', array(
 		'as' => 'aimeos_shop_detail',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 	));
