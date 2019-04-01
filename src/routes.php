@@ -150,31 +150,11 @@ Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), f
 });
 
 
-Route::group(config('shop.routes.default', ['middleware' => ['web']]), function() {
+Route::group(config('shop.routes.default', ['prefix' => 'shop', 'middleware' => ['web']]), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'count', array(
 		'as' => 'aimeos_shop_count',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@countAction'
-	));
-
-	Route::match( array( 'GET', 'POST' ), 'd/{d_name}/{d_pos?}', array(
-		'as' => 'aimeos_shop_detail',
-		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
-	));
-
-	Route::match( array( 'GET', 'POST' ), 'd/pin/{pin_action}/{pin_id}/{d_name?}', array(
-		'as' => 'aimeos_shop_session_pinned',
-		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
-	));
-
-	Route::match( array( 'GET', 'POST' ), 'list', array(
-		'as' => 'aimeos_shop_list',
-		'uses' => 'Aimeos\Shop\Controller\CatalogController@listAction'
-	));
-
-	Route::match( array( 'GET', 'POST' ), 'c/{f_name}/{f_catid}', array(
-		'as' => 'aimeos_shop_tree',
-		'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
 	));
 
 	Route::match( array( 'GET', 'POST' ), 'suggest', array(
@@ -200,6 +180,26 @@ Route::group(config('shop.routes.default', ['middleware' => ['web']]), function(
 	Route::match( array( 'GET', 'POST' ), 'confirm/{code?}', array(
 		'as' => 'aimeos_shop_confirm',
 		'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
+	));
+
+	Route::match( array( 'GET', 'POST' ), 'pin/{pin_action}/{pin_id}/{d_name}', array(
+		'as' => 'aimeos_shop_session_pinned',
+		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
+	));
+
+	Route::match( array( 'GET', 'POST' ), '{f_name}~{f_catid}', array(
+		'as' => 'aimeos_shop_tree',
+		'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
+	));
+
+	Route::match( array( 'GET', 'POST' ), '{d_name}/{d_pos?}', array(
+		'as' => 'aimeos_shop_detail',
+		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
+	));
+
+	Route::match( array( 'GET', 'POST' ), '', array(
+		'as' => 'aimeos_shop_list',
+		'uses' => 'Aimeos\Shop\Controller\CatalogController@listAction'
 	));
 
 });
