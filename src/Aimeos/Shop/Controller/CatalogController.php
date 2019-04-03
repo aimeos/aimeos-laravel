@@ -56,7 +56,8 @@ class CatalogController extends Controller
 		}
 
 		return Response::view( 'shop::catalog.detail', $params )
-			->header( 'Cache-Control', 'max-age=3600' );
+			->header( 'Cache-Control', 'max-age=10' )
+			->header('Cache-Control', 'private');
 	}
 
 
@@ -74,8 +75,9 @@ class CatalogController extends Controller
 		}
 
 		return Response::view( 'shop::catalog.list', $params )
-			->header( 'Cache-Control', 'max-age=3600' );
-	}
+			->header( 'Cache-Control', 'max-age=10' )
+			->header('Cache-Control', 'private');
+}
 
 
 	/**
@@ -130,6 +132,7 @@ class CatalogController extends Controller
 		}
 
 		return Response::view( 'shop::catalog.tree', $params )
-			->header( 'Cache-Control', 'max-age=3600' );
+			->header( 'Cache-Control', 'max-age=10' )
+			->header('Cache-Control', 'private');
 	}
 }
