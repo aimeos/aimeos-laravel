@@ -32,7 +32,8 @@
         "aimeos/ai-admin-jsonadm": "dev-master",
         "aimeos/ai-client-html": "dev-master",
         "aimeos/ai-client-jsonapi": "dev-master",
-        "aimeos/ai-controller-jobs": "dev-master"
+        "aimeos/ai-controller-jobs": "dev-master",
+        "aimeos/ai-controller-frontend": "dev-master"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0",
