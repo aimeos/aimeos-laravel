@@ -32,7 +32,7 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2018.10 and later**.
 
-- Beta release: 2019.01 (Laravel 5.3 to 5.8)
+- Stable release: 2019.04 (Laravel 5.3 to 5.8)
 - LTS release: 2018.10 (Laravel 5.3 to 5.8)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -106,7 +106,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2018.10",
+        "aimeos/aimeos-laravel": "~2019.04",
         ...
     },
     "scripts": {
