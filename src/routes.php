@@ -125,24 +125,24 @@ Route::group(config('shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' 
 });
 
 
-Route::group(config('shop.routes.account', ['middleware' => ['web', 'auth']]), function() {
+Route::group(config('shop.routes.account', ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']]), function() {
 
-	Route::match( array( 'GET', 'POST' ), 'myaccount/favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_favorite',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'myaccount/watch/{wat_action?}/{wat_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'watch/{wat_action?}/{wat_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_watch',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'myaccount/download/{dl_id}', array(
+	Route::match( array( 'GET', 'POST' ), 'download/{dl_id}', array(
 		'as' => 'aimeos_shop_account_download',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@downloadAction'
 	));
 
-	Route::match( array( 'GET', 'POST' ), 'myaccount', array(
+	Route::match( array( 'GET', 'POST' ), '', array(
 		'as' => 'aimeos_shop_account',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	));
