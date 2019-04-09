@@ -8,8 +8,8 @@ return [
 		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
 		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
+		// 'account' => ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
-		// 'account' => ['middleware' => ['web', 'auth']],
 		// 'update' => [],
 	],
 
