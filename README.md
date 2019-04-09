@@ -231,9 +231,10 @@ Simply execute this command in the base directory of your application:
 
 Point your browser to the list page of the shop using:
 
-http://127.0.0.1:8000/index.php/list
+- since 2019.04: http://127.0.0.1:8000/index.php/shop
+- until 2019.01: http://127.0.0.1:8000/index.php/list
 
-**Note:** Integrating the Aimeos package adds some routes like `/list` or `/admin` to your
+**Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
 Laravel installation but the **home page stays untouched!**
 
 **Caution:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
