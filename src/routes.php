@@ -125,6 +125,27 @@ Route::group(config('shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' 
 });
 
 
+Route::get('terms', array(
+	'as' => 'aimeos_shop_terms',
+	'uses' => 'Aimeos\Shop\Controller\PageController@termsAction'
+));
+
+Route::get('privacy', array(
+	'as' => 'aimeos_shop_privacy',
+	'uses' => 'Aimeos\Shop\Controller\PageController@privacyAction'
+));
+
+
+Route::group(config('shop.routes.update', []), function() {
+
+	Route::match( array( 'GET', 'POST' ), 'update', array(
+		'as' => 'aimeos_shop_update',
+		'uses' => 'Aimeos\Shop\Controller\CheckoutController@updateAction'
+	));
+
+});
+
+
 Route::group(config('shop.routes.account', ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']]), function() {
 
 	Route::match( array( 'GET', 'POST' ), 'favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
@@ -203,24 +224,3 @@ Route::group(config('shop.routes.default', ['prefix' => 'shop', 'middleware' => 
 	));
 
 });
-
-
-Route::group(config('shop.routes.update', []), function() {
-
-	Route::match( array( 'GET', 'POST' ), 'update', array(
-		'as' => 'aimeos_shop_update',
-		'uses' => 'Aimeos\Shop\Controller\CheckoutController@updateAction'
-	));
-
-});
-
-
-Route::get('terms', array(
-	'as' => 'aimeos_shop_terms',
-	'uses' => 'Aimeos\Shop\Controller\PageController@termsAction'
-));
-
-Route::get('privacy', array(
-	'as' => 'aimeos_shop_privacy',
-	'uses' => 'Aimeos\Shop\Controller\PageController@privacyAction'
-));
