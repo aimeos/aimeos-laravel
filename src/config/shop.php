@@ -5,8 +5,10 @@ return [
 	'routes' => [
 		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
-		// 'extadm' => ['prefix' => 'admin/{site}/extadm', 'middleware' => ['web', 'auth']],
 		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
+
+		// for shop-only applications, remove 'prefix' => 'shop' from 'default' route group
+		// for multi-channel setups add 'domain' => '{site}' to each route group and use the domains as locale site codes
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
