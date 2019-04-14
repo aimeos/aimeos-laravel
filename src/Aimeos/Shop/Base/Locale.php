@@ -65,10 +65,14 @@ class Locale
 				$lang = Route::input( 'locale', $lang );
 			}
 
+			$localeManager = \Aimeos\MShop::create( $context, 'locale' );
 			$disableSites = $this->config->get( 'shop.disableSites', true );
 
-			$localeManager = \Aimeos\MShop::create( $context, 'locale' );
-			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
+			try {
+				$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
+			} catch( \Aimeos\MShop\Locale\Exception $e ) {
+				$this->locale = $localeManager->bootstrap( 'default', $lang, $currency, $disableSites );
+			}
 		}
 
 		return $this->locale;
