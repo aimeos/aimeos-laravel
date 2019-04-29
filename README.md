@@ -238,6 +238,8 @@ Point your browser to the list page of the shop using:
 **Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
 Laravel installation but the **home page stays untouched!**
 
+[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.png)](http://127.0.0.1:8000/index.php/shop)
+
 **Caution:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
 routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
 if one of the payment providers is sending data via POST requests.
@@ -304,6 +306,8 @@ code you've created according to the Laravel documentation), point your browser 
 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires to log out first.
+
+[![Aimeos backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/index.php/admin)
 
 ## Hints
 
