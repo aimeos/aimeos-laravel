@@ -44,7 +44,7 @@ If you want to **upgrade between major versions**, please have a look into the
 ### Full shop application
 
 If you want to set up a new application or test Aimeos, we recommend the
-[Aimeos distribution](https://github.com/aimeos/aimeos). It will install a
+[Aimeos shop application](https://github.com/aimeos/aimeos). It will install a
 complete shop system including demo data for a quick start without the need
 to follow the steps described in this readme:
 
@@ -52,7 +52,7 @@ to follow the steps described in this readme:
 composer create-project aimeos/aimeos myshop
 ```
 
-More about the full package: [Aimeos distribution](https://github.com/aimeos/aimeos)
+More about the full package: :star: [Aimeos shop](https://github.com/aimeos/aimeos)
 
 ### Shop package only
 
