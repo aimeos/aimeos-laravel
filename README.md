@@ -41,18 +41,27 @@ If you want to **upgrade between major versions**, please have a look into the
 
 ## Basic application
 
+### Full shop application
+
 If you want to set up a new application or test Aimeos, we recommend the
 [Aimeos distribution](https://github.com/aimeos/aimeos). It will install a
 complete shop system including demo data for a quick start without the need
-to follow the steps described in this readme.
-
-The Aimeos Laravel online shop package is a composer based library that can be
-installed easiest by using [Composer](https://getcomposer.org). For manual setup
-of the application, you need to **install a Laravel skeleton application** if
-you don't have one already:
+to follow the steps described in this readme:
 
 ```
-composer create-project --prefer-dist laravel/laravel myshop
+composer create-project aimeos/aimeos myshop
+```
+
+More about the full package: [Aimeos distribution](https://github.com/aimeos/aimeos)
+
+### Shop package only
+
+The Aimeos Laravel online shop package is a composer based library. It can be
+installed easiest by using [Composer](https://getcomposer.org) in the root
+directory of your exisisting Laravel application:
+
+```
+composer require aimeos/aimeos-laravel
 ```
 
 ## Database
