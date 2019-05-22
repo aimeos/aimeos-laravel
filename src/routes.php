@@ -148,12 +148,12 @@ Route::group(config('shop.routes.update', []), function() {
 
 Route::group(config('shop.routes.account', ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']]), function() {
 
-	Route::match( array( 'GET', 'POST' ), 'favorite/{fav_action?}/{fav_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'favorite/{fav_action?}/{fav_id?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_favorite',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	))->where( ['site' => '[a-z0-9\.\-]+'] );
 
-	Route::match( array( 'GET', 'POST' ), 'watch/{wat_action?}/{wat_id?}/{d_prodid?}/{d_name?}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), 'watch/{wat_action?}/{wat_id?}/{d_name?}/{d_pos?}', array(
 		'as' => 'aimeos_shop_account_watch',
 		'uses' => 'Aimeos\Shop\Controller\AccountController@indexAction'
 	))->where( ['site' => '[a-z0-9\.\-]+'] );
@@ -211,12 +211,12 @@ Route::group(config('shop.routes.default', ['prefix' => 'shop', 'middleware' => 
 	Route::match( array( 'GET', 'POST' ), '{f_name}~{f_catid}', array(
 		'as' => 'aimeos_shop_tree',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
-	))->where( ['site' => '[a-z0-9\.\-]+'] );
+	))->where( ['site' => '[a-z0-9\.\-]+', 'f_name' => '[^~]+'] );
 
-	Route::match( array( 'GET', 'POST' ), '{d_name}/{d_pos?}', array(
+	Route::match( array( 'GET', 'POST' ), '{d_name}/{d_pos?}/{d_prodid?}', array(
 		'as' => 'aimeos_shop_detail',
 		'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
-	))->where( ['site' => '[a-z0-9\.\-]+'] );
+	))->where( ['site' => '[a-z0-9\.\-]+', 'd_pos' => '[0-9]*'] );
 
 	Route::match( array( 'GET', 'POST' ), '', array(
 		'as' => 'aimeos_shop_list',
