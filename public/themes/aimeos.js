@@ -109,7 +109,8 @@ Aimeos = {
 			var element = $(elements[i]);
 
 			if($(window).scrollTop() + $(window).height() + 2 * element.height() >= element.offset().top) {
-				element.css("background-image", "url('" + element.data("src") + "')");
+				element.attr("srcset", element.data("srcset"));
+				element.attr("src", element.data("src"));
 				element.removeClass("lazy-image");
 			}
 		}
@@ -1525,11 +1526,6 @@ Aimeos.loadImages();
 
 
 jQuery(document).ready(function($) {
-
-	/* CSS3 "background-size: contain" support for IE8 */
-	$(".catalog-list-items .media-item").css("background-size", "contain");
-	$(".catalog-detail-image .item").css("background-size", "contain");
-
 
 	/* Lazy product image loading in list view */
 	Aimeos.loadImages();

@@ -5,319 +5,149 @@
  * @copyright Aimeos (aimeos.org), 2014
  */
 
-.aimeos .content-block {
-	margin: 1.5em 2%;
-	width: 96%;
-}
-
-.aimeos .logo {
-	margin: 1.5em 2%;
-	margin-top: 0;
-	float: right;
-}
-
-.aimeos .common-summary {
-	clear: both;
-}
-
-.account-detail h2 {
-	font-weight: bold;
-}
-
-.account-detail .name:after {
-	content: ":";
-}
-
-.aimeos a:link:not(.btn),
-.aimeos a:visited:not(.btn) {
+ a {
 	color: #B0A060;
 }
 
-.aimeos li.attr-item,
-.aimeos li.form-item {
+.logo img {
+	max-width: 300px;
+	margin: auto;
+}
+
+
+li.attr-item {
 	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* Account creation */
+
+.account-login .btn-primary tr {
+	background: #ba9a5a;
+	color: #ffffff;
+}
+
+
+/* Common summary */
+.common-summary .item {
+	vertical-align: top;
+}
+
+.common-summary .content {
+	padding: 0.5em;
+	margin: 10px;
+}
+
+.common-summary .item h3 {
+	border-bottom: solid 1px #B0A060;
+	padding: 0.5em;
+	margin: 10px;
+}
+
+.common-summary .item h4 {
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 1em;
 	margin: 0.5em 0;
 	padding: 0;
+	color: #555;
 }
 
-.aimeos .prototype {
-	display: none;
+.common-summary .item li {
+	vertical-align: top;
+	padding-bottom: 0.5em;
 }
 
-.aimeos .container {
-	border: solid 1px #D0D0D0;
-	min-width: 240px;
-	max-width: 98%;
-	margin: 1em 1%;
+.common-summary .item .name {
+	padding: 0.25em 0;
+	display: block;
+	color: #555;
+}
+
+.common-summary .item .value {
+	display: block;
+}
+
+.common-summary .item .attr-list {
+	list-style: none;
+	margin-top: 0;
 	padding: 0;
-	width: 98%;
 }
 
-.aimeos .price-list {
-	font-weight: normal;
+.basket {
+	padding: 10px !important;
+}
+
+.basket th,
+.basket td {
+	vertical-align: middle;
+	padding: 0.5em;
+}
+
+.basket .header {
+	font-weight: bold;
+	background-color: #F0F0F0;
+	border-bottom: 1px solid #D0D0D0;
+	color: #555;
+}
+
+.basket .body {
+	border-bottom: 1px solid #D0D0D0;
+}
+
+.basket th.label {
+	text-align: left;
+}
+
+.basket td.quantity {
+	white-space: nowrap;
+	text-align: center;
+}
+
+.basket td.price {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.basket .product .product-image {
+	max-height: 150px;
+}
+
+.basket .product .product-label {
+	margin: 0.5em 0;
+	display: block;
+}
+
+.basket .product .code {
+	margin: 0.5em;
+}
+
+.basket .product .attr-list {
+	vertical-align: top;
 	color: #555;
 	padding: 0;
 	margin: 0;
 }
 
-.aimeos .price-item {
-	display: none;
-}
-
-.aimeos .price-item:first-of-type {
-	display: block;
-}
-
-.aimeos .price-item:first-of-type .quantity,
-.aimeos .price-item:first-of-type .rebate,
-.aimeos .price-item:first-of-type .costs,
-.aimeos .price-item:first-of-type .taxrate {
-	display: none;
-}
-
-.aimeos .price-item .rebatepercent {
-	background-color: #A03030;
-	padding: 0em 0.25em;
-	margin-left: 1em;
-	color: #FFF;
-}
-
-
-/* Common summary */
-.common-summary .error,
-.common-summary-detail .error {
-	background-color: #ffeeee;
-	border-bottom: 1px solid #FF3300;
-}
-
-.common-summary .item {
-	display: inline-block;
-	vertical-align: top;
-	min-width: 232px;
-	width: 50%;
-	clear: both;
-}
-
-.common-summary .item li {
-	vertical-align: top;
-	padding-top: 0.5em;
-}
-
-.common-summary .content {
-	margin: 0.5em;
-	padding: 0.5em 1em;
-}
-
-.common-summary .item .name {
-	display: inline-block;
-	vertical-align: top;
-	color: #555;
-	width: 198px;
-}
-
-.common-summary .item .name:after {
-	content: ":";
-}
-
-.common-summary .item .value {
-	display: inline-block;
-	vertical-align: top;
-	width: 198px;
-}
-
-.common-summary .item h4,
-.common-summary .item .item-icons {
-	vertical-align: middle;
-	display: inline-block;
-	margin: 0 1em;
-}
-
-.common-summary .item .item-icons img {
-	max-height: 4em;
-}
-
-.common-summary .item .attr-list {
-	list-style: none;
-	margin: 1em;
-	margin-top: 0;
-}
-
-.common-summary .header,
-.common-summary-detail .header {
-	border-bottom: solid 1px #B0A060;
-	padding: 0.5em 1em;
-	margin: 0.5em;
-	margin-top: 0;
-}
-
-.common-summary-address h2,
-.common-summary-service h2,
-.common-summary-coupon h2 {
-	display: none;
-}
-
-.common-summary-service .item .item {
-	margin: 0 0.5em;
-}
-
-.common-summary-service .item h4 {
-	margin: 1em;
-	padding: 0;
-	color: #555;
-	font-size: 1em;
-}
-
-.common-summary-detail .header {
-	border-bottom: none;
-}
-
-.common-summary-detail .basket {
-	margin: 0.5em;
-	margin-top: 0;
-}
-
-.common-summary-detail table {
-	border-collapse: collapse;
-	width: 100%;
-}
-
-.common-summary-detail tbody tr {
-	border-bottom: 1px solid #D0D0D0;
-}
-
-.common-summary-detail thead {
-	font-weight: bold;
-	background-color: #F0F0F0;
-}
-
-.common-summary-detail thead tr {
-	border-bottom: 1px solid #D0D0D0;
-	color: #555;
-}
-
-.common-summary-detail tr.subtotal {
-	color: #555;
-}
-
-.common-summary-detail tr.total {
-	border-top: 1px solid #D0D0D0;
-	color: #555;
-	background-color: #F0F0F0
-}
-
-.common-summary-detail th,
-.common-summary-detail td {
-	vertical-align: middle;
-	padding: 0.5em;
-}
-
-.common-summary-detail .details img {
-	float: left;
-	max-width: 6em;
-	max-height: 8em;
-	overflow: hidden;
-	margin-right: 5%;
-}
-
-.common-summary-detail .details .product-name {
-	margin: 0.5em;
-	display: block;
-}
-
-.common-summary-detail .code {
-	margin: 0.5em;
-}
-
-.common-summary-detail .attr-list {
-	color: #555;
-	margin: 0.5em;
-	vertical-align: top;
-}
-
-.common-summary-detail .attr-list-variant li.attr-item {
+.basket .product .attr-item {
 	list-style: disc inside none;
+	margin: 0 0.5em
 }
 
-.common-summary-detail .attr-list-config .attr-item {
-	font-weight: bold;
-}
-
-.common-summary-detail .attr-item .name:after {
-	content: ":";
-}
-
-.common-summary-detail tfoot tr.quantity,
-.common-summary-detail tr.subtotal,
-.common-summary-detail tr.delivery,
-.common-summary-detail tr.payment,
-.common-summary-detail tr.total,
-.common-summary-detail tr.rebate,
-.common-summary-detail tr.tax,
-.common-summary-detail th.unitprice,
-.common-summary-detail th.price,
-.common-summary-detail td.unitprice,
-.common-summary-detail td.price {
-	text-align: right;
-	white-space: nowrap;
-}
-
-.common-summary-detail th.price {
-	width: 20%;
-}
-
-.common-summary-detail th.quantity,
-.common-summary-detail td.quantity {
-	white-space: nowrap;
-	text-align: center;
-}
-
-.common-summary-detail td.quantity input {
-	text-align: center;
-	display: inline;
-	width: 3em;
-}
-
-.common-summary-detail .action .delete:after {
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: 100%;
-	content: "\f014";
-}
-
-.common-summary-detail th.action,
-.common-summary-detail td.action {
-	text-align: center;
-}
-
-.common-summary-detail tr.delivery td:first-child:after,
-.common-summary-detail tr.payment td:first-child:after {
-	content: " +";
-}
-
-.common-summary-detail tfoot {
+.basket .footer {
 	vertical-align: bottom;
+}
+
+.basket .subtotal {
 	font-weight: bold;
+	color: #555;
 }
 
-.common-summary-detail tfoot .quantity,
-.common-summary-detail tfoot .delivery,
-.common-summary-detail tfoot .payment,
-.common-summary-detail tr.rebate,
-.common-summary-detail tr.tax {
-	font-weight: normal;
-}
-
-@media (max-width: 480px) {
-	.common-summary .item {
-		display: block;
-		width: 100%;
-	}
-
-	.common-summary-detail td.quantity .change {
-		display: block;
-	}
-
-	.common-summary-detail .unitprice {
-		display: table-column;
-		width: 0;
-	}
+.basket .total {
+	border-top: 1px solid #D0D0D0;
+	background-color: #F0F0F0;
+	font-weight: bold;
+	color: #555;
 }
