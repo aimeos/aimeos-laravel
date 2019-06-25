@@ -808,11 +808,11 @@ AimeosCatalog = {
 					} else {
 						$(".addbasket .btn-action", parent).removeClass("btn-disabled").removeAttr("disabled");
 					}
+
+					$(".catalog-detail-additional .subproduct-actual").removeClass("subproduct-actual");
+					$(".catalog-detail-additional .subproduct-" + prodId).addClass("subproduct-actual");
 				}
 			}
-
-			$(".catalog-detail-additional .subproduct-actual").removeClass("subproduct-actual");
-			$(".catalog-detail-additional .subproduct-" + prodId).addClass("subproduct-actual");
 		});
 	},
 
