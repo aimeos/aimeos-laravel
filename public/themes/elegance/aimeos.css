@@ -1123,13 +1123,28 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	display: inline-block;
 	position: relative;
 	overflow: hidden;
-	max-width: 400px;
 	height: 533px;
 	width: 100%;
 }
 
-.catalog-detail-image .image-single figcaption {
-	display: none;
+.catalog-detail-image .image-single .media-item {
+	background-color: #FFFFFF;
+	background-image: url(media/progress.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	position: relative;
+	height: 533px;
+	width: 100%;
+}
+
+.catalog-detail-image .image-single .media-item .item {
+	transform: translate(-50%, -50%);
+	position: relative;
+	max-height: 100%;
+	max-width: 100%;
+	top: 50%;
+	left: 50%;
 }
 
 .catalog-detail-image .item {
@@ -1137,13 +1152,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	background-position: center;
 	background-color: #FFFFFF;
 	background-size: contain;
-}
-
-.catalog-detail-image .image-single .item {
-	display: inline-block;
-	max-width: 400px;
-	height: 533px;
-	width: 100%;
 }
 
 .catalog-detail-image .thumbs .item {
@@ -1185,7 +1193,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .catalog-detail-image .thumbs-horizontal {
 	overflow: hidden;
-	max-width: 400px;
 	width: 100%;
 	height: 105px;
 }
