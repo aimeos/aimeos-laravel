@@ -2661,12 +2661,81 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	width: 218px;
 }
 
+/* Account profile */
+.account-profile .prototype {
+	display: none;
+}
+
+.account-profile .panel {
+	box-shadow: none;
+	border: none;
+}
+
+.account-profile .panel-heading a {
+	text-decoration: none;
+	display: inline-block;
+}
+
+.account-profile .panel-heading .act-show.fa:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f078";
+}
+
+.account-profile .panel-heading .act-delete .fa:after,
+.account-profile .panel-heading .act-hide .fa:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f014";
+}
+
+.account-profile .panel-heading .act-delete,
+.account-profile .panel-heading .act-hide,
+.account-profile-address .act-new {
+	padding: 5px;
+	float: right;
+}
+
+.account-profile-address .act-new {
+	text-decoration: none;
+	margin-right: 10px;
+	margin-top: 15px;
+}
+
+.account-profile-address .act-new:after {
+	font: normal normal normal 20px/1 FontAwesome;
+	content: "\f067";
+}
+
+.account-profile li.form-item.mandatory label {
+	font-weight: bold;
+}
+
+.account-profile li.form-item label {
+	font-weight: normal;
+	margin: 7px 0;
+}
+
+.account-profile .form-list .error {
+	color: #FF3300;
+}
+
+.account-profile .form-list .error a {
+	color: #FF3300;
+}
+
+.account-profile .form-list .error input,
+.account-profile .form-list .error select {
+	background-color: #ffeeee;
+	border: solid 1px #FF3300;
+}
+
+
 /* Account history */
 .account-history {
 	margin: 0 auto;
 }
 
 .account-history-list .history-list {
+	list-style: none;
 	padding: 0;
 }
 
@@ -2710,7 +2779,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	margin: 0;
 }
 
-
 .account-history-order li.attr-item .name,
 .account-history-order li.attr-item .value {
 	min-width: 0;
@@ -2722,6 +2790,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .account-subscription-list .subscription-list {
+	list-style: none;
 	padding: 0;
 }
 

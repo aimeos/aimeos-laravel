@@ -250,6 +250,104 @@ AimeosAccountHistory = {
 
 
 /**
+ * Account profile actions
+ */
+AimeosAccountProfile = {
+
+	/**
+	 * Adds a new delivery address form
+	 */
+	setupAddressNew: function() {
+
+		$(".account-profile").on("click", "a.act-new", function(ev) {
+
+			var item = $(".prototype", ev.delegateTarget).removeClass("prototype");
+			$("input,select", item).removeAttr("disabled");
+			$(this).hide();
+
+			return false;
+		});
+	},
+
+
+	/**
+	 * Deletes a watched item without page reload
+	 */
+	setupAddressRemoval: function() {
+
+		$(".account-profile").on("click", "a.act-delete", function(ev) {
+
+			$(this).parents(".panel").remove();
+			return false;
+		});
+
+		$(".account-profile").on("click", "a.act-hide", function(ev) {
+
+			var item = $(this).parents(".panel").addClass("prototype");
+			$("input,select", item).attr("disabled", "disabled");
+			$("a.act-new", ev.delegateTarget).show();
+
+			return false;
+		});
+	},
+
+
+	/**
+	 * Checks address form for missing or wrong values
+	 */
+	setupMandatoryCheck: function() {
+
+		$(".account-profile .form-item").on("blur", "input,select", function(ev) {
+			var value = $(this).val();
+			var node = $(ev.delegateTarget);
+			var regex = new RegExp(node.data('regex') || '/.*/');
+
+			if((value !== '' && value.match(regex)) || (value === '' && !node.hasClass("mandatory"))) {
+				node.removeClass("error").addClass("success");
+			} else {
+				node.removeClass("success").addClass("error");
+			}
+		});
+
+		$(".account-profile form").on("submit", function(ev) {
+			var retval = true;
+			var nodes = [];
+
+			var testfn = function(idx, element) {
+
+				var elem = $(element);
+				var value = $("input,select", elem).val();
+
+				if(value === null || value.trim() === "") {
+					elem.addClass("error");
+					nodes.push(element);
+					retval = false;
+				} else {
+					elem.removeClass("error");
+				}
+			};
+
+			$(".form-list .mandatory", this).each(testfn);
+
+			return retval;
+		});
+	},
+
+
+	/**
+	 * Initializes the account watch actions
+	 */
+	init: function() {
+
+		this.setupAddressNew();
+		this.setupAddressRemoval();
+		this.setupMandatoryCheck();
+	}
+};
+
+
+
+/**
  * Account subscription actions
  */
 AimeosAccountSubscription = {
@@ -1552,6 +1650,7 @@ jQuery(document).ready(function($) {
 	AimeosCheckoutStandard.init();
 	AimeosCheckoutConfirm.init();
 
+	AimeosAccountProfile.init();
 	AimeosAccountSubscription.init();
 	AimeosAccountHistory.init();
 	AimeosAccountFavorite.init();
