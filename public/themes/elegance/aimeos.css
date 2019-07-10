@@ -1815,6 +1815,22 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	width: 160px;
 }
 
+.account-watch .media-item img,
+.account-favorite .media-item img,
+.basket-related-bought .media-item img,
+.catalog-detail-bought .media-item img,
+.catalog-detail-bundle .media-item img,
+.catalog-detail-suggest .media-item img,
+.catalog-session-seen .media-item img,
+.catalog-session-pinned .media-item img {
+	position: relative;
+	max-width: 100%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .account-watch .name,
 .account-favorite .name,
 .basket-related-bought .name,
