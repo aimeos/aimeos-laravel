@@ -207,7 +207,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 			</div>
 		</div>
 	</nav>
-    <div class="col-xs-12">
+    <div class="container">
 @yield('aimeos_nav')
 @yield('aimeos_stage')
 @yield('aimeos_body')
