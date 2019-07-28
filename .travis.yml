@@ -1,5 +1,9 @@
 sudo: false
+dist: xenial
 language: php
+
+services:
+  - mysql
 
 php:
   - 7.3
@@ -17,10 +21,9 @@ env:
   - LARAVEL_VERSION=5.3.* PHPUNIT_VERSION=~5.7
 
 before_script:
-  - composer self-update
   - echo 'memory_limit = -1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
-  - mysql -e 'create database laravel;'
+  - mysql -e "CREATE DATABASE laravel; GRANT ALL ON laravel.* TO 'aimeos'@'127.0.0.1' IDENTIFIED BY 'aimeos'"
 
 script: vendor/bin/phpunit --coverage-clover coverage.xml
 
