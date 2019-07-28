@@ -57,7 +57,7 @@ li.attr-item {
 
 .common-summary .item li {
 	vertical-align: top;
-	padding-bottom: 0.5em;
+	padding: 0;
 }
 
 .common-summary .item .name {
@@ -72,8 +72,9 @@ li.attr-item {
 
 .common-summary .item .attr-list {
 	list-style: none;
-	margin-top: 0;
 	padding: 0;
+	margin: 0;
+	margin-bottom: 0.5;
 }
 
 .basket {
@@ -115,25 +116,29 @@ li.attr-item {
 	max-height: 150px;
 }
 
-.basket .product .product-label {
+.basket .product .product-name {
 	margin: 0.5em 0;
 	display: block;
 }
 
-.basket .product .code {
+.basket .product .code,
+.basket .product .timeframe {
 	margin: 0.5em;
 }
 
 .basket .product .attr-list {
 	vertical-align: top;
 	color: #555;
+	margin: 0.5em;
 	padding: 0;
-	margin: 0;
 }
 
-.basket .product .attr-item {
-	list-style: disc inside none;
-	margin: 0 0.5em
+.basket .product li.attr-item {
+	display: inline;
+}
+
+.basket .product li.attr-item:not(:last-of-type) .value:after {
+	content: ",";
 }
 
 .basket .footer {
