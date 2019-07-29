@@ -1,6 +1,6 @@
 sudo: false
-language: php
 dist: xenial
+language: php
 
 services:
   - mysql

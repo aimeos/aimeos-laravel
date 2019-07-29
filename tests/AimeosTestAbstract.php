@@ -23,7 +23,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 
 		$app['config']->set('shop.resource.db', [
 			'adapter' => 'mysql',
-			'host' => env('DB_HOST', 'localhost'),
+			'host' => env('DB_HOST', '127.0.0.1'),
 			'database' => env('DB_DATABASE', 'laravel'),
 			'username' => env('DB_USERNAME', 'aimeos'),
 			'password' => env('DB_PASSWORD', 'aimeos'),
