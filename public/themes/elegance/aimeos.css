@@ -2168,7 +2168,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .checkout-standard .form-list .mandatory > label:after {
-	content: "*";
+	content: " *";
 }
 
 .checkout-standard .item-service .description {
@@ -2323,8 +2323,13 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	display: none;
 }
 
+.checkout-standard .item-service .form-item-value label {
+	display: block;
+}
+
 .checkout-standard .item-service .form-item-value input:checked + label {
 	border-left: 2px solid #D0D0D0;
+	background-color: #F0F0F0;
 }
 
 /* Checkout delivery/payment */
