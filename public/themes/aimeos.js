@@ -682,6 +682,7 @@ AimeosBasketStandard = {
 
 		$("body").on("focusin", ".basket-standard .basket .product .quantity .value", {}, function(ev) {
 			$(".btn-update", ev.delegateTarget).show();
+			$(".btn-action", ev.delegateTarget).hide();
 		});
 	},
 
@@ -1298,7 +1299,7 @@ AimeosCatalogList = {
 
 			if( list.length > 1 ) {
 				var second = list.eq(1);
-				var size = $(this).height();
+				var size = $(this).outerHeight();
 				var image = $("img", second);
 
 				$(this).css("background-image", "none"); // Don't let default image shine through

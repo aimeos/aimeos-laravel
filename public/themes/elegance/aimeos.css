@@ -1902,18 +1902,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 
 /* Basket */
-.checkout-standard,
-.checkout-confirm {
-	min-width: 240px;
-	margin: 0 auto;
-}
-
-.checkout-confirm-basic {
-	padding: 0 1em 1em 1em;
-	border: solid 1px #D0D0D0;
-	margin: 0 0 8px 0;
-}
-
 
 /* Mini basket */
 .basket-mini {
@@ -2352,6 +2340,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .checkout-standard-payment .item {
 	border: solid 1px #D0D0D0;
 	margin: 1em 0.5em;
+	text-align: left;
 }
 
 .checkout-standard-delivery .item-service .price-value,
@@ -2388,7 +2377,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .aimeos .common-summary .item li {
 	vertical-align: top;
-	padding-top: 0.5em;
+	padding: 0;
 }
 
 .aimeos .common-summary .content {
@@ -2426,8 +2415,9 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .aimeos .common-summary .item .attr-list {
 	list-style: none;
-	margin: 1em;
-	margin-top: 0;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 0.5em;
 }
 
 .aimeos .common-summary .header,
@@ -2666,8 +2656,17 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	display: block;
 }
 
+.checkout-standard,
+.checkout-confirm {
+	min-width: 240px;
+	margin: 0 auto;
+}
+
 /* Checkout confirm basic part */
 .checkout-confirm-basic {
+	padding: 0 1em 1em 1em;
+	border: solid 1px #D0D0D0;
+	margin: 0 0 8px 0;
 	margin-top: 1.5em;
 }
 
