@@ -23,7 +23,7 @@ return [
 		// Docs: https://aimeos.org/docs/Laravel/Adapt_pages
 		// Hint: catalog/filter is also available as single 'catalog/tree', 'catalog/search', 'catalog/attribute'
 		'account-index' => [ 'account/profile','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session' ],
-		'basket-index' => [ 'basket/standard','basket/related' ],
+		'basket-index' => [ 'basket/mass', 'basket/standard','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
 		'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session' ],
 		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/lists' ],
