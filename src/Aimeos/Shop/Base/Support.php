@@ -10,7 +10,7 @@
 namespace Aimeos\Shop\Base;
 
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -72,7 +72,7 @@ class Support
 		try {
 			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $user->siteid )->getCode();
 		} catch( \Exception $e ) {
-			$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
+			$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', 'default' ) ) : 'default' );
 		}
 
 		$context->setLocale( $this->locale->getBackend( $context, $site ) );
@@ -104,7 +104,7 @@ class Support
 			return $this->cache[$userid][$groups];
 		}
 
-		$site = ( Route::current() ? Route::input( 'site', Input::get( 'site', 'default' ) ) : 'default' );
+		$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', 'default' ) ) : 'default' );
 
 		$context = $this->context->get( false );
 		$context->setLocale( $this->locale->getBackend( $context, $site ) );

@@ -18,7 +18,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 	{
 		View::addLocation(dirname(__DIR__).'/fixtures/views');
 
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction', ['site' => 'unittest', 'pin_action' => 'add', 'pin_id' => 0]);
+		$response = $this->action('GET', '\Aimeos\Shop\Controller\CatalogController@detailAction', ['site' => 'unittest', 'd_name' => 'Cafe_Noire_Cappuccino']);
 
 		$this->assertResponseOk();
 		$this->assertContains('<section class="aimeos catalog-stage"', $response->getContent());

@@ -10,7 +10,7 @@
 namespace Aimeos\Shop\Base;
 
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,9 +54,9 @@ class Locale
 	{
 		if( $this->locale === null )
 		{
-			$site = Input::get( 'site', 'default' );
-			$currency = Input::get( 'currency', '' );
-			$lang = Input::get( 'locale', '' );
+			$site = Request::get( 'site', 'default' );
+			$currency = Request::get( 'currency', '' );
+			$lang = Request::get( 'locale', '' );
 
 			if( Route::current() )
 			{
