@@ -10,7 +10,6 @@
 namespace Aimeos\Shop\Base;
 
 
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Response;
@@ -177,7 +176,7 @@ class View
 	 */
 	protected function addParam( \Aimeos\MW\View\Iface $view )
 	{
-		$params = ( Route::current() ? Route::current()->parameters() : array() ) + Input::all();
+		$params = ( Route::current() ? Route::current()->parameters() : array() ) + Request::all();
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
 

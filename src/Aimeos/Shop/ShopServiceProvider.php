@@ -11,7 +11,6 @@ namespace Aimeos\Shop;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
 
 

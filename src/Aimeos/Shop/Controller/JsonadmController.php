@@ -10,10 +10,9 @@
 
 namespace Aimeos\Shop\Controller;
 
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
@@ -133,8 +132,8 @@ class JsonadmController extends Controller
 	 */
 	protected function createAdmin()
 	{
-		$site = Route::input( 'site', Input::get( 'site', 'default' ) );
-		$lang = Input::get( 'locale', config( 'app.locale', 'en' ) );
+		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
+		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
 		$aimeos = app( 'aimeos' )->get();

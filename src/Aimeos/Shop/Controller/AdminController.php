@@ -10,10 +10,9 @@
 
 namespace Aimeos\Shop\Controller;
 
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -36,7 +35,7 @@ class AdminController extends Controller
 	 * @param \Illuminate\Http\Request $request Laravel request object
 	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
-	public function indexAction( Request $request )
+	public function indexAction( \Illuminate\Http\Request $request )
 	{
 		if( Auth::check() === false
 			|| $request->user()->can( 'admin', [AdminController::class, ['admin', 'editor']] ) === false
@@ -52,8 +51,8 @@ class AdminController extends Controller
 
 		$param = array(
 			'resource' => 'dashboard',
-			'site' => Route::input( 'site', Input::get( 'site', $siteCode ) ),
-			'lang' => Route::input( 'lang', Input::get( 'lang', $locale ) )
+			'site' => Route::input( 'site', Request::get( 'site', $siteCode ) ),
+			'lang' => Route::input( 'lang', Request::get( 'lang', $locale ) )
 		);
 
 		return redirect()->route( 'aimeos_shop_jqadm_search', $param );
