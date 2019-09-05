@@ -11,7 +11,7 @@
 :star: Star us on GitHub — it helps!
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
-ultra fast e-commerce package for Laravel!  You can install it in your
+ultra fast e-commerce package for Laravel 5 and 6!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
 and customize anything to your needs.
 
@@ -33,7 +33,7 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2018.10 and later**.
 
-- Stable release: 2019.07 (Laravel 5.3 to 5.8)
+- Stable release: 2019.07 (Laravel 5.3 to 6.0)
 - LTS release: 2018.10 (Laravel 5.3 to 5.8)
 
 If you want to **upgrade between major versions**, please have a look into the
