@@ -257,6 +257,19 @@ if one of the payment providers is sending data via POST requests.
 
 To use the admin interface, you have to set up Laravel authentication first:
 
+### Laravel 6.x
+
+```
+composer require laravel/ui
+php artisan ui vue --auth
+npm install && npm run dev
+```
+
+For more information, please follow the Laravel documentation:
+* [Laravel 6.0](https://laravel.com/docs/6.0/authentication)
+
+### Laravel 5.x
+
 ```php artisan make:auth```
 
 For more information, please follow the Laravel documentation:
@@ -267,6 +280,8 @@ For more information, please follow the Laravel documentation:
 * [Laravel 5.4](https://laravel.com/docs/5.4/authentication)
 * [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
 
+### Create account
+
 Test if your authentication setup works before you continue. Create an admin account
 for your Laravel application so you will be able to log into the Aimeos admin interface:
 
@@ -276,6 +291,8 @@ The e-mail address is the user name for login and the account will work for the
 frontend too. To protect the new account, the command will ask you for a password.
 The same command can create limited accounts by using "--editor" or "--api" instead of
 "--admin". If you use "--super" the account will have access to all sites.
+
+### Configure authentication
 
 As a last step, you need to extend the `boot()` method of your
 `App\Providers\AuthServiceProvider` class and add the lines to define how
@@ -294,6 +311,8 @@ public function boot()
     });
 }
 ```
+
+### Test
 
 If your `./public` directory isn't writable by your web server, you have to create these
 directories:
