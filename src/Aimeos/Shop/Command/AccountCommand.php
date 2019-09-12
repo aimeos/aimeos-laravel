@@ -51,8 +51,8 @@ class AccountCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		if( ( $code = $this->argument( 'email' ) ) === null ) {
-			$code = $this->ask( 'E-Mail' );
+		if( ( $email = $this->argument( 'email' ) ) === null ) {
+			$email = $this->ask( 'E-Mail' );
 		}
 
 		if( ( $password = $this->option( 'password' ) ) === null ) {
@@ -66,42 +66,22 @@ class AccountCommand extends AbstractCommand
 		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false );
 		$context->setLocale( $localeItem );
 
-		$this->addGroups( $context, $this->createCustomerItem( $context, $code, $password ) );
-	}
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
-
-	/**
-	 * Associates the user to the group by their given IDs
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
-	 * @param string $userid Unique user ID
-	 * @param string $groupid Unique group ID
-	 */
-	protected function addListItem( \Aimeos\MShop\Context\Item\Iface $context, $userid, $groupid )
-	{
-		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'customer.lists.parentid', $userid ),
-			$search->compare( '==', 'customer.lists.refid', $groupid ),
-			$search->compare( '==', 'customer.lists.type', 'default' ),
-			$search->compare( '==', 'customer.lists.domain', 'customer/group' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 1 );
-
-		if( count( $manager->searchItems( $search ) ) === 0 )
-		{
+		try {
+			$item = $manager->findItem( $email );
+		} catch( \Aimeos\MShop\Exception $e ) {
 			$item = $manager->createItem();
-			$item->setDomain( 'customer/group' );
-			$item->setParentId( $userid );
-			$item->setRefId( $groupid );
-			$item->setType( 'default' );
-			$item->setStatus( 1 );
-
-			$manager->saveItem( $item, false );
 		}
+
+		$item = $item->setCode( $email )->setLabel( $email )->setPassword( $password )->setStatus( 1 );
+		$item->getPaymentAddress()->setEmail( $email );
+
+		$item = $manager->saveItem( $this->addGroups( $context, $item ) );
+
+		\Illuminate\Foundation\Auth\User::findOrFail( $item->getId() )
+			->forceFill( ['superuser' => ( $this->option( 'super' ) ? 1 : 0 )] )
+			->save();
 	}
 
 
@@ -113,21 +93,19 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user )
 	{
-		\Illuminate\Foundation\Auth\User::findOrFail( $user->getId() )
-			->forceFill( ['superuser' => ( $this->option( 'super' ) ? 1 : 0 )] )
-			->save();
-
 		if( $this->option( 'admin' ) ) {
-			$this->addGroup( $context, $user, 'admin' );
+			$user = $this->addGroup( $context, $user, 'admin' );
 		}
 
 		if( $this->option( 'editor' ) ) {
-			$this->addGroup( $context, $user, 'editor' );
+			$user = $this->addGroup( $context, $user, 'editor' );
 		}
 
 		if( $this->option( 'api' ) ) {
-			$this->addGroup( $context, $user, 'api' );
+			$user = $this->addGroup( $context, $user, 'api' );
 		}
+
+		return $user;
 	}
 
 
@@ -143,54 +121,8 @@ class AccountCommand extends AbstractCommand
 		$msg = 'Add "%1$s" group to user "%2$s" for site "%3$s"';
 		$this->info( sprintf( $msg, $group, $user->getCode(), $this->argument( 'site' ) ) );
 
-		$groupItem = $this->getGroupItem( $context, $group );
-		$this->addListItem( $context, $user->getId(), $groupItem->getId() );
-	}
-
-
-	/**
-	 * Returns the customer item for the given e-mail and set its password
-	 *
-	 * If the customer doesn't exist yet, it will be created.
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
-	 * @param string $email Unique e-mail address
-	 * @param string $password New user password
-	 * @return \Aimeos\MShop\Customer\Item\Iface Aimeos customer item object
-	 */
-	protected function createCustomerItem( \Aimeos\MShop\Context\Item\Iface $context, $email, $password )
-	{
-		$manager = \Aimeos\MShop::create( $context, 'customer' );
-
-		try {
-			$item = $manager->findItem( $email );
-		} catch( \Aimeos\MShop\Exception $e ) {
-			$item = $manager->createItem();
-		}
-
-		$item->setCode( $email );
-		$item->setLabel( $email );
-		$item->getPaymentAddress()->setEmail( $email );
-		$item->setPassword( $password );
-		$item->setStatus( 1 );
-
-		$manager->saveItem( $item );
-
-		return $item;
-	}
-
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array( 'email', InputArgument::REQUIRED, 'E-mail address of the account that should be created' ),
-			array( 'site', InputArgument::OPTIONAL, 'Site code to create the account for', 'default' ),
-		);
+		$groupId = $this->getGroupItem( $context, $group )->getId();
+		return $user->setGroups( array_merge( $user->getGroups(), [$groupId] ) );
 	}
 
 
@@ -219,22 +151,5 @@ class AccountCommand extends AbstractCommand
 		}
 
 		return $item;
-	}
-
-
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions()
-	{
-		return array(
-			array( 'password', null, InputOption::VALUE_REQUIRED, 'Optional password for the account (will ask for if not given)' ),
-			array( 'admin', null, InputOption::VALUE_NONE, 'If account should have administrator privileges' ),
-			array( 'api', null, InputOption::VALUE_NONE, 'If account should be able to access the APIs' ),
-			array( 'editor', null, InputOption::VALUE_NONE, 'If account should have limited editor privileges' ),
-			array( 'viewer', null, InputOption::VALUE_NONE, 'If account should only have view privileges' ),
-		);
 	}
 }
