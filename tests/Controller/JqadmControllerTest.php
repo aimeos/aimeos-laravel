@@ -55,8 +55,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];
 		$response = $this->action('GET', '\Aimeos\Shop\Controller\JqadmController@deleteAction', $params);
 
-		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertContains( 'list-items', $response->getContent() );
+		$this->assertEquals( 302, $response->getStatusCode() );
 	}
 
 
