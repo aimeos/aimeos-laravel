@@ -2132,7 +2132,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 /* Basket bulk order */
 
-.basket-bulk thead tr th {
+.basket-bulk thead>tr>th,
+.basket-bulk tbody>tr>td {
 	vertical-align: middle;
 }
 
@@ -3012,6 +3013,24 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .ui-autocomplete-input {
 	margin: 0;
 }
+
+.ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+  }
+
+.ui-menu-item:hover {
+	background-color: #B0A060;
+	color: #FFFFFF;
+}
+
+.ui-menu-item:focus, .ui-state-active {
+    background: #B0A060;
+    color: #ffffff;
+}
+
 
 /* Component containers */
 .ui-widget {
