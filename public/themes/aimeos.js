@@ -471,6 +471,131 @@ AimeosAccountWatch = {
 
 
 
+/**
+ * Basket bulk order client actions
+ */
+AimeosBasketBulk = {
+
+	MIN_INPUT_LEN: 3,
+	meta: {},
+
+
+	/**
+	 * Sets up autocompletion for the given node
+	 *
+	 * @param {object} node
+	 */
+	autocomplete: function(node) {
+
+		node.autocomplete({
+			minLength : AimeosBasketBulk.MIN_INPUT_LEN,
+			delay : 200,
+			source : function(req, resp) {
+
+				var params;
+				var langFilter = {};
+				var langid = AimeosBasketBulk.meta.locale && AimeosBasketBulk.meta.locale['locale.languageid'];
+				langFilter['index.text:name("' + langid + '")'] = req.term;
+
+				var filter = {
+					filter: {'||': [{'=~': {'product.code': req.term}}, {'=~': langFilter}]},
+					include: 'text,price'
+				};
+
+				if(AimeosBasketBulk.meta.prefix) {
+					params[AimeosBasketBulk.meta.prefix] = filter;
+				} else {
+					params = filter;
+				}
+
+				if(AimeosBasketBulk.meta.resources && AimeosBasketBulk.meta.resources['product']) {
+
+					$.getJSON(AimeosBasketBulk.meta.resources['product'], params, function(response) {
+
+						var data = [];
+						for(var key in (response.data || {})) {
+							data.push({
+								'id': response.data[key].id || null,
+								'label': response.data[key].attributes['product.label']
+							});
+						}
+
+						resp(data);
+					});
+				}
+			},
+			select : function(ev, ui) {
+
+				if($(".aimeos.basket-bulk tbody .details .search").last().val() != '') {
+					AimeosBasketBulk.add();
+				}
+
+				var product = $(ev.target).parent();
+				product.find(".productid").val(ui.item.id);
+				product.find(".search").val(ui.item.label);
+				return false;
+			}
+		});
+	},
+
+
+	/**
+	 * Adds a new line to the bulk order form
+	 */
+	add: function() {
+
+		var line = $("tfoot .prototype").clone();
+		var len = $(".aimeos.basket-bulk tbody .details").length;
+
+		AimeosBasketBulk.autocomplete($(".search", line));
+		$('[disabled="disabled"]', line).removeAttr("disabled");
+		$(".aimeos.basket-bulk tbody").append(line.removeClass("prototype"));
+
+		$('[name]', line).each(function() {
+			$(this).attr("name", $(this).attr("name").replace('_idx_', len));
+		});
+	},
+
+
+	/**
+	 * Deletes lines if clicked on the delete icon
+	 */
+	delete: function() {
+
+		$(".aimeos.basket-bulk").on("click", ".btn.delete", function(ev){
+			$(ev.currentTarget).parents(".details").remove();
+		});
+	},
+
+
+	/**
+	 * Sets up autocompletion for bulk order form
+	 */
+	setup: function() {
+
+		$.ajax($(".aimeos.basket-bulk[data-jsonurl]").data("jsonurl"), {
+			"method": "OPTIONS",
+			"dataType": "json"
+		}).then(function(options) {
+			AimeosBasketBulk.meta = options.meta || {};
+		});
+
+		$(".aimeos.basket-bulk").on("click", "thead .btn.add", this.add);
+		this.autocomplete($(".aimeos.basket-bulk .details .search"));
+	},
+
+
+	/**
+	 * Initializes the basket bulk actions
+	 */
+	init: function() {
+
+		this.setup();
+		this.delete();
+	}
+}
+
+
 
 /**
  * Basket mini client actions
@@ -485,7 +610,13 @@ AimeosBasketMini = {
 	 */
 	update: function() {
 
-		$.ajax($(".aimeos.basket-mini[data-jsonurl]").data("jsonurl"), {
+		var jsonurl = $(".aimeos.basket-mini[data-jsonurl]").data("jsonurl");
+
+		if(typeof jsonurl === 'undefined' || jsonurl == '') {
+			return;
+		}
+
+		$.ajax(jsonurl, {
 			"method": "OPTIONS",
 			"dataType": "json"
 		}).then(function(options) {
@@ -1682,6 +1813,7 @@ jQuery(document).ready(function($) {
 	AimeosCatalogSession.init();
 	AimeosCatalogStage.init();
 
+	AimeosBasketBulk.init();
 	AimeosBasketMini.init();
 	AimeosBasketRelated.init();
 	AimeosBasketStandard.init();
