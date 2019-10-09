@@ -31,10 +31,9 @@ and customize anything to your needs.
 
 ## Supported versions
 
-This document is for the Aimeos Laravel package **2018.10 and later**.
+This document is for the Aimeos Laravel package **2019.10 and later**.
 
-- Stable release: 2019.07 (Laravel 5.3 to 6.0)
-- LTS release: 2018.10 (Laravel 5.3 to 5.8)
+- LTS release: 2019.10 (Laravel 5.3 to 6.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -116,7 +115,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2019.07",
+        "aimeos/aimeos-laravel": "~2019.10",
         ...
     },
     "scripts": {
@@ -241,17 +240,12 @@ Simply execute this command in the base directory of your application:
 
 Point your browser to the list page of the shop using:
 
-- since 2019.04: http://127.0.0.1:8000/index.php/shop
-- until 2019.01: http://127.0.0.1:8000/index.php/list
+http://127.0.0.1:8000/index.php/shop
 
 **Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
 Laravel installation but the **home page stays untouched!**
 
 [![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.png)](http://127.0.0.1:8000/index.php/shop)
-
-**Caution:** CSRF protection is enabled by default but for the ```/confirm``` and ```/update```
-routes, you may have to [disable CSRF](http://laravel.com/docs/5.1/routing#csrf-excluding-uris)
-if one of the payment providers is sending data via POST requests.
 
 ## Admin
 
