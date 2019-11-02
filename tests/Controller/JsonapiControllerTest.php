@@ -4,10 +4,10 @@ class JsonapiControllerTest extends AimeosTestAbstract
 {
 	public function testOptionsAction()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest'];
-		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonapiController@optionsAction', $params);
+		$response = $this->action( 'OPTIONS', '\Aimeos\Shop\Controller\JsonapiController@optionsAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -20,11 +20,11 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 	public function testGetAction()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product'];
 		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap']];
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams);
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -38,8 +38,8 @@ class JsonapiControllerTest extends AimeosTestAbstract
 		$id = $json['data'][0]['id'];
 
 
-		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => $id ];
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params);
+		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => $id];
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -53,12 +53,12 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 	public function testPostPatchDeleteAction()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		// get CNC product
 		$params = ['site' => 'unittest', 'resource' => 'product'];
 		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19']];
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams);
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams );
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 'CNC', $json['data'][0]['attributes']['product.code'] );
@@ -66,7 +66,7 @@ class JsonapiControllerTest extends AimeosTestAbstract
 		// add CNC product to basket
 		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product'];
 		$content = json_encode( ['data' => ['attributes' => ['product.id' => $json['data'][0]['id']]]] );
-		$response = $this->action('POST', '\Aimeos\Shop\Controller\JsonapiController@postAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JsonapiController@postAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 'CNC', $json['included'][0]['attributes']['order.base.product.prodcode'] );
@@ -74,14 +74,14 @@ class JsonapiControllerTest extends AimeosTestAbstract
 		// change product quantity in basket
 		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product', 'relatedid' => 0];
 		$content = json_encode( ['data' => ['attributes' => ['quantity' => 2]]] );
-		$response = $this->action('PATCH', '\Aimeos\Shop\Controller\JsonapiController@patchAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'PATCH', '\Aimeos\Shop\Controller\JsonapiController@patchAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 2, $json['included'][0]['attributes']['order.base.product.quantity'] );
 
 		// delete product from basket
 		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product', 'relatedid' => 0];
-		$response = $this->action('DELETE', '\Aimeos\Shop\Controller\JsonapiController@deleteAction', $params);
+		$response = $this->action( 'DELETE', '\Aimeos\Shop\Controller\JsonapiController@deleteAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertEquals( 0, count( $json['included'] ) );
@@ -90,10 +90,10 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 	public function testPutAction()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'basket'];
-		$response = $this->action('PUT', '\Aimeos\Shop\Controller\JsonapiController@putAction', $params);
+		$response = $this->action( 'PUT', '\Aimeos\Shop\Controller\JsonapiController@putAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 		$this->assertArrayHasKey( 'errors', $json );

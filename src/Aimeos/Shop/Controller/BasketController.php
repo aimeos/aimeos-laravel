@@ -36,6 +36,6 @@ class BasketController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::basket.index', $params)->header('Cache-Control', 'no-store');
+		return Response::view( 'shop::basket.index', $params )->header( 'Cache-Control', 'no-store' );
 	}
 }

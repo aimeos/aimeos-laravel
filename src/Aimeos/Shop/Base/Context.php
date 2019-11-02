@@ -85,11 +85,11 @@ class Context
 			$this->addMessageQueueManager( $context );
 			$this->addLogger( $context );
 			$this->addCache( $context );
-			$this->addMailer( $context);
+			$this->addMailer( $context );
 			$this->addProcess( $context );
 			$this->addSession( $context );
-			$this->addUser( $context);
-			$this->addGroups( $context);
+			$this->addUser( $context );
+			$this->addGroups( $context );
 
 			$this->context = $context;
 		}

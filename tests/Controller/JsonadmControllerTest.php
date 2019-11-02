@@ -4,10 +4,10 @@ class JsonadmControllerTest extends AimeosTestAbstract
 {
 	public function testOptionsActionSite()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'invalid', 'resource' => 'product'];
-		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params);
+		$response = $this->action( 'OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -18,10 +18,10 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 	public function testOptionsAction()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product'];
-		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params);
+		$response = $this->action( 'OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -32,7 +32,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 
 		$params = ['site' => 'unittest'];
-		$response = $this->action('OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params);
+		$response = $this->action( 'OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -45,11 +45,11 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 	public function testActionsSingle()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":{"type":"stock/type","attributes":{"stock.type.code":"laravel","stock.type.label":"laravel"}}}';
-		$response = $this->action('POST', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -63,9 +63,9 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$id = $json['data']['attributes']['stock.type.id'];
 
 
-		$params = ['site' => 'unittest', 'resource' => 'stock/type', 'id' => $id ];
+		$params = ['site' => 'unittest', 'resource' => 'stock/type', 'id' => $id];
 		$content = '{"data":{"type":"stock/type","attributes":{"stock.type.code":"laravel2","stock.type.label":"laravel2"}}}';
-		$response = $this->action('PATCH', '\Aimeos\Shop\Controller\JsonadmController@patchAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'PATCH', '\Aimeos\Shop\Controller\JsonadmController@patchAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -78,8 +78,8 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertEquals( 1, $json['meta']['total'] );
 
 
-		$params = ['site' => 'unittest', 'resource' => 'stock/type', 'id' => $id ];
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonadmController@getAction', $params);
+		$params = ['site' => 'unittest', 'resource' => 'stock/type', 'id' => $id];
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonadmController@getAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -92,8 +92,8 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertEquals( 1, $json['meta']['total'] );
 
 
-		$params = ['site' => 'unittest', 'resource' => 'stock/type', 'id' => $id ];
-		$response = $this->action('DELETE', '\Aimeos\Shop\Controller\JsonadmController@deleteAction', $params);
+		$params = ['site' => 'unittest', 'resource' => 'stock/type', 'id' => $id];
+		$response = $this->action( 'DELETE', '\Aimeos\Shop\Controller\JsonadmController@deleteAction', $params );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -105,14 +105,14 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 	public function testActionsBulk()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":[
 			{"type":"stock/type","attributes":{"stock.type.code":"laravel","stock.type.label":"laravel"}},
 			{"type":"stock/type","attributes":{"stock.type.code":"laravel2","stock.type.label":"laravel"}}
 		]}';
-		$response = $this->action('POST', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -128,12 +128,12 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$ids = array( $json['data'][0]['attributes']['stock.type.id'], $json['data'][1]['attributes']['stock.type.id'] );
 
 
-		$params = ['site' => 'unittest', 'resource' => 'stock/type' ];
+		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":[
 			{"type":"stock/type","id":' . $ids[0] . ',"attributes":{"stock.type.label":"laravel2"}},
 			{"type":"stock/type","id":' . $ids[1] . ',"attributes":{"stock.type.label":"laravel2"}}
 		]}';
-		$response = $this->action('PATCH', '\Aimeos\Shop\Controller\JsonadmController@patchAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'PATCH', '\Aimeos\Shop\Controller\JsonadmController@patchAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -149,14 +149,14 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertEquals( 2, $json['meta']['total'] );
 
 
-		$params = ['site' => 'unittest', 'resource' => 'stock/type' ];
+		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$getParams = ['filter' => ['&&' => [
 			['=~' => ['stock.type.code' => 'laravel']],
 			['==' => ['stock.type.label' => 'laravel2']]
 			]],
 			'sort' => 'stock.type.code', 'page' => ['offset' => 0, 'limit' => 3]
 		];
-		$response = $this->action('GET', '\Aimeos\Shop\Controller\JsonadmController@getAction', $params, $getParams);
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonadmController@getAction', $params, $getParams );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -172,12 +172,12 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertEquals( 2, $json['meta']['total'] );
 
 
-		$params = ['site' => 'unittest', 'resource' => 'stock/type' ];
+		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":[
 			{"type":"stock/type","id":' . $ids[0] . '},
 			{"type":"stock/type","id":' . $ids[1] . '}
 		]}';
-		$response = $this->action('DELETE', '\Aimeos\Shop\Controller\JsonadmController@deleteAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'DELETE', '\Aimeos\Shop\Controller\JsonadmController@deleteAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 
@@ -189,14 +189,14 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 	public function testPutAction()
 	{
-		View::addLocation(dirname(__DIR__).'/fixtures/views');
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":[
 			{"type":"stock/type","attributes":{"stock.type.code":"laravel","stock.type.label":"laravel"}},
 			{"type":"stock/type","attributes":{"stock.type.code":"laravel2","stock.type.label":"laravel"}}
 		]}';
-		$response = $this->action('PUT', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content);
+		$response = $this->action( 'PUT', '\Aimeos\Shop\Controller\JsonadmController@postAction', $params, [], [], [], [], $content );
 
 		$json = json_decode( $response->getContent(), true );
 
