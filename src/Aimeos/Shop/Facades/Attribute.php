@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Attribute extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new attribute frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Attribute\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'attribute' );
-    }
+	/**
+	 * Returns a new attribute frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Attribute\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'attribute' );
+	}
 }

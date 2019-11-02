@@ -4,14 +4,14 @@ class AimeosTest extends AimeosTestAbstract
 {
 	public function testGet()
 	{
-		$object = $this->app->make('\Aimeos\Shop\Base\Aimeos')->get();
+		$object = $this->app->make( '\Aimeos\Shop\Base\Aimeos' )->get();
 		$this->assertInstanceOf( '\Aimeos\Bootstrap', $object );
 	}
 
 
 	public function testGetVersion()
 	{
-		$object = $this->app->make('\Aimeos\Shop\Base\Aimeos');
+		$object = $this->app->make( '\Aimeos\Shop\Base\Aimeos' );
 		$this->assertInternalType( 'string', $object->getVersion() );
 	}
 }

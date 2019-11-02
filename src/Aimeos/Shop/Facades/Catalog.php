@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Catalog extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new catalog frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Catalog\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'catalog' );
-    }
+	/**
+	 * Returns a new catalog frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Catalog\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'catalog' );
+	}
 }

@@ -41,7 +41,7 @@ class Shop
 	 * @param \Aimeos\Shop\Base\Context $context Context object
 	 * @param \Aimeos\Shop\Base\View $view View object
 	 */
-	public function __construct(  \Aimeos\Shop\Base\Aimeos $aimeos,
+	public function __construct( \Aimeos\Shop\Base\Aimeos $aimeos,
 		\Aimeos\Shop\Base\Context $context, \Aimeos\Shop\Base\View $view )
 	{
 		$this->context = $context->get();

@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Order extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new order frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Order\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'order' );
-    }
+	/**
+	 * Returns a new order frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Order\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'order' );
+	}
 }

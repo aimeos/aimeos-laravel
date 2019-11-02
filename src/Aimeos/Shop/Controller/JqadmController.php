@@ -234,8 +234,8 @@ class JqadmController extends AdminController
 		$paths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		$context = app( 'aimeos.context' )->get( false, 'backend' );
-		$context->setI18n( app('aimeos.i18n')->get( array( $lang, 'en' ) ) );
-		$context->setLocale( app('aimeos.locale')->getBackend( $context, $site ) );
+		$context->setI18n( app( 'aimeos.i18n' )->get( array( $lang, 'en' ) ) );
+		$context->setLocale( app( 'aimeos.locale' )->getBackend( $context, $site ) );
 
 		$view = app( 'aimeos.view' )->create( $context, $paths, $lang );
 

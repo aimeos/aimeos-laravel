@@ -4,7 +4,7 @@ class ContextTest extends AimeosTestAbstract
 {
 	public function testGetNoLocale()
 	{
-		$session = $this->getMockBuilder('\Illuminate\Session\Store')->disableOriginalConstructor()->getMock();
+		$session = $this->getMockBuilder( '\Illuminate\Session\Store' )->disableOriginalConstructor()->getMock();
 		$config = $this->app->make( '\Aimeos\Shop\Base\Config' );
 		$locale = $this->app->make( '\Aimeos\Shop\Base\Locale' );
 		$i18n = $this->app->make( '\Aimeos\Shop\Base\I18n' );

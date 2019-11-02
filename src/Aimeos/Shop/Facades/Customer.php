@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Customer extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new customer frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Customer\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'customer' );
-    }
+	/**
+	 * Returns a new customer frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Customer\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'customer' );
+	}
 }
