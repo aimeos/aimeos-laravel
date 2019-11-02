@@ -30,8 +30,8 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertNotNull( $json );
-		$this->assertEquals( 1, $json['meta']['total'] );
-		$this->assertEquals( 1, count( $json['data'] ) );
+		$this->assertEquals( 2, $json['meta']['total'] );
+		$this->assertEquals( 2, count( $json['data'] ) );
 		$this->assertArrayHasKey( 'id', $json['data'][0] );
 		$this->assertEquals( 'CNC', $json['data'][0]['attributes']['product.code'] );
 
