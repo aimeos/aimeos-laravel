@@ -1623,7 +1623,9 @@ AimeosCatalogList = {
 	 */
 	setupInfiniteScroll: function() {
 
-		if($('.catalog-list-items').data('infinite-url')) {
+		var url = $('.catalog-list-items').data('infinite-url');
+
+		if( typeof url === "string" && url != '' ) {
 
 			$(window).on('scroll', function() {
 

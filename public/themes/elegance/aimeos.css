@@ -17,6 +17,10 @@
 
 
 
+.aimeos {
+	clear: both;
+}
+
 .aimeos .btn {
 	vertical-align: top;
 	font-weight: bold;
@@ -150,8 +154,9 @@
 .aimeos li.attr-item,
 .aimeos li.form-item {
 	list-style: none;
-	margin: 0.5em 0;
 	padding: 0;
+	margin: 0;
+	margin-bottom: 0.5em;
 }
 
 .aimeos li.attr-item .name:after {
@@ -1177,6 +1182,9 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	width: 80px;
 }
 
+.catalog-detail-image .thumbs-horizontal:not(button) {
+	margin: 40px 0;
+}
 .catalog-detail-image .thumbs-vertical button {
 	height: 40px;
 	width: 80px;
@@ -1194,6 +1202,10 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	overflow: hidden;
 	width: 100%;
 	height: 105px;
+}
+
+.catalog-detail-image .thumbs-horizontal:not(button) {
+	margin: 0 40px;
 }
 
 .catalog-detail-image .thumbs-horizontal button {
@@ -1265,8 +1277,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	content: "\f082";
 }
 
-.catalog-detail .catalog-social .social-button-gplus:before {
-	content: "\f0d5";
+.catalog-detail .catalog-social .social-button-whatsapp:before {
+	content: "\f232";
 }
 
 .catalog-detail .catalog-social .social-button-twitter:before {
