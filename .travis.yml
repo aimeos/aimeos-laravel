@@ -9,8 +9,6 @@ php:
   - 7.3
   - 7.2
   - 7.1
-  - 7.0
-  - 5.6
 
 env:
   - LARAVEL_VERSION=6.0.* PHPUNIT_VERSION=~8.0
@@ -34,25 +32,5 @@ after_success:
 matrix:
   fast_finish: true
   exclude:
-  - php: 5.6
-    env: LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
-  - php: 5.6
-    env: LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
-  - php: 5.6
-    env: LARAVEL_VERSION=5.7.* PHPUNIT_VERSION=~7.0
-  - php: 5.6
-    env: LARAVEL_VERSION=5.8.* PHPUNIT_VERSION=~7.0
-  - php: 5.6
-    env: LARAVEL_VERSION=6.0.* PHPUNIT_VERSION=~8.0
-  - php: 7.0
-    env: LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
-  - php: 7.0
-    env: LARAVEL_VERSION=5.7.* PHPUNIT_VERSION=~7.0
-  - php: 7.0
-    env: LARAVEL_VERSION=5.8.* PHPUNIT_VERSION=~7.0
-  - php: 7.0
-    env: LARAVEL_VERSION=6.0.* PHPUNIT_VERSION=~8.0
   - php: 7.1
     env: LARAVEL_VERSION=6.0.* PHPUNIT_VERSION=~8.0
-  allow_failures:
-    - php: 5.6
