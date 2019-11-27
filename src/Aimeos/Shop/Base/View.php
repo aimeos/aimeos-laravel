@@ -281,7 +281,7 @@ class View
 			}
 		}
 
-		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app('url'), $fixed );
+		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app( 'url' ), $fixed );
 		$view->addHelper( 'url', $helper );
 
 		return $view;

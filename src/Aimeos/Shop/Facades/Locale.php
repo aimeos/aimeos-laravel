@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Locale extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new locale frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Locale\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'locale' );
-    }
+	/**
+	 * Returns a new locale frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Locale\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'locale' );
+	}
 }

@@ -18,13 +18,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Shop extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Get the registered name of the component.
-     *
-     * @return string
-     */
-    protected static function getFacadeAccessor()
-    {
-        return 'aimeos.shop';
-    }
+	/**
+	 * Get the registered name of the component.
+	 *
+	 * @return string
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return 'aimeos.shop';
+	}
 }

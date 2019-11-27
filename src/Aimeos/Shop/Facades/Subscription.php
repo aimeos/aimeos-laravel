@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Subscription extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new subscription frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Subscription\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'subscription' );
-    }
+	/**
+	 * Returns a new subscription frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Subscription\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'subscription' );
+	}
 }

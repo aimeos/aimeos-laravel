@@ -29,7 +29,7 @@ class PageController extends Controller
 	 */
 	public function privacyAction()
 	{
-		return View::make('shop::page.privacy');
+		return View::make( 'shop::page.privacy' );
 	}
 
 
@@ -40,6 +40,6 @@ class PageController extends Controller
 	 */
 	public function termsAction()
 	{
-		return View::make('shop::page.terms');
+		return View::make( 'shop::page.terms' );
 	}
 }

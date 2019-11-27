@@ -110,9 +110,9 @@ class CatalogController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view('shop::catalog.suggest', $params)
-			->header('Cache-Control', 'private, max-age=300' )
-			->header('Content-Type', 'application/json');
+		return Response::view( 'shop::catalog.suggest', $params )
+			->header( 'Cache-Control', 'private, max-age=300' )
+			->header( 'Content-Type', 'application/json' );
 	}
 
 

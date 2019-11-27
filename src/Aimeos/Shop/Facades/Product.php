@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Product extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new product frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Product\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'product' );
-    }
+	/**
+	 * Returns a new product frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Product\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'product' );
+	}
 }

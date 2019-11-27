@@ -5,7 +5,7 @@ class ViewTest extends AimeosTestAbstract
 {
 	public function testCreateNoLocale()
 	{
-		$config = $this->getMockBuilder('\Illuminate\Config\Repository')->getMock();
+		$config = $this->getMockBuilder( '\Illuminate\Config\Repository' )->getMock();
 
 		$i18n = $this->getMockBuilder( '\Aimeos\Shop\Base\I18n' )
 			->disableOriginalConstructor()
