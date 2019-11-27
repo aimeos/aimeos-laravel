@@ -16,13 +16,13 @@ namespace Aimeos\Shop\Facades;
  */
 class Service extends \Illuminate\Support\Facades\Facade
 {
-    /**
-     * Returns a new service frontend controller object
-     *
-     * @return \Aimeos\Controller\Frontend\Service\Iface
-     */
-    protected static function getFacadeAccessor()
-    {
-        return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'service' );
-    }
+	/**
+	 * Returns a new service frontend controller object
+	 *
+	 * @return \Aimeos\Controller\Frontend\Service\Iface
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'service' );
+	}
 }

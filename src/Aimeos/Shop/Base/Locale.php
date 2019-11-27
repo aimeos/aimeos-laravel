@@ -60,7 +60,7 @@ class Locale
 
 			if( Route::current() )
 			{
-				$site =  Route::input( 'site', $site );
+				$site = Route::input( 'site', $site );
 				$currency = Route::input( 'currency', $currency );
 				$lang = Route::input( 'locale', $lang );
 			}
