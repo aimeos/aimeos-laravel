@@ -106,6 +106,7 @@
 
 .aimeos input:disabled {
 	border-color: #D0D0D0;
+	background-color: #eee;
 }
 
 .aimeos .minibutton {
