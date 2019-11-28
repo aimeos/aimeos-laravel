@@ -2,31 +2,31 @@
 
 class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 {
-	protected function getEnvironmentSetUp($app)
+	protected function getEnvironmentSetUp( $app )
 	{
 		putenv( 'APP_DEBUG=1' );
 
-		$app['config']->set('app.key', 'SomeRandomStringWith32Characters');
-		$app['config']->set('app.cipher', 'AES-256-CBC');
+		$app['config']->set( 'app.key', 'SomeRandomStringWith32Characters' );
+		$app['config']->set( 'app.cipher', 'AES-256-CBC' );
 
-		$app['config']->set('database.default', 'mysql');
-		$app['config']->set('database.connections.mysql', [
+		$app['config']->set( 'database.default', 'mysql' );
+		$app['config']->set( 'database.connections.mysql', [
 			'driver' => 'mysql',
-			'host' => env('DB_HOST', '127.0.0.1'),
-			'port' => env('DB_PORT', '3306'),
-			'database' => env('DB_DATABASE', 'laravel'),
-			'username' => env('DB_USERNAME', 'aimeos'),
-			'password' => env('DB_PASSWORD', 'aimeos'),
-			'unix_socket' => env('DB_SOCKET', ''),
+			'host' => env( 'DB_HOST', '127.0.0.1' ),
+			'port' => env( 'DB_PORT', '3306' ),
+			'database' => env( 'DB_DATABASE', 'laravel' ),
+			'username' => env( 'DB_USERNAME', 'aimeos' ),
+			'password' => env( 'DB_PASSWORD', 'aimeos' ),
+			'unix_socket' => env( 'DB_SOCKET', '' ),
 			'collation' => 'utf8_unicode_ci',
-		]);
+		] );
 
-		$app['config']->set('shop.resource.db', [
+		$app['config']->set( 'shop.resource.db', [
 			'adapter' => 'mysql',
-			'host' => env('DB_HOST', '127.0.0.1'),
-			'database' => env('DB_DATABASE', 'laravel'),
-			'username' => env('DB_USERNAME', 'aimeos'),
-			'password' => env('DB_PASSWORD', 'aimeos'),
+			'host' => env( 'DB_HOST', '127.0.0.1' ),
+			'database' => env( 'DB_DATABASE', 'laravel' ),
+			'username' => env( 'DB_USERNAME', 'aimeos' ),
+			'password' => env( 'DB_PASSWORD', 'aimeos' ),
 			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET SESSION sql_mode='ANSI'; SET NAMES 'utf8_bin'"],
 			'opt-persistent' => 0,
 			'limit' => 3,
