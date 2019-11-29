@@ -103,6 +103,8 @@ change the charset/collation setting to these values before installing Aimeos ag
 ]
 ```
 
+**Note:** You can still use `utf8mb4_unicode_ci` as your default collation. `utf8mb4_bin` is required if you use Aimeos together with ElasticSearch, because ElasticSearch creates IDs like `aaaaa` and `aaaaA`. To use a save default for all cases, `utf8mb4_unicode_ci` is recommended.
+
 If you want to use a database server other than MySQL, please have a look into the article about
 [supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
 and their specific configuration.
