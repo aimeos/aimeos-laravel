@@ -72,7 +72,7 @@ case, add the database credentials to the **resource/db section of your ./config
 file too!
 
 For MySQL, you should change the database charset/collation in your `config/database.php`
-file **before the tables are created** to:
+file **before the tables are created** to be on the safe side to:
 
 ```php
 'connections' => [
@@ -84,6 +84,8 @@ file **before the tables are created** to:
     ]
 ]
 ```
+
+**Note:** You can still use `utf8mb4_unicode_ci` as your default collation. `utf8mb4_bin` is required if you use Aimeos together with ElasticSearch, because ElasticSearch creates IDs like `aaaaa` and `aaaaA` which MySQL treats as the same value if `utf8mb4_unicode_ci` is used. The downside is that searching in the administration interface will be also case senstive then. This applies to MySQL only because all other DBMS are always case sensitive.
 
 If you don't have at least MySQL 5.7 installed, you will probably get an error like
 
@@ -102,8 +104,6 @@ change the charset/collation setting to these values before installing Aimeos ag
     ]
 ]
 ```
-
-**Note:** You can still use `utf8mb4_unicode_ci` as your default collation. `utf8mb4_bin` is required if you use Aimeos together with ElasticSearch, because ElasticSearch creates IDs like `aaaaa` and `aaaaA`. To use a save default for all cases, `utf8mb4_unicode_ci` is recommended.
 
 If you want to use a database server other than MySQL, please have a look into the article about
 [supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
