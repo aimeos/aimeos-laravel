@@ -518,12 +518,12 @@ AimeosBasketBulk = {
 			source : function(req, resp) {
 
 				var params;
-				var langFilter = {};
+				var relFilter = {};
 				var langid = AimeosBasketBulk.meta.locale && AimeosBasketBulk.meta.locale['locale.languageid'];
-				langFilter['index.text:name("' + langid + '")'] = req.term;
+				relFilter['index.text:relevance("' + langid + '","' + req.term + '")'] = 0;
 
 				var filter = {
-					filter: {'||': [{'=~': {'product.code': req.term}}, {'=~': langFilter}]},
+					filter: {'||': [{'=~': {'product.code': req.term}}, {'>': relFilter}]},
 					include: 'attribute,text,price,product'
 				};
 
@@ -692,7 +692,13 @@ AimeosBasketBulk = {
 	 */
 	setup: function() {
 
-		$.ajax($(".aimeos.basket-bulk[data-jsonurl]").data("jsonurl"), {
+		var jsonurl = $(".aimeos.basket-bulk[data-jsonurl]").data("jsonurl");
+
+		if(typeof jsonurl === 'undefined' || jsonurl == '') {
+			return;
+		}
+
+		$.ajax(jsonurl, {
 			"method": "OPTIONS",
 			"dataType": "json"
 		}).then(function(options) {
@@ -1623,14 +1629,16 @@ AimeosCatalogList = {
 	 */
 	setupInfiniteScroll: function() {
 
-		if($('.catalog-list-items').data('infinite-url')) {
+		var url = $('.catalog-list-items').data('infinite-url');
+
+		if( typeof url === "string" && url != '' ) {
 
 			$(window).on('scroll', function() {
 
 				var list = $('.catalog-list-items').first();
 				var infiniteUrl = list.data('infinite-url');
 
-				if(infiniteUrl && list.getBoundingClientRect().bottom - $(window).height() < 50) {
+				if(infiniteUrl && list[0].getBoundingClientRect().bottom - $(window).height() < 50) {
 
 					list.data('infinite-url', '');
 
