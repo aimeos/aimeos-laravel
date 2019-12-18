@@ -30,7 +30,6 @@ class SetupCommand extends AbstractCommand
 		{site=default : Site for updating database entries}
 		{tplsite=default : Site used as template for creating the new one}
 		{--task : Name of the setup task that should be executed}
-		{--action=migrate : Action name that should be executed, i.e. "migrate", "rollback", "clean"}
 		{--option= : Setup configuration, name and value are separated by ":" like "setup/default/demo:1"}
 	';
 
@@ -72,20 +71,7 @@ class SetupCommand extends AbstractCommand
 			$task = reset( $task );
 		}
 
-		switch( $this->option( 'action' ) )
-		{
-			case 'migrate':
-				$manager->migrate( $task );
-				break;
-			case 'rollback':
-				$manager->rollback( $task );
-				break;
-			case 'clean':
-				$manager->clean( $task );
-				break;
-			default:
-				throw new \Exception( sprintf( 'Invalid setup action "%1$s"', $this->option( 'action' ) ) );
-		}
+		$manager->migrate( $task );
 	}
 
 
