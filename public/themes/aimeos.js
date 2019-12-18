@@ -692,7 +692,13 @@ AimeosBasketBulk = {
 	 */
 	setup: function() {
 
-		$.ajax($(".aimeos.basket-bulk[data-jsonurl]").data("jsonurl"), {
+		var jsonurl = $(".aimeos.basket-bulk[data-jsonurl]").data("jsonurl");
+
+		if(typeof jsonurl === 'undefined' || jsonurl == '') {
+			return;
+		}
+
+		$.ajax(jsonurl, {
 			"method": "OPTIONS",
 			"dataType": "json"
 		}).then(function(options) {
