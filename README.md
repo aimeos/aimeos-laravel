@@ -71,23 +71,7 @@ problems and you will get exceptions that the connection to the database failed.
 case, add the database credentials to the **resource/db section of your ./config/shop.php**
 file too!
 
-For MySQL, you should change the database charset/collation in your `config/database.php`
-file **before the tables are created** to be on the safe side to:
-
-```php
-'connections' => [
-    'mysql' => [
-        // ...
-        'charset' => 'utf8mb4',
-        'collation' => 'utf8mb4_bin',
-        // ...
-    ]
-]
-```
-
-**Note:** You can still use `utf8mb4_unicode_ci` as your default collation. `utf8mb4_bin` is required if you use Aimeos together with ElasticSearch, because ElasticSearch creates IDs like `aaaaa` and `aaaaA` which MySQL treats as the same value if `utf8mb4_unicode_ci` is used. The downside is that searching in the administration interface will be also case senstive then. This applies to MySQL only because all other DBMS are always case sensitive.
-
-If you don't have at least MySQL 5.7 installed, you will probably get an error like
+If you don't have at least MySQL 5.7.8 or MariaDB 10.2.2 installed, you will probably get an error like
 
 ```Specified key was too long; max key length is 767 bytes```
 
@@ -99,7 +83,7 @@ change the charset/collation setting to these values before installing Aimeos ag
     'mysql' => [
         // ...
         'charset' => 'utf8',
-        'collation' => 'utf8_bin',
+        'collation' => 'utf8_unicode_ci',
         // ...
     ]
 ]
@@ -107,7 +91,13 @@ change the charset/collation setting to these values before installing Aimeos ag
 
 If you want to use a database server other than MySQL, please have a look into the article about
 [supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
-and their specific configuration.
+and their specific configuration. Supported are:
+
+* MySQL, MariaDB (fully)
+* PostgreSQL (fully)
+* Oracle (partially)
+* SQL Server (partially)
+* SQL Anywhere (partially)
 
 ## Installation
 
