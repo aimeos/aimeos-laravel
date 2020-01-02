@@ -50,7 +50,7 @@ class Locale
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @return \Aimeos\MShop\Locale\Item\Iface Locale item object
 	 */
-	public function get( \Aimeos\MShop\Context\Item\Iface $context )
+	public function get( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Locale\Item\Iface
 	{
 		if( $this->locale === null )
 		{
@@ -82,7 +82,7 @@ class Locale
 	 * @param string $site Unique site code
 	 * @return \Aimeos\MShop\Locale\Item\Iface Locale item object
 	 */
-	public function getBackend( \Aimeos\MShop\Context\Item\Iface $context, $site )
+	public function getBackend( \Aimeos\MShop\Context\Item\Iface $context, string $site ) : \Aimeos\MShop\Locale\Item\Iface
 	{
 		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
 

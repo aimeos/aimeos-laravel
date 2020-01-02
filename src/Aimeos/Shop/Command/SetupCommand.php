@@ -81,7 +81,7 @@ class SetupCommand extends AbstractCommand
 	 * @param \Aimeos\MW\Config\Iface $conf Config object
 	 * @return array Multi-dimensional associative list of database configuration parameters
 	 */
-	protected function getDbConfig( \Aimeos\MW\Config\Iface $conf )
+	protected function getDbConfig( \Aimeos\MW\Config\Iface $conf ) : array
 	{
 		$dbconfig = $conf->get( 'resource', array() );
 

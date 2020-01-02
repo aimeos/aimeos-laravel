@@ -31,7 +31,7 @@ class I18n
 	/**
 	 * @var array
 	 */
-	private $i18n = array();
+	private $i18n = [];
 
 
 	/**
@@ -53,7 +53,7 @@ class I18n
 	 * @param array $languageIds List of two letter ISO language IDs
 	 * @return \Aimeos\MW\Translation\Iface[] List of translation objects
 	 */
-	public function get( array $languageIds )
+	public function get( array $languageIds ) : array
 	{
 		$i18nPaths = $this->aimeos->get()->getI18nPaths();
 

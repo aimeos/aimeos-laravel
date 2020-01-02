@@ -102,7 +102,7 @@ class JsonapiController extends Controller
 	 *
 	 * @return \Aimeos\Client\JsonApi\Iface JsonApi client
 	 */
-	protected function createClient()
+	protected function createClient() : \Aimeos\Client\JsonApi\Iface
 	{
 		$resource = Route::input( 'resource' );
 		$related = Route::input( 'related', Request::get( 'related' ) );

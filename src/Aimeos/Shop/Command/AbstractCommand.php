@@ -29,7 +29,7 @@ abstract class AbstractCommand extends Command
 	 * @param string|array $sites Unique site codes
 	 * @return \Aimeos\MShop\Locale\Item\Site\Iface[] List of site items
 	 */
-	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites )
+	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites ) : array
 	{
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$search = $manager->createSearch();

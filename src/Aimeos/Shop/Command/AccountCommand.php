@@ -90,8 +90,10 @@ class AccountCommand extends AbstractCommand
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
 	 * @param \Aimeos\MShop\Customer\Item\Iface $user Aimeos customer object
+	 * @return \Aimeos\MShop\Customer\Item\Iface Updated customer object
 	 */
-	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user )
+	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context,
+		\Aimeos\MShop\Customer\Item\Iface $user ) : \Aimeos\MShop\Customer\Item\Iface
 	{
 		if( $this->option( 'admin' ) ) {
 			$user = $this->addGroup( $context, $user, 'admin' );
@@ -116,7 +118,8 @@ class AccountCommand extends AbstractCommand
 	 * @param \Aimeos\MShop\Customer\Item\Iface $user Aimeos customer object
 	 * @param string $group Unique customer group code
 	 */
-	protected function addGroup( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user, $group )
+	protected function addGroup( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user,
+		string $group ) : \Aimeos\MShop\Customer\Item\Iface
 	{
 		$msg = 'Add "%1$s" group to user "%2$s" for site "%3$s"';
 		$this->info( sprintf( $msg, $group, $user->getCode(), $this->argument( 'site' ) ) );
@@ -133,7 +136,7 @@ class AccountCommand extends AbstractCommand
 	 * @param string $code Unique customer group code
 	 * @return \Aimeos\MShop\Customer\Item\Group\Iface Aimeos customer group item object
 	 */
-	protected function getGroupItem( \Aimeos\MShop\Context\Item\Iface $context, $code )
+	protected function getGroupItem( \Aimeos\MShop\Context\Item\Iface $context, string $code ) : \Aimeos\MShop\Customer\Item\Group\Iface
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 

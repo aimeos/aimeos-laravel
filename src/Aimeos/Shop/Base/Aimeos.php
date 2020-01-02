@@ -45,7 +45,7 @@ class Aimeos
 	 *
 	 * @return \Aimeos\Bootstrap Aimeos bootstrap object
 	 */
-	public function get()
+	public function get() : \Aimeos\Bootstrap
 	{
 		if( $this->object === null )
 		{
@@ -68,7 +68,7 @@ class Aimeos
 	 *
 	 * @return string Version string
 	 */
-	public function getVersion()
+	public function getVersion() : string
 	{
 		if( ( $content = @file_get_contents( base_path( 'composer.lock' ) ) ) !== false
 			&& ( $content = json_decode( $content, true ) ) !== null && isset( $content['packages'] )

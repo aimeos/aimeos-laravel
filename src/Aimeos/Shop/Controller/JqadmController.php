@@ -224,7 +224,7 @@ class JqadmController extends AdminController
 	 *
 	 * @return \Aimeos\Admin\JQAdm\Iface JQAdm client
 	 */
-	protected function createAdmin()
+	protected function createAdmin() : \Aimeos\Admin\JQAdm\Iface
 	{
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
 		$lang = Request::get( 'lang', config( 'app.locale', 'en' ) );
@@ -255,7 +255,7 @@ class JqadmController extends AdminController
 	 * @param string $content Content from admin client
 	 * @return \Illuminate\Contracts\View\View View for rendering the output
 	 */
-	protected function getHtml( $content )
+	protected function getHtml( string $content )
 	{
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
 		return View::make( 'shop::jqadm.index', array( 'content' => $content, 'site' => $site ) );

@@ -60,7 +60,7 @@ class Shop
 	 * @param string $name Name of the shop component
 	 * @return \Aimeos\Client\Html\Iface HTML client
 	 */
-	public function get( $name )
+	public function get( string $name ) : \Aimeos\Client\Html\Iface
 	{
 		if( !isset( $this->objects[$name] ) )
 		{

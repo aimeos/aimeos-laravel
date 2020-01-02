@@ -80,9 +80,9 @@ class JobsCommand extends AbstractCommand
 	/**
 	 * Returns a context object
 	 *
-	 * @return \Aimeos\MShop\Context\Item\Standard Context object
+	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
-	protected function getContext()
+	protected function getContext() : \Aimeos\MShop\Context\Item\Iface
 	{
 		$lv = $this->getLaravel();
 		$aimeos = $lv->make( 'aimeos' )->get();

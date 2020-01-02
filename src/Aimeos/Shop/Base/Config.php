@@ -21,7 +21,7 @@ class Config
 	/**
 	 * @var \Aimeos\Shop\Base\Config[]
 	 */
-	private $objects = array();
+	private $objects = [];
 
 	/**
 	 * @var \Aimeos\Shop\Base\Aimeos
@@ -50,10 +50,10 @@ class Config
 	/**
 	 * Creates a new configuration object.
 	 *
-	 * @param integer $type Configuration type ("frontend" or "backend")
+	 * @param string $type Configuration type ("frontend" or "backend")
 	 * @return \Aimeos\MW\Config\Iface Configuration object
 	 */
-	public function get( $type = 'frontend' )
+	public function get( string $type = 'frontend' ) : \Aimeos\MW\Config\Iface
 	{
 		if( !isset( $this->objects[$type] ) )
 		{

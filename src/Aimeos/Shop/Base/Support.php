@@ -56,9 +56,9 @@ class Support
 	 *
 	 * @param \Illuminate\Foundation\Auth\User $user Authenticated user
 	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
-	 * @return boolean True if user is part of the group, false if not
+	 * @return bool True if user is part of the group, false if not
 	 */
-	public function checkUserGroup( \Illuminate\Foundation\Auth\User $user, $groupcodes )
+	public function checkUserGroup( \Illuminate\Foundation\Auth\User $user, $groupcodes ) : bool
 	{
 		$groups = ( is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
 
@@ -94,7 +94,7 @@ class Support
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
 	 * @return string[] List of group codes
 	 */
-	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context )
+	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context ) : array
 	{
 		$list = array();
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
@@ -115,10 +115,10 @@ class Support
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
 	 * @param string $userid ID of the logged in user
-	 * @param string[] $groupcodes List of group codes to check against
-	 * @return boolean True if the user is in one of the groups, false if not
+	 * @param string[]|string $groupcodes List of group codes to check against
+	 * @return bool True if the user is in one of the groups, false if not
 	 */
-	protected function checkGroups( \Aimeos\MShop\Context\Item\Iface $context, $userid, $groupcodes )
+	protected function checkGroups( \Aimeos\MShop\Context\Item\Iface $context, string $userid, $groupcodes ) : bool
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
