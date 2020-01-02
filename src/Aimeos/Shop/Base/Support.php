@@ -89,31 +89,6 @@ class Support
 
 
 	/**
-	 * Checks if the user with the given ID is in the specified group
-	 *
-	 * @param string $userid Unique user ID
-	 * @param string|array $groupcodes Unique user/customer group codes that are allowed
-	 * @return boolean True if user is part of the group, false if not
-	 * @deprecated Use checkUserGroup() instead
-	 */
-	public function checkGroup( $userid, $groupcodes )
-	{
-		$groups = ( is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
-
-		if( isset( $this->cache[$userid][$groups] ) ) {
-			return $this->cache[$userid][$groups];
-		}
-
-		$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', 'default' ) ) : 'default' );
-
-		$context = $this->context->get( false );
-		$context->setLocale( $this->locale->getBackend( $context, $site ) );
-
-		return $this->cache[$userid][$groups] = $this->checkGroups( $context, $userid, $groupcodes );
-	}
-
-
-	/**
 	 * Returns the available group codes
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
