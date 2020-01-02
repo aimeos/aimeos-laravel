@@ -9,6 +9,7 @@ class SupportTest extends AimeosTestAbstract
 
 		$object = new \Aimeos\Shop\Base\Support( $context, $locale );
 		$user = new \Illuminate\Foundation\Auth\User();
+		$user->siteid = '0';
 
 		$this->assertFalse( $object->checkUserGroup( $user, 'admin' ) );
 	}
