@@ -14,7 +14,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response;
+use Nyholm\Psr7\Factory\Psr17Factory;
 
 
 /**
@@ -33,7 +33,7 @@ class JsonapiController extends Controller
 	 */
 	public function deleteAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->delete( $request, new Response() );
+		return $this->createClient()->delete( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -45,7 +45,7 @@ class JsonapiController extends Controller
 	 */
 	public function getAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->get( $request, new Response() );
+		return $this->createClient()->get( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -57,7 +57,7 @@ class JsonapiController extends Controller
 	 */
 	public function patchAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->patch( $request, new Response() );
+		return $this->createClient()->patch( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -69,7 +69,7 @@ class JsonapiController extends Controller
 	 */
 	public function postAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->post( $request, new Response() );
+		return $this->createClient()->post( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -81,7 +81,7 @@ class JsonapiController extends Controller
 	 */
 	public function putAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->put( $request, new Response() );
+		return $this->createClient()->put( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -93,7 +93,7 @@ class JsonapiController extends Controller
 	 */
 	public function optionsAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->options( $request, new Response() );
+		return $this->createClient()->options( $request, (new Psr17Factory)->createResponse() );
 	}
 
 

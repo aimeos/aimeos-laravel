@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response;
+use Nyholm\Psr7\Factory\Psr17Factory;
 
 
 /**
@@ -41,7 +41,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->delete( $request, new Response() );
+		return $this->createAdmin()->delete( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -57,7 +57,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
-		return $this->createAdmin()->get( $request, new Response() );
+		return $this->createAdmin()->get( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -73,7 +73,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->patch( $request, new Response() );
+		return $this->createAdmin()->patch( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -89,7 +89,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->post( $request, new Response() );
+		return $this->createAdmin()->post( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -105,7 +105,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->put( $request, new Response() );
+		return $this->createAdmin()->put( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
@@ -121,7 +121,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
-		return $this->createAdmin()->options( $request, new Response() );
+		return $this->createAdmin()->options( $request, (new Psr17Factory)->createResponse() );
 	}
 
 
