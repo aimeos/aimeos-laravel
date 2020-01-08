@@ -89,6 +89,8 @@ class SetupCommand extends AbstractCommand
 		{
 			if( strncmp( $rname, 'db', 2 ) !== 0 ) {
 				unset( $dbconfig[$rname] );
+			} else {
+				$conf->set( 'resource/' . $rname . '/limit', 5 );
 			}
 		}
 
