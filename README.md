@@ -240,6 +240,11 @@ to your real URL, e.g.
 
 ```APP_URL=http://127.0.0.1:8000```
 
+**Caution:** Make sure, Laravel uses the `file` session driver in your `.env` file!
+Otherwise, the shopping basket content won't get stored correctly!
+
+```SESSION_DRIVER=file```
+
 Then, you should be able to call the catalog list page in your browser. For a
 quick start, you can use the integrated web server that is available since PHP 5.4.
 Simply execute this command in the base directory of your application:
