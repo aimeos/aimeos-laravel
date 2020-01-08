@@ -150,7 +150,7 @@ if( ( $conf = config( 'shop.routes.update', [] ) ) !== false ) {
 }
 
 
-if( ( $conf = config( 'shop.routes.account', ['prefix' => 'myaccount', 'middleware' => ['web', 'auth']] ) ) !== false ) {
+if( ( $conf = config( 'shop.routes.account', ['prefix' => 'profile', 'middleware' => ['web', 'auth']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
 
