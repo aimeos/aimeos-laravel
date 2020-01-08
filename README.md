@@ -34,6 +34,7 @@ and customize anything to your needs.
 This document is for the Aimeos Laravel package **2019.10 and later**.
 
 - LTS release: 2019.10 (Laravel 5.3 to 6.x)
+- Beta release: 2020.10 (Laravel 5.3 to 6.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
