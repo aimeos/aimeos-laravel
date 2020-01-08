@@ -32,7 +32,7 @@ return array(
 			'database' => config( 'database.connections.mysql.database', 'forge' ),
 			'username' => config( 'database.connections.mysql.username', 'forge' ),
 			'password' => config( 'database.connections.mysql.password', '' ),
-			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'"],
+			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'; SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED"],
 			'opt-persistent' => 0,
 			'limit' => 3,
 			'defaultTableOptions' => [
