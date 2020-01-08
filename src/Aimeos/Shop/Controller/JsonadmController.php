@@ -41,7 +41,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->delete( $request, (new Psr17Factory)->createResponse() );
+		return $this->createAdmin()->delete( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
@@ -57,7 +57,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
-		return $this->createAdmin()->get( $request, (new Psr17Factory)->createResponse() );
+		return $this->createAdmin()->get( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
@@ -73,7 +73,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->patch( $request, (new Psr17Factory)->createResponse() );
+		return $this->createAdmin()->patch( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
@@ -89,7 +89,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->post( $request, (new Psr17Factory)->createResponse() );
+		return $this->createAdmin()->post( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
@@ -105,7 +105,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
 		}
 
-		return $this->createAdmin()->put( $request, (new Psr17Factory)->createResponse() );
+		return $this->createAdmin()->put( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
@@ -121,7 +121,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
 		}
 
-		return $this->createAdmin()->options( $request, (new Psr17Factory)->createResponse() );
+		return $this->createAdmin()->options( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
