@@ -12,6 +12,6 @@ class AimeosTest extends AimeosTestAbstract
 	public function testGetVersion()
 	{
 		$object = $this->app->make( '\Aimeos\Shop\Base\Aimeos' );
-		$this->assertIsString( $object->getVersion() );
+		$this->assertInternalType( 'string', $object->getVersion() );
 	}
 }
