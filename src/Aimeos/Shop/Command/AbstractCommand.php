@@ -27,9 +27,9 @@ abstract class AbstractCommand extends Command
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item object
 	 * @param string|array $sites Unique site codes
-	 * @return \Aimeos\MShop\Locale\Item\Site\Iface[] List of site items
+	 * @return \Aimeos\Map List of site items implementing \Aimeos\MShop\Locale\Item\Site\Interface
 	 */
-	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites ) : array
+	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$search = $manager->createSearch();
