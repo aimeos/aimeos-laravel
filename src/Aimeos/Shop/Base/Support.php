@@ -96,17 +96,12 @@ class Support
 	 */
 	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context ) : array
 	{
-		$list = array();
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
 
-		foreach( $manager->searchItems( $search ) as $item ) {
-			$list[] = $item->getCode();
-		}
-
-		return $list;
+		return $manager->searchItems( $search )->getCode()->toArray();
 	}
 
 
@@ -124,7 +119,7 @@ class Support
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.code', (array) $groupcodes ) );
-		$groupItems = $manager->searchItems( $search );
+		$groupIds = $manager->searchItems( $search )->keys()->toArray();
 
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
@@ -132,7 +127,7 @@ class Support
 		$search = $manager->createSearch();
 		$expr = array(
 			$search->compare( '==', 'customer.lists.parentid', $userid ),
-			$search->compare( '==', 'customer.lists.refid', array_keys( $groupItems ) ),
+			$search->compare( '==', 'customer.lists.refid', $groupIds ),
 			$search->compare( '==', 'customer.lists.domain', 'customer/group' ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
