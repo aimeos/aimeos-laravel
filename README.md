@@ -61,7 +61,7 @@ installed easiest by using [Composer](https://getcomposer.org) in the root
 directory of your exisisting Laravel application:
 
 ```
-composer require aimeos/aimeos-laravel
+composer require aimeos/aimeos-laravel:~2019.10
 ```
 
 ## Database
