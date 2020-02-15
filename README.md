@@ -292,12 +292,12 @@ For more information, please follow the Laravel documentation:
 Test if your authentication setup works before you continue. Create an admin account
 for your Laravel application so you will be able to log into the Aimeos admin interface:
 
-```php artisan aimeos:account --admin <email>```
+```php artisan aimeos:account --super <email>```
 
 The e-mail address is the user name for login and the account will work for the
 frontend too. To protect the new account, the command will ask you for a password.
-The same command can create limited accounts by using "--editor" or "--api" instead of
-"--admin". If you use "--super" the account will have access to all sites.
+The same command can create limited accounts by using "--admin", "--editor" or "--api"
+instead of "--super" (access to everything).
 
 ### Configure authentication
 
