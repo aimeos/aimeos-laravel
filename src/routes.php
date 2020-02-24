@@ -220,7 +220,7 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 		Route::match( array( 'GET', 'POST' ), '{f_name}~{f_catid}', array(
 			'as' => 'aimeos_shop_tree',
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
-		) )->where( ['site' => '[a-z0-9\.\-]+', 'f_name' => '[^~]+'] );
+		) )->where( ['site' => '[a-z0-9\.\-]+', 'f_name' => '[^~]*'] );
 
 		Route::match( array( 'GET', 'POST' ), '{d_name}/{d_pos?}/{d_prodid?}', array(
 			'as' => 'aimeos_shop_detail',
