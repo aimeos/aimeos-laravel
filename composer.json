@@ -17,6 +17,7 @@
         "doctrine/dbal": "~2.5",
         "laravel/framework": "~5.3||~6.0||~7.0",
         "symfony/psr-http-message-bridge": "~1.0",
+        "laminas/laminas-diactoros": "^1.8.7",
         "nyholm/psr7": "~1.2",
         "aimeos/aimeos-core": "dev-master",
         "aimeos/ai-swiftmailer": "dev-master",

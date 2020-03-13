@@ -18,8 +18,6 @@ env:
   - LARAVEL_VERSION=5.7.* PHPUNIT_VERSION=~7.0
   - LARAVEL_VERSION=5.6.* PHPUNIT_VERSION=~7.0
   - LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
-  - LARAVEL_VERSION=5.4.* PHPUNIT_VERSION=~5.7
-  - LARAVEL_VERSION=5.3.* PHPUNIT_VERSION=~5.7
 
 before_script:
   - echo 'memory_limit = -1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
@@ -35,4 +33,8 @@ matrix:
   fast_finish: true
   exclude:
   - php: 7.1
-    env: LARAVEL_VERSION=6.0.* PHPUNIT_VERSION=~8.0
+    env: LARAVEL_VERSION=6.* PHPUNIT_VERSION=~8.0
+  - php: 7.1
+    env: LARAVEL_VERSION=7.* PHPUNIT_VERSION=~8.0
+  - php: 7.4
+    env: LARAVEL_VERSION=5.5.* PHPUNIT_VERSION=~6.0
