@@ -31,10 +31,9 @@ and customize anything to your needs.
 
 ## Supported versions
 
-This document is for the Aimeos Laravel package **2018.10 and later**.
+This document is for the Aimeos Laravel package **2019.10 and later**.
 
-- Stable release: 2019.07 (Laravel 5.3 to 6.0)
-- LTS release: 2018.10 (Laravel 5.3 to 5.8)
+- LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -116,7 +115,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2019.07",
+        "aimeos/aimeos-laravel": "~2019.10",
         ...
     },
     "scripts": {
@@ -266,7 +265,8 @@ npm install && npm run dev
 ```
 
 For more information, please follow the Laravel documentation:
-* [Laravel 6.0](https://laravel.com/docs/6.0/authentication)
+* [Laravel 7.x](https://laravel.com/docs/7.x/authentication)
+* [Laravel 6.x](https://laravel.com/docs/6.x/authentication)
 
 ### Laravel 5.x
 
