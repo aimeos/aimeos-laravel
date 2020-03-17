@@ -33,8 +33,8 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2019.10 and later**.
 
-- LTS release: 2019.10 (Laravel 5.3 to 6.x)
-- Beta release: 2020.10 (Laravel 5.3 to 6.x)
+- LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
+- Beta release: 2020.01 (Laravel 5.5+, 6.x and 7.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -123,24 +123,6 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
 Afterwards, install the Aimeos shop package using
 
 `composer update`
-
-Next, the Aimeos provider class must be added to the `providers` array of the
-`config/app.php` file so the application and Laravel command task will work:
-
-```php
-return array(
-    'providers' => array(
-        /*
-         * Package Service Providers...
-         */
-        Aimeos\Shop\ShopServiceProvider::class,
-
-        /*
-         * Application Service Providers...
-         */
-    ),
-);
-```
 
 In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
@@ -273,7 +255,8 @@ npm install && npm run dev
 ```
 
 For more information, please follow the Laravel documentation:
-* [Laravel 6.0](https://laravel.com/docs/6.0/authentication)
+* [Laravel 7.x](https://laravel.com/docs/7.x/authentication)
+* [Laravel 6.x](https://laravel.com/docs/6.x/authentication)
 
 ### Laravel 5.x
 
