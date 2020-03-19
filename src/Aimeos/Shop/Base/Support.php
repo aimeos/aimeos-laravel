@@ -35,7 +35,7 @@ class Support
 	/**
 	 * @var array
 	 */
-	private $cache = [];
+	private $access = [];
 
 
 	/**
@@ -62,15 +62,16 @@ class Support
 	{
 		$groups = ( is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
 
-		if( isset( $this->cache[$user->id][$groups] ) ) {
-			return $this->cache[$user->id][$groups];
+		if( isset( $this->access[$user->id][$groups] ) ) {
+			return $this->access[$user->id][$groups];
 		}
 
-		$this->cache[$user->id][$groups] = false;
+		$this->access[$user->id][$groups] = false;
 		$context = $this->context->get( false );
+		$siteid = current( array_reverse( explode( '.', trim( $user->siteid, '.' ) ) ) );
 
 		try {
-			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $user->siteid )->getCode();
+			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $siteid )->getCode();
 		} catch( \Exception $e ) {
 			$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', 'default' ) ) : 'default' );
 		}
@@ -80,11 +81,11 @@ class Support
 		foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
 		{
 			if( (string) $user->siteid === (string) $siteid ) {
-				$this->cache[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
+				$this->access[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
 			}
 		}
 
-		return $this->cache[$user->id][$groups];
+		return $this->access[$user->id][$groups];
 	}
 
 
@@ -120,7 +121,6 @@ class Support
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'customer.group.code', (array) $groupcodes ) );
 		$groupIds = $manager->searchItems( $search )->keys()->toArray();
-
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
 
