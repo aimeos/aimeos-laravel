@@ -246,16 +246,26 @@ Laravel installation but the **home page stays untouched!**
 
 To use the admin interface, you have to set up Laravel authentication first:
 
-### Laravel 6/7
+### Laravel 7
 
 ```
-composer require laravel/ui
+composer require laravel/ui:^2.0
 php artisan ui vue --auth
 npm install && npm run dev
 ```
 
 For more information, please follow the Laravel documentation:
 * [Laravel 7.x](https://laravel.com/docs/7.x/authentication)
+
+### Laravel 6
+
+```
+composer require laravel/ui:^1.0
+php artisan ui vue --auth
+npm install && npm run dev
+```
+
+For more information, please follow the Laravel documentation:
 * [Laravel 6.x](https://laravel.com/docs/6.x/authentication)
 
 ### Laravel 5.x
