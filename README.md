@@ -246,7 +246,7 @@ Laravel installation but the **home page stays untouched!**
 
 To use the admin interface, you have to set up Laravel authentication first:
 
-### Laravel 6.x
+### Laravel 6/7
 
 ```
 composer require laravel/ui
