@@ -159,7 +159,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 	@yield('aimeos_styles')
-	<style>.basket-mini { display: inline-block; float: right }</style>
+	<style>.basket-mini { display: inline-block; float: right; clear: none }</style>
 
 </head>
 <body>
