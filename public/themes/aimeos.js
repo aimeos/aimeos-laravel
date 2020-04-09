@@ -1246,7 +1246,7 @@ AimeosCatalog = {
 			elem.parents(".product").find(".image-single .item").each( function(ev) {
 
 				if( $(this).data("variant-" + type) == value ) {
-					window.location.hash = $(this).attr("id");
+					window.location.hash = $(this).parents(".media-item").attr("id");
 					return false;
 				}
 			});
