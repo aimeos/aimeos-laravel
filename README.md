@@ -33,8 +33,8 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2019.10 and later**.
 
+- Stable release: 2020.04 (Laravel 5.5+, 6.x and 7.x)
 - LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
-- Beta release: 2020.01 (Laravel 5.5+, 6.x and 7.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
@@ -61,7 +61,7 @@ installed easiest by using [Composer](https://getcomposer.org) in the root
 directory of your exisisting Laravel application:
 
 ```
-composer require aimeos/aimeos-laravel:~2019.10
+composer require aimeos/aimeos-laravel:~2020.04
 ```
 
 ## Database
@@ -96,9 +96,7 @@ and their specific configuration. Supported are:
 
 * MySQL, MariaDB (fully)
 * PostgreSQL (fully)
-* Oracle (partially)
-* SQL Server (partially)
-* SQL Anywhere (partially)
+* SQL Server (fully)
 
 ## Installation
 
@@ -108,7 +106,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2019.10",
+        "aimeos/aimeos-laravel": "~2020.04",
         ...
     },
     "scripts": {
@@ -156,28 +154,21 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 	<title>Aimeos on Laravel</title>
 
 	<link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:400,300'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 	@yield('aimeos_styles')
-	<style>.basket-mini { display: inline-block; float: right; clear: none }</style>
-
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/">
-				<img src="http://aimeos.org/fileadmin/template/icons/logo.png" height="20" title="Aimeos Logo">
-			</a>
-		</div>
 
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
+	<nav class="navbar navbar-expand-md navbar-light" style="margin-bottom: 2em">
+		<a class="navbar-brand" href="/">
+			<img src="http://aimeos.org/fileadmin/template/icons/logo.png" height="20" title="Aimeos Logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<ul class="navbar-nav">
 				@if (Auth::guest())
 					<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
 					<li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
@@ -185,8 +176,8 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ route('aimeos_shop_account',['site'=>Route::current()->parameter('site','default'),'locale'=>Route::current()->parameter('locale','en'),'currency'=>Route::current()->parameter('currency','EUR')]) }}" title="Profile">Profile</a></li>
-							<li><form id="logout" action="/logout" method="POST">{{csrf_field()}}</form><a href="javascript: document.getElementById('logout').submit();">Logout</a></li>
+							<li><a class="nav-link" href="{{ route('aimeos_shop_account',['site'=>Route::current()->parameter('site','default'),'locale'=>Route::current()->parameter('locale','en'),'currency'=>Route::current()->parameter('currency','EUR')]) }}" title="Profile">Profile</a></li>
+							<li><form id="logout" action="/logout" method="POST">{{csrf_field()}}</form><a class="nav-link" href="javascript: document.getElementById('logout').submit();">Logout</a></li>
 						</ul>
 					</li>
 				@endif
@@ -194,6 +185,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 			@yield('aimeos_head')
 		</div>
 	</nav>
+
     <div class="container">
 		@yield('aimeos_nav')
 		@yield('aimeos_stage')
@@ -203,8 +195,9 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 	</div>
 
 	<!-- Scripts -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 	@yield('aimeos_scripts')
 
@@ -299,17 +292,17 @@ As a last step, you need to extend the `boot()` method of your
 authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
 
 ```php
-public function boot()
-{
-    // Keep the lines before
+    public function boot()
+    {
+        // Keep the lines before
 
-    Gate::define('admin', function($user, $class, $roles) {
-        if( isset( $user->superuser ) && $user->superuser ) {
-            return true;
-        }
-        return app( '\Aimeos\Shop\Base\Support' )->checkUserGroup( $user, $roles );
-    });
-}
+        Gate::define('admin', function($user, $class, $roles) {
+            if( isset( $user->superuser ) && $user->superuser ) {
+                return true;
+            }
+            return app( '\Aimeos\Shop\Base\Support' )->checkUserGroup( $user, $roles );
+        });
+    }
 ```
 
 ### Test
