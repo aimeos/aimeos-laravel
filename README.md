@@ -271,8 +271,6 @@ For more information, please follow the Laravel documentation:
 * [Laravel 5.7](https://laravel.com/docs/5.7/authentication)
 * [Laravel 5.6](https://laravel.com/docs/5.6/authentication)
 * [Laravel 5.5](https://laravel.com/docs/5.5/authentication)
-* [Laravel 5.4](https://laravel.com/docs/5.4/authentication)
-* [Laravel 5.3](https://laravel.com/docs/5.3/authentication)
 
 ### Create account
 
