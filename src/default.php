@@ -119,6 +119,11 @@ return array(
 						'target' => 'aimeos_shop_account',
 					),
 				),
+				'profile' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_account',
+					),
+				),
 				'subscription' => array(
 					'url' => array(
 						'target' => 'aimeos_shop_account',
