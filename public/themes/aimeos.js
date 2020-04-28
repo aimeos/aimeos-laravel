@@ -254,39 +254,35 @@ AimeosAccountHistory = {
 AimeosAccountProfile = {
 
 	/**
-	 * Adds a new delivery address form
+	 * Reset and close the new address form
 	 */
-	setupAddressNew: function() {
+	setupAddress: function() {
 
-		$(".account-profile").on("click", "a.act-new", function(ev) {
+		$(".account-profile-address .panel").on("show.bs.collapse", ".panel-body", function (ev) {
+			$(".act-show", ev.delegateTarget).removeClass("act-show").addClass("act-hide");
+		});
 
-			var item = $(".prototype", ev.delegateTarget).removeClass("prototype");
-			$("input,select", item).removeAttr("disabled");
-			$(this).hide();
-
-			return false;
+		$(".account-profile-address .panel").on("hidden.bs.collapse", ".panel-body", function (ev) {
+			$(".act-hide", ev.delegateTarget).removeClass("act-hide").addClass("act-show");
 		});
 	},
 
 
 	/**
-	 * Deletes a watched item without page reload
+	 * Adds a new delivery address form
 	 */
-	setupAddressRemoval: function() {
+	setupAddressNew: function() {
 
-		$(".account-profile").on("click", "a.act-delete", function(ev) {
-
-			$(this).parents(".panel").remove();
-			return false;
+		$(".account-profile-address .address-delivery-new").on("show.bs.collapse", ".panel-body", function (ev) {
+			$("input,select", ev.delegateTarget).prop("disabled", false);
 		});
 
-		$(".account-profile").on("click", "a.act-hide", function(ev) {
+		$(".account-profile-address .address-delivery-new").on("hidden.bs.collapse", ".panel-body", function (ev) {
+			$("input,select", ev.delegateTarget).prop("disabled", true);
+		});
 
-			var item = $(this).parents(".panel").addClass("prototype");
-			$("input,select", item).attr("disabled", "disabled");
-			$("a.act-new", ev.delegateTarget).show();
-
-			return false;
+		$(".account-profile-address .address-delivery-new").on("click", '.btn-cancel', function(ev) {
+			$(".panel-body", ev.delegateTarget).collapse('hide');
 		});
 	},
 
@@ -299,7 +295,7 @@ AimeosAccountProfile = {
 		$(".account-profile .form-item").on("blur", "input,select", function(ev) {
 			var value = $(this).val();
 			var node = $(ev.delegateTarget);
-			var regex = new RegExp(node.data('regex') || '/.*/');
+			var regex = new RegExp(node.data('regex') || '.*');
 
 			if((value !== '' && value.match(regex)) || (value === '' && !node.hasClass("mandatory"))) {
 				node.removeClass("error").addClass("success");
@@ -338,8 +334,8 @@ AimeosAccountProfile = {
 	 */
 	init: function() {
 
+		this.setupAddress();
 		this.setupAddressNew();
-		this.setupAddressRemoval();
 		this.setupMandatoryCheck();
 	}
 };
