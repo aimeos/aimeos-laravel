@@ -77,7 +77,8 @@ If you don't have at least MySQL 5.7.8 or MariaDB 10.2.2 installed, you will pro
 ```Specified key was too long; max key length is 767 bytes```
 
 To circumvent this problem, drop the new tables if there have been any created and
-change the charset/collation setting to these values before installing Aimeos again:
+change the charset/collation setting in `./config/database.php` to these values before
+installing Aimeos again:
 
 ```php
 'connections' => [
