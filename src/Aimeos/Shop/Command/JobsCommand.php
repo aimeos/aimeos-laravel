@@ -69,7 +69,7 @@ class JobsCommand extends AbstractCommand
 					\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
 				};
 
-				$process->start( $fcn, [$context, $aimeos, $jobname], true );
+				$process->start( $fcn, [$context, $aimeos, $jobname], false );
 			}
 		}
 
