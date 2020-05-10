@@ -114,7 +114,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=public --force",
             "@php artisan migrate",
-			"\\Aimeos\\Shop\\Composer::join"
+            "\\Aimeos\\Shop\\Composer::join"
         ],
         ...
     }
