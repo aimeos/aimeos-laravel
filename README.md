@@ -131,7 +131,6 @@ or updated Aimeos installation:
 php artisan vendor:publish --all
 php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
-php artisan aimeos:clear
 ```
 
 In a production environment or if you don't want that the demo data gets
