@@ -55,6 +55,9 @@ class JobsCommand extends AbstractCommand
 
 		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
 		{
+			\Aimeos\MShop::cache( true );
+			\Aimeos\MAdmin::cache( true );
+
 			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
 			$localeItem->setLanguageId( null );
 			$localeItem->setCurrencyId( null );
