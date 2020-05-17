@@ -33,7 +33,7 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2019.10 and later**.
 
-- Stable release: 2020.04 (Laravel 5.5+, 6.x and 7.x)
+- Stable release: 2020.04 (6.x and 7.x)
 - LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
 
 If you want to **upgrade between major versions**, please have a look into the
