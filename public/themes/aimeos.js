@@ -513,7 +513,7 @@ AimeosBasketBulk = {
 			delay : 200,
 			source : function(req, resp) {
 
-				var params;
+				var params = {};
 				var relFilter = {};
 				var langid = AimeosBasketBulk.meta.locale && AimeosBasketBulk.meta.locale['locale.languageid'];
 				relFilter['index.text:relevance("' + langid + '","' + req.term + '")'] = 0;
