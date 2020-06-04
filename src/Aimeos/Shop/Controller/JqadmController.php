@@ -35,7 +35,7 @@ class JqadmController extends AdminController
 	public function fileAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$contents = '';
@@ -80,7 +80,7 @@ class JqadmController extends AdminController
 	public function copyAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();
@@ -101,7 +101,7 @@ class JqadmController extends AdminController
 	public function createAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();
@@ -122,7 +122,7 @@ class JqadmController extends AdminController
 	public function deleteAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();
@@ -143,7 +143,7 @@ class JqadmController extends AdminController
 	public function exportAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();
@@ -164,7 +164,7 @@ class JqadmController extends AdminController
 	public function getAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();
@@ -185,7 +185,7 @@ class JqadmController extends AdminController
 	public function saveAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();
@@ -206,7 +206,7 @@ class JqadmController extends AdminController
 	public function searchAction()
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JqadmController::class, ['admin', 'editor']] );
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
 		$cntl = $this->createAdmin();

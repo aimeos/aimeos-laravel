@@ -54,7 +54,7 @@ class JsonadmController extends Controller
 	public function getAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
+			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'] )] );
 		}
 
 		return $this->createAdmin()->get( $request, ( new Psr17Factory )->createResponse() );
@@ -118,7 +118,7 @@ class JsonadmController extends Controller
 	public function optionsAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api', 'editor']] );
+			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'] )] );
 		}
 
 		return $this->createAdmin()->options( $request, ( new Psr17Factory )->createResponse() );
