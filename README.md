@@ -194,7 +194,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 			@yield('aimeos_head')
 		</div>
 	</nav>
-    <div class="container">
+	<div class="container">
 		@yield('aimeos_nav')
 		@yield('aimeos_stage')
 		@yield('aimeos_body')
