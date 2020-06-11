@@ -211,7 +211,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 			</div>
 			<div class="col-md-4 my-4">
 				<div class="social"><a href="#" class="sm facebook"></a><a href="#" class="sm twitter"></a><a href="#" class="sm instagram"></a><a href="#" class="sm youtube"></a></div>
-				<a style="display: inline-block; padding: 1.5em 0.5em" href="/"><img src="http://aimeos.org/fileadmin/template/icons/logo.png" style="width: 200px; max-width: 100%" title="Aimeos Logo"></a>
+				<a class="px-2 py-4 d-inline-block" href="/"><img src="http://aimeos.org/fileadmin/template/icons/logo.png" style="width: 160px" title="Aimeos Logo"></a>
 			</div>
 		</div>
 	</footer>
