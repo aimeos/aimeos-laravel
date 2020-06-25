@@ -12,13 +12,9 @@
 		<link rel="stylesheet" href="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'lang' => 'en', 'type' => 'css' ) ); ?>" />
 	</head>
 	<body>
-		<div class="app-menu" style="text-align: right; margin: 0 2.5%;">
-			<a class="logout" style="padding: 0.25rem 0.75rem; font-weight: bold" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-				Logout
-			</a>
-			<form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
-				{{ csrf_field() }}
-			</form>
+		<div class="app-menu" style="background: #202830; text-align: right">
+			<i class="logout fa fa-sign-out" style="color: #fff; padding: 0.5em 1.5em" aria-hidden="true" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></i>
+			<form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 		</div>
 
 <?= $content ?>
