@@ -67,20 +67,20 @@ class Support
 		}
 
 		$this->cache[$user->id][$groups] = false;
-		$context = $this->context->get( false );
 
-		try {
-			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $user->siteid )->getCode();
-		} catch( \Exception $e ) {
-			$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', 'default' ) ) : 'default' );
-		}
-
-		$context->setLocale( $this->locale->getBackend( $context, $site ) );
-
-		foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
+		if( $siteid = $user->siteid )
 		{
-			if( (string) $user->siteid === (string) $siteid ) {
-				$this->cache[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
+			$context = $this->context->get( false );
+			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $siteid )->getCode();
+			$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', $site ) ) : $site );
+
+			$context->setLocale( $this->locale->getBackend( $context, $site ) );
+
+			foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
+			{
+				if( (string) $user->siteid === (string) $siteid ) {
+					$this->cache[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
+				}
 			}
 		}
 
