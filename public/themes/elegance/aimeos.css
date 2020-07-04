@@ -21,10 +21,16 @@
 }
 
 .aimeos .btn {
-	vertical-align: top;
-	font-weight: bold;
-	border-radius: 0;
 	width: 12em;
+	font-weight: bold;
+	vertical-align: top;
+	border-radius: 0;
+	color: #555;
+	color: var(--ai-secondary, #555);
+	border: solid 1px #555;
+	border-color: var(--ai-secondary, #555);
+	background-color: #FFF;
+	background-color: var(--ai-bg, #FFF);
 }
 
 .aimeos .btn-primary,
@@ -35,6 +41,8 @@
 	background-color: var(--ai-primary, #FFA840);
 	border: solid 1px #FFA840;
 	border-color: var(--ai-primary, #FFA840);
+	color: #fff;
+	color: var(--ai-bg, #fff);
 }
 
 .aimeos .btn-primary:hover {
@@ -52,11 +60,15 @@
 
 .aimeos .form-control {
     border: none;
+	border-radius: 0;
     border-bottom: 1px solid #555;
 	border-bottom-color: var(--ai-secondary, #555);
-	border-radius: 0;
-	box-shadow: none;
+	background-color: #FFF;
+	background-color: var(--ai-bg, #FFF);
+	color: #555;
+	color: var(--ai-secondary, #555);
 	vertical-align: top;
+	box-shadow: none;
 }
 
 .aimeos .form-item label {
@@ -90,12 +102,27 @@
 	height: auto;
 }
 
-.aimeos .table>tbody>tr>td,
-.aimeos .table>tfoot>tr>td,
-.aimeos .table>thead>tr>td {
+.aimeos table > thead > tr > th,
+.aimeos table > tbody > tr > td,
+.aimeos table > tfoot > tr > td {
+	color: #555;
+	color: var(--ai-secondary, #555);
+	border: none;
+}
+
+.aimeos thead {
 	border-bottom: 1px solid #555;
 	border-bottom-color: var(--ai-secondary, #555);
-	padding: 8px 0 0;
+}
+
+.aimeos tbody tr {
+	border-bottom: 1px solid #D0D0D0;
+	border-bottom-color: var(--ai-light, #D0D0D0);
+}
+
+.aimeos tbody tr:last-child {
+	border-bottom: 1px solid #555;
+	border-bottom-color: var(--ai-secondary, #555);
 }
 
 .aimeos table .form-control {
@@ -134,6 +161,10 @@
 .aimeos input {
 	border: solid 1px #D0D0D0;
 	border-color: var(--ai-light, #D0D0D0);
+	background-color: #FFF;
+	background-color: var(--ai-bg, #FFF);
+	color: #555;
+	color: var(--ai-secondary, #555);
 	text-indent: 0.25em;
 }
 
@@ -925,7 +956,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .aimeos .suggest-item .item-image {
-	background-image: url(media/aimeos.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -949,8 +979,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .catalog-list .product {
-	border-bottom: 1px solid #555;
-	border-bottom-color: var(--ai-secondary, #555);
 	display: inline-block;
 	vertical-align: top;
 	white-space: normal;
@@ -968,7 +996,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 /* media list */
 .catalog-list .media-list {
-	background-image: url(media/aimeos.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -1077,6 +1104,11 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .aimeos .product .stock-out .stocklevel {
 	background-color: #A00000;
+}
+
+/* Product forms */
+.catalog-list .product .form-control {
+	font-size: 90%;
 }
 
 
@@ -1235,7 +1267,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .catalog-detail-image .image-single {
-	background-image: url(media/aimeos.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -1949,7 +1980,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .catalog-session-seen .media-list {
 	background-color: #FFF;
 	background-color: var(--ai-bg, #FFF);
-	background-image: url(media/aimeos.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -1968,7 +1998,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .catalog-detail-suggest .media-item,
 .catalog-session-seen .media-item,
 .catalog-session-pinned .media-item {
-	background-image: url(media/aimeos.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -2145,22 +2174,19 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .basket-mini-product .basket {
-	background-color: #F8F8F8;
-	background-color: var(--ai-bg-light, #F8F8F8);
+	background-color: #fff;
+	background-color: var(--ai-bg, #fff);
+	border: 1px solid #555;
+	border-color: var(--ai-secondary, #555);
 	position: absolute;
 	display: none;
 	opacity: 1.0;
 	z-index: 2;
 }
 
-.basket-mini-product tr {
-	border-left: 1em solid transparent;
-	border-right: 1em solid transparent;
-}
-
 .basket-mini-product th,
 .basket-mini-product td {
-	padding: 1em 0;
+	padding: 1em;
 }
 
 .basket-mini-product th,
@@ -2188,15 +2214,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	content: "\f014";
 }
 
-.basket-mini-product .basket-header tr {
-	border-bottom: 1px solid #D0D0D0;
-	border-bottom-color: var(--ai-light, #D0D0D0);
-}
-
-.basket-mini-product tr.delivery,
 .basket-mini-product tr.total {
-	border-top: 1px solid #D0D0D0;
-	border-top-color: var(--ai-light, #D0D0D0);
 	font-weight: bold;
 }
 
@@ -2387,7 +2405,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 
 .checkout-standard .steps .current {
 	color: #FFF;
-	background-color: var(--ai-bg, #FFF);
+	color: var(--ai-bg, #FFF);
 	background-color: #555;
 	background-color: var(--ai-secondary, #555);
 	border-bottom: solid 1px #555;
@@ -2721,11 +2739,6 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	width: 100%;
 }
 
-.aimeos .common-summary-detail tbody tr {
-	border-bottom: 1px solid #D0D0D0;
-	border-bottom-color: var(--ai-light, #D0D0D0);
-}
-
 .aimeos .common-summary-detail thead {
 	font-weight: bold;
 	background-color: #F8F8F8;
@@ -2733,8 +2746,8 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 .aimeos .common-summary-detail thead tr {
-	border-bottom: 1px solid #D0D0D0;
-	border-bottom-color: var(--ai-light, #D0D0D0);
+	border-bottom: 1px solid #555;
+	border-bottom-color: var(--ai-secondary, #555);
 	color: #555;
 	color: var(--ai-secondary, #555);
 }
@@ -2878,6 +2891,10 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 .aimeos .common-summary-additional textarea {
 	border: solid 1px #D0D0D0;
 	border-color: var(--ai-light, #D0D0D0);
+	background-color: #FFF;
+	background-color: var(--ai-bg, #FFF);
+	color: #555;
+	color: var(--ai-secondary, #555);
 	width: 100%;
 	height: 4em;
 }

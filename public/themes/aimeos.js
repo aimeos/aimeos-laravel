@@ -197,13 +197,13 @@ AimeosAccountHistory = {
 	 */
 	setupOrderShow: function() {
 
-		$(".account-history .history-item").on("click", "> a", function(ev) {
+		$(".account-history .history-item").on("click", function(ev) {
 
 			var details = $(".account-history-order", ev.delegateTarget);
 
 			if(details.length === 0) {
 
-				$.get($(this).attr("href"), function(data) {
+				$.get($(this).find('.action a.btn').attr('href'), function(data) {
 
 					var doc = document.createElement("html");
 					doc.innerHTML = data;
@@ -513,7 +513,7 @@ AimeosBasketBulk = {
 			delay : 200,
 			source : function(req, resp) {
 
-				var params;
+				var params = {};
 				var relFilter = {};
 				var langid = AimeosBasketBulk.meta.locale && AimeosBasketBulk.meta.locale['locale.languageid'];
 				relFilter['index.text:relevance("' + langid + '","' + req.term + '")'] = 0;
