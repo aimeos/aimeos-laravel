@@ -52,6 +52,7 @@ return [
 					'charset' => config('database.connections.mysql.charset'),
 					'collate' => config('database.connections.mysql.collation'),
 			],
+			'driverOptions' => config('database.connections.mysql.options'),
 		],
 	],
 	*/
