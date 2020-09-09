@@ -9,8 +9,8 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@countAction', ['site' => 'unittest'] );
 
 		$this->assertResponseOk();
-		$this->assertContains( '.catalog-filter-count', $response->getContent() );
-		$this->assertContains( '.catalog-filter-attribute', $response->getContent() );
+		$this->assertStringContainsString( '.catalog-filter-count', $response->getContent() );
+		$this->assertStringContainsString( '.catalog-filter-attribute', $response->getContent() );
 	}
 
 
@@ -21,9 +21,9 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@detailAction', ['site' => 'unittest', 'd_name' => 'Cafe_Noire_Cappuccino'] );
 
 		$this->assertResponseOk();
-		$this->assertContains( '<section class="aimeos catalog-stage', $response->getContent() );
-		$this->assertContains( '<section class="aimeos catalog-detail', $response->getContent() );
-		$this->assertContains( '<section class="aimeos catalog-session', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-stage', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-detail', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-session', $response->getContent() );
 	}
 
 
@@ -34,8 +34,8 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@listAction', ['site' => 'unittest'] );
 
 		$this->assertResponseOk();
-		$this->assertContains( '<section class="aimeos catalog-filter', $response->getContent() );
-		$this->assertContains( '<section class="aimeos catalog-list', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-filter', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-list', $response->getContent() );
 	}
 
 
@@ -46,7 +46,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@stockAction', ['site' => 'unittest'] );
 
 		$this->assertResponseOk();
-		$this->assertContains( '.aimeos .product .stock', $response->getContent() );
+		$this->assertStringContainsString( '.aimeos .product .stock', $response->getContent() );
 	}
 
 
@@ -68,8 +68,8 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@treeAction', ['site' => 'unittest', 'f_catid' => 1, 'f_name' => 'test'] );
 
 		$this->assertResponseOk();
-		$this->assertContains( '<section class="aimeos catalog-filter', $response->getContent() );
-		$this->assertContains( '<section class="aimeos catalog-stage', $response->getContent() );
-		$this->assertContains( '<section class="aimeos catalog-list', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-filter', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-stage', $response->getContent() );
+		$this->assertStringContainsString( '<section class="aimeos catalog-list', $response->getContent() );
 	}
 }

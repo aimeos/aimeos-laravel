@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit backupGlobals="false"
-    backupStaticAttributes="false"
-    bootstrap="vendor/autoload.php"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    stopOnFailure="false">
-
-    <php>
-        <env name="APP_ENV" value="testing"/>
-        <env name="CACHE_DRIVER" value="array"/>
-        <env name="SESSION_DRIVER" value="array"/>
-    </php>
-
-	<testsuites>
-		<testsuite name="command">
-			<file>./tests/Command/SetupCommandTest.php</file>
-			<file>./tests/Command/CacheCommandTest.php</file>
-			<file>./tests/Command/JobsCommandTest.php</file>
-			<file>./tests/Command/AccountCommandTest.php</file>
-		</testsuite>
-		<testsuite name="base">
-			<directory>./tests/Base</directory>
-		</testsuite>
-		<testsuite name="controller">
-			<directory>./tests/Controller</directory>
-		</testsuite>
-		<testsuite name="helpers">
-			<file>./tests/HelpersTest.php</file>
-		</testsuite>
-	</testsuites>
-
-	<filter>
-		<whitelist>
-			<directory suffix=".php">./src/</directory>
-			<exclude>
-				<directory>./src/database/migrations/</directory>
-				<directory>./src/config/</directory>
-				<directory>./src/views/</directory>
-			</exclude>
-		</whitelist>
-	</filter>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" bootstrap="vendor/autoload.php" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage>
+    <include>
+      <directory suffix=".php">./src/</directory>
+    </include>
+    <exclude>
+      <directory>./src/database/migrations/</directory>
+      <directory>./src/config/</directory>
+      <directory>./src/views/</directory>
+    </exclude>
+  </coverage>
+  <php>
+    <env name="APP_ENV" value="testing"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="SESSION_DRIVER" value="array"/>
+  </php>
+  <testsuites>
+    <testsuite name="command">
+      <file>./tests/Command/SetupCommandTest.php</file>
+      <file>./tests/Command/ClearCommandTest.php</file>
+      <file>./tests/Command/JobsCommandTest.php</file>
+      <file>./tests/Command/AccountCommandTest.php</file>
+    </testsuite>
+    <testsuite name="base">
+      <directory>./tests/Base</directory>
+    </testsuite>
+    <testsuite name="controller">
+      <directory>./tests/Controller</directory>
+    </testsuite>
+    <testsuite name="helpers">
+      <file>./tests/HelpersTest.php</file>
+    </testsuite>
+  </testsuites>
 </phpunit>
