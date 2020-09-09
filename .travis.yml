@@ -27,3 +27,6 @@ after_success:
 
 matrix:
   fast_finish: true
+  exclude:
+  - php: 7.2
+    env: LARAVEL_VERSION=8.* PHPUNIT_VERSION=~9.0
