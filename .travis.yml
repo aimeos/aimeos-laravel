@@ -22,7 +22,7 @@ before_script:
 script: vendor/bin/phpunit --coverage-clover coverage.xml
 
 after_success:
-  - php vendor/bin/coveralls
+#  - php vendor/bin/coveralls
 
 matrix:
   fast_finish: true
