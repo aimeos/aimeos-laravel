@@ -475,6 +475,9 @@ AimeosBasketBulk = {
 	meta: {},
 
 
+	/**
+	 * Autocomplete for products based on entered text
+	 */
 	bulkcomplete: function() {
 
 		$.widget( "custom.bulkcomplete", $.ui.autocomplete, {
@@ -659,6 +662,15 @@ AimeosBasketBulk = {
 	},
 
 
+	/**
+	 * Returns the attributes for the passed domain, type and listtype
+	 *
+	 * @param {Object} map
+	 * @param {Object} rel
+	 * @param {String} domain
+	 * @param {String} listtype
+	 * @param {String} type
+	 */
 	getRef: function(map, rel, domain, listtype, type) {
 
 		if(!rel[domain]) {
@@ -846,7 +858,7 @@ AimeosBasketMini = {
 
 
 	/**
-	 * Saves a modifed watched item without page reload
+	 * Delete a product without page reload
 	 */
 	setupBasketDelete: function() {
 
@@ -868,7 +880,7 @@ AimeosBasketMini = {
 
 
 	/**
-	 * Saves a modifed watched item without page reload
+	 * Displays or hides the small basket
 	 */
 	setupBasketToggle: function() {
 
@@ -1253,7 +1265,7 @@ AimeosCatalog = {
 	/**
 	 * Adds products to the basket without page reload
 	 */
-	setupBasketAdd: function(data) {
+	setupBasketAdd: function() {
 
 		$(".catalog-detail-basket form, .catalog-list-items form").on("submit", function(ev) {
 

@@ -2713,6 +2713,7 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 	padding: 0.5em 1em;
 	margin: 0.5em;
 	margin-top: 0;
+	width: 100%;
 }
 
 .aimeos .common-summary-address h2,
