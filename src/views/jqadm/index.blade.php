@@ -7,7 +7,7 @@
 		<title>Aimeos administration interface</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css">
 		<link rel="stylesheet" href="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'lang' => 'en', 'type' => 'css' ) ); ?>" />
@@ -22,15 +22,15 @@
 
 		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3@4/build/d3.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/combine/npm/sortablejs@1,npm/vuedraggable@2"></script>
 		<script src="https://cdn.jsdelivr.net/combine/npm/flatpickr@4,npm/flatpickr@4/dist/l10n/index.min.js,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.js,npm/vue-flatpickr-component@8"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.12.1/ckeditor.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.12.1/adapters/jquery.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/ckeditor@4/ckeditor.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/ckeditor@4/adapters/jquery.min.js"></script>
 
 		<script src="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'lang' => 'en', 'type' => 'js' ) ); ?>"></script>
 	</body>
