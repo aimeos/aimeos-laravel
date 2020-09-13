@@ -29,8 +29,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/combine/npm/sortablejs@1,npm/vuedraggable@2"></script>
 		<script src="https://cdn.jsdelivr.net/combine/npm/flatpickr@4,npm/flatpickr@4/dist/l10n/index.min.js,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.js,npm/vue-flatpickr-component@8"></script>
-		<script src="https://cdn.jsdelivr.net/npm/ckeditor@4/ckeditor.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/ckeditor@4/adapters/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/ckeditor@4/ckeditor.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/ckeditor@4/adapters/jquery.js"></script>
 
 		<script src="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'lang' => 'en', 'type' => 'js' ) ); ?>"></script>
 	</body>
