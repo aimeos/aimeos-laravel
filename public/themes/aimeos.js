@@ -1511,6 +1511,32 @@ AimeosCatalogFilter = {
 
 
 	/**
+	 * Syncs the price input field and slider
+	 */
+	setupPriceSync: function() {
+
+		$(".catalog-filter-price").on("input", ".price-high", function(ev) {
+			$(".price-slider", ev.delegateTarget).val($(ev.currentTarget).val());
+		});
+
+		$(".catalog-filter-price").on("input", ".price-slider", function(ev) {
+			$(".price-high", ev.delegateTarget).val($(ev.currentTarget).val());
+		});
+	},
+
+
+	/**
+	 * Toggles the price filters if hover isn't available
+	 */
+	setupPriceToggle: function() {
+
+		$(".catalog-filter-price").on("click", "h2", function(ev) {
+			$("fieldset", ev.delegateTarget).slideToggle();
+		});
+	},
+
+
+	/**
 	 * Toggles the supplier filters if hover isn't available
 	 */
 	setupSupplierToggle: function() {
@@ -1563,6 +1589,8 @@ AimeosCatalogFilter = {
 	 */
 	init: function() {
 
+		this.setupPriceSync();
+		this.setupPriceToggle();
 		this.setupCategoryToggle();
 		this.setupSupplierToggle();
 		this.setupAttributeToggle();
