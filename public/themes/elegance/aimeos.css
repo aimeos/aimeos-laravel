@@ -935,6 +935,10 @@ html.no-js .catalog-filter-supplier:hover .supplier-lists {
 }
 
 /* price list */
+.catalog-list .price-item:not(:first-of-type) {
+    display: none;
+}
+
 .aimeos .product .price-list {
 	box-sizing: content-box;
 	display: inline-block;
