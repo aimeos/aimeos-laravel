@@ -20,6 +20,34 @@
 	clear: both;
 }
 
+.aimeos progress {
+	vertical-align: middle;
+	width: 100%;
+}
+
+.aimeos progress[value] {
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	height: 0.25rem;
+	background-color: #D0D0D0;
+	background-color: var(--ai-light, #D0D0D0);
+	color: #FFA840;
+	color: var(--ai-primary, #FFA840);
+}
+
+.aimeos progress[value]::-webkit-progress-bar {
+	background-color: #D0D0D0;
+	background-color: var(--ai-light, #D0D0D0);
+}
+
+.aimeos progress::-moz-progress-bar {
+	background-color: #FFA840;
+}
+
+.aimeos progress::-webkit-progress-value {
+	background-color: #FFA840;
+}
 .aimeos .btn {
 	width: 12em;
 	font-weight: bold;
@@ -1194,7 +1222,97 @@ html.no-js .catalog-filter-price:hover fieldset {
 	position: relative;
 	padding: 0 0.5em;
 	top: -0.7em;
- }
+}
+
+.catalog-detail-basic .rating-value,
+.catalog-detail-basic .ratings {
+	display: none;
+}
+
+.catalog-detail-additional .ratings:before {
+	content: " (";
+}
+
+.catalog-detail-additional .ratings:after {
+	content: ")";
+}
+
+.catalog-detail-additional .rating-numbers {
+	margin-bottom: 1rem;
+}
+
+.catalog-detail-additional .rating-num {
+	font-size: 125%;
+	float: left;
+}
+
+.catalog-detail-additional .rating-total {
+	font-size: 125%;
+	float: right;
+}
+
+.catalog-detail-additional .rating-stars {
+	display: none;
+}
+
+.catalog-detail-additional .rating-dist {
+	vertical-align: middle;
+	clear: both;
+}
+
+.catalog-detail-additional .rating-label label {
+	margin: 0;
+}
+
+.catalog-detail-additional .rating-percent {
+	padding-left: 0.5rem;
+	width: 100%;
+}
+
+.catalog-detail-additional .reviews tr,
+.catalog-detail-additional .reviews tr:last-child {
+    border-bottom: none;
+}
+
+.catalog-detail-additional .review-list .sort {
+	text-align: right;
+	display: block;
+	margin: 0 2.5%;
+}
+
+.catalog-detail-additional .review-name {
+	font-weight: bold;
+	padding: 0.5rem 0;
+}
+
+.catalog-detail-additional .review-ctime {
+    font-size: 80%;
+}
+
+.catalog-detail-additional .review-rating {
+    font-weight: bold;
+	padding: 0.5rem 0;
+}
+
+.catalog-detail-additional .review-comment {
+	padding: 1rem 0;
+}
+
+.catalog-detail-additional .review-item {
+	border-bottom: 1px solid #555;
+	border-color: var(--ai-secondary, #555);
+	margin: 1rem;
+}
+
+.catalog-detail-additional .review-list .more {
+    display: none;
+	margin: auto;
+}
+
+.catalog-detail-additional .review-list .more.show {
+    display: block;
+}
+
 
 /* text list */
 .aimeos .product .text-list {
