@@ -26,6 +26,7 @@ return [
 		'basket-index' => [ 'basket/bulk', 'basket/standard','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
 		'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session' ],
+		'catalog-home' => [ 'basket/mini','catalog/search','catalog/tree','catalog/home' ],
 		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/lists' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],

@@ -61,6 +61,24 @@ class CatalogController extends Controller
 
 
 	/**
+	 * Returns the html for the catalog home page.
+	 *
+	 * @return \Illuminate\Http\Response Response object with output and headers
+	 */
+	public function homeAction()
+	{
+		foreach( app( 'config' )->get( 'shop.page.catalog-home' ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
+		return Response::view( 'shop::catalog.home', $params )
+			->header( 'Cache-Control', 'private, max-age=10' );
+	}
+
+
+	/**
 	 * Returns the html for the catalog list page.
 	 *
 	 * @return \Illuminate\Http\Response Response object with output and headers

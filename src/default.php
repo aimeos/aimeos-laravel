@@ -14,6 +14,7 @@ return array(
 		'basket-index' => array( 'basket/bulk', 'basket/standard', 'basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),
 		'catalog-detail' => array( 'basket/mini', 'catalog/stage', 'catalog/detail', 'catalog/session' ),
+		'catalog-home' => array( 'basket/mini', 'catalog/search', 'catalog/tree', 'catalog/home' ),
 		'catalog-list' => array( 'basket/mini', 'catalog/filter', 'catalog/lists' ),
 		'catalog-stock' => array( 'catalog/stock' ),
 		'catalog-suggest' => array( 'catalog/suggest' ),
