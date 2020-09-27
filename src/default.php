@@ -18,7 +18,7 @@ return array(
 		'catalog-list' => array( 'basket/mini', 'catalog/filter', 'catalog/lists' ),
 		'catalog-stock' => array( 'catalog/stock' ),
 		'catalog-suggest' => array( 'catalog/suggest' ),
-		'catalog-tree' => array( 'basket/mini', 'catalog/filter', 'catalog/stage', 'catalog/lists' ),
+		'catalog-tree' => array( 'basket/mini', 'catalog/filter', 'catalog/lists' ),
 		'checkout-confirm' => array( 'checkout/confirm' ),
 		'checkout-index' => array( 'checkout/standard' ),
 		'checkout-update' => array( 'checkout/update' ),
