@@ -107,7 +107,7 @@ Aimeos = {
 		for( var i = 0; i < elements.length; i++) {
 			var element = $(elements[i]);
 
-			if($(window).scrollTop() + $(window).height() + 2 * element.height() >= element.offset().top) {
+			if($(window).scrollTop() + $(window).height() * 1.5 >= element.offset().top) {
 				element.attr("srcset", element.data("srcset"));
 				element.attr("src", element.data("src"));
 				element.removeClass("lazy-image");

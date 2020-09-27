@@ -1106,6 +1106,53 @@ html.no-js .catalog-filter-price:hover fieldset {
 }
 
 
+/* Catalog home */
+
+.catalog-home .stage-image {
+	padding: 0;
+}
+
+.catalog-home .stage-item {
+	background-color: #FFF;
+	background-color: var(--ai-bg-alt, #FFF);
+	margin: 0;
+}
+
+.catalog-home .stage-short {
+	color: #555 !important;
+	color: var(--ai-primary-alt, #555) !important;
+	font-size: 4vw;
+	margin: auto;
+	padding: 3rem 7.5%;
+}
+
+@media (max-width: 767px) {
+	.catalog-home .stage-short {
+		font-size: 8vw;
+	}
+}
+
+.catalog-home .stage-short p {
+	margin: 0;
+}
+
+.catalog-home .stage-item:nth-of-type(2n) {
+	text-align: left;
+}
+
+.catalog-home .stage-item:nth-of-type(2n+1) {
+	text-align: right;
+}
+
+.aimeos .home-name {
+	text-align: center;
+	font-size: 200%;
+	padding: 2rem 0;
+	border-bottom: solid 1px #D0D0D0;
+	border-bottom-color: var(--ai-light, #D0D0D0);
+}
+
+
 /* Suggested products */
 .ui-autocomplete {
 	overflow-y: auto;
@@ -1410,7 +1457,8 @@ html.no-js .catalog-filter-price:hover fieldset {
 
 
 /* List head section */
-.catalog-list-head {
+.catalog-list-head,
+.catalog-list-footer {
 	padding: 1em 0.5em;
 }
 
@@ -1421,14 +1469,8 @@ html.no-js .catalog-filter-price:hover fieldset {
 	margin: 0;
 }
 
-.catalog-list-head .short {
-	font-weight: bold;
-	padding: 0.5em 0;
-	color: #555;
-	color: var(--ai-secondary, #555);
-}
-
-.catalog-list-head .long {
+.catalog-list-head .long,
+.catalog-list-footer .long {
 	padding: 0.5em 0;
 	color: #555;
 	color: var(--ai-secondary, #555);
