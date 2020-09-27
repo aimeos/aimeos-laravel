@@ -27,17 +27,6 @@ class CatalogControllerTest extends AimeosTestAbstract
 	}
 
 
-	public function testHomeAction()
-	{
-		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
-
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@homeAction', ['site' => 'unittest'] );
-
-		$this->assertResponseOk();
-		$this->assertStringContainsString( '<section class="aimeos catalog-home', $response->getContent() );
-	}
-
-
 	public function testListAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
@@ -80,7 +69,6 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertStringContainsString( '<section class="aimeos catalog-filter', $response->getContent() );
-		$this->assertStringContainsString( '<section class="aimeos catalog-stage', $response->getContent() );
 		$this->assertStringContainsString( '<section class="aimeos catalog-list', $response->getContent() );
 	}
 }
