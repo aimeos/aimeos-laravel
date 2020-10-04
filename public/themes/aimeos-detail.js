@@ -115,7 +115,18 @@ AimeosCatalogDetail = {
 			var list = $(".review-items", container);
 
 			$.each(response.data, function(idx, entry) {
-				list.append(AimeosCatalogDetail.updateReview(entry, template));
+				item = AimeosCatalogDetail.updateReview(entry, template);
+				list.append(item);
+
+				var height = item.innerHeight();
+
+				$("> *:not(.review-show)", item).each(function() {
+					height -= $(this).outerHeight(true);
+				});
+
+				if(height >= 0) {
+					$(".review-show", item).hide();
+				}
 			});
 
 			if(response.links && response.links.next) {
@@ -129,11 +140,18 @@ AimeosCatalogDetail = {
 
 	updateReview: function(entry, template) {
 
+		var response = (entry.attributes['review.response'] || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 		var comment = (entry.attributes['review.comment'] || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 		var date = new Date(entry.attributes['review.ctime'] || '');
 		var cnt = parseInt(entry.attributes['review.rating'], 10);
 		var item = template.clone().removeClass("prototype");
 		var symbol = $(".review-rating", item).text();
+
+		if(response) {
+			$(".review-response", item).html($(".review-response", item).html() + response.replace(/\n+/g, '<br/>'));
+		} else {
+			$(".review-response", item).remove();
+		}
 
 		$(".review-comment", item).html(comment.replace(/\n+/g, '<br/>'));
 		$(".review-name", item).text(entry.attributes['review.name'] || '');
@@ -366,6 +384,20 @@ AimeosCatalogDetail = {
 
 
 	/**
+	 * Initializes sorting reviews
+	 */
+	setupReviewsShow: function() {
+
+		$(".catalog-detail-additional .reviews").on("click", ".review-show", function(ev) {
+
+			$(ev.currentTarget).parents(".review-item").css('max-height', 'fit-content');
+			$(ev.currentTarget).hide();
+			ev.preventDefault();
+		});
+	},
+
+
+	/**
 	 * Initializes the catalog detail actions
 	 */
 	init: function() {
@@ -379,6 +411,7 @@ AimeosCatalogDetail = {
 		this.setupImageSwap();
 
 		this.setupReviews();
+		this.setupReviewsShow();
 		this.setupReviewsSort();
 		this.setupReviewLoadMore();
 	}

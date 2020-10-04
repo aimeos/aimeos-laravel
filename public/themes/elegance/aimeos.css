@@ -237,13 +237,22 @@
 	color: #FF3300;
 	color: var(--ai-danger, #FF3300);
 	padding: 0.5em;
-	padding-left: 2em;
 	margin-bottom: 2em;
-	list-style: disc;
+	list-style: none;
 }
 
-.aimeos .error-item {
+.aimeos .error-item,
+.aimeos .info-item {
+	text-align: center;
 	padding: 0.25em;
+}
+
+.aimeos .info-list {
+	color: #008000;
+	color: var(--ai-info, #008000);
+	padding: 0.5em;
+	margin-bottom: 2em;
+	list-style: none;
 }
 
 .aimeos .attr-list,
@@ -1345,10 +1354,33 @@ html.no-js .catalog-filter-price:hover fieldset {
 	padding: 1rem 0;
 }
 
+.catalog-detail-additional .review-response {
+	background: #f8f8f8;
+	padding: 1rem;
+}
+
+.catalog-detail-additional .review-vendor {
+	font-size: 80%;
+	margin: -0.5rem;
+	margin-bottom: 0.5rem;
+}
+
 .catalog-detail-additional .review-item {
 	border-bottom: 1px solid #555;
 	border-color: var(--ai-secondary, #555);
 	margin: 1rem;
+	max-height: 15rem;
+	overflow: hidden;
+	position: relative;
+}
+
+.catalog-detail-additional .review-show {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-top: 2rem;
+	text-align: center;
+	background: linear-gradient(0deg, white 0% 50%, transparent);
 }
 
 .catalog-detail-additional .review-list .more {
@@ -2268,10 +2300,12 @@ html.no-js .catalog-filter-price:hover fieldset {
 	padding: 0;
 }
 
-.account-subscription .header,
-.account-history .header,
+.account-profile h1.header,
+.account-review h1.header,
 .account-watch .header,
+.account-history .header,
 .account-favorite .header,
+.account-subscription .header,
 .basket-related-bought .header,
 .catalog-session .header,
 .catalog-detail .header {
@@ -3336,12 +3370,12 @@ html.no-js .catalog-filter-price:hover fieldset {
 }
 
 /* Account profile */
-.account-profile-address h1 {
-	display: none;
+.account-profile-address h2 {
+	margin: 8px 15px;
 }
 
-.account-profile-address h2 {
-	margin: 8px 15px 8px 15px;
+.account-profile-address .row {
+	padding: 1em;
 }
 
 .account-profile-address .panel {
@@ -3461,6 +3495,53 @@ html.no-js .catalog-filter-price:hover fieldset {
 .account-history-order li.attr-item .value {
 	min-width: 0;
 }
+
+
+/* Account review */
+.account-review h2 {
+	margin: 8px 15px;
+}
+
+.account-review .todo-item {
+	padding: 1em;
+}
+
+.account-review h3 {
+	padding: 0 1em;
+}
+
+.account-review .col-md-6 {
+	padding-top: 1em;
+}
+
+.account-review .todo-image {
+	max-width: 100%;
+	max-height: 10em;
+}
+
+.account-review .todo-rating label {
+	vertical-align: middle;
+	height: 1.25em;
+	width: 1.25em;
+}
+
+.account-review .todo-rating input:checked ~ label {
+	color: var(--ai-primary, #FFA840);
+}
+
+.account-review .todo-comment {
+	width: 100%;
+	height: 8.5em;
+	padding: 0.5em;
+	border: 1px solid #D0D0D0;
+	border-color: var(--ai-light, #D0D0D0);
+}
+
+.account-review .btn {
+	display: block;
+	margin: 1em auto;
+}
+
 
 /* Account subscription */
 .account-subscription {
