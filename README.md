@@ -31,13 +31,13 @@ and customize anything to your needs.
 
 ## Supported versions
 
-This document is for the Aimeos Laravel package **2019.10 and later**.
+This document is for the Aimeos Laravel package **2020.10 and later**.
 
-- Stable release: 2020.07 (6.x and 7.x)
-- LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
+- LTS release: 2020.10 (6.x, 7.x and 8.x)
+- Old LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
 
 If you want to **upgrade between major versions**, please have a look into the
-[upgrade guide](https://aimeos.org/docs/Laravel/Upgrade)!
+[upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
 
 ## Basic application
 
@@ -61,7 +61,7 @@ installed easiest by using [Composer](https://getcomposer.org) in the root
 directory of your exisisting Laravel application:
 
 ```
-composer require aimeos/aimeos-laravel:~2020.07
+composer require aimeos/aimeos-laravel:~2020.10
 ```
 
 ## Database
@@ -107,13 +107,13 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2020.07",
+        "aimeos/aimeos-laravel": "~2020.10",
         ...
     },
     "scripts": {
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=public --force",
             "@php artisan migrate",
+            "@php artisan vendor:publish --tag=public --force",
             "\\Aimeos\\Shop\\Composer::join"
         ],
         ...
@@ -151,8 +151,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	@yield('aimeos_header')
 	<title>Aimeos on Laravel</title>
-	<link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:400,300'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
 	<style>
 		/* Theme: Black&White */
 		/* body {
@@ -163,13 +162,14 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 		body { color: #000; color: var(--ai-primary, #000); background-color: #fff; background-color: var(--ai-bg, #fff); }
 		.navbar, footer { color: #555; color: var(--ai-primary-alt, #555); background-color: #f8f8f8; background-color: var(--ai-bg-alt, #f8f8f8); }
 		.navbar a, .navbar a:before, .navbar span, footer a { color: #555 !important; color: var(--ai-primary-alt, #555) !important; }
-		.sm:before { font: normal normal normal 14px/1 FontAwesome; padding: 0 0.2em; font-size: 225% }
+		.content { margin: 0 5% } .catalog-stage-image { margin: 0 -5.55% }
+		.sm { display: inline-block } .sm:before { font: normal normal normal 14px/1 FontAwesome; padding: 0 0.2em; font-size: 225% }
 		.facebook:before { content: "\f082" } .twitter:before { content: "\f081" } .instagram:before { content: "\f16d" } .youtube:before { content: "\f167" }
 	</style>
 	@yield('aimeos_styles')
 </head>
 <body>
-	<nav class="navbar navbar-expand-md navbar-light mb-5">
+	<nav class="navbar navbar-expand-md navbar-light">
 		<a class="navbar-brand" href="/">
 			<img src="http://aimeos.org/fileadmin/template/icons/logo.png" height="30" title="Aimeos Logo">
 		</a>
@@ -194,9 +194,9 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 			@yield('aimeos_head')
 		</div>
 	</nav>
-	<div class="container">
-		@yield('aimeos_nav')
+	<div class="content">
 		@yield('aimeos_stage')
+		@yield('aimeos_nav')
 		@yield('aimeos_body')
 		@yield('aimeos_aside')
 		@yield('content')
@@ -210,15 +210,13 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 				</div>
 			</div>
 			<div class="col-md-4 my-4">
-				<div class="social"><a href="#" class="sm facebook"></a><a href="#" class="sm twitter"></a><a href="#" class="sm instagram"></a><a href="#" class="sm youtube"></a></div>
+				<div class="social"><a href="#" class="sm facebook" title="Facebook" rel="noopener"></a><a href="#" class="sm twitter" title="Twitter" rel="noopener"></a><a href="#" class="sm instagram" title="Instagram" rel="noopener"></a><a href="#" class="sm youtube" title="Youtube" rel="noopener"></a></div>
 				<a class="px-2 py-4 d-inline-block" href="/"><img src="http://aimeos.org/fileadmin/template/icons/logo.png" style="width: 160px" title="Aimeos Logo"></a>
 			</div>
 		</div>
 	</footer>
 	<!-- Scripts -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/combine/npm/jquery@3,npm/bootstrap@4"></script>
 	@yield('aimeos_scripts')
 	</body>
 </html>
@@ -257,6 +255,17 @@ Laravel installation but the **home page stays untouched!**
 ## Admin
 
 To use the admin interface, you have to set up Laravel authentication first:
+
+### Laravel 8
+
+```
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+npm install && npm run dev
+```
+
+For more information, please follow the Laravel documentation:
+* [Laravel 8.x](https://laravel.com/docs/8.x/authentication)
 
 ### Laravel 7
 
