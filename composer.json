@@ -50,11 +50,6 @@
             "tests/HelpersTest.php"
         ]
     },
-    "scripts": {
-        "post-update-cmd": [
-            "cp -r ext/ai-client-html/client/html/themes/* public/themes/"
-        ]
-    },
     "extra": {
         "laravel": {
             "providers": [
