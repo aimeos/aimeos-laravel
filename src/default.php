@@ -121,6 +121,11 @@ return array(
 						'target' => 'aimeos_shop_account',
 					),
 				),
+				'review' => array(
+					'url' => array(
+						'target' => 'aimeos_shop_account',
+					),
+				),
 				'profile' => array(
 					'url' => array(
 						'target' => 'aimeos_shop_account',
