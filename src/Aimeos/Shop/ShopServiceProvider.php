@@ -49,7 +49,7 @@ class ShopServiceProvider extends ServiceProvider {
 			foreach( new \DirectoryIterator( $basepath ) as $entry )
 			{
 				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/client/html/themes' ) ) {
-					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'packages/aimeos/shop' )], 'public' );
+					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'packages/aimeos/shop/themes' )], 'public' );
 				}
 			}
 		}
