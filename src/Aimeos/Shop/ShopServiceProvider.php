@@ -44,10 +44,13 @@ class ShopServiceProvider extends ServiceProvider {
 		$this->publishes( [$basedir . 'config/shop.php' => config_path( 'shop.php' )], 'config' );
 		$this->publishes( [dirname( $basedir ) . $ds . 'public' => public_path( 'packages/aimeos/shop' )], 'public' );
 
-		foreach( new \DirectoryIterator( base_path( 'ext' ) ) as $entry )
+		if( file_exists( $basepath = base_path( 'ext' ) ) )
 		{
-			if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/client/html/themes' ) ) {
-				$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'packages/aimeos/shop' )], 'public' );
+			foreach( new \DirectoryIterator( $basepath ) as $entry )
+			{
+				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/client/html/themes' ) ) {
+					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'packages/aimeos/shop' )], 'public' );
+				}
 			}
 		}
 	}
