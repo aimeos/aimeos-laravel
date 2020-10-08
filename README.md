@@ -222,6 +222,14 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 </html>
 ```
 
+If you want to display the Aimeos catalog home component on the home page to get a
+nice shop home page, you have to replace the the route for "/" in `./routes/web.php`
+by this line:
+
+```
+Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
+```
+
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
 an exception due to old cached data.
 
