@@ -92,7 +92,7 @@ installing Aimeos again:
 ```
 
 If you want to use a database server other than MySQL, please have a look into the article about
-[supported database servers](https://aimeos.org/docs/Developers/Library/Database_support)
+[supported database servers](https://aimeos.org/docs/latest/infrastructure/databases/)
 and their specific configuration. Supported are:
 
 * MySQL, MariaDB (fully)
@@ -222,14 +222,6 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 </html>
 ```
 
-If you want to display the Aimeos catalog home component on the home page to get a
-nice shop home page, you have to replace the the route for "/" in `./routes/web.php`
-by this line:
-
-```
-Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
-```
-
 Afterwards, you should clear the Laravel cache files. Otherwise, you might get
 an exception due to old cached data.
 
@@ -256,7 +248,15 @@ Point your browser to the list page of the shop using:
 http://127.0.0.1:8000/index.php/shop
 
 **Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
-Laravel installation but the **home page stays untouched!**
+Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
+the home page as well, replace the route for "/" in `./routes/web.php` by this line:
+
+```
+Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
+```
+
+This will display the Aimeos catalog home component on the home page you you get a
+nice looking shop home page. The `/shop` page will look like:
 
 [![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.png)](http://127.0.0.1:8000/index.php/shop)
 
