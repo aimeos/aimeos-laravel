@@ -10,7 +10,7 @@ return array(
 	'uploaddir' => '/',
 
 	'page' => array(
-		'account-index' => array( 'account/profile', 'account/subscription', 'account/history', 'account/favorite', 'account/watch', 'basket/mini', 'catalog/session' ),
+		'account-index' => array( 'account/profile', 'account/review', 'account/subscription', 'account/history', 'account/favorite', 'account/watch', 'basket/mini', 'catalog/session' ),
 		'basket-index' => array( 'basket/bulk', 'basket/standard', 'basket/related' ),
 		'catalog-count' => array( 'catalog/count' ),
 		'catalog-detail' => array( 'basket/mini', 'catalog/stage', 'catalog/detail', 'catalog/session' ),

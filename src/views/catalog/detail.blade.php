@@ -6,24 +6,24 @@
 @stop
 
 @section('aimeos_header')
-    <?= $aiheader['basket/mini'] ?>
-    <?= $aiheader['catalog/stage'] ?>
-    <?= $aiheader['catalog/detail'] ?>
-    <?= $aiheader['catalog/session'] ?>
+    <?= $aiheader['basket/mini'] ?? '' ?>
+    <?= $aiheader['catalog/stage'] ?? '' ?>
+    <?= $aiheader['catalog/detail'] ?? '' ?>
+    <?= $aiheader['catalog/session'] ?? '' ?>
 @stop
 
 @section('aimeos_head')
-    <?= $aibody['basket/mini'] ?>
+    <?= $aibody['basket/mini'] ?? '' ?>
 @stop
 
 @section('aimeos_stage')
-    <?= $aibody['catalog/stage'] ?>
+    <?= $aibody['catalog/stage'] ?? '' ?>
 @stop
 
 @section('aimeos_body')
-    <?= $aibody['catalog/detail'] ?>
+    <?= $aibody['catalog/detail'] ?? '' ?>
 @stop
 
 @section('aimeos_aside')
-    <?= $aibody['catalog/session'] ?>
+    <?= $aibody['catalog/session'] ?? '' ?>
 @stop

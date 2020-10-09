@@ -21,8 +21,8 @@ return [
 	/*
 	'page' => [
 		// Docs: https://aimeos.org/docs/Laravel/Adapt_pages
-		// Hint: catalog/filter is also available as single 'catalog/tree', 'catalog/search', 'catalog/attribute'
-		'account-index' => [ 'account/profile','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session' ],
+		// Hint: catalog/filter is also available as single 'catalog/search', 'catalog/tree', 'catalog/price', 'catalog/supplier' and 'catalog/attribute'
+		'account-index' => [ 'account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session' ],
 		'basket-index' => [ 'basket/bulk', 'basket/standard','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
 		'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session' ],
@@ -50,8 +50,8 @@ return [
 			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'; SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED"],
 			'limit' => 3, // maximum number of concurrent database connections
 			'defaultTableOptions' => [
-					'charset' => config('database.connections.mysql.charset'),
-					'collate' => config('database.connections.mysql.collation'),
+				'charset' => config('database.connections.mysql.charset'),
+				'collate' => config('database.connections.mysql.collation'),
 			],
 			'driverOptions' => config('database.connections.mysql.options'),
 		],
