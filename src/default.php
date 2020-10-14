@@ -288,6 +288,22 @@ return array(
 				),
 			),
 		),
+		'jobs' => [
+			'catalog' => [
+				'export' => [
+					'sitemap' => [
+						'location' => public_path()
+					]
+				]
+			],
+			'product' => [
+				'export' => [
+					'sitemap' => [
+						'location' => public_path()
+					]
+				]
+			]
+		]
 	),
 
 	'mshop' => array(
