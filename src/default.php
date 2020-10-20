@@ -46,7 +46,7 @@ return array(
 			'adapter' => 'Standard',
 			'basedir' => public_path(),
 			'tempdir' => storage_path( 'tmp' ),
-			'baseurl' => config( 'app.url' ) . '/',
+			'baseurl' => config( 'app.url' ),
 		),
 		'fs-admin' => array(
 			'adapter' => 'Standard',
