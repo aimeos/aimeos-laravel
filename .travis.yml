@@ -17,7 +17,8 @@ env:
 
 before_script:
   - echo 'memory_limit = -1' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  - composer require "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}"
+  - composer req "laravel/framework:${LARAVEL_VERSION}" "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update
+  - composer update
   - mysql -e "CREATE DATABASE laravel; GRANT ALL ON laravel.* TO 'aimeos'@'127.0.0.1' IDENTIFIED BY 'aimeos'"
 
 script: vendor/bin/phpunit --coverage-clover coverage.xml
