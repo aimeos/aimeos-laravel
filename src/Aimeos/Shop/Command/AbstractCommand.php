@@ -42,6 +42,6 @@ abstract class AbstractCommand extends Command
 			$search->setConditions( $search->compare( '==', 'locale.site.code', $sites ) );
 		}
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 }
