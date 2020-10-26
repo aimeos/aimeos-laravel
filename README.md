@@ -163,7 +163,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 		.navbar, footer { color: #555; color: var(--ai-primary-alt, #555); background-color: #f8f8f8; background-color: var(--ai-bg-alt, #f8f8f8); }
 		.navbar a, .navbar a:before, .navbar span, footer a { color: #555 !important; color: var(--ai-primary-alt, #555) !important; }
 		.content { margin: 0 5% } .catalog-stage-image { margin: 0 -5.55% }
-		.sm { display: inline-block } .sm:before { font: normal normal normal 14px/1 FontAwesome; padding: 0 0.2em; font-size: 225% }
+		.sm { display: block } .sm:before { font: normal normal normal 14px/1 FontAwesome; padding: 0 0.2em; font-size: 225% }
 		.facebook:before { content: "\f082" } .twitter:before { content: "\f081" } .instagram:before { content: "\f16d" } .youtube:before { content: "\f167" }
 	</style>
 	@yield('aimeos_styles')
@@ -205,13 +205,13 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 		<div class="row">
 			<div class="col-md-8">
 				<div class="row">
-					<div class="col-sm-6 my-4"><h2>LEGAL</h2><p><a href="#">Terms & Conditions</a></p><p><a href="#">Privacy Notice</a></p><p><a href="#">Imprint</a></p></div>
-					<div class="col-sm-6 my-4"><h2>ABOUT US</h2><p><a href="#">Contact us</a></p><p><a href="#">Company</a></p></div>
+					<div class="col-sm-6 my-4"><h2 class="pb-3">LEGAL</h2><p><a href="#">Terms & Conditions</a></p><p><a href="#">Privacy Notice</a></p><p><a href="#">Imprint</a></p></div>
+					<div class="col-sm-6 my-4"><h2 class="pb-3">ABOUT US</h2><p><a href="#">Contact us</a></p><p><a href="#">Company</a></p></div>
 				</div>
 			</div>
 			<div class="col-md-4 my-4">
-				<div class="social"><a href="#" class="sm facebook" title="Facebook" rel="noopener"></a><a href="#" class="sm twitter" title="Twitter" rel="noopener"></a><a href="#" class="sm instagram" title="Instagram" rel="noopener"></a><a href="#" class="sm youtube" title="Youtube" rel="noopener"></a></div>
 				<a class="px-2 py-4 d-inline-block" href="/"><img src="http://aimeos.org/fileadmin/template/icons/logo.png" style="width: 160px" title="Aimeos Logo"></a>
+				<div class="social"><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a><a href="#" class="sm twitter" title="Twitter" rel="noopener">Twitter</a><a href="#" class="sm instagram" title="Instagram" rel="noopener">Instagram</a><a href="#" class="sm youtube" title="Youtube" rel="noopener">Youtube</a></div>
 			</div>
 		</div>
 	</footer>
