@@ -71,7 +71,7 @@ class Support
 		if( $siteid = current( array_reverse( explode( '.', trim( $user->siteid, '.' ) ) ) ) )
 		{
 			$context = $this->context->get( false );
-			$site = \Aimeos\MShop::create( $context, 'locale/site' )->getItem( $siteid )->getCode();
+			$site = \Aimeos\MShop::create( $context, 'locale/site' )->get( $siteid )->getCode();
 			$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', $site ) ) : $site );
 
 			$context->setLocale( $this->locale->getBackend( $context, $site ) );
