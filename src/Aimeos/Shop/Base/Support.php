@@ -98,7 +98,7 @@ class Support
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
 
 		return $manager->search( $search )->getCode()->toArray();
@@ -117,13 +117,13 @@ class Support
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'customer.group.code', (array) $groupcodes ) );
 		$groupIds = $manager->search( $search )->keys()->toArray();
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$expr = array(
 			$search->compare( '==', 'customer.lists.parentid', $userid ),
 			$search->compare( '==', 'customer.lists.refid', $groupIds ),

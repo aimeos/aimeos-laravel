@@ -32,7 +32,7 @@ abstract class AbstractCommand extends Command
 	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 
 		if( is_scalar( $sites ) && $sites != '' ) {
 			$sites = explode( ' ', $sites );
