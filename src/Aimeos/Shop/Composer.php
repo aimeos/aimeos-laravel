@@ -23,10 +23,6 @@ class Composer
 	 */
 	public static function join( \Composer\Script\Event $event )
 	{
-		if( !$event->getIO()->hasAuthentication( 'github.com' ) ) {
-			return;
-		}
-
 		try
 		{
 			$options = [
