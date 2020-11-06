@@ -69,7 +69,7 @@ class AccountCommand extends AbstractCommand
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 		try {
-			$item = $manager->findItem( $email );
+			$item = $manager->find( $email );
 		} catch( \Aimeos\MShop\Exception $e ) {
 			$item = $manager->createItem();
 		}
@@ -142,7 +142,7 @@ class AccountCommand extends AbstractCommand
 
 		try
 		{
-			$item = $manager->findItem( $code );
+			$item = $manager->find( $code );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
