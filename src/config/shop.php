@@ -69,7 +69,7 @@ return [
 			],
 			'common' => [
 				'template' => [
-					// 'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
+					// 'baseurl' => 'packages/aimeos/shop/themes/elegance',
 				],
 			],
 		],
