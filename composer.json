@@ -13,6 +13,9 @@
     },
     "prefer-stable": true,
     "minimum-stability": "dev",
+    "conflict": {
+        "symfony/http-foundation": "v5.2.0"
+    },
     "require": {
         "doctrine/dbal": "~2.5",
         "laravel/framework": "~6.0||~7.0||~8.0",
