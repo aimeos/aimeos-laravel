@@ -123,15 +123,14 @@ class Support
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
 
-		$search = $manager->filter();
+		$search = $manager->filter()->slice( 0, 1 );
 		$expr = array(
 			$search->compare( '==', 'customer.lists.parentid', $userid ),
 			$search->compare( '==', 'customer.lists.refid', $groupIds ),
 			$search->compare( '==', 'customer.lists.domain', 'customer/group' ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 1 );
 
-		return (bool) count( $manager->search( $search ) );
+		return !$manager->search( $search )->isEmpty();
 	}
 }
