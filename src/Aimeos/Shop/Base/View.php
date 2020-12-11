@@ -266,24 +266,20 @@ class View
 	 */
 	protected function addUrl( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$fixed = array();
+		$fixed = [
+			'site' => Request::get( 'site' ),
+			'locale' => Request::get( 'locale' ),
+			'currency' => Request::get( 'currency' )
+		];
 
 		if( Route::current() )
 		{
-			if( ( $value = Route::input( 'site' ) ) !== null ) {
-				$fixed['site'] = $value;
-			}
-
-			if( ( $value = Route::input( 'locale' ) ) !== null ) {
-				$fixed['locale'] = $value;
-			}
-
-			if( ( $value = Route::input( 'currency' ) ) !== null ) {
-				$fixed['currency'] = $value;
-			}
+			$fixed['site'] = Route::input( 'site', $fixed['site'] );
+			$fixed['locale'] = Route::input( 'locale', $fixed['locale'] );
+			$fixed['currency'] = Route::input( 'currency', $fixed['currency'] );
 		}
 
-		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app( 'url' ), $fixed );
+		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app( 'url' ), array_filter( $fixed ) );
 		$view->addHelper( 'url', $helper );
 
 		return $view;
