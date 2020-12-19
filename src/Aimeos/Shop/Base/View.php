@@ -267,7 +267,7 @@ class View
 	protected function addUrl( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$fixed = [
-			'site' => Request::get( 'site' ),
+			'site' => Request::get( 'site', 'default' ),
 			'locale' => Request::get( 'locale' ),
 			'currency' => Request::get( 'currency' )
 		];
