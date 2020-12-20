@@ -80,8 +80,10 @@ class AccountCommand extends AbstractCommand
 		$item = $manager->saveItem( $this->addGroups( $context, $item ) );
 
 		\Illuminate\Foundation\Auth\User::findOrFail( $item->getId() )
-			->forceFill( ['superuser' => ( $this->option( 'super' ) ? 1 : 0 )] )
-			->save();
+			->forceFill( [
+				'superuser' => ( $this->option( 'super' ) ? 1 : 0 ),
+				'email_verified_at' => now(),
+			] )->save();
 	}
 
 
