@@ -29,7 +29,7 @@ class SetupCommand extends AbstractCommand
 	protected $signature = 'aimeos:setup
 		{site=default : Site for updating database entries}
 		{tplsite=default : Site used as template for creating the new one}
-		{--task : Name of the setup task that should be executed}
+		{--task= : Name of the setup task that should be executed}
 		{--option= : Setup configuration, name and value are separated by ":" like "setup/default/demo:1"}
 	';
 
@@ -55,6 +55,8 @@ class SetupCommand extends AbstractCommand
 		$site = $this->argument( 'site' );
 		$template = $this->argument( 'tplsite' );
 
+		$task = $this->option( 'task' );
+
 		$config->set( 'setup/site', $site );
 		$dbconfig = $this->getDbConfig( $config );
 		$this->setOptions( $config );
@@ -66,10 +68,6 @@ class SetupCommand extends AbstractCommand
 		$manager = new \Aimeos\MW\Setup\Manager\Multiple( $ctx->getDatabaseManager(), $dbconfig, $taskPaths, $ctx );
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
-
-		if( ( $task = $this->option( 'task' ) ) && is_array( $task ) ) {
-			$task = reset( $task );
-		}
 
 		$manager->migrate( $task );
 	}
