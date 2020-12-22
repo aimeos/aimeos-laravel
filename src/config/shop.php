@@ -15,6 +15,7 @@ return [
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['prefix' => 'profile', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
+		// 'supplier' => ['prefix' => 's', 'middleware' => ['web']],
 		// 'update' => [],
 	],
 

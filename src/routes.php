@@ -178,6 +178,19 @@ if( ( $conf = config( 'shop.routes.account', ['prefix' => 'profile', 'middleware
 }
 
 
+if( ( $conf = config( 'shop.routes.supplier', ['prefix' => 's', 'middleware' => ['web']] ) ) !== false ) {
+
+	Route::group( $conf, function() {
+
+		Route::match( array( 'GET', 'POST' ), '{s_name}/{f_supid}', array(
+			'as' => 'aimeos_shop_supplier',
+			'uses' => 'Aimeos\Shop\Controller\SupplierController@detailAction'
+		) )->where( ['site' => '[a-z0-9\.\-]+'] );
+
+	} );
+}
+
+
 if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' => ['web']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
@@ -210,11 +223,6 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 		Route::match( array( 'GET', 'POST' ), 'confirm/{code?}', array(
 			'as' => 'aimeos_shop_confirm',
 			'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
-		) )->where( ['site' => '[a-z0-9\.\-]+'] );
-
-		Route::match( array( 'GET', 'POST' ), 's/{s_name}/{s_supid}', array(
-			'as' => 'aimeos_shop_supplier',
-			'uses' => 'Aimeos\Shop\Controller\SupplierController@detailAction'
 		) )->where( ['site' => '[a-z0-9\.\-]+'] );
 
 		Route::match( array( 'GET', 'POST' ), 'pin/{pin_action}/{pin_id}/{d_name}', array(

@@ -6,7 +6,7 @@ class SupplierControllerTest extends AimeosTestAbstract
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\SupplierController@detailAction', ['site' => 'unittest', 's_name' => 'Test supplier', 's_supid' => 1] );
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\SupplierController@detailAction', ['site' => 'unittest', 's_name' => 'Test supplier', 'f_supid' => 1] );
 
 		$this->assertResponseOk();
 		$this->assertStringContainsString( '<section class="aimeos supplier-detail', $response->getContent() );
