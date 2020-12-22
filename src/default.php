@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
 	'apc_enabled' => false,
 	'apc_prefix' => 'laravel:',
@@ -9,23 +9,24 @@ return array(
 	'pcntl_priority' => 19,
 	'uploaddir' => '/',
 
-	'page' => array(
-		'account-index' => array( 'account/profile', 'account/review', 'account/subscription', 'account/history', 'account/favorite', 'account/watch', 'basket/mini', 'catalog/session' ),
-		'basket-index' => array( 'basket/bulk', 'basket/standard', 'basket/related' ),
-		'catalog-count' => array( 'catalog/count' ),
-		'catalog-detail' => array( 'basket/mini', 'catalog/stage', 'catalog/detail', 'catalog/session' ),
-		'catalog-home' => array( 'basket/mini', 'catalog/home' ),
-		'catalog-list' => array( 'basket/mini', 'catalog/filter', 'catalog/lists' ),
-		'catalog-stock' => array( 'catalog/stock' ),
-		'catalog-suggest' => array( 'catalog/suggest' ),
-		'catalog-tree' => array( 'basket/mini', 'catalog/filter', 'catalog/stage', 'catalog/lists' ),
-		'checkout-confirm' => array( 'checkout/confirm' ),
-		'checkout-index' => array( 'checkout/standard' ),
-		'checkout-update' => array( 'checkout/update' ),
-	),
+	'page' => [
+		'account-index' => ['account/profile', 'account/review', 'account/subscription', 'account/history', 'account/favorite', 'account/watch', 'basket/mini', 'catalog/session'],
+		'basket-index' => ['basket/bulk', 'basket/standard', 'basket/related'],
+		'catalog-count' => ['catalog/count'],
+		'catalog-detail' => ['basket/mini', 'catalog/stage', 'catalog/detail', 'catalog/session'],
+		'catalog-home' => ['basket/mini', 'catalog/home'],
+		'catalog-list' => ['basket/mini', 'catalog/filter', 'catalog/lists'],
+		'catalog-stock' => ['catalog/stock'],
+		'catalog-suggest' => ['catalog/suggest'],
+		'catalog-tree' => ['basket/mini', 'catalog/filter', 'catalog/stage', 'catalog/lists'],
+		'checkout-confirm' => ['checkout/confirm'],
+		'checkout-index' => ['checkout/standard'],
+		'checkout-update' => ['checkout/update'],
+		'supplier-detail' => [ 'basket/mini','supplier/detail','catalog/lists' ],
+	],
 
-	'resource' => array(
-		'db' => array(
+	'resource' => [
+		'db' => [
 			'adapter' => config( 'database.connections.mysql.driver', 'mysql' ),
 			'host' => config( 'database.connections.mysql.host', '127.0.0.1' ),
 			'port' => config( 'database.connections.mysql.port', '3306' ),
@@ -41,253 +42,260 @@ return array(
 				'collate' => config( 'database.connections.mysql.collation' ),
 			],
 			'driverOptions' => config('database.connections.mysql.options'),
-		),
-		'fs' => array(
+		],
+		'fs' => [
 			'adapter' => 'Standard',
 			'basedir' => public_path(),
 			'tempdir' => storage_path( 'tmp' ),
 			'baseurl' => config( 'app.url' ),
-		),
-		'fs-admin' => array(
+		],
+		'fs-admin' => [
 			'adapter' => 'Standard',
 			'basedir' => storage_path( 'admin' ),
 			'tempdir' => storage_path( 'tmp' ),
-		),
-		'fs-import' => array(
+		],
+		'fs-import' => [
 			'adapter' => 'Standard',
 			'basedir' => storage_path( 'import' ),
 			'tempdir' => storage_path( 'tmp' ),
-		),
-		'fs-secure' => array(
+		],
+		'fs-secure' => [
 			'adapter' => 'Standard',
 			'basedir' => storage_path( 'secure' ),
 			'tempdir' => storage_path( 'tmp' ),
-		),
-		'mq' => array(
+		],
+		'mq' => [
 			'adapter' => 'Standard',
 			'db' => 'db',
-		),
-	),
+		],
+	],
 
-	'admin' => array(
-		'jqadm' => array(
-			'url' => array(
-				'copy' => array(
+	'admin' => [
+		'jqadm' => [
+			'url' => [
+				'copy' => [
 					'target' => 'aimeos_shop_jqadm_copy'
-				),
-				'create' => array(
+				],
+				'create' => [
 					'target' => 'aimeos_shop_jqadm_create'
-				),
-				'delete' => array(
+				],
+				'delete' => [
 					'target' => 'aimeos_shop_jqadm_delete'
-				),
-				'export' => array(
+				],
+				'export' => [
 					'target' => 'aimeos_shop_jqadm_export'
-				),
-				'get' => array(
+				],
+				'get' => [
 					'target' => 'aimeos_shop_jqadm_get'
-				),
-				'import' => array(
+				],
+				'import' => [
 					'target' => 'aimeos_shop_jqadm_import'
-				),
-				'save' => array(
+				],
+				'save' => [
 					'target' => 'aimeos_shop_jqadm_save'
-				),
-				'search' => array(
+				],
+				'search' => [
 					'target' => 'aimeos_shop_jqadm_search'
-				),
-			)
-		),
-		'jsonadm' => array(
-			'url' => array(
+				],
+			],
+		],
+		'jsonadm' => [
+			'url' => [
 				'target' => 'aimeos_shop_jsonadm_get',
-				'config' => array(
+				'config' => [
 					'absoluteUri' => true,
-				),
-				'options' => array(
+				],
+				'options' => [
 					'target' => 'aimeos_shop_jsonadm_options',
-					'config' => array(
+					'config' => [
 						'absoluteUri' => true,
-					),
-				),
-			),
-		),
-	),
-	'client' => array(
-		'html' => array(
-			'account' => array(
-				'index' => array(
-					'url' => array(
+					],
+				],
+			],
+		],
+	],
+	'client' => [
+		'html' => [
+			'account' => [
+				'index' => [
+					'url' => [
 						'target' => 'aimeos_shop_account',
-					),
-				),
-				'review' => array(
-					'url' => array(
+					],
+				],
+				'review' => [
+					'url' => [
 						'target' => 'aimeos_shop_account',
-					),
-				),
-				'profile' => array(
-					'url' => array(
+					],
+				],
+				'profile' => [
+					'url' => [
 						'target' => 'aimeos_shop_account',
-					),
-				),
-				'subscription' => array(
-					'url' => array(
+					],
+				],
+				'subscription' => [
+					'url' => [
 						'target' => 'aimeos_shop_account',
-					),
-				),
-				'history' => array(
-					'url' => array(
+					],
+				],
+				'history' => [
+					'url' => [
 						'target' => 'aimeos_shop_account',
-					),
-				),
-				'favorite' => array(
-					'url' => array(
+					],
+				],
+				'favorite' => [
+					'url' => [
 						'target' => 'aimeos_shop_account_favorite',
-					),
-				),
-				'watch' => array(
-					'url' => array(
+					],
+				],
+				'watch' => [
+					'url' => [
 						'target' => 'aimeos_shop_account_watch',
-					),
-				),
-				'download' => array(
-					'url' => array(
+					],
+				],
+				'download' => [
+					'url' => [
 						'target' => 'aimeos_shop_account_download',
-					),
-					'error' => array(
-						'url' => array(
+					],
+					'error' => [
+						'url' => [
 							'target' => 'aimeos_shop_account',
-						),
-					),
-				),
-			),
-			'catalog' => array(
-				'count' => array(
-					'url' => array(
+						],
+					],
+				],
+			],
+			'catalog' => [
+				'count' => [
+					'url' => [
 						'target' => 'aimeos_shop_count',
-					),
-				),
-				'detail' => array(
-					'url' => array(
+					],
+				],
+				'detail' => [
+					'url' => [
 						'target' => 'aimeos_shop_detail',
-					),
-				),
-				'lists' => array(
-					'url' => array(
+					],
+				],
+				'lists' => [
+					'url' => [
 						'target' => 'aimeos_shop_list',
-					),
-				),
-				'session' => array(
-					'pinned' => array(
-						'url' => array(
+					],
+				],
+				'session' => [
+					'pinned' => [
+						'url' => [
 							'target' => 'aimeos_shop_session_pinned',
-						),
-					),
-				),
-				'stock' => array(
-					'url' => array(
+						],
+					],
+				],
+				'stock' => [
+					'url' => [
 						'target' => 'aimeos_shop_stock',
-					),
-				),
-				'suggest' => array(
-					'url' => array(
+					],
+				],
+				'suggest' => [
+					'url' => [
 						'target' => 'aimeos_shop_suggest',
-					),
-				),
-				'tree' => array(
-					'url' => array(
+					],
+				],
+				'tree' => [
+					'url' => [
 						'target' => 'aimeos_shop_tree',
-					),
-				),
-			),
-			'common' => array(
-				'template' => array(
+					],
+				],
+			],
+			'common' => [
+				'template' => [
 					'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
-				),
-			),
-			'basket' => array(
-				'standard' => array(
-					'url' => array(
+				],
+			],
+			'basket' => [
+				'standard' => [
+					'url' => [
 						'target' => 'aimeos_shop_basket',
-					),
-				),
-			),
-			'checkout' => array(
-				'confirm' => array(
-					'url' => array(
+					],
+				],
+			],
+			'checkout' => [
+				'confirm' => [
+					'url' => [
 						'target' => 'aimeos_shop_confirm',
-					),
-				),
-				'standard' => array(
-					'url' => array(
+					],
+				],
+				'standard' => [
+					'url' => [
 						'target' => 'aimeos_shop_checkout',
-					),
-					'summary' => array(
-						'option' => array(
-							'terms' => array(
-								'url' => array(
+					],
+					'summary' => [
+						'option' => [
+							'terms' => [
+								'url' => [
 									'target' => 'aimeos_shop_terms',
-								),
-								'privacy' => array(
-									'url' => array(
+								],
+								'privacy' => [
+									'url' => [
 										'target' => 'aimeos_shop_privacy',
-									),
-								),
-								'cancel' => array(
-									'url' => array(
+									],
+								],
+								'cancel' => [
+									'url' => [
 										'target' => 'aimeos_shop_terms',
-									),
-								),
-							),
-						),
-					),
-				),
-				'update' => array(
-					'url' => array(
+									],
+								],
+							],
+						],
+					],
+				],
+				'update' => [
+					'url' => [
 						'target' => 'aimeos_shop_update',
-					),
-				),
-			),
+					],
+				],
+			],
 			'email' => [
 				'from-email' => config( 'mail.from.address' ),
 				'from-name' => config( 'mail.from.name' ),
 			],
-			'locale' => array(
-				'select' => array(
-					'currency' => array(
+			'locale' => [
+				'select' => [
+					'currency' => [
 						'param-name' => 'currency',
-					),
-					'language' => array(
+					],
+					'language' => [
 						'param-name' => 'locale',
-					),
-				),
-			),
-		),
-		'jsonapi' => array(
-			'url' => array(
+					],
+				],
+			],
+			'supplier' => [
+				'detail' => [
+					'url' => [
+						'target' => 'aimeos_shop_supplier',
+					],
+				],
+			]
+		],
+		'jsonapi' => [
+			'url' => [
 				'target' => 'aimeos_shop_jsonapi_options',
-				'config' => array(
+				'config' => [
 					'absoluteUri' => true,
-				),
-			),
-		),
-	),
+				],
+			],
+		],
+	],
 
-	'controller' => array(
-		'common' => array(
-			'media' => array(
-				'standard' => array(
-					'mimeicon' => array(
+	'controller' => [
+		'common' => [
+			'media' => [
+				'standard' => [
+					'mimeicon' => [
 						# Directory where icons for the mime types stored
 						'directory' => 'packages/aimeos/shop/mimeicons',
 						# File extension of mime type icons
 						'extension' => '.png'
-					),
+					],
 					'tempdir' => storage_path( 'aimeos' ),
-				),
-			),
-		),
+				],
+			],
+		],
 		'jobs' => [
 			'catalog' => [
 				'export' => [
@@ -304,22 +312,21 @@ return array(
 				]
 			]
 		]
-	),
+	],
 
-	'mshop' => array(
-		'customer' => array(
-			'manager' => array(
+	'mshop' => [
+		'customer' => [
+			'manager' => [
 				'name' => 'Laravel',
-				'password' => array(
+				'password' => [
 					'name' => 'Bcrypt',
-				),
-			),
-		),
-		'index' => array(
-			'manager' => array(
+				],
+			],
+		],
+		'index' => [
+			'manager' => [
 				'name' => 'MySQL',
-			),
-		),
-	),
-
-);
+			],
+		],
+	],
+];

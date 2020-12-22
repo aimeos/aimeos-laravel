@@ -34,6 +34,7 @@ return [
 		'checkout-confirm' => [ 'checkout/confirm' ],
 		'checkout-index' => [ 'checkout/standard' ],
 		'checkout-update' => [ 'checkout/update' ],
+		'supplier-detail' => [ 'basket/mini','supplier/detail','catalog/lists' ],
 	],
 	*/
 

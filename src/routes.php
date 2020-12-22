@@ -212,6 +212,11 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 			'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
 		) )->where( ['site' => '[a-z0-9\.\-]+'] );
 
+		Route::match( array( 'GET', 'POST' ), 's/{s_name}/{s_supid}', array(
+			'as' => 'aimeos_shop_supplier',
+			'uses' => 'Aimeos\Shop\Controller\SupplierController@detailAction'
+		) )->where( ['site' => '[a-z0-9\.\-]+'] );
+
 		Route::match( array( 'GET', 'POST' ), 'pin/{pin_action}/{pin_id}/{d_name}', array(
 			'as' => 'aimeos_shop_session_pinned',
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
