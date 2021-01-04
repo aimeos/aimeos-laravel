@@ -26,7 +26,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/d3@4/build/d3.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3@6/dist/d3.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/combine/npm/sortablejs@1,npm/vuedraggable@2"></script>
