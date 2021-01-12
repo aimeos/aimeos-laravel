@@ -34,7 +34,7 @@ and customize anything to your needs.
 This document is for the Aimeos Laravel package **2020.10 and later**.
 
 - LTS release: 2020.10 (6.x, 7.x and 8.x)
-- Old LTS release: 2019.10 (Laravel 5.5+, 6.x and 7.x)
+- Beta release: 2021.01 (6.x, 7.x and 8.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
@@ -296,16 +296,6 @@ npm install && npm run dev
 
 For more information, please follow the Laravel documentation:
 * [Laravel 6.x](https://laravel.com/docs/6.x/authentication)
-
-### Laravel 5.x
-
-```php artisan make:auth```
-
-For more information, please follow the Laravel documentation:
-* [Laravel 5.8](https://laravel.com/docs/5.8/authentication)
-* [Laravel 5.7](https://laravel.com/docs/5.7/authentication)
-* [Laravel 5.6](https://laravel.com/docs/5.6/authentication)
-* [Laravel 5.5](https://laravel.com/docs/5.5/authentication)
 
 ### Create account
 
