@@ -18,7 +18,7 @@
     },
     "require": {
         "doctrine/dbal": "~2.5",
-        "laravel/framework": "~6.0||~7.0||~8.0",
+        "laravel/framework": "^6.20.12||^7.30.4||^8.24.0",
         "symfony/psr-http-message-bridge": "~2.0",
         "laminas/laminas-diactoros": "~2.2",
         "nyholm/psr7": "~1.2",
