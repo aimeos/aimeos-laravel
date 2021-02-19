@@ -2,7 +2,7 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2015-2016
+ * @copyright Aimeos (aimeos.org), 2015-2021
  * @package laravel
  * @subpackage Controller
  */
@@ -10,8 +10,10 @@
 
 namespace Aimeos\Shop\Controller;
 
+use Aimeos\Shop\Facades\Shop;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
 
 
 /**
@@ -22,6 +24,24 @@ use Illuminate\Support\Facades\View;
  */
 class PageController extends Controller
 {
+	/**
+	 * Returns the html for the content pages.
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface Response object containing the generated output
+	 */
+	public function indexAction()
+	{
+		foreach( app( 'config' )->get( 'shop.page.cms', ['cms/page'] ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
+		return Response::view( 'shop::page.index', $params )
+			->header( 'Cache-Control', 'private, max-age=10' );
+	}
+
+
 	/**
 	 * Returns the html for the privacy policy page.
 	 *
