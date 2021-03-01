@@ -7,5 +7,4 @@
 @section('aimeos_scripts')
 	<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 	<script type="text/javascript" src="{{ asset('packages/aimeos/shop/themes/aimeos.js') }}"></script>
-	<script type="text/javascript" src="{{ asset(config( 'shop.client.html.common.template.baseurl', 'packages/aimeos/shop/themes/elegance' ) . '/aimeos.js') }}"></script>
 @stop
