@@ -11,6 +11,7 @@ namespace Aimeos\Shop\Base;
 
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 
 /**
@@ -240,11 +241,20 @@ class Context
 	 */
 	protected function addUser( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		if( ( $userid = Auth::id() ) !== null ) {
+		$guard = data_get(
+			$context->getConfig()->get('guards'),
+			collect($context->getConfig()->get('routes'))
+				->where('prefix', Route::getCurrentRoute()->getPrefix())
+				->keys()
+				->first(),
+			Auth::getDefaultDriver()
+		);
+
+		if( ( $userid = Auth::guard($guard)->id() ) !== null ) {
 			$context->setUserId( $userid );
 		}
 
-		if( ( $user = Auth::user() ) !== null ) {
+		if( ( $user = Auth::guard($guard)->user() ) !== null ) {
 			$context->setEditor( $user->name );
 		} else {
 			$context->setEditor( \Request::ip() );
