@@ -241,20 +241,14 @@ class Context
 	 */
 	protected function addUser( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$guard = data_get(
-			$context->getConfig()->get('guards'),
-			collect($context->getConfig()->get('routes'))
-				->where('prefix', Route::getCurrentRoute()->getPrefix())
-				->keys()
-				->first(),
-			Auth::getDefaultDriver()
-		);
+		$key = collect( config( 'routes' ) )->where( 'prefix', Route::getCurrentRoute()->getPrefix() )->keys()->first();
+		$guard = data_get( config( 'guards' ), $key, Auth::getDefaultDriver() );
 
-		if( ( $userid = Auth::guard($guard)->id() ) !== null ) {
+		if( ( $userid = Auth::guard( $guard )->id() ) !== null ) {
 			$context->setUserId( $userid );
 		}
 
-		if( ( $user = Auth::guard($guard)->user() ) !== null ) {
+		if( ( $user = Auth::guard( $guard )->user() ) !== null ) {
 			$context->setEditor( $user->name );
 		} else {
 			$context->setEditor( \Request::ip() );
