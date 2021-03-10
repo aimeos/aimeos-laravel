@@ -22,7 +22,7 @@ return [
 		'checkout-confirm' => ['checkout/confirm'],
 		'checkout-index' => ['checkout/standard'],
 		'checkout-update' => ['checkout/update'],
-		'supplier-detail' => [ 'basket/mini','supplier/detail','catalog/lists' ],
+		'supplier-detail' => ['basket/mini', 'supplier/detail', 'catalog/lists'],
 	],
 
 	'resource' => [
@@ -41,7 +41,7 @@ return [
 				'charset' => config( 'database.connections.mysql.charset' ),
 				'collate' => config( 'database.connections.mysql.collation' ),
 			],
-			'driverOptions' => config('database.connections.mysql.options'),
+			'driverOptions' => config( 'database.connections.mysql.options' ),
 		],
 		'fs' => [
 			'adapter' => 'Standard',
