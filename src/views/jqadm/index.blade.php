@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+@if( in_array( $lang = Request::get( 'lang', config( 'app.locale', 'en' ) ), ['ar', 'he'] ) )
+<html lang="{{ $lang }}" dir="rtl">
+@else
+<html lang="{{ $lang }}" dir="ltr">
+@endif
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
