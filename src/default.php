@@ -304,6 +304,7 @@ return [
 					]
 				]
 			],
+			'from-email' => config( 'mail.from.address' ),
 			'product' => [
 				'export' => [
 					'sitemap' => [
