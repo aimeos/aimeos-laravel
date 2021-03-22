@@ -163,6 +163,13 @@ return [
 					],
 				],
 			],
+			'cms' => [
+				'page' => [
+					'url' => [
+						'target' => 'aimeos_page',
+					],
+				],
+			],
 			'catalog' => [
 				'count' => [
 					'url' => [
