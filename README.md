@@ -161,7 +161,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 		} */
 		body { color: #000; color: var(--ai-primary, #000); background-color: #fff; background-color: var(--ai-bg, #fff); }
 		.navbar, footer { color: #555; color: var(--ai-primary-alt, #555); background-color: #f8f8f8; background-color: var(--ai-bg-alt, #f8f8f8); }
-		.navbar a, .navbar a:before, .navbar span, footer a { color: #555 !important; color: var(--ai-primary-alt, #555) !important; }
+		.navbar a:not(.btn), .navbar a:before, .navbar span, footer a:not(.btn) { color: #555 !important; color: var(--ai-primary-alt, #555) !important; }
 		.content { margin: 0 5% } .catalog-stage-image { margin: 0 -5.55% }
 		.sm { display: block } .sm:before { font: normal normal normal 14px/1 FontAwesome; padding: 0 0.2em; font-size: 225% }
 		.facebook:before { content: "\f082" } .twitter:before { content: "\f081" } .instagram:before { content: "\f16d" } .youtube:before { content: "\f167" }
