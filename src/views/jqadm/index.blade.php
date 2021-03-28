@@ -30,7 +30,7 @@
 			<div class="app-menu-end">
 				<i class="icon btn-theme light-mode fa fa-sun-o"></i><i class="icon btn-theme dark-mode fa fa-moon-o"></i>
 				<i class="icon logout fa fa-sign-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></i>
-				<form id="logout-form" action="{{ route( 'logout', app()->getLocale() ) }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+				<form id="logout-form" action="{{ route( 'logout', Request::get( 'lang', app()->getLocale() ) ) ) }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 			</div>
 		</div>
 		<script>
