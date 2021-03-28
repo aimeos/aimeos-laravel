@@ -40,7 +40,7 @@ class AdminController extends Controller
 		if( Auth::check() === false
 			|| $request->user()->can( 'admin', [AdminController::class, ['admin', 'editor']] ) === false
 		) {
-			return redirect()->guest( 'login' );
+			return redirect()->guest( route( 'login', app()->getLocale() ) );
 		}
 
 		$context = app( 'aimeos.context' )->get( false );
