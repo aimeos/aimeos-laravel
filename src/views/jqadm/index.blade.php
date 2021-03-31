@@ -13,9 +13,9 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css" />
 		@if( in_array( $lang = Request::get( 'lang', config( 'app.locale', 'en' ) ), ['ar', 'az', 'dv', 'fa', 'he', 'ku', 'ur'] ) )
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.rtl.min.css,npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css,npm/vue-select@3/dist/vue-select.min.css">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.rtl.min.css,npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css,npm/vue-select@3/dist/vue-select.min.css">
 		@else
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css,npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css,npm/vue-select@3/dist/vue-select.min.css">
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css,npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css,npm/vue-select@3/dist/vue-select.min.css">
 		@endif
 		<link rel="stylesheet" href="<?= route( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'lang' => 'en', 'type' => 'css' ) ); ?>" />
 		<style>
