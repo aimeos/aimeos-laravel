@@ -241,7 +241,7 @@ class Context
 	 */
 	protected function addUser( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$key = collect( config( 'routes' ) )->where( 'prefix', Route::getCurrentRoute()->getPrefix() )->keys()->first();
+		$key = collect( config( 'routes' ) )->where( 'prefix', optional(Route::getCurrentRoute())->getPrefix() )->keys()->first();
 		$guard = data_get( config( 'guards' ), $key, Auth::getDefaultDriver() );
 
 		if( ( $userid = Auth::guard( $guard )->id() ) !== null ) {
