@@ -68,7 +68,7 @@ class JobsCommand extends AbstractCommand
 				$config->set( $key, $value );
 			}
 
-			$this->info( sprintf( 'Executing the Aimeos jobs for "%s"', $siteItem->getCode() ) );
+			$this->info( sprintf( 'Executing the Aimeos jobs for "%s"', $siteItem->getCode() ), 'v' );
 
 			foreach( $jobs as $jobname )
 			{
