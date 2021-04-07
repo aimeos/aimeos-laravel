@@ -68,6 +68,11 @@ return [
 			'adapter' => 'Standard',
 			'db' => 'db',
 		],
+		'email' => [
+			'address' => config( 'mail.from.address' ),
+			'name' => config( 'mail.from.name' ),
+		],
+
 	],
 
 	'admin' => [
@@ -256,10 +261,6 @@ return [
 						'target' => 'aimeos_shop_update',
 					],
 				],
-			],
-			'email' => [
-				'from-email' => config( 'mail.from.address' ),
-				'from-name' => config( 'mail.from.name' ),
 			],
 			'locale' => [
 				'select' => [
