@@ -34,14 +34,14 @@ abstract class AbstractCommand extends Command
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$search = $manager->filter();
 
-		if( is_scalar( $sites ) && $sites != '' ) {
+		if( !is_array( $sites ) ) {
 			$sites = explode( ' ', $sites );
 		}
 
-		if( !empty( $sites ) ) {
-			$search->setConditions( $search->compare( '==', 'locale.site.code', $sites ) );
+		if( empty( $sites ) ) {
+			$sites = 'default';
 		}
 
-		return $manager->search( $search );
+		return $manager->search( $search->add( ['locale.site.code' => $sites] ) );
 	}
 }
