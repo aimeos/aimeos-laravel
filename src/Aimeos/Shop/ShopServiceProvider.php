@@ -100,7 +100,7 @@ class ShopServiceProvider extends ServiceProvider {
 
 		$this->commands( array(
 			'Aimeos\Shop\Command\AccountCommand',
-			'Aimeos\Shop\Command\CacheCommand',
+			'Aimeos\Shop\Command\ClearCommand',
 			'Aimeos\Shop\Command\SetupCommand',
 			'Aimeos\Shop\Command\JobsCommand',
 		) );
@@ -118,7 +118,7 @@ class ShopServiceProvider extends ServiceProvider {
 			'Aimeos\Shop\Base\Aimeos', 'Aimeos\Shop\Base\I18n', 'Aimeos\Shop\Base\Context',
 			'Aimeos\Shop\Base\Config', 'Aimeos\Shop\Base\Locale', 'Aimeos\Shop\Base\View',
 			'Aimeos\Shop\Base\Support', 'Aimeos\Shop\Base\Shop',
-			'Aimeos\Shop\Command\AccountCommand', 'Aimeos\Shop\Command\CacheCommand',
+			'Aimeos\Shop\Command\AccountCommand', 'Aimeos\Shop\Command\ClearCommand',
 			'Aimeos\Shop\Command\SetupCommand', 'Aimeos\Shop\Command\JobsCommand',
 		);
 	}
