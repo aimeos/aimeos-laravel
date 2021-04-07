@@ -1,0 +1,103 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+
+jobs:
+  "php-7.2 / mysql-5.7":
+    docker:
+      - image: aimeos/ci-php:7.2
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: aimeos
+          MYSQL_PASSWORD: aimeos
+    steps:
+      - checkout
+      - run: composer req "laravel/framework:~6.0" "phpunit/phpunit:~8.0" --no-update
+      - restore_cache:
+          keys:
+            - php72-{{ checksum "composer.json" }}
+      - run: composer update -n --prefer-dist
+      - save_cache:
+          key: php72-{{ checksum "composer.json" }}
+          paths: [./vendor]
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
+      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+
+  "php-7.3 / mysql-5.7":
+    docker:
+      - image: aimeos/ci-php:7.3
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: aimeos
+          MYSQL_PASSWORD: aimeos
+    steps:
+      - checkout
+      - run: composer req "laravel/framework:~7.0" "phpunit/phpunit:~8.0" --no-update
+      - restore_cache:
+          keys:
+            - php73-{{ checksum "composer.json" }}
+      - run: composer update -n --prefer-dist
+      - save_cache:
+          key: php73-{{ checksum "composer.json" }}
+          paths: [./vendor]
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
+      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+
+  "php-7.4 / mysql-8.0":
+    docker:
+      - image: aimeos/ci-php:7.4
+      - image: circleci/mysql:8.0
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: aimeos
+          MYSQL_PASSWORD: aimeos
+    steps:
+      - checkout
+      - run: composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
+      - restore_cache:
+          keys:
+            - php74-{{ checksum "composer.json" }}
+      - run: composer update -n --prefer-dist
+      - save_cache:
+          key: php74-{{ checksum "composer.json" }}
+          paths: [./vendor]
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
+      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+
+  "php-8.0 / mysql-8.0":
+    docker:
+      - image: aimeos/ci-php:8.0
+      - image: circleci/mysql:8.0
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: aimeos
+          MYSQL_PASSWORD: aimeos
+    steps:
+      - checkout
+      - run: composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
+      - restore_cache:
+          keys:
+            - php80-{{ checksum "composer.json" }}
+      - run: composer update -n --prefer-dist
+      - save_cache:
+          key: php80-{{ checksum "composer.json" }}
+          paths: [./vendor]
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
+      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+
+workflows:
+  version: 2
+  unittest:
+    jobs:
+      - "php-7.2 / mysql-5.7"
+      - "php-7.3 / mysql-5.7"
+      - "php-7.4 / mysql-8.0"
+      - "php-8.0 / mysql-8.0"
