@@ -251,9 +251,13 @@ http://127.0.0.1:8000/index.php/shop
 Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
 the home page as well, replace the route for "/" in `./routes/web.php` by this line:
 
+```php
+Route::group(['middleware' => ['web']], function () {
+	Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
+});
 ```
-Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
-```
+
+For multi-vendor setups, read the article about [multiple shops](https://aimeos.org/docs/latest/laravel/customize/#multiple-shops).
 
 This will display the Aimeos catalog home component on the home page you you get a
 nice looking shop home page. The `/shop` page will look like:

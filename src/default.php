@@ -186,6 +186,11 @@ return [
 						'target' => 'aimeos_shop_detail',
 					],
 				],
+				'home' => [
+					'url' => [
+						'target' => 'aimeos_home',
+					],
+				],
 				'lists' => [
 					'url' => [
 						'target' => 'aimeos_shop_list',

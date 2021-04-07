@@ -178,7 +178,7 @@ if( ( $conf = config( 'shop.routes.account', ['prefix' => 'profile', 'middleware
 }
 
 
-if( ( $conf = config( 'shop.routes.supplier', ['prefix' => 's', 'middleware' => ['web']] ) ) !== false ) {
+if( ( $conf = config( 'shop.routes.supplier', ['prefix' => 'supplier', 'middleware' => ['web']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
 
