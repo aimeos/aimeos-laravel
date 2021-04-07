@@ -298,15 +298,13 @@ return [
 	'controller' => [
 		'common' => [
 			'media' => [
-				'standard' => [
-					'mimeicon' => [
-						# Directory where icons for the mime types stored
-						'directory' => 'packages/aimeos/shop/mimeicons',
-						# File extension of mime type icons
-						'extension' => '.png'
-					],
-					'tempdir' => storage_path( 'aimeos' ),
+				'mimeicon' => [
+					# Directory where icons for the mime types stored
+					'directory' => 'packages/aimeos/shop/mimeicons',
+					# File extension of mime type icons
+					'extension' => '.png'
 				],
+				'tempdir' => storage_path( 'aimeos' ),
 			],
 		],
 		'jobs' => [
