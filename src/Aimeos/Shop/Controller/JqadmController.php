@@ -227,7 +227,7 @@ class JqadmController extends AdminController
 	protected function createAdmin() : \Aimeos\Admin\JQAdm\Iface
 	{
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
-		$lang = Request::get( 'lang', config( 'app.locale', 'en' ) );
+		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
 		$aimeos = app( 'aimeos' )->get();
@@ -258,6 +258,14 @@ class JqadmController extends AdminController
 	protected function getHtml( string $content )
 	{
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
-		return View::make( 'shop::jqadm.index', array( 'content' => $content, 'site' => $site ) );
+		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
+
+		return View::make( 'shop::jqadm.index', [
+			'content' => $content,
+			'site' => $site,
+			'locale' => $lang,
+			'localeDir' => in_array( $lang, ['ar', 'az', 'dv', 'fa', 'he', 'ku', 'ur'] ) ? 'rtl' : 'ltr',
+			'theme' => ( $_COOKIE['aimeos_backend_theme'] ?? '' ) == 'dark' ? 'dark' : 'light'
+		] );
 	}
 }

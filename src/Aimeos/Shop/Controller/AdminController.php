@@ -52,7 +52,7 @@ class AdminController extends Controller
 		$param = array(
 			'resource' => 'dashboard',
 			'site' => Route::input( 'site', Request::get( 'site', $siteCode ) ),
-			'lang' => Route::input( 'lang', Request::get( 'lang', $locale ) )
+			'locale' => Route::input( 'locale', Request::get( 'locale', $locale ) )
 		);
 
 		return redirect()->route( 'aimeos_shop_jqadm_search', $param );

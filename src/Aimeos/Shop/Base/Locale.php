@@ -54,15 +54,15 @@ class Locale
 	{
 		if( $this->locale === null )
 		{
-			$site = Request::get( 'site', 'default' );
-			$currency = Request::get( 'currency', '' );
-			$lang = Request::get( 'locale', '' );
+			$site = Request::input( 'site', 'default' );
+			$lang = Request::input( 'locale', '' );
+			$currency = Request::input( 'currency', '' );
 
 			if( Route::current() )
 			{
-				$site = Route::input( 'site', $site );
-				$currency = Route::input( 'currency', $currency );
-				$lang = Route::input( 'locale', $lang );
+				$site = Request::route( 'site', $site );
+				$lang = Request::route( 'locale', $lang );
+				$currency = Request::route( 'currency', $currency );
 			}
 
 			$localeManager = \Aimeos\MShop::create( $context, 'locale' );
