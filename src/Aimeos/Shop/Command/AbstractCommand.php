@@ -20,7 +20,14 @@ use Illuminate\Console\Command;
  */
 abstract class AbstractCommand extends Command
 {
-	protected function exec( \Aimeos\MShop\Context\Item\Iface $context, \Closure $fcn, ?string $sites )
+	/**
+	 * Executes the function for all given sites
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @param \Closure $fcn Function to execute
+	 * @param array|string|null $sites Site codes
+	 */
+	protected function exec( \Aimeos\MShop\Context\Item\Iface $context, \Closure $fcn, $sites )
 	{
 		$process = $context->getProcess();
 		$aimeos = $this->getLaravel()->make( 'aimeos' )->get();
@@ -31,7 +38,7 @@ abstract class AbstractCommand extends Command
 		$start = 0;
 
 		if( $sites ) {
-			$filter->add( ['locale.site.code' => explode( ' ', $sites )] );
+			$filter->add( ['locale.site.code' => !is_array( $sites ) ? explode( ' ', $sites ) : $sites] );
 		}
 
 		do
