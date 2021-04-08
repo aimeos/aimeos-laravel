@@ -11,8 +11,6 @@
 namespace Aimeos\Shop\Command;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 
 
 /**
@@ -22,26 +20,49 @@ use Symfony\Component\Console\Input\InputArgument;
  */
 abstract class AbstractCommand extends Command
 {
-	/**
-	 * Returns the enabled site items which may be limited by the input arguments.
-	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item object
-	 * @param string|array $sites Unique site codes
-	 * @return \Aimeos\Map List of site items implementing \Aimeos\MShop\Locale\Item\Site\Interface
-	 */
-	protected function getSiteItems( \Aimeos\MShop\Context\Item\Iface $context, $sites ) : \Aimeos\Map
+	protected function exec( \Aimeos\MShop\Context\Item\Iface $context, \Closure $fcn, ?string $sites )
 	{
-		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
-		$search = $manager->filter();
+		$process = $context->getProcess();
+		$aimeos = $this->getLaravel()->make( 'aimeos' )->get();
 
-		if( !is_array( $sites ) ) {
-			$sites = explode( ' ', $sites );
+		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
+		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
+		$filter = $siteManager->filter();
+		$start = 0;
+
+		if( $sites ) {
+			$filter->add( ['locale.site.code' => explode( ' ', $sites )] );
 		}
 
-		if( empty( $sites ) ) {
-			$sites = 'default';
-		}
+		do
+		{
+			$siteItems = $siteManager->search( $filter->slice( $start ) );
 
-		return $manager->search( $search->add( ['locale.site.code' => $sites] ) );
+			foreach( $siteItems as $siteItem )
+			{
+				\Aimeos\MShop::cache( true );
+				\Aimeos\MAdmin::cache( true );
+
+				$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
+				$localeItem->setLanguageId( null );
+				$localeItem->setCurrencyId( null );
+
+				$lcontext = clone $context;
+				$lcontext->setLocale( $localeItem );
+				$config = $lcontext->getConfig();
+
+				foreach( $siteItem->getConfig() as $key => $value ) {
+					$config->set( $key, $value );
+				}
+
+				$process->start( $fcn, [$lcontext, $aimeos], false );
+			}
+
+			$count = count( $siteItems );
+			$start += $count;
+		}
+		while( $count === $filter->getLimit() );
+
+		$process->wait();
 	}
 }
