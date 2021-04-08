@@ -11,7 +11,6 @@
 namespace Aimeos\Shop\Command;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputArgument;
 
 
 /**
@@ -46,41 +45,24 @@ class JobsCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		$aimeos = $this->getLaravel()->make( 'aimeos' )->get();
 		$context = $this->getContext();
-
 		$process = $context->getProcess();
 		$jobs = explode( ' ', $this->argument( 'jobs' ) );
-		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
 
-		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
+		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $process, $jobs )
 		{
-			\Aimeos\MShop::cache( true );
-			\Aimeos\MAdmin::cache( true );
+			$this->info( sprintf( 'Executing Aimeos jobs for "%s"', $lcontext->getLocale()->getSiteItem()->getCode() ), 'v' );
 
-			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
-			$localeItem->setLanguageId( null );
-			$localeItem->setCurrencyId( null );
-			$context->setLocale( $localeItem );
+			$jobfcn = function( $context, $aimeos, $jobname ) {
+				\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
+			};
 
-			$config = $context->getConfig();
-			foreach( $localeItem->getSiteItem()->getConfig() as $key => $value ) {
-				$config->set( $key, $value );
+			foreach( $jobs as $jobname ) {
+				$process->start( $jobfcn, [$lcontext, $aimeos, $jobname], false );
 			}
+		};
 
-			$this->info( sprintf( 'Executing the Aimeos jobs for "%s"', $siteItem->getCode() ), 'v' );
-
-			foreach( $jobs as $jobname )
-			{
-				$fcn = function( $context, $aimeos, $jobname ) {
-					\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
-				};
-
-				$process->start( $fcn, [$context, $aimeos, $jobname], false );
-			}
-		}
-
-		$process->wait();
+		$this->exec( $context, $fcn, $this->argument( 'site' ) );
 	}
 
 

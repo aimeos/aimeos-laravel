@@ -10,8 +10,6 @@
 
 namespace Aimeos\Shop\Command;
 
-use Symfony\Component\Console\Input\InputArgument;
-
 
 /**
  * Command for clearing the content cache
@@ -47,21 +45,16 @@ class ClearCommand extends AbstractCommand
 		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:clear' );
 
-		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
-
-		foreach( $this->getSiteItems( $context, $this->argument( 'site' ) ) as $siteItem )
+		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext )
 		{
-			$localeItem = $localeManager->bootstrap( $siteItem->getCode(), '', '', false );
-
-			$lcontext = clone $context;
-			$lcontext->setLocale( $localeItem );
-
 			$cache = new \Aimeos\MAdmin\Cache\Proxy\Standard( $lcontext );
 			$lcontext->setCache( $cache );
 
-			$this->info( sprintf( 'Clearing the Aimeos cache for site "%1$s"', $siteItem->getCode() ) );
+			$this->info( sprintf( 'Clearing Aimeos cache for site "%1$s"', $lcontext->getLocale()->getSiteItem()->getCode() ), 'v' );
 
 			\Aimeos\MAdmin::create( $lcontext, 'cache' )->getCache()->clear();
-		}
+		};
+
+		$this->exec( $context, $fcn, $this->argument( 'site' ) );
 	}
 }
