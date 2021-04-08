@@ -33,8 +33,8 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2020.10 and later**.
 
+- Stable release: 2021.04 (6.x, 7.x and 8.x)
 - LTS release: 2020.10 (6.x, 7.x and 8.x)
-- Beta release: 2021.01 (6.x, 7.x and 8.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
@@ -61,7 +61,7 @@ installed easiest by using [Composer](https://getcomposer.org) in the root
 directory of your exisisting Laravel application:
 
 ```
-composer require aimeos/aimeos-laravel:~2020.10
+composer require aimeos/aimeos-laravel:~2021.04
 ```
 
 ## Database
@@ -107,7 +107,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2020.10",
+        "aimeos/aimeos-laravel": "~2021.04",
         ...
     },
     "scripts": {
@@ -144,7 +144,7 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
 ```html
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr" class="no-js">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -180,7 +180,6 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 			<ul class="navbar-nav">
 				@if (Auth::guest())
 					<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
 				@else
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
