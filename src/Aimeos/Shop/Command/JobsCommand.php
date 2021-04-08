@@ -49,7 +49,7 @@ class JobsCommand extends AbstractCommand
 		$process = $context->getProcess();
 
 		$jobs = $this->argument( 'jobs' );
-		$jobs = !is_array( $jobs ) ? explode( ' ', $jobs ) : $jobs;
+		$jobs = !is_array( $jobs ) ? explode( ' ', (string) $jobs ) : $jobs;
 
 		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $process, $jobs )
 		{

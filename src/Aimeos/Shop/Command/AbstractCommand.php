@@ -37,8 +37,8 @@ abstract class AbstractCommand extends Command
 		$filter = $siteManager->filter();
 		$start = 0;
 
-		if( $sites ) {
-			$filter->add( ['locale.site.code' => !is_array( $sites ) ? explode( ' ', $sites ) : $sites] );
+		if( !empty( $sites ) ) {
+			$filter->add( ['locale.site.code' => !is_array( $sites ) ? explode( ' ', (string) $sites ) : $sites] );
 		}
 
 		do
