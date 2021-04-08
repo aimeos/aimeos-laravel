@@ -23,9 +23,7 @@ class ClearCommand extends AbstractCommand
 	 *
 	 * @var string
 	 */
-	protected $signature = 'aimeos:clear
-		{site? : Site codes to clear the Aimeos content cache for like "default unittest" (none for all)}
-	';
+	protected $signature = 'aimeos:clear';
 
 	/**
 	 * The console command description.
@@ -42,19 +40,11 @@ class ClearCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
+		$this->info( 'Clearing Aimeos cache', 'v' );
+
 		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:clear' );
 
-		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext )
-		{
-			$cache = new \Aimeos\MAdmin\Cache\Proxy\Standard( $lcontext );
-			$lcontext->setCache( $cache );
-
-			$this->info( sprintf( 'Clearing Aimeos cache for site "%1$s"', $lcontext->getLocale()->getSiteItem()->getCode() ), 'v' );
-
-			\Aimeos\MAdmin::create( $lcontext, 'cache' )->getCache()->clear();
-		};
-
-		$this->exec( $context, $fcn, $this->argument( 'site' ) );
+		\Aimeos\MAdmin::create( $context, 'cache' )->getCache()->clear();
 	}
 }
