@@ -45,13 +45,10 @@ class JobsCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		$context = $this->getContext();
-		$process = $context->getProcess();
-
 		$jobs = $this->argument( 'jobs' );
 		$jobs = !is_array( $jobs ) ? explode( ' ', (string) $jobs ) : $jobs;
 
-		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $process, $jobs )
+		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $jobs )
 		{
 			$this->info( sprintf( 'Executing Aimeos jobs for "%s"', $lcontext->getLocale()->getSiteItem()->getCode() ), 'v' );
 
@@ -59,12 +56,16 @@ class JobsCommand extends AbstractCommand
 				\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
 			};
 
+			$process = $lcontext->getProcess();
+
 			foreach( $jobs as $jobname ) {
 				$process->start( $jobfcn, [$lcontext, $aimeos, $jobname], false );
 			}
+
+			$process->wait();
 		};
 
-		$this->exec( $context, $fcn, $this->argument( 'site' ) );
+		$this->exec( $this->getContext(), $fcn, $this->argument( 'site' ) );
 	}
 
 
