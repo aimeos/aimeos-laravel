@@ -65,6 +65,8 @@ class JobsCommand extends AbstractCommand
 		};
 
 		$this->exec( $context, $fcn, $this->argument( 'site' ) );
+
+		$process->wait();
 	}
 
 
