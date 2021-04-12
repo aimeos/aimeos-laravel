@@ -50,15 +50,17 @@ class JobsCommand extends AbstractCommand
 
 		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $jobs )
 		{
-			$this->info( sprintf( 'Executing Aimeos jobs for "%s"', $lcontext->getLocale()->getSiteItem()->getCode() ), 'v' );
-
 			$jobfcn = function( $context, $aimeos, $jobname ) {
 				\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
 			};
 
 			$process = $lcontext->getProcess();
 
-			foreach( $jobs as $jobname ) {
+			foreach( $jobs as $jobname )
+			{
+				$site = $lcontext->getLocale()->getSiteItem()->getCode();
+				$this->info( sprintf( 'Executing Aimeos jobs "%s" for "%s"', $jobname, $site ), 'v' );
+
 				$process->start( $jobfcn, [$lcontext, $aimeos, $jobname], false );
 			}
 
