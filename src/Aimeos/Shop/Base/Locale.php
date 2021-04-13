@@ -55,7 +55,7 @@ class Locale
 		if( $this->locale === null )
 		{
 			$site = Request::input( 'site', 'default' );
-			$lang = Request::input( 'locale', '' );
+			$lang = Request::input( 'locale', app()->getLocale() );
 			$currency = Request::input( 'currency', '' );
 
 			if( Route::current() )
