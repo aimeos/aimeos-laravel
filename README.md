@@ -179,9 +179,9 @@ example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
 				@if (Auth::guest())
-					<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+					<li class="nav-item login"><a class="nav-link" href="/login">Login</a></li>
 				@else
-					<li class="nav-item dropdown">
+					<li class="nav-item profile dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a class="nav-link" href="{{ route('aimeos_shop_account',['site'=>Route::current()->parameter('site','default'),'locale'=>Route::current()->parameter('locale','en'),'currency'=>Route::current()->parameter('currency','EUR')]) }}" title="Profile">Profile</a></li>
