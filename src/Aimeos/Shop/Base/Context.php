@@ -264,7 +264,7 @@ class Context
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
-	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context ): \Aimeos\MShop\Context\Item\Iface
+	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
 		$key = collect( config( 'shop.routes' ) )->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )->keys()->first();
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
