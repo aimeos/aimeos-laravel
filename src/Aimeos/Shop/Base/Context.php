@@ -264,16 +264,17 @@ class Context
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
 	 */
-	protected function addGroups(\Aimeos\MShop\Context\Item\Iface $context): \Aimeos\MShop\Context\Item\Iface
+	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context ): \Aimeos\MShop\Context\Item\Iface
 	{
-		$key = collect(config('shop.routes'))->where('prefix', ltrim(optional(Route::getCurrentRoute())->getPrefix(), '/'))->keys()->first();
-		$guard = data_get(config('shop.guards'), $key, Auth::getDefaultDriver());
+		$key = collect( config( 'shop.routes' ) )->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )->keys()->first();
+		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
-		if (($userid = Auth::guard($guard)->id()) !== null) {
-			$context->setGroupIds(function () use ($context, $userid) {
-				$manager = \Aimeos\MShop::create($context, 'customer');
-				return $manager->getItem($userid, array('customer/group'))->getGroups();
-			});
+		if( ( $userid = Auth::guard( $guard )->id() ) !== null )
+		{
+			$context->setGroupIds( function() use ( $context, $userid ) {
+				$manager = \Aimeos\MShop::create( $context, 'customer' );
+				return $manager->get( $userid, ['customer/group'] )->getGroups();
+			} );
 		}
 
 		return $context;
