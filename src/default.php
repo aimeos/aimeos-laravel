@@ -27,21 +27,20 @@ return [
 
 	'resource' => [
 		'db' => [
-			'adapter' => config( 'database.connections.mysql.driver', 'mysql' ),
-			'host' => config( 'database.connections.mysql.host', '127.0.0.1' ),
-			'port' => config( 'database.connections.mysql.port', '3306' ),
-			'socket' => config( 'database.connections.mysql.unix_socket', '' ),
-			'database' => config( 'database.connections.mysql.database', 'forge' ),
-			'username' => config( 'database.connections.mysql.username', 'forge' ),
-			'password' => config( 'database.connections.mysql.password', '' ),
-			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'; SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED"],
-			'opt-persistent' => 0,
-			'limit' => 3,
+			'adapter' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.driver', 'mysql'),
+			'host' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.host', '127.0.0.1'),
+			'port' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.port', '3306'),
+			'socket' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.unix_socket', ''),
+			'database' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.database', 'forge'),
+			'username' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.username', 'forge'),
+			'password' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.password', ''),
+			'stmt' => config( 'database.default', 'mysql' ) === 'mysql' ? ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'"] : [],
+			'limit' => 3, // maximum number of concurrent database connections
 			'defaultTableOptions' => [
-				'charset' => config( 'database.connections.mysql.charset' ),
-				'collate' => config( 'database.connections.mysql.collation' ),
+					'charset' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.charset'),
+					'collate' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.collation'),
 			],
-			'driverOptions' => config( 'database.connections.mysql.options' ),
+			'driverOptions' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.options' ),
 		],
 		'fs' => [
 			'adapter' => 'Standard',
@@ -337,7 +336,7 @@ return [
 		],
 		'index' => [
 			'manager' => [
-				'name' => 'MySQL',
+				'name' => config( 'database.default', 'MySQL' ),
 			],
 		],
 	],
