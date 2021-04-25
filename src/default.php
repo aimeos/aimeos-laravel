@@ -34,18 +34,18 @@ return [
 
 	'resource' => [
 		'db' => [
-			'adapter' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.driver', 'mysql'),
-			'host' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.host', '127.0.0.1'),
-			'port' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.port', '3306'),
-			'socket' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.unix_socket', ''),
-			'database' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.database', 'forge'),
-			'username' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.username', 'forge'),
-			'password' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.password', ''),
+			'adapter' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.driver', 'mysql' ),
+			'host' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.host', '127.0.0.1' ),
+			'port' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.port', '3306' ),
+			'socket' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.unix_socket', '' ),
+			'database' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.database', 'forge' ),
+			'username' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.username', 'forge' ),
+			'password' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.password', '' ),
 			'stmt' => config( 'database.default', 'mysql' ) === 'mysql' ? ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'"] : [],
 			'limit' => 3, // maximum number of concurrent database connections
 			'defaultTableOptions' => [
-					'charset' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.charset'),
-					'collate' => config('database.connections.' . config( 'database.default', 'mysql' ) . '.collation'),
+					'charset' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.charset' ),
+					'collate' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.collation' ),
 			],
 			'driverOptions' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.options' ),
 		],
