@@ -1,5 +1,12 @@
 <?php
 
+switch( config( 'database.default', 'mysql' ) ) {
+	case 'pgsql': $aimeosIndexManagerName = 'PgSQL'; break;
+	case 'sqlsrv': $aimeosIndexManagerName = 'SQLSrv'; break;
+	default: $aimeosIndexManagerName = 'MySQL';
+}
+
+
 return [
 
 	'apc_enabled' => false,
@@ -336,7 +343,7 @@ return [
 		],
 		'index' => [
 			'manager' => [
-				'name' => config( 'database.default', 'MySQL' ),
+				'name' => $aimeosIndexManagerName,
 			],
 		],
 	],
