@@ -5,6 +5,7 @@ return [
 	'apc_enabled' => false, // enable for maximum performance if APCu is availalbe
 	'apc_prefix' => 'laravel:', // prefix for caching config and translation in APCu
 	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
+	'num_formatter' => 'Locale', // locale based number formatter (alternative: "Standard")
 
 	'routes' => [
 		// Docs: https://aimeos.org/docs/Laravel/Custom_routes

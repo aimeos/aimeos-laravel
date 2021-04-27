@@ -161,12 +161,19 @@ class View
 	protected function addNumber( \Aimeos\MW\View\Iface $view, \Aimeos\MW\Config\Iface $config,
 		string $locale = null ) : \Aimeos\MW\View\Iface
 	{
-		$pattern = $config->get( 'client/html/common/format/pattern' );
+		if( config( 'shop.num_formatter', 'Locale' ) === 'Locale' )
+		{
+			$pattern = $config->get( 'client/html/common/format/pattern' );
+			$helper = new \Aimeos\MW\View\Helper\Number\Locale( $view, $locale, $pattern );
+		}
+		else
+		{
+			$sep1000 = $config->get( 'client/html/common/format/separator1000', '' );
+			$decsep = $config->get( 'client/html/common/format/separatorDecimal', '.' );
+			$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, $decsep, $sep1000 );
+		}
 
-		$helper = new \Aimeos\MW\View\Helper\Number\Locale( $view, $locale, $pattern );
-		$view->addHelper( 'number', $helper );
-
-		return $view;
+		return $view->addHelper( 'number', $helper );
 	}
 
 
