@@ -10,10 +10,6 @@
 namespace Aimeos\Shop\Base;
 
 
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Route;
-
-
 /**
  * Service providing the context objects
  *
@@ -30,7 +26,7 @@ class Locale
 	/**
 	 * @var \Aimeos\MShop\Locale\Item\Iface
 	 */
-	private $locale;
+	private $locale = null;
 
 
 	/**
@@ -52,31 +48,28 @@ class Locale
 	 */
 	public function get( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Locale\Item\Iface
 	{
-		if( $this->locale === null )
-		{
-			$site = Request::input( 'site', 'default' );
-			$lang = Request::input( 'locale', app()->getLocale() );
-			$currency = Request::input( 'currency', '' );
-
-			if( Route::current() )
-			{
-				$site = Request::route( 'site', $site );
-				$lang = Request::route( 'locale', $lang );
-				$currency = Request::route( 'currency', $currency );
-			}
-
-			$localeManager = \Aimeos\MShop::create( $context, 'locale' );
-			$disableSites = $this->config->get( 'shop.disableSites', true );
-
-			$this->locale = $localeManager->bootstrap( $site, $lang, $currency, $disableSites );
+		if( null !== $this->locale ) {
+			return $this->locale;
 		}
 
-		return $this->locale;
+		if(app()->runningInConsole()) {
+			$site = 'default';
+		} else {
+			$site = request()->getHost();
+		}
+
+		$language = app()->getLocale();
+		$currency = '';// TODO
+
+		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
+		$disableSites = $this->config->get( 'shop.disableSites', true );
+
+		return ($this->locale = $localeManager->bootstrap( $site, $language, $currency, $disableSites ));
 	}
 
 
 	/**
-	 * Returns the locale item for the current request
+	 * Returns the locale item for the stated domain
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @param string $site Unique site code
