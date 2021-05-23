@@ -9,6 +9,8 @@
 
 namespace Aimeos\Shop\Base;
 
+use Illuminate\Support\Facades\View;
+
 
 /**
  * Service providing the shop object
@@ -72,5 +74,17 @@ class Shop
 		}
 
 		return $this->objects[$name];
+	}
+
+
+	/** Returns the view template for the given name
+	 *
+	 * @param string $name View name, e.g. "account.index"
+	 * @return string Template name, e.g. "shop::account.indx"
+	 */
+	public function template( string $name ) : string
+	{
+		$theme = $this->context->getLocale()->getSiteItem()->getTheme();
+		return View::exists( $theme . '::' . $name ) ? $theme . '::' . $name : 'shop::' . $name;
 	}
 }

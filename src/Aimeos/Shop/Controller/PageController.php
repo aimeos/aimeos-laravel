@@ -37,7 +37,7 @@ class PageController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view( 'shop::page.index', $params )
+		return Response::view( Shop::template( 'page.index' ), $params )
 			->header( 'Cache-Control', 'private, max-age=10' );
 	}
 
@@ -49,7 +49,7 @@ class PageController extends Controller
 	 */
 	public function privacyAction()
 	{
-		return View::make( 'shop::page.privacy' );
+		return View::make( Shop::template( 'page.privacy' ) );
 	}
 
 
@@ -60,6 +60,6 @@ class PageController extends Controller
 	 */
 	public function termsAction()
 	{
-		return View::make( 'shop::page.terms' );
+		return View::make( Shop::template( 'page.terms' ) );
 	}
 }

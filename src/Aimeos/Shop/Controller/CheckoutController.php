@@ -36,7 +36,7 @@ class CheckoutController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view( 'shop::checkout.confirm', $params )->header( 'Cache-Control', 'no-store' );
+		return Response::view( Shop::template( 'checkout.confirm' ), $params )->header( 'Cache-Control', 'no-store' );
 	}
 
 
@@ -53,7 +53,7 @@ class CheckoutController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view( 'shop::checkout.index', $params )->header( 'Cache-Control', 'no-store' );
+		return Response::view( Shop::template( 'checkout.index' ), $params )->header( 'Cache-Control', 'no-store' );
 	}
 
 
@@ -70,6 +70,6 @@ class CheckoutController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view( 'shop::checkout.update', $params )->header( 'Cache-Control', 'no-store' );
+		return Response::view( Shop::template( 'checkout.update' ), $params )->header( 'Cache-Control', 'no-store' );
 	}
 }

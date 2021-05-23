@@ -36,7 +36,7 @@ class SupplierController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view( 'shop::supplier.detail', $params )
+		return Response::view( Shop::template( 'supplier.detail' ), $params )
 			->header( 'Cache-Control', 'private, max-age=10' );
 	}
 }
