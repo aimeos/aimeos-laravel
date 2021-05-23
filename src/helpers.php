@@ -18,7 +18,7 @@ if( !function_exists( 'aiconfig' ) )
 	 */
 	function aiconfig( $key, $default = null )
 	{
-		return app( '\Aimeos\Shop\Base\Config' )->get()->get( $key, $default );
+		return app( 'aimeos.config' )->get()->get( $key, $default );
 	}
 }
 
@@ -36,7 +36,7 @@ if( !function_exists( 'aitrans' ) )
 	 */
 	function aitrans( $singular, array $params = array(), $domain = 'client', $locale = null )
 	{
-		$i18n = app( '\Aimeos\Shop\Base\Context' )->get()->getI18n( $locale );
+		$i18n = app( 'aimeos.context' )->get()->getI18n( $locale );
 
 		return vsprintf( $i18n->dt( $domain, $singular ), $params );
 	}
@@ -58,7 +58,7 @@ if( !function_exists( 'aitransplural' ) )
 	 */
 	function aitransplural( $singular, $plural, $number, array $params = array(), $domain = 'client', $locale = null )
 	{
-		$i18n = app( '\Aimeos\Shop\Base\Context' )->get()->getI18n( $locale );
+		$i18n = app( 'aimeos.context' )->get()->getI18n( $locale );
 
 		return vsprintf( $i18n->dn( $domain, $singular, $plural, $number ), $params );
 	}
