@@ -42,14 +42,14 @@ class ShopServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom( $basedir . 'views', 'shop' );
 
 		$this->publishes( [$basedir . 'config/shop.php' => config_path( 'shop.php' )], 'config' );
-		$this->publishes( [dirname( $basedir ) . $ds . 'public' => public_path( 'packages/aimeos/shop' )], 'public' );
+		$this->publishes( [dirname( $basedir ) . $ds . 'public' => public_path( 'vendor/shop' )], 'public' );
 
 		if( file_exists( $basepath = base_path( 'ext' ) ) )
 		{
 			foreach( new \DirectoryIterator( $basepath ) as $entry )
 			{
 				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/client/html/themes' ) ) {
-					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'packages/aimeos/shop/themes' )], 'public' );
+					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'vendor/shop/themes' )], 'public' );
 				}
 			}
 		}

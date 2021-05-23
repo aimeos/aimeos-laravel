@@ -227,7 +227,7 @@ return [
 			],
 			'common' => [
 				'template' => [
-					'baseurl' => public_path( 'packages/aimeos/shop/themes/elegance' ),
+					'baseurl' => public_path( 'vendor/shop/themes/elegance' ),
 				],
 			],
 			'basket' => [

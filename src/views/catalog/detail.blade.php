@@ -1,8 +1,7 @@
 @extends('shop::base')
 
 @section('aimeos_scripts')
-	@parent
-    <script type="text/javascript" src="<?php echo asset( 'packages/aimeos/shop/themes/aimeos-detail.js' ); ?>"></script>
+    <script type="text/javascript" src="{{ asset('vendor/shop/themes/aimeos-detail.js') }}"></script>
 @stop
 
 @section('aimeos_header')
