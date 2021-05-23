@@ -51,7 +51,7 @@ return [
 		],
 		'fs' => [
 			'adapter' => 'Standard',
-			'basedir' => public_path(),
+			'basedir' => public_path( 'aimeos' ),
 			'tempdir' => storage_path( 'tmp' ),
 			'baseurl' => config( 'app.url' ),
 		],
