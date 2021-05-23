@@ -9,8 +9,6 @@
 
 namespace Aimeos\Shop\Base;
 
-use Illuminate\Support\Facades\View;
-
 
 /**
  * Service providing the shop object
@@ -85,6 +83,6 @@ class Shop
 	public function template( string $name ) : string
 	{
 		$theme = $this->context->getLocale()->getSiteItem()->getTheme();
-		return View::exists( $theme . '::' . $name ) ? $theme . '::' . $name : 'shop::' . $name;
+		return \Illuminate\Support\Facades\View::exists( $theme . '::' . $name ) ? $theme . '::' . $name : 'shop::' . $name;
 	}
 }
