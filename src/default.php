@@ -53,7 +53,7 @@ return [
 			'adapter' => 'Standard',
 			'basedir' => public_path( 'aimeos' ),
 			'tempdir' => storage_path( 'tmp' ),
-			'baseurl' => config( 'app.url' ),
+			'baseurl' => rtrim( config( 'app.url' ), '/' ) . '/aimeos',
 		],
 		'fs-admin' => [
 			'adapter' => 'Standard',
@@ -78,7 +78,6 @@ return [
 			'from-email' => config( 'mail.from.address' ),
 			'from-name' => config( 'mail.from.name' ),
 		],
-
 	],
 
 	'admin' => [
