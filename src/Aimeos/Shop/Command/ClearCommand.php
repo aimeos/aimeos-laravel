@@ -42,7 +42,7 @@ class ClearCommand extends AbstractCommand
 	{
 		$this->info( 'Clearing Aimeos cache', 'v' );
 
-		$context = $this->getLaravel()->make( 'Aimeos\Shop\Base\Context' )->get( false, 'command' );
+		$context = $this->getLaravel()->make( 'aimeos.context' )->get( false, 'command' );
 		$context->setEditor( 'aimeos:clear' );
 
 		\Aimeos\MAdmin::create( $context, 'cache' )->getCache()->clear();
