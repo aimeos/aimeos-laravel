@@ -53,7 +53,7 @@ return [
 			'adapter' => 'Standard',
 			'basedir' => public_path( 'aimeos' ),
 			'tempdir' => storage_path( 'tmp' ),
-			'baseurl' => rtrim( env( 'ASSET_URL', public_path() ), '/' ) . '/aimeos',
+			'baseurl' => rtrim( env( 'ASSET_URL' ), '/' ) . '/aimeos',
 		],
 		'fs-admin' => [
 			'adapter' => 'Standard',
