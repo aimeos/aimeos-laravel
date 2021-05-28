@@ -53,8 +53,8 @@
 	<div class="content">
 		@yield('aimeos_stage')
 		@yield('aimeos_nav')
-		@yield('aimeos_aside')
 		@yield('aimeos_body')
+		@yield('aimeos_aside')
 		@yield('content')
 	</div>
 	<footer class="mt-5 p-5">

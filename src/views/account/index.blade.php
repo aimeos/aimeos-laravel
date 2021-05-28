@@ -1,6 +1,7 @@
 @extends('shop::base')
 
 @section('aimeos_header')
+    <title>{{ __( 'Profile') }} }}</title>
     <?= $aiheader['basket/mini'] ?? '' ?>
     <?= $aiheader['account/profile'] ?? '' ?>
     <?= $aiheader['account/review'] ?? '' ?>
