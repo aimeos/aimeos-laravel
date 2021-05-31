@@ -75,7 +75,7 @@ return [
 			'db' => 'db',
 		],
 		'email' => [
-			'from-email' => config( 'mail.from.address' ),
+			'from-address' => config( 'mail.from.address' ),
 			'from-name' => config( 'mail.from.name' ),
 		],
 	],
