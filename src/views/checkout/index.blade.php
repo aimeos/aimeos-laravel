@@ -1,7 +1,7 @@
 @extends('shop::base')
 
 @section('aimeos_header')
-    <title>{{ __( 'Checkout') }} }}</title>
+    <title>{{ __( 'Checkout') }}</title>
     <?= $aiheader['checkout/standard'] ?>
 @stop
 
