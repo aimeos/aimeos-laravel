@@ -103,8 +103,7 @@ class Context
 			$this->context->setLocale( $localeItem );
 			$this->context->setI18n( $this->i18n->get( array( $localeItem->getLanguageId() ) ) );
 
-			$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $localeItem->getSiteItem()->getConfig() );
-			$this->context->setConfig( $config );
+			$config->apply( $localeItem->getSiteItem()->getConfig() );
 		}
 
 		return $this->context;
