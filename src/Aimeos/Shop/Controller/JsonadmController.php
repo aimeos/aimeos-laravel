@@ -137,7 +137,7 @@ class JsonadmController extends Controller
 		$resource = Route::input( 'resource', '' );
 
 		$aimeos = app( 'aimeos' )->get();
-		$templatePaths = $aimeos->getCustomPaths( 'admin/jsonadm/templates' );
+		$templatePaths = $aimeos->getTemplatePaths( 'admin/jsonadm/templates' );
 
 		$context = app( 'aimeos.context' )->get( false, 'backend' );
 		$context->setI18n( app( 'aimeos.i18n' )->get( array( $lang, 'en' ) ) );

@@ -45,9 +45,10 @@ class Shop
 		\Aimeos\Shop\Base\Context $context, \Aimeos\Shop\Base\View $view )
 	{
 		$this->context = $context->get();
+		$locale = $this->context->getLocale();
 
-		$langid = $this->context->getLocale()->getLanguageId();
-		$tmplPaths = $aimeos->get()->getCustomPaths( 'client/html/templates' );
+		$tmplPaths = $aimeos->get()->getTemplatePaths( 'client/html/templates', $locale->getSiteItem()->getTheme() );
+		$langid = $locale->getLanguageId();
 
 		$this->view = $view->create( $this->context, $tmplPaths, $langid );
 		$this->context->setView( $this->view );

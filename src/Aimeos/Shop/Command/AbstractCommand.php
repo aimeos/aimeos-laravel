@@ -56,11 +56,13 @@ abstract class AbstractCommand extends Command
 
 				$lcontext = clone $context;
 				$lcontext->setLocale( $localeItem );
-				$config = $lcontext->getConfig();
 
-				foreach( $siteItem->getConfig() as $key => $value ) {
-					$config->set( $key, $value );
-				}
+				$tmplPaths = $aimeos->getTemplatePaths( 'controller/jobs/templates', $siteItem->getTheme() );
+				$view = $this->getLaravel()->make( 'aimeos.view' )->create( $lcontext, $tmplPaths );
+				$lcontext->setView( $view );
+
+				$config = $lcontext->getConfig();
+				$config->apply( $siteItem->getConfig() );
 
 				$process->start( $fcn, [$lcontext, $aimeos], false );
 			}

@@ -52,7 +52,7 @@ class Aimeos
 			$dir = base_path( 'ext' );
 
 			if( !is_dir( $dir ) ) {
-				$dir = dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . DIRECTORY_SEPARATOR . 'ext';
+				$dir = dirname( __DIR__, 4 ) . DIRECTORY_SEPARATOR . 'ext';
 			}
 
 			$extDirs = (array) $this->config->get( 'shop.extdir', $dir );

@@ -55,12 +55,11 @@ class JobsCommand extends AbstractCommand
 			};
 
 			$process = $lcontext->getProcess();
+			$site = $lcontext->getLocale()->getSiteItem()->getCode();
 
 			foreach( $jobs as $jobname )
 			{
-				$site = $lcontext->getLocale()->getSiteItem()->getCode();
 				$this->info( sprintf( 'Executing Aimeos jobs "%s" for "%s"', $jobname, $site ), 'v' );
-
 				$process->start( $jobfcn, [$lcontext, $aimeos, $jobname], false );
 			}
 
@@ -79,18 +78,13 @@ class JobsCommand extends AbstractCommand
 	protected function getContext() : \Aimeos\MShop\Context\Item\Iface
 	{
 		$lv = $this->getLaravel();
-		$aimeos = $lv->make( 'aimeos' )->get();
 		$context = $lv->make( 'aimeos.context' )->get( false, 'command' );
-
-		$tmplPaths = $aimeos->getCustomPaths( 'controller/jobs/templates' );
-		$view = $lv->make( 'aimeos.view' )->create( $context, $tmplPaths );
 
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$langids = $langManager->search( $langManager->filter( true ) )->keys()->toArray();
 		$i18n = $lv->make( 'aimeos.i18n' )->get( $langids );
 
 		$context->setEditor( 'aimeos:jobs' );
-		$context->setView( $view );
 		$context->setI18n( $i18n );
 
 		return $context;

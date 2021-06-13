@@ -108,7 +108,7 @@ class JsonapiController extends Controller
 		$related = Route::input( 'related', Request::get( 'related' ) );
 
 		$aimeos = app( 'aimeos' )->get();
-		$tmplPaths = $aimeos->getCustomPaths( 'client/jsonapi/templates' );
+		$tmplPaths = $aimeos->getTemplatePaths( 'client/jsonapi/templates' );
 
 		$context = app( 'aimeos.context' )->get();
 		$langid = $context->getLocale()->getLanguageId();
