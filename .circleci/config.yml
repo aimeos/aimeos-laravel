@@ -16,7 +16,7 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~6.0" "phpunit/phpunit:~8.0" --no-update
       - restore_cache:
           keys:
@@ -39,7 +39,7 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~7.0" "phpunit/phpunit:~8.0" --no-update
       - restore_cache:
           keys:
@@ -62,7 +62,7 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
       - restore_cache:
           keys:
@@ -85,7 +85,7 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
       - restore_cache:
           keys:
