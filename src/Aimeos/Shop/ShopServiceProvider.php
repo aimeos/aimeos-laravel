@@ -36,7 +36,7 @@ class ShopServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$ds = DIRECTORY_SEPARATOR;
-		$basedir = dirname( dirname( __DIR__ ) ) . $ds;
+		$basedir = dirname( __DIR__, 2 ) . $ds;
 
 		$this->loadRoutesFrom( $basedir . 'routes.php' );
 		$this->loadViewsFrom( $basedir . 'views', 'shop' );
@@ -50,6 +50,23 @@ class ShopServiceProvider extends ServiceProvider {
 			{
 				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/client/html/themes' ) ) {
 					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'vendor/shop/themes' )], 'public' );
+				}
+			}
+		}
+
+		$class = '\Composer\InstalledVersions';
+
+		if( class_exists( $class ) && method_exists( $class, 'getInstalledPackagesByType' ) )
+		{
+			$extdir = base_path( 'ext' );
+			$packages = \Composer\InstalledVersions::getInstalledPackagesByType( 'aimeos-extension' );
+
+			foreach( $packages as $package )
+			{
+				$path = realpath( \Composer\InstalledVersions::getInstallPath( $package ) );
+
+				if( strncmp( $path, $extdir, strlen( $extdir ) ) && file_exists( $path . '/client/html/themes' ) ) {
+					$this->publishes( [$path . '/client/html/themes' => public_path( 'vendor/shop/themes' )], 'public' );
 				}
 			}
 		}
