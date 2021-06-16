@@ -16,11 +16,12 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: composer req "laravel/framework:~6.0" "phpunit/phpunit:~8.0" --no-update
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: php composer req "laravel/framework:~6.0" "phpunit/phpunit:~8.0" --no-update
       - restore_cache:
           keys:
             - php72-{{ checksum "composer.json" }}
-      - run: composer update -n --prefer-dist
+      - run: php composer update -n --prefer-dist
       - save_cache:
           key: php72-{{ checksum "composer.json" }}
           paths: [./vendor]
@@ -38,11 +39,12 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: composer req "laravel/framework:~7.0" "phpunit/phpunit:~8.0" --no-update
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: php composer req "laravel/framework:~7.0" "phpunit/phpunit:~8.0" --no-update
       - restore_cache:
           keys:
             - php73-{{ checksum "composer.json" }}
-      - run: composer update -n --prefer-dist
+      - run: php composer update -n --prefer-dist
       - save_cache:
           key: php73-{{ checksum "composer.json" }}
           paths: [./vendor]
@@ -60,11 +62,12 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: php composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
       - restore_cache:
           keys:
             - php74-{{ checksum "composer.json" }}
-      - run: composer update -n --prefer-dist
+      - run: php composer update -n --prefer-dist
       - save_cache:
           key: php74-{{ checksum "composer.json" }}
           paths: [./vendor]
@@ -82,11 +85,12 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
+      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -o composer
+      - run: php composer req "laravel/framework:~8.0" "phpunit/phpunit:~9.0" --no-update
       - restore_cache:
           keys:
             - php80-{{ checksum "composer.json" }}
-      - run: composer update -n --prefer-dist
+      - run: php composer update -n --prefer-dist
       - save_cache:
           key: php80-{{ checksum "composer.json" }}
           paths: [./vendor]

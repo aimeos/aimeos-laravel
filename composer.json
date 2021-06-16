@@ -17,6 +17,7 @@
         "symfony/http-foundation": "v5.2.0"
     },
     "require": {
+        "composer-runtime-api": "^2.1",
         "doctrine/dbal": "~2.5",
         "laravel/framework": "^6.20.12||^7.30.4||^8.40.0",
         "symfony/psr-http-message-bridge": "~2.0",
