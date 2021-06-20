@@ -22,12 +22,12 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@fileAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
 
-		Route::match( array( 'GET', 'POST' ), 'copy/{resource}/{id}', array(
+		Route::match( array( 'GET' ), 'copy/{resource}/{id}', array(
 			'as' => 'aimeos_shop_jqadm_copy',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] )->where( array( 'resource' => '[a-z\/]+' ) );
 
-		Route::match( array( 'GET', 'POST' ), 'create/{resource}', array(
+		Route::match( array( 'GET' ), 'create/{resource}', array(
 			'as' => 'aimeos_shop_jqadm_create',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@createAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] )->where( array( 'resource' => '[a-z\/]+' ) );
