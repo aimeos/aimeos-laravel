@@ -53,7 +53,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@deleteAction', $params );
+		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JqadmController@deleteAction', $params );
 
 		$this->assertEquals( 302, $response->getStatusCode() );
 	}
