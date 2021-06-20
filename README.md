@@ -44,12 +44,15 @@ If you want to **upgrade between major versions**, please have a look into the
 ### Full shop application
 
 If you want to set up a new application or test Aimeos, we recommend the
-[Aimeos shop application](https://github.com/aimeos/aimeos). It will install a
-complete shop system using the **last LTS version** including demo data for a quick
-start without the need to follow the steps described in this readme:
+[Aimeos shop application](https://github.com/aimeos/aimeos). You need
+*composer 2.1+* to install Aimeos.
+
+It will install a complete shop system including demo data for a quick start
+without the need to follow the steps described in this readme.
 
 ```
-composer create-project aimeos/aimeos myshop
+wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
+php composer create-project aimeos/aimeos myshop
 ```
 
 More about the full package: :star: [Aimeos shop](https://github.com/aimeos/aimeos)
@@ -57,11 +60,12 @@ More about the full package: :star: [Aimeos shop](https://github.com/aimeos/aime
 ### Shop package only
 
 The Aimeos Laravel online shop package is a composer based library. It can be
-installed easiest by using [Composer](https://getcomposer.org) in the root
+installed easiest by using [Composer 2.1+](https://getcomposer.org) in the root
 directory of your exisisting Laravel application:
 
 ```
-composer require aimeos/aimeos-laravel:~2021.04
+wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
+php composer require aimeos/aimeos-laravel:~2021.04
 ```
 
 ## Database
