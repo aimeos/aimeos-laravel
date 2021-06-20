@@ -32,7 +32,7 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@createAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] )->where( array( 'resource' => '[a-z\/]+' ) );
 
-		Route::match( array( 'GET', 'POST' ), 'delete/{resource}/{id?}', array(
+		Route::match( array( 'POST' ), 'delete/{resource}/{id?}', array(
 			'as' => 'aimeos_shop_jqadm_delete',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@deleteAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] )->where( array( 'resource' => '[a-z\/]+' ) );
