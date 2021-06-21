@@ -37,6 +37,6 @@ class BasketController extends Controller
 		}
 
 		return Response::view( Shop::template( 'basket.index' ), $params )
-			->header( 'Cache-Control', 'no-store' );
+			->header( 'Cache-Control', 'no-store, no-cache, must-revalidate' );
 	}
 }
