@@ -134,7 +134,7 @@ class JsonadmController extends Controller
 	{
 		// allow requests only if they are from within the admin backend
 		$cnt = count( explode( '/', request()->route()->getPrefix() ) ) - 1;
-		$base = request()->root() . '/' . join( '/', array_slice( request()->segments(), 0 , $cnt ) );
+		$base = request()->root() . '/' . join( '/', array_slice( request()->segments(), 0, $cnt ) );
 
 		if( strncmp( url()->previous(), $base, strlen( $base ) ) ) {
 			abort( 403 );

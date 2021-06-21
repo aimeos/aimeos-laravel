@@ -125,6 +125,14 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
+		// allow requests only if they are from within the admin backend
+		$cnt = count( explode( '/', request()->route()->getPrefix() ) ) - 1;
+		$base = request()->root() . '/' . join( '/', array_slice( request()->segments(), 0, $cnt ) );
+
+		if( strncmp( url()->previous(), $base, strlen( $base ) ) ) {
+			abort( 403 );
+		}
+
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->delete() ) == '' ) {
@@ -188,6 +196,14 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
+		// allow requests only if they are from within the admin backend
+		$cnt = count( explode( '/', request()->route()->getPrefix() ) ) - 1;
+		$base = request()->root() . '/' . join( '/', array_slice( request()->segments(), 0, $cnt ) );
+
+		if( strncmp( url()->previous(), $base, strlen( $base ) ) ) {
+			abort( 403 );
+		}
+
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->save() ) == '' ) {
@@ -226,14 +242,6 @@ class JqadmController extends AdminController
 	 */
 	protected function createAdmin() : \Aimeos\Admin\JQAdm\Iface
 	{
-		// allow requests only if they are from within the admin backend
-		$cnt = count( explode( '/', request()->route()->getPrefix() ) ) - 1;
-		$base = request()->root() . '/' . join( '/', array_slice( request()->segments(), 0 , $cnt ) );
-
-		if( strncmp( url()->previous(), $base, strlen( $base ) ) ) {
-			abort( 403 );
-		}
-
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
 		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
