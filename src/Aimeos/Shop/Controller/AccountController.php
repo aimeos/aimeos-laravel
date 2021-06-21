@@ -36,7 +36,8 @@ class AccountController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
 		}
 
-		return Response::view( Shop::template( 'account.index' ), $params );
+		return Response::view( Shop::template( 'account.index' ), $params )
+			->header( 'Cache-Control', 'no-store' );
 	}
 
 
