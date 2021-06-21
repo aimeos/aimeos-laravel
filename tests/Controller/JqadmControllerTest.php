@@ -51,6 +51,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 	public function testDeleteAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/unittest' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];
 		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JqadmController@deleteAction', $params );
@@ -86,6 +87,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 	public function testSaveAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/unittest' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => '0'];
 		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JqadmController@saveAction', $params );

@@ -5,6 +5,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	public function testOptionsActionSite()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/invalid' );
 
 		$params = ['site' => 'invalid', 'resource' => 'product'];
 		$response = $this->action( 'OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params );
@@ -19,6 +20,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	public function testOptionsAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/unittest' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product'];
 		$response = $this->action( 'OPTIONS', '\Aimeos\Shop\Controller\JsonadmController@optionsAction', $params );
@@ -46,6 +48,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	public function testActionsSingle()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/unittest' );
 
 		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":{"type":"stock/type","attributes":{"stock.type.code":"laravel","stock.type.label":"laravel"}}}';
@@ -106,6 +109,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	public function testActionsBulk()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/unittest' );
 
 		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":[
@@ -190,6 +194,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 	public function testPutAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+		$this->app['session']->setPreviousUrl( 'http://localhost/unittest' );
 
 		$params = ['site' => 'unittest', 'resource' => 'stock/type'];
 		$content = '{"data":[
