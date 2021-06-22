@@ -19,7 +19,8 @@
 		<style>
 			body.dark .btn-theme.dark-mode {display:none}
 			body.light .btn-theme.light-mode {display:none}
-			.app-menu .icon {vertical-align: middle; padding: 0.5rem 1rem; font-size: 125%}
+			.app-menu .icon {vertical-align: middle; padding: 0.5rem 1rem; font-size: 125%; background-color: transparent; border: none; color: inherit}
+			#logout-form {display: inline}
 		</style>
 	</head>
 	<body class="{{ $theme }}">
@@ -27,8 +28,7 @@
 			<span class="menu"></span>
 			<div class="app-menu-end">
 				<i class="icon btn-theme light-mode fa fa-sun-o"></i><i class="icon btn-theme dark-mode fa fa-moon-o"></i>
-				<i class="icon logout fa fa-sign-out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></i>
-				<form id="logout-form" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+				<form id="logout-form" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST">{{ csrf_field() }}<button class="icon logout fa fa-sign-out"></button></form>
 			</div>
 		</div>
 
