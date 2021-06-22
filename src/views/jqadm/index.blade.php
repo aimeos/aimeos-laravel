@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'unsafe-inline' 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; script-src 'unsafe-eval' 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://demo.aimeos.org https://aimeos.org data:">
+
 		<title>Aimeos administration interface</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
@@ -29,24 +31,9 @@
 				<form id="logout-form" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 			</div>
 		</div>
-		<script>
-			const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-			if (prefersDark.matches && !document.cookie.includes('aimeos_backend_theme=light')) {
-				['light', 'dark'].map(cl => document.body.classList.toggle(cl));
-			}
-
-			document.querySelectorAll(".btn-theme").forEach(item => {
-				item.addEventListener("click", function() {
-					['light', 'dark'].map(cl => document.body.classList.toggle(cl));
-					const theme = document.body.classList.contains("dark") ? "dark" : "light";
-					document.cookie = "aimeos_backend_theme=" + theme + ";path=/";
-				});
-			});
-		</script>
 
 <?= $content ?>
 
-		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
