@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net; style-src 'unsafe-inline' 'self' https://cdn.jsdelivr.net; img-src 'self' https://cdn.jsdelivr.net https://demo.aimeos.org https://aimeos.org data:">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	@yield('aimeos_header')
 	<title>{{ config('app.name', 'Aimeos') }}</title>
@@ -88,7 +89,6 @@
 		</div>
 	</footer>
 	<!-- Scripts -->
-	<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/npm/jquery@3,npm/bootstrap@4"></script>
 	<script type="text/javascript" src="{{ asset('vendor/shop/themes/aimeos.js') }}"></script>
 	<script type="text/javascript" src="{{ asset(config('shop.client.html.common.template.baseurl', 'vendor/shop/themes/elegance') . '/aimeos.js') }}"></script>
