@@ -5,6 +5,7 @@
 @stop
 
 @section('aimeos_header')
+    <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
     <?= $aiheader['catalog/stage'] ?? '' ?>
     <?= $aiheader['catalog/detail'] ?? '' ?>
@@ -12,7 +13,17 @@
 @stop
 
 @section('aimeos_head')
+    <?= $aibody['locale/select'] ?? '' ?>
     <?= $aibody['basket/mini'] ?? '' ?>
+@stop
+
+@section('aimeos_nav')
+    <?= $aibody['catalog/filter'] ?? '' ?>
+    <?= $aibody['catalog/search'] ?? '' ?>
+    <?= $aibody['catalog/tree'] ?? '' ?>
+    <?= $aibody['catalog/price'] ?? '' ?>
+    <?= $aibody['catalog/supplier'] ?? '' ?>
+    <?= $aibody['catalog/attribute'] ?? '' ?>
 @stop
 
 @section('aimeos_stage')
@@ -20,7 +31,9 @@
 @stop
 
 @section('aimeos_body')
-    <?= $aibody['catalog/detail'] ?? '' ?>
+    <div class="container">
+        <?= $aibody['catalog/detail'] ?? '' ?>
+    </div>
 @stop
 
 @section('aimeos_aside')

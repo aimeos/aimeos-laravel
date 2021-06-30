@@ -9,7 +9,7 @@
     <?= $aiheader['catalog/supplier'] ?? '' ?>
     <?= $aiheader['catalog/attribute'] ?? '' ?>
     <?= $aiheader['catalog/home'] ?? '' ?>
-    <?= $aiheader['catalog/lists'] ?? '' ?>
+    <?= $aiheader['cms/page'] ?? '' ?>
 @stop
 
 @section('aimeos_head')
@@ -27,5 +27,5 @@
 
 @section('aimeos_body')
     <?= $aibody['catalog/home'] ?? '' ?>
-    <?= $aibody['catalog/lists'] ?? '' ?>
+    <?= $aibody['cms/page'] ?? '' ?>
 @stop
