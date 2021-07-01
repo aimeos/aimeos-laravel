@@ -1,6 +1,7 @@
 @extends('shop::base')
 
 @section('aimeos_header')
+    <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
     <?= $aiheader['catalog/filter'] ?? '' ?>
     <?= $aiheader['catalog/search'] ?? '' ?>
@@ -13,6 +14,7 @@
 @stop
 
 @section('aimeos_head')
+    <?= $aibody['locale/select'] ?? '' ?>
     <?= $aibody['basket/mini'] ?? '' ?>
 @stop
 

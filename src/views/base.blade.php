@@ -29,6 +29,8 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				@yield('aimeos_nav')
+
 				<ul class="navbar-nav">
 					@if (Auth::guest())
 						<li class="nav-item login"><a class="nav-link" href="/login">{{ __( 'Login' ) }}</a></li>
@@ -46,40 +48,47 @@
 			</div>
 		</nav>
 
+		@yield('aimeos_stage')
+
 		<div class="content">
-			@yield('aimeos_stage')
-			@yield('aimeos_nav')
 			@yield('aimeos_body')
-			@yield('aimeos_aside')
 			@yield('content')
 		</div>
 
 		<footer>
-			<div class="row">
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-sm-6 footer-right">
-							<h2 class="pb-3">LEGAL</h2>
-							<p><a href="#">Terms & Conditions</a></p>
-							<p><a href="#">Privacy Notice</a></p>
-							<p><a href="#">Imprint</a></p>
-						</div>
-						<div class="col-sm-6 footer-center">
-							<h2 class="pb-3">ABOUT US</h2>
-							<p><a href="#">Contact us</a></p>
-							<p><a href="#">Company</a></p>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-sm-6 footer-right">
+								<div class="footer-block">
+									<h2 class="pb-3">LEGAL</h2>
+									<p><a href="#">Terms & Conditions</a></p>
+									<p><a href="#">Privacy Notice</a></p>
+									<p><a href="#">Imprint</a></p>
+								</div>
+							</div>
+							<div class="col-sm-6 footer-center">
+								<div class="footer-block">
+									<h2 class="pb-3">ABOUT US</h2>
+									<p><a href="#">Contact us</a></p>
+									<p><a href="#">Company</a></p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4 footer-right">
-					<a class="logo" href="/">
-						<img src="https://aimeos.org/media/logo.png" title="Logo">
-					</a>
-					<div class="social">
-						<p><i class="bi">facebook</i><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
-						<p><i class="bi">twitter</i><a href="#" class="sm twitter" title="Twitter" rel="noopener">Twitter</a></p>
-						<p><i class="bi">instagram</i><a href="#" class="sm instagram" title="Instagram" rel="noopener">Instagram</a></p>
-						<p><i class="bi">youtube</i><a href="#" class="sm youtube" title="Youtube" rel="noopener">Youtube</a></p>
+					<div class="col-md-4 footer-right">
+						<div class="footer-block">
+							<a class="logo" href="/">
+								<img src="https://aimeos.org/media/logo.png" title="Logo">
+							</a>
+							<div class="social">
+								<p><i class="bi">facebook</i><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
+								<p><i class="bi">twitter</i><a href="#" class="sm twitter" title="Twitter" rel="noopener">Twitter</a></p>
+								<p><i class="bi">instagram</i><a href="#" class="sm instagram" title="Instagram" rel="noopener">Instagram</a></p>
+								<p><i class="bi">youtube</i><a href="#" class="sm youtube" title="Youtube" rel="noopener">Youtube</a></p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
