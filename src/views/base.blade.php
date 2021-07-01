@@ -4,15 +4,19 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net; style-src 'unsafe-inline' 'self' https://cdn.jsdelivr.net; img-src 'self' https://cdn.jsdelivr.net https://demo.aimeos.org https://aimeos.org data:">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.jsdelivr.net; style-src 'unsafe-inline' 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://cdn.jsdelivr.net https://aimeos.org">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		@yield('aimeos_header')
 
 		<title>{{ config('app.name', 'Aimeos') }}</title>
 
+		<link rel="preload" href="/vendor/shop/themes/default/fonts/roboto-condensed-v19-latin/roboto-condensed-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/vendor/shop/themes/default/fonts/roboto-condensed-v19-latin/roboto-condensed-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/vendor/shop/themes/default/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+
 		<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="{{ asset(config('shop.client.html.common.template.baseurl', 'vendor/shop/themes/elegance') . '/aimeos.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/aimeos.css') }}" />
 
 		@yield('aimeos_styles')
 	</head>
@@ -27,13 +31,13 @@
 			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 				<ul class="navbar-nav">
 					@if (Auth::guest())
-						<li class="nav-item login"><a class="nav-link" href="/login">Login</a></li>
+						<li class="nav-item login"><a class="nav-link" href="/login">{{ __( 'Login' ) }}</a></li>
 					@else
 						<li class="nav-item profile dropdown">
-							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __( 'Account' ) }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a class="nav-link" href="{{ route('aimeos_shop_account',['site'=>Route::current()->parameter('site','default'),'locale'=>Route::current()->parameter('locale','en'),'currency'=>Route::current()->parameter('currency','EUR')]) }}" title="Profile">Profile</a></li>
-								<li><form id="logout" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST">{{ csrf_field() }}<button class="nav-link">Logout</button></form></li>
+								<li><a class="nav-link" href="{{ route( 'aimeos_shop_account', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', 'en' ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}">{{ __( 'Profile' ) }}</a></li>
+								<li><form id="logout" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST">{{ csrf_field() }}<button class="nav-link">{{ __( 'Logout' ) }}</button></form></li>
 							</ul>
 						</li>
 					@endif
@@ -89,8 +93,7 @@
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/npm/jquery@3,npm/bootstrap@4"></script>
-		<script type="text/javascript" src="{{ asset('vendor/shop/themes/aimeos.js') }}"></script>
-		<script type="text/javascript" src="{{ asset(config('shop.client.html.common.template.baseurl', 'vendor/shop/themes/elegance') . '/aimeos.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('vendor/shop/themes/default/aimeos.js') }}"></script>
 		@yield('aimeos_scripts')
 	</body>
 </html>
