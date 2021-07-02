@@ -23,7 +23,6 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$this->assertResponseOk();
 		$this->assertStringContainsString( '<section class="aimeos catalog-stage', $response->getContent() );
 		$this->assertStringContainsString( '<section class="aimeos catalog-detail', $response->getContent() );
-		$this->assertStringContainsString( '<section class="aimeos catalog-session', $response->getContent() );
 	}
 
 
