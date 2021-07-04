@@ -1,12 +1,14 @@
 @extends('shop::base')
 
 @section('aimeos_scripts')
-    <script type="text/javascript" src="{{ asset('vendor/shop/themes/aimeos-detail.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/shop/themes/default/aimeos-detail.js') }}"></script>
 @stop
 
 @section('aimeos_header')
     <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
+    <?= $aiheader['catalog/tree'] ?? '' ?>
+    <?= $aiheader['catalog/search'] ?? '' ?>
     <?= $aiheader['catalog/stage'] ?? '' ?>
     <?= $aiheader['catalog/detail'] ?? '' ?>
     <?= $aiheader['catalog/session'] ?? '' ?>
@@ -18,12 +20,8 @@
 @stop
 
 @section('aimeos_nav')
-    <?= $aibody['catalog/filter'] ?? '' ?>
-    <?= $aibody['catalog/search'] ?? '' ?>
     <?= $aibody['catalog/tree'] ?? '' ?>
-    <?= $aibody['catalog/price'] ?? '' ?>
-    <?= $aibody['catalog/supplier'] ?? '' ?>
-    <?= $aibody['catalog/attribute'] ?? '' ?>
+    <?= $aibody['catalog/search'] ?? '' ?>
 @stop
 
 @section('aimeos_stage')

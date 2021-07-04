@@ -18,14 +18,29 @@
 @stop
 
 @section('aimeos_nav')
-    <?= $aibody['catalog/filter'] ?? '' ?>
-    <?= $aibody['catalog/search'] ?? '' ?>
     <?= $aibody['catalog/tree'] ?? '' ?>
-    <?= $aibody['catalog/price'] ?? '' ?>
-    <?= $aibody['catalog/supplier'] ?? '' ?>
-    <?= $aibody['catalog/attribute'] ?? '' ?>
+    <?= $aibody['catalog/search'] ?? '' ?>
 @stop
 
 @section('aimeos_body')
-     <?= $aibody['catalog/lists'] ?? '' ?>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-3">
+                <div class="shop-tools">
+                    <?= $aibody['catalog/price'] ?? '' ?>
+                    <?= $aibody['catalog/supplier'] ?? '' ?>
+                    <?= $aibody['catalog/attribute'] ?? '' ?>
+                </div>
+                <div class="advert">
+                    <?= $aibody['cms/page'] ?? '' ?>
+                </div>
+                <div class="shop-tools">
+                    <?= $aibody['catalog/session'] ?? '' ?>
+                </div>
+            </aside>
+            <div class="col-lg-9">
+                <?= $aibody['catalog/lists'] ?>
+            </div>
+        </div>
+    </div>
 @stop

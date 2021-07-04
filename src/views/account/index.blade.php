@@ -2,6 +2,7 @@
 
 @section('aimeos_header')
     <title>{{ __( 'Profile') }}</title>
+    <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
     <?= $aiheader['account/profile'] ?? '' ?>
     <?= $aiheader['account/review'] ?? '' ?>
@@ -13,6 +14,7 @@
 @stop
 
 @section('aimeos_head')
+    <?= $aibody['locale/select'] ?? '' ?>
     <?= $aibody['basket/mini'] ?? '' ?>
 @stop
 

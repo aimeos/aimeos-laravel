@@ -8,7 +8,9 @@
 @stop
 
 @section('aimeos_body')
-    <?= $aibody['basket/bulk'] ?? '' ?>
-    <?= $aibody['basket/standard'] ?? '' ?>
-    <?= $aibody['basket/related'] ?? '' ?>
+    <div class="container">
+        <?= $aibody['basket/standard'] ?? '' ?>
+        <?= $aibody['basket/related'] ?? '' ?>
+        <?= $aibody['basket/bulk'] ?? '' ?>
+    </div>
 @stop
