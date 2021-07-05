@@ -51,9 +51,8 @@
 		    </div>
 		</nav>
 
-		@yield('aimeos_stage')
-
 		<div class="content">
+			@yield('aimeos_stage')
 			@yield('aimeos_body')
 			@yield('content')
 		</div>
