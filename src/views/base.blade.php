@@ -19,11 +19,13 @@
 		<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/aimeos.css') }}" />
 
 		@yield('aimeos_styles')
+
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-md navbar-light">
+		<nav class="navbar navbar-expand-md navbar-light navbar-top">
+		    <div class="container">
 			<a class="navbar-brand" href="/">
-				<img src="https://aimeos.org/media/logo.png" height="30" title="Aimeos Logo">
+				<img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Aimeos Logo" style="width: auto" title="Logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -33,12 +35,12 @@
 
 				<ul class="navbar-nav">
 					@if (Auth::guest())
-						<li class="nav-item login"><a class="nav-link" href="/login">{{ __( 'Login' ) }}</a></li>
+						<li class="nav-item login"><a class="nav-link" href="/login"><span>{{ __( 'Login' ) }}</span></a></li>
 					@else
-						<li class="nav-item profile dropdown">
-							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ __( 'Account' ) }} <span class="caret"></span></a>
+						<li class="nav-item login profile dropdown">
+						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{ __( 'Account' ) }}</span> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a class="nav-link" href="{{ route( 'aimeos_shop_account', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', 'en' ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}">{{ __( 'Profile' ) }}</a></li>
+								<li><a class="nav-link" href="{{ route( 'aimeos_shop_account', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', 'en' ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}"><span>{{ __( 'Profile' ) }}</span></a></li>
 								<li><form id="logout" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST">{{ csrf_field() }}<button class="nav-link">{{ __( 'Logout' ) }}</button></form></li>
 							</ul>
 						</li>
@@ -46,6 +48,7 @@
 				</ul>
 				@yield('aimeos_head')
 			</div>
+		    </div>
 		</nav>
 
 		@yield('aimeos_stage')
@@ -55,12 +58,13 @@
 			@yield('content')
 		</div>
 
+
 		<footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8">
 						<div class="row">
-							<div class="col-sm-6 footer-right">
+							<div class="col-sm-6 footer-left">
 								<div class="footer-block">
 									<h2 class="pb-3">LEGAL</h2>
 									<p><a href="#">Terms & Conditions</a></p>
@@ -80,7 +84,7 @@
 					<div class="col-md-4 footer-right">
 						<div class="footer-block">
 							<a class="logo" href="/">
-								<img src="https://aimeos.org/media/logo.png" title="Logo">
+							    <img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Aimeos Logo" style="width: auto" title="Logo">
 							</a>
 							<div class="social">
 								<p><i class="bi">facebook</i><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
@@ -93,6 +97,8 @@
 				</div>
 			</div>
 		</footer>
+
+
 
 		<a id="toTop" class="back-to-top" href="#">
 			<div class="top-icon">
