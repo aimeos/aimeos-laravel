@@ -24,8 +24,8 @@
 	<body>
 		<nav class="navbar navbar-expand-md navbar-light navbar-top">
 		    <div class="container">
-			<a class="navbar-brand" href="/">
-				<img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Aimeos Logo" style="width: auto" title="Logo">
+			<a class="navbar-brand" href="/" title="Logo">
+				<img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
 
 				<ul class="navbar-nav">
 					@if (Auth::guest())
-						<li class="nav-item login"><a class="nav-link" href="/login"><span>{{ __( 'Login' ) }}</span></a></li>
+						<li class="nav-item login"><a class="nav-link" href="/login" title="{{ __( 'Login' ) }}"><span>{{ __( 'Login' ) }}</span></a></li>
 					@else
 						<li class="nav-item login profile dropdown">
 						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{ __( 'Account' ) }}</span> <span class="caret"></span></a>
@@ -66,25 +66,25 @@
 						<div class="row">
 							<div class="col-sm-6 footer-left">
 								<div class="footer-block">
-									<h2 class="pb-3">LEGAL</h2>
-									<p><a href="#">Terms & Conditions</a></p>
-									<p><a href="#">Privacy Notice</a></p>
-									<p><a href="#">Imprint</a></p>
+									<h2 class="pb-3">{{ __( 'LEGAL' ) }}</h2>
+									<p><a href="#">{{ __( 'Terms & Conditions' ) }}</a></p>
+									<p><a href="#">{{ __( 'Privacy Notice' ) }}</a></p>
+									<p><a href="#">{{ __( 'Imprint' ) }}</a></p>
 								</div>
 							</div>
 							<div class="col-sm-6 footer-center">
 								<div class="footer-block">
-									<h2 class="pb-3">ABOUT US</h2>
-									<p><a href="#">Contact us</a></p>
-									<p><a href="#">Company</a></p>
+									<h2 class="pb-3">{{ __( 'ABOUT US' ) }}</h2>
+									<p><a href="#">{{ __( 'Contact us' ) }}</a></p>
+									<p><a href="#">{{ __( 'Company' ) }}</a></p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 footer-right">
 						<div class="footer-block">
-							<a class="logo" href="/">
-							    <img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Aimeos Logo" style="width: auto" title="Logo">
+							<a class="logo" href="/" title="Logo">
+							    <img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Logo">
 							</a>
 							<div class="social">
 								<p><i class="bi">facebook</i><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
@@ -100,7 +100,7 @@
 
 
 
-		<a id="toTop" class="back-to-top" href="#">
+		<a id="toTop" class="back-to-top" href="#" title="{{ __( 'Back to top' ) }}">
 			<div class="top-icon">
 				<i class="bi">arrow-up-short</i>
 			</div>
