@@ -8,8 +8,8 @@ return [
 	'num_formatter' => 'Locale', // locale based number formatter (alternative: "Standard")
 
 	'routes' => [
-		// Docs: https://aimeos.org/docs/Laravel/Custom_routes
-		// Multi-sites: https://aimeos.org/docs/Laravel/Configure_multiple_shops
+		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
+		// Multi-sites: https://aimeos.org/docs/latest/laravel/customize/#multiple-shops
 		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
@@ -22,21 +22,20 @@ return [
 
 	/*
 	'page' => [
-		// Docs: https://aimeos.org/docs/Laravel/Adapt_pages
-		// Hint: catalog/filter is also available as single 'catalog/search', 'catalog/tree', 'catalog/price', 'catalog/supplier' and 'catalog/attribute'
-		'account-index' => [ 'account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session' ],
-		'basket-index' => [ 'basket/bulk', 'basket/standard','basket/related' ],
+		// Docs: https://aimeos.org/docs/latest/laravel/extend/#adapt-pages
+		'account-index' => [ 'account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session','locale/select' ],
+		'basket-index' => [ 'basket/bulk','catalog/tree','catalog/search', 'basket/standard','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
-		'catalog-detail' => [ 'basket/mini','catalog/stage','catalog/detail','catalog/session' ],
-		'catalog-home' => [ 'basket/mini','catalog/search','catalog/tree','catalog/home' ],
-		'catalog-list' => [ 'basket/mini','catalog/filter','catalog/lists' ],
+		'catalog-detail' => [ 'basket/mini','catalog/tree','catalog/search','catalog/stage','catalog/detail','catalog/session','locale/select' ],
+		'catalog-home' => [ 'basket/mini','catalog/tree','catalog/search','catalog/home','locale/select','cms/page' ],
+		'catalog-list' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/lists','locale/select' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],
-		'catalog-tree' => [ 'basket/mini','catalog/filter','catalog/stage','catalog/lists' ],
-		'checkout-confirm' => [ 'checkout/confirm' ],
+		'catalog-tree' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists','locale/select' ],
+		'checkout-confirm' => [ 'checkout/confirm','catalog/tree','catalog/search' ],
 		'checkout-index' => [ 'checkout/standard' ],
 		'checkout-update' => [ 'checkout/update' ],
-		'supplier-detail' => [ 'basket/mini','supplier/detail','catalog/lists' ],
+		'supplier-detail' => ['basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists'],
 	],
 	*/
 
