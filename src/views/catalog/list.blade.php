@@ -3,12 +3,12 @@
 @section('aimeos_header')
     <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
-    <?= $aiheader['catalog/filter'] ?? '' ?>
     <?= $aiheader['catalog/search'] ?? '' ?>
     <?= $aiheader['catalog/tree'] ?? '' ?>
     <?= $aiheader['catalog/price'] ?? '' ?>
     <?= $aiheader['catalog/supplier'] ?? '' ?>
     <?= $aiheader['catalog/attribute'] ?? '' ?>
+    <?= $aiheader['catalog/stage'] ?? '' ?>
     <?= $aiheader['catalog/lists'] ?? '' ?>
 @stop
 
@@ -23,6 +23,7 @@
 @stop
 
 @section('aimeos_body')
+    <?= $aibody['catalog/stage'] ?? '' ?>
     <div class="container-fluid">
         <div class="row">
             <aside class="col-lg-3">
@@ -30,9 +31,6 @@
                     <?= $aibody['catalog/price'] ?? '' ?>
                     <?= $aibody['catalog/supplier'] ?? '' ?>
                     <?= $aibody['catalog/attribute'] ?? '' ?>
-                </div>
-                <div class="advert">
-                    <?= $aibody['cms/page'] ?? '' ?>
                 </div>
                 <div class="shop-tools">
                     <?= $aibody['catalog/session'] ?? '' ?>

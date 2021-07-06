@@ -35,9 +35,6 @@
                     <?= $aibody['catalog/supplier'] ?? '' ?>
                     <?= $aibody['catalog/attribute'] ?? '' ?>
                 </div>
-                <div class="advert">
-                    <?= $aibody['cms/page'] ?? '' ?>
-                </div>
                 <div class="shop-tools">
                     <?= $aibody['catalog/session'] ?? '' ?>
                 </div>

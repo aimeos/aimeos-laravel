@@ -23,19 +23,19 @@ return [
 	/*
 	'page' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#adapt-pages
-		'account-index' => [ 'account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','basket/mini','catalog/session','locale/select' ],
-		'basket-index' => [ 'basket/bulk','catalog/tree','catalog/search', 'basket/standard','basket/related' ],
+		'account-index' => [ 'locale/select', 'basket/mini','account/profile','account/review','account/subscription','account/history','account/favorite','account/watch','catalog/session' ],
+		'basket-index' => [ 'catalog/tree','catalog/search','basket/standard','basket/bulk','basket/related' ],
 		'catalog-count' => [ 'catalog/count' ],
-		'catalog-detail' => [ 'basket/mini','catalog/tree','catalog/search','catalog/stage','catalog/detail','catalog/session','locale/select' ],
-		'catalog-home' => [ 'basket/mini','catalog/tree','catalog/search','catalog/home','locale/select','cms/page' ],
-		'catalog-list' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/lists','locale/select' ],
+		'catalog-detail' => [ 'locale/select', 'basket/mini','catalog/tree','catalog/search','catalog/stage','catalog/detail','catalog/session' ],
+		'catalog-home' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','catalog/home','cms/page' ],
+		'catalog-list' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists' ],
 		'catalog-stock' => [ 'catalog/stock' ],
 		'catalog-suggest' => [ 'catalog/suggest' ],
-		'catalog-tree' => [ 'basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists','locale/select' ],
-		'checkout-confirm' => [ 'checkout/confirm','catalog/tree','catalog/search' ],
-		'checkout-index' => [ 'checkout/standard' ],
+		'catalog-tree' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','catalog/price','catalog/supplier','catalog/attribute','catalog/session','catalog/stage','catalog/lists' ],
+		'checkout-confirm' => [ 'catalog/tree','catalog/search','checkout/confirm' ],
+		'checkout-index' => [ 'catalog/tree','catalog/search','checkout/standard' ],
 		'checkout-update' => [ 'checkout/update' ],
-		'supplier-detail' => ['basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists'],
+		'supplier-detail' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists'],
 	],
 	*/
 
