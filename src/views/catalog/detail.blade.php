@@ -29,7 +29,7 @@
 @stop
 
 @section('aimeos_body')
-    <div class="container">
+    <div class="container-xl">
         <?= $aibody['catalog/detail'] ?? '' ?>
     </div>
 @stop
