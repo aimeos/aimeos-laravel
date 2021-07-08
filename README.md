@@ -35,7 +35,7 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2020.10 and later**.
 
-- Stable release: 2021.04 (6.x, 7.x and 8.x)
+- Stable release: 2021.07 (6.x, 7.x and 8.x)
 - LTS release: 2020.10 (6.x, 7.x and 8.x)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -67,7 +67,7 @@ directory of your exisisting Laravel application:
 
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-php composer require aimeos/aimeos-laravel:~2021.04
+php composer require aimeos/aimeos-laravel:~2021.07
 ```
 
 ## Database
@@ -113,7 +113,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2021.04",
+        "aimeos/aimeos-laravel": "~2021.07",
         ...
     },
     "scripts": {
@@ -145,8 +145,8 @@ installed, leave out the `--option=setup/default/demo:1` option.
 ## Setup
 
 To see all components and get everything working, you also need to create your
-main Blade template in `resources/views/app.blade.php`. This is a working
-example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
+main Blade template in `resources/views/app.blade.php` (before 2021.07 only).
+This is a working example using the [Twitter bootstrap CSS framework](http://getbootstrap.com/):
 
 ```html
 <!DOCTYPE html>
