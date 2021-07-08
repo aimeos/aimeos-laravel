@@ -27,14 +27,10 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-lg-3">
-                <div class="shop-tools">
-                    <?= $aibody['catalog/price'] ?? '' ?>
-                    <?= $aibody['catalog/supplier'] ?? '' ?>
-                    <?= $aibody['catalog/attribute'] ?? '' ?>
-                </div>
-                <div class="shop-tools">
-                    <?= $aibody['catalog/session'] ?? '' ?>
-                </div>
+                <?= $aibody['catalog/price'] ?? '' ?>
+                <?= $aibody['catalog/supplier'] ?? '' ?>
+                <?= $aibody['catalog/attribute'] ?? '' ?>
+                <?= $aibody['catalog/session'] ?? '' ?>
             </aside>
             <div class="col-lg-9">
                 <?= $aibody['catalog/lists'] ?>

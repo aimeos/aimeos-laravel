@@ -23,14 +23,13 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-md navbar-light navbar-top">
-		    <div class="container">
 			<a class="navbar-brand" href="/" title="Logo">
 				<img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			<div class="collapse navbar-collapse" id="navbarNav">
 				@yield('aimeos_nav')
 
 				<ul class="navbar-nav">
@@ -38,7 +37,7 @@
 						<li class="nav-item login"><a class="nav-link" href="/login" title="{{ __( 'Login' ) }}"><span>{{ __( 'Login' ) }}</span></a></li>
 					@else
 						<li class="nav-item login profile dropdown">
-						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{ __( 'Account' ) }}</span> <span class="caret"></span></a>
+						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ __( 'Account' ) }}"><span class="">{{ __( 'Account' ) }}</span> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a class="nav-link" href="{{ route( 'aimeos_shop_account', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', 'en' ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}"><span>{{ __( 'Profile' ) }}</span></a></li>
 								<li><form id="logout" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST">{{ csrf_field() }}<button class="nav-link">{{ __( 'Logout' ) }}</button></form></li>
@@ -46,9 +45,9 @@
 						</li>
 					@endif
 				</ul>
+
 				@yield('aimeos_head')
 			</div>
-		    </div>
 		</nav>
 
 		<div class="content">
