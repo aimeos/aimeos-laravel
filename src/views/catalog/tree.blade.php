@@ -30,9 +30,11 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-lg-3">
-                <?= $aibody['catalog/price'] ?? '' ?>
-                <?= $aibody['catalog/supplier'] ?? '' ?>
-                <?= $aibody['catalog/attribute'] ?? '' ?>
+                <div class="catalog-filter-group">
+                    <?= $aibody['catalog/price'] ?? '' ?>
+                    <?= $aibody['catalog/supplier'] ?? '' ?>
+                    <?= $aibody['catalog/attribute'] ?? '' ?>
+                </div>
                 <?= $aibody['catalog/session'] ?? '' ?>
             </aside>
             <div class="col-lg-9">
