@@ -38,6 +38,19 @@ class CatalogControllerTest extends AimeosTestAbstract
 	}
 
 
+	public function testSessionAction()
+	{
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@sessionAction', ['site' => 'unittest'] );
+
+		$this->assertResponseOk();
+		$this->assertStringContainsString( '<section class="aimeos catalog-session', $response->getContent() );
+		$this->assertStringContainsString( '<section class="catalog-session-pinned', $response->getContent() );
+		$this->assertStringContainsString( '<section class="catalog-session-seen', $response->getContent() );
+	}
+
+
 	public function testStockAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
