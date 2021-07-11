@@ -93,7 +93,25 @@ class CatalogController extends Controller
 
 		return Response::view( Shop::template( 'catalog.list' ), $params )
 			->header( 'Cache-Control', 'private, max-age=10' );
-}
+	}
+
+
+	/**
+	 * Returns the html for the catalog session page.
+	 *
+	 * @return \Illuminate\Http\Response Response object with output and headers
+	 */
+	public function sessionAction()
+	{
+		foreach( app( 'config' )->get( 'shop.page.catalog-session' ) as $name )
+		{
+			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+			$params['aibody'][$name] = Shop::get( $name )->getBody();
+		}
+
+		return Response::view( Shop::template( 'catalog.session' ), $params )
+			->header( 'Cache-Control', 'no-cache' );
+	}
 
 
 	/**
