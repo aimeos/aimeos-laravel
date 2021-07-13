@@ -13,7 +13,7 @@
 :star: Star us on GitHub — it helps!
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
-ultra fast e-commerce package for Laravel 5 and 6!  You can install it in your
+ultra fast e-commerce package for Laravel!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
 and customize anything to your needs.
 
@@ -267,7 +267,7 @@ For multi-vendor setups, read the article about [multiple shops](https://aimeos.
 This will display the Aimeos catalog home component on the home page you you get a
 nice looking shop home page. The `/shop` page will look like:
 
-[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.png)](http://127.0.0.1:8000/index.php/shop)
+[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/index.php/shop)
 
 ## Admin
 
