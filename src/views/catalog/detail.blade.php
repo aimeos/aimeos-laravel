@@ -1,7 +1,7 @@
 @extends('shop::base')
 
 @section('aimeos_scripts')
-    <script type="text/javascript" src="{{ asset('vendor/shop/themes/default/aimeos-detail.js') }}"></script>
+    <script src="{{ asset('vendor/shop/themes/default/aimeos-detail.js') }}"></script>
 @stop
 
 @section('aimeos_header')
