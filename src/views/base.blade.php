@@ -105,8 +105,8 @@
 		</a>
 
 		<!-- Scripts -->
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/npm/jquery@3,npm/bootstrap@4"></script>
-		<script type="text/javascript" src="{{ asset('vendor/shop/themes/default/aimeos.js') }}"></script>
+		<script src="https://cdn.jsdelivr.net/combine/npm/jquery@3,npm/bootstrap@4"></script>
+		<script src="{{ asset('vendor/shop/themes/default/aimeos.js') }}"></script>
 		@yield('aimeos_scripts')
 	</body>
 </html>
