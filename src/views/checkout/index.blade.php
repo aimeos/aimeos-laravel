@@ -2,14 +2,9 @@
 
 @section('aimeos_header')
     <title>{{ __( 'Checkout') }}</title>
-    <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['checkout/standard'] ?>
     <?= $aiheader['catalog/search'] ?? '' ?>
     <?= $aiheader['catalog/tree'] ?? '' ?>
-@stop
-
-@section('aimeos_head')
-    <?= $aibody['locale/select'] ?? '' ?>
 @stop
 
 @section('aimeos_nav')

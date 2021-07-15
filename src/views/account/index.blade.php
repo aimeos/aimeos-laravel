@@ -10,7 +10,9 @@
     <?= $aiheader['account/history'] ?? '' ?>
     <?= $aiheader['account/favorite'] ?? '' ?>
     <?= $aiheader['account/watch'] ?? '' ?>
+    <?= $aiheader['catalog/search'] ?? '' ?>
     <?= $aiheader['catalog/session'] ?? '' ?>
+    <?= $aiheader['catalog/tree'] ?? '' ?>
 @stop
 
 @section('aimeos_head')
