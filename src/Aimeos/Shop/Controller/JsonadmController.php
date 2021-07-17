@@ -121,7 +121,7 @@ class JsonadmController extends Controller
 			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'] )] );
 		}
 
-		return $this->createAdmin( false )->options( $request, ( new Psr17Factory )->createResponse() );
+		return $this->createAdmin()->options( $request, ( new Psr17Factory )->createResponse() );
 	}
 
 
@@ -132,17 +132,6 @@ class JsonadmController extends Controller
 	 */
 	protected function createAdmin( bool $check = true ) : \Aimeos\Admin\JsonAdm\Iface
 	{
-		if( $check )
-		{
-			// allow requests only if they are from within the admin backend
-			$cnt = count( explode( '/', request()->route()->getPrefix() ) ) - 1;
-			$base = request()->root() . '/' . join( '/', array_slice( request()->segments(), 0, $cnt ) );
-
-			if( strncmp( url()->previous(), $base, strlen( $base ) ) ) {
-				abort( 403 );
-			}
-		}
-
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
 		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource', '' );
