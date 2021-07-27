@@ -7,7 +7,7 @@
  */
 
 
-if (! function_exists('airoute')) {
+if( !function_exists( 'airoute' ) ) {
 	/**
 	 * Generate the URL to a named route.
 	 *
@@ -25,7 +25,7 @@ if (! function_exists('airoute')) {
 			$parameters['currency'] = $current->parameter( 'currency', Request::get( 'currency' ) );
 		}
 
-		return app('url')->route( $name, array_filter( $parameters ), $absolute );
+		return app( 'url' )->route( $name, array_filter( $parameters ), $absolute );
 	}
 }
 
