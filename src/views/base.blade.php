@@ -33,14 +33,17 @@
 				@yield('aimeos_nav')
 
 				<ul class="navbar-nav">
+					@if (Auth::guest() && config('app.shop_registration'))
+						<li class="nav-item register"><a class="nav-link" href="{{ route( 'register', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', app()->getLocale()  ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}" title="{{ __( 'Register' ) }}">{{ __('Register') }}</a></li>
+					@endif
 					@if (Auth::guest())
-						<li class="nav-item login"><a class="nav-link" href="/login" title="{{ __( 'Login' ) }}"><span>{{ __( 'Login' ) }}</span></a></li>
+						<li class="nav-item login"><a class="nav-link" href="{{ route( 'login', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', app()->getLocale()  ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}" title="{{ __( 'Login' ) }}"><span>{{ __( 'Login' ) }}</span></a></li>
 					@else
 						<li class="nav-item login profile dropdown">
 						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ __( 'Account' ) }}"><span class="">{{ __( 'Account' ) }}</span> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a class="nav-link" href="{{ route( 'aimeos_shop_account', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', 'en' ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}"><span>{{ __( 'Profile' ) }}</span></a></li>
-								<li><form id="logout" action="{{ route( 'logout', Request::get( 'locale', app()->getLocale() ) ) }}" method="POST">{{ csrf_field() }}<button class="nav-link">{{ __( 'Logout' ) }}</button></form></li>
+								<li><a class="nav-link" href="{{ route( 'aimeos_shop_account', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', app()->getLocale()  ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}"><span>{{ __( 'Profile' ) }}</span></a></li>
+								<li><form id="logout" action="{{ route( 'logout', ['site' => Route::current()->parameter( 'site', 'default' ),'locale' => Route::current()->parameter( 'locale', app()->getLocale()  ), 'currency' => Route::current()->parameter( 'currency', 'EUR' ) ] ) }}" method="POST">{{ csrf_field() }}<button class="nav-link">{{ __( 'Logout' ) }}</button></form></li>
 							</ul>
 						</li>
 					@endif
