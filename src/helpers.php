@@ -8,16 +8,16 @@
 
 
 if (! function_exists('airoute')) {
-    /**
-     * Generate the URL to a named route.
-     *
-     * @param  array|string  $name
-     * @param  mixed  $parameters
-     * @param  bool  $absolute
-     * @return string
-     */
-    function airoute( $name, $parameters = [], $absolute = true )
-    {
+	/**
+	 * Generate the URL to a named route.
+	 *
+	 * @param  array|string  $name
+	 * @param  mixed  $parameters
+	 * @param  bool  $absolute
+	 * @return string
+	 */
+	function airoute( $name, $parameters = [], $absolute = true )
+	{
 		if( $current = Route::current() )
 		{
 			$parameters['site'] = $current->parameter( 'site', Request::get( 'site' ) );
@@ -25,8 +25,8 @@ if (! function_exists('airoute')) {
 			$parameters['currency'] = $current->parameter( 'currency', Request::get( 'currency' ) );
 		}
 
-        return app('url')->route( $name, array_filter( $parameters ), $absolute );
-    }
+		return app('url')->route( $name, array_filter( $parameters ), $absolute );
+	}
 }
 
 
