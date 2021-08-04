@@ -7,7 +7,8 @@
  */
 
 
-if( !function_exists( 'airoute' ) ) {
+if( !function_exists( 'airoute' ) )
+{
 	/**
 	 * Generate the URL to a named route.
 	 *
@@ -20,7 +21,9 @@ if( !function_exists( 'airoute' ) ) {
 	{
 		if( $current = Route::current() )
 		{
-			$parameters['site'] = $current->parameter( 'site', Request::get( 'site' ) );
+			$site = config( 'app.shop_multishop' ) || config( 'app.shop_registration' ) ? 'default' : null;
+
+			$parameters['site'] = $current->parameter( 'site', Request::get( 'site', $site ) );
 			$parameters['locale'] = $current->parameter( 'locale', Request::get( 'locale' ) );
 			$parameters['currency'] = $current->parameter( 'currency', Request::get( 'currency' ) );
 		}
