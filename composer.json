@@ -32,7 +32,8 @@
         "aimeos/ai-client-html": "dev-master",
         "aimeos/ai-client-jsonapi": "dev-master",
         "aimeos/ai-controller-jobs": "dev-master",
-        "aimeos/ai-controller-frontend": "dev-master"
+        "aimeos/ai-controller-frontend": "dev-master",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0||~4.0||~5.0||~6.0",
@@ -44,6 +45,12 @@
         "psr-0": {
             "Aimeos\\Shop\\": "src/"
         },
+        "psr-4": {
+            "Database\\Factories\\": "src/Aimeos/Shop/Database/migrations"
+        },
+        "classmap": [
+            "src/ext/ai-laravel"
+        ],
         "files": [
             "src/helpers.php"
         ]

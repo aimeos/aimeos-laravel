@@ -13,7 +13,7 @@ return [
 		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'jsonadm' => ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']],
-		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
+		   'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['prefix' => 'profile', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'supplier' => ['prefix' => 's', 'middleware' => ['web']],
