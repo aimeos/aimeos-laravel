@@ -306,7 +306,7 @@ return [
 			'media' => [
 				'mimeicon' => [
 					# Directory where icons for the mime types stored
-					'directory' => 'packages/aimeos/shop/mimeicons',
+					'directory' => '../vendor/shop/mimeicons',
 					# File extension of mime type icons
 					'extension' => '.png'
 				],
