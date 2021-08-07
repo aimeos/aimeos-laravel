@@ -1,7 +1,6 @@
 <?php
 
 if( ( $conf = config( 'shop.routes.admin', ['prefix' => 'admin', 'middleware' => ['web']] ) ) !== false ) {
-
 	Route::group( $conf, function() {
 
 		Route::match( array( 'GET' ), '', array(
@@ -11,7 +10,6 @@ if( ( $conf = config( 'shop.routes.admin', ['prefix' => 'admin', 'middleware' =>
 
 	});
 }
-
 
 if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']] ) ) !== false ) {
 

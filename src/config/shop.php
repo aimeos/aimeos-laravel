@@ -6,7 +6,6 @@ return [
 	'apc_prefix' => 'laravel:', // prefix for caching config and translation in APCu
 	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
 	'num_formatter' => 'Locale', // locale based number formatter (alternative: "Standard")
-
 	'routes' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
 		// Multi-sites: https://aimeos.org/docs/latest/laravel/customize/#multiple-shops
