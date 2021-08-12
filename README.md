@@ -341,6 +341,14 @@ authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
 
 If your `./public` directory isn't writable by your web server, you have to create these
 directories:
+
+2021.07 and later:
+```
+mkdir public/aimeos public/vendor
+chmod 777 public/aimeos public/vendor
+```
+
+2021.04 and before:
 ```
 mkdir public/files public/preview public/uploads
 chmod 777 public/files public/preview public/uploads
