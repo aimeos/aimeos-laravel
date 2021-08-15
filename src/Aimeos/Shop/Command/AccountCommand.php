@@ -63,7 +63,7 @@ class AccountCommand extends AbstractCommand
 		$context->setEditor( 'aimeos:account' );
 
 		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
-		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false );
+		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false, null, true );
 		$context->setLocale( $localeItem );
 
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
