@@ -271,7 +271,8 @@ class Context
 		{
 			$context->setGroupIds( function() use ( $context, $userid ) {
 				$manager = \Aimeos\MShop::create( $context, 'customer' );
-				return $manager->get( $userid, ['customer/group'] )->getGroups();
+				$filter = $manager->filter()->add( 'customer.id', '==', $userid );
+				return $manager->search( $filter, ['customer/group'] )->getGroups()->first();
 			} );
 		}
 
