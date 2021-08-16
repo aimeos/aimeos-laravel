@@ -72,7 +72,8 @@ return [
 			],
 			'common' => [
 				'template' => [
-					// 'baseurl' => public_path( 'vendor/shop/themes/elegance' ),
+					// for styling for e-mail templates
+					// 'baseurl' => public_path( 'vendor/shop/themes/default' ),
 				],
 			],
 		],
