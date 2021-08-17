@@ -87,6 +87,7 @@ class Context
 			$this->addLogger( $context );
 			$this->addCache( $context );
 			$this->addMailer( $context );
+			$this->addNonce( $context );
 			$this->addProcess( $context );
 			$this->addSession( $context );
 			$this->addUser( $context );
@@ -195,6 +196,18 @@ class Context
 		$mq = new \Aimeos\MW\MQueue\Manager\Standard( $context->getConfig() );
 
 		return $context->setMessageQueueManager( $mq );
+	}
+
+
+	/**
+	 * Adds the nonce value for inline JS to the context
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 */
+	protected function addNonce( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	{
+		return $context->setNonce( base64_encode( random_bytes( 16 ) ) );
 	}
 
 
