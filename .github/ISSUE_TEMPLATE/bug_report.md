@@ -5,7 +5,7 @@ about: Create a report to help us improve
 ---
 
 **Environment**
-1. Version (e.g. 2017.10)
+1. Version (e.g. 2020.10)
 2. Operating system (Linux, Mac, Windows)
 
 **Describe the bug**
