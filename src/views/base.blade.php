@@ -11,6 +11,8 @@
 
 		<title>{{ config('app.name', 'Aimeos') }}</title>
 
+		<link rel="icon" href="{{asset('aimeos/' . app( 'aimeos.context' )->get()->getLocale()->getSiteItem()->getIcon())}}"/>
+
 		<link rel="preload" href="/vendor/shop/themes/default/fonts/roboto-condensed-v19-latin/roboto-condensed-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/vendor/shop/themes/default/fonts/roboto-condensed-v19-latin/roboto-condensed-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/vendor/shop/themes/default/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,7 +26,7 @@
 	<body>
 		<nav class="navbar navbar-expand-md navbar-light navbar-top">
 			<a class="navbar-brand" href="/" title="Logo">
-				<img src="https://aimeos.org/media/logo-white.svgz" height="40" title="Logo">
+				<img src="{{asset('aimeos/' . app( 'aimeos.context' )->get()->getLocale()->getSiteItem()->getLogo())}}" height="40" title="Logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
