@@ -88,6 +88,7 @@ class Context
 			$this->addCache( $context );
 			$this->addMailer( $context );
 			$this->addNonce( $context );
+			$this->addPassword( $context );
 			$this->addProcess( $context );
 			$this->addSession( $context );
 			$this->addUser( $context );
@@ -208,6 +209,18 @@ class Context
 	protected function addNonce( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
 		return $context->setNonce( base64_encode( random_bytes( 16 ) ) );
+	}
+
+
+	/**
+	 * Adds the password hasher object to the context
+	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 */
+	protected function addPassword( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	{
+		return $context->setPassword( new \Aimeos\MW\Password\Standard() );
 	}
 
 
