@@ -37,7 +37,7 @@ class CheckoutController extends Controller
 		}
 
 		return Response::view( Shop::template( 'checkout.confirm' ), $params )
-			->header( 'Cache-Control', 'no-store, no-cache, must-revalidate' );
+			->header( 'Cache-Control', 'no-store, max-age=0' );
 	}
 
 
@@ -55,7 +55,7 @@ class CheckoutController extends Controller
 		}
 
 		return Response::view( Shop::template( 'checkout.index' ), $params )
-			->header( 'Cache-Control', 'no-store, no-cache, must-revalidate' );
+			->header( 'Cache-Control', 'no-store, max-age=0' );
 	}
 
 
@@ -73,6 +73,6 @@ class CheckoutController extends Controller
 		}
 
 		return Response::view( Shop::template( 'checkout.update' ), $params )
-			->header( 'Cache-Control', 'no-store, no-cache, must-revalidate' );
+			->header( 'Cache-Control', 'no-store, max-age=0' );
 	}
 }
