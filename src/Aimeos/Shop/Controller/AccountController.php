@@ -37,7 +37,7 @@ class AccountController extends Controller
 		}
 
 		return Response::view( Shop::template( 'account.index' ), $params )
-			->header( 'Cache-Control', 'no-store, no-cache, must-revalidate' );
+			->header( 'Cache-Control', 'no-store, max-age=0' );
 	}
 
 
