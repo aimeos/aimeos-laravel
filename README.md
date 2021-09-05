@@ -2,7 +2,7 @@
     <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
 </a>
 
-# Aimeos Laravel package
+# Aimeos Laravel ecommerce package
 [![Total Downloads](https://poser.pugx.org/aimeos/aimeos-laravel/d/total.svg)](https://packagist.org/packages/aimeos/aimeos-laravel)
 [![Build Status](https://circleci.com/gh/aimeos/aimeos-laravel.svg?style=shield)](https://circleci.com/gh/aimeos/aimeos-laravel)
 [![Coverage Status](https://coveralls.io/repos/aimeos/aimeos-laravel/badge.svg?branch=master&service=github)](https://coveralls.io/github/aimeos/aimeos-laravel?branch=master)
