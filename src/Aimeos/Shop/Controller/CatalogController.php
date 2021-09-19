@@ -51,8 +51,13 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-detail' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			try {
+				$params['aiheader'][$name] = Shop::get( $name )->getHeader();
+				$params['aibody'][$name] = Shop::get( $name )->getBody();
+			} catch(\Exception $e) {
+				if ( $e->getCode() === 404 ) { abort(404); }
+				throw $e;
+			}
 		}
 
 		return Response::view( Shop::template( 'catalog.detail' ), $params )
