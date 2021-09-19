@@ -54,8 +54,8 @@ class CatalogController extends Controller
 			try {
 				$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 				$params['aibody'][$name] = Shop::get( $name )->getBody();
-			} catch(\Exception $e) {
-				if ( $e->getCode() === 404 ) { abort(404); }
+			} catch( \Exception $e ) {
+				if( $e->getCode() === 404 ) { abort( 404 ); }
 				throw $e;
 			}
 		}
