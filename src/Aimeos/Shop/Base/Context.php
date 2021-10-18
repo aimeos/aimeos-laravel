@@ -274,8 +274,8 @@ class Context
 
 		if( ( $user = Auth::guard( $guard )->user() ) !== null ) {
 			$context->setEditor( $user->name );
-		} else {
-			$context->setEditor( \Request::ip() );
+		} elseif( $ip = \Request::ip() ) {
+			$context->setEditor( $ip );
 		}
 
 		return $context;
