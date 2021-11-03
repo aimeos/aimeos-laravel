@@ -56,12 +56,13 @@ class SetupCommand extends AbstractCommand
 		$template = $this->argument( 'tplsite' );
 
 		$boostrap = $this->getLaravel()->make( 'aimeos' )->get();
-		$ctx = $this->getLaravel()->make( 'aimeos.context' )->get( false, 'command' )->setEditor( 'aimeos:setup' );
+		$ctx = $this->getLaravel()->make( 'aimeos.context' )->get( false, 'command' );
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
 
 		\Aimeos\Setup::use( $boostrap, $this->getOptions() )
 			->verbose( $this->option( 'q' ) ? '' : $this->option( 'v' ) )
+			->context( $ctx->setEditor( 'aimeos:setup' ) )
 			->up( $site, $template );
 	}
 
