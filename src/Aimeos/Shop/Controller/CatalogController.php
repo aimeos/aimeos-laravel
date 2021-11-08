@@ -32,8 +32,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-count' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.count' ), $params )
@@ -52,8 +52,8 @@ class CatalogController extends Controller
 		foreach( app( 'config' )->get( 'shop.page.catalog-detail' ) as $name )
 		{
 			try {
-				$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-				$params['aibody'][$name] = Shop::get( $name )->getBody();
+				$params['aiheader'][$name] = Shop::get( $name )->header();
+				$params['aibody'][$name] = Shop::get( $name )->body();
 			} catch( \Exception $e ) {
 				if( $e->getCode() === 404 ) { abort( 404 ); }
 				throw $e;
@@ -74,8 +74,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-home' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.home' ), $params )
@@ -92,8 +92,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-list' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.list' ), $params )
@@ -110,8 +110,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-session' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.session' ), $params )
@@ -128,8 +128,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-stock' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.stock' ), $params )
@@ -147,8 +147,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-suggest' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.suggest' ), $params )
@@ -166,8 +166,8 @@ class CatalogController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.catalog-tree' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'catalog.tree' ), $params )

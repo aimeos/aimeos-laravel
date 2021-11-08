@@ -32,8 +32,8 @@ class AccountController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.account-index' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'account.index' ), $params )

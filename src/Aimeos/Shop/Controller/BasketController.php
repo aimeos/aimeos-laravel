@@ -32,8 +32,8 @@ class BasketController extends Controller
 	{
 		foreach( app( 'config' )->get( 'shop.page.basket-index' ) as $name )
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
-			$params['aibody'][$name] = Shop::get( $name )->getBody();
+			$params['aiheader'][$name] = Shop::get( $name )->header();
+			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
 		return Response::view( Shop::template( 'basket.index' ), $params )

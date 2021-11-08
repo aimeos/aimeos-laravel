@@ -67,7 +67,7 @@ class Shop
 		{
 			$client = \Aimeos\Client\Html::create( $this->context, $name );
 			$client->setView( clone $this->view );
-			$client->process();
+			$client->init();
 
 			$this->objects[$name] = $client;
 		}
