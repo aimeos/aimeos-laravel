@@ -86,7 +86,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->copy() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );
@@ -107,7 +107,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->create() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );
@@ -128,7 +128,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->delete() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );
@@ -149,7 +149,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->export() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );
@@ -170,7 +170,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->get() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );
@@ -191,7 +191,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->save() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );
@@ -212,7 +212,7 @@ class JqadmController extends AdminController
 		$cntl = $this->createAdmin();
 
 		if( ( $html = $cntl->search() ) == '' ) {
-			return $cntl->getView()->response();
+			return $cntl->response();
 		}
 
 		return $this->getHtml( $html );

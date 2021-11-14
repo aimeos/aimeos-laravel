@@ -48,7 +48,7 @@ class AccountController extends Controller
 	 */
 	public function downloadAction()
 	{
-		$response = Shop::get( 'account/download' )->getView()->response();
+		$response = Shop::get( 'account/download' )->response();
 		return Response::make( (string) $response->getBody(), $response->getStatusCode(), $response->getHeaders() );
 	}
 }
