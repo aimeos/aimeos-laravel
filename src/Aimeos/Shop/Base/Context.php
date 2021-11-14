@@ -268,12 +268,9 @@ class Context
 		$key = collect( config( 'shop.routes' ) )->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )->keys()->first();
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
-		if( ( $userid = Auth::guard( $guard )->id() ) !== null ) {
-			$context->setUserId( $userid );
-		}
-
 		if( ( $user = Auth::guard( $guard )->user() ) !== null ) {
 			$context->setEditor( $user->name );
+			$context->setUserId( $user->id );
 		} elseif( $ip = \Request::ip() ) {
 			$context->setEditor( $ip );
 		}
