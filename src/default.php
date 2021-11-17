@@ -52,24 +52,36 @@ return [
 		],
 		'fs' => [
 			'adapter' => 'Standard',
-			'basedir' => public_path( 'aimeos' ),
 			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => public_path( 'aimeos' ),
 			'baseurl' => rtrim( env( 'ASSET_URL' ), '/' ) . '/aimeos',
+		],
+		'fs-media' => [
+			'adapter' => 'Standard',
+			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => public_path( 'aimeos' ),
+			'baseurl' => rtrim( env( 'ASSET_URL' ), '/' ) . '/aimeos',
+		],
+		'fs-mimeicon' => [
+			'adapter' => 'Standard',
+			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => public_path( 'vendor/shop/mimeicons' ),
+			'baseurl' => rtrim( env( 'ASSET_URL' ), '/' ) . '/vendor/shop/mimeicons',
 		],
 		'fs-admin' => [
 			'adapter' => 'Standard',
-			'basedir' => storage_path( 'admin' ),
 			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => storage_path( 'admin' ),
 		],
 		'fs-import' => [
 			'adapter' => 'Standard',
-			'basedir' => storage_path( 'import' ),
 			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => storage_path( 'import' ),
 		],
 		'fs-secure' => [
 			'adapter' => 'Standard',
-			'basedir' => storage_path( 'secure' ),
 			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => storage_path( 'secure' ),
 		],
 		'mq' => [
 			'adapter' => 'Standard',
