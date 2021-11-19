@@ -27,7 +27,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 			'database' => env( 'DB_DATABASE', 'laravel' ),
 			'username' => env( 'DB_USERNAME', 'aimeos' ),
 			'password' => env( 'DB_PASSWORD', 'aimeos' ),
-			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET SESSION sql_mode='ANSI'; SET NAMES 'utf8_bin'"],
+			'stmt' => ["SET SESSION sort_buffer_size=2097144; SET SESSION sql_mode='ANSI'; SET NAMES 'utf8'"],
 			'opt-persistent' => 0,
 			'limit' => 3,
 			'defaultTableOptions' => [
