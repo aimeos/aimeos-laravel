@@ -260,7 +260,7 @@ class JqadmController extends AdminController
 		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
 		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 
-		return View::make( \Aimeos\Shop\Facades\Shop::template( 'jqadm.index' ), [
+		return View::make( 'shop::jqadm.index', [
 			'content' => $content,
 			'site' => $site,
 			'locale' => $lang,
