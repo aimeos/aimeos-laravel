@@ -45,8 +45,8 @@ return [
 			'stmt' => config( 'database.default', 'mysql' ) === 'mysql' ? ["SET SESSION sort_buffer_size=2097144; SET NAMES 'utf8mb4'; SET SESSION sql_mode='ANSI'"] : [],
 			'limit' => 3, // maximum number of concurrent database connections
 			'defaultTableOptions' => [
-					'charset' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.charset' ),
-					'collate' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.collation' ),
+				'charset' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.charset' ),
+				'collate' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.collation' ),
 			],
 			'driverOptions' => config( 'database.connections.' . config( 'database.default', 'mysql' ) . '.options' ),
 		],
