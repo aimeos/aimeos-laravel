@@ -269,8 +269,8 @@ class Context
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
 		if( ( $user = Auth::guard( $guard )->user() ) !== null ) {
-			$context->setEditor( $user->name );
-			$context->setUserId( $user->id );
+			$context->setEditor( $user->name ?? (string) \Request::ip() );
+			$context->setUserId( $user->getAuthIdentifier() );
 		} elseif( $ip = \Request::ip() ) {
 			$context->setEditor( $ip );
 		}
