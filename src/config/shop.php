@@ -80,6 +80,11 @@ return [
 	],
 
 	'controller' => [
+		'frontend' => [
+			'catalog' => [
+				'levels-always' => 2
+			]
+		]
 	],
 
 	'i18n' => [
