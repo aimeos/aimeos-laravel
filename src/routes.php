@@ -128,7 +128,7 @@ if( ( $conf = config( 'shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware
 			'uses' => 'Aimeos\Shop\Controller\JsonapiController@putAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
 
-		Route::match( array( 'OPTIONS' ), '{resource?}', array(
+		Route::match( array( 'GET', 'OPTIONS' ), '{resource?}', array(
 			'as' => 'aimeos_shop_jsonapi_options',
 			'uses' => 'Aimeos\Shop\Controller\JsonapiController@optionsAction'
 		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
