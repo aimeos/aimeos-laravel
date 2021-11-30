@@ -60,28 +60,29 @@ class SetupCommand extends AbstractCommand
 
 		$this->info( sprintf( 'Initializing or updating the Aimeos database tables for site "%1$s"', $site ) );
 
-		\Aimeos\Setup::use( $boostrap, $this->getOptions() )
+		\Aimeos\Setup::use( $boostrap )
 			->verbose( $this->option( 'q' ) ? '' : $this->option( 'v' ) )
-			->context( $ctx->setEditor( 'aimeos:setup' ) )
+			->context( $this->addConfig( $ctx->setEditor( 'aimeos:setup' ) ) )
 			->up( $site, $template );
 	}
 
 
 	/**
-	 * Returns the configuration options from the input object
+	 * Adds the configuration options from the input object to the given context
 	 *
+	 * @param \Aimeos\MShop\Context\Item\Iface $ctx Context object
 	 * @return array Associative list of key/value pairs of configuration options
 	 */
-	protected function getOptions() : array
+	protected function addConfig( \Aimeos\MShop\Context\Item\Iface $ctx ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$map = [];
+		$config = $ctx->config();
 
 		foreach( (array) $this->option( 'option' ) as $option )
 		{
 			list( $name, $value ) = explode( ':', $option );
-			$map[str_replace( '\\', '/', $name )] = $value;
+			$config->set( str_replace( '\\', '/', $name ), $value );
 		}
 
-		return $map;
+		return $ctx;
 	}
 }
