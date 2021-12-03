@@ -36,6 +36,7 @@ class Composer
 						_4: addStar(input:{clientMutationId:"_4",starrableId:"MDEwOlJlcG9zaXRvcnkyMjIzNTY4OTA="}){clientMutationId}
 						_5: addStar(input:{clientMutationId:"_5",starrableId:"MDEwOlJlcG9zaXRvcnkyNDYxMDMzNTY="}){clientMutationId}
 						_6: addStar(input:{clientMutationId:"_6",starrableId:"R_kgDOGcKL7A"}){clientMutationId}
+						_7: addStar(input:{clientMutationId:"_7",starrableId:"R_kgDOGeAkvw"}){clientMutationId}
 						}'
 					] )
 				]
