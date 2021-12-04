@@ -94,10 +94,10 @@
 							    <img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->getLocale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/media/aimeos.png' ) ) }}" height="40" title="Logo">
 							</a>
 							<div class="social">
-								<p><i class="bi">facebook</i><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
-								<p><i class="bi">twitter</i><a href="#" class="sm twitter" title="Twitter" rel="noopener">Twitter</a></p>
-								<p><i class="bi">instagram</i><a href="#" class="sm instagram" title="Instagram" rel="noopener">Instagram</a></p>
-								<p><i class="bi">youtube</i><a href="#" class="sm youtube" title="Youtube" rel="noopener">Youtube</a></p>
+								<p><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
+								<p><a href="#" class="sm twitter" title="Twitter" rel="noopener">Twitter</a></p>
+								<p><a href="#" class="sm instagram" title="Instagram" rel="noopener">Instagram</a></p>
+								<p><a href="#" class="sm youtube" title="Youtube" rel="noopener">Youtube</a></p>
 							</div>
 						</div>
 					</div>
@@ -108,9 +108,7 @@
 
 
 		<a id="toTop" class="back-to-top" href="#" title="{{ __( 'Back to top' ) }}">
-			<div class="top-icon">
-				<i class="bi">arrow-up-short</i>
-			</div>
+			<div class="top-icon"></div>
 		</a>
 
 		<!-- Scripts -->
