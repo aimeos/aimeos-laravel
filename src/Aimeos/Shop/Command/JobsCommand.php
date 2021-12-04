@@ -66,7 +66,7 @@ class JobsCommand extends AbstractCommand
 			$process->wait();
 		};
 
-		$this->exec( $this->getContext(), $fcn, $this->argument( 'site' ) );
+		$this->exec( $this->context(), $fcn, $this->argument( 'site' ) );
 	}
 
 
@@ -75,7 +75,7 @@ class JobsCommand extends AbstractCommand
 	 *
 	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
-	protected function getContext() : \Aimeos\MShop\Context\Item\Iface
+	protected function context() : \Aimeos\MShop\Context\Item\Iface
 	{
 		$lv = $this->getLaravel();
 		$context = $lv->make( 'aimeos.context' )->get( false, 'command' );
