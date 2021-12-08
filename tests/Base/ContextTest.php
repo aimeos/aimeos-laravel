@@ -13,6 +13,6 @@ class ContextTest extends AimeosTestAbstract
 		$ctx = $object->get( false );
 
 		$this->assertInstanceOf( '\Aimeos\MShop\Context\Item\Iface', $ctx );
-		$this->assertIsArray( $ctx->getGroupIds() );
+		$this->assertIsArray( $ctx->groups() );
 	}
 }

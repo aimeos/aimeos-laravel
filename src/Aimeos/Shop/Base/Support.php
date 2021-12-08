@@ -76,7 +76,7 @@ class Support
 
 			$context->setLocale( $this->locale->getBackend( $context, $site ) );
 
-			foreach( array_reverse( $context->getLocale()->getSitePath() ) as $siteid )
+			foreach( array_reverse( $context->locale()->getSitePath() ) as $siteid )
 			{
 				if( (string) $user->siteid === (string) $siteid ) {
 					$this->access[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
@@ -99,7 +99,7 @@ class Support
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
 		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->getGroupIds() ) );
+		$search->setConditions( $search->compare( '==', 'customer.group.id', $context->groups() ) );
 
 		return $manager->search( $search )->getCode()->toArray();
 	}

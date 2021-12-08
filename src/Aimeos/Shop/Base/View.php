@@ -69,8 +69,8 @@ class View
 		$engine = new \Aimeos\MW\View\Engine\Blade( app( 'Illuminate\Contracts\View\Factory' ) );
 		$view = new \Aimeos\MW\View\Standard( $templatePaths, array( '.blade.php' => $engine ) );
 
-		$config = $context->getConfig();
-		$session = $context->getSession();
+		$config = $context->config();
+		$session = $context->session();
 
 		$this->addCsrf( $view );
 		$this->addAccess( $view, $context );

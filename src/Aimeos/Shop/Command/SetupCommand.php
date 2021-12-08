@@ -80,7 +80,7 @@ class SetupCommand extends AbstractCommand
 		foreach( (array) $this->option( 'option' ) as $option )
 		{
 			list( $name, $value ) = explode( ':', $option );
-			$config->set( str_replace( '\\', '/', $name ), $value );
+			$config->set( $name, $value );
 		}
 
 		return $ctx;

@@ -45,7 +45,7 @@ class Shop
 		\Aimeos\Shop\Base\Context $context, \Aimeos\Shop\Base\View $view )
 	{
 		$this->context = $context->get();
-		$locale = $this->context->getLocale();
+		$locale = $this->context->locale();
 
 		$tmplPaths = $aimeos->get()->getTemplatePaths( 'client/html/templates', $locale->getSiteItem()->getTheme() );
 		$langid = $locale->getLanguageId();
@@ -83,7 +83,7 @@ class Shop
 	 */
 	public function template( string $name ) : string
 	{
-		$theme = $this->context->getLocale()->getSiteItem()->getTheme();
+		$theme = $this->context->locale()->getSiteItem()->getTheme();
 		return \Illuminate\Support\Facades\View::exists( $theme . '::' . $name ) ? $theme . '::' . $name : 'shop::' . $name;
 	}
 }

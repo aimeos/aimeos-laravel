@@ -134,7 +134,7 @@ class Context
 	 */
 	protected function addDatabaseManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$dbm = new \Aimeos\MW\DB\Manager\DBAL( $context->getConfig() );
+		$dbm = new \Aimeos\MW\DB\Manager\DBAL( $context->config() );
 
 		return $context->setDatabaseManager( $dbm );
 	}
@@ -148,7 +148,7 @@ class Context
 	 */
 	protected function addFilesystemManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$config = $context->getConfig();
+		$config = $context->config();
 		$path = storage_path( 'aimeos' );
 
 		$fs = new \Aimeos\MW\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, $path );
@@ -194,7 +194,7 @@ class Context
 	 */
 	protected function addMessageQueueManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$mq = new \Aimeos\MW\MQueue\Manager\Standard( $context->getConfig() );
+		$mq = new \Aimeos\MW\MQueue\Manager\Standard( $context->config() );
 
 		return $context->setMessageQueueManager( $mq );
 	}
@@ -232,7 +232,7 @@ class Context
 	 */
 	protected function addProcess( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$config = $context->getConfig();
+		$config = $context->config();
 		$max = $config->get( 'pcntl_max', 4 );
 		$prio = $config->get( 'pcntl_priority', 19 );
 

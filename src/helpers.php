@@ -62,7 +62,7 @@ if( !function_exists( 'aitrans' ) )
 	 */
 	function aitrans( $singular, array $params = array(), $domain = 'client', $locale = null )
 	{
-		$i18n = app( 'aimeos.context' )->get()->getI18n( $locale );
+		$i18n = app( 'aimeos.context' )->get()->i18n( $locale );
 
 		return vsprintf( $i18n->dt( $domain, $singular ), $params );
 	}
@@ -84,7 +84,7 @@ if( !function_exists( 'aitransplural' ) )
 	 */
 	function aitransplural( $singular, $plural, $number, array $params = array(), $domain = 'client', $locale = null )
 	{
-		$i18n = app( 'aimeos.context' )->get()->getI18n( $locale );
+		$i18n = app( 'aimeos.context' )->get()->i18n( $locale );
 
 		return vsprintf( $i18n->dn( $domain, $singular, $plural, $number ), $params );
 	}

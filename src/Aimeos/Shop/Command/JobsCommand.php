@@ -54,8 +54,8 @@ class JobsCommand extends AbstractCommand
 				\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
 			};
 
-			$process = $lcontext->getProcess();
-			$site = $lcontext->getLocale()->getSiteItem()->getCode();
+			$process = $lcontext->process();
+			$site = $lcontext->locale()->getSiteItem()->getCode();
 
 			foreach( $jobs as $jobname )
 			{

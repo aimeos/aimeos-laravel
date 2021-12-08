@@ -111,7 +111,7 @@ class JsonapiController extends Controller
 		$tmplPaths = $aimeos->getTemplatePaths( 'client/jsonapi/templates' );
 
 		$context = app( 'aimeos.context' )->get();
-		$langid = $context->getLocale()->getLanguageId();
+		$langid = $context->locale()->getLanguageId();
 
 		$context->setView( app( 'aimeos.view' )->create( $context, $tmplPaths, $langid ) );
 

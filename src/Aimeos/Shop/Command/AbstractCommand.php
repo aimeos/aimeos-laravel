@@ -29,7 +29,7 @@ abstract class AbstractCommand extends Command
 	 */
 	protected function exec( \Aimeos\MShop\Context\Item\Iface $context, \Closure $fcn, $sites )
 	{
-		$process = $context->getProcess();
+		$process = $context->process();
 		$aimeos = $this->getLaravel()->make( 'aimeos' )->get();
 
 		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
@@ -61,7 +61,7 @@ abstract class AbstractCommand extends Command
 				$view = $this->getLaravel()->make( 'aimeos.view' )->create( $lcontext, $tmplPaths );
 				$lcontext->setView( $view );
 
-				$config = $lcontext->getConfig();
+				$config = $lcontext->config();
 				$config->apply( $siteItem->getConfig() );
 
 				$process->start( $fcn, [$lcontext, $aimeos], false );
