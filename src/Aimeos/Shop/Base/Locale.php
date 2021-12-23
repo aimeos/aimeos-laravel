@@ -54,7 +54,7 @@ class Locale
 	{
 		if( $this->locale === null )
 		{
-			$site = Request::input( 'site', config( 'shop.site_default', 'default' ) );
+			$site = Request::input( 'site', config( 'shop.mshop.locale.site', 'default' ) );
 			$lang = Request::input( 'locale', app()->getLocale() );
 			$currency = Request::input( 'currency', '' );
 
