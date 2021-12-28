@@ -73,6 +73,11 @@ return [
 			'tempdir' => storage_path( 'tmp' ),
 			'basedir' => storage_path( 'admin' ),
 		],
+		'fs-export' => [
+			'adapter' => 'Standard',
+			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => storage_path( 'export' ),
+		],
 		'fs-import' => [
 			'adapter' => 'Standard',
 			'tempdir' => storage_path( 'tmp' ),
