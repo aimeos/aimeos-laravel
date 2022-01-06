@@ -68,6 +68,12 @@ return [
 			'basedir' => public_path( 'vendor/shop/mimeicons' ),
 			'baseurl' => rtrim( env( 'ASSET_URL' ), '/' ) . '/vendor/shop/mimeicons',
 		],
+		'fs-theme' => [
+			'adapter' => 'Standard',
+			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => public_path( 'vendor/shop/themes' ),
+			'baseurl' => rtrim( env( 'ASSET_URL' ), '/' ) . '/vendor/shop/themes',
+		],
 		'fs-admin' => [
 			'adapter' => 'Standard',
 			'tempdir' => storage_path( 'tmp' ),
