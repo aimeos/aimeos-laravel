@@ -1,9 +1,5 @@
 @extends('shop::base')
 
-@section('aimeos_scripts')
-    <script src="{{ asset('vendor/shop/themes/default/aimeos-detail.js') }}"></script>
-@stop
-
 @section('aimeos_header')
     <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
