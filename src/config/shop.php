@@ -2,6 +2,7 @@
 
 return [
 
+	'version' => env('APP_VERSION', 1 ), // shop CSS/JS file version
 	'apc_enabled' => false, // enable for maximum performance if APCu is availalbe
 	'apc_prefix' => 'laravel:', // prefix for caching config and translation in APCu
 	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
