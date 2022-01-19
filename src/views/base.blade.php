@@ -8,11 +8,11 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		@if( in_array(app()->getLocale(), ['ar', 'az', 'dv', 'fa', 'he', 'ku', 'ur']) )
-			<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/app.rtl.css?v=' . config( 'shop.version' ) ) }}">
+			<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/app.rtl.css?v=' . config( 'shop.version', 1 ) ) }}">
 		@else
-			<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/app.css?v=' . config( 'shop.version' ) ) }}">
+			<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/app.css?v=' . config( 'shop.version', 1 ) ) }}">
 		@endif
-		<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/aimeos.css?v=' . config( 'shop.version' ) ) }}" />
+		<link type="text/css" rel="stylesheet" href="{{ asset('vendor/shop/themes/default/aimeos.css?v=' . config( 'shop.version', 1 ) ) }}" />
 
 		@yield('aimeos_header')
 
@@ -107,8 +107,8 @@
 		</a>
 
 		<!-- Scripts -->
-		<script src="{{ asset('vendor/shop/themes/default/app.js?v=' . config( 'shop.version' ) ) }}"></script>
-		<script src="{{ asset('vendor/shop/themes/default/aimeos.js?v=' . config( 'shop.version' ) ) }}"></script>
+		<script src="{{ asset('vendor/shop/themes/default/app.js?v=' . config( 'shop.version', 1 ) ) }}"></script>
+		<script src="{{ asset('vendor/shop/themes/default/aimeos.js?v=' . config( 'shop.version', 1 ) ) }}"></script>
 		@yield('aimeos_scripts')
 	</body>
 </html>

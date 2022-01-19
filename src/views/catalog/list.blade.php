@@ -9,6 +9,7 @@
     <?= $aiheader['catalog/supplier'] ?? '' ?>
     <?= $aiheader['catalog/attribute'] ?? '' ?>
     <?= $aiheader['catalog/stage'] ?? '' ?>
+    <?= $aiheader['catalog/session'] ?? '' ?>
     <?= $aiheader['catalog/lists'] ?? '' ?>
 @stop
 
