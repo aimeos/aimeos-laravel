@@ -18,9 +18,9 @@
 
 		<link rel="icon" href="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getIcon() ?: '../vendor/shop/themes/default/media/icon.png' ) ) }}"/>
 
-		<link rel="preload" href="/vendor/shop/themes/default/fonts/roboto-condensed-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/vendor/shop/themes/default/fonts/roboto-condensed-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/vendor/shop/themes/default/fonts/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/vendor/shop/themes/default/assets/roboto-condensed-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/vendor/shop/themes/default/assets/roboto-condensed-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/vendor/shop/themes/default/assets/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-md navbar-light navbar-top">
