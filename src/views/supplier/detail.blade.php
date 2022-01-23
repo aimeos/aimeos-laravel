@@ -9,14 +9,20 @@
     <?= $aiheader['catalog/lists'] ?? '' ?>
 @stop
 
-@section('aimeos_nav')
-    <?= $aibody['catalog/tree'] ?? '' ?>
-    <?= $aibody['catalog/search'] ?? '' ?>
+@section('aimeos_head_basket')
+    <?= $aibody['basket/mini'] ?? '' ?>
 @stop
 
-@section('aimeos_head')
+@section('aimeos_head_nav')
+    <?= $aibody['catalog/tree'] ?? '' ?>
+@stop
+
+@section('aimeos_head_locale')
     <?= $aibody['locale/select'] ?? '' ?>
-    <?= $aibody['basket/mini'] ?? '' ?>
+@stop
+
+@section('aimeos_head_search')
+    <?= $aibody['catalog/search'] ?? '' ?>
 @stop
 
 @section('aimeos_body')

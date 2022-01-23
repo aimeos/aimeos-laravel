@@ -10,12 +10,15 @@
     <?= $aiheader['basket/related'] ?? '' ?>
 @stop
 
-@section('aimeos_head')
+@section('aimeos_head_nav')
+    <?= $aibody['catalog/tree'] ?? '' ?>
+@stop
+
+@section('aimeos_head_locale')
     <?= $aibody['locale/select'] ?? '' ?>
 @stop
 
-@section('aimeos_nav')
-    <?= $aibody['catalog/tree'] ?? '' ?>
+@section('aimeos_head_search')
     <?= $aibody['catalog/search'] ?? '' ?>
 @stop
 

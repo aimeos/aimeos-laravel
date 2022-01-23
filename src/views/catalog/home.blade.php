@@ -9,13 +9,19 @@
     <?= $aiheader['cms/page'] ?? '' ?>
 @stop
 
-@section('aimeos_head')
-    <?= $aibody['locale/select'] ?? '' ?>
+@section('aimeos_head_basket')
     <?= $aibody['basket/mini'] ?? '' ?>
 @stop
 
-@section('aimeos_nav')
+@section('aimeos_head_nav')
     <?= $aibody['catalog/tree'] ?? '' ?>
+@stop
+
+@section('aimeos_head_locale')
+    <?= $aibody['locale/select'] ?? '' ?>
+@stop
+
+@section('aimeos_head_search')
     <?= $aibody['catalog/search'] ?? '' ?>
 @stop
 
