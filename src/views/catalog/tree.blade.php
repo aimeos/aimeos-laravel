@@ -38,6 +38,7 @@
         <div class="row">
             <aside class="col-lg-3">
                 <div class="catalog-filter-group">
+                    <?= $aibody['catalog/search'] ?? '' ?>
                     <?= $aibody['catalog/price'] ?? '' ?>
                     <?= $aibody['catalog/supplier'] ?? '' ?>
                     <?= $aibody['catalog/attribute'] ?? '' ?>
