@@ -2,11 +2,11 @@
 
 return [
 
-	'version' => env( 'APP_VERSION', 1 ), // shop CSS/JS file version
-	'apc_enabled' => false, // enable for maximum performance if APCu is availalbe
+	'apc_enabled' => false, // enable for maximum performance if APCu is available
 	'apc_prefix' => 'laravel:', // prefix for caching config and translation in APCu
-	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
 	'num_formatter' => 'Locale', // locale based number formatter (alternative: "Standard")
+	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
+	'version' => env( 'APP_VERSION', 1 ), // shop CSS/JS file version
 
 	'routes' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
@@ -72,9 +72,25 @@ return [
 				],
 			],
 			'common' => [
+				'cache' => [
+					// 'force' => true // enforce caching for logged in users
+				],
 				'template' => [
-					// for styling for e-mail templates
-					// 'baseurl' => public_path( 'vendor/shop/themes/default' ),
+					// 'baseurl' => public_path( 'vendor/shop/themes/default' ), // for styling for e-mail templates
+				],
+			],
+			'catalog' => [
+				'lists' => [
+					// 'basket-add' => true, // shows add to basket in list views
+					// 'infinite-scroll' => true, // load more products in list view
+					// 'size' => 48, // number of products per page
+				],
+				'selection' => [
+					'type' => [ // how variant attributes are displayed
+						'color' => 'radio',
+						'length' => 'radio',
+						'width' => 'radio',
+					],
 				],
 			],
 		],
@@ -83,7 +99,7 @@ return [
 	'controller' => [
 		'frontend' => [
 			'catalog' => [
-				'levels-always' => 2
+				'levels-always' => 3 // number of category levels for mega menu
 			]
 		]
 	],
