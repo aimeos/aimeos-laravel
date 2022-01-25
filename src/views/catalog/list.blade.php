@@ -34,12 +34,7 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-lg-3">
-                <div class="catalog-filter-group">
-                    <?= $aibody['catalog/search'] ?? '' ?>
-                    <?= $aibody['catalog/price'] ?? '' ?>
-                    <?= $aibody['catalog/supplier'] ?? '' ?>
-                    <?= $aibody['catalog/attribute'] ?? '' ?>
-                </div>
+                <?= $aibody['catalog/filter'] ?? '' ?>
                 <?= $aibody['catalog/session'] ?? '' ?>
             </aside>
             <div class="col-lg-9">
