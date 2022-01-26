@@ -86,7 +86,7 @@ return [
 					// 'size' => 48, // number of products per page
 				],
 				'selection' => [
-					'type' => [ // how variant attributes are displayed
+					'type' => [// how variant attributes are displayed
 						'color' => 'radio',
 						'length' => 'radio',
 						'width' => 'radio',
