@@ -4,10 +4,8 @@
     <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
     <?= $aiheader['catalog/search'] ?? '' ?>
+    <?= $aiheader['catalog/filter'] ?? '' ?>
     <?= $aiheader['catalog/tree'] ?? '' ?>
-    <?= $aiheader['catalog/price'] ?? '' ?>
-    <?= $aiheader['catalog/supplier'] ?? '' ?>
-    <?= $aiheader['catalog/attribute'] ?? '' ?>
     <?= $aiheader['catalog/session'] ?? '' ?>
     <?= $aiheader['catalog/stage'] ?? '' ?>
     <?= $aiheader['catalog/lists'] ?? '' ?>
