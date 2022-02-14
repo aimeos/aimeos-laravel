@@ -45,7 +45,7 @@ class AdminController extends Controller
 
 		$context = app( 'aimeos.context' )->get( false );
 		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
-		$siteId = current( array_reverse( explode( '.', trim( $request->user()->siteid, '.' ) ) ) );
+		$siteId = current( \array_reverse( explode( '.', trim( $request->user()->siteid, '.' ) ) ) );
 		$siteCode = ( $siteId ? $siteManager->get( $siteId )->getCode() : 'default' );
 		$locale = $request->user()->langid ?: config( 'app.locale', 'en' );
 

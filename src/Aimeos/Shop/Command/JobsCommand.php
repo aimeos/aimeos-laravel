@@ -46,7 +46,7 @@ class JobsCommand extends AbstractCommand
 	public function handle()
 	{
 		$jobs = $this->argument( 'jobs' );
-		$jobs = !is_array( $jobs ) ? explode( ' ', (string) $jobs ) : $jobs;
+		$jobs = !\is_array( $jobs ) ? explode( ' ', (string) $jobs ) : $jobs;
 
 		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $jobs )
 		{

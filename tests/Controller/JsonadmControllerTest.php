@@ -30,7 +30,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertNotNull( $json );
 		$this->assertEquals( 200, $response->getStatusCode() );
 		$this->assertArrayHasKey( 'resources', $json['meta'] );
-		$this->assertGreaterThan( 1, count( $json['meta']['resources'] ) );
+		$this->assertGreaterThan( 1, \count( $json['meta']['resources'] ) );
 
 
 		$params = ['site' => 'unittest'];
@@ -41,7 +41,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 		$this->assertNotNull( $json );
 		$this->assertEquals( 200, $response->getStatusCode() );
 		$this->assertArrayHasKey( 'resources', $json['meta'] );
-		$this->assertGreaterThan( 1, count( $json['meta']['resources'] ) );
+		$this->assertGreaterThan( 1, \count( $json['meta']['resources'] ) );
 	}
 
 
@@ -122,7 +122,7 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 		$this->assertEquals( 201, $response->getStatusCode() );
 		$this->assertNotNull( $json );
-		$this->assertEquals( 2, count( $json['data'] ) );
+		$this->assertEquals( 2, \count( $json['data'] ) );
 		$this->assertArrayHasKey( 'stock.type.id', $json['data'][0]['attributes'] );
 		$this->assertArrayHasKey( 'stock.type.id', $json['data'][1]['attributes'] );
 		$this->assertEquals( 'laravel', $json['data'][0]['attributes']['stock.type.label'] );
@@ -143,13 +143,13 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertNotNull( $json );
-		$this->assertEquals( 2, count( $json['data'] ) );
+		$this->assertEquals( 2, \count( $json['data'] ) );
 		$this->assertArrayHasKey( 'stock.type.id', $json['data'][0]['attributes'] );
 		$this->assertArrayHasKey( 'stock.type.id', $json['data'][1]['attributes'] );
 		$this->assertEquals( 'laravel2', $json['data'][0]['attributes']['stock.type.label'] );
 		$this->assertEquals( 'laravel2', $json['data'][1]['attributes']['stock.type.label'] );
-		$this->assertTrue( in_array( $json['data'][0]['attributes']['stock.type.id'], $ids ) );
-		$this->assertTrue( in_array( $json['data'][1]['attributes']['stock.type.id'], $ids ) );
+		$this->assertTrue( \in_array( $json['data'][0]['attributes']['stock.type.id'], $ids ) );
+		$this->assertTrue( \in_array( $json['data'][1]['attributes']['stock.type.id'], $ids ) );
 		$this->assertEquals( 2, $json['meta']['total'] );
 
 
@@ -166,13 +166,13 @@ class JsonadmControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertNotNull( $json );
-		$this->assertEquals( 2, count( $json['data'] ) );
+		$this->assertEquals( 2, \count( $json['data'] ) );
 		$this->assertEquals( 'laravel', $json['data'][0]['attributes']['stock.type.code'] );
 		$this->assertEquals( 'laravel2', $json['data'][1]['attributes']['stock.type.code'] );
 		$this->assertEquals( 'laravel2', $json['data'][0]['attributes']['stock.type.label'] );
 		$this->assertEquals( 'laravel2', $json['data'][1]['attributes']['stock.type.label'] );
-		$this->assertTrue( in_array( $json['data'][0]['attributes']['stock.type.id'], $ids ) );
-		$this->assertTrue( in_array( $json['data'][1]['attributes']['stock.type.id'], $ids ) );
+		$this->assertTrue( \in_array( $json['data'][0]['attributes']['stock.type.id'], $ids ) );
+		$this->assertTrue( \in_array( $json['data'][1]['attributes']['stock.type.id'], $ids ) );
 		$this->assertEquals( 2, $json['meta']['total'] );
 
 

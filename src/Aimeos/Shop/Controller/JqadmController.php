@@ -49,7 +49,7 @@ class JqadmController extends AdminController
 			{
 				$jsbAbsPath = $base . '/' . $path;
 				$jsb2 = new \Aimeos\MW\Jsb2\Standard( $jsbAbsPath, dirname( $jsbAbsPath ) );
-				$files = array_merge( $files, $jsb2->getFiles( $type ) );
+				$files = \array_merge( $files, $jsb2->getFiles( $type ) );
 			}
 		}
 
@@ -264,7 +264,7 @@ class JqadmController extends AdminController
 			'content' => $content,
 			'site' => $site,
 			'locale' => $lang,
-			'localeDir' => in_array( $lang, ['ar', 'az', 'dv', 'fa', 'he', 'ku', 'ur'] ) ? 'rtl' : 'ltr',
+			'localeDir' => \in_array( $lang, ['ar', 'az', 'dv', 'fa', 'he', 'ku', 'ur'] ) ? 'rtl' : 'ltr',
 			'theme' => ( $_COOKIE['aimeos_backend_theme'] ?? '' ) == 'dark' ? 'dark' : 'light'
 		] );
 	}

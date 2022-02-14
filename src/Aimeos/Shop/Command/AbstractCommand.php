@@ -38,7 +38,7 @@ abstract class AbstractCommand extends Command
 		$start = 0;
 
 		if( !empty( $sites ) ) {
-			$filter->add( ['locale.site.code' => !is_array( $sites ) ? explode( ' ', (string) $sites ) : $sites] );
+			$filter->add( ['locale.site.code' => !\is_array( $sites ) ? explode( ' ', (string) $sites ) : $sites] );
 		}
 
 		do
@@ -67,7 +67,7 @@ abstract class AbstractCommand extends Command
 				$process->start( $fcn, [$lcontext, $aimeos], false );
 			}
 
-			$count = count( $siteItems );
+			$count = \count( $siteItems );
 			$start += $count;
 		}
 		while( $count === $filter->getLimit() );

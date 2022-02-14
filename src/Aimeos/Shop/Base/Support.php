@@ -60,7 +60,7 @@ class Support
 	 */
 	public function checkUserGroup( \Illuminate\Foundation\Auth\User $user, $groupcodes ) : bool
 	{
-		$groups = ( is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
+		$groups = ( \is_array( $groupcodes ) ? implode( ',', $groupcodes ) : $groupcodes );
 
 		if( isset( $this->access[$user->id][$groups] ) ) {
 			return $this->access[$user->id][$groups];
@@ -68,7 +68,7 @@ class Support
 
 		$this->access[$user->id][$groups] = false;
 
-		if( $siteid = current( array_reverse( explode( '.', trim( $user->siteid, '.' ) ) ) ) )
+		if( $siteid = current( \array_reverse( explode( '.', trim( $user->siteid, '.' ) ) ) ) )
 		{
 			$context = $this->context->get( false );
 			$site = \Aimeos\MShop::create( $context, 'locale/site' )->get( $siteid )->getCode();
@@ -76,7 +76,7 @@ class Support
 
 			$context->setLocale( $this->locale->getBackend( $context, $site ) );
 
-			foreach( array_reverse( $context->locale()->getSitePath() ) as $siteid )
+			foreach( \array_reverse( $context->locale()->getSitePath() ) as $siteid )
 			{
 				if( (string) $user->siteid === (string) $siteid ) {
 					$this->access[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
