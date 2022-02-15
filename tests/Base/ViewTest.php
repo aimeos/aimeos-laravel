@@ -17,7 +17,7 @@ class ViewTest extends AimeosTestAbstract
 
 		$context = new \Aimeos\MShop\Context\Item\Standard();
 		$context->setConfig( new \Aimeos\MW\Config\PHPArray() );
-		$context->setSession( new \Aimeos\MW\Session\None() );
+		$context->setSession( new \Aimeos\Base\Session\None() );
 
 		$object = new \Aimeos\Shop\Base\View( $config, $i18n, $support );
 
