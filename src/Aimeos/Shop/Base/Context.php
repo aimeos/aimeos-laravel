@@ -251,7 +251,7 @@ class Context
 	 */
 	protected function addSession( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$session = new \Aimeos\MW\Session\Laravel5( $this->session );
+		$session = new \Aimeos\Base\Session\Laravel( $this->session );
 
 		return $context->setSession( $session );
 	}
