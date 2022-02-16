@@ -148,10 +148,8 @@ class Context
 	 */
 	protected function addFilesystemManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$config = $context->config();
-		$path = storage_path( 'aimeos' );
-
-		$fs = new \Aimeos\MW\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, $path );
+		$config = $context->config()->get( 'resource' );
+		$fs = new \Aimeos\Base\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, storage_path( 'aimeos' ) );
 
 		return $context->setFilesystemManager( $fs );
 	}
