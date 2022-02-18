@@ -178,7 +178,7 @@ class Context
 	 */
 	protected function addMailer( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$mail = new \Aimeos\MW\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
+		$mail = new \Aimeos\Base\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
 
 		return $context->setMail( $mail );
 	}
@@ -263,10 +263,12 @@ class Context
 	 */
 	protected function addUser( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$key = collect( config( 'shop.routes' ) )->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )->keys()->first();
+		$key = collect( config( 'shop.routes' ) )
+			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
+			->keys()->first();
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
-		if( ( $user = Auth::guard( $guard )->user() ) !== null ) {
+		if( $user = Auth::guard( $guard )->user() ) {
 			$context->setEditor( $user->name ?? (string) \Request::ip() );
 			$context->setUserId( $user->getAuthIdentifier() );
 		} elseif( $ip = \Request::ip() ) {
@@ -285,10 +287,13 @@ class Context
 	 */
 	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		$key = collect( config( 'shop.routes' ) )->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )->keys()->first();
+		$key = collect( config( 'shop.routes' ) )
+			->where( 'prefix', optional( Route::getCurrentRoute() )
+			->getPrefix() )
+			->keys()->first();
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
-		if( ( $userid = Auth::guard( $guard )->id() ) !== null )
+		if( $userid = Auth::guard( $guard )->id() )
 		{
 			$context->setGroupIds( function() use ( $context, $userid ) {
 				$manager = \Aimeos\MShop::create( $context, 'customer' );
