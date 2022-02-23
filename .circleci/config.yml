@@ -8,7 +8,7 @@ jobs:
   "php-7.2 / mysql-5.7":
     docker:
       - image: aimeos/ci-php:7.2
-      - image: circleci/mysql:5.7
+      - image: cimg/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: laravel
@@ -32,7 +32,7 @@ jobs:
   "php-7.3 / mysql-5.7":
     docker:
       - image: aimeos/ci-php:7.3
-      - image: circleci/mysql:5.7
+      - image: cimg/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: laravel
@@ -56,7 +56,7 @@ jobs:
   "php-7.4 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:7.4
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: laravel
@@ -80,7 +80,7 @@ jobs:
   "php-8.0 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:8.0
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: laravel
@@ -104,7 +104,7 @@ jobs:
   "php-8.1 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:8.1
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: laravel
