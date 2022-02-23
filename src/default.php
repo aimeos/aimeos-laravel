@@ -325,17 +325,6 @@ return [
 	],
 
 	'controller' => [
-		'common' => [
-			'media' => [
-				'mimeicon' => [
-					# Directory where icons for the mime types stored
-					'directory' => '../vendor/shop/mimeicons',
-					# File extension of mime type icons
-					'extension' => '.png'
-				],
-				'tempdir' => storage_path( 'aimeos' ),
-			],
-		],
 		'jobs' => [
 			'catalog' => [
 				'export' => [
@@ -344,7 +333,7 @@ return [
 					]
 				]
 			],
-			'from-email' => config( 'mail.from.address' ),
+			'to-email' => config( 'mail.from.address' ),
 			'product' => [
 				'export' => [
 					'sitemap' => [
