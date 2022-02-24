@@ -51,7 +51,7 @@ class I18n
 	 * Creates new translation objects.
 	 *
 	 * @param array $languageIds List of two letter ISO language IDs
-	 * @return \Aimeos\MW\Translation\Iface[] List of translation objects
+	 * @return \Aimeos\Base\Translation\Iface[] List of translation objects
 	 */
 	public function get( array $languageIds ) : array
 	{
@@ -61,14 +61,14 @@ class I18n
 		{
 			if( !isset( $this->i18n[$langid] ) )
 			{
-				$i18n = new \Aimeos\MW\Translation\Gettext( $i18nPaths, $langid );
+				$i18n = new \Aimeos\Base\Translation\Gettext( $i18nPaths, $langid );
 
 				if( $this->config->get( 'shop.apc_enabled', false ) == true ) {
-					$i18n = new \Aimeos\MW\Translation\Decorator\APC( $i18n, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
+					$i18n = new \Aimeos\Base\Translation\Decorator\APC( $i18n, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 				}
 
 				if( $this->config->has( 'shop.i18n.' . $langid ) ) {
-					$i18n = new \Aimeos\MW\Translation\Decorator\Memory( $i18n, $this->config->get( 'shop.i18n.' . $langid ) );
+					$i18n = new \Aimeos\Base\Translation\Decorator\Memory( $i18n, $this->config->get( 'shop.i18n.' . $langid ) );
 				}
 
 				$this->i18n[$langid] = $i18n;

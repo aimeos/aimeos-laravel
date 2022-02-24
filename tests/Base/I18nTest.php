@@ -18,6 +18,6 @@ class I18nTest extends AimeosTestAbstract
 		$object = new \Aimeos\Shop\Base\I18n( $configMock, $aimeos );
 		$list = $object->get( array( 'en' ) );
 
-		$this->assertInstanceOf( '\Aimeos\MW\Translation\Iface', $list['en'] );
+		$this->assertInstanceOf( '\Aimeos\Base\Translation\Iface', $list['en'] );
 	}
 }
