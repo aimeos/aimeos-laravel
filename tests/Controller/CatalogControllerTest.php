@@ -75,9 +75,11 @@ class CatalogControllerTest extends AimeosTestAbstract
 
 	public function testTreeAction()
 	{
+		$root = \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'catalog' )->getTree( \Aimeos\Controller\Frontend\Catalog\Iface::TREE );
+
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@treeAction', ['site' => 'unittest', 'f_catid' => 1, 'f_name' => 'test'] );
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@treeAction', ['site' => 'unittest', 'f_catid' => $root->getId(), 'f_name' => 'test'] );
 
 		$this->assertResponseOk();
 		$this->assertStringContainsString( '<section class="aimeos catalog-filter', $response->getContent() );
