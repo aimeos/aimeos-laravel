@@ -218,7 +218,7 @@ class Context
 	 */
 	protected function addPassword( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
 	{
-		return $context->setPassword( new \Aimeos\MW\Password\Standard() );
+		return $context->setPassword( new \Aimeos\Base\Password\Standard() );
 	}
 
 
