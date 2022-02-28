@@ -75,13 +75,10 @@ return [
 				'cache' => [
 					// 'force' => true // enforce caching for logged in users
 				],
-				'template' => [
-					// 'baseurl' => public_path( 'vendor/shop/themes/default' ), // for styling for e-mail templates
-				],
 			],
 			'catalog' => [
 				'lists' => [
-					// 'basket-add' => true, // shows add to basket in list views
+					'basket-add' => true, // shows add to basket in list views
 					// 'infinite-scroll' => true, // load more products in list view
 					// 'size' => 48, // number of products per page
 				],
