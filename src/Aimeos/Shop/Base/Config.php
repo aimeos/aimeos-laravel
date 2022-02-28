@@ -51,25 +51,25 @@ class Config
 	 * Creates a new configuration object.
 	 *
 	 * @param string $type Configuration type ("frontend" or "backend")
-	 * @return \Aimeos\MW\Config\Iface Configuration object
+	 * @return \Aimeos\Base\Config\Iface Configuration object
 	 */
-	public function get( string $type = 'frontend' ) : \Aimeos\MW\Config\Iface
+	public function get( string $type = 'frontend' ) : \Aimeos\Base\Config\Iface
 	{
 		if( !isset( $this->objects[$type] ) )
 		{
 			$configPaths = $this->aimeos->get()->getConfigPaths();
 			$cfgfile = dirname( dirname( dirname( __DIR__ ) ) ) . DIRECTORY_SEPARATOR . 'default.php';
 
-			$config = new \Aimeos\MW\Config\PHPArray( require $cfgfile, $configPaths );
+			$config = new \Aimeos\Base\Config\PHPArray( require $cfgfile, $configPaths );
 
 			if( $this->config->get( 'shop.apc_enabled', false ) == true ) {
-				$config = new \Aimeos\MW\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
+				$config = new \Aimeos\Base\Config\Decorator\APC( $config, $this->config->get( 'shop.apc_prefix', 'laravel:' ) );
 			}
 
-			$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
+			$config = new \Aimeos\Base\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
 
 			if( ( $conf = $this->config->get( 'shop.' . $type, array() ) ) !== array() ) {
-				$config = new \Aimeos\MW\Config\Decorator\Memory( $config, $conf );
+				$config = new \Aimeos\Base\Config\Decorator\Memory( $config, $conf );
 			}
 
 			$this->objects[$type] = $config;

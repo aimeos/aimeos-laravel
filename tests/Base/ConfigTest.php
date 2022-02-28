@@ -14,6 +14,6 @@ class ConfigTest extends AimeosTestAbstract
 
 		$object = new \Aimeos\Shop\Base\Config( $configMock, $aimeos );
 
-		$this->assertInstanceOf( '\Aimeos\MW\Config\Iface', $object->get() );
+		$this->assertInstanceOf( '\Aimeos\Base\Config\Iface', $object->get() );
 	}
 }

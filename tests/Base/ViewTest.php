@@ -16,7 +16,7 @@ class ViewTest extends AimeosTestAbstract
 			->getMock();
 
 		$context = new \Aimeos\MShop\Context\Item\Standard();
-		$context->setConfig( new \Aimeos\MW\Config\PHPArray() );
+		$context->setConfig( new \Aimeos\Base\Config\PHPArray() );
 		$context->setSession( new \Aimeos\Base\Session\None() );
 
 		$object = new \Aimeos\Shop\Base\View( $config, $i18n, $support );

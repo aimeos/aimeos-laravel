@@ -122,13 +122,13 @@ class View
 	 * Adds the "config" helper to the view object
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @param \Aimeos\MW\Config\Iface $config Configuration object
+	 * @param \Aimeos\Base\Config\Iface $config Configuration object
 	 * @return \Aimeos\MW\View\Iface Modified view object
 	 */
-	protected function addConfig( \Aimeos\MW\View\Iface $view, \Aimeos\MW\Config\Iface $config ) : \Aimeos\MW\View\Iface
+	protected function addConfig( \Aimeos\MW\View\Iface $view, \Aimeos\Base\Config\Iface $config ) : \Aimeos\MW\View\Iface
 	{
 		$prefixes = ['version', 'admin', 'client', 'common', 'resource/fs/baseurl', 'resource/fs-media/baseurl', 'resource/fs-theme/baseurl'];
-		$config = new \Aimeos\MW\Config\Decorator\Protect( clone $config, $prefixes );
+		$config = new \Aimeos\Base\Config\Decorator\Protect( clone $config, $prefixes );
 		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
@@ -155,11 +155,11 @@ class View
 	 * Adds the "number" helper to the view object
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @param \Aimeos\MW\Config\Iface $config Configuration object
+	 * @param \Aimeos\Base\Config\Iface $config Configuration object
 	 * @param string|null $locale Code of the current language or null for no translation
 	 * @return \Aimeos\MW\View\Iface Modified view object
 	 */
-	protected function addNumber( \Aimeos\MW\View\Iface $view, \Aimeos\MW\Config\Iface $config,
+	protected function addNumber( \Aimeos\MW\View\Iface $view, \Aimeos\Base\Config\Iface $config,
 		string $locale = null ) : \Aimeos\MW\View\Iface
 	{
 		if( config( 'shop.num_formatter', 'Locale' ) === 'Locale' )
