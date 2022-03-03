@@ -118,6 +118,9 @@ return [
 	],
 
 	'mshop' => [
+		'locale' => [
+			// 'site' => '<custom site code>', // used instead of "default"
+		]
 	],
 
 
