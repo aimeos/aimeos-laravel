@@ -48,8 +48,8 @@ class ShopServiceProvider extends ServiceProvider {
 		{
 			foreach( new \DirectoryIterator( $basepath ) as $entry )
 			{
-				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/client/html/themes' ) ) {
-					$this->publishes( [$entry->getPathName() . '/client/html/themes' => public_path( 'vendor/shop/themes' )], 'public' );
+				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/themes/client/html' ) ) {
+					$this->publishes( [$entry->getPathName() . 'themes/client/html/' => public_path( 'vendor/shop/themes' )], 'public' );
 				}
 			}
 		}
@@ -65,8 +65,8 @@ class ShopServiceProvider extends ServiceProvider {
 			{
 				$path = realpath( \Composer\InstalledVersions::getInstallPath( $package ) );
 
-				if( strncmp( $path, $extdir, strlen( $extdir ) ) && file_exists( $path . '/client/html/themes' ) ) {
-					$this->publishes( [$path . '/client/html/themes' => public_path( 'vendor/shop/themes' )], 'public' );
+				if( strncmp( $path, $extdir, strlen( $extdir ) ) && file_exists( $path . '/themes/client/html' ) ) {
+					$this->publishes( [$path . '/themes/client/html' => public_path( 'vendor/shop/themes' )], 'public' );
 				}
 			}
 		}
