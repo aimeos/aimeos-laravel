@@ -132,7 +132,7 @@ class JsonadmController extends Controller
 	 */
 	protected function createAdmin() : \Aimeos\Admin\JsonAdm\Iface
 	{
-		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
+		$site = Route::input( 'site', Request::get( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
 		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource', '' );
 

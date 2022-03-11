@@ -21,7 +21,7 @@ if( !function_exists( 'airoute' ) )
 	{
 		if( $current = Route::current() )
 		{
-			$site = config( 'app.shop_multishop' ) ? 'default' : null;
+			$site = config( 'app.shop_multishop' ) ? config( 'shop.mshop.locale.site', 'default' ) : null;
 
 			$parameters['site'] = $current->parameter( 'site', Request::get( 'site', $site ) );
 			$parameters['locale'] = $current->parameter( 'locale', Request::get( 'locale' ) );
