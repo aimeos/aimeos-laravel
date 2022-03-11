@@ -226,7 +226,7 @@ class JqadmController extends AdminController
 	 */
 	protected function createAdmin() : \Aimeos\Admin\JQAdm\Iface
 	{
-		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
+		$site = Route::input( 'site', Request::get( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
 		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 		$resource = Route::input( 'resource' );
 
@@ -257,7 +257,7 @@ class JqadmController extends AdminController
 	 */
 	protected function getHtml( string $content )
 	{
-		$site = Route::input( 'site', Request::get( 'site', 'default' ) );
+		$site = Route::input( 'site', Request::get( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
 		$lang = Request::get( 'locale', config( 'app.locale', 'en' ) );
 
 		return View::make( 'shop::jqadm.index', [
