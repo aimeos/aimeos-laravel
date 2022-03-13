@@ -21,6 +21,6 @@ class ViewTest extends AimeosTestAbstract
 
 		$object = new \Aimeos\Shop\Base\View( $config, $i18n, $support );
 
-		$this->assertInstanceOf( '\Aimeos\MW\View\Iface', $object->create( $context, array() ) );
+		$this->assertInstanceOf( '\Aimeos\Base\View\Iface', $object->create( $context, array() ) );
 	}
 }

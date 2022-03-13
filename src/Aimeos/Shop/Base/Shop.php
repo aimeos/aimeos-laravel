@@ -24,7 +24,7 @@ class Shop
 	private $context;
 
 	/**
-	 * @var \Aimeos\MW\View\Iface
+	 * @var \Aimeos\Base\View\Iface
 	 */
 	private $view;
 

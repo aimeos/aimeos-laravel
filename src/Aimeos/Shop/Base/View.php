@@ -61,13 +61,13 @@ class View
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @param array $templatePaths List of base path names with relative template paths as key/value pairs
 	 * @param string|null $locale Code of the current language or null for no translation
-	 * @return \Aimeos\MW\View\Iface View object
+	 * @return \Aimeos\Base\View\Iface View object
 	 */
 	public function create( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths,
-		string $locale = null ) : \Aimeos\MW\View\Iface
+		string $locale = null ) : \Aimeos\Base\View\Iface
 	{
-		$engine = new \Aimeos\MW\View\Engine\Blade( app( 'Illuminate\Contracts\View\Factory' ) );
-		$view = new \Aimeos\MW\View\Standard( $templatePaths, array( '.blade.php' => $engine ) );
+		$engine = new \Aimeos\Base\View\Engine\Blade( app( 'Illuminate\Contracts\View\Factory' ) );
+		$view = new \Aimeos\Base\View\Standard( $templatePaths, array( '.blade.php' => $engine ) );
 
 		$config = $context->config();
 		$session = $context->session();
@@ -90,16 +90,16 @@ class View
 	/**
 	 * Adds the "access" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param \Aimeos\Base\View\Iface $view View object
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addAccess( \Aimeos\MW\View\Iface $view, \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MW\View\Iface
+	protected function addAccess( \Aimeos\Base\View\Iface $view, \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\Base\View\Iface
 	{
 		if( $this->config->get( 'shop.accessControl', true ) === false
 			|| ( ( $user = \Illuminate\Support\Facades\Auth::user() ) !== null && $user->superuser )
 		) {
-			$helper = new \Aimeos\MW\View\Helper\Access\All( $view );
+			$helper = new \Aimeos\Base\View\Helper\Access\All( $view );
 		}
 		else
 		{
@@ -109,7 +109,7 @@ class View
 				return $support->getGroups( $context );
 			};
 
-			$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $fcn );
+			$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, $fcn );
 		}
 
 		$view->addHelper( 'access', $helper );
@@ -121,15 +121,15 @@ class View
 	/**
 	 * Adds the "config" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param \Aimeos\Base\View\Iface $view View object
 	 * @param \Aimeos\Base\Config\Iface $config Configuration object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addConfig( \Aimeos\MW\View\Iface $view, \Aimeos\Base\Config\Iface $config ) : \Aimeos\MW\View\Iface
+	protected function addConfig( \Aimeos\Base\View\Iface $view, \Aimeos\Base\Config\Iface $config ) : \Aimeos\Base\View\Iface
 	{
 		$prefixes = ['version', 'admin', 'client', 'common', 'resource/fs/baseurl', 'resource/fs-media/baseurl', 'resource/fs-theme/baseurl'];
 		$config = new \Aimeos\Base\Config\Decorator\Protect( clone $config, $prefixes );
-		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
 		return $view;
@@ -139,12 +139,12 @@ class View
 	/**
 	 * Adds the "access" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addCsrf( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	protected function addCsrf( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$helper = new \Aimeos\MW\View\Helper\Csrf\Standard( $view, '_token', csrf_token() );
+		$helper = new \Aimeos\Base\View\Helper\Csrf\Standard( $view, '_token', csrf_token() );
 		$view->addHelper( 'csrf', $helper );
 
 		return $view;
@@ -154,24 +154,24 @@ class View
 	/**
 	 * Adds the "number" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param \Aimeos\Base\View\Iface $view View object
 	 * @param \Aimeos\Base\Config\Iface $config Configuration object
 	 * @param string|null $locale Code of the current language or null for no translation
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addNumber( \Aimeos\MW\View\Iface $view, \Aimeos\Base\Config\Iface $config,
-		string $locale = null ) : \Aimeos\MW\View\Iface
+	protected function addNumber( \Aimeos\Base\View\Iface $view, \Aimeos\Base\Config\Iface $config,
+		string $locale = null ) : \Aimeos\Base\View\Iface
 	{
 		if( config( 'shop.num_formatter', 'Locale' ) === 'Locale' )
 		{
 			$pattern = $config->get( 'client/html/common/format/pattern' );
-			$helper = new \Aimeos\MW\View\Helper\Number\Locale( $view, $locale, $pattern );
+			$helper = new \Aimeos\Base\View\Helper\Number\Locale( $view, $locale, $pattern );
 		}
 		else
 		{
 			$sep1000 = $config->get( 'client/html/common/format/separator1000', '' );
 			$decsep = $config->get( 'client/html/common/format/separatorDecimal', '.' );
-			$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, $decsep, $sep1000 );
+			$helper = new \Aimeos\Base\View\Helper\Number\Standard( $view, $decsep, $sep1000 );
 		}
 
 		return $view->addHelper( 'number', $helper );
@@ -181,13 +181,13 @@ class View
 	/**
 	 * Adds the "param" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addParam( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	protected function addParam( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$params = ( Route::current() ? Route::current()->parameters() : array() ) + Request::all();
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $params );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
 
 		return $view;
@@ -197,12 +197,12 @@ class View
 	/**
 	 * Adds the "request" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addRequest( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	protected function addRequest( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$helper = new \Aimeos\MW\View\Helper\Request\Laravel5( $view, Request::instance() );
+		$helper = new \Aimeos\Base\View\Helper\Request\Laravel5( $view, Request::instance() );
 		$view->addHelper( 'request', $helper );
 
 		return $view;
@@ -212,12 +212,12 @@ class View
 	/**
 	 * Adds the "response" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addResponse( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	protected function addResponse( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$helper = new \Aimeos\MW\View\Helper\Response\Laravel5( $view );
+		$helper = new \Aimeos\Base\View\Helper\Response\Laravel5( $view );
 		$view->addHelper( 'response', $helper );
 
 		return $view;
@@ -227,13 +227,13 @@ class View
 	/**
 	 * Adds the "session" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param \Aimeos\Base\View\Iface $view View object
 	 * @param \Aimeos\Base\Session\Iface $session Session object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addSession( \Aimeos\MW\View\Iface $view, \Aimeos\Base\Session\Iface $session ) : \Aimeos\MW\View\Iface
+	protected function addSession( \Aimeos\Base\View\Iface $view, \Aimeos\Base\Session\Iface $session ) : \Aimeos\Base\View\Iface
 	{
-		$helper = new \Aimeos\MW\View\Helper\Session\Standard( $view, $session );
+		$helper = new \Aimeos\Base\View\Helper\Session\Standard( $view, $session );
 		$view->addHelper( 'session', $helper );
 
 		return $view;
@@ -243,11 +243,11 @@ class View
 	/**
 	 * Adds the "translate" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param \Aimeos\Base\View\Iface $view View object
 	 * @param string|null $locale ISO language code, e.g. "de" or "de_CH"
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addTranslate( \Aimeos\MW\View\Iface $view, string $locale = null ) : \Aimeos\MW\View\Iface
+	protected function addTranslate( \Aimeos\Base\View\Iface $view, string $locale = null ) : \Aimeos\Base\View\Iface
 	{
 		if( $locale !== null )
 		{
@@ -259,7 +259,7 @@ class View
 			$translation = new \Aimeos\Base\Translation\None( 'en' );
 		}
 
-		$helper = new \Aimeos\MW\View\Helper\Translate\Standard( $view, $translation );
+		$helper = new \Aimeos\Base\View\Helper\Translate\Standard( $view, $translation );
 		$view->addHelper( 'translate', $helper );
 
 		return $view;
@@ -269,10 +269,10 @@ class View
 	/**
 	 * Adds the "url" helper to the view object
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addUrl( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	protected function addUrl( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$fixed = [
 			'site' => Request::input( 'site', env( 'SHOP_MULTISHOP' ) ? config( 'shop.mshop.locale.site', 'default' ) : null ),
@@ -287,7 +287,7 @@ class View
 			$fixed['currency'] = Request::route( 'currency', $fixed['currency'] );
 		}
 
-		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app( 'url' ), array_filter( $fixed ) );
+		$helper = new \Aimeos\Base\View\Helper\Url\Laravel5( $view, app( 'url' ), array_filter( $fixed ) );
 		$view->addHelper( 'url', $helper );
 
 		return $view;
