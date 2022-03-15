@@ -22,7 +22,7 @@
 		<link rel="preload" href="/vendor/shop/themes/default/assets/roboto-condensed-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/vendor/shop/themes/default/assets/bootstrap-icons.woff2" as="font" type="font/woff2" crossorigin>
 	</head>
-	<body class="{{ $page }}">
+	<body class="{{ $page ?? '' }}">
 		<nav class="navbar navbar-expand-md navbar-top">
 			<a class="navbar-brand" href="/" title="Logo">
 				<img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" title="Logo">
