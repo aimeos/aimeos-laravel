@@ -31,6 +31,8 @@ class PageController extends Controller
 	 */
 	public function indexAction()
 	{
+		$params = ['page' => 'page-index'];
+
 		foreach( app( 'config' )->get( 'shop.page.cms', ['cms/page', 'basket/mini'] ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -49,7 +51,7 @@ class PageController extends Controller
 	 */
 	public function privacyAction()
 	{
-		return View::make( Shop::template( 'page.privacy' ) );
+		return View::make( Shop::template( 'page.privacy' ), ['page' => 'page-privacy'] );
 	}
 
 
@@ -60,6 +62,6 @@ class PageController extends Controller
 	 */
 	public function termsAction()
 	{
-		return View::make( Shop::template( 'page.terms' ) );
+		return View::make( Shop::template( 'page.terms' ), ['page' => 'page-terms'] );
 	}
 }

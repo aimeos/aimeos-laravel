@@ -30,6 +30,8 @@ class BasketController extends Controller
 	 */
 	public function indexAction()
 	{
+		$params = ['page' => 'basket-index'];
+
 		foreach( app( 'config' )->get( 'shop.page.basket-index' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();

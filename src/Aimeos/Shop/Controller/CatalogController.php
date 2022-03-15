@@ -30,6 +30,8 @@ class CatalogController extends Controller
 	 */
 	public function countAction()
 	{
+		$params = ['page' => 'catalog-count'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-count' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -49,6 +51,8 @@ class CatalogController extends Controller
 	 */
 	public function detailAction()
 	{
+		$params = ['page' => 'catalog-detail'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-detail' ) as $name )
 		{
 			try {
@@ -72,6 +76,8 @@ class CatalogController extends Controller
 	 */
 	public function homeAction()
 	{
+		$params = ['page' => 'catalog-home'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-home' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -90,6 +96,8 @@ class CatalogController extends Controller
 	 */
 	public function listAction()
 	{
+		$params = ['page' => 'catalog-list'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-list' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -108,6 +116,8 @@ class CatalogController extends Controller
 	 */
 	public function sessionAction()
 	{
+		$params = ['page' => 'catalog-session'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-session' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -126,6 +136,8 @@ class CatalogController extends Controller
 	 */
 	public function stockAction()
 	{
+		$params = ['page' => 'catalog-stock'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-stock' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -145,6 +157,8 @@ class CatalogController extends Controller
 	 */
 	public function suggestAction()
 	{
+		$params = ['page' => 'catalog-suggest'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-suggest' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -164,6 +178,8 @@ class CatalogController extends Controller
 	 */
 	public function treeAction()
 	{
+		$params = ['page' => 'catalog-tree'];
+
 		foreach( app( 'config' )->get( 'shop.page.catalog-tree' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();

@@ -30,6 +30,8 @@ class CheckoutController extends Controller
 	 */
 	public function confirmAction()
 	{
+		$params = ['page' => 'checkout-confirm'];
+
 		foreach( app( 'config' )->get( 'shop.page.checkout-confirm' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -48,6 +50,8 @@ class CheckoutController extends Controller
 	 */
 	public function indexAction()
 	{
+		$params = ['page' => 'checkout-index'];
+
 		foreach( app( 'config' )->get( 'shop.page.checkout-index' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
@@ -66,6 +70,8 @@ class CheckoutController extends Controller
 	 */
 	public function updateAction()
 	{
+		$params = ['page' => 'checkout-update'];
+
 		foreach( app( 'config' )->get( 'shop.page.checkout-update' ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
