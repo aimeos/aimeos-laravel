@@ -30,7 +30,7 @@ class BasketController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = ['page' => 'basket-index'];
+		$params = ['page' => 'page-basket-index'];
 
 		foreach( app( 'config' )->get( 'shop.page.basket-index' ) as $name )
 		{

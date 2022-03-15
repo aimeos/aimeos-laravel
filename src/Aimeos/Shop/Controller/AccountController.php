@@ -30,7 +30,7 @@ class AccountController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = ['page' => 'account-index'];
+		$params = ['page' => 'page-account-index'];
 
 		foreach( app( 'config' )->get( 'shop.page.account-index' ) as $name )
 		{

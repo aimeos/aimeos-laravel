@@ -30,7 +30,7 @@ class SupplierController extends Controller
 	 */
 	public function detailAction()
 	{
-		$params = ['page' => 'supplier-detail'];
+		$params = ['page' => 'page-supplier-detail'];
 
 		foreach( app( 'config' )->get( 'shop.page.supplier-detail' ) as $name )
 		{

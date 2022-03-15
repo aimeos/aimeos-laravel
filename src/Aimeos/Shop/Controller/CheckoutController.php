@@ -30,7 +30,7 @@ class CheckoutController extends Controller
 	 */
 	public function confirmAction()
 	{
-		$params = ['page' => 'checkout-confirm'];
+		$params = ['page' => 'page-checkout-confirm'];
 
 		foreach( app( 'config' )->get( 'shop.page.checkout-confirm' ) as $name )
 		{
@@ -50,7 +50,7 @@ class CheckoutController extends Controller
 	 */
 	public function indexAction()
 	{
-		$params = ['page' => 'checkout-index'];
+		$params = ['page' => 'page-checkout-index'];
 
 		foreach( app( 'config' )->get( 'shop.page.checkout-index' ) as $name )
 		{
@@ -70,7 +70,7 @@ class CheckoutController extends Controller
 	 */
 	public function updateAction()
 	{
-		$params = ['page' => 'checkout-update'];
+		$params = ['page' => 'page-checkout-update'];
 
 		foreach( app( 'config' )->get( 'shop.page.checkout-update' ) as $name )
 		{
