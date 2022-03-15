@@ -31,9 +31,7 @@
 @stop
 
 @section('aimeos_body')
-    <div class="container-xl">
-        <?= $aibody['catalog/detail'] ?? '' ?>
-    </div>
+    <?= $aibody['catalog/detail'] ?? '' ?>
 @stop
 
 @section('aimeos_aside')

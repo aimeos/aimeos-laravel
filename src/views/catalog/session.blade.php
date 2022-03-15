@@ -25,7 +25,5 @@
 @stop
 
 @section('aimeos_body')
-    <div class="container-xl">
-        <?= $aibody['catalog/session'] ?? '' ?>
-    </div>
+    <?= $aibody['catalog/session'] ?? '' ?>
 @stop

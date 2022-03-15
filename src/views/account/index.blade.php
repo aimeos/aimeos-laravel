@@ -32,14 +32,12 @@
 @stop
 
 @section('aimeos_body')
-    <div class="container">
-        <?= $aibody['account/profile'] ?? '' ?>
-        <?= $aibody['account/review'] ?? '' ?>
-        <?= $aibody['account/subscription'] ?? '' ?>
-        <?= $aibody['account/history'] ?? '' ?>
-        <?= $aibody['account/favorite'] ?? '' ?>
-        <?= $aibody['account/watch'] ?? '' ?>
-    </div>
+    <?= $aibody['account/profile'] ?? '' ?>
+    <?= $aibody['account/review'] ?? '' ?>
+    <?= $aibody['account/subscription'] ?? '' ?>
+    <?= $aibody['account/history'] ?? '' ?>
+    <?= $aibody['account/favorite'] ?? '' ?>
+    <?= $aibody['account/watch'] ?? '' ?>
 @stop
 
 @section('aimeos_aside')
