@@ -26,8 +26,6 @@
 @stop
 
 @section('aimeos_body')
-    <div class="container-xl">
-        <?= $aibody['supplier/detail'] ?? '' ?>
-        <?= $aibody['catalog/lists'] ?? '' ?>
-    </div>
+    <?= $aibody['supplier/detail'] ?? '' ?>
+    <?= $aibody['catalog/lists'] ?? '' ?>
 @stop
