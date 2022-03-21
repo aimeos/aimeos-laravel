@@ -202,7 +202,7 @@ class View
 	 */
 	protected function addRequest( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$helper = new \Aimeos\Base\View\Helper\Request\Laravel5( $view, Request::instance() );
+		$helper = new \Aimeos\Base\View\Helper\Request\Laravel( $view, Request::instance() );
 		$view->addHelper( 'request', $helper );
 
 		return $view;
@@ -217,7 +217,7 @@ class View
 	 */
 	protected function addResponse( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$helper = new \Aimeos\Base\View\Helper\Response\Laravel5( $view );
+		$helper = new \Aimeos\Base\View\Helper\Response\Laravel( $view );
 		$view->addHelper( 'response', $helper );
 
 		return $view;
@@ -287,7 +287,7 @@ class View
 			$fixed['currency'] = Request::route( 'currency', $fixed['currency'] );
 		}
 
-		$helper = new \Aimeos\Base\View\Helper\Url\Laravel5( $view, app( 'url' ), array_filter( $fixed ) );
+		$helper = new \Aimeos\Base\View\Helper\Url\Laravel( $view, app( 'url' ), array_filter( $fixed ) );
 		$view->addHelper( 'url', $helper );
 
 		return $view;
