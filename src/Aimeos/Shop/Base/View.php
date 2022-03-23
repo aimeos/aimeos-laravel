@@ -58,12 +58,12 @@ class View
 	/**
 	 * Creates the view object for the HTML client.
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
 	 * @param array $templatePaths List of base path names with relative template paths as key/value pairs
 	 * @param string|null $locale Code of the current language or null for no translation
 	 * @return \Aimeos\Base\View\Iface View object
 	 */
-	public function create( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths,
+	public function create( \Aimeos\MShop\ContextIface $context, array $templatePaths,
 		string $locale = null ) : \Aimeos\Base\View\Iface
 	{
 		$engine = new \Aimeos\Base\View\Engine\Blade( app( 'Illuminate\Contracts\View\Factory' ) );
@@ -91,10 +91,10 @@ class View
 	 * Adds the "access" helper to the view object
 	 *
 	 * @param \Aimeos\Base\View\Iface $view View object
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
 	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addAccess( \Aimeos\Base\View\Iface $view, \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\Base\View\Iface
+	protected function addAccess( \Aimeos\Base\View\Iface $view, \Aimeos\MShop\ContextIface $context ) : \Aimeos\Base\View\Iface
 	{
 		if( $this->config->get( 'shop.accessControl', true ) === false
 			|| ( ( $user = \Illuminate\Support\Facades\Auth::user() ) !== null && $user->superuser )

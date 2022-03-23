@@ -91,10 +91,10 @@ class Support
 	/**
 	 * Returns the available group codes
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
+	 * @param \Aimeos\MShop\ContextIface $context Context item
 	 * @return string[] List of group codes
 	 */
-	public function getGroups( \Aimeos\MShop\Context\Item\Iface $context ) : array
+	public function getGroups( \Aimeos\MShop\ContextIface $context ) : array
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 
@@ -108,12 +108,12 @@ class Support
 	/**
 	 * Checks if one of the groups is associated to the given user ID
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context item
+	 * @param \Aimeos\MShop\ContextIface $context Context item
 	 * @param string $userid ID of the logged in user
 	 * @param string[]|string $groupcodes List of group codes to check against
 	 * @return bool True if the user is in one of the groups, false if not
 	 */
-	protected function checkGroups( \Aimeos\MShop\Context\Item\Iface $context, string $userid, $groupcodes ) : bool
+	protected function checkGroups( \Aimeos\MShop\ContextIface $context, string $userid, $groupcodes ) : bool
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 

@@ -23,11 +23,11 @@ abstract class AbstractCommand extends Command
 	/**
 	 * Executes the function for all given sites
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
 	 * @param \Closure $fcn Function to execute
 	 * @param array|string|null $sites Site codes
 	 */
-	protected function exec( \Aimeos\MShop\Context\Item\Iface $context, \Closure $fcn, $sites )
+	protected function exec( \Aimeos\MShop\ContextIface $context, \Closure $fcn, $sites )
 	{
 		$process = $context->process();
 		$aimeos = $this->getLaravel()->make( 'aimeos' )->get();

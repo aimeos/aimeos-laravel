@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 class Context
 {
 	/**
-	 * @var \Aimeos\MShop\Context\Item\Iface
+	 * @var \Aimeos\MShop\ContextIface
 	 */
 	private $context;
 
@@ -70,15 +70,15 @@ class Context
 	 *
 	 * @param bool $locale True to add locale object to context, false if not (deprecated, use \Aimeos\Shop\Base\Locale)
 	 * @param string $type Configuration type, i.e. "frontend" or "backend" (deprecated, use \Aimeos\Shop\Base\Config)
-	 * @return \Aimeos\MShop\Context\Item\Iface Context object
+	 * @return \Aimeos\MShop\ContextIface Context object
 	 */
-	public function get( bool $locale = true, string $type = 'frontend' ) : \Aimeos\MShop\Context\Item\Iface
+	public function get( bool $locale = true, string $type = 'frontend' ) : \Aimeos\MShop\ContextIface
 	{
 		$config = $this->config->get( $type );
 
 		if( $this->context === null )
 		{
-			$context = new \Aimeos\MShop\Context\Item\Standard();
+			$context = new \Aimeos\MShop\Context();
 			$context->setConfig( $config );
 
 			$this->addDataBaseManager( $context );
@@ -115,10 +115,10 @@ class Context
 	/**
 	 * Adds the cache object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object including config
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object including config
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addCache( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addCache( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$cache = new \Aimeos\MAdmin\Cache\Proxy\Standard( $context );
 
@@ -129,10 +129,10 @@ class Context
 	/**
 	 * Adds the database manager object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addDatabaseManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addDatabaseManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$dbm = new \Aimeos\Base\DB\Manager\DBAL( $context->config() );
 
@@ -143,10 +143,10 @@ class Context
 	/**
 	 * Adds the filesystem manager object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addFilesystemManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addFilesystemManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$config = $context->config()->get( 'resource' );
 		$fs = new \Aimeos\Base\Filesystem\Manager\Laravel( app( 'filesystem' ), $config, storage_path( 'aimeos' ) );
@@ -158,10 +158,10 @@ class Context
 	/**
 	 * Adds the logger object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addLogger( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addLogger( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$logger = \Aimeos\MAdmin::create( $context, 'log' );
 
@@ -173,10 +173,10 @@ class Context
 	/**
 	 * Adds the mailer object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addMailer( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addMailer( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$mail = new \Aimeos\Base\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
 
@@ -187,10 +187,10 @@ class Context
 	/**
 	 * Adds the message queue manager object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addMessageQueueManager( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addMessageQueueManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $context->config() );
 
@@ -201,10 +201,10 @@ class Context
 	/**
 	 * Adds the nonce value for inline JS to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addNonce( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addNonce( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		return $context->setNonce( base64_encode( random_bytes( 16 ) ) );
 	}
@@ -213,10 +213,10 @@ class Context
 	/**
 	 * Adds the password hasher object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addPassword( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addPassword( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		return $context->setPassword( new \Aimeos\Base\Password\Standard() );
 	}
@@ -225,10 +225,10 @@ class Context
 	/**
 	 * Adds the process object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addProcess( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addProcess( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$config = $context->config();
 		$max = $config->get( 'pcntl_max', 4 );
@@ -244,10 +244,10 @@ class Context
 	/**
 	 * Adds the session object to the context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addSession( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addSession( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$session = new \Aimeos\Base\Session\Laravel( $this->session );
 
@@ -258,10 +258,10 @@ class Context
 	/**
 	 * Adds the user ID and name if available
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addUser( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addUser( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$key = collect( config( 'shop.routes' ) )
 			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
@@ -282,10 +282,10 @@ class Context
 	/**
 	 * Adds the group IDs if available
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
-	 * @return \Aimeos\MShop\Context\Item\Iface Modified context object
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addGroups( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$key = collect( config( 'shop.routes' ) )
 			->where( 'prefix', optional( Route::getCurrentRoute() )

@@ -70,10 +70,10 @@ class SetupCommand extends AbstractCommand
 	/**
 	 * Adds the configuration options from the input object to the given context
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $ctx Context object
+	 * @param \Aimeos\MShop\ContextIface $ctx Context object
 	 * @return array Associative list of key/value pairs of configuration options
 	 */
-	protected function addConfig( \Aimeos\MShop\Context\Item\Iface $ctx ) : \Aimeos\MShop\Context\Item\Iface
+	protected function addConfig( \Aimeos\MShop\ContextIface $ctx ) : \Aimeos\MShop\ContextIface
 	{
 		$config = $ctx->config();
 

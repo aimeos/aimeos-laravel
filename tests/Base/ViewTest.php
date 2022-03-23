@@ -15,7 +15,7 @@ class ViewTest extends AimeosTestAbstract
 			->disableOriginalConstructor()
 			->getMock();
 
-		$context = new \Aimeos\MShop\Context\Item\Standard();
+		$context = new \Aimeos\MShop\Context();
 		$context->setConfig( new \Aimeos\Base\Config\PHPArray() );
 		$context->setSession( new \Aimeos\Base\Session\None() );
 

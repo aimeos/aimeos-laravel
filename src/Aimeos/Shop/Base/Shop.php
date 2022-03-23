@@ -19,7 +19,7 @@ namespace Aimeos\Shop\Base;
 class Shop
 {
 	/**
-	 * @var \Aimeos\MShop\Context\Item\Iface
+	 * @var \Aimeos\MShop\ContextIface
 	 */
 	private $context;
 

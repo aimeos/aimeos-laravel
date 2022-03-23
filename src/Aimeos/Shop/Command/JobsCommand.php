@@ -48,7 +48,7 @@ class JobsCommand extends AbstractCommand
 		$jobs = $this->argument( 'jobs' );
 		$jobs = !is_array( $jobs ) ? explode( ' ', (string) $jobs ) : $jobs;
 
-		$fcn = function( \Aimeos\MShop\Context\Item\Iface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $jobs )
+		$fcn = function( \Aimeos\MShop\ContextIface $lcontext, \Aimeos\Bootstrap $aimeos ) use ( $jobs )
 		{
 			$jobfcn = function( $context, $aimeos, $jobname ) {
 				\Aimeos\Controller\Jobs::create( $context, $aimeos, $jobname )->run();
@@ -73,9 +73,9 @@ class JobsCommand extends AbstractCommand
 	/**
 	 * Returns a context object
 	 *
-	 * @return \Aimeos\MShop\Context\Item\Iface Context object
+	 * @return \Aimeos\MShop\ContextIface Context object
 	 */
-	protected function context() : \Aimeos\MShop\Context\Item\Iface
+	protected function context() : \Aimeos\MShop\ContextIface
 	{
 		$lv = $this->getLaravel();
 		$context = $lv->make( 'aimeos.context' )->get( false, 'command' );

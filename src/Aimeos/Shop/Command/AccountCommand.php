@@ -91,11 +91,11 @@ class AccountCommand extends AbstractCommand
 	/**
 	 * Adds the group to the given user
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
+	 * @param \Aimeos\MShop\ContextIface $context Aimeos context object
 	 * @param \Aimeos\MShop\Customer\Item\Iface $user Aimeos customer object
 	 * @return \Aimeos\MShop\Customer\Item\Iface Updated customer object
 	 */
-	protected function addGroups( \Aimeos\MShop\Context\Item\Iface $context,
+	protected function addGroups( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\MShop\Customer\Item\Iface $user ) : \Aimeos\MShop\Customer\Item\Iface
 	{
 		if( $this->option( 'admin' ) ) {
@@ -117,11 +117,11 @@ class AccountCommand extends AbstractCommand
 	/**
 	 * Adds the group to the given user
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
+	 * @param \Aimeos\MShop\ContextIface $context Aimeos context object
 	 * @param \Aimeos\MShop\Customer\Item\Iface $user Aimeos customer object
 	 * @param string $group Unique customer group code
 	 */
-	protected function addGroup( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\MShop\Customer\Item\Iface $user,
+	protected function addGroup( \Aimeos\MShop\ContextIface $context, \Aimeos\MShop\Customer\Item\Iface $user,
 		string $group ) : \Aimeos\MShop\Customer\Item\Iface
 	{
 		$msg = 'Add "%1$s" group to user "%2$s" for site "%3$s"';
@@ -135,11 +135,11 @@ class AccountCommand extends AbstractCommand
 	/**
 	 * Returns the customer group item for the given code
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Aimeos context object
+	 * @param \Aimeos\MShop\ContextIface $context Aimeos context object
 	 * @param string $code Unique customer group code
 	 * @return \Aimeos\MShop\Customer\Item\Group\Iface Aimeos customer group item object
 	 */
-	protected function getGroupItem( \Aimeos\MShop\Context\Item\Iface $context, string $code ) : \Aimeos\MShop\Customer\Item\Group\Iface
+	protected function getGroupItem( \Aimeos\MShop\ContextIface $context, string $code ) : \Aimeos\MShop\Customer\Item\Group\Iface
 	{
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
 

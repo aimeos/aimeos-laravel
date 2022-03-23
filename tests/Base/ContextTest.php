@@ -12,7 +12,7 @@ class ContextTest extends AimeosTestAbstract
 		$object = new \Aimeos\Shop\Base\Context( $session, $config, $locale, $i18n );
 		$ctx = $object->get( false );
 
-		$this->assertInstanceOf( '\Aimeos\MShop\Context\Item\Iface', $ctx );
+		$this->assertInstanceOf( '\Aimeos\MShop\ContextIface', $ctx );
 		$this->assertIsArray( $ctx->groups() );
 	}
 }
