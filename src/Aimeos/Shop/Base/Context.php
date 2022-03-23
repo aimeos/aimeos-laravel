@@ -134,7 +134,7 @@ class Context
 	 */
 	protected function addDatabaseManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		$dbm = new \Aimeos\Base\DB\Manager\DBAL( $context->config() );
+		$dbm = \Aimeos\Base\DB\Factory::create( $context->config(), 'DBAL' );
 
 		return $context->setDatabaseManager( $dbm );
 	}
