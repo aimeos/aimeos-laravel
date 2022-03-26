@@ -38,7 +38,7 @@ class JsonadmController extends Controller
 	public function deleteAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'editor', 'api']] );
 		}
 
 		return $this->createAdmin()->delete( $request, ( new Psr17Factory )->createResponse() );
@@ -54,7 +54,7 @@ class JsonadmController extends Controller
 	public function getAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'] )] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'editor', 'api']] );
 		}
 
 		return $this->createAdmin()->get( $request, ( new Psr17Factory )->createResponse() );
@@ -70,7 +70,7 @@ class JsonadmController extends Controller
 	public function patchAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'editor', 'api']] );
 		}
 
 		return $this->createAdmin()->patch( $request, ( new Psr17Factory )->createResponse() );
@@ -86,7 +86,7 @@ class JsonadmController extends Controller
 	public function postAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'editor', 'api']] );
 		}
 
 		return $this->createAdmin()->post( $request, ( new Psr17Factory )->createResponse() );
@@ -102,7 +102,7 @@ class JsonadmController extends Controller
 	public function putAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'api']] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'editor', 'api']] );
 		}
 
 		return $this->createAdmin()->put( $request, ( new Psr17Factory )->createResponse() );
@@ -118,7 +118,7 @@ class JsonadmController extends Controller
 	public function optionsAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'] )] );
+			$this->authorize( 'admin', [JsonadmController::class, ['admin', 'editor', 'api']] );
 		}
 
 		return $this->createAdmin()->options( $request, ( new Psr17Factory )->createResponse() );
