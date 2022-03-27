@@ -13,16 +13,13 @@
     },
     "prefer-stable": true,
     "minimum-stability": "dev",
-    "conflict": {
-        "symfony/http-foundation": "v5.2.0"
-    },
     "require": {
         "composer-runtime-api": "^2.1",
-        "doctrine/dbal": "~2.5||~3.0",
-        "laravel/framework": "^6.20.12||^7.30.4||^8.40.0",
-        "symfony/psr-http-message-bridge": "~2.0",
-        "laminas/laminas-diactoros": "~2.2",
+        "doctrine/dbal": "~2.9||~3.0",
+        "laravel/framework": "^9.0",
         "nyholm/psr7": "~1.2",
+        "laminas/laminas-diactoros": "~2.5",
+        "symfony/psr-http-message-bridge": "~2.0",
         "aimeos/aimeos-core": "dev-master",
         "aimeos/ai-laravel": "dev-master",
         "aimeos/ai-admin-jqadm": "dev-master",
@@ -33,9 +30,9 @@
         "aimeos/ai-controller-frontend": "dev-master"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.0||~4.0||~5.0||~6.0",
-        "orchestra/testbench-browser-kit": "~3.1||~4.0||~5.0||~6.0",
-        "phpunit/phpunit": "~7.0||~8.0||~9.0",
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7.0",
+        "orchestra/testbench-browser-kit": "~7.0",
         "php-coveralls/php-coveralls": "~2.0"
     },
     "autoload": {
