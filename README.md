@@ -9,7 +9,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
-:star: Star us on GitHub — it helps!
+:star: Star us on GitHub — it motivates us a lot!
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 ultra fast e-commerce package for Laravel!  You can install it in your
@@ -24,8 +24,9 @@ and customize anything to your needs.
 - [Basic application](#basic-application)
 - [Database](#database)
 - [Installation](#installation)
+- [Authentication](#authentication)
 - [Setup](#setup)
-- [Admin](#admin)
+- [Test](#test)
 - [Hints](#hints)
 - [License](#license)
 - [Links](#links)
@@ -140,54 +141,16 @@ php artisan aimeos:setup --option=setup/default/demo:1
 In a production environment or if you don't want that the demo data gets
 installed, leave out the `--option=setup/default/demo:1` option.
 
-## Setup
+## Authentication
 
-To reference images correctly, you have to adapt your `.env` file and set the `APP_URL`
-to your real URL, e.g.
-
-```APP_URL=http://127.0.0.1:8000```
-
-**Caution:** Make sure, Laravel uses the `file` session driver in your `.env` file!
-Otherwise, the shopping basket content won't get stored correctly!
-
-```SESSION_DRIVER=file```
-
-Then, you should be able to call the catalog list page in your browser. For a
-quick start, you can use the integrated web server that is available since PHP 5.4.
-Simply execute this command in the base directory of your application:
-
-```php artisan serve```
-
-Point your browser to the list page of the shop using:
-
-http://127.0.0.1:8000/index.php/shop
-
-**Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
-Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
-the home page as well, replace the route for "/" in `./routes/web.php` by this line:
-
-```php
-Route::group(['middleware' => ['web']], function () {
-	Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
-});
-```
-
-For multi-vendor setups, read the article about [multiple shops](https://aimeos.org/docs/latest/laravel/customize/#multiple-shops).
-
-This will display the Aimeos catalog home component on the home page you you get a
-nice looking shop home page. The `/shop` page will look like:
-
-[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/index.php/shop)
-
-## Admin
-
-To use the admin interface, you have to set up Laravel authentication first:
+You have to set up one of Laravels authentication starter kits. Laravel Breeze
+is the easiest one but your can also use Jetstream.
 
 ### Laravel 8
 
 ```
-composer require laravel/jetstream
-php artisan jetstream:install livewire
+composer require laravel/breeze
+php artisan breeze:install
 npm install && npm run dev
 ```
 
@@ -216,18 +179,6 @@ npm install && npm run dev
 For more information, please follow the Laravel documentation:
 * [Laravel 6.x](https://laravel.com/docs/6.x/authentication)
 
-### Create account
-
-Test if your authentication setup works before you continue. Create an admin account
-for your Laravel application so you will be able to log into the Aimeos admin interface:
-
-```php artisan aimeos:account --super <email>```
-
-The e-mail address is the user name for login and the account will work for the
-frontend too. To protect the new account, the command will ask you for a password.
-The same command can create limited accounts by using "--admin", "--editor" or "--api"
-instead of "--super" (access to everything).
-
 ### Configure authentication
 
 As a last step, you need to extend the `boot()` method of your
@@ -248,7 +199,29 @@ authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
     }
 ```
 
-### Test
+### Create account
+
+Test if your authentication setup works before you continue. Create an admin account
+for your Laravel application so you will be able to log into the Aimeos admin interface:
+
+```php artisan aimeos:account --super <email>```
+
+The e-mail address is the user name for login and the account will work for the
+frontend too. To protect the new account, the command will ask you for a password.
+The same command can create limited accounts by using "--admin", "--editor" or "--api"
+instead of "--super" (access to everything).
+
+## Setup
+
+To reference images correctly, you have to adapt your `.env` file and set the `APP_URL`
+to your real URL, e.g.
+
+```APP_URL=http://127.0.0.1:8000```
+
+**Caution:** Make sure, Laravel uses the `file` session driver in your `.env` file!
+Otherwise, the shopping basket content won't get stored correctly!
+
+```SESSION_DRIVER=file```
 
 If your `./public` directory isn't writable by your web server, you have to create these
 directories:
@@ -259,10 +232,46 @@ chmod 777 public/aimeos public/vendor
 ```
 
 In a production environment, you should be more specific about the granted permissions!
+
+## Test
+
+Then, you should be able to call the catalog list page in your browser. For a
+quick start, you can use the integrated web server that is available since PHP 5.4.
+Simply execute this command in the base directory of your application:
+
+```
+php artisan serve
+```
+
+### Frontend
+
+Point your browser to the list page of the shop using:
+
+http://127.0.0.1:8000/shop
+
+**Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
+Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
+the home page as well, replace the route for "/" in `./routes/web.php` by this line:
+
+```php
+Route::group(['middleware' => ['web']], function () {
+	Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
+});
+```
+
+For multi-vendor setups, read the article about [multiple shops](https://aimeos.org/docs/latest/laravel/customize/#multiple-shops).
+
+This will display the Aimeos catalog home component on the home page you you get a
+nice looking shop home page. The `/shop` page will look like:
+
+[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/shop)
+
+### Backend
+
 If you've still started the internal PHP web server (`php artisan serve`)
 you should now open this URL in your browser:
 
-http://127.0.0.1:8000/index.php/admin
+http://127.0.0.1:8000/admin
 
 Enter the e-mail address and the password of the newly created user and press "Login".
 If you don't get redirected to the admin interface (that depends on the authentication
@@ -272,7 +281,7 @@ code you've created according to the Laravel documentation), point your browser 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires to log out first.
 
-[![Aimeos backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/index.php/admin)
+[![Aimeos backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/admin)
 
 ## Hints
 
