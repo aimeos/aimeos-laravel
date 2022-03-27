@@ -9,7 +9,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aimeos/aimeos-laravel/?branch=master)
 [![License](https://poser.pugx.org/aimeos/aimeos/license.svg)](https://packagist.org/packages/aimeos/aimeos)
 
-:star: Star us on GitHub — it motivates us a lot!
+:star: Star us on GitHub — it motivates us a lot! 😀
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
 ultra fast e-commerce package for Laravel!  You can install it in your
