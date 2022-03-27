@@ -24,7 +24,6 @@
         "laminas/laminas-diactoros": "~2.2",
         "nyholm/psr7": "~1.2",
         "aimeos/aimeos-core": "dev-master",
-        "aimeos/ai-swiftmailer": "dev-master",
         "aimeos/ai-laravel": "dev-master",
         "aimeos/ai-admin-jqadm": "dev-master",
         "aimeos/ai-admin-jsonadm": "dev-master",

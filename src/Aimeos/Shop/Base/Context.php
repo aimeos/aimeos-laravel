@@ -178,7 +178,7 @@ class Context
 	 */
 	protected function addMailer( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		$mail = new \Aimeos\Base\Mail\Swift( function() { return app( 'mailer' )->getSwiftMailer(); } );
+		$mail = new \Aimeos\Base\Mail\Laravel( function() { return app( 'mailer' ); } );
 
 		return $context->setMail( $mail );
 	}
