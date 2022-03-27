@@ -5,78 +5,6 @@
 version: 2
 
 jobs:
-  "php-7.2 / mysql-5.7":
-    docker:
-      - image: aimeos/ci-php:7.2
-      - image: cimg/mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: laravel
-          MYSQL_USER: aimeos
-          MYSQL_PASSWORD: aimeos
-    steps:
-      - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-      - run: php composer req "laravel/framework:~6.0" --no-update
-      - run: php composer req "phpunit/phpunit:~8.0" --no-update --dev
-      - restore_cache:
-          keys:
-            - php72-{{ checksum "composer.json" }}
-      - run: php composer update -n --prefer-dist
-      - save_cache:
-          key: php72-{{ checksum "composer.json" }}
-          paths: [./vendor]
-      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
-
-  "php-7.3 / mysql-5.7":
-    docker:
-      - image: aimeos/ci-php:7.3
-      - image: cimg/mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: laravel
-          MYSQL_USER: aimeos
-          MYSQL_PASSWORD: aimeos
-    steps:
-      - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-      - run: php composer req "laravel/framework:~7.0" --no-update
-      - run: php composer req "phpunit/phpunit:~8.0" --no-update --dev
-      - restore_cache:
-          keys:
-            - php73-{{ checksum "composer.json" }}
-      - run: php composer update -n --prefer-dist
-      - save_cache:
-          key: php73-{{ checksum "composer.json" }}
-          paths: [./vendor]
-      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
-
-  "php-7.4 / mysql-8.0":
-    docker:
-      - image: aimeos/ci-php:7.4
-      - image: cimg/mysql:8.0
-        environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: laravel
-          MYSQL_USER: aimeos
-          MYSQL_PASSWORD: aimeos
-    steps:
-      - checkout
-      - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-      - run: php composer req "laravel/framework:~8.0" --no-update
-      - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
-      - restore_cache:
-          keys:
-            - php74-{{ checksum "composer.json" }}
-      - run: php composer update -n --prefer-dist
-      - save_cache:
-          key: php74-{{ checksum "composer.json" }}
-          paths: [./vendor]
-      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
-
   "php-8.0 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:8.0
@@ -89,7 +17,7 @@ jobs:
     steps:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-      - run: php composer req "laravel/framework:~8.0" --no-update
+      - run: php composer req "laravel/framework:~9.0" --no-update
       - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
       - restore_cache:
           keys:
@@ -113,7 +41,7 @@ jobs:
     steps:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-      - run: php composer req "laravel/framework:~8.0" --no-update
+      - run: php composer req "laravel/framework:~9.0" --no-update
       - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
       - restore_cache:
           keys:
@@ -129,8 +57,5 @@ workflows:
   version: 2
   unittest:
     jobs:
-      - "php-7.2 / mysql-5.7"
-      - "php-7.3 / mysql-5.7"
-      - "php-7.4 / mysql-8.0"
       - "php-8.0 / mysql-8.0"
       - "php-8.1 / mysql-8.0"
