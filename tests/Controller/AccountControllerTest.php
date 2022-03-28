@@ -10,9 +10,6 @@ class AccountControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$this->assertStringContainsString( '<section class="aimeos account-profile"', $response->getContent() );
-		$this->assertStringContainsString( '<section class="aimeos account-history"', $response->getContent() );
-		$this->assertStringContainsString( '<section class="aimeos account-favorite"', $response->getContent() );
-		$this->assertStringContainsString( '<section class="aimeos account-watch"', $response->getContent() );
 	}
 
 
