@@ -35,7 +35,8 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2021.10 and later**.
 
-- LTS release: 2021.10 (6.x, 7.x and 8.x)
+- Stable release: 2022.04 (Laravel 9.x)
+- LTS release: 2021.10 (Laravel 6.x, 7.x and 8.x)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
@@ -66,7 +67,7 @@ directory of your exisisting Laravel application:
 
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-php composer require aimeos/aimeos-laravel:~2021.10
+php composer require aimeos/aimeos-laravel:~2022.04
 ```
 
 ## Database
@@ -96,6 +97,9 @@ installing Aimeos again:
 ]
 ```
 
+**Caution:** Also make sure that your MySQL server creates *InnoDB* tables by default as *MyISAM*
+tables won't work and will result in an foreign key constraint error!
+
 If you want to use a database server other than MySQL, please have a look into the article about
 [supported database servers](https://aimeos.org/docs/latest/infrastructure/databases/)
 and their specific configuration. Supported are:
@@ -112,7 +116,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2021.10",
+        "aimeos/aimeos-laravel": "~2022.04",
         ...
     },
     "scripts": {
@@ -146,7 +150,7 @@ installed, leave out the `--option=setup/default/demo:1` option.
 You have to set up one of Laravels authentication starter kits. Laravel Breeze
 is the easiest one but your can also use Jetstream.
 
-### Laravel 8
+### Laravel 8 & 9
 
 ```
 composer require laravel/breeze
@@ -155,6 +159,7 @@ npm install && npm run dev
 ```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 9.x](https://laravel.com/docs/9.x/authentication)
 * [Laravel 8.x](https://laravel.com/docs/8.x/authentication)
 
 ### Laravel 7
@@ -236,8 +241,8 @@ In a production environment, you should be more specific about the granted permi
 ## Test
 
 Then, you should be able to call the catalog list page in your browser. For a
-quick start, you can use the integrated web server that is available since PHP 5.4.
-Simply execute this command in the base directory of your application:
+quick start, you can use the integrated web server. Simply execute this command
+in the base directory of your application:
 
 ```
 php artisan serve
