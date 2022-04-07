@@ -33,7 +33,7 @@ class PageController extends Controller
 	{
 		$params = ['page' => 'page-index'];
 
-		foreach( app( 'config' )->get( 'shop.page.cms', ['cms/page', 'basket/mini'] ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.cms', ['cms/page', 'catalog/tree', 'basket/mini'] ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->header();
 			$params['aibody'][$name] = Shop::get( $name )->body();
