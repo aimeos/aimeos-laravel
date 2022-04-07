@@ -31,7 +31,7 @@ class PageController extends Controller
 	 */
 	public function indexAction()
 	{
-		foreach( app( 'config' )->get( 'shop.page.cms', ['cms/page', 'basket/mini'] ) as $name )
+		foreach( app( 'config' )->get( 'shop.page.cms', ['cms/page', 'catalog/tree', 'basket/mini'] ) as $name )
 		{
 			$params['aiheader'][$name] = Shop::get( $name )->getHeader();
 			$params['aibody'][$name] = Shop::get( $name )->getBody();
