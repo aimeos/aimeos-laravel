@@ -20,14 +20,14 @@
         "nyholm/psr7": "~1.2",
         "laminas/laminas-diactoros": "~2.5",
         "symfony/psr-http-message-bridge": "~2.0",
-        "aimeos/aimeos-core": "dev-master",
-        "aimeos/ai-laravel": "dev-master",
-        "aimeos/ai-admin-jqadm": "dev-master",
-        "aimeos/ai-admin-jsonadm": "dev-master",
-        "aimeos/ai-client-html": "dev-master",
-        "aimeos/ai-client-jsonapi": "dev-master",
-        "aimeos/ai-controller-jobs": "dev-master",
-        "aimeos/ai-controller-frontend": "dev-master"
+        "aimeos/aimeos-core": "2022.04.*",
+        "aimeos/ai-laravel": "2022.04.*",
+        "aimeos/ai-admin-jqadm": "2022.04.*",
+        "aimeos/ai-admin-jsonadm": "2022.04.*",
+        "aimeos/ai-client-html": "2022.04.*",
+        "aimeos/ai-client-jsonapi": "2022.04.*",
+        "aimeos/ai-controller-jobs": "2022.04.*",
+        "aimeos/ai-controller-frontend": "2022.04.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~9.0",
