@@ -38,6 +38,7 @@ return [
 		'checkout-index' => [ 'locale/select', 'catalog/tree','catalog/search','checkout/standard' ],
 		'checkout-update' => [ 'checkout/update' ],
 		'supplier-detail' => [ 'locale/select','basket/mini','catalog/tree','catalog/search','supplier/detail','catalog/lists'],
+		'cms' => [ 'basket/mini','catalog/tree','cms/page' ],
 	],
 	*/
 
