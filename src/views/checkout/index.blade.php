@@ -13,5 +13,7 @@
 @stop
 
 @section('aimeos_body')
-    <?= $aibody['checkout/standard'] ?>
+    <div class="container-fluid">
+        <?= $aibody['checkout/standard'] ?>
+    </div>
 @stop

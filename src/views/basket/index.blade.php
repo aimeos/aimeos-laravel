@@ -23,7 +23,9 @@
 @stop
 
 @section('aimeos_body')
-    <?= $aibody['basket/standard'] ?? '' ?>
-    <?= $aibody['basket/related'] ?? '' ?>
-    <?= $aibody['basket/bulk'] ?? '' ?>
+    <div class="container-fluid">
+        <?= $aibody['basket/standard'] ?? '' ?>
+        <?= $aibody['basket/related'] ?? '' ?>
+        <?= $aibody['basket/bulk'] ?? '' ?>
+    </div>
 @stop
