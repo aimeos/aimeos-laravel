@@ -15,5 +15,7 @@
 @stop
 
 @section('aimeos_body')
-	<?= $aibody['cms/page'] ?? '' ?>
+    <div class="container-fluid">
+		<?= $aibody['cms/page'] ?? '' ?>
+	</div>
 @stop
