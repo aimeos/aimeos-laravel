@@ -249,6 +249,19 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 }
 
 
+if( ( $conf = config( 'shop.routes.home', ['middleware' => ['web']] ) ) !== false ) {
+
+	Route::group( $conf, function() {
+
+		Route::match( array( 'GET', 'POST' ), '/', array(
+			'as' => 'aimeos_home',
+			'uses' => 'Aimeos\Shop\Controller\CatalogController@homeAction'
+		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
+
+	});
+}
+
+
 if( ( $conf = config( 'shop.routes.legal', [] ) ) !== false ) {
 
 	Route::group( $conf, function() {

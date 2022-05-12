@@ -18,6 +18,7 @@ return [
 		// 'account' => ['prefix' => 'profile', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'supplier' => ['prefix' => 's', 'middleware' => ['web']],
+		// 'home' => ['middleware' => ['web']],
 		// 'update' => [],
 	],
 
