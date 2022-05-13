@@ -23,9 +23,9 @@ if( !function_exists( 'airoute' ) )
 		{
 			$site = config( 'app.shop_multishop' ) ? config( 'shop.mshop.locale.site', 'default' ) : null;
 
-			$parameters['site'] = $current->parameter( 'site', Request::get( 'site', $site ) );
-			$parameters['locale'] = $current->parameter( 'locale', Request::get( 'locale' ) );
-			$parameters['currency'] = $current->parameter( 'currency', Request::get( 'currency' ) );
+			$parameters['site'] ??= $current->parameter( 'site', Request::get( 'site', $site ) );
+			$parameters['locale'] ??= $current->parameter( 'locale', Request::get( 'locale' ) );
+			$parameters['currency'] ??= $current->parameter( 'currency', Request::get( 'currency' ) );
 		}
 
 		return app( 'url' )->route( $name, array_filter( $parameters ), $absolute );
