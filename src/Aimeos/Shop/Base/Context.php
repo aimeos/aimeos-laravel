@@ -296,9 +296,7 @@ class Context
 		if( $userid = Auth::guard( $guard )->id() )
 		{
 			$context->setGroupIds( function() use ( $context, $userid ) {
-				$manager = \Aimeos\MShop::create( $context, 'customer' );
-				$filter = $manager->filter()->add( 'customer.id', '==', $userid );
-				return $manager->search( $filter, ['customer/group'] )->getGroups()->first();
+				return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['customer/group'] )->getGroups();
 			} );
 		}
 
