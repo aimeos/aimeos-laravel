@@ -18,7 +18,7 @@
 
 		<style nonce="{{ app( 'aimeos.context' )->get()->nonce() }}">
 			:root {
-				@foreach( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getConfigValue( 'theme/ai-theme-berlin', [] ) as $key => $value )
+				@foreach( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getConfigValue( 'theme/default', [] ) as $key => $value )
 					{{ $key }}: {{ $value }};
 				@endforeach
 			}
