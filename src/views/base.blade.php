@@ -16,6 +16,14 @@
 
 		@yield('aimeos_header')
 
+		<style nonce="{{ app( 'aimeos.context' )->get()->nonce() }}">
+			:root {
+				@foreach( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getConfigValue( 'theme/ai-theme-berlin', [] ) as $key => $value )
+					{{ $key }}: {{ $value }};
+				@endforeach
+			}
+		</style>
+
 		<link rel="icon" href="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getIcon() ?: '../vendor/shop/themes/default/assets/icon.png' ) ) }}"/>
 
 		<link rel="preload" href="/vendor/shop/themes/default/assets/roboto-condensed-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
