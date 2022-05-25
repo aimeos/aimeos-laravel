@@ -42,26 +42,4 @@ class PageController extends Controller
 		return Response::view( Shop::template( 'page.index' ), $params )
 			->header( 'Cache-Control', 'private, max-age=10' );
 	}
-
-
-	/**
-	 * Returns the html for the privacy policy page.
-	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
-	 */
-	public function privacyAction()
-	{
-		return View::make( Shop::template( 'page.privacy' ), ['page' => 'page-privacy'] );
-	}
-
-
-	/**
-	 * Returns the html for the terms and conditions page.
-	 *
-	 * @return \Illuminate\Contracts\View\View View for rendering the output
-	 */
-	public function termsAction()
-	{
-		return View::make( Shop::template( 'page.terms' ), ['page' => 'page-terms'] );
-	}
 }

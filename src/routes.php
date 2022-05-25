@@ -262,18 +262,13 @@ if( ( $conf = config( 'shop.routes.home', ['middleware' => ['web']] ) ) !== fals
 }
 
 
-if( ( $conf = config( 'shop.routes.legal', [] ) ) !== false ) {
+if( ( $conf = config( 'shop.routes.page', [] ) ) !== false ) {
 
 	Route::group( $conf, function() {
 
-		Route::get( 'terms', array(
-			'as' => 'aimeos_shop_terms',
-			'uses' => 'Aimeos\Shop\Controller\PageController@termsAction'
-		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
-
-		Route::get( 'privacy', array(
-			'as' => 'aimeos_shop_privacy',
-			'uses' => 'Aimeos\Shop\Controller\PageController@privacyAction'
-		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
+		Route::match(['GET', 'POST'], '{path?}', [
+			'as' => 'aimeos_page',
+			'uses' => '\Aimeos\Shop\Controller\PageController@indexAction'
+		] )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
 	});
 }

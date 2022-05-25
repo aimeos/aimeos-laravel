@@ -274,16 +274,16 @@ return [
 						'option' => [
 							'terms' => [
 								'url' => [
-									'target' => 'aimeos_shop_terms',
+									'target' => 'aimeos_page',
 								],
 								'privacy' => [
 									'url' => [
-										'target' => 'aimeos_shop_privacy',
+										'target' => 'aimeos_page',
 									],
 								],
 								'cancel' => [
 									'url' => [
-										'target' => 'aimeos_shop_terms',
+										'target' => 'aimeos_page',
 									],
 								],
 							],

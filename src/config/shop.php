@@ -19,6 +19,7 @@ return [
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'supplier' => ['prefix' => 's', 'middleware' => ['web']],
 		// 'home' => ['middleware' => ['web']],
+		// 'page' => ['middleware' => ['web']],
 		// 'update' => [],
 	],
 
