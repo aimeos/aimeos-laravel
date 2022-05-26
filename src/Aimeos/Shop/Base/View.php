@@ -127,7 +127,7 @@ class View
 	 */
 	protected function addConfig( \Aimeos\Base\View\Iface $view, \Aimeos\Base\Config\Iface $config ) : \Aimeos\Base\View\Iface
 	{
-		$prefixes = ['version', 'admin', 'client', 'common', 'resource/fs/baseurl', 'resource/fs-media/baseurl', 'resource/fs-theme/baseurl'];
+		$prefixes = ['version', 'admin', 'client', 'common', 'controller/jobs', 'resource/fs/baseurl', 'resource/fs-media/baseurl', 'resource/fs-theme/baseurl'];
 		$config = new \Aimeos\Base\Config\Decorator\Protect( clone $config, $prefixes );
 		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
