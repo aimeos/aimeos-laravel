@@ -127,7 +127,7 @@ class View
 	 */
 	protected function addConfig( \Aimeos\Base\View\Iface $view, \Aimeos\Base\Config\Iface $config ) : \Aimeos\Base\View\Iface
 	{
-		$config = new \Aimeos\Base\Config\Decorator\Protect( clone $config, ['resources/*/baseurl'], ['resource'] );
+		$config = new \Aimeos\Base\Config\Decorator\Protect( clone $config, ['resource/*/baseurl'], ['resource'] );
 		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
