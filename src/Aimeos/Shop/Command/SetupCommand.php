@@ -27,7 +27,7 @@ class SetupCommand extends AbstractCommand
 	 * @var string
 	 */
 	protected $signature = 'aimeos:setup
-		{site=default : Site for updating database entries}
+		{site? : Site for updating database entries}
 		{tplsite=default : Site used as template for creating the new one}
 		{--q : Quiet}
 		{--v=vv : Verbosity level}
@@ -52,8 +52,11 @@ class SetupCommand extends AbstractCommand
 		\Aimeos\MShop::cache( false );
 		\Aimeos\MAdmin::cache( false );
 
-		$site = $this->argument( 'site' );
 		$template = $this->argument( 'tplsite' );
+
+		if( ( $site = $this->argument( 'site' ) ) === null ) {
+			$site = config( 'shop.mshop.locale.site', 'default' );
+		}
 
 		$boostrap = $this->getLaravel()->make( 'aimeos' )->get();
 		$ctx = $this->getLaravel()->make( 'aimeos.context' )->get( false, 'command' );

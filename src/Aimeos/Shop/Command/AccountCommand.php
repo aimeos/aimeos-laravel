@@ -28,7 +28,7 @@ class AccountCommand extends AbstractCommand
 	 */
 	protected $signature = 'aimeos:account
 		{email? : E-Mail adress of the (admin) user (will ask for if not given)}
-		{site=default : Site to create account for}
+		{site? : Site to create account for (will use default value if not given}
 		{--password= : Secret password for the account (will ask for if not given)}
 		{--super : If account should have super user privileges for all sites}
 		{--admin : If account should have site administrator privileges}
@@ -51,6 +51,10 @@ class AccountCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
+		if( ( $site = $this->argument( 'site' ) ) === null ) {
+			$site = config( 'shop.mshop.locale.site', 'default' );
+		}
+
 		if( ( $email = $this->argument( 'email' ) ) === null ) {
 			$email = $this->ask( 'E-Mail' );
 		}
@@ -63,7 +67,7 @@ class AccountCommand extends AbstractCommand
 		$context->setEditor( 'aimeos:account' );
 
 		$localeManager = \Aimeos\MShop::create( $context, 'locale' );
-		$localeItem = $localeManager->bootstrap( $this->argument( 'site' ), '', '', false, null, true );
+		$localeItem = $localeManager->bootstrap( $site, '', '', false, null, true );
 		$context->setLocale( $localeItem );
 
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
