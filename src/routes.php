@@ -262,7 +262,7 @@ if( ( $conf = config( 'shop.routes.home', ['middleware' => ['web']] ) ) !== fals
 }
 
 
-if( ( $conf = config( 'shop.routes.page', [] ) ) !== false ) {
+if( ( $conf = config( 'shop.routes.page', ['middleware' => ['web']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
 
