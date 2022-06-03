@@ -35,8 +35,8 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2021.10 and later**.
 
-- Stable release: 2022.04 (Laravel 9.x)
-- LTS release: 2021.10 (Laravel 6.x, 7.x and 8.x)
+- Stable release: 2022.04 (Laravel 9.x, PHP 8.0+)
+- LTS release: 2021.10 (Laravel 6.x, 7.x and 8.x, PHP 7.3+)
 
 If you want to **upgrade between major versions**, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
