@@ -24,6 +24,18 @@ class JqadmControllerTest extends AimeosTestAbstract
 	}
 
 
+	public function testBatchAction()
+	{
+		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
+
+		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => ['0', '1']];
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@batchAction', $params );
+
+		$this->assertEquals( 200, $response->getStatusCode() );
+		$this->assertStringContainsString( 'item-product', $response->getContent() );
+	}
+
+
 	public function testCopyAction()
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
@@ -44,7 +56,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@createAction', $params );
 
 		$this->assertEquals( 200, $response->getStatusCode() );
-		$this->assertStringContainsString( 'item-product', $response->getContent() );
+		$this->assertStringContainsString( 'list-items', $response->getContent() );
 	}
 
 

@@ -73,6 +73,27 @@ class JqadmController extends AdminController
 
 
 	/**
+	 * Returns the HTML code for batch operations on a resource object
+	 *
+	 * @return string Generated output
+	 */
+	public function batchAction()
+	{
+		if( config( 'shop.authorize', true ) ) {
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
+		}
+
+		$cntl = $this->createAdmin();
+
+		if( ( $html = $cntl->batch() ) == '' ) {
+			return $cntl->response();
+		}
+
+		return $this->getHtml( $html );
+	}
+
+
+	/**
 	 * Returns the HTML code for a copy of a resource object
 	 *
 	 * @return string Generated output
