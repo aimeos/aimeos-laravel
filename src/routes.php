@@ -22,6 +22,11 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@fileAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 
+		Route::match( array( 'GET' ), 'batch/{resource}', array(
+			'as' => 'aimeos_shop_jqadm_copy',
+			'uses' => 'Aimeos\Shop\Controller\JqadmController@batchAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
+
 		Route::match( array( 'GET' ), 'copy/{resource}/{id}', array(
 			'as' => 'aimeos_shop_jqadm_copy',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'
