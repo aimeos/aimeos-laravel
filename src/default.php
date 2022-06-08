@@ -107,6 +107,9 @@ return [
 	'admin' => [
 		'jqadm' => [
 			'url' => [
+				'batch' => [
+					'target' => 'aimeos_shop_jqadm_batch'
+				],
 				'copy' => [
 					'target' => 'aimeos_shop_jqadm_copy'
 				],
