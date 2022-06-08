@@ -9,26 +9,30 @@
 		<title>Aimeos administration interface</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css" />
 		@if( $localeDir == 'rtl' )
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5/dist/css/bootstrap.rtl.min.css,npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css,npm/vue-select@3/dist/vue-select.min.css,npm/leaflet@1/dist/leaflet.min.css">
 		@else
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bootstrap@5/dist/css/bootstrap.min.css,npm/flatpickr@4/dist/flatpickr.min.css,npm/flatpickr@4/dist/plugins/confirmDate/confirmDate.min.css,npm/vue-select@3/dist/vue-select.min.css,npm/leaflet@1/dist/leaflet.min.css">
 		@endif
 		<link rel="stylesheet" href="<?= airoute( 'aimeos_shop_jqadm_file', ['site' => $site, 'locale' => 'en', 'type' => 'css'] ); ?>" />
-		<style>
+
+		<style nonce="{{ app( 'aimeos.context' )->get()->nonce() }}">
 			body.dark .btn-theme.dark-mode {display:none}
 			body.light .btn-theme.light-mode {display:none}
-			.app-menu .icon {vertical-align: middle; padding: 0.5rem 1rem; font-size: 125%; background-color: transparent; border: none; color: inherit}
-			#logout-form {display: inline}
+			.app-menu .icon {font: 1rem bootstrap-icons; vertical-align: middle; padding: 0.75rem 1rem; background-color: transparent; border: none; color: inherit}
+			.app-menu .icon.light-mode::before {content: "\F5A2"}
+			.app-menu .icon.dark-mode::before {content: "\F497"}
+			.app-menu .icon.logout::before {content: "\F1C3"}
+			.app-menu .icon::before {display: inline-block}
+			#logout-form {display: inline-block}
 		</style>
 	</head>
 	<body class="{{ $theme }}">
 		<div class="app-menu">
 			<span class="menu"></span>
 			<div class="app-menu-end">
-				<i class="icon btn-theme light-mode fa fa-sun-o"></i><i class="icon btn-theme dark-mode fa fa-moon-o"></i>
-				<form id="logout-form" action="{{ airoute( 'logout', ['locale' => Request::get( 'locale', app()->getLocale() )] ) }}" method="POST">{{ csrf_field() }}<button class="icon logout fa fa-sign-out"></button></form>
+
+				<form id="logout-form" action="{{ airoute( 'logout', ['locale' => Request::get( 'locale', app()->getLocale() )] ) }}" method="POST">{{ csrf_field() }}<i class="icon btn-theme light-mode fa"></i><i class="icon btn-theme dark-mode fa"></i><button class="icon logout"></button></form>
 			</div>
 		</div>
 
