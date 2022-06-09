@@ -29,7 +29,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product', 'id' => ['0', '1']];
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@batchAction', $params );
+		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JqadmController@batchAction', $params );
 
 		$this->assertEquals( 302, $response->getStatusCode() );
 	}
