@@ -351,6 +351,15 @@ return [
 		'customer' => [
 			'manager' => [
 				'name' => 'Laravel',
+				'address' => [
+					'name' => 'Laravel',
+				],
+				'lists' => [
+					'name' => 'Laravel',
+				],
+				'property' => [
+					'name' => 'Laravel',
+				],
 				'password' => [
 					'name' => 'Bcrypt',
 				],
@@ -359,6 +368,21 @@ return [
 		'index' => [
 			'manager' => [
 				'name' => $aimeosIndexManagerName,
+				'attribute' => [
+					'name' => $aimeosIndexManagerName,
+				],
+				'catalog' => [
+					'name' => $aimeosIndexManagerName,
+				],
+				'price' => [
+					'name' => $aimeosIndexManagerName,
+				],
+				'supplier' => [
+					'name' => $aimeosIndexManagerName,
+				],
+				'text' => [
+					'name' => $aimeosIndexManagerName,
+				],
 			],
 		],
 	],
