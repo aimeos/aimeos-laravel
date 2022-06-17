@@ -51,9 +51,7 @@ class AccountCommand extends AbstractCommand
 	 */
 	public function handle()
 	{
-		if( ( $site = $this->argument( 'site' ) ) === null ) {
-			$site = config( 'shop.mshop.locale.site', 'default' );
-		}
+		$site = $this->argument( 'site' ) ?: config( 'shop.mshop.locale.site', 'default' );
 
 		if( ( $email = $this->argument( 'email' ) ) === null ) {
 			$email = $this->ask( 'E-Mail' );
@@ -129,7 +127,8 @@ class AccountCommand extends AbstractCommand
 		string $group ) : \Aimeos\MShop\Customer\Item\Iface
 	{
 		$msg = 'Add "%1$s" group to user "%2$s" for site "%3$s"';
-		$this->info( sprintf( $msg, $group, $user->getCode(), $this->argument( 'site' ) ) );
+		$site = $this->argument( 'site' ) ?: config( 'shop.mshop.locale.site', 'default' );
+		$this->info( sprintf( $msg, $group, $user->getCode(), $site ) );
 
 		$groupId = $this->getGroupItem( $context, $group )->getId();
 		return $user->setGroups( array_merge( $user->getGroups(), [$groupId] ) );
