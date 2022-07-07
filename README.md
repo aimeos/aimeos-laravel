@@ -35,7 +35,7 @@ and customize anything to your needs.
 
 This document is for the Aimeos Laravel package **2021.10 and later**.
 
-- Stable release: 2022.04 (Laravel 9.x, PHP 8.0+)
+- Stable release: 2022.07 (Laravel 9.x, PHP 8.0+)
 - LTS release: 2021.10 (Laravel 6.x, 7.x and 8.x, PHP 7.3+)
 
 If you want to **upgrade between major versions**, please have a look into the
@@ -67,7 +67,7 @@ directory of your exisisting Laravel application:
 
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-php composer require aimeos/aimeos-laravel:~2022.04
+php composer require aimeos/aimeos-laravel:~2022.07
 ```
 
 ## Database
@@ -116,7 +116,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2022.04",
+        "aimeos/aimeos-laravel": "~2022.07",
         ...
     },
     "scripts": {
