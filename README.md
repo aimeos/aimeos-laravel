@@ -155,7 +155,7 @@ is the easiest one but your can also use Jetstream.
 ```
 composer require laravel/breeze
 php artisan breeze:install
-npm install && npm run dev
+npm install && npm run build
 ```
 
 For more information, please follow the Laravel documentation:
@@ -167,7 +167,7 @@ For more information, please follow the Laravel documentation:
 ```
 composer require laravel/ui:^2.0
 php artisan ui vue --auth
-npm install && npm run dev
+npm install && npm run build
 ```
 
 For more information, please follow the Laravel documentation:
@@ -178,7 +178,7 @@ For more information, please follow the Laravel documentation:
 ```
 composer require laravel/ui:^1.0
 php artisan ui vue --auth
-npm install && npm run dev
+npm install && npm run build
 ```
 
 For more information, please follow the Laravel documentation:
