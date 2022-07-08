@@ -22,6 +22,7 @@
         "symfony/psr-http-message-bridge": "~2.0",
         "aimeos/aimeos-core": "2022.07.*",
         "aimeos/ai-laravel": "2022.07.*",
+        "aimeos/ai-cms-grapesjs": "2022.07.*",
         "aimeos/ai-admin-jqadm": "2022.07.*",
         "aimeos/ai-admin-jsonadm": "2022.07.*",
         "aimeos/ai-client-html": "2022.07.*",
