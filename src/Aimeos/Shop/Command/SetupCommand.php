@@ -30,7 +30,7 @@ class SetupCommand extends AbstractCommand
 		{site? : Site for updating database entries}
 		{tplsite=default : Site used as template for creating the new one}
 		{--q : Quiet}
-		{--v=vv : Verbosity level}
+		{--v=v : Verbosity level}
 		{--option= : Setup configuration, name and value are separated by colon like "setup/default/demo:1"}
 	';
 
