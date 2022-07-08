@@ -22,6 +22,7 @@
         "symfony/psr-http-message-bridge": "~2.0",
         "aimeos/aimeos-core": "dev-master",
         "aimeos/ai-laravel": "dev-master",
+        "aimeos/ai-cms-grapesjs": "dev-master",
         "aimeos/ai-admin-jqadm": "dev-master",
         "aimeos/ai-admin-jsonadm": "dev-master",
         "aimeos/ai-client-html": "dev-master",
