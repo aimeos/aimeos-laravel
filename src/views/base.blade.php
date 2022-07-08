@@ -35,7 +35,7 @@
 	</head>
 	<body class="{{ $page ?? '' }}">
 		<nav class="navbar navbar-expand-md navbar-top">
-			<a class="navbar-brand" href="{{ airoute('aimeos_home') }}" title="Logo">
+			<a class="navbar-brand" href="/" title="Logo">
 				<img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" title="Logo">
 			</a>
 
