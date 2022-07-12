@@ -22,7 +22,7 @@
 		<style nonce="{{ app( 'aimeos.context' )->get()->nonce() }}">
 			body.dark .btn-theme.dark-mode {display:none}
 			body.light .btn-theme.light-mode {display:none}
-			.app-menu .icon {font: 1rem bootstrap-icons; vertical-align: middle; padding: 0.75rem 1rem; background-color: transparent; border: none; color: inherit}
+			.app-menu .icon {font: 1rem bootstrap-icons; vertical-align: middle; padding: 0.66rem 1rem; background-color: transparent; border: none; color: inherit}
 			.app-menu .icon.light-mode::before {content: "\F5A2"}
 			.app-menu .icon.dark-mode::before {content: "\F497"}
 			.app-menu .icon.logout::before {content: "\F1C3"}
