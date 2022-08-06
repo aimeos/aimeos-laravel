@@ -1,11 +1,11 @@
 @extends('shop::base')
 
 @section('aimeos_header')
+    <?= $aiheader['supplier/detail'] ?>
     <?= $aiheader['locale/select'] ?? '' ?>
     <?= $aiheader['basket/mini'] ?? '' ?>
     <?= $aiheader['catalog/tree'] ?? '' ?>
     <?= $aiheader['catalog/search'] ?? '' ?>
-    <?= $aiheader['supplier/detail'] ?? '' ?>
     <?= $aiheader['catalog/lists'] ?? '' ?>
 @stop
 
@@ -27,7 +27,7 @@
 
 @section('aimeos_body')
     <div class="container-fluid">
-        <?= $aibody['supplier/detail'] ?? '' ?>
+        <?= $aibody['supplier/detail'] ?>
         <?= $aibody['catalog/lists'] ?? '' ?>
     </div>
 @stop
