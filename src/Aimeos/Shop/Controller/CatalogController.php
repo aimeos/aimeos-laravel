@@ -51,21 +51,24 @@ class CatalogController extends Controller
 	 */
 	public function detailAction()
 	{
-		$params = ['page' => 'page-catalog-detail'];
-
-		foreach( app( 'config' )->get( 'shop.page.catalog-detail' ) as $name )
+		try
 		{
-			try {
+			$params = ['page' => 'page-catalog-detail'];
+
+			foreach( app( 'config' )->get( 'shop.page.catalog-detail' ) as $name )
+			{
 				$params['aiheader'][$name] = Shop::get( $name )->header();
 				$params['aibody'][$name] = Shop::get( $name )->body();
-			} catch( \Exception $e ) {
-				if( $e->getCode() === 404 ) { abort( 404 ); }
-				throw $e;
 			}
-		}
 
-		return Response::view( Shop::template( 'catalog.detail' ), $params )
-			->header( 'Cache-Control', 'private, max-age=10' );
+			return Response::view( Shop::template( 'catalog.detail' ), $params )
+				->header( 'Cache-Control', 'private, max-age=10' );
+		}
+		catch( \Exception $e )
+		{
+			if( $e->getCode() >= 400 ) { abort( $e->getCode() ); }
+			throw $e;
+		}
 	}
 
 
@@ -178,15 +181,23 @@ class CatalogController extends Controller
 	 */
 	public function treeAction()
 	{
-		$params = ['page' => 'page-catalog-tree'];
-
-		foreach( app( 'config' )->get( 'shop.page.catalog-tree' ) as $name )
+		try
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->header();
-			$params['aibody'][$name] = Shop::get( $name )->body();
-		}
+			$params = ['page' => 'page-catalog-tree'];
 
-		return Response::view( Shop::template( 'catalog.tree' ), $params )
-			->header( 'Cache-Control', 'private, max-age=10' );
+			foreach( app( 'config' )->get( 'shop.page.catalog-tree' ) as $name )
+			{
+				$params['aiheader'][$name] = Shop::get( $name )->header();
+				$params['aibody'][$name] = Shop::get( $name )->body();
+			}
+
+			return Response::view( Shop::template( 'catalog.tree' ), $params )
+				->header( 'Cache-Control', 'private, max-age=10' );
+		}
+		catch( \Exception $e )
+		{
+			if( $e->getCode() >= 400 ) { abort( $e->getCode() ); }
+			throw $e;
+		}
 	}
 }
