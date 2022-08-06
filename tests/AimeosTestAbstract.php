@@ -36,6 +36,13 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 			],
 		] );
 
+		$app['config']->set( 'shop.resource.fs', [
+			'adapter' => 'Standard',
+			'tempdir' => storage_path( 'tmp' ),
+			'basedir' => storage_path( 'tmp' ),
+			'baseurl' => '/aimeos',
+		] );
+
 		$app['config']->set( 'shop.authorize', false );
 		$app['config']->set( 'shop.disableSites', false );
 		$app['config']->set( 'shop.accessControl', false );
