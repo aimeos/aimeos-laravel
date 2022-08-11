@@ -91,6 +91,7 @@ class Context
 			$this->addPassword( $context );
 			$this->addProcess( $context );
 			$this->addSession( $context );
+			$this->addToken( $context );
 			$this->addUser( $context );
 			$this->addGroups( $context );
 
@@ -252,6 +253,18 @@ class Context
 		$session = new \Aimeos\Base\Session\Laravel( $this->session );
 
 		return $context->setSession( $session );
+	}
+
+
+	/**
+	 * Adds the session token to the context
+	 *
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @return \Aimeos\MShop\ContextIface Modified context object
+	 */
+	protected function addToken( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
+	{
+		return $context->setToken( \Illuminate\Support\Facades\Session::getId() );
 	}
 
 
