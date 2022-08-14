@@ -7,6 +7,7 @@
     <?= $aiheader['account/profile'] ?? '' ?>
     <?= $aiheader['account/review'] ?? '' ?>
     <?= $aiheader['account/subscription'] ?? '' ?>
+    <?= $aiheader['account/basket'] ?? '' ?>
     <?= $aiheader['account/history'] ?? '' ?>
     <?= $aiheader['account/favorite'] ?? '' ?>
     <?= $aiheader['account/watch'] ?? '' ?>
@@ -36,6 +37,7 @@
         <?= $aibody['account/profile'] ?? '' ?>
         <?= $aibody['account/review'] ?? '' ?>
         <?= $aibody['account/subscription'] ?? '' ?>
+        <?= $aibody['account/basket'] ?? '' ?>
         <?= $aibody['account/history'] ?? '' ?>
         <?= $aibody['account/favorite'] ?? '' ?>
         <?= $aibody['account/watch'] ?? '' ?>
