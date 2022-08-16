@@ -36,7 +36,7 @@
 	<body class="{{ $page ?? '' }}">
 		<nav class="navbar navbar-expand-md navbar-top">
 			<a class="navbar-brand" href="/" title="Logo">
-				<img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" title="Logo">
+				<img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" alt="Logo">
 			</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-top" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +101,7 @@
 					<div class="col-md-4 footer-right">
 						<div class="footer-block">
 							<a class="logo" href="/" title="Logo">
-							    <img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" title="Logo">
+							    <img src="{{ asset( 'aimeos/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" alt="Logo">
 							</a>
 							<div class="social">
 								<p><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>
