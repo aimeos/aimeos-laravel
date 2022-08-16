@@ -63,7 +63,7 @@ More about the full package: :star: [Aimeos shop](https://github.com/aimeos/aime
 
 The Aimeos Laravel online shop package is a composer based library. It can be
 installed easiest by using [Composer 2.1+](https://getcomposer.org) in the root
-directory of your exisisting Laravel application:
+directory of your existing Laravel application:
 
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
@@ -147,8 +147,8 @@ installed, leave out the `--option=setup/default/demo:1` option.
 
 ## Authentication
 
-You have to set up one of Laravels authentication starter kits. Laravel Breeze
-is the easiest one but your can also use Jetstream.
+You have to set up one of Laravel's authentication starter kits. Laravel Breeze
+is the easiest one but you can also use Jetstream.
 
 ### Laravel 8 & 9
 
@@ -260,7 +260,7 @@ the home page as well, replace the route for "/" in `./routes/web.php` by this l
 
 ```php
 Route::group(['middleware' => ['web']], function () {
-	Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
+    Route::get('/', '\Aimeos\Shop\Controller\CatalogController@homeAction')->name('aimeos_home');
 });
 ```
 
@@ -284,7 +284,7 @@ code you've created according to the Laravel documentation), point your browser 
 `/admin` URL again.
 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
-case, login won't work because Laravel requires to log out first.
+case, login won't work because Laravel requires you to log out first.
 
 [![Aimeos backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/admin)
 
