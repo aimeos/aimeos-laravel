@@ -30,15 +30,23 @@ class SupplierController extends Controller
 	 */
 	public function detailAction()
 	{
-		$params = ['page' => 'page-supplier-detail'];
-
-		foreach( app( 'config' )->get( 'shop.page.supplier-detail' ) as $name )
+		try
 		{
-			$params['aiheader'][$name] = Shop::get( $name )->header();
-			$params['aibody'][$name] = Shop::get( $name )->body();
-		}
+			$params = ['page' => 'page-supplier-detail'];
 
-		return Response::view( Shop::template( 'supplier.detail' ), $params )
-			->header( 'Cache-Control', 'private, max-age=10' );
+			foreach( app( 'config' )->get( 'shop.page.supplier-detail' ) as $name )
+			{
+				$params['aiheader'][$name] = Shop::get( $name )->header();
+				$params['aibody'][$name] = Shop::get( $name )->body();
+			}
+
+			return Response::view( Shop::template( 'supplier.detail' ), $params )
+				->header( 'Cache-Control', 'private, max-age=10' );
+		}
+		catch( \Exception $e )
+		{
+			if( $e->getCode() >= 400 && $e->getCode() < 600 ) { abort( $e->getCode() ); }
+			throw $e;
+		}
 	}
 }

@@ -66,7 +66,7 @@ class CatalogController extends Controller
 		}
 		catch( \Exception $e )
 		{
-			if( $e->getCode() >= 400 ) { abort( $e->getCode() ); }
+			if( $e->getCode() >= 400 && $e->getCode() < 600 ) { abort( $e->getCode() ); }
 			throw $e;
 		}
 	}
@@ -196,7 +196,7 @@ class CatalogController extends Controller
 		}
 		catch( \Exception $e )
 		{
-			if( $e->getCode() >= 400 ) { abort( $e->getCode() ); }
+			if( $e->getCode() >= 400 && $e->getCode() < 600 ) { abort( $e->getCode() ); }
 			throw $e;
 		}
 	}
