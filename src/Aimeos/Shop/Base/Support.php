@@ -68,19 +68,22 @@ class Support
 
 		$this->access[$user->id][$groups] = false;
 
-		if( $siteid = current( array_reverse( explode( '.', trim( $user->siteid, '.' ) ) ) ) )
-		{
-			$context = $this->context->get( false );
+		$context = $this->context->get( false );
+		$siteid = current( array_reverse( explode( '.', trim( $user->siteid, '.' ) ) ) );
+
+		if( $siteid ) {
 			$site = \Aimeos\MShop::create( $context, 'locale/site' )->get( $siteid )->getCode();
-			$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', $site ) ) : $site );
+		} else {
+			$site = config( 'shop.mshop.locale.site', 'default' );
+		}
 
-			$context->setLocale( $this->locale->getBackend( $context, $site ) );
+		$site = ( Route::current() ? Route::input( 'site', Request::get( 'site', $site ) ) : $site );
+		$context->setLocale( $this->locale->getBackend( $context, $site ) );
 
-			foreach( array_reverse( $context->locale()->getSitePath() ) as $siteid )
-			{
-				if( (string) $user->siteid === (string) $siteid ) {
-					$this->access[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
-				}
+		foreach( array_reverse( $context->locale()->getSitePath() ) as $siteid )
+		{
+			if( $user->siteid === '' || $user->siteid === $siteid ) {
+				$this->access[$user->id][$groups] = $this->checkGroups( $context, $user->id, $groupcodes );
 			}
 		}
 
