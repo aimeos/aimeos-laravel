@@ -257,6 +257,17 @@ class JqadmController extends AdminController
 		$context = app( 'aimeos.context' )->get( false, 'backend' );
 		$context->setI18n( app( 'aimeos.i18n' )->get( array( $lang, 'en' ) ) );
 		$context->setLocale( app( 'aimeos.locale' )->getBackend( $context, $site ) );
+		
+		$siteManager = \Aimeos\MShop::create( $context, 'locale/site');
+
+		$filter = $siteManager->filter();
+		$filter->add([ 'locale.site.code' => $site ]);
+    
+		$siteItem = $siteManager->search( $filter->slice( 0 ) );
+		$siteConfig = $siteItem->getConfig()->toArray();
+		$siteConfig = array_pop( $siteConfig );
+
+		$context->config()->apply( $siteConfig );
 
 		$view = app( 'aimeos.view' )->create( $context, $paths, $lang );
 
