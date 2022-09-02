@@ -39,7 +39,8 @@
                 <?= $aibody['catalog/session'] ?? '' ?>
             </aside>
             <div class="col-lg-9">
-                <?= $aibody['catalog/lists'] ?>
+                <?= $aibody['catalog/lists'] ?? '' ?>
+                <?= $aibody['cms/page'] ?? '' ?>
             </div>
         </div>
     </div>

@@ -32,6 +32,7 @@
 
 @section('aimeos_body')
     <?= $aibody['catalog/detail'] ?? '' ?>
+    <?= $aibody['cms/page'] ?? '' ?>
 @stop
 
 @section('aimeos_aside')
