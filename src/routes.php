@@ -235,10 +235,10 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@sessionAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 
-		Route::match( array( 'GET', 'POST' ), '{f_name}~{f_catid}', array(
+		Route::match( array( 'GET', 'POST' ), '{f_name}~{f_catid}/{l_page?}', array(
 			'as' => 'aimeos_shop_tree',
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'f_name' => '[^~]*'] );
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'f_name' => '[^~]*', 'l_page' => '[0-9]+'] );
 
 		Route::match( array( 'GET', 'POST' ), '{d_name}/{d_pos?}/{d_prodid?}', array(
 			'as' => 'aimeos_shop_detail',
