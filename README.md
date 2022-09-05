@@ -137,7 +137,7 @@ In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```
-php artisan vendor:publish --all
+php artisan vendor:publish --provider="Aimeos\Shop\ShopServiceProvider"
 php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
 ```
