@@ -309,7 +309,11 @@ class Context
 		if( $userid = Auth::guard( $guard )->id() )
 		{
 			$context->setGroupIds( function() use ( $context, $userid ) {
-				return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['customer/group'] )->getGroups();
+				try {
+					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['customer/group'] )->getGroups();
+				} catch( \Exception $e ) {
+					return [];
+				}
 			} );
 		}
 
