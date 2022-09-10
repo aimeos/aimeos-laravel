@@ -39,6 +39,10 @@ class PageController extends Controller
 			$params['aibody'][$name] = Shop::get( $name )->body();
 		}
 
+		if( empty( $params['aibody']['cms/page'] ) ) {
+			abort( 404 );
+		}
+
 		return Response::view( Shop::template( 'page.index' ), $params )
 			->header( 'Cache-Control', 'private, max-age=10' );
 	}
