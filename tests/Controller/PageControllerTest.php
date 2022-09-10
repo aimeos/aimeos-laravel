@@ -6,7 +6,8 @@ class PageControllerTest extends AimeosTestAbstract
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
-		$this->action( 'GET', '\Aimeos\Shop\Controller\PageController@indexAction', ['site' => 'unittest', 'path' => '/'] );
-		$this->assertResponseOk();
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\PageController@indexAction', ['site' => 'unittest', 'path' => '/'] );
+
+		$this->assertEquals( 404, $response->getStatusCode() );
 	}
 }
