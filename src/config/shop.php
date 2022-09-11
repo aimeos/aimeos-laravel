@@ -61,8 +61,8 @@ return [
 		'fs' => [
 			'adapter' => 'Standard',
 			'tempdir' => storage_path( 'tmp' ),
-			'basedir' => public_path( 'aimeos' ),
-			'baseurl' => rtrim(env('ASSET_URL', PHP_SAPI == 'cli' ? env('APP_URL') : '', '/')) . '/aimeos',
+			'basedir' => public_path(),
+			'baseurl' => rtrim(env('ASSET_URL', PHP_SAPI == 'cli' ? env('APP_URL') : '', '/')),
 		],
 		'fs-media' => [
 			'adapter' => 'Standard',
