@@ -263,21 +263,7 @@ return [
 
 	'controller' => [
 		'jobs' => [
-			'catalog' => [
-				'export' => [
-					'sitemap' => [
-						'location' => public_path()
-					]
-				]
-			],
 			'to-email' => config( 'mail.from.address' ),
-			'product' => [
-				'export' => [
-					'sitemap' => [
-						'location' => public_path()
-					]
-				]
-			]
 		]
 	],
 
