@@ -274,9 +274,9 @@ class View
 	protected function addUrl( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$fixed = [
-			'site' => Request::input( 'site', env( 'SHOP_MULTISHOP' ) ? config( 'shop.mshop.locale.site', 'default' ) : null ),
-			'locale' => Request::input( 'locale' ),
-			'currency' => Request::input( 'currency' )
+			'site' => env( 'SHOP_MULTISHOP' ) ? config( 'shop.mshop.locale.site', 'default' ) : '',
+			'locale' => env( 'SHOP_MULTILOCALE' ) ? app()->getLocale() : '',
+			'currency' => ''
 		];
 
 		if( Route::current() )
@@ -285,6 +285,10 @@ class View
 			$fixed['locale'] = Request::route( 'locale', $fixed['locale'] );
 			$fixed['currency'] = Request::route( 'currency', $fixed['currency'] );
 		}
+
+		$fixed['site'] = Request::input( 'site', $fixed['site'] );
+		$fixed['locale'] = Request::input( 'locale', $fixed['locale'] );
+		$fixed['currency'] = Request::input( 'currency', $fixed['currency'] );
 
 		$helper = new \Aimeos\MW\View\Helper\Url\Laravel5( $view, app( 'url' ), array_filter( $fixed ) );
 		$view->addHelper( 'url', $helper );

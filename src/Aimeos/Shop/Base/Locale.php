@@ -54,9 +54,9 @@ class Locale
 	{
 		if( $this->locale === null )
 		{
-			$site = Request::input( 'site', config( 'shop.mshop.locale.site', 'default' ) );
-			$lang = Request::input( 'locale', app()->getLocale() );
-			$currency = Request::input( 'currency', '' );
+			$site = config( 'shop.mshop.locale.site', 'default' );
+			$lang = app()->getLocale();
+			$currency = '';
 
 			if( Route::current() )
 			{
@@ -64,6 +64,10 @@ class Locale
 				$lang = Request::route( 'locale', $lang );
 				$currency = Request::route( 'currency', $currency );
 			}
+
+			$site = Request::input( 'site', $site );
+			$lang = Request::input( 'locale', $lang );
+			$currency = Request::input( 'currency', $currency );
 
 			$localeManager = \Aimeos\MShop::create( $context, 'locale' );
 			$disableSites = $this->config->get( 'shop.disableSites', true );
