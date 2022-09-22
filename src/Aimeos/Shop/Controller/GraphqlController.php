@@ -48,6 +48,6 @@ class GraphqlController extends Controller
 		$context->setLocale( app( 'aimeos.locale' )->getBackend( $context, $site ) );
 		$context->setView( app( 'aimeos.view' )->create( $context, [], $lang ) );
 
-		return \Aimeos\Admin\Graphql::create( $context, $request );
+		return \Aimeos\Admin\Graphql::execute( $context, $request );
 	}
 }
