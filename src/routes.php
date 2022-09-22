@@ -66,6 +66,19 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 }
 
 
+if( ( $conf = config( 'shop.routes.graphql', ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth']] ) ) !== false ) {
+
+	Route::group( $conf, function() {
+
+		Route::match( array( 'POST' ), '', array(
+			'as' => 'aimeos_shop_graphql_post',
+			'uses' => 'Aimeos\Shop\Controller\GraphqlController@indexAction'
+		) )->where( ['site' => '[A-Za-z0-9\.\-]+'] );
+
+	});
+}
+
+
 if( ( $conf = config( 'shop.routes.jsonadm', ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
