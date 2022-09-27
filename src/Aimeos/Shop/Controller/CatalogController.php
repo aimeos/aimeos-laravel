@@ -62,7 +62,7 @@ class CatalogController extends Controller
 			}
 
 			return Response::view( Shop::template( 'catalog.detail' ), $params )
-				->header( 'Cache-Control', 'private, max-age=10' );
+				->header( 'Cache-Control', 'private, max-age=3600' );
 		}
 		catch( \Exception $e )
 		{
@@ -88,7 +88,7 @@ class CatalogController extends Controller
 		}
 
 		return Response::view( Shop::template( 'catalog.home' ), $params )
-			->header( 'Cache-Control', 'private, max-age=10' );
+			->header( 'Cache-Control', 'private, max-age=3600' );
 	}
 
 
@@ -108,7 +108,7 @@ class CatalogController extends Controller
 		}
 
 		return Response::view( Shop::template( 'catalog.list' ), $params )
-			->header( 'Cache-Control', 'private, max-age=10' );
+			->header( 'Cache-Control', 'private, max-age=3600' );
 	}
 
 
@@ -169,7 +169,7 @@ class CatalogController extends Controller
 		}
 
 		return Response::view( Shop::template( 'catalog.suggest' ), $params )
-			->header( 'Cache-Control', 'private, max-age=300' )
+			->header( 'Cache-Control', 'private, max-age=3600' )
 			->header( 'Content-Type', 'application/json' );
 	}
 
@@ -192,7 +192,7 @@ class CatalogController extends Controller
 			}
 
 			return Response::view( Shop::template( 'catalog.tree' ), $params )
-				->header( 'Cache-Control', 'private, max-age=10' );
+				->header( 'Cache-Control', 'private, max-age=3600' );
 		}
 		catch( \Exception $e )
 		{
