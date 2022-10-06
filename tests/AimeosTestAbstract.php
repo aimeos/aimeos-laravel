@@ -46,14 +46,15 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 		$app['config']->set( 'shop.authorize', false );
 		$app['config']->set( 'shop.disableSites', false );
 		$app['config']->set( 'shop.accessControl', false );
+		$app['config']->set( 'shop.admin.graphql.debug', true );
 		$app['config']->set( 'shop.routes.jqadm', ['prefix' => '{site}/jqadm'] );
+		$app['config']->set( 'shop.routes.graphql', ['prefix' => '{site}/graphql'] );
 		$app['config']->set( 'shop.routes.jsonadm', ['prefix' => '{site}/jsonadm'] );
 		$app['config']->set( 'shop.routes.jsonapi', ['prefix' => '{site}/jsonapi'] );
 		$app['config']->set( 'shop.routes.account', ['prefix' => '{site}/profile'] );
 		$app['config']->set( 'shop.routes.default', ['prefix' => '{site}/shop'] );
 		$app['config']->set( 'shop.routes.update', ['prefix' => '{site}'] );
 		$app['config']->set( 'shop.routes.login', [] );
-		$app['config']->set( 'shop.extdir', dirname( __DIR__ ) . DIRECTORY_SEPARATOR . 'ext' );
 		$app['config']->set( 'shop.mshop.locale.site', 'unittest' );
 
 		Route::any( 'login', ['as' => 'login'] );
