@@ -284,7 +284,7 @@ if( ( $conf = config( 'shop.routes.page', ['middleware' => ['web']] ) ) !== fals
 
 	Route::group( $conf, function() {
 
-		Route::match(['GET', 'POST'], 'p/{path?}', [
+		Route::match(['GET', 'POST'], '{path?}', [
 			'as' => 'aimeos_page',
 			'uses' => '\Aimeos\Shop\Controller\PageController@indexAction'
 		] )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
