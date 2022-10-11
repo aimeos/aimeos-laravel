@@ -8,6 +8,6 @@ class PageControllerTest extends AimeosTestAbstract
 
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\PageController@indexAction', ['site' => 'unittest', 'path' => '/'] );
 
-		$this->assertEquals( 404, $response->getStatusCode() );
+		$this->assertEquals( 200, $response->getStatusCode() );
 	}
 }

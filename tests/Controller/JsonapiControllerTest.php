@@ -23,7 +23,7 @@ class JsonapiControllerTest extends AimeosTestAbstract
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'product'];
-		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap']];
+		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap'], 'sort' => 'product.code'];
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams );
 
 		$json = json_decode( $response->getContent(), true );
@@ -57,7 +57,7 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 		// get CNC product
 		$params = ['site' => 'unittest', 'resource' => 'product'];
-		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19']];
+		$getParams = ['filter' => ['f_search' => 'Cafe Noire Cap', 'f_listtype' => 'unittype19'], 'sort' => 'product.code'];
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JsonapiController@getAction', $params, $getParams );
 
 		$this->assertResponseOk();
