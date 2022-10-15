@@ -267,6 +267,18 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 }
 
 
+if( ( $conf = config( 'shop.routes.page', ['prefix' => 'p', 'middleware' => ['web']] ) ) !== false ) {
+
+	Route::group( $conf, function() {
+
+		Route::match(['GET', 'POST'], '{path?}', [
+			'as' => 'aimeos_page',
+			'uses' => '\Aimeos\Shop\Controller\PageController@indexAction'
+		] )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
+	});
+}
+
+
 if( ( $conf = config( 'shop.routes.home', ['middleware' => ['web']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
@@ -276,17 +288,5 @@ if( ( $conf = config( 'shop.routes.home', ['middleware' => ['web']] ) ) !== fals
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@homeAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 
-	});
-}
-
-
-if( ( $conf = config( 'shop.routes.page', ['middleware' => ['web']] ) ) !== false ) {
-
-	Route::group( $conf, function() {
-
-		Route::match(['GET', 'POST'], '{path?}', [
-			'as' => 'aimeos_page',
-			'uses' => '\Aimeos\Shop\Controller\PageController@indexAction'
-		] )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 	});
 }
