@@ -18,8 +18,8 @@ return [
 		// 'account' => ['prefix' => 'profile', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'supplier' => ['prefix' => 's', 'middleware' => ['web']],
+		// 'page' => ['prefix' => 'p', 'middleware' => ['web']],
 		// 'home' => ['middleware' => ['web']],
-		// 'page' => ['middleware' => ['web']],
 		// 'update' => [],
 	],
 
