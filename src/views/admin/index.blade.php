@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Aimeos administration interface</title>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
 
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -40,7 +40,7 @@
 			</div>
 			<div class="form-group input-group input-group-lg">
 				<span class="input-group-addon fa fa-lock" id="password-addon"></span>
-				<input class="form-control" type="password" name="password" required="required" placeholder="Password" aria-describedby="password-addon" />
+				<input class="form-control" type="password" name="password" required="required" placeholder="Password" aria-describedby="password-addon">
 			</div>
 			<hr>
 			<button class="btn btn-block btn-lg btn-primary" type="submit">Login</button>
