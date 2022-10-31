@@ -13,7 +13,7 @@ class SupplierControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\SupplierController@detailAction', $params );
 
 		$this->assertResponseOk();
-		$this->assertStringContainsString( '<section class="aimeos supplier-detail', $response->getContent() );
-		$this->assertStringContainsString( '<section class="aimeos catalog-list', $response->getContent() );
+		$this->assertStringContainsString( '<div class="section aimeos supplier-detail', $response->getContent() );
+		$this->assertStringContainsString( '<div class="section aimeos catalog-list', $response->getContent() );
 	}
 }

@@ -19,7 +19,7 @@ class CheckoutControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CheckoutController@indexAction', ['site' => 'unittest'] );
 
 		$this->assertResponseOk();
-		$this->assertStringContainsString( '<section class="checkout-standard-address"', $response->getContent() );
+		$this->assertStringContainsString( '<div class="section checkout-standard-address"', $response->getContent() );
 	}
 
 

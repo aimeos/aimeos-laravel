@@ -9,7 +9,7 @@ class AccountControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\AccountController@indexAction', ['site' => 'unittest'] );
 
 		$this->assertResponseOk();
-		$this->assertStringContainsString( '<section class="aimeos account-profile"', $response->getContent() );
+		$this->assertStringContainsString( '<div class="section aimeos account-profile"', $response->getContent() );
 	}
 
 
