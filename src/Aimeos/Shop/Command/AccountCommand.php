@@ -79,7 +79,7 @@ class AccountCommand extends AbstractCommand
 		$item = $item->setCode( $email )->setLabel( $email )->setPassword( $password )->setStatus( 1 );
 		$item->getPaymentAddress()->setEmail( $email );
 
-		$item = $manager->saveItem( $this->addGroups( $context, $item ) );
+		$item = $manager->save( $this->addGroups( $context, $item ) );
 
 		\Illuminate\Foundation\Auth\User::findOrFail( $item->getId() )
 			->forceFill( [
@@ -156,7 +156,7 @@ class AccountCommand extends AbstractCommand
 			$item->setLabel( $code );
 			$item->setCode( $code );
 
-			$manager->saveItem( $item );
+			$manager->save( $item );
 		}
 
 		return $item;
