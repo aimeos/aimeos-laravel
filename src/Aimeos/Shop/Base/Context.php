@@ -193,7 +193,7 @@ class Context
 	 */
 	protected function addMessageQueueManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $context->config() );
+		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $context->config()->get( 'resource', [] ) );
 
 		return $context->setMessageQueueManager( $mq );
 	}
