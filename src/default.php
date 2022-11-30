@@ -34,6 +34,14 @@ return [
 	],
 
 	'admin' => [
+		'graphql' => [
+			'url' => [
+				'target' => 'aimeos_shop_graphql_post',
+				'config' => [
+					'absoluteUri' => true,
+				],
+			],
+		],
 		'jqadm' => [
 			'url' => [
 				'batch' => [
