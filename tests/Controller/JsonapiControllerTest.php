@@ -71,7 +71,7 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 		$this->assertEquals( 201, $response->getStatusCode() );
 		$json = json_decode( $response->getContent(), true );
-		$this->assertEquals( 'CNC', $json['included'][0]['attributes']['order.base.product.prodcode'] );
+		$this->assertEquals( 'CNC', $json['included'][0]['attributes']['order.product.prodcode'] );
 
 		// change product quantity in basket
 		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product', 'relatedid' => 0];
@@ -80,7 +80,7 @@ class JsonapiControllerTest extends AimeosTestAbstract
 
 		$this->assertResponseOk();
 		$json = json_decode( $response->getContent(), true );
-		$this->assertEquals( 2, $json['included'][0]['attributes']['order.base.product.quantity'] );
+		$this->assertEquals( 2, $json['included'][0]['attributes']['order.product.quantity'] );
 
 		// delete product from basket
 		$params = ['site' => 'unittest', 'resource' => 'basket', 'id' => 'default', 'related' => 'product', 'relatedid' => 0];
