@@ -57,6 +57,7 @@ class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCase
 		$app['config']->set( 'shop.routes.page', ['prefix' => '{site}/p'] );
 		$app['config']->set( 'shop.routes.login', [] );
 		$app['config']->set( 'shop.mshop.locale.site', 'unittest' );
+		$app['config']->set( 'shop.resource.email.from-email', 'root@localhost' );
 
 		Route::any( 'login', ['as' => 'login'] );
 		Route::any( 'logout', ['as' => 'logout'] );
