@@ -20,7 +20,7 @@
 		@endif
 		<link rel="stylesheet" href="<?= airoute( 'aimeos_shop_jqadm_file', ['site' => $site, 'locale' => 'en', 'type' => 'css'] ); ?>" />
 
-		<style nonce="{{ app( 'aimeos.context' )->get()->nonce() }}">
+		<style nonce="{{ app( 'aimeos.context' )->get( false )->nonce() }}">
 			body.dark .btn-theme.dark-mode {display:none}
 			body.light .btn-theme.light-mode {display:none}
 			.app-menu .icon {font: 1rem bootstrap-icons; vertical-align: middle; padding: 0.66rem 1rem; background-color: transparent; border: none; color: inherit}
