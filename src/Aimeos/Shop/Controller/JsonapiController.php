@@ -93,7 +93,10 @@ class JsonapiController extends Controller
 	 */
 	public function optionsAction( ServerRequestInterface $request )
 	{
-		return $this->createClient()->options( $request, ( new Psr17Factory )->createResponse() );
+		return $this->createClient()->options( $request, ( new Psr17Factory )->createResponse() )
+			->withHeader( 'access-control-allow-headers', 'authorization,content-type' )
+			->withHeader( 'access-control-allow-methods', 'DELETE, GET, OPTIONS, PATCH, POST, PUT' )
+			->withHeader( 'access-control-allow-origin', $request->getHeaderLine( 'origin' ) );
 	}
 
 
