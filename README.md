@@ -16,7 +16,7 @@ ultra fast e-commerce package for Laravel!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
 and customize anything to your needs.
 
-[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](http://laravel.demo.aimeos.org/)
+[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org/)
 
 ## Features
 
