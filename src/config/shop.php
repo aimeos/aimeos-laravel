@@ -112,12 +112,6 @@ return [
 		],
 	],
 
-	// custom Content Security Policy (https://content-security-policy.com/)
-	'csp' => [
-		// 'frontend' => "style-src 'unsafe-inline' 'self'; img-src 'self' data: https://aimeos.org; frame-src https://www.youtube.com https://player.vimeo.com",
-		// 'backend' => "style-src 'unsafe-inline' 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; script-src 'unsafe-eval' 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://*.tile.openstreetmap.org https://aimeos.org; frame-src https://www.youtube.com https://player.vimeo.com"
-	],
-
 	'admin' => [],
 
 	'client' => [
