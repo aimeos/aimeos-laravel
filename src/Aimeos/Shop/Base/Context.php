@@ -12,6 +12,7 @@ namespace Aimeos\Shop\Base;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 
 /**
@@ -264,7 +265,11 @@ class Context
 	 */
 	protected function addToken( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		return $context->setToken( \Illuminate\Support\Facades\Session::getId() );
+		if( ( $token = Session::get( 'token' ) ) === null ) {
+			Session::put( 'token', $token = Session::getId() );
+		}
+
+		return $context->setToken( $token );
 	}
 
 
