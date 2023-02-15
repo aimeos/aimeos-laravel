@@ -72,7 +72,7 @@ Supported languages:
      <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ru/"><img src="https://flagicons.lipis.dev/flags/4x3/ru.svg" title="Russian" width="24"></a>
      <a href="https://www.transifex.com/aimeos/dashboard/all_projects/uk/"><img src="https://flagicons.lipis.dev/flags/4x3/ua.svg" title="Ukrainian" width="24"></a>
      <a href="https://www.transifex.com/aimeos/dashboard/all_projects/hr/"><img src="https://flagicons.lipis.dev/flags/4x3/hr.svg" title="Croatian" width="24"></a>
-     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sl/"><img src="https://flagicons.lipis.dev/flags/4x3/sl.svg" title="Slovenian" width="24"></a>
+     <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sl/"><img src="https://flagicons.lipis.dev/flags/4x3/si.svg" title="Slovenian" width="24"></a>
      <a href="https://www.transifex.com/aimeos/dashboard/all_projects/ro/"><img src="https://flagicons.lipis.dev/flags/4x3/ro.svg" title="Romanian" width="24"></a>
      <a href="https://www.transifex.com/aimeos/dashboard/all_projects/cs/"><img src="https://flagicons.lipis.dev/flags/4x3/cz.svg" title="Czech" width="24"></a>
      <a href="https://www.transifex.com/aimeos/dashboard/all_projects/sr/"><img src="https://flagicons.lipis.dev/flags/4x3/sr.svg" title="Serbian" width="24"></a>
