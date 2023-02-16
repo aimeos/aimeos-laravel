@@ -65,7 +65,7 @@ jobs:
     steps:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-      - run: php composer req "laravel/framework:~9.0" --no-update
+      - run: php composer req "laravel/framework:~10.0" --no-update
       - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
       - restore_cache:
           keys:
