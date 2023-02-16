@@ -133,7 +133,7 @@ headless distribution is the right choice:
 
 Currently, the Aimeos Laravel packages **2021.10 and later** are fully supported:
 
-- LTS release: 2022.10 (Laravel 9.x, PHP 8.0.10+)
+- LTS release: 2022.10 (Laravel 9.x and 10.x, PHP 8.0.11+)
 - old LTS release: 2021.10 (Laravel 6.x, 7.x and 8.x, PHP 7.3+)
 
 If you want to upgrade between major versions, please have a look into the
@@ -143,7 +143,7 @@ If you want to upgrade between major versions, please have a look into the
 
 The Aimeos shop distribution requires:
 - Linux/Unix, WAMP/XAMP or MacOS environment
-- PHP >= 7.3 (Aimeos 2021.10), PHP >= 8.0 (Aimeos 2022.04+)
+- PHP >= 7.3 (Aimeos 2021.10), PHP >= 8.0.11 (Aimeos 2022.10+)
 - MySQL >= 5.7.8, MariaDB >= 10.2.2, PostgreSQL 9.6+, SQL Server 2019+
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
@@ -242,7 +242,7 @@ installed, leave out the `--option=setup/default/demo:1` option.
 You have to set up one of Laravel's authentication starter kits. Laravel Breeze
 is the easiest one but you can also use Jetstream.
 
-### Laravel 8 & 9
+### Laravel 8, 9 & 10
 
 ```
 composer require laravel/breeze
@@ -251,6 +251,7 @@ npm install && npm run build
 ```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 10.x](https://laravel.com/docs/10.x/authentication)
 * [Laravel 9.x](https://laravel.com/docs/9.x/authentication)
 * [Laravel 8.x](https://laravel.com/docs/8.x/authentication)
 
@@ -287,7 +288,7 @@ authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
     {
         // Keep the lines before
 
-        Gate::define('admin', function($user, $class, $roles) {
+        \Illuminate\Support\Facades\Gate::define('admin', function($user, $class, $roles) {
             if( isset( $user->superuser ) && $user->superuser ) {
                 return true;
             }
@@ -359,7 +360,7 @@ Route::group(['middleware' => ['web']], function () {
 For multi-vendor setups, read the article about [multiple shops](https://aimeos.org/docs/latest/laravel/customize/#multiple-shops).
 
 This will display the Aimeos catalog home component on the home page you you get a
-nice looking shop home page. The `/shop` page will look like:
+nice looking shop home page which will look like this:
 
 [![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/shop)
 
@@ -387,13 +388,13 @@ do this in the `config/shop.php` file of your Laravel application by adding
 these lines at the bottom:
 
 ```php
-    'madmin' => array(
-        'cache' => array(
-            'manager' => array(
+    'madmin' => [
+        'cache' => [
+            'manager' => [
                 'name' => 'None',
-            ),
-        ),
-    ),
+            ],
+        ],
+    ],
 ```
 
 ## License
