@@ -163,7 +163,9 @@ file too!
 
 If you don't have at least MySQL 5.7.8 or MariaDB 10.2.2 installed, you will probably get an error like
 
-```Specified key was too long; max key length is 767 bytes```
+```
+Specified key was too long; max key length is 767 bytes
+```
 
 To circumvent this problem, drop the new tables if there have been any created and
 change the charset/collation setting in `./config/database.php` to these values before
@@ -204,7 +206,7 @@ php composer require aimeos/aimeos-laravel:~2022.10
 
 Then, add these lines to the composer.json of the **Laravel skeleton application**:
 
-```
+```json
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
@@ -228,7 +230,7 @@ Afterwards, install the Aimeos shop package using
 In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
-```
+```bash
 php artisan vendor:publish --provider="Aimeos\Shop\ShopServiceProvider"
 php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
@@ -244,7 +246,7 @@ is the easiest one but you can also use Jetstream.
 
 ### Laravel 8, 9 & 10
 
-```
+```bash
 composer require laravel/breeze
 php artisan breeze:install
 npm install && npm run build
@@ -257,7 +259,7 @@ For more information, please follow the Laravel documentation:
 
 ### Laravel 7
 
-```
+```bash
 composer require laravel/ui:^2.0
 php artisan ui vue --auth
 npm install && npm run build
@@ -268,7 +270,7 @@ For more information, please follow the Laravel documentation:
 
 ### Laravel 6
 
-```
+```bash
 composer require laravel/ui:^1.0
 php artisan ui vue --auth
 npm install && npm run build
@@ -302,24 +304,30 @@ authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
 Test if your authentication setup works before you continue. Create an admin account
 for your Laravel application so you will be able to log into the Aimeos admin interface:
 
-```php artisan aimeos:account --super <email>```
+```bash
+php artisan aimeos:account --super <email>
+```
 
 The e-mail address is the user name for login and the account will work for the
 frontend too. To protect the new account, the command will ask you for a password.
-The same command can create limited accounts by using "--admin", "--editor" or "--api"
-instead of "--super" (access to everything).
+The same command can create limited accounts by using `--admin`, `--editor` or `--api`
+instead of `--super` (access to everything).
 
 ## Setup
 
 To reference images correctly, you have to adapt your `.env` file and set the `APP_URL`
 to your real URL, e.g.
 
-```APP_URL=http://127.0.0.1:8000```
+```
+APP_URL=http://127.0.0.1:8000
+```
 
 **Caution:** Make sure, Laravel uses the `file` session driver in your `.env` file!
 Otherwise, the shopping basket content won't get stored correctly!
 
-```SESSION_DRIVER=file```
+```
+SESSION_DRIVER=file
+```
 
 If your `./public` directory isn't writable by your web server, you have to create these
 directories:
