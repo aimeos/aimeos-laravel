@@ -2,8 +2,7 @@
 
 /**
  * @license MIT, http://opensource.org/licenses/MIT
- * @copyright Aimeos (aimeos.org), 2017
- * @package laravel
+ * @copyright Aimeos (aimeos.org), 2017-2023
  */
 
 
