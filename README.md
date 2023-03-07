@@ -249,7 +249,7 @@ is the easiest one but you can also use Jetstream.
 ```bash
 composer require laravel/breeze
 php artisan breeze:install
-npm install && npm run build
+npm install && npm run dev
 ```
 
 For more information, please follow the Laravel documentation:
