@@ -252,6 +252,18 @@ php artisan breeze:install
 npm install && npm run dev
 ```
 
+Laravel Breeze adds a route for `/profile` to `./routes/web.php` which may overwrite the
+`aimeos_shop_account` route. To avoid an exception about a missing `aimeos_shop_account`
+route, remove these lines from ./routes/web.php file:
+
+```php
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+```
+
 For more information, please follow the Laravel documentation:
 * [Laravel 10.x](https://laravel.com/docs/10.x/authentication)
 * [Laravel 9.x](https://laravel.com/docs/9.x/authentication)
