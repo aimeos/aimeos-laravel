@@ -9,8 +9,7 @@ class CatalogControllerTest extends AimeosTestAbstract
 		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\CatalogController@countAction', ['site' => 'unittest'] );
 
 		$this->assertResponseOk();
-		$this->assertStringContainsString( '.catalog-filter-count', $response->getContent() );
-		$this->assertStringContainsString( '.catalog-filter-attribute', $response->getContent() );
+		$this->assertStringStartsWith( '{"', $response->getContent() );
 	}
 
 
