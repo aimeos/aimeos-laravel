@@ -249,18 +249,19 @@ is the easiest one but you can also use Jetstream.
 ```bash
 composer require laravel/breeze
 php artisan breeze:install
-npm install && npm run dev
+npm install && npm run build
 ```
 
 Laravel Breeze adds a route for `/profile` to `./routes/web.php` which may overwrite the
 `aimeos_shop_account` route. To avoid an exception about a missing `aimeos_shop_account`
-route, remove these lines from ./routes/web.php file:
+route, change the URL for these lines from `./routes/web.php` file from `/profile` to
+`/profile/me`:
 
 ```php
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/me', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/me', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/me', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 ```
 
