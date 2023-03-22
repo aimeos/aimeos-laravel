@@ -68,7 +68,7 @@ class JqadmController extends AdminController
 			$response->header( 'Content-Type', 'text/css' );
 		}
 
-		return $response;
+		return $response->header( 'Cache-Control', 'public, max-age=3600' );
 	}
 
 
