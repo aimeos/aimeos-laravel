@@ -7,7 +7,7 @@ class I18nTest extends AimeosTestAbstract
 		$aimeos = $this->app->make( '\Aimeos\Shop\Base\Aimeos' );
 
 		$configMock = $this->getMockBuilder( '\Illuminate\Config\Repository' )
-			->setMethods( array( 'get', 'has' ) )->getMock();
+			->onlyMethods( array( 'get', 'has' ) )->getMock();
 
 		$configMock->expects( $this->once() )->method( 'has' )
 			->will( $this->returnValue( true ) );
