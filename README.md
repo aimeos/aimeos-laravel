@@ -244,7 +244,7 @@ installed, leave out the `--option=setup/default/demo:1` option.
 You have to set up one of Laravel's authentication starter kits. Laravel Breeze
 is the easiest one but you can also use Jetstream.
 
-### Laravel 8, 9 & 10
+### Laravel 9 & 10
 
 ```bash
 composer require laravel/breeze
@@ -268,29 +268,6 @@ Route::middleware('auth')->group(function () {
 For more information, please follow the Laravel documentation:
 * [Laravel 10.x](https://laravel.com/docs/10.x/authentication)
 * [Laravel 9.x](https://laravel.com/docs/9.x/authentication)
-* [Laravel 8.x](https://laravel.com/docs/8.x/authentication)
-
-### Laravel 7
-
-```bash
-composer require laravel/ui:^2.0
-php artisan ui vue --auth
-npm install && npm run build
-```
-
-For more information, please follow the Laravel documentation:
-* [Laravel 7.x](https://laravel.com/docs/7.x/authentication)
-
-### Laravel 6
-
-```bash
-composer require laravel/ui:^1.0
-php artisan ui vue --auth
-npm install && npm run build
-```
-
-For more information, please follow the Laravel documentation:
-* [Laravel 6.x](https://laravel.com/docs/6.x/authentication)
 
 ### Configure authentication
 
