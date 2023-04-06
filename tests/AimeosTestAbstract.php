@@ -53,6 +53,7 @@ abstract class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCas
 		$app['config']->set( 'shop.routes.jsonapi', ['prefix' => '{site}/jsonapi'] );
 		$app['config']->set( 'shop.routes.account', ['prefix' => '{site}/profile'] );
 		$app['config']->set( 'shop.routes.default', ['prefix' => '{site}/shop'] );
+		$app['config']->set( 'shop.routes.confirm', ['prefix' => '{site}/shop'] );
 		$app['config']->set( 'shop.routes.update', ['prefix' => '{site}'] );
 		$app['config']->set( 'shop.routes.page', ['prefix' => '{site}/p'] );
 		$app['config']->set( 'shop.routes.login', [] );

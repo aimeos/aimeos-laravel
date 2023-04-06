@@ -155,19 +155,6 @@ if( ( $conf = config( 'shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware
 }
 
 
-if( ( $conf = config( 'shop.routes.update', [] ) ) !== false ) {
-
-	Route::group( $conf, function() {
-
-		Route::match( array( 'GET', 'POST' ), 'update', array(
-			'as' => 'aimeos_shop_update',
-			'uses' => 'Aimeos\Shop\Controller\CheckoutController@updateAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
-
-	});
-}
-
-
 if( ( $conf = config( 'shop.routes.account', ['prefix' => 'profile', 'middleware' => ['web', 'auth']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
@@ -209,6 +196,32 @@ if( ( $conf = config( 'shop.routes.supplier', ['prefix' => 'supplier', 'middlewa
 }
 
 
+if( ( $conf = config( 'shop.routes.update', [] ) ) !== false ) {
+
+	Route::group( $conf, function() {
+
+		Route::match( array( 'GET', 'POST' ), 'update', array(
+			'as' => 'aimeos_shop_update',
+			'uses' => 'Aimeos\Shop\Controller\CheckoutController@updateAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
+
+	});
+}
+
+
+if( ( $conf = config( 'shop.routes.confirm', ['prefix' => 'shop', 'middleware' => ['web']] ) ) !== false ) {
+
+	Route::group( $conf, function() {
+
+		Route::match( array( 'GET', 'POST' ), 'confirm/{code?}', array(
+			'as' => 'aimeos_shop_confirm',
+			'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
+
+	});
+}
+
+
 if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' => ['web']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
@@ -236,11 +249,6 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 		Route::match( array( 'GET', 'POST' ), 'checkout/{c_step?}', array(
 			'as' => 'aimeos_shop_checkout',
 			'uses' => 'Aimeos\Shop\Controller\CheckoutController@indexAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
-
-		Route::match( array( 'GET', 'POST' ), 'confirm/{code?}', array(
-			'as' => 'aimeos_shop_confirm',
-			'uses' => 'Aimeos\Shop\Controller\CheckoutController@confirmAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 
 		Route::match( array( 'GET', 'POST' ), 'pin', array(
