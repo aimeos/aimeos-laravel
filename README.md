@@ -131,10 +131,10 @@ headless distribution is the right choice:
 
 ## Supported versions
 
-Currently, the Aimeos Laravel packages **2021.10 and later** are fully supported:
+Currently, the Aimeos Laravel packages **2022.10 and later** are fully supported:
 
-- LTS release: 2022.10 (Laravel 9.x and 10.x, PHP 8.0.11+)
-- old LTS release: 2021.10 (Laravel 6.x, 7.x and 8.x, PHP 7.3+)
+- Stable release: 2023.04 (Laravel 9.x and 10.x)
+- old LTS release: 2022.10 (Laravel 9.x and 10.x)
 
 If you want to upgrade between major versions, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
@@ -143,7 +143,7 @@ If you want to upgrade between major versions, please have a look into the
 
 The Aimeos shop distribution requires:
 - Linux/Unix, WAMP/XAMP or MacOS environment
-- PHP >= 7.3 (Aimeos 2021.10), PHP >= 8.0.11 (Aimeos 2022.10+)
+- PHP >= 8.0.11
 - MySQL >= 5.7.8, MariaDB >= 10.2.2, PostgreSQL 9.6+, SQL Server 2019+
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
@@ -201,7 +201,7 @@ directory of your existing Laravel application:
 
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-php composer require aimeos/aimeos-laravel:~2022.10
+php composer require aimeos/aimeos-laravel:~2023.04
 ```
 
 Then, add these lines to the composer.json of the **Laravel skeleton application**:
@@ -210,7 +210,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2022.10",
+        "aimeos/aimeos-laravel": "~2023.04",
         ...
     },
     "scripts": {
