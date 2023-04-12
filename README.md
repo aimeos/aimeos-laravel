@@ -12,7 +12,7 @@
 :star: Star us on GitHub — it motivates us a lot! 😀
 
 [Aimeos](https://aimeos.org/Laravel) is THE professional, full-featured and
-ultra fast e-commerce package for Laravel!  You can install it in your
+ultra fast Laravel ecommerce package!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
 and customize anything to your needs.
 
