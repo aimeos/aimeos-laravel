@@ -33,7 +33,7 @@ class AdminController extends Controller
 	public function indexAction( \Illuminate\Http\Request $request )
 	{
 		if( Auth::check() === false
-			|| $request->user()->can( 'admin', [AdminController::class, ['admin', 'editor']] ) === false
+			|| $request->user()->can( 'admin', [AdminController::class, config( 'shop.roles', ['admin', 'editor'] )] ) === false
 		) {
 			return redirect()->guest( airoute( 'login', ['locale' => app()->getLocale()] ) );
 		}
@@ -45,7 +45,7 @@ class AdminController extends Controller
 		$locale = $request->user()->langid ?: config( 'app.locale', 'en' );
 
 		$param = array(
-			'resource' => 'dashboard',
+			'resource' => config( 'shop.panel', 'dashboard' ),
 			'site' => Route::input( 'site', Request::get( 'site', $siteCode ) ),
 			'locale' => Route::input( 'locale', Request::get( 'locale', $locale ) )
 		);
