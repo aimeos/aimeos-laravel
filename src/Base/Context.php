@@ -104,10 +104,6 @@ class Context
 
 			$config->apply( $localeItem->getSiteItem()->getConfig() );
 		}
-		else
-		{
-			$this->context->setI18n( $this->i18n->get( $this->languages( $this->context ) ) );
-		}
 
 		return $this->context;
 	}
@@ -322,20 +318,5 @@ class Context
 		}
 
 		return $context;
-	}
-
-
-	/**
-	 * Returns all active languages
-	 *
-	 * @param \Aimeos\MShop\ContextIface $context Context object including database manager
-	 * @return array List of two letter ISO language codes
-	 */
-	protected function languages( \Aimeos\MShop\ContextIface $context ) : array
-	{
-		$manager = \Aimeos\MShop::create( $context, 'locale/language' );
-		$filter = $manager->filter( true )->slice( 0, 1000 );
-
-		return $manager->search( $filter )->keys()->all();
 	}
 }
