@@ -7,8 +7,11 @@
     <?= $aiheader['catalog/tree'] ?? '' ?>
 @stop
 
-@section('aimeos_nav')
+@section('aimeos_head_nav')
     <?= $aibody['catalog/tree'] ?? '' ?>
+@stop
+
+@section('aimeos_head_search')
     <?= $aibody['catalog/search'] ?? '' ?>
 @stop
 
