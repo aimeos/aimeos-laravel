@@ -21,6 +21,6 @@ class Order extends \Illuminate\Support\Facades\Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'order' );
+		return 'aimeos.frontend.order';
 	}
 }

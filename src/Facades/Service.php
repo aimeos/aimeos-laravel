@@ -21,6 +21,6 @@ class Service extends \Illuminate\Support\Facades\Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'service' );
+		return 'aimeos.frontend.service';
 	}
 }

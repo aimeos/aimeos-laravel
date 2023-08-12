@@ -21,6 +21,6 @@ class Product extends \Illuminate\Support\Facades\Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'product' );
+		return 'aimeos.frontend.product';
 	}
 }

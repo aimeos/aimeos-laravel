@@ -110,6 +110,55 @@ class ShopServiceProvider extends ServiceProvider {
 		});
 
 
+		$this->app->bind( 'aimeos.frontend.attribute', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'attribute' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.basket', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'basket' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.catalog', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'catalog' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.cms', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'cms' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.customer', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'customer' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.locale', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'locale' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.order', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'order' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.product', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'product' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.service', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'service' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.stock', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'stock' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.subscription', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'subscription' );
+		});
+
+		$this->app->bind( 'aimeos.frontend.supplier', function( $app ) {
+			return \Aimeos\Controller\Frontend::create( $app['aimeos.context'], 'supplier' );
+		});
+
+
 		$this->commands( array(
 			'Aimeos\Shop\Command\AccountCommand',
 			'Aimeos\Shop\Command\ClearCommand',

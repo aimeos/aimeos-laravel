@@ -21,6 +21,6 @@ class Attribute extends \Illuminate\Support\Facades\Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'attribute' );
+		return 'aimeos.frontend.attribute';
 	}
 }

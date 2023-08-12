@@ -21,6 +21,6 @@ class Customer extends \Illuminate\Support\Facades\Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return \Aimeos\Controller\Frontend::create( app( 'aimeos.context' )->get(), 'customer' );
+		return 'aimeos.frontend.customer';
 	}
 }
