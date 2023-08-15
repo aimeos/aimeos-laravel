@@ -35,7 +35,7 @@ class FacadesTest extends AimeosTestAbstract
 
 	public function testLocale()
 	{
-		$this->assertInstanceOf( \Aimeos\Controller\Frontend\Iface::class, \Aimeos\Shop\Facades\Locale::uses( [] ) );
+		$this->assertInstanceOf( \Aimeos\Controller\Frontend\Iface::class, \Aimeos\Shop\Facades\Locale::compare( '==', 'locale.id', -1 ) );
 	}
 
 
@@ -59,7 +59,7 @@ class FacadesTest extends AimeosTestAbstract
 
 	public function testStock()
 	{
-		$this->assertInstanceOf( \Aimeos\Controller\Frontend\Iface::class, \Aimeos\Shop\Facades\Stock::uses( [] ) );
+		$this->assertInstanceOf( \Aimeos\Controller\Frontend\Iface::class, \Aimeos\Shop\Facades\Stock::compare( '==', 'stock.id', -1 ) );
 	}
 
 
