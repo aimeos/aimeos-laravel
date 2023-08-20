@@ -252,7 +252,10 @@ php artisan breeze:install
 npm install && npm run build
 ```
 
-Laravel Breeze adds a route for `/profile` to `./routes/web.php` which may overwrite the
+Laravel Breeze will ask you a few questions, the most important one is the type of stack you
+want to use. Select "Blade" (it's the easiest way) and use the default values for the others.
+
+It also adds a route for `/profile` to `./routes/web.php` which may overwrite the
 `aimeos_shop_account` route. To avoid an exception about a missing `aimeos_shop_account`
 route, change the URL for these lines from `./routes/web.php` file from `/profile` to
 `/profile/me`:
