@@ -117,7 +117,7 @@ class Context
 	 */
 	protected function addCache( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		$cache = (new \Aimeos\MAdmin\Cache\Manager\Standard( $context ))->getCache();
+		$cache = \Aimeos\MAdmin::create( $context, 'cache' )->getCache();
 
 		return $context->setCache( $cache );
 	}
