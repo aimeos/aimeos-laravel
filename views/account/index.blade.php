@@ -45,5 +45,5 @@
 @stop
 
 @section('aimeos_aside')
-    <?= $aibody['catalog/session'] ?>
+    <?= $aibody['catalog/session'] ?? '' ?>
 @stop
