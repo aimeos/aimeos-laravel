@@ -201,7 +201,6 @@ directory of your existing Laravel application:
 
 ```
 wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
-php composer require aimeos/aimeos-laravel:~2023.10
 ```
 
 Then, add these lines to the composer.json of the **Laravel skeleton application**:
@@ -225,7 +224,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
 
 Afterwards, install the Aimeos shop package using
 
-`composer update`
+`php composer update -W`
 
 In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
