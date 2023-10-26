@@ -83,7 +83,7 @@ class AccountCommand extends AbstractCommand
 
 		\Illuminate\Foundation\Auth\User::findOrFail( $item->getId() )
 			->forceFill( [
-				'siteid' => $item->getSiteId(),
+				'siteid' => $this->option( 'super' ) ? '' : $item->getSiteId(),
 				'superuser' => ( $this->option( 'super' ) ? 1 : 0 ),
 				'email_verified_at' => now(),
 			] )->save();
