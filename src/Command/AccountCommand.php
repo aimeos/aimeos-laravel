@@ -136,11 +136,11 @@ class AccountCommand extends AbstractCommand
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Aimeos context object
 	 * @param string $code Unique customer group code
-	 * @return \Aimeos\MShop\Customer\Item\Group\Iface Aimeos customer group item object
+	 * @return \Aimeos\MShop\Group\Item\Iface Aimeos customer group item object
 	 */
-	protected function getGroupItem( \Aimeos\MShop\ContextIface $context, string $code ) : \Aimeos\MShop\Customer\Item\Group\Iface
+	protected function getGroupItem( \Aimeos\MShop\ContextIface $context, string $code ) : \Aimeos\MShop\Group\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $context, 'group' );
 
 		try
 		{

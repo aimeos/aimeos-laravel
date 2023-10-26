@@ -310,7 +310,7 @@ class Context
 		{
 			$context->setGroupIds( function() use ( $context, $userid ) {
 				try {
-					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['customer/group'] )->getGroups();
+					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['group'] )->getGroups();
 				} catch( \Exception $e ) {
 					return [];
 				}
