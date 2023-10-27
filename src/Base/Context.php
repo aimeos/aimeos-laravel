@@ -301,8 +301,7 @@ class Context
 	protected function addGroups( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$key = collect( config( 'shop.routes' ) )
-			->where( 'prefix', optional( Route::getCurrentRoute() )
-			->getPrefix() )
+			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
 			->keys()->first();
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
