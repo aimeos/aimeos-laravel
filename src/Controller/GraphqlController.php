@@ -32,7 +32,7 @@ class GraphqlController extends Controller
 	public function indexAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [GraphqlController::class, ['admin', 'editor', 'api']] );
+			$this->authorize( 'admin', [GraphqlController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'])] );
 		}
 
 		$site = Route::input( 'site', Request::get( 'site', config( 'shop.mshop.locale.site', 'default' ) ) );
