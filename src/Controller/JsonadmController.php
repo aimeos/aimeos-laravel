@@ -33,7 +33,7 @@ class JsonadmController extends Controller
 	public function deleteAction( ServerRequestInterface $request )
 	{
 		if( config( 'shop.authorize', true ) ) {
-			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'])] );
+			$this->authorize( 'admin', [JsonadmController::class, array_merge( config( 'shop.roles', ['admin', 'editor'] ), ['api'] )] );
 		}
 
 		return $this->createAdmin()->delete( $request, ( new Psr17Factory )->createResponse() );
