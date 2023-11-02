@@ -20,6 +20,8 @@ return [
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['prefix' => 'profile', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],
+		// 'basket' => ['prefix' => 'shop', 'middleware' => ['web']],
+		// 'checkout' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'confirm' => ['prefix' => 'shop', 'middleware' => ['web']],
 		// 'supplier' => ['prefix' => 's', 'middleware' => ['web']],
 		// 'page' => ['prefix' => 'p', 'middleware' => ['web']],
