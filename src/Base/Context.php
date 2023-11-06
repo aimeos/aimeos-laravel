@@ -280,12 +280,10 @@ class Context
 			->keys()->first();
 		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
-		if( $user = Auth::guard( $guard ) )
+		if( ( $user = Auth::guard( $guard ) ) && ( $userid = $user->id() ) )
 		{
 			try
 			{
-				$userid = $user->id();
-
 				$context->setUser( function() use ( $context, $userid ) {
 					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['group'] );
 				} );
