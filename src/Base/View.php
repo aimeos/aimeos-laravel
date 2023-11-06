@@ -98,13 +98,9 @@ class View
 		}
 		else
 		{
-			$support = $this->support;
-
-			$fcn = function() use ( $support, $context ) {
-				return $support->getGroups( $context );
-			};
-
-			$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, $fcn );
+			$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, function() use ( $context ) {
+				return $context->groups();
+			} );
 		}
 
 		$view->addHelper( 'access', $helper );

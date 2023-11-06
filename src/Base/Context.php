@@ -88,8 +88,7 @@ class Context
 			$this->addProcess( $context );
 			$this->addSession( $context );
 			$this->addToken( $context );
-			$this->addUser( $context );
-			$this->addGroups( $context );
+			$this->addUserGroups( $context );
 
 			$this->context = $context;
 		}
@@ -269,36 +268,12 @@ class Context
 
 
 	/**
-	 * Adds the user ID and name if available
+	 * Adds the user and groups if available
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Context object
 	 * @return \Aimeos\MShop\ContextIface Modified context object
 	 */
-	protected function addUser( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
-	{
-		$key = collect( config( 'shop.routes' ) )
-			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
-			->keys()->first();
-		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
-
-		if( $user = Auth::guard( $guard )->user() ) {
-			$context->setEditor( $user->name ?? (string) \Request::ip() );
-			$context->setUserId( $user->getAuthIdentifier() );
-		} elseif( $ip = \Request::ip() ) {
-			$context->setEditor( $ip );
-		}
-
-		return $context;
-	}
-
-
-	/**
-	 * Adds the group IDs if available
-	 *
-	 * @param \Aimeos\MShop\ContextIface $context Context object
-	 * @return \Aimeos\MShop\ContextIface Modified context object
-	 */
-	protected function addGroups( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
+	protected function addUserGroups( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
 		$key = collect( config( 'shop.routes' ) )
 			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
@@ -307,13 +282,23 @@ class Context
 
 		if( $userid = Auth::guard( $guard )->id() )
 		{
-			$context->setGroupIds( function() use ( $context, $userid ) {
-				try {
-					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['group'] )->getGroups();
-				} catch( \Exception $e ) {
-					return [];
-				}
-			} );
+			try
+			{
+				$context->setUser( function() use ( $context, $userid ) {
+					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['group'] );
+				} );
+
+				$context->setGroups( function() use ( $context ) {
+					return $context->user()?->getGroups() ?? [];
+				} );
+			}
+			catch( \Exception $e ) {} // avoid errors if user is assigned to another site
+
+			$context->setEditor( $user->name ?? (string) \Request::ip() );
+		}
+		elseif( $ip = \Request::ip() )
+		{
+			$context->setEditor( $ip );
 		}
 
 		return $context;

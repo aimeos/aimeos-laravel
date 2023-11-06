@@ -126,8 +126,8 @@ class AccountCommand extends AbstractCommand
 		$site = $this->argument( 'site' ) ?: config( 'shop.mshop.locale.site', 'default' );
 		$this->info( sprintf( $msg, $group, $user->getCode(), $site ) );
 
-		$groupId = $this->getGroupItem( $context, $group )->getId();
-		return $user->setGroups( array_merge( $user->getGroups(), [$groupId] ) );
+		$item = $this->getGroupItem( $context, $group );
+		return $user->setGroups( array_merge( $user->getGroups(), [$item->getId() => $item->getCode()] ) );
 	}
 
 

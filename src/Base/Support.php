@@ -87,23 +87,6 @@ class Support
 
 
 	/**
-	 * Returns the available group codes
-	 *
-	 * @param \Aimeos\MShop\ContextIface $context Context item
-	 * @return string[] List of group codes
-	 */
-	public function getGroups( \Aimeos\MShop\ContextIface $context ) : array
-	{
-		$manager = \Aimeos\MShop::create( $context, 'group' );
-
-		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'group.id', $context->groups() ) );
-
-		return $manager->search( $search )->getCode()->toArray();
-	}
-
-
-	/**
 	 * Checks if one of the groups is associated to the given user ID
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Context item
