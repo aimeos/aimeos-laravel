@@ -278,9 +278,9 @@ class Context
 		$key = collect( config( 'shop.routes' ) )
 			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
 			->keys()->first();
-		$guard = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
+		$gname = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
 
-		if( ( $user = Auth::guard( $guard ) ) && ( $userid = $user->id() ) )
+		if( ( $guard = Auth::guard( $gname ) ) && ( $userid = $guard->id() ) )
 		{
 			try
 			{
@@ -294,7 +294,7 @@ class Context
 			}
 			catch( \Exception $e ) {} // avoid errors if user is assigned to another site
 
-			$context->setEditor( $user->name ?? (string) \Request::ip() );
+			$context->setEditor( $guard->user()?->email ?: \Request::ip() );
 		}
 		elseif( $ip = \Request::ip() )
 		{
