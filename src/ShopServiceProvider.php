@@ -44,7 +44,7 @@ class ShopServiceProvider extends ServiceProvider {
 			foreach( new \DirectoryIterator( $basepath ) as $entry )
 			{
 				if( $entry->isDir() && !$entry->isDot() && file_exists( $entry->getPathName() . '/themes/client/html' ) ) {
-					$this->publishes( [$entry->getPathName() . 'themes/client/html/' => public_path( 'vendor/shop/themes' )], 'public' );
+					$this->publishes( [$entry->getPathName() . '/themes/client/html/' => public_path( 'vendor/shop/themes' )], 'public' );
 				}
 			}
 		}
