@@ -183,7 +183,7 @@ if( ( $conf = config( 'shop.routes.account', ['prefix' => 'profile', 'middleware
 }
 
 
-if( ( $conf = config( 'shop.routes.supplier', ['prefix' => 'supplier', 'middleware' => ['web']] ) ) !== false ) {
+if( ( $conf = config( 'shop.routes.supplier', ['prefix' => 'brand', 'middleware' => ['web']] ) ) !== false ) {
 
 	Route::group( $conf, function() {
 
@@ -272,6 +272,11 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@sessionAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 
+		Route::match( array( 'GET', 'POST' ), 'search', array(
+			'as' => 'aimeos_shop_list',
+			'uses' => 'Aimeos\Shop\Controller\CatalogController@listAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
+
 		Route::match( array( 'GET', 'POST' ), '{f_name}~{f_catid}/{l_page?}', array(
 			'as' => 'aimeos_shop_tree',
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@treeAction'
@@ -281,11 +286,6 @@ if( ( $conf = config( 'shop.routes.default', ['prefix' => 'shop', 'middleware' =
 			'as' => 'aimeos_shop_detail',
 			'uses' => 'Aimeos\Shop\Controller\CatalogController@detailAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'd_pos' => '[0-9]*'] );
-
-		Route::match( array( 'GET', 'POST' ), '', array(
-			'as' => 'aimeos_shop_list',
-			'uses' => 'Aimeos\Shop\Controller\CatalogController@listAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
 
 	});
 }
