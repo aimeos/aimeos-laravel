@@ -4,3 +4,4 @@ composer.lock
 .phpunit.cache
 .idea/
 node_modules
+phpunit.xml
