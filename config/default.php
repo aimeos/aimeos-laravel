@@ -156,6 +156,7 @@ return [
 				'detail' => [
 					'url' => [
 						'target' => 'aimeos_shop_detail',
+						'filter' => ['path', 'd_prodid'],
 					],
 				],
 				'home' => [
@@ -188,6 +189,7 @@ return [
 				'tree' => [
 					'url' => [
 						'target' => 'aimeos_shop_tree',
+						'filter' => ['path'],
 					],
 				],
 			],
