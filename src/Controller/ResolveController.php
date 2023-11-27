@@ -69,7 +69,7 @@ class ResolveController extends Controller
 		{
 			try {
 				return $fcn( $context, $path );
-			} catch( \Exception $e ) {}
+			} catch( \Exception $e ) {} // not found
 		}
 
 		abort( 404 );
@@ -89,7 +89,7 @@ class ResolveController extends Controller
 		$view = Shop::view();
 
 		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
-		$params += ['f_name' => $path, 'f_catid' => $item->getId(), 'page' => 'page-catalog-tree'];
+		$params += ['path' => $path, 'f_name' => $path, 'f_catid' => $item->getId(), 'page' => 'page-catalog-tree'];
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
@@ -108,6 +108,37 @@ class ResolveController extends Controller
 
 
 	/**
+	 * Returns the CMS page if the give path can be resolved to a CMS page.
+	 *
+	 * @param \Aimeos\MShop\ContextIface $context Context object
+	 * @param string $path URL path to resolve
+	 * @return Response Response object
+	 */
+	protected function cms( \Aimeos\MShop\ContextIface $context, string $path ) : ?\Illuminate\Http\Response
+	{
+		$item = \Aimeos\Controller\Frontend::create( $context, 'cms' )->resolve( $path );
+		$view = Shop::view();
+
+		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
+		$params += ['path' => $path, 'page' => 'page-index'];
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
+		$view->addHelper( 'param', $helper );
+
+		foreach( app( 'config' )->get( 'shop.page.cms' ) as $name )
+		{
+			$client = Shop::get( $name );
+
+			$params['aiheader'][$name] = $client->header();
+			$params['aibody'][$name] = $client->body();
+		}
+
+		return Response::view( Shop::template( 'page.index' ), $params )
+			->header( 'Cache-Control', 'private, max-age=' . config( 'shop.cache_maxage', 30 ) );
+	}
+
+
+	/**
 	 * Returns the product page if the give path can be resolved to a product.
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Context object
@@ -120,7 +151,7 @@ class ResolveController extends Controller
 		$view = Shop::view();
 
 		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
-		$params += ['d_name' => $path, 'd_prodid' => $item->getId(), 'page' => 'page-catalog-detail'];
+		$params += ['path' => $path, 'd_name' => $path, 'd_prodid' => $item->getId(), 'page' => 'page-catalog-detail'];
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
