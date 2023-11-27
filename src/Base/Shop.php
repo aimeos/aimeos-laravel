@@ -81,4 +81,15 @@ class Shop
 		$theme = $this->context->locale()->getSiteItem()->getTheme();
 		return \Illuminate\Support\Facades\View::exists( $theme . '::' . $name ) ? $theme . '::' . $name : 'shop::' . $name;
 	}
+
+
+	/**
+	 * Returns the used view object
+	 *
+	 * @return \Aimeos\Base\View\Iface View object
+	 */
+	public function view() : \Aimeos\Base\View\Iface
+	{
+		return $this->view;
+	}
 }

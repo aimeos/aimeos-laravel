@@ -314,3 +314,16 @@ if( ( $conf = config( 'shop.routes.home', ['middleware' => ['web']] ) ) !== fals
 
 	});
 }
+
+
+if( $conf = config( 'shop.routes.resolve' ) ) {
+
+	Route::group( $conf, function() {
+
+		Route::match( array( 'GET', 'POST' ), '/{path?}', array(
+			'as' => 'aimeos_resolve',
+			'uses' => 'Aimeos\Shop\Controller\ResolveController@indexAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );
+
+	});
+}
