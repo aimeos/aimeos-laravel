@@ -116,7 +116,7 @@ class ResolveController extends Controller
 	 */
 	protected function cms( \Aimeos\MShop\ContextIface $context, string $path ) : ?\Illuminate\Http\Response
 	{
-		$item = \Aimeos\Controller\Frontend::create( $context, 'cms' )->resolve( $path );
+		\Aimeos\Controller\Frontend::create( $context, 'cms' )->resolve( $path );
 		$view = Shop::view();
 
 		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
