@@ -63,6 +63,10 @@ abstract class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCas
 
 		Route::any( 'login', ['as' => 'login'] );
 		Route::any( 'logout', ['as' => 'logout'] );
+		Route::match( array( 'GET', 'POST' ), '{site}/resolve/{path?}', array(
+			'as' => 'aimeos_resolve',
+			'uses' => 'Aimeos\Shop\Controller\ResolveController@indexAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'path', '.*'] );
 	}
 
 
