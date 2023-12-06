@@ -27,12 +27,12 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@batchAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
 
-		Route::match( array( 'GET' ), 'copy/{resource}/{id}', array(
+		Route::match( array( 'GET', 'POST' ), 'copy/{resource}/{id}', array(
 			'as' => 'aimeos_shop_jqadm_copy',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@copyAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
 
-		Route::match( array( 'GET' ), 'create/{resource}', array(
+		Route::match( array( 'GET', 'POST' ), 'create/{resource}', array(
 			'as' => 'aimeos_shop_jqadm_create',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@createAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
