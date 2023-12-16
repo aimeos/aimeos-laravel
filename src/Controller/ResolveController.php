@@ -59,7 +59,7 @@ class ResolveController extends Controller
 	 */
 	public function indexAction( \Illuminate\Http\Request $request )
 	{
-		if( ( $path = $request->route( 'xpath', $request->input( 'xpath' ) ) ) === null ) {
+		if( ( $path = $request->route( 'path', $request->input( 'path' ) ) ) === null ) {
 			abort( 404 );
 		}
 
@@ -68,7 +68,7 @@ class ResolveController extends Controller
 		foreach( self::$fcn as $name => $fcn )
 		{
 			try {
-				return call_user_func_array( $fcn->bindTo( $this, static::class ), [$context, $path] );
+				return $fcn( $context, $path );
 			} catch( \Exception $e ) {} // not found
 		}
 
@@ -89,7 +89,7 @@ class ResolveController extends Controller
 		$view = Shop::view();
 
 		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
-		$params += ['xpath' => $path, 'f_name' => $path, 'f_catid' => $item->getId(), 'page' => 'page-catalog-tree'];
+		$params += ['path' => $path, 'f_name' => $path, 'f_catid' => $item->getId(), 'page' => 'page-catalog-tree'];
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
@@ -120,7 +120,7 @@ class ResolveController extends Controller
 		$view = Shop::view();
 
 		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
-		$params += ['xpath' => $path, 'page' => 'page-index'];
+		$params += ['path' => $path, 'page' => 'page-index'];
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
@@ -151,7 +151,7 @@ class ResolveController extends Controller
 		$view = Shop::view();
 
 		$params = ( Route::current() ? Route::current()->parameters() : [] ) + Request::all();
-		$params += ['xpath' => $path, 'd_name' => $path, 'd_prodid' => $item->getId(), 'page' => 'page-catalog-detail'];
+		$params += ['path' => $path, 'd_name' => $path, 'd_prodid' => $item->getId(), 'page' => 'page-catalog-detail'];
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );
