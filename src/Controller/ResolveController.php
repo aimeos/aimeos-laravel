@@ -65,11 +65,13 @@ class ResolveController extends Controller
 
 		$context = app( 'aimeos.context' )->get( true );
 
-		foreach( self::$fcn as $name => $fcn )
+		foreach( array_reverse( self::$fcn ) as $name => $fcn )
 		{
 			try {
-				return $fcn( $context, $path );
-			} catch( \Exception $e ) {} // not found
+				return call_user_func_array( $fcn->bindTo( $this, static::class ), [$context, $path] );
+			} catch( \Exception $e ) {
+				if( $e->getCode() !== 404 ) throw $e;
+			}
 		}
 
 		abort( 404 );
