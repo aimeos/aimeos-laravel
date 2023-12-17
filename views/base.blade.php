@@ -86,16 +86,16 @@
 							<div class="col-sm-6 footer-left">
 								<div class="footer-block">
 									<h2 class="pb-3" aria-label="{{ __('Legal information') }}">{{ __( 'LEGAL' ) }}</h2>
-									<p><a href="{{ airoute('aimeos_page', ['path' => 'terms']) }}">{{ __( 'Terms & Conditions' ) }}</a></p>
-									<p><a href="{{ airoute('aimeos_page', ['path' => 'privacy']) }}">{{ __( 'Privacy Notice' ) }}</a></p>
-									<p><a href="{{ airoute('aimeos_page', ['path' => 'cancel']) }}">{{ __( 'Cancellation' ) }}</a></p>
+									<p><a href="{{ airoute(config('shop.client.html.cms.page.url.target', 'aimeos_page'), ['path' => 'terms']) }}">{{ __( 'Terms & Conditions' ) }}</a></p>
+									<p><a href="{{ airoute(config('shop.client.html.cms.page.url.target', 'aimeos_page'), ['path' => 'privacy']) }}">{{ __( 'Privacy Notice' ) }}</a></p>
+									<p><a href="{{ airoute(config('shop.client.html.cms.page.url.target', 'aimeos_page'), ['path' => 'cancel']) }}">{{ __( 'Cancellation' ) }}</a></p>
 								</div>
 							</div>
 							<div class="col-sm-6 footer-center">
 								<div class="footer-block">
 									<h2 class="pb-3" aria-label="{{ __('About the company') }}">{{ __( 'ABOUT US' ) }}</h2>
-									<p><a href="{{ airoute('aimeos_page', ['path' => 'contact']) }}">{{ __( 'Contact us' ) }}</a></p>
-									<p><a href="{{ airoute('aimeos_page', ['path' => 'about']) }}">{{ __( 'Company' ) }}</a></p>
+									<p><a href="{{ airoute(config('shop.client.html.cms.page.url.target', 'aimeos_page'), ['path' => 'contact']) }}">{{ __( 'Contact us' ) }}</a></p>
+									<p><a href="{{ airoute(config('shop.client.html.cms.page.url.target', 'aimeos_page'), ['path' => 'about']) }}">{{ __( 'Company' ) }}</a></p>
 								</div>
 							</div>
 						</div>
