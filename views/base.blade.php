@@ -103,7 +103,7 @@
 					<div class="col-md-4 footer-right">
 						<div class="footer-block">
 							<a class="logo" href="/" title="{{ __('To the home page') }}">
-							    <img src="{{ asset( app( 'aimeos.context' )->get()->config()->get( 'resource/fs-media/baseurl' ) . '/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" alt="{{ __('To the home page') }}">
+								<img src="{{ asset( app( 'aimeos.context' )->get()->config()->get( 'resource/fs-media/baseurl' ) . '/' . ( app( 'aimeos.context' )->get()->locale()->getSiteItem()->getLogo() ?: '../vendor/shop/themes/default/assets/logo.png' ) ) }}" height="40" alt="{{ __('To the home page') }}">
 							</a>
 							<div class="social" aria-label="{{ __('Social media links') }}">
 								<p><a href="#" class="sm facebook" title="Facebook" rel="noopener">Facebook</a></p>

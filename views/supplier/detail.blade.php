@@ -1,33 +1,33 @@
 @extends('shop::base')
 
 @section('aimeos_header')
-    <?= $aiheader['supplier/detail'] ?>
-    <?= $aiheader['locale/select'] ?? '' ?>
-    <?= $aiheader['basket/mini'] ?? '' ?>
-    <?= $aiheader['catalog/tree'] ?? '' ?>
-    <?= $aiheader['catalog/search'] ?? '' ?>
-    <?= $aiheader['catalog/lists'] ?? '' ?>
+	<?= $aiheader['supplier/detail'] ?>
+	<?= $aiheader['locale/select'] ?? '' ?>
+	<?= $aiheader['basket/mini'] ?? '' ?>
+	<?= $aiheader['catalog/tree'] ?? '' ?>
+	<?= $aiheader['catalog/search'] ?? '' ?>
+	<?= $aiheader['catalog/lists'] ?? '' ?>
 @stop
 
 @section('aimeos_head_basket')
-    <?= $aibody['basket/mini'] ?? '' ?>
+	<?= $aibody['basket/mini'] ?? '' ?>
 @stop
 
 @section('aimeos_head_nav')
-    <?= $aibody['catalog/tree'] ?? '' ?>
+	<?= $aibody['catalog/tree'] ?? '' ?>
 @stop
 
 @section('aimeos_head_locale')
-    <?= $aibody['locale/select'] ?? '' ?>
+	<?= $aibody['locale/select'] ?? '' ?>
 @stop
 
 @section('aimeos_head_search')
-    <?= $aibody['catalog/search'] ?? '' ?>
+	<?= $aibody['catalog/search'] ?? '' ?>
 @stop
 
 @section('aimeos_body')
-    <div class="container-fluid">
-        <?= $aibody['supplier/detail'] ?>
-        <?= $aibody['catalog/lists'] ?? '' ?>
-    </div>
+	<div class="container-fluid">
+		<?= $aibody['supplier/detail'] ?>
+		<?= $aibody['catalog/lists'] ?? '' ?>
+	</div>
 @stop

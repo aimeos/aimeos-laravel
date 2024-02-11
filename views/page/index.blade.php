@@ -3,7 +3,7 @@
 @section('aimeos_header')
 	<?= $aiheader['catalog/tree'] ?? '' ?>
 	<?= $aiheader['basket/mini'] ?? '' ?>
-    <?= $aiheader['cms/page'] ?? '' ?>
+	<?= $aiheader['cms/page'] ?? '' ?>
 @stop
 
 @section('aimeos_nav')
@@ -15,7 +15,7 @@
 @stop
 
 @section('aimeos_body')
-    <div class="container-fluid">
+	<div class="container-fluid">
 		<?= $aibody['cms/page'] ?? '' ?>
 	</div>
 @stop
