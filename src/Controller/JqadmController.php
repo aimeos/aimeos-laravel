@@ -194,6 +194,27 @@ class JqadmController extends AdminController
 
 
 	/**
+	 * Imports the data for a resource object
+	 *
+	 * @return string Generated output
+	 */
+	public function importAction()
+	{
+		if( config( 'shop.authorize', true ) ) {
+			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
+		}
+
+		$cntl = $this->createAdmin();
+
+		if( ( $html = $cntl->import() ) == '' ) {
+			return $cntl->response();
+		}
+
+		return $this->getHtml( $html );
+	}
+
+
+	/**
 	 * Saves a new resource object
 	 *
 	 * @return string Generated output

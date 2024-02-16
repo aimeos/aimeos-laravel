@@ -52,6 +52,11 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@getAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
 
+		Route::match( array( 'POST' ), 'import/{resource}', array(
+			'as' => 'aimeos_shop_jqadm_import',
+			'uses' => 'Aimeos\Shop\Controller\JqadmController@importAction'
+		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
+
 		Route::match( array( 'POST' ), 'save/{resource}', array(
 			'as' => 'aimeos_shop_jqadm_save',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@saveAction'
