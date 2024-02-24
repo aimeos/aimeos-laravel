@@ -40,9 +40,6 @@
 
 <?= $content ?>
 
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/js/bootstrap.min.js"></script>
 		<script src="<?= airoute( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'locale' => 'en', 'type' => 'js' ) ); ?>"></script>
 	</body>
 </html>
