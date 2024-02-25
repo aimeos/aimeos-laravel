@@ -84,7 +84,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -105,7 +105,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -126,7 +126,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -147,7 +147,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -168,7 +168,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -189,7 +189,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -210,7 +210,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -231,7 +231,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
@@ -252,7 +252,7 @@ class JqadmController extends AdminController
 			return $cntl->response();
 		}
 
-		return $this->getHtml( $html );
+		return $this->getHtml( (string) $html );
 	}
 
 
