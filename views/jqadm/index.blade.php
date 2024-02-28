@@ -13,11 +13,11 @@
 		<title>Aimeos administration interface</title>
 
 		@if( $localeDir == 'rtl' )
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.rtl.min.css">
+			<link rel="stylesheet" href="<?= airoute( 'aimeos_shop_jqadm_file', ['site' => $site, 'locale' => 'en', 'name' => 'index.rtl.css'] ); ?>">
 		@else
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+			<link rel="stylesheet" href="<?= airoute( 'aimeos_shop_jqadm_file', ['site' => $site, 'locale' => 'en', 'name' => 'index.ltr.css'] ); ?>">
 		@endif
-		<link rel="stylesheet" href="<?= airoute( 'aimeos_shop_jqadm_file', ['site' => $site, 'locale' => 'en', 'type' => 'css'] ); ?>">
+		<link rel="stylesheet" href="<?= airoute( 'aimeos_shop_jqadm_file', ['site' => $site, 'locale' => 'en', 'name' => 'index.css'] ); ?>">
 
 		<style nonce="{{ app( 'aimeos.context' )->get( false )->nonce() }}">
 			body.dark .btn-theme.dark-mode {display:none}
@@ -40,6 +40,6 @@
 
 <?= $content ?>
 
-		<script src="<?= airoute( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'locale' => 'en', 'type' => 'js' ) ); ?>"></script>
+		<script src="<?= airoute( 'aimeos_shop_jqadm_file', array( 'site' => $site, 'locale' => 'en', 'name' => 'index.js' ) ); ?>"></script>
 	</body>
 </html>

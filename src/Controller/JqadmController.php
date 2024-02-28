@@ -36,7 +36,7 @@ class JqadmController extends AdminController
 		$contents = '';
 		$files = array();
 		$aimeos = app( 'aimeos' )->get();
-		$type = Route::input( 'type', Request::get( 'type', 'js' ) );
+		$name = Route::input( 'name', Request::get( 'name' ) );
 
 		foreach( $aimeos->getCustomPaths( 'admin/jqadm' ) as $base => $paths )
 		{
@@ -44,7 +44,7 @@ class JqadmController extends AdminController
 			{
 				$jsbAbsPath = $base . '/' . $path;
 				$jsb2 = new \Aimeos\MW\Jsb2\Standard( $jsbAbsPath, dirname( $jsbAbsPath ) );
-				$files = array_merge( $files, $jsb2->getFiles( $type ) );
+				$files = array_merge( $files, $jsb2->getFiles( $name ) );
 			}
 		}
 
@@ -57,9 +57,9 @@ class JqadmController extends AdminController
 
 		$response = response( $contents );
 
-		if( $type === 'js' ) {
+		if( str_ends_with( $name, 'js' ) ) {
 			$response->header( 'Content-Type', 'application/javascript' );
-		} elseif( $type === 'css' ) {
+		} elseif( str_ends_with( $name, 'css' ) ) {
 			$response->header( 'Content-Type', 'text/css' );
 		}
 
