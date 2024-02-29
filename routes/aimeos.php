@@ -17,7 +17,7 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 
 	Route::group( $conf, function() {
 
-		Route::match( array( 'GET' ), 'file/{name}', array(
+		Route::match( array( 'GET' ), 'file/{name}/{locale}', array(
 			'as' => 'aimeos_shop_jqadm_file',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@fileAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+'] );

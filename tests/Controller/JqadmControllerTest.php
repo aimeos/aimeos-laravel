@@ -6,7 +6,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@fileAction', ['site' => 'unittest', 'name' => 'index.css'] );
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@fileAction', ['site' => 'unittest', 'name' => 'index-css'] );
 
 		$this->assertResponseOk();
 		$this->assertStringContainsString( '.aimeos', $response->getContent() );
@@ -17,7 +17,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 	{
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@fileAction', ['site' => 'unittest', 'name' => 'index.js'] );
+		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@fileAction', ['site' => 'unittest', 'name' => 'index-js'] );
 
 		$this->assertResponseOk();
 		$this->assertStringContainsString( 'Aimeos = {', $response->getContent() );
