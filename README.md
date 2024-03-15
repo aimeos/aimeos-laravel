@@ -229,7 +229,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "scripts": {
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan vendor:publish --tag=public --ansi"
+            "@php artisan vendor:publish --tag=public --ansi",
             "\\Aimeos\\Shop\\Composer::join"
         ],
         ...
@@ -244,7 +244,7 @@ In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```bash
-php artisan vendor:publish --tag=config --tag=public"
+php artisan vendor:publish --tag=config --tag=public
 php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
 ```
@@ -257,12 +257,10 @@ installed, leave out the `--option=setup/default/demo:1` option.
 You have to set up one of Laravel's authentication starter kits. Laravel Breeze
 is the easiest one but you can also use Jetstream.
 
-### Laravel 9 & 10
-
 ```bash
 composer require laravel/breeze
 php artisan breeze:install
-npm install && npm run build
+npm install && npm run build # if not executed automatically by the previous command
 ```
 
 Laravel Breeze will ask you a few questions, the most important one is the type of stack you
@@ -360,8 +358,8 @@ php artisan serve
 
 Point your browser to the list page of the shop using:
 
-2024.x+: http://127.0.0.1:8000/shop/search
-2023.x: http://127.0.0.1:8000/shop
+* 2023.x: http://127.0.0.1:8000/shop
+* 2024.x+: http://127.0.0.1:8000/shop/search
 
 **Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
 Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
