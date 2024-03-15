@@ -133,7 +133,7 @@ headless distribution is the right choice:
 
 Currently, the Aimeos Laravel packages **2022.10 and later** are fully supported:
 
-- LTS release: 2023.10 (Laravel 9.x and 10.x)
+- LTS release: 2023.10 (Laravel 9.x, 10.x and 11.x)
 - old LTS release: 2022.10 (Laravel 9.x and 10.x)
 
 If you want to upgrade between major versions, please have a look into the
@@ -193,6 +193,19 @@ and their specific configuration. Supported are:
 * PostgreSQL (fully)
 * SQL Server (fully)
 
+Make sure, you use one of the supported database servers in your `.env` file, e.g.:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=aimeos
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+**Caution:** The SQLite database configured by default is **NOT supported!**
+
 ## Installation
 
 The Aimeos Laravel online shop package is a composer based library. It can be
@@ -215,8 +228,8 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     },
     "scripts": {
         "post-update-cmd": [
-            "@php artisan migrate",
-            "@php artisan vendor:publish --tag=public --force",
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan vendor:publish --tag=public --ansi"
             "\\Aimeos\\Shop\\Composer::join"
         ],
         ...
@@ -231,7 +244,7 @@ In the last step you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```bash
-php artisan vendor:publish --provider="Aimeos\Shop\ShopServiceProvider"
+php artisan vendor:publish --tag=config --tag=public"
 php artisan migrate
 php artisan aimeos:setup --option=setup/default/demo:1
 ```
@@ -269,14 +282,15 @@ Route::middleware('auth')->group(function () {
 ```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 11.x](https://laravel.com/docs/11.x/authentication)
 * [Laravel 10.x](https://laravel.com/docs/10.x/authentication)
 * [Laravel 9.x](https://laravel.com/docs/9.x/authentication)
 
 ### Configure authentication
 
 As a last step, you need to extend the `boot()` method of your
-`App\Providers\AuthServiceProvider` class and add the lines to define how
-authorization for "admin" is checked in `app/Providers/AuthServiceProvider.php`:
+`App\Providers\AppServiceProvider` class and add the lines to define how
+authorization for "admin" is checked in `app/Providers/AppServiceProvider.php`:
 
 ```php
     public function boot()
@@ -346,7 +360,8 @@ php artisan serve
 
 Point your browser to the list page of the shop using:
 
-http://127.0.0.1:8000/shop
+2024.x+: http://127.0.0.1:8000/shop/search
+2023.x: http://127.0.0.1:8000/shop
 
 **Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
 Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
@@ -363,7 +378,7 @@ For multi-vendor setups, read the article about [multiple shops](https://aimeos.
 This will display the Aimeos catalog home component on the home page you you get a
 nice looking shop home page which will look like this:
 
-[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/shop)
+[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/)
 
 ### Backend
 
