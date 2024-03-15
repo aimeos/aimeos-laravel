@@ -130,7 +130,7 @@ class Context
 	 */
 	protected function addDatabaseManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		$dbm = new \Aimeos\Base\DB\Manager\Standard( $context->config()->get( 'resource', [] ), 'DBAL' );
+		$dbm = new \Aimeos\Base\DB\Manager\Standard( $context->config()->get( 'resource' ), 'DBAL' );
 
 		return $context->setDatabaseManager( $dbm );
 	}
@@ -188,7 +188,7 @@ class Context
 	 */
 	protected function addMessageQueueManager( \Aimeos\MShop\ContextIface $context ) : \Aimeos\MShop\ContextIface
 	{
-		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $context->config()->get( 'resource', [] ) );
+		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $context->config()->get( 'resource' ) );
 
 		return $context->setMessageQueueManager( $mq );
 	}
