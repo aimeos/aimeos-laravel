@@ -127,7 +127,7 @@ class AccountCommand extends AbstractCommand
 		$this->info( sprintf( $msg, $group, $user->getCode(), $site ) );
 
 		$item = $this->getGroupItem( $context, $group );
-		return $user->setGroups( array_merge( $user->getGroups(), [$item->getId() => $item->getCode()] ) );
+		return $user->setGroups( $user->getGroups() + [$item->getId() => $item->getCode()] );
 	}
 
 
