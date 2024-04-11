@@ -131,10 +131,10 @@ headless distribution is the right choice:
 
 ## Supported versions
 
-Currently, the Aimeos Laravel packages **2022.10 and later** are fully supported:
+Currently, the Aimeos Laravel packages **2023.10 and later** are fully supported:
 
+- Stable release: 2024.04+ (Laravel 10.x and 11.x)
 - LTS release: 2023.10 (Laravel 9.x, 10.x and 11.x)
-- old LTS release: 2022.10 (Laravel 9.x and 10.x)
 
 If you want to upgrade between major versions, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
@@ -143,7 +143,7 @@ If you want to upgrade between major versions, please have a look into the
 
 The Aimeos shop distribution requires:
 - Linux/Unix, WAMP/XAMP or MacOS environment
-- PHP >= 8.0.11
+- PHP >= 8.1
 - MySQL >= 5.7.8, MariaDB >= 10.2.2, PostgreSQL 9.6+, SQL Server 2019+
 - Web server (Apache, Nginx or integrated PHP web server for testing)
 
@@ -222,7 +222,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2023.10",
+        "aimeos/aimeos-laravel": "~2024.04",
         ...
     },
     "scripts": {
@@ -357,8 +357,8 @@ php artisan serve
 
 Point your browser to the list page of the shop using:
 
-* 2023.x: http://127.0.0.1:8000/shop
 * 2024.x+: http://127.0.0.1:8000/shop/search
+* 2023.x: http://127.0.0.1:8000/shop
 
 **Note:** Integrating the Aimeos package adds some routes like `/shop` or `/admin` to your
 Laravel installation but the **home page stays untouched!** If you want to add Aimeos to
