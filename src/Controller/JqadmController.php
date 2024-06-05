@@ -33,29 +33,18 @@ class JqadmController extends AdminController
 			$this->authorize( 'admin', [JqadmController::class, config( 'shop.roles', ['admin', 'editor'] )] );
 		}
 
-		$contents = '';
-		$files = array();
+		$files = [];
 		$aimeos = app( 'aimeos' )->get();
 		$name = Route::input( 'name', Request::get( 'name' ) );
 
 		foreach( $aimeos->getCustomPaths( 'admin/jqadm' ) as $base => $paths )
 		{
-			foreach( $paths as $path )
-			{
-				$jsbAbsPath = $base . '/' . $path;
-				$jsb2 = new \Aimeos\MW\Jsb2\Standard( $jsbAbsPath, dirname( $jsbAbsPath ) );
-				$files = array_merge( $files, $jsb2->getFiles( $name ) );
+			foreach( $paths as $path ) {
+				$files[] = $base . '/' . $path;
 			}
 		}
 
-		foreach( $files as $file )
-		{
-			if( ( $content = file_get_contents( $file ) ) !== false ) {
-				$contents .= $content;
-			}
-		}
-
-		$response = response( $contents );
+		$response = response( \Aimeos\Admin\JQAdm\Bundle::get( $files, $name ) );
 
 		if( str_ends_with( $name, 'js' ) ) {
 			$response->header( 'Content-Type', 'application/javascript' );
