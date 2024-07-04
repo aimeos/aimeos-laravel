@@ -133,7 +133,7 @@ headless distribution is the right choice:
 
 Currently, the Aimeos Laravel packages **2023.10 and later** are fully supported:
 
-- Stable release: 2024.04+ (Laravel 10.x and 11.x)
+- Stable release: 2024.07+ (Laravel 10.x and 11.x)
 - LTS release: 2023.10 (Laravel 9.x, 10.x and 11.x)
 
 If you want to upgrade between major versions, please have a look into the
@@ -222,7 +222,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2024.04",
+        "aimeos/aimeos-laravel": "~2024.07",
         ...
     },
     "scripts": {
