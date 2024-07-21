@@ -235,11 +235,11 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     }
 ```
 
-Afterwards, install the Aimeos shop package using
+Afterward, install the Aimeos shop package using
 
-`php composer update -W`
+`composer update -W`
 
-In the last step you must now execute these artisan commands to get a working
+In the last step, you must now execute these artisan commands to get a working
 or updated Aimeos installation:
 
 ```bash
