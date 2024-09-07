@@ -1,5 +1,5 @@
 {
-    "name": "aimeos/aimeos-laravel",
+    "name": "keshwendu/aimeos-laravel",
     "description": "Professional, full-featured and high performance Laravel e-commerce package for online shops and complex B2B projects",
     "homepage": "https://aimeos.org/Laravel",
     "type": "laravel-bundle",
@@ -13,6 +13,12 @@
     },
     "prefer-stable": true,
     "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/keshwendu/ai-admin-jqadm"
+        }
+    ],
     "require": {
         "composer-runtime-api": "^2.1",
         "laravel/framework": "^10.0||^11.0",
@@ -22,7 +28,7 @@
         "aimeos/aimeos-core": "dev-master",
         "aimeos/ai-laravel": "dev-master",
         "aimeos/ai-admin-graphql": "dev-master",
-        "aimeos/ai-admin-jqadm": "dev-master",
+        "keshwendu/ai-admin-jqadm": "dev-master",
         "aimeos/ai-admin-jsonadm": "dev-master",
         "aimeos/ai-client-html": "dev-master",
         "aimeos/ai-client-jsonapi": "dev-master",
@@ -30,6 +36,7 @@
         "aimeos/ai-controller-jobs": "dev-master",
         "aimeos/ai-controller-frontend": "dev-master"
     },
+
     "require-dev": {
         "phpunit/phpunit": "^9.0||^10.0",
         "orchestra/testbench": "~7.0||~8.0||~9.0",
