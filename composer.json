@@ -17,6 +17,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/keshwendu/ai-admin-jqadm"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/keshwendu/ai-cms-grapesjs"
         }
     ],
     "require": {
@@ -32,7 +36,7 @@
         "aimeos/ai-admin-jsonadm": "dev-master",
         "aimeos/ai-client-html": "dev-master",
         "aimeos/ai-client-jsonapi": "dev-master",
-        "aimeos/ai-cms-grapesjs": "dev-master",
+        "keshwendu/ai-cms-grapesjs": "dev-master",
         "aimeos/ai-controller-jobs": "dev-master",
         "aimeos/ai-controller-frontend": "dev-master"
     },
