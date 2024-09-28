@@ -17,6 +17,25 @@ use Illuminate\Console\Command;
 abstract class AbstractCommand extends Command
 {
 	/**
+	 * Adds the configuration options from the input object to the given context
+	 *
+	 * @param \Aimeos\MShop\ContextIface $ctx Context object
+	 */
+	protected function addConfig( \Aimeos\MShop\ContextIface $ctx ) : \Aimeos\MShop\ContextIface
+	{
+		$config = $ctx->config();
+
+		foreach( (array) $this->option( 'option' ) as $option )
+		{
+			list( $name, $value ) = explode( ':', $option );
+			$config->set( $name, $value );
+		}
+
+		return $ctx;
+	}
+
+
+	/**
 	 * Executes the function for all given sites
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Context object

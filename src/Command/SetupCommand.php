@@ -64,23 +64,4 @@ class SetupCommand extends AbstractCommand
 			->context( $this->addConfig( $ctx->setEditor( 'aimeos:setup' ) ) )
 			->up( $site, $template );
 	}
-
-
-	/**
-	 * Adds the configuration options from the input object to the given context
-	 *
-	 * @param \Aimeos\MShop\ContextIface $ctx Context object
-	 */
-	protected function addConfig( \Aimeos\MShop\ContextIface $ctx ) : \Aimeos\MShop\ContextIface
-	{
-		$config = $ctx->config();
-
-		foreach( (array) $this->option( 'option' ) as $option )
-		{
-			list( $name, $value ) = explode( ':', $option );
-			$config->set( $name, $value );
-		}
-
-		return $ctx;
-	}
 }

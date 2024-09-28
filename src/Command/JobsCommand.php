@@ -24,6 +24,7 @@ class JobsCommand extends AbstractCommand
 	protected $signature = 'aimeos:jobs
 		{jobs : One or more job controller names like "admin/job customer/email/watch"}
 		{site? : Site codes to execute the jobs for like "default unittest" (none for all)}
+		{--option= : Setup configuration, name and value are separated by colon like "setup/default/demo:1"}
 	';
 
 	/**
@@ -74,15 +75,23 @@ class JobsCommand extends AbstractCommand
 	protected function context() : \Aimeos\MShop\ContextIface
 	{
 		$lv = $this->getLaravel();
+		$aimeos = $lv->make( 'aimeos' )->get();
 		$context = $lv->make( 'aimeos.context' )->get( false, 'command' );
+
+		$tmplPaths = $aimeos->getTemplatePaths( 'controller/jobs/templates' );
+		$view = $lv->make( 'aimeos.view' )->create( $context, $tmplPaths );
 
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$langids = $langManager->search( $langManager->filter( true ) )->keys()->toArray();
 		$i18n = $lv->make( 'aimeos.i18n' )->get( $langids );
 
+        $context->setSession(new \Aimeos\Base\Session\None());
+        $context->setCache(new \Aimeos\Base\Cache\None());
+
 		$context->setEditor( 'aimeos:jobs' );
+		$context->setView( $view );
 		$context->setI18n( $i18n );
 
-		return $context;
+		return $this->addConfig( $context );
 	}
 }
