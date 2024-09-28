@@ -85,8 +85,8 @@ class JobsCommand extends AbstractCommand
 		$langids = $langManager->search( $langManager->filter( true ) )->keys()->toArray();
 		$i18n = $lv->make( 'aimeos.i18n' )->get( $langids );
 
-        $context->setSession(new \Aimeos\Base\Session\None());
-        $context->setCache(new \Aimeos\Base\Cache\None());
+		$context->setSession( new \Aimeos\Base\Session\None() );
+		$context->setCache( new \Aimeos\Base\Cache\None() );
 
 		$context->setEditor( 'aimeos:jobs' );
 		$context->setView( $view );
