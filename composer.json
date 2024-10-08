@@ -1,6 +1,6 @@
 {
     "name": "aimeos/aimeos-laravel",
-    "description": "Professional, full-featured and high performance Laravel e-commerce package for online shops and complex B2B projects",
+    "description": "Cloud native, API first Laravel eCommerce package with integrated AI for ultra-fast online shops, marketplaces and complex B2B projects",
     "homepage": "https://aimeos.org/Laravel",
     "type": "laravel-bundle",
     "license": "MIT",
