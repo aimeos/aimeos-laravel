@@ -64,35 +64,35 @@ class ShopServiceProvider extends ServiceProvider {
 	{
 		$this->mergeConfigFrom( dirname( __DIR__ ) . '/config/default.php', 'shop' );
 
-		$this->app->singleton( 'aimeos', function( $app ) {
+		$this->app->scoped( 'aimeos', function( $app ) {
 			return new \Aimeos\Shop\Base\Aimeos( $app['config'] );
 		});
 
-		$this->app->singleton( 'aimeos.config', function( $app ) {
+		$this->app->scoped( 'aimeos.config', function( $app ) {
 			return new \Aimeos\Shop\Base\Config( $app['config'], $app['aimeos'] );
 		});
 
-		$this->app->singleton( 'aimeos.i18n', function( $app ) {
+		$this->app->scoped( 'aimeos.i18n', function( $app ) {
 			return new \Aimeos\Shop\Base\I18n( $this->app['config'], $app['aimeos'] );
 		});
 
-		$this->app->singleton( 'aimeos.locale', function( $app ) {
+		$this->app->scoped( 'aimeos.locale', function( $app ) {
 			return new \Aimeos\Shop\Base\Locale( $app['config'] );
 		});
 
-		$this->app->singleton( 'aimeos.context', function( $app ) {
+		$this->app->scoped( 'aimeos.context', function( $app ) {
 			return new \Aimeos\Shop\Base\Context( $app['session.store'], $app['aimeos.config'], $app['aimeos.locale'], $app['aimeos.i18n'] );
 		});
 
-		$this->app->singleton( 'aimeos.support', function( $app ) {
+		$this->app->scoped( 'aimeos.support', function( $app ) {
 			return new \Aimeos\Shop\Base\Support( $app['aimeos.context'], $app['aimeos.locale'] );
 		});
 
-		$this->app->singleton( 'aimeos.view', function( $app ) {
+		$this->app->scoped( 'aimeos.view', function( $app ) {
 			return new \Aimeos\Shop\Base\View( $app['config'], $app['aimeos.i18n'], $app['aimeos.support'] );
 		});
 
-		$this->app->singleton( 'aimeos.shop', function( $app ) {
+		$this->app->scoped( 'aimeos.shop', function( $app ) {
 			return new \Aimeos\Shop\Base\Shop( $app['aimeos'], $app['aimeos.context'], $app['aimeos.view'] );
 		});
 
