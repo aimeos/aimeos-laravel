@@ -29,7 +29,6 @@ class AccountCommand extends AbstractCommand
 		{--super : If account should have super user privileges for all sites}
 		{--admin : If account should have site administrator privileges}
 		{--editor : If account should have limited editor privileges}
-		{--api : If account should be able to access the APIs}
 	';
 
 	/**
@@ -102,10 +101,6 @@ class AccountCommand extends AbstractCommand
 
 		if( $this->option( 'editor' ) ) {
 			$user = $this->addGroup( $context, $user, 'editor' );
-		}
-
-		if( $this->option( 'api' ) ) {
-			$user = $this->addGroup( $context, $user, 'api' );
 		}
 
 		return $user;
