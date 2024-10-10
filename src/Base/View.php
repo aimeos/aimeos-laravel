@@ -99,7 +99,9 @@ class View
 		else
 		{
 			$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, function() use ( $context ) {
-				return $context->groups();
+				$manager = \Aimeos\MShop::create( $context, 'group' );
+				$filter = $manager->filter( true )->add( 'group.id', '==', $context->groups() );
+				return $manager->search( $filter )->col( 'group.code' )->all();
 			} );
 		}
 
