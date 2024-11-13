@@ -241,7 +241,7 @@ class View
 	 * @param string|null $locale ISO language code, e.g. "de" or "de_CH"
 	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
-	protected function addTranslate( \Aimeos\Base\View\Iface $view, string $locale = null ) : \Aimeos\Base\View\Iface
+	protected function addTranslate( \Aimeos\Base\View\Iface $view, ?string $locale = null ) : \Aimeos\Base\View\Iface
 	{
 		if( $locale !== null )
 		{
