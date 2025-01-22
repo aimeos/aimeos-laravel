@@ -63,7 +63,7 @@ class Config
 
 			$config = new \Aimeos\Base\Config\Decorator\Memory( $config, $this->config->get( 'shop' ) );
 
-			if( ( $conf = $this->config->get( 'shop.' . $type, array() ) ) !== array() ) {
+			if( ( $conf = $this->config->get( 'shop.' . $type, [] ) ) !== [] ) {
 				$config = new \Aimeos\Base\Config\Decorator\Memory( $config, $conf );
 			}
 
