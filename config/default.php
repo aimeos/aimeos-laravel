@@ -287,21 +287,6 @@ return [
 		'index' => [
 			'manager' => [
 				'name' => $aimeosIndexManagerName,
-				'attribute' => [
-					'name' => $aimeosIndexManagerName,
-				],
-				'catalog' => [
-					'name' => $aimeosIndexManagerName,
-				],
-				'price' => [
-					'name' => $aimeosIndexManagerName,
-				],
-				'supplier' => [
-					'name' => $aimeosIndexManagerName,
-				],
-				'text' => [
-					'name' => $aimeosIndexManagerName,
-				],
 			],
 		],
 	],
