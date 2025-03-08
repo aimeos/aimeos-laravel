@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" bootstrap="vendor/autoload.php" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache" backupStaticProperties="false">
-  <coverage>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <source>
     <include>
-      <directory suffix=".php">./src/</directory>
+      <directory suffix=".php">./src</directory>
     </include>
-    <exclude>
-      <directory>./src/database/migrations/</directory>
-      <directory>./src/config/</directory>
-      <directory>./src/views/</directory>
-    </exclude>
+  </source>
+  <coverage>
+    <report>
+      <clover outputFile="coverage.xml"/>
+    </report>
   </coverage>
   <php>
     <env name="APP_ENV" value="testing"/>
