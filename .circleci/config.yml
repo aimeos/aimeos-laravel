@@ -27,7 +27,7 @@ jobs:
           key: php82-{{ checksum "composer.json" }}
           paths: [./vendor]
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+      - run: ./vendor/bin/phpunit
 
   "php83-mysql80":
     docker:
@@ -51,7 +51,7 @@ jobs:
           key: php83-{{ checksum "composer.json" }}
           paths: [./vendor]
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phpunit --coverage-clover coverage.xml
+      - run: ./vendor/bin/phpunit
 
   "php84-mysql80":
     docker:
