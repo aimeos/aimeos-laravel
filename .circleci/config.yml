@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~10.0" --no-update
-      - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
+      - run: php composer req "phpunit/phpunit:~10.0" --no-update --dev
       - restore_cache:
           keys:
             - php82-{{ checksum "composer.json" }}
@@ -42,7 +42,7 @@ jobs:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~11.0" --no-update
-      - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
+      - run: php composer req "phpunit/phpunit:~11.0" --no-update --dev
       - restore_cache:
           keys:
             - php83-{{ checksum "composer.json" }}
@@ -66,7 +66,7 @@ jobs:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~12.0" --no-update
-      - run: php composer req "phpunit/phpunit:~9.0" --no-update --dev
+      - run: php composer req "phpunit/phpunit:~11.0" --no-update --dev
       - restore_cache:
           keys:
             - php84-{{ checksum "composer.json" }}
