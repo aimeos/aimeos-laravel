@@ -1,6 +1,8 @@
 @extends('shop::base')
 
 @section('aimeos_header')
+	<meta name="robots" content="noindex">
+
 	<?= $aiheader['locale/select'] ?? '' ?>
 	<?= $aiheader['basket/mini'] ?? '' ?>
 	<?= $aiheader['catalog/tree'] ?? '' ?>
