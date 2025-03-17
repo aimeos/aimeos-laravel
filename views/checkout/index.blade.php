@@ -2,6 +2,8 @@
 
 @section('aimeos_header')
 	<title>{{ __( 'Checkout') }}</title>
+	<meta name="robots" content="noindex">
+
 	<?= $aiheader['checkout/standard'] ?>
 	<?= $aiheader['catalog/search'] ?? '' ?>
 	<?= $aiheader['catalog/tree'] ?? '' ?>

@@ -2,6 +2,8 @@
 
 @section('aimeos_header')
 	<title>{{ __( 'Basket') }}</title>
+	<meta name="robots" content="noindex">
+
 	<?= $aiheader['locale/select'] ?? '' ?>
 	<?= $aiheader['catalog/search'] ?? '' ?>
 	<?= $aiheader['catalog/tree'] ?? '' ?>
