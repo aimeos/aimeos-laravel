@@ -133,7 +133,7 @@ headless distribution is the right choice:
 
 Currently, the Aimeos Laravel packages **2024.10 and later** are fully supported:
 
-- Stable release: 2025.07+ (Laravel 10.x and 11.x)
+- Stable release: 2025.07+ (Laravel 10.x, 11.x and 12.x)
 - LTS release: 2024.10+ (Laravel 10.x and 11.x)
 
 If you want to upgrade between major versions, please have a look into the
@@ -279,9 +279,9 @@ Route::middleware('auth')->group(function () {
 ```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 12.x](https://laravel.com/docs/12.x/authentication)
 * [Laravel 11.x](https://laravel.com/docs/11.x/authentication)
 * [Laravel 10.x](https://laravel.com/docs/10.x/authentication)
-* [Laravel 9.x](https://laravel.com/docs/9.x/authentication)
 
 ### Configure authentication
 
