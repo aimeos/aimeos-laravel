@@ -2,7 +2,7 @@
     "name": "aimeos/aimeos-laravel",
     "description": "Cloud native, API first Laravel eCommerce package with integrated AI for ultra-fast online shops, marketplaces and complex B2B projects",
     "homepage": "https://aimeos.org/Laravel",
-    "type": "laravel-bundle",
+    "type": "laravel-package",
     "license": "MIT",
     "keywords": ["aimeos", "laravel", "e-commerce", "ecommerce", "B2B", "shop", "portal", "marketplace", "API", "JSON", "GraphQL"],
     "support": {
