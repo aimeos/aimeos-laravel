@@ -10,10 +10,10 @@ class I18nTest extends AimeosTestAbstract
 			->onlyMethods( array( 'get', 'has' ) )->getMock();
 
 		$configMock->expects( $this->once() )->method( 'has' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$configMock->expects( $this->exactly( 3 ) )->method( 'get' )
-			->will( $this->onConsecutiveCalls( true, 'laravel:', array() ) );
+			->willReturnOnConsecutiveCalls( true, 'laravel:', array() );
 
 		$object = new \Aimeos\Shop\Base\I18n( $configMock, $aimeos );
 		$list = $object->get( array( 'en' ) );
