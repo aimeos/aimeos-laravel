@@ -267,8 +267,8 @@ class View
 	protected function addUrl( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$fixed = [
-			'site' => env( 'SHOP_MULTISHOP' ) ? config( 'shop.mshop.locale.site', 'default' ) : '',
-			'locale' => env( 'SHOP_MULTILOCALE' ) ? app()->getLocale() : '',
+			'site' => config( 'shop.multishop' ) ? config( 'shop.mshop.locale.site', 'default' ) : '',
+			'locale' => config( 'shop.multilocale' ) ? app()->getLocale() : '',
 			'currency' => ''
 		];
 

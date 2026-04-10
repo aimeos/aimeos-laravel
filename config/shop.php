@@ -9,6 +9,8 @@ return [
 	'version' => env( 'APP_VERSION', 1 ), // shop CSS/JS file version
 	'roles' => ['admin', 'editor'], // user groups allowed to access the admin backend
 	'panel' => 'dashboard', // panel shown in admin backend after login
+	'multishop' => env( 'SHOP_MULTISHOP', false ), // enable SaaS-like setups
+	'multilocale' => env( 'SHOP_MULTILOCALE', false ), // add locales in URLs
 
 	'routes' => [
 		// Docs: https://aimeos.org/docs/latest/laravel/extend/#custom-routes
