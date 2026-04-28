@@ -84,44 +84,6 @@ if( ( $conf = config( 'shop.routes.graphql', ['prefix' => 'admin/{site}/graphql'
 }
 
 
-if( ( $conf = config( 'shop.routes.jsonadm', ['prefix' => 'admin/{site}/jsonadm', 'middleware' => ['web', 'auth']] ) ) !== false ) {
-
-	Route::group( $conf, function() {
-
-		Route::match( array( 'DELETE' ), '{resource}/{id?}', array(
-			'as' => 'aimeos_shop_jsonadm_delete',
-			'uses' => 'Aimeos\Shop\Controller\JsonadmController@deleteAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
-
-		Route::match( array( 'GET' ), '{resource}/{id?}', array(
-			'as' => 'aimeos_shop_jsonadm_get',
-			'uses' => 'Aimeos\Shop\Controller\JsonadmController@getAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
-
-		Route::match( array( 'PATCH' ), '{resource}/{id?}', array(
-			'as' => 'aimeos_shop_jsonadm_patch',
-			'uses' => 'Aimeos\Shop\Controller\JsonadmController@patchAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
-
-		Route::match( array( 'POST' ), '{resource}/{id?}', array(
-			'as' => 'aimeos_shop_jsonadm_post',
-			'uses' => 'Aimeos\Shop\Controller\JsonadmController@postAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
-
-		Route::match( array( 'PUT' ), '{resource}/{id?}', array(
-			'as' => 'aimeos_shop_jsonadm_put',
-			'uses' => 'Aimeos\Shop\Controller\JsonadmController@putAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
-
-		Route::match( array( 'OPTIONS' ), '{resource?}', array(
-			'as' => 'aimeos_shop_jsonadm_options',
-			'uses' => 'Aimeos\Shop\Controller\JsonadmController@optionsAction'
-		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
-
-	});
-}
-
-
 if( ( $conf = config( 'shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']] ) ) !== false ) {
 
 	Route::group( $conf, function() {

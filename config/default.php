@@ -73,12 +73,12 @@ return [
 		],
 		'jsonadm' => [
 			'url' => [
-				'target' => 'aimeos_shop_jsonadm_get',
+				'target' => 'aimeos_shop_graphql_post',
 				'config' => [
 					'absoluteUri' => true,
 				],
 				'options' => [
-					'target' => 'aimeos_shop_jsonadm_options',
+					'target' => 'aimeos_shop_graphql_post',
 					'config' => [
 						'absoluteUri' => true,
 					],
