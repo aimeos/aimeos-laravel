@@ -59,7 +59,7 @@ class View
 	 * @return \Aimeos\Base\View\Iface View object
 	 */
 	public function create( \Aimeos\MShop\ContextIface $context, array $templatePaths,
-		string $locale = null ) : \Aimeos\Base\View\Iface
+		?string $locale = null ) : \Aimeos\Base\View\Iface
 	{
 		$engine = new \Aimeos\Base\View\Engine\Blade( app( 'Illuminate\Contracts\View\Factory' ) );
 		$view = new \Aimeos\Base\View\Standard( $templatePaths, array( '.blade.php' => $engine ) );
@@ -152,7 +152,7 @@ class View
 	 * @return \Aimeos\Base\View\Iface Modified view object
 	 */
 	protected function addNumber( \Aimeos\Base\View\Iface $view, \Aimeos\Base\Config\Iface $config,
-		string $locale = null ) : \Aimeos\Base\View\Iface
+		?string $locale = null ) : \Aimeos\Base\View\Iface
 	{
 		if( config( 'shop.num_formatter', 'Locale' ) === 'Locale' )
 		{
