@@ -49,6 +49,7 @@ abstract class AimeosTestAbstract extends Orchestra\Testbench\BrowserKit\TestCas
 		$app['config']->set( 'shop.admin.graphql.debug', true );
 		$app['config']->set( 'shop.routes.jqadm', ['prefix' => '{site}/jqadm'] );
 		$app['config']->set( 'shop.routes.graphql', ['prefix' => '{site}/graphql'] );
+		$app['config']->set( 'shop.routes.mcp', ['prefix' => '{site}/mcp'] );
 		$app['config']->set( 'shop.routes.jsonapi', ['prefix' => '{site}/jsonapi'] );
 		$app['config']->set( 'shop.routes.account', ['prefix' => '{site}/profile'] );
 		$app['config']->set( 'shop.routes.default', ['prefix' => '{site}/shop'] );

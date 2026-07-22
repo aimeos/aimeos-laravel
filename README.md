@@ -123,6 +123,7 @@ headless distribution is the right choice:
 - [Database](#database)
 - [Installation](#installation)
 - [Authentication](#authentication)
+- [MCP bridge](#mcp-bridge)
 - [Setup](#setup)
 - [Test](#test)
 - [Hints](#hints)
@@ -316,6 +317,41 @@ The e-mail address is the user name for login and the account will work for the
 frontend too. To protect the new account, the command will ask you for a password.
 The same command can create limited accounts by using `--admin`, `--editor` or `--api`
 instead of `--super` (access to everything).
+
+## MCP bridge
+
+Aimeos can expose its administration tools through the official Laravel MCP server.
+The transport is optional so applications that don't use MCP, as well as Laravel 10
+applications, keep working without the SDK. On a supported Laravel version, install it
+in the application with:
+
+```bash
+composer require laravel/mcp:^0.9
+```
+
+Enable the endpoint in `config/shop.php` and protect it with the token guard used by
+your application. This example uses Laravel Sanctum:
+
+```php
+'guards' => [
+    'mcp' => 'sanctum',
+],
+'routes' => [
+    'mcp' => [
+        'prefix' => 'admin/{site}/mcp',
+        'middleware' => ['api', 'auth:sanctum'],
+    ],
+],
+```
+
+The MCP endpoint is then available at `/admin/<site>/mcp`. It is disabled until this
+route configuration and `laravel/mcp` are both present. Never enable it without
+authentication: the server exposes administrative read and write operations.
+
+The bridge applies the normal Laravel `admin` gate before starting the server. Each
+tool also validates its input and checks the Aimeos permissions configured below
+`admin/mcp/resource`. Superusers have access to all tools; assign explicit resource
+permissions for limited admin, editor or API accounts.
 
 ## Setup
 

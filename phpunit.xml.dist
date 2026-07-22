@@ -29,6 +29,9 @@
     <testsuite name="controller">
       <directory>./tests/Controller</directory>
     </testsuite>
+    <testsuite name="mcp">
+      <directory>./tests/Mcp</directory>
+    </testsuite>
     <testsuite name="helpers">
       <file>./tests/HelpersTest.php</file>
     </testsuite>
