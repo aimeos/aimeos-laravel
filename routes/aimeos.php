@@ -84,6 +84,20 @@ if( ( $conf = config( 'shop.routes.graphql', ['prefix' => 'admin/{site}/graphql'
 }
 
 
+if( class_exists( \Laravel\Mcp\Facades\Mcp::class )
+	&& ( $conf = config( 'shop.routes.mcp', false ) ) !== false
+) {
+
+	Route::group( $conf, function() {
+
+		\Laravel\Mcp\Facades\Mcp::web( '', \Aimeos\Shop\Mcp\Server::class )
+			->name( 'aimeos_shop_mcp' )
+			->where( ['site' => '[A-Za-z0-9\.\-]+'] );
+
+	});
+}
+
+
 if( ( $conf = config( 'shop.routes.jsonapi', ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']] ) ) !== false ) {
 
 	Route::group( $conf, function() {

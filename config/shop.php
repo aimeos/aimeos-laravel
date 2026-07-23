@@ -8,6 +8,7 @@ return [
 	'pcntl_max' => 4, // maximum number of parallel command line processes when starting jobs
 	'version' => env( 'APP_VERSION', 1 ), // shop CSS/JS file version
 	'roles' => ['admin', 'editor'], // user groups allowed to access the admin backend
+	// 'guards' => ['mcp' => 'sanctum'], // authentication guards for named route groups
 	'panel' => 'dashboard', // panel shown in admin backend after login
 	'multishop' => env( 'SHOP_MULTISHOP', false ), // enable SaaS-like setups
 	'multilocale' => env( 'SHOP_MULTILOCALE', false ), // add locales in URLs
@@ -18,6 +19,7 @@ return [
 		// 'admin' => ['prefix' => 'admin', 'middleware' => ['web']],
 		// 'jqadm' => ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']],
 		// 'graphql' => ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth']],
+		// 'mcp' => ['prefix' => 'admin/{site}/mcp', 'middleware' => ['api', 'auth:sanctum']],
 		// 'jsonapi' => ['prefix' => 'jsonapi', 'middleware' => ['web', 'api']],
 		// 'account' => ['prefix' => 'profile', 'middleware' => ['web', 'auth']],
 		// 'default' => ['prefix' => 'shop', 'middleware' => ['web']],

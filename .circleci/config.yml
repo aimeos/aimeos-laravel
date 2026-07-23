@@ -91,6 +91,7 @@ jobs:
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
       - run: php composer req "laravel/framework:~13.0" --no-update
       - run: php composer req "phpunit/phpunit:~12.0" --no-update --dev
+      - run: php composer req "laravel/mcp:^0.9" --no-update --dev
       - restore_cache:
           keys:
             - php84-{{ checksum "composer.json" }}
