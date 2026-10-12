@@ -1,5 +1,5 @@
 <a href="https://aimeos.org/">
-    <img src="https://aimeos.org/fileadmin/template/icons/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
+    <img src="https://aimeos.org/images/logo.png" alt="Aimeos logo" title="Aimeos" align="right" height="60" />
 </a>
 
 # Aimeos Laravel ecommerce package
@@ -16,7 +16,7 @@ ultra fast Laravel ecommerce package!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
 and customize anything to your needs.
 
-[![Aimeos Laravel demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org/)
+[![Aimeos Laravel demo](https://aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org/)
 
 ## Features
 
@@ -410,7 +410,7 @@ For multi-vendor setups, read the article about [multiple shops](https://aimeos.
 This will display the Aimeos catalog home component on the home page you you get a
 nice looking shop home page which will look like this:
 
-[![Aimeos frontend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-frontend.jpg?2021.07)](http://127.0.0.1:8000/)
+[![Aimeos frontend](https://aimeos.org/images/aimeos-frontend.jpg)](http://127.0.0.1:8000/)
 
 ### Backend
 
@@ -427,7 +427,7 @@ code you've created according to the Laravel documentation), point your browser 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires you to log out first.
 
-[![Aimeos backend](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/admin)
+[![Aimeos backend](https://aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/admin)
 
 ## Hints
 
