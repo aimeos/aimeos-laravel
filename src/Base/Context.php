@@ -282,16 +282,16 @@ class Context
 
 		if( ( $guard = Auth::guard( $gname ) ) && ( $userid = $guard->id() ) )
 		{
-			$context->setUser( function() use ( $context, $userid ) {
+			$context->setUser( function( ?\Aimeos\MShop\ContextIface $ctx = null ) use ( $context, $userid ) {
 				try {
-					return \Aimeos\MShop::create( $context, 'customer' )->get( $userid, ['group'] );
+					return \Aimeos\MShop::create( $ctx ?: $context, 'customer' )->get( $userid, ['group'] );
 				} catch( \Aimeos\MShop\Exception $e ) { // avoid errors if user is assigned to another site
 					return null;
 				}
 			} );
 
-			$context->setGroups( function() use ( $context ) {
-				return $context->user()?->getGroups() ?? [];
+			$context->setGroups( function( ?\Aimeos\MShop\ContextIface $ctx = null ) use ( $context ) {
+				return ( $ctx ?: $context )->user()?->getGroups() ?? [];
 			} );
 
 			$context->setEditor( $guard->user()?->email ?: \Request::ip() );
