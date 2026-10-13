@@ -1,8 +1,8 @@
-# PHP CircleCI 2.0 configuration file
+# PHP CircleCI 2.1 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
-version: 2
+version: 2.1
 
 jobs:
   "php82-mysql80":
