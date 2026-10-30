@@ -17,6 +17,7 @@ jobs:
     steps:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
+      - run: php composer config policy.advisories.block false
       - run: php composer req "laravel/framework:~10.0" --no-update
       - run: php composer req "phpunit/phpunit:~10.0" --no-update --dev
       - restore_cache:
@@ -41,6 +42,7 @@ jobs:
     steps:
       - checkout
       - run: wget https://getcomposer.org/download/latest-stable/composer.phar -O composer
+      - run: php composer config policy.advisories.block false
       - run: php composer req "laravel/framework:~11.0" --no-update
       - run: php composer req "phpunit/phpunit:~11.0" --no-update --dev
       - restore_cache:
