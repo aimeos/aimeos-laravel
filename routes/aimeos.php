@@ -87,6 +87,11 @@ if( ( $conf = config( 'shop.routes.graphql', ['prefix' => 'admin/{site}/graphql'
 if( class_exists( \Laravel\Mcp\Facades\Mcp::class )
 	&& ( $conf = config( 'shop.routes.mcp', false ) ) !== false
 ) {
+	// must run before the auth middleware to add the OAuth discovery header to 401 responses
+	$conf['middleware'] = array_merge(
+		[\Laravel\Mcp\Server\Middleware\AddWwwAuthenticateHeader::class],
+		(array) ( $conf['middleware'] ?? [] )
+	);
 
 	Route::group( $conf, function() {
 
