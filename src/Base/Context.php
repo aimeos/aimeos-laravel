@@ -278,7 +278,7 @@ class Context
 		$key = collect( config( 'shop.routes' ) )
 			->where( 'prefix', optional( Route::getCurrentRoute() )->getPrefix() )
 			->keys()->first();
-		$gname = data_get( config( 'shop.guards' ), $key, Auth::getDefaultDriver() );
+		$gname = ( $key ? config( 'shop.guards.' . $key ) : null ) ?? Auth::getDefaultDriver();
 
 		if( ( $guard = Auth::guard( $gname ) ) && ( $userid = $guard->id() ) )
 		{
