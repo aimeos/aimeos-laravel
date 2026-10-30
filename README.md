@@ -16,7 +16,7 @@ ultra fast Laravel ecommerce package!  You can install it in your
 existing Laravel application within 5 minutes and can adapt, extend, overwrite
 and customize anything to your needs.
 
-[![Aimeos Laravel demo](https://aimeos.org/images/aimeos-github.png)](https://laravel.demo.aimeos.org/)
+[![Aimeos Laravel demo](https://aimeos.org/media/aimeos-github.png)](https://laravel.demo.aimeos.org/)
 
 ## Features
 
@@ -132,10 +132,10 @@ headless distribution is the right choice:
 
 ## Supported versions
 
-Currently, the Aimeos Laravel packages **2024.10 and later** are fully supported:
+Currently, the Aimeos Laravel packages **2025.10 and later** are fully supported:
 
-- LTS release: 2025.10+ (Laravel 10.x, 11.x and 12.x)
-- old LTS release: 2024.10+ (Laravel 10.x and 11.x)
+- LTS release: 2026.10+ (Laravel 11.x, 12.x and 13.x)
+- old LTS release: 2025.10+ (Laravel 10.x, 11.x and 12.x)
 
 If you want to upgrade between major versions, please have a look into the
 [upgrade guide](https://aimeos.org/docs/latest/laravel/setup/#upgrade)!
@@ -223,7 +223,7 @@ Then, add these lines to the composer.json of the **Laravel skeleton application
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "aimeos/aimeos-laravel": "~2025.10",
+        "aimeos/aimeos-laravel": "~2026.10",
         ...
     },
     "scripts": {
@@ -280,6 +280,7 @@ Route::middleware('auth')->group(function () {
 ```
 
 For more information, please follow the Laravel documentation:
+* [Laravel 13.x](https://laravel.com/docs/13.x/authentication)
 * [Laravel 12.x](https://laravel.com/docs/12.x/authentication)
 * [Laravel 11.x](https://laravel.com/docs/11.x/authentication)
 * [Laravel 10.x](https://laravel.com/docs/10.x/authentication)
@@ -410,7 +411,7 @@ For multi-vendor setups, read the article about [multiple shops](https://aimeos.
 This will display the Aimeos catalog home component on the home page you you get a
 nice looking shop home page which will look like this:
 
-[![Aimeos frontend](https://aimeos.org/images/aimeos-frontend.jpg)](http://127.0.0.1:8000/)
+[![Aimeos frontend](https://aimeos.org/media/aimeos-frontend.jpg)](http://127.0.0.1:8000/)
 
 ### Backend
 
@@ -427,7 +428,7 @@ code you've created according to the Laravel documentation), point your browser 
 **Caution:** Make sure that you aren't already logged in as a non-admin user! In this
 case, login won't work because Laravel requires you to log out first.
 
-[![Aimeos backend](https://aimeos.org/images/aimeos-backend.png)](http://127.0.0.1:8000/admin)
+[![Aimeos backend](https://aimeos.org/media/aimeos-backend.png)](http://127.0.0.1:8000/admin)
 
 ## Hints
 
