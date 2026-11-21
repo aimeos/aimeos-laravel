@@ -29,6 +29,9 @@
     <testsuite name="controller">
       <directory>./tests/Controller</directory>
     </testsuite>
+    <testsuite name="middleware">
+      <directory>./tests/Middleware</directory>
+    </testsuite>
     <testsuite name="mcp">
       <directory>./tests/Mcp</directory>
     </testsuite>
