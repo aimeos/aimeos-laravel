@@ -15,6 +15,9 @@ if( ( $conf = config( 'shop.routes.admin', ['prefix' => 'admin', 'middleware' =>
 
 if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'middleware' => ['web', 'auth']] ) ) !== false ) {
 
+	// admin data must never be modified without CSRF token
+	$conf['middleware'] = array_merge( (array) ( $conf['middleware'] ?? [] ), [\Aimeos\Shop\Middleware\VerifyToken::class] );
+
 	Route::group( $conf, function() {
 
 		Route::match( array( 'GET' ), 'file/{name}/{locale}', array(
@@ -72,6 +75,9 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 
 
 if( ( $conf = config( 'shop.routes.graphql', ['prefix' => 'admin/{site}/graphql', 'middleware' => ['web', 'auth']] ) ) !== false ) {
+
+	// admin data must never be modified without CSRF token
+	$conf['middleware'] = array_merge( (array) ( $conf['middleware'] ?? [] ), [\Aimeos\Shop\Middleware\VerifyToken::class] );
 
 	Route::group( $conf, function() {
 
