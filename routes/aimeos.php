@@ -45,7 +45,7 @@ if( ( $conf = config( 'shop.routes.jqadm', ['prefix' => 'admin/{site}/jqadm', 'm
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@deleteAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );
 
-		Route::match( array( 'GET', 'POST' ), 'export/{resource}', array(
+		Route::match( array( 'POST' ), 'export/{resource}', array(
 			'as' => 'aimeos_shop_jqadm_export',
 			'uses' => 'Aimeos\Shop\Controller\JqadmController@exportAction'
 		) )->where( ['locale' => '[a-z]{2}(\_[A-Z]{2})?', 'site' => '[A-Za-z0-9\.\-]+', 'resource' => '[a-z\/]+'] );

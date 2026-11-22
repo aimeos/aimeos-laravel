@@ -76,7 +76,7 @@ class JqadmControllerTest extends AimeosTestAbstract
 		View::addLocation( dirname( __DIR__ ) . '/fixtures/views' );
 
 		$params = ['site' => 'unittest', 'resource' => 'order'];
-		$response = $this->action( 'GET', '\Aimeos\Shop\Controller\JqadmController@exportAction', $params );
+		$response = $this->action( 'POST', '\Aimeos\Shop\Controller\JqadmController@exportAction', $params );
 
 		$this->assertEquals( 200, $response->getStatusCode() );
 		$this->assertStringContainsString( 'list-items', $response->getContent() );
